@@ -1,0 +1,85 @@
+# c2db_51: 2D 层状材料数据库（51类元素子集）
+# CSV 无 material_id 列，使用 uid 作为唯一标识（data_utils.py 已兼容处理）
+root_path: ${oc.env:PROJECT_ROOT}/data/c2db_51
+prop: gap
+prop_list: [gap, ehull, hform]
+num_targets: 1
+# energy 列数值量级过大（~-40 eV/atom）且包含全局能量，暂不加入 prop_list
+niggli: true
+primitive: False
+graph_method: crystalnn
+lattice_scale_method: scale_length
+preprocess_workers: 30
+readout: mean
+max_atoms: 20
+otf_graph: false
+eval_model_name: c2db_51
+tolerance: 0.1
+
+use_space_group: true
+use_pos_index: false
+train_max_epochs: 1000
+early_stopping_patience: 100000
+teacher_forcing_max_epoch: 500
+
+datamodule:
+  _target_: cgdit.pl_data.datamodule.CrystDataModule
+
+  datasets:
+    train:
+      _target_: cgdit.pl_data.dataset.CrystDataset
+      name: C2DB51 train
+      path: ${data.root_path}/train.csv
+      save_path: ${data.root_path}/train_sym.pt
+      prop: ${data.prop}
+      prop_list: ${data.prop_list}
+      niggli: ${data.niggli}
+      primitive: ${data.primitive}
+      graph_method: ${data.graph_method}
+      tolerance: ${data.tolerance}
+      use_space_group: ${data.use_space_group}
+      use_pos_index: ${data.use_pos_index}
+      lattice_scale_method: ${data.lattice_scale_method}
+      preprocess_workers: ${data.preprocess_workers}
+
+    val:
+      - _target_: cgdit.pl_data.dataset.CrystDataset
+        name: C2DB51 val
+        path: ${data.root_path}/val.csv
+        save_path: ${data.root_path}/val_sym.pt
+        prop: ${data.prop}
+        prop_list: ${data.prop_list}
+        niggli: ${data.niggli}
+        primitive: ${data.primitive}
+        graph_method: ${data.graph_method}
+        tolerance: ${data.tolerance}
+        use_space_group: ${data.use_space_group}
+        use_pos_index: ${data.use_pos_index}
+        lattice_scale_method: ${data.lattice_scale_method}
+        preprocess_workers: ${data.preprocess_workers}
+
+    test:
+      - _target_: cgdit.pl_data.dataset.CrystDataset
+        name: C2DB51 test
+        path: ${data.root_path}/test.csv
+        save_path: ${data.root_path}/test_sym.pt
+        prop: ${data.prop}
+        prop_list: ${data.prop_list}
+        niggli: ${data.niggli}
+        primitive: ${data.primitive}
+        graph_method: ${data.graph_method}
+        tolerance: ${data.tolerance}
+        use_space_group: ${data.use_space_group}
+        use_pos_index: ${data.use_pos_index}
+        lattice_scale_method: ${data.lattice_scale_method}
+        preprocess_workers: ${data.preprocess_workers}
+
+  num_workers:
+    train: 0
+    val: 0
+    test: 0
+
+  batch_size:
+    train: 32
+    val: 16
+    test: 16

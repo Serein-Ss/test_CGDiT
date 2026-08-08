@@ -1,0 +1,8 @@
+dataset	props_1	mean	std.	props_2	mean	std.	props_3	mean	std.	props_4	mean	std.
+c2db_51	gap	0.805191	1.227879	ehull	0.224902	0.22425	hform	-0.640786	0.68343	energy	-43.876245	28.651921
+carbon_24	energy_per_atom	-154.251029	0.137378									
+magndata												
+mp_20	formation_energy_per_atom	-1.219803	1.029374	band_gap	0.791848	1.417749	e_above_hull	0.017478	0.023265			
+mpts_52	formation_energy_per_atom	-1.127766	1.018848	energy_above_hull	0.082845	0.268372						
+perov_5	heat_all	1.48507	0.739079	heat_ref	1.403221	0.680209	dir_gap	0.09108	0.54706	ind_gap	0.07227	0.467207
+test_data												

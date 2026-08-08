@@ -1,0 +1,7 @@
+#kind: "linear"
+#beta_min: 0.0001
+#beta_max: 0.02
+
+kind: "standard"
+beta_min: 0.0001
+beta_max: 0.02

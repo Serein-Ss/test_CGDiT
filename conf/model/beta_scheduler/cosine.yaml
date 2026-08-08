@@ -1,0 +1,3 @@
+_target_: cgdit.pl_modules.diff_utils.diff_utils.BetaScheduler
+timesteps: ${model.timesteps}
+scheduler_mode: cosine

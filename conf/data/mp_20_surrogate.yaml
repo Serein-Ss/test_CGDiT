@@ -1,0 +1,87 @@
+# ============================================================================
+# Data config for M3GNet surrogate (formation energy regression)
+# ============================================================================
+root_path: ${oc.env:PROJECT_ROOT}/data/mp_20
+
+# target property
+prop: formation_energy_per_atom
+num_targets: 1
+
+# training control (required by train.yaml)
+train_max_epochs: 300
+early_stopping_patience: 50
+
+# structure standardization
+niggli: true
+primitive: false
+graph_method: crystalnn
+tolerance: 0.1
+max_atoms: 20
+otf_graph: false
+use_space_group: true
+use_pos_index: false
+lattice_scale_method: scale_length
+preprocess_workers: 30
+eval_model_name: mp20_m3gnet
+
+datamodule:
+  _target_: cgdit.pl_data.datamodule.CrystDataModule
+
+  datasets:
+    train:
+      _target_: cgdit.pl_data.dataset.CrystDataset
+      name: MP20 Formation Energy Train
+      path: ${data.root_path}/train.csv
+      save_path: ${data.root_path}/train_sym.pt
+      prop: ${data.prop}
+      niggli: ${data.niggli}
+      primitive: ${data.primitive}
+      graph_method: ${data.graph_method}
+      tolerance: ${data.tolerance}
+      max_atoms: ${data.max_atoms}
+      use_space_group: ${data.use_space_group}
+      use_pos_index: ${data.use_pos_index}
+      lattice_scale_method: ${data.lattice_scale_method}
+      preprocess_workers: ${data.preprocess_workers}
+
+    val:
+      - _target_: cgdit.pl_data.dataset.CrystDataset
+        name: MP20 Formation Energy Val
+        path: ${data.root_path}/val.csv
+        save_path: ${data.root_path}/val_sym.pt
+        prop: ${data.prop}
+        niggli: ${data.niggli}
+        primitive: ${data.primitive}
+        graph_method: ${data.graph_method}
+        tolerance: ${data.tolerance}
+        max_atoms: ${data.max_atoms}
+        use_space_group: ${data.use_space_group}
+        use_pos_index: ${data.use_pos_index}
+        lattice_scale_method: ${data.lattice_scale_method}
+        preprocess_workers: ${data.preprocess_workers}
+
+    test:
+      - _target_: cgdit.pl_data.dataset.CrystDataset
+        name: MP20 Formation Energy Test
+        path: ${data.root_path}/test.csv
+        save_path: ${data.root_path}/test_sym.pt
+        prop: ${data.prop}
+        niggli: ${data.niggli}
+        primitive: ${data.primitive}
+        graph_method: ${data.graph_method}
+        tolerance: ${data.tolerance}
+        max_atoms: ${data.max_atoms}
+        use_space_group: ${data.use_space_group}
+        use_pos_index: ${data.use_pos_index}
+        lattice_scale_method: ${data.lattice_scale_method}
+        preprocess_workers: ${data.preprocess_workers}
+
+  num_workers:
+    train: 0
+    val: 0
+    test: 0
+
+  batch_size:
+    train: 32
+    val: 16
+    test: 16

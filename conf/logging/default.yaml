@@ -1,0 +1,29 @@
+# log frequency
+val_check_interval: 5
+#progress_bar_refresh_rate: 1
+
+wandb:
+  name: ${expname}
+  project: cgdit_diffcsp
+#  entity: null
+  entity: serein_ss-tsinghua-university
+  log_model: True
+  mode: 'online'
+  group: ${expname}
+
+wandb_watch:
+  log: 'all'
+  log_freq: 500
+
+lr_monitor:
+  logging_interval: "step"
+  log_momentum: False
+
+progress_bar:
+  _target_: pytorch_lightning.callbacks.TQDMProgressBar
+  refresh_rate: 1
+
+#model_summary:
+#  _target_: pytorch_lightning.callbacks.model_summary.ModelSummary
+#  max_depth: -1
+#  max_recursion: 10

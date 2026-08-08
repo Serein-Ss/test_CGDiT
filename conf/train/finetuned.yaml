@@ -1,0 +1,31 @@
+# reproducibility
+deterministic: True
+random_seed: 42
+
+finetune_from_ckpt: "${oc.env:PROJECT_ROOT}/output/singlerun/2025-12-13/01-23-48-mp_20/epoch=594-step=63070.ckpt"
+
+# training
+pl_trainer:
+  fast_dev_run: False
+  accelerator: gpu
+  devices: 1
+  precision: 32
+  max_epochs: ${data.train_max_epochs}
+  log_every_n_steps: 1
+  accumulate_grad_batches: 1
+  num_sanity_val_steps: 2
+  gradient_clip_val: 0.5
+  gradient_clip_algorithm: value
+  profiler: null
+
+monitor_metric: 'val_loss'
+monitor_metric_mode: 'min'
+
+early_stopping:
+  patience: ${data.early_stopping_patience}
+  verbose: False
+
+model_checkpoints:
+  save_top_k: 1
+  verbose: False
+  save_last: False

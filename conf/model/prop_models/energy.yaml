@@ -1,0 +1,139 @@
+# ===============================
+# Core
+# ===============================
+core:
+  tags: ["m3gnet", "surrogate"]
+
+# ===============================
+# Data
+# ===============================
+root_path: ${oc.env:PROJECT_ROOT}/data/mp_20
+prop: formation_energy_per_atom
+num_targets: 1
+
+niggli: true
+primitive: false
+graph_method: crystalnn
+lattice_scale_method: scale_length
+preprocess_workers: 30
+max_atoms: 20
+otf_graph: false
+tolerance: 0.1
+
+use_space_group: true
+use_pos_index: false
+
+datamodule:
+  _target_: cgdit.pl_data.datamodule.CrystDataModule
+
+  datasets:
+    train:
+      _target_: cgdit.pl_data.dataset.CrystDataset
+      name: Formation energy train
+      path: ${data.root_path}/train.csv
+      save_path: ${data.root_path}/train_sym.pt
+      prop: ${data.prop}
+      niggli: ${data.niggli}
+      primitive: ${data.primitive}
+      graph_method: ${data.graph_method}
+      tolerance: ${data.tolerance}
+      use_space_group: ${data.use_space_group}
+      use_pos_index: ${data.use_pos_index}
+      lattice_scale_method: ${data.lattice_scale_method}
+      preprocess_workers: ${data.preprocess_workers}
+
+    val:
+      - _target_: cgdit.pl_data.dataset.CrystDataset
+        name: Formation energy val
+        path: ${data.root_path}/val.csv
+        save_path: ${data.root_path}/val_sym.pt
+        prop: ${data.prop}
+        niggli: ${data.niggli}
+        primitive: ${data.primitive}
+        graph_method: ${data.graph_method}
+        tolerance: ${data.tolerance}
+        use_space_group: ${data.use_space_group}
+        use_pos_index: ${data.use_pos_index}
+        lattice_scale_method: ${data.lattice_scale_method}
+        preprocess_workers: ${data.preprocess_workers}
+
+    test:
+      - _target_: cgdit.pl_data.dataset.CrystDataset
+        name: Formation energy test
+        path: ${data.root_path}/test.csv
+        save_path: ${data.root_path}/test_sym.pt
+        prop: ${data.prop}
+        niggli: ${data.niggli}
+        primitive: ${data.primitive}
+        graph_method: ${data.graph_method}
+        tolerance: ${data.tolerance}
+        use_space_group: ${data.use_space_group}
+        use_pos_index: ${data.use_pos_index}
+        lattice_scale_method: ${data.lattice_scale_method}
+        preprocess_workers: ${data.preprocess_workers}
+
+  num_workers:
+    train: 0
+    val: 0
+    test: 0
+
+  batch_size:
+    train: 16
+    val: 16
+    test: 16
+
+
+# ===============================
+# Model
+# ===============================
+model:
+  _target_: cgdit.prop_models.m3gnet_surrogate.M3GNetSurrogate
+
+  # ---- M3GNet hyperparameters ----
+  dim: 64
+  n_blocks: 3
+  n_atom_types: 95
+  cutoff: 5.0
+  threebody_cutoff: 4.0
+  max_n: 3
+  max_l: 3
+  readout: weighted
+
+# ===============================
+# Optimizer
+# ===============================
+optim:
+  lr: 1e-3
+  weight_decay: 0.0
+
+# ===============================
+# Training
+# ===============================
+train:
+  deterministic: true
+  random_seed: 42
+
+  monitor_metric: val_loss
+  monitor_metric_mode: min
+
+  pl_trainer:
+    accelerator: gpu
+    devices: 1
+    max_epochs: 200
+    log_every_n_steps: 20
+
+  early_stopping:
+    patience: 50
+    verbose: true
+
+  model_checkpoints:
+    save_top_k: 1
+    save_last: true
+    verbose: true
+
+defaults:
+  - _self_
+  - data: default
+  - logging: default
+  - optim: default
+  - train: default

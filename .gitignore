@@ -1,0 +1,31 @@
+__pycache__/
+output/
+wandb/
+assets/
+
+# Local credentials and IDE metadata
+.env
+.env.*
+!.env.template
+.idea/
+
+# Archives, logs, checkpoints, and generated training artifacts
+*.zip
+*.log
+logs/
+*.pt
+*.ckpt
+*.pth
+
+# Generated analysis outputs
+data/*/analysis/
+data/*/*.csv
+pre_processing/analysis/
+pre_processing/data/*.csv
+pre_processing/data/*_report.txt
+pre_processing/*.pdf
+pre_processing/*.png
+post_processing/plots/
+post_processing/*.pdf
+post_processing/*.png
+scripts/*.csv
