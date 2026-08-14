@@ -43,3 +43,25 @@ WABDB_DIR=/absolute/path/to/save/wandb/outputs
 ```
 
 ## Datasets
+
+## Generation and evaluation workflows
+
+Reusable Python code is separated from command-line entry points:
+
+- `cgdit/generation`: sampling, reconstruction, and symmetry generation APIs.
+- `cgdit/evaluation`: generation metrics, stability, novelty, and property evaluation APIs.
+- `scripts/cli/generation`: structure-generation commands.
+- `scripts/cli/evaluation`: metric and evaluation commands.
+- `scripts/cli/visualization`: evaluation plotting commands.
+- `scripts/legacy`: deprecated implementations retained for compatibility.
+
+Run commands from the repository root in the `cgdit` environment:
+
+```bash
+python -m scripts.cli.generation.generate --model_path <model_path>
+python -m scripts.cli.generation.generate_reconstruction --model_path <model_path> --dataset <dataset>
+python -m scripts.cli.evaluation.evaluate_metrics --root_path <model_path> --tasks gen --gt_file data/<dataset>/test.csv
+python -m scripts.cli.evaluation.evaluate_stability --input <eval_gen.pt> --train-csv data/<dataset>/train.csv
+```
+
+The historical commands under `scripts/*.py` remain available as compatibility wrappers.
