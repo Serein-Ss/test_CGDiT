@@ -196,7 +196,13 @@ def run(cfg: DictConfig) -> None:
     trainer.fit(model=model, datamodule=datamodule, ckpt_path=ckpt)
 
     hydra.utils.log.info("Starting testing!")
-    trainer.test(datamodule=datamodule)
+    best_model_path = trainer.checkpoint_callback.best_model_path
+    if best_model_path:
+        hydra.utils.log.info(f"Testing best checkpoint: {best_model_path}")
+        trainer.test(model=model, datamodule=datamodule, ckpt_path=best_model_path)
+    else:
+        hydra.utils.log.info("No checkpoint available; testing the in-memory model.")
+        trainer.test(model=model, datamodule=datamodule)
 
     # Logger closing to release resources/avoid multi-run conflicts
     if wandb_logger is not None:

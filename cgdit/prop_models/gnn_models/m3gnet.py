@@ -303,6 +303,12 @@ class M3GNetSurrogate(BaseModule):
         super().__init__(*args, **kwargs)
 
         self.target_prop = self.hparams.get("target_prop", "y")
+        target_mean = float(self.hparams.get("target_mean", 0.0))
+        target_std = float(self.hparams.get("target_std", 1.0))
+        if target_std <= 0:
+            raise ValueError(f"target_std must be positive, got {target_std}.")
+        self.register_buffer("target_mean", torch.tensor(target_mean), persistent=False)
+        self.register_buffer("target_std", torch.tensor(target_std), persistent=False)
         hp = self.hparams.copy()
 
         if "dim_node_embedding" in hp:
@@ -328,7 +334,8 @@ class M3GNetSurrogate(BaseModule):
         self.mae = nn.L1Loss()
 
     def forward(self, batch):
-        return self.model(batch)
+        normalized_preds = self.model(batch)
+        return normalized_preds * self.target_std + self.target_mean
 
     def _get_targets(self, batch):
         """
@@ -336,10 +343,15 @@ class M3GNetSurrogate(BaseModule):
         """
         if hasattr(batch, 'y') and batch.y is not None:
             return batch.y
-        else:
-            for prop in ['formation_energy_per_atom', 'e_above_hull', 'band_gap']:
-                val = getattr(batch, prop, None)
-                if val is not None: return val
+
+        target = getattr(batch, self.target_prop, None)
+        if target is not None:
+            return target
+
+        for prop in ['formation_energy_per_atom', 'e_above_hull', 'band_gap']:
+            val = getattr(batch, prop, None)
+            if val is not None:
+                return val
 
         available_keys = batch.keys if hasattr(batch, "keys") else "unknown"
         raise KeyError(f"Targets not found. Config: {self.target_prop}. Keys: {available_keys}")
@@ -357,7 +369,9 @@ class M3GNetSurrogate(BaseModule):
             log_dict: 包含各项指标的字典
             loss: 主要 loss 用于反向传播或 scheduler 监控
         """
-        loss = self.loss_fn(preds, targets)
+        normalized_preds = (preds - self.target_mean) / self.target_std
+        normalized_targets = (targets - self.target_mean) / self.target_std
+        loss = self.loss_fn(normalized_preds, normalized_targets)
         mae = self.mae(preds, targets)
 
         log_dict = {
@@ -372,7 +386,9 @@ class M3GNetSurrogate(BaseModule):
 
         if targets.dim() > 1: targets = targets.squeeze()
 
-        loss = self.loss_fn(preds, targets)
+        normalized_preds = (preds - self.target_mean) / self.target_std
+        normalized_targets = (targets - self.target_mean) / self.target_std
+        loss = self.loss_fn(normalized_preds, normalized_targets)
 
         if torch.isnan(loss) or torch.isinf(loss):
             print(f"Warning: NaN/Inf loss detected at batch_idx {batch_idx}")
