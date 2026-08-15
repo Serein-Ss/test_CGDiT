@@ -1,12 +1,18 @@
 import torch
 import pyxtal
+import numpy as np
 from cgdit.common.evaluation_utils import load_model, get_crystals_list, lattices_to_params_shape
+from cgdit.generation.conditioning import (
+    apply_condition_values,
+    seed_generation,
+    validate_condition_values,
+)
 from pathlib import Path
 from pyxtal.symmetry import Group
-from torch_geometric.data import Data, Batch, DataLoader
+from torch_geometric.data import Data
+from torch_geometric.loader import DataLoader
 from torch.utils.data import Dataset
 from tqdm import tqdm
-from p_tqdm import p_map
 from pymatgen.core.structure import Structure
 from pymatgen.core.lattice import Lattice
 import json
@@ -59,7 +65,7 @@ def get_data_from_syminfo(spacegroup_number, wyckoff_letters, atom_types=None):
         num_atoms += len(ops)
     data = Data(
         spacegroup=torch.LongTensor([spacegroup_number]),
-        ops=torch.FloatTensor(ops_tot),
+        ops=torch.tensor(np.array(ops_tot), dtype=torch.float32),
         anchor_index=torch.LongTensor(anchor_index),
         num_nodes=num_atoms,
         num_atoms=num_atoms,
@@ -86,7 +92,10 @@ class CustomDataset(Dataset):
 
 
 # 接收 guidance_scale 参数
-def diffusion(loader, model, step_lr, guidance_scale=1.0):
+def diffusion(loader, model, step_lr, guidance_scale=1.0,
+              condition_values=None, condition_configs=None):
+    condition_values = condition_values or {}
+    condition_configs = condition_configs or {}
     frac_coords = []
     num_atoms = []
     atom_types = []
@@ -95,20 +104,23 @@ def diffusion(loader, model, step_lr, guidance_scale=1.0):
     for idx, batch in enumerate(loader):
 
         if torch.cuda.is_available():
-            batch.cuda()
+            batch = batch.cuda()
 
-        # 将 guidance_scale 传递给模型的 sample 函数
-        outputs, traj = model.sample(batch, step_lr=step_lr, guidance_scale=guidance_scale)
+        apply_condition_values(batch, condition_values, condition_configs)
+        fixed_atom_types = None
+        if not torch.all(batch.atom_types == 0):
+            fixed_atom_types = batch.atom_types.long() - 1
+
+        outputs, traj = model.sample(
+            batch,
+            step_lr=step_lr,
+            guidance_scale=guidance_scale,
+            fixed_atom_types=fixed_atom_types,
+        )
 
         frac_coords.append(outputs['frac_coords'].detach().cpu())
         num_atoms.append(outputs['num_atoms'].detach().cpu())
-        if torch.all(batch.atom_types == 0):
-            # 用户没有输入元素（全为0/占位符），使用模型自己预测出的元素
-            atom_types.append(outputs['atom_types'].detach().cpu())
-        else:
-            # 用户在命令行指定了元素，强制覆盖模型预测，使用用户输入的元素
-            atom_types.append(batch.atom_types.detach().cpu())
-        # atom_types.append(outputs['atom_types'].detach().cpu())
+        atom_types.append(outputs['atom_types'].detach().cpu())
         lattices.append(outputs['lattices'].detach().cpu())
 
     frac_coords = torch.cat(frac_coords, dim=0)
@@ -124,7 +136,7 @@ def diffusion(loader, model, step_lr, guidance_scale=1.0):
 
 def get_pymatgen(crystal_array):
     frac_coords = crystal_array['frac_coords']
-    atom_types = crystal_array['atom_types']
+    atom_types = crystal_array['atom_types'] + 1
     lengths = crystal_array['lengths']
     angles = crystal_array['angles']
     try:
@@ -164,18 +176,32 @@ def construct_dataset_from_json(json_file):
 
 
 # 接收 guidance_scale 参数
-def generate_structures_from_dataset(model_path, dataset, batch_size=128, step_lr=1e-5, guidance_scale=1.0):
-    model_path = Path(model_path)
+def generate_structures_from_dataset(model_path, dataset, batch_size=128, step_lr=1e-5,
+                                     guidance_scale=1.0, condition_values=None, seed=9999):
+    model_path = Path(model_path).resolve()
     model, _, cfg = load_model(
         model_path, load_data=False)
+    model.eval()
+
+    condition_values = condition_values or {}
+    condition_configs = cfg.model.get('conditions', {})
+    validate_condition_values(condition_values, condition_configs)
+    seed_generation(seed)
 
     if torch.cuda.is_available():
         model.to('cuda')
     loader = DataLoader(dataset, batch_size=min(batch_size, len(dataset)))
 
     # 传递给 diffusion 函数
-    (frac_coords, atom_types, lattices, lengths, angles, num_atoms) = diffusion(loader, model, step_lr, guidance_scale)
+    (frac_coords, atom_types, lattices, lengths, angles, num_atoms) = diffusion(
+        loader,
+        model,
+        step_lr,
+        guidance_scale,
+        condition_values=condition_values,
+        condition_configs=condition_configs,
+    )
 
     crystal_list = get_crystals_list(frac_coords, atom_types, lengths, angles, num_atoms)
-    structure_list = p_map(get_pymatgen, crystal_list)
+    structure_list = [get_pymatgen(crystal) for crystal in crystal_list]
     return structure_list

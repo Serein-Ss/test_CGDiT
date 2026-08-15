@@ -6,6 +6,14 @@ from pathlib import Path
 from torch_geometric.data import DataLoader, Data
 from torch.utils.data import Dataset
 from cgdit.common.evaluation_utils import load_model, lattices_to_params_shape
+from cgdit.generation.conditioning import (
+    add_condition_arguments,
+    apply_condition_values,
+    condition_label,
+    condition_values_from_args,
+    seed_generation,
+    validate_condition_values,
+)
 import numpy as np
 
 from pyxtal import pyxtal
@@ -16,18 +24,21 @@ def diffusion(
         loader,
         model,
         step_lr,
-        property_name=None,
-        target_value=None,
+        condition_values=None,
+        condition_configs=None,
         guidance_scale=1.0
 ):
+    condition_values = condition_values or {}
+    condition_configs = condition_configs or {}
     frac_coords = []
     num_atoms = []
     atom_types = []
     lattices = []
 
-    if property_name is not None and target_value is not None:
-        print(f"Dataset condition overwritten!")
-        print(f"Target Property: '{property_name}' set to {target_value}")
+    if condition_values:
+        print("Dataset conditions overwritten!")
+        for name, value in condition_values.items():
+            print(f"Target Property: '{name}' set to {value}")
         print(f"Using Classifier-Free Guidance with scale = {guidance_scale}")
     else:
         print("Standard unconditional generation (sampling from data distribution).")
@@ -36,13 +47,7 @@ def diffusion(
         if torch.cuda.is_available():
             batch = batch.cuda()
 
-        if property_name is not None and target_value is not None:
-            batch_size = batch.num_graphs
-            target_tensor = torch.full((batch_size, 1), target_value, dtype=torch.float, device=batch.device)
-            if hasattr(batch, property_name):
-                setattr(batch, property_name, target_tensor)
-            else:
-                setattr(batch, property_name, target_tensor)
+        apply_condition_values(batch, condition_values, condition_configs)
 
         outputs, traj = model.sample(batch, step_lr=step_lr, guidance_scale=guidance_scale)
 
@@ -200,16 +205,15 @@ def main(args):
     # load_data=True 必须开启
     model, loaders, cfg = load_model(
         model_path, load_data=True, testing=False)
+    model.eval()
 
     if torch.cuda.is_available():
         model.to('cuda')
 
-    # 简单的检查：确保用户输入的属性名在模型的配置里存在
-    if args.property_name:
-        model_conditions = cfg.model.get('conditions', {}).keys()
-        if args.property_name not in model_conditions:
-            print(f"\n[WARNING] You are trying to condition on '{args.property_name}', "
-                  f"but the model config only lists these conditions: {list(model_conditions)}.\n")
+    condition_values = condition_values_from_args(args)
+    condition_configs = cfg.model.get('conditions', {})
+    validate_condition_values(condition_values, condition_configs)
+    seed_generation(args.seed)
 
     total_samples = args.batch_size * args.num_batches_to_samples
 
@@ -249,18 +253,15 @@ def main(args):
         test_loader,
         model,
         args.step_lr,
-        property_name=args.property_name,
-        target_value=args.target_value,
+        condition_values=condition_values,
+        condition_configs=condition_configs,
         guidance_scale=args.guidance_scale
     )
 
     if args.label == '':
         mode_str = "ab_initio_empirical" if (args.ab_initio and args.use_empirical_prior) else \
                    ("ab_initio_random" if args.ab_initio else "template")
-        if args.property_name is not None:
-            label = f'{mode_str}_{args.property_name}_{args.target_value}_scale_{args.guidance_scale}'
-        else:
-            label = f'{mode_str}_uncond'
+        label = f'{mode_str}_{condition_label(condition_values)}_scale_{args.guidance_scale:g}'
     else:
         label = args.label
 
@@ -275,8 +276,11 @@ def main(args):
         'atom_types': atom_types,
         'lengths': lengths,
         'angles': angles,
+        'conditions': condition_values,
         'property_name': args.property_name,
-        'target_value': args.target_value
+        'target_value': args.target_value,
+        'guidance_scale': args.guidance_scale,
+        'seed': args.seed,
     }, model_path / gen_out_name)
 
 
@@ -290,10 +294,11 @@ def build_parser():
     parser.add_argument('--label', default='')
 
     # 性质条件生成
+    add_condition_arguments(parser)
     parser.add_argument('--property_name', type=str, default=None,
-                        help='The name of the property to condition on (e.g., formation_energy_per_atom, band_gap).')
+                        help='Legacy single-condition name. Prefer repeatable --condition NAME=VALUE.')
     parser.add_argument('--target_value', type=float, default=None,
-                        help='The target value for the specified property.')
+                        help='Legacy single-condition target value.')
     parser.add_argument('--guidance_scale', type=float, default=1.0,
                         help='Classifier-free guidance scale.')
 

@@ -11,6 +11,14 @@ from types import SimpleNamespace
 from torch_geometric.data import Batch
 
 from cgdit.common.evaluation_utils import load_model, lattices_to_params_shape, recommand_step_lr
+from cgdit.generation.conditioning import (
+    add_condition_arguments,
+    apply_condition_values,
+    condition_label,
+    condition_values_from_args,
+    seed_generation,
+    validate_condition_values,
+)
 
 from pymatgen.core.structure import Structure
 from pymatgen.core.lattice import Lattice
@@ -21,7 +29,11 @@ import copy
 import numpy as np
 
 
-def diffusion(loader, model, num_evals, step_lr=1e-5, guidance_scale=1.0, property_name=None, target_value=None):
+def diffusion(loader, model, num_evals, step_lr=1e-5, guidance_scale=1.0,
+              condition_values=None, condition_configs=None):
+
+    condition_values = condition_values or {}
+    condition_configs = condition_configs or {}
 
     frac_coords = []
     num_atoms = []
@@ -29,9 +41,10 @@ def diffusion(loader, model, num_evals, step_lr=1e-5, guidance_scale=1.0, proper
     lattices = []
     input_data_list = []
 
-    if property_name is not None and target_value is not None:
-        print(f"\n[INFO] Dataset condition overridden for CSP/Reconstruction!")
-        print(f"       Target Property: '{property_name}' set to {target_value}")
+    if condition_values:
+        print(f"\n[INFO] Dataset conditions overridden for CSP/Reconstruction!")
+        for name, value in condition_values.items():
+            print(f"       Target Property: '{name}' set to {value}")
         print(f"       Using Classifier-Free Guidance with scale = {guidance_scale}\n")
     else:
         print(f"\n[INFO] Standard Unconditional/Original CSP Evaluation (CFG scale = {guidance_scale}).\n")
@@ -39,13 +52,9 @@ def diffusion(loader, model, num_evals, step_lr=1e-5, guidance_scale=1.0, proper
     for idx, batch in enumerate(loader):
 
         if torch.cuda.is_available():
-            batch.cuda()
+            batch = batch.cuda()
 
-        if property_name is not None and target_value is not None:
-            batch_size = batch.num_graphs
-            target_tensor = torch.full((batch_size, 1), target_value, dtype=torch.float, device=batch.device)
-            # 强制将 batch 中对应的属性替换为你想要测试的目标值
-            setattr(batch, property_name, target_tensor)
+        apply_condition_values(batch, condition_values, condition_configs)
 
         batch_all_frac_coords = []
         batch_all_lattices = []
@@ -84,6 +93,7 @@ def main(args):
     # load_data if do reconstruction.
     model_path = Path(args.model_path).resolve()
     model, test_loader, cfg = load_model(model_path, load_data=True)
+    model.eval()
 
     if torch.cuda.is_available():
         model.to('cuda')
@@ -91,15 +101,10 @@ def main(args):
 
     print('Evaluate the diffusion model for CSP/Reconstruction.')
 
-    if args.property_name:
-        model_conditions = cfg.model.get('conditions', {}).keys()
-        if args.property_name not in model_conditions:
-            print(f"\n[WARNING] You are trying to condition on '{args.property_name}', "
-                  f"but the model config only lists these conditions: {list(model_conditions)}.\n"
-                  f"Please double check if this is the correct model.\n")
-
-        if args.target_value is None:
-            raise ValueError("You provided '--property_name', but forgot to provide '--target_value'.")
+    condition_values = condition_values_from_args(args)
+    condition_configs = cfg.model.get('conditions', {})
+    validate_condition_values(condition_values, condition_configs)
+    seed_generation(args.seed)
 
     step_lr = args.step_lr if args.step_lr >= 0 else recommand_step_lr['csp'][args.dataset]
 
@@ -110,15 +115,14 @@ def main(args):
         args.num_evals,
         step_lr,
         args.guidance_scale,
-        property_name=args.property_name,
-        target_value=args.target_value
+        condition_values=condition_values,
+        condition_configs=condition_configs,
     )
 
     if args.label == '':
-        if args.property_name:
-            diff_out_name = f"eval_diff_{args.property_name}_{args.target_value}_scale_{args.guidance_scale}.pt"
-        else:
-            diff_out_name = f"eval_diff_uncond_scale_{args.guidance_scale}.pt"
+        diff_out_name = (
+            f"eval_diff_{condition_label(condition_values)}_scale_{args.guidance_scale:g}.pt"
+        )
     else:
         diff_out_name = f'eval_diff_{args.label}.pt'
 
@@ -136,9 +140,11 @@ def main(args):
         'angles': angles,
         'time': time.time() - start_time,
         # 保存条件信息供后续 metrics 脚本读取分析
+        'conditions': condition_values,
         'property_name': args.property_name,
         'target_value': args.target_value,
-        'guidance_scale': args.guidance_scale
+        'guidance_scale': args.guidance_scale,
+        'seed': args.seed,
     },
         model_path / diff_out_name)
 
@@ -149,14 +155,16 @@ def build_parser():
     parser.add_argument('--dataset', required=True)
     parser.add_argument('--step_lr', default=-1, type=float)
     parser.add_argument('--num_evals', default=1, type=int)
+    parser.add_argument('--seed', default=9999, type=int)
     # 引导控制参数
     parser.add_argument('--guidance_scale', default=1.0, type=float,
                         help='Classifier-free guidance scale. > 1.0 increases condition strength.')
     # 属性覆盖参数
+    add_condition_arguments(parser)
     parser.add_argument('--property_name', type=str, default=None,
-                        help='The name of the property to force upon the test set (e.g., band_gap).')
+                        help='Legacy single-condition name. Prefer repeatable --condition NAME=VALUE.')
     parser.add_argument('--target_value', type=float, default=None,
-                        help='The target value to overwrite in the test set.')
+                        help='Legacy single-condition target value.')
     parser.add_argument('--label', default='')
     return parser
 
