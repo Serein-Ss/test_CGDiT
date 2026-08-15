@@ -6,6 +6,11 @@ from cgdit.generation.symmetry import (
     construct_dataset_from_syminfo,
     generate_structures_from_dataset,
 )
+from cgdit.generation.conditioning import (
+    add_condition_arguments,
+    condition_values_from_args,
+    seed_generation,
+)
 from pathlib import Path
 import os
 
@@ -15,6 +20,7 @@ def main(args):
     args.save_path = str(Path(args.save_path).resolve())
     tar_dir = args.save_path
     os.makedirs(tar_dir, exist_ok=True)
+    seed_generation(args.seed)
 
     if args.json_file != '':
         dataset = construct_dataset_from_json(args.json_file)
@@ -24,7 +30,7 @@ def main(args):
         if ',' in args.wyckoff_letters:
             wyckoff_letters = args.wyckoff_letters.split(',')
         else:
-            wyckoff_letters = args.wyckoff_letters
+            wyckoff_letters = [args.wyckoff_letters]
 
         if args.atom_types != '':
             atom_types = args.atom_types.split(',')
@@ -34,12 +40,15 @@ def main(args):
         dataset = construct_dataset_from_syminfo(args.spacegroup, wyckoff_letters, atom_types)
 
     # 在这里将 guidance_scale 传给 API
+    condition_values = condition_values_from_args(args)
     structure_list = generate_structures_from_dataset(
         args.model_path,
         dataset,
         args.batch_size,
         args.step_lr,
-        args.guidance_scale
+        args.guidance_scale,
+        condition_values=condition_values,
+        seed=args.seed,
     )
 
     print("Saving structures.")
@@ -62,10 +71,12 @@ def build_parser():
     parser.add_argument('--wyckoff_letters', default='', type=str)
     parser.add_argument('--atom_types', default='', type=str)
     parser.add_argument('--json_file', default='', type=str)
+    parser.add_argument('--seed', default=9999, type=int)
 
     # 新增 guidance_scale 命令行参数，默认保持为 1.0 (即不放大引导)
     parser.add_argument('--guidance_scale', default=1.0, type=float,
                         help="Classifier-Free Guidance Scale. >1.0 increases condition fidelity.")
+    add_condition_arguments(parser)
 
     return parser
 

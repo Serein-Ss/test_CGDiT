@@ -216,6 +216,9 @@ class Diffusion(BaseModule):
 
     @torch.no_grad()
     def sample(self, batch, diff_ratio=1.0, step_lr=1e-5, guidance_scale=1.0, fixed_atom_types=None):
+        if not 0.0 < diff_ratio <= 1.0:
+            raise ValueError(f"diff_ratio must be in (0, 1], got {diff_ratio}.")
+
         batch_size = batch.num_graphs
 
         if fixed_atom_types is not None:
@@ -230,13 +233,13 @@ class Diffusion(BaseModule):
             # 如果 diff_ratio < 1，会在后面被覆盖，这里先按 T 初始化
             t_max_tensor = torch.full(fixed_atom_types.shape, self.beta_scheduler.timesteps - 1,
                                       device=self.device, dtype=torch.long)
-            atom_types_T, _ = self.q_sample(x_start=fixed_atom_types, t=t_max_tensor, diffusion=self.d3pm)
+            atom_types_T = self.q_sample(x_start=fixed_atom_types, t=t_max_tensor, diffusion=self.d3pm)
         else:
             # 否则，从全 MASK 分布开始
             atom_types_T = self.d3pm.sample_stationary(batch.atom_types.shape).to(self.device)
 
         if diff_ratio < 1:
-            time_start = int(self.beta_scheduler.timesteps * diff_ratio)
+            time_start = max(1, int(self.beta_scheduler.timesteps * diff_ratio))
             lattices = lattice_params_to_matrix_torch(batch.lengths, batch.angles)
             lattices = self.crystal_family.de_so3(lattices)
             ori_crys_fam = self.crystal_family.m2v(lattices)
@@ -245,6 +248,7 @@ class Diffusion(BaseModule):
             frac_coords = batch.frac_coords
 
             rand_crys_fam, rand_x = torch.randn_like(ori_crys_fam), torch.randn_like(frac_coords)
+            rand_crys_fam = self.crystal_family.proj_k_to_spacegroup(rand_crys_fam, batch.spacegroup)
 
             alphas_cumprod = self.beta_scheduler.alphas_cumprod[time_start]
             beta = self.beta_scheduler.betas[time_start]
@@ -255,10 +259,11 @@ class Diffusion(BaseModule):
             sigmas = self.sigma_scheduler.sigmas[time_start]
 
             rand_x_anchor = rand_x[batch.anchor_index]
-            rand_x_anchor = (batch.ops[batch.anchor_index, :3, :3] @ rand_x_anchor.unsqueeze(-1)).squeeze(-1)
+            rand_x_anchor = (batch.ops_inv[batch.anchor_index] @ rand_x_anchor.unsqueeze(-1)).squeeze(-1)
             rand_x = (batch.ops[:, :3, :3] @ rand_x_anchor.unsqueeze(-1)).squeeze(-1)
 
             crys_fam_T = c0 * ori_crys_fam + c1 * rand_crys_fam
+            crys_fam_T = self.crystal_family.proj_k_to_spacegroup(crys_fam_T, batch.spacegroup)
             x_T = (frac_coords + sigmas * rand_x) % 1.
 
             # 增加对离散数据的加噪
@@ -267,13 +272,14 @@ class Diffusion(BaseModule):
 
             if fixed_atom_types is not None:
                 # 使用传入的 fixed_atom_types 加噪到 time_start
-                atom_types_T, _ = self.q_sample(x_start=fixed_atom_types, t=t_discrete_start,
-                                                diffusion=self.d3pm)
+                atom_types_T = self.q_sample(x_start=fixed_atom_types, t=t_discrete_start,
+                                             diffusion=self.d3pm)
             else:
                 # 使用 batch 中原有的 atom_types 加噪 (常规流程)
-                x_start_atoms = batch.atom_types.long()
-                atom_types_T, _ = self.q_sample(x_start=x_start_atoms, t=t_discrete_start,
-                                                diffusion=self.d3pm)
+                x_start_atoms = batch.atom_types.long() - 1
+                x_start_atoms = torch.clamp(x_start_atoms, min=0, max=self.num_atom_types - 1)
+                atom_types_T = self.q_sample(x_start=x_start_atoms, t=t_discrete_start,
+                                             diffusion=self.d3pm)
 
         else:
             time_start = self.beta_scheduler.timesteps - 1
@@ -432,7 +438,7 @@ class Diffusion(BaseModule):
                     # 中间步骤：从 Clean 数据前向加噪到 t-1
                     t_next_tensor = torch.full(fixed_atom_types.shape, target_t,
                                                device=self.device, dtype=torch.long)
-                    atom_types_t_minus_1, _ = self.q_sample(
+                    atom_types_t_minus_1 = self.q_sample(
                         x_start=fixed_atom_types,
                         t=t_next_tensor,
                         diffusion=self.d3pm
