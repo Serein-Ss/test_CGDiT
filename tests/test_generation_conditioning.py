@@ -12,7 +12,8 @@ from cgdit.generation.conditioning import (
     validate_condition_values,
 )
 from cgdit.generation.symmetry import get_data_from_syminfo, get_pymatgen
-from cgdit.generation.general import diffusion as run_diffusion
+import cgdit.generation.general as general_generation
+from cgdit.generation.general import AbInitioDataset, diffusion as run_diffusion
 
 
 def test_parse_multiple_condition_assignments():
@@ -111,3 +112,19 @@ def test_unconditional_generation_forces_the_null_cfg_branch():
     )
 
     assert model.guidance_scales == [0.0]
+
+
+def test_ab_initio_generation_stops_after_bounded_failures(monkeypatch):
+    class AlwaysFailingPyxtal:
+        valid = False
+
+        def from_random(self, *args, **kwargs):
+            raise ValueError("synthetic pyxtal failure")
+
+    monkeypatch.setattr(general_generation, "pyxtal", AlwaysFailingPyxtal)
+    dataset = AbInitioDataset(total_num=1, max_attempts=3)
+
+    with pytest.raises(RuntimeError, match="after 3 attempts") as exc_info:
+        dataset[0]
+
+    assert isinstance(exc_info.value.__cause__, ValueError)

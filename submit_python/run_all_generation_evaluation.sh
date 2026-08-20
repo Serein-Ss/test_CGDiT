@@ -174,6 +174,7 @@ run_metrics() {
         --label "${label}" \
         --gt_file "${GT_FILE}" \
         --num_workers "${NUM_WORKERS}" \
+        --seed "${SEED}" \
         --calc_prop false
 }
 

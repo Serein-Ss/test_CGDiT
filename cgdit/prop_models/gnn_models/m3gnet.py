@@ -111,7 +111,7 @@ class M3GNet(nn.Module):
         )
 
         self.three_body_interactions = nn.ModuleList(
-            {
+            [
                 ThreeBodyInteractions(
                     update_network_atom=MLP(
                         dims=[dim_node_embedding, degree],
@@ -121,13 +121,13 @@ class M3GNet(nn.Module):
                     update_network_bond=GatedMLP(in_feats=degree, dims=[dim_edge_embedding], use_bias=False),
                 )
                 for _ in range(nblocks)
-            }
+            ]
         )
 
         dim_state_feats = dim_state_embedding
 
         self.graph_layers = nn.ModuleList(
-            {
+            [
                 M3GNetBlock(
                     degree=degree_rbf,
                     activation=activation,
@@ -139,7 +139,7 @@ class M3GNet(nn.Module):
                     dropout=dropout,
                 )
                 for _ in range(nblocks)
-            }
+            ]
         )
 
         if is_intensive:

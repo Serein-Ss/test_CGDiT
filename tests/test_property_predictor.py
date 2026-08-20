@@ -12,7 +12,9 @@ class DummyNormalizedModel(nn.Module):
         return batch.normalized_predictions
 
 
-def make_surrogate(target_prop="band_gap", target_mean=10.0, target_std=2.0):
+def make_surrogate(
+    target_prop="band_gap", target_mean=10.0, target_std=2.0, n_blocks=1, replace_model=True
+):
     model = M3GNetSurrogate(
         target_prop=target_prop,
         target_mean=target_mean,
@@ -26,10 +28,11 @@ def make_surrogate(target_prop="band_gap", target_mean=10.0, target_std=2.0):
         threebody_cutoff=4.0,
         max_n=1,
         max_l=1,
-        n_blocks=1,
+        n_blocks=n_blocks,
         ntargets=1,
     )
-    model.model = DummyNormalizedModel()
+    if replace_model:
+        model.model = DummyNormalizedModel()
     return model
 
 
@@ -67,3 +70,15 @@ def test_target_property_is_used_when_y_is_absent():
 def test_non_positive_target_std_is_rejected():
     with pytest.raises(ValueError, match="target_std"):
         make_surrogate(target_std=0.0)
+
+
+def test_m3gnet_block_initialization_is_reproducible():
+    torch.manual_seed(123)
+    first = make_surrogate(n_blocks=3, replace_model=False)
+    torch.manual_seed(123)
+    second = make_surrogate(n_blocks=3, replace_model=False)
+
+    first_state = first.model.state_dict()
+    second_state = second.model.state_dict()
+    assert first_state.keys() == second_state.keys()
+    assert all(torch.equal(first_state[key], second_state[key]) for key in first_state)

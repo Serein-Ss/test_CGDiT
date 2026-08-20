@@ -94,7 +94,7 @@ class AbInitioDataset(Dataset):
     """
 
     def __init__(self, total_num, train_set=None, use_empirical_prior=False, spacegroups=None, max_atoms=52,
-                 max_atomic_num=100, seed=9999):
+                 max_atomic_num=100, seed=9999, max_attempts=1000):
         super().__init__()
         self.total_num = total_num
         self.use_empirical_prior = use_empirical_prior
@@ -102,6 +102,9 @@ class AbInitioDataset(Dataset):
         self.spacegroups = spacegroups if spacegroups is not None else list(range(1, 231))
         self.max_atoms = max_atoms
         self.max_atomic_num = max_atomic_num
+        if max_attempts <= 0:
+            raise ValueError("max_attempts must be positive")
+        self.max_attempts = max_attempts
         np.random.seed(seed + index if 'index' in locals() else seed)
 
         # 预先计算原子数的先验概率分布
@@ -126,8 +129,9 @@ class AbInitioDataset(Dataset):
 
     def __getitem__(self, index):
         success = False
+        last_error = None
 
-        while not success:
+        for _ in range(self.max_attempts):
             # 空间群：始终在指定范围内随机抽取
             sg = int(np.random.choice(self.spacegroups))
 
@@ -147,8 +151,20 @@ class AbInitioDataset(Dataset):
 
                     if actual_num_atoms <= self.max_atoms:
                         success = True
-            except Exception:
-                pass
+            except Exception as exc:
+                last_error = exc
+
+            if success:
+                break
+
+        if not success:
+            message = (
+                "Unable to generate a valid ab initio structure after "
+                f"{self.max_attempts} attempts."
+            )
+            if last_error is not None:
+                raise RuntimeError(message) from last_error
+            raise RuntimeError(message)
 
         # 构建图节点初始状态 (全为高斯噪声与 MASK)
         frac_coords = torch.rand((actual_num_atoms, 3), dtype=torch.float32)
