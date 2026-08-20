@@ -44,7 +44,7 @@ def load_envs(env_file: Optional[str] = None) -> None:
 
     :param env_file: the file that defines the environment variables to use. If None it searches for a `.env` file in the project.
     """
-    dotenv.load_dotenv(dotenv_path=env_file, override=True)
+    dotenv.load_dotenv(dotenv_path=env_file, override=False)
 
 
 STATS_KEY: str = "stats"
@@ -89,10 +89,15 @@ def log_hyperparameters(
 # Load environment variables
 load_envs()
 
-# Set the cwd to the project root
-PROJECT_ROOT: Path = Path(get_env("PROJECT_ROOT"))
-assert (
-    PROJECT_ROOT.exists()
-), "You must configure the PROJECT_ROOT environment variable in a .env file!"
-
-os.chdir(PROJECT_ROOT)
+# Resolve server-local paths without changing the caller's working directory.
+_DEFAULT_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+_configured_project_root = Path(get_env("PROJECT_ROOT", str(_DEFAULT_PROJECT_ROOT))).resolve()
+PROJECT_ROOT = (
+    _configured_project_root if _configured_project_root.exists() else _DEFAULT_PROJECT_ROOT
+)
+os.environ["PROJECT_ROOT"] = str(PROJECT_ROOT)
+os.environ.setdefault("HYDRA_JOBS", str(PROJECT_ROOT / "output"))
+os.environ.setdefault(
+    "WANDB_DIR",
+    os.environ.get("WABDB_DIR", str(PROJECT_ROOT / "wandb")),
+)

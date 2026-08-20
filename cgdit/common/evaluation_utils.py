@@ -16,7 +16,6 @@ from cgdit.common.constants import CompScalerMeans, CompScalerStds
 from cgdit.common.data_utils import StandardScaler, chemical_symbols
 from cgdit.pl_data.dataset import TensorCrystDataset
 from cgdit.pl_data.datamodule import worker_init_fn
-from cgdit.pl_modules.diffusion import Diffusion
 
 from torch_geometric.data import DataLoader
 
@@ -93,6 +92,8 @@ def load_model(model_path, load_data=False, testing=True):
             _recursive_=False,
         )
         ckpts = list(model_path.glob('*.ckpt'))
+        if not ckpts:
+            raise FileNotFoundError(f"No checkpoint found in {model_path}.")
         if len(ckpts) > 0:
             ckpt = None
             for ck in ckpts:
@@ -103,7 +104,7 @@ def load_model(model_path, load_data=False, testing=True):
                     [int(ckpt.parts[-1].split('-')[0].split('=')[1]) for ckpt in ckpts if 'last' not in ckpt.parts[-1]])
                 ckpt = str(ckpts[ckpt_epochs.argsort()[-1]])
         hparams = os.path.join(model_path, "hparams.yaml")
-        model = Diffusion.load_from_checkpoint(ckpt, hparams_file=hparams, strict=True)
+        model = type(model).load_from_checkpoint(ckpt, hparams_file=hparams, strict=True)
         try:
             model.lattice_scaler = torch.load(model_path / 'lattice_scaler.pt')
             model.scaler = torch.load(model_path / 'prop_scaler.pt')

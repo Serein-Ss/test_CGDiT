@@ -12,6 +12,7 @@ from cgdit.generation.conditioning import (
     validate_condition_values,
 )
 from cgdit.generation.symmetry import get_data_from_syminfo, get_pymatgen
+from cgdit.generation.general import diffusion as run_diffusion
 
 
 def test_parse_multiple_condition_assignments():
@@ -77,3 +78,36 @@ def test_symmetry_query_preserves_fixed_elements_and_restores_atomic_numbers():
         "angles": np.array([90.0, 90.0, 90.0]),
     })
     assert structure[0].specie.Z == 14
+
+class SamplingRecorder:
+    def __init__(self):
+        self.guidance_scales = []
+
+    def sample(self, batch, step_lr, guidance_scale):
+        self.guidance_scales.append(guidance_scale)
+        return {
+            "frac_coords": torch.zeros((1, 3)),
+            "num_atoms": torch.tensor([1]),
+            "atom_types": torch.tensor([1]),
+            "lattices": torch.eye(3).unsqueeze(0),
+        }, {}
+
+
+def test_unconditional_generation_forces_the_null_cfg_branch():
+    model = SamplingRecorder()
+    batch = SimpleNamespace(
+        batch=torch.tensor([0]),
+        num_graphs=1,
+        formation_energy_per_atom=torch.tensor([[-1.5]]),
+    )
+
+    run_diffusion(
+        [batch],
+        model,
+        step_lr=1e-5,
+        condition_values={},
+        condition_configs={"formation_energy_per_atom": {"type": "scalar"}},
+        guidance_scale=1.0,
+    )
+
+    assert model.guidance_scales == [0.0]

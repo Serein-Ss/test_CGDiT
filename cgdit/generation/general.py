@@ -49,7 +49,8 @@ def diffusion(
 
         apply_condition_values(batch, condition_values, condition_configs)
 
-        outputs, traj = model.sample(batch, step_lr=step_lr, guidance_scale=guidance_scale)
+        sample_guidance_scale = guidance_scale if condition_values else 0.0
+        outputs, traj = model.sample(batch, step_lr=step_lr, guidance_scale=sample_guidance_scale)
 
         frac_coords.append(outputs['frac_coords'].detach().cpu())
         num_atoms.append(outputs['num_atoms'].detach().cpu())
@@ -186,7 +187,7 @@ class AbInitioDataset(Dataset):
                 ops_inv.append(found_op.inverse.affine_matrix)
 
         ops = torch.tensor(np.array(ops), dtype=torch.float32)
-        ops_inv = torch.tensor(np.array(ops_inv), dtype=torch.float32)
+        ops_inv = torch.tensor(np.array(ops_inv), dtype=torch.float32)[:, :3, :3]
 
         return Data(
             frac_coords=frac_coords,

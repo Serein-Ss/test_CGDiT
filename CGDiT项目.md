@@ -1,6 +1,6 @@
 # Crystal Graph Diffusion Transformer
 
-> 本文档对应当前 `test_CGDiT` 工作区，最后核对日期：2026-08-14。
+> 本文档对应当前 `test_CGDiT` 工作区，最后核对日期：2026-08-16。
 > 文档中的命令默认在项目根目录执行，并优先使用重构后的模块化入口。
 
 
@@ -90,8 +90,7 @@ test_CGDiT/
 │   │   ├── evaluation/               # 评估命令
 │   │   ├── visualization/            # 绘图命令
 │   │   └── tools/                    # 查询与数据准备工具
-│   ├── legacy/                       # 暂时保留的旧实现
-│   └── *.py                          # 旧命令兼容入口
+│   └── dataset_figures/              # 统一数据集科学绘图
 ├── pre_processing/                   # 数据预处理与分析
 ├── post_processing/                  # 旧版结果后处理脚本
 ├── submit_python/                    # 服务器批量训练脚本
@@ -100,7 +99,10 @@ test_CGDiT/
 ├── logs/                             # 批量训练日志
 ├── .env                              # 本机环境变量，不上传 GitHub
 ├── .env.template                     # 环境变量模板
-└── requirements.txt                  # 当前 Windows Conda 环境快照
+├── .python-version                   # uv 默认 Python 版本
+├── pyproject.toml                    # 项目依赖与构建配置
+├── uv.lock                           # uv 精确依赖锁
+└── environment.yml                   # Conda 环境配置
 ```
 
 
@@ -181,65 +183,100 @@ conditions:
 
 ## Setup Environment
 
-### Existing Local Environment
-
-当前已验证可用的环境是：
-
-```powershell
-conda activate cgdit
-python --version
-python -c "import torch, pymatgen, pyxtal, hydra; print(torch.__version__)"
-```
-
-当前系统默认 Base Python 不是项目环境：它缺少 `torch`，且 NumPy 与 Matplotlib 存在二进制版本冲突。因此运行本项目之前必须先激活 `cgdit`。
-
 ### Environment Files
 
-当前环境文件存在以下边界：
+当前保留的环境配置文件如下：
 
-- `requirements.txt` 是 `win-64` 的 Conda 环境快照，不是标准 `pip requirements.txt`；
-- 不建议执行 `pip install -r requirements.txt`；
-- `setup/env.yml` 当前为空，尚不能作为服务器重建环境的依据；
-- 当前环境实际使用 Python 3.10 系列，旧文档中的 Python 3.11 创建命令不再作为已验证方案；
-- `setup/setup.py` 仅保存最小包元数据，项目仍要求从仓库根目录运行。
+| 文件 | 用途 |
+|---|---|
+| `pyproject.toml` | 项目元数据、运行依赖、开发依赖及 PyTorch/PyG 源配置 |
+| `uv.lock` | uv 解析出的精确依赖锁，应提交到 Git |
+| `.python-version` | uv 默认 Python 版本（3.10） |
+| `environment.yml` | Conda 环境入口，使用相同的 Python、CUDA 12.4 PyTorch 和 PyG 轮子 |
+| `.env.template` | 本机路径和可选凭据模板；实际 `.env` 不提交 |
 
-迁移到新服务器前，建议在当前可用环境额外导出：
+旧的 `requirements.txt`、`setup/` 和其中生成的 egg-info 已删除。不要再执行
+`pip install -r requirements.txt` 或引用 `setup/env.yml`。
+
+### 方案一：uv（推荐）
+
+当前服务器 GPU 节点使用 NVIDIA 550.54.15 驱动（CUDA 12.4），环境固定为
+Python 3.10、PyTorch 2.4.1 cu124、PyTorch Geometric 2.7.0，以及匹配的
+torch-scatter/torch-sparse `pt24cu124` 轮子。
+
+首次创建或严格恢复环境：
 
 ```bash
-conda env export --from-history > environment.from-history.yml
-conda env export > environment.lock.yml
+uv sync --locked
+uv run --locked python -c "import torch, torch_geometric; print(torch.__version__, torch.version.cuda, torch_geometric.__version__)"
+uv run --locked pytest -q
 ```
 
-服务器上还需要根据 CUDA 和 GPU 驱动重新选择匹配的 PyTorch/PyG 版本，不能直接复制 Windows 二进制包。
+`uv sync --locked` 根据 `uv.lock` 创建项目根目录下的 `.venv`。日常运行不必手动
+激活虚拟环境，直接在命令前加 `uv run --locked`。稳定性评估需要 MatGL 时使用：
+
+```bash
+uv sync --locked --extra stability
+```
+
+更新依赖时先修改 `pyproject.toml`，再显式执行 `uv lock` 和 `uv sync`；不要手工
+编辑 `uv.lock`。
+
+### 方案二：Conda（兼容方案）
+
+Conda 负责 Python 解释器和环境隔离，`environment.yml` 中的 pip 部分从项目
+`pyproject.toml` 安装同一套依赖：
+
+```bash
+conda env create -f environment.yml
+conda activate cgdit
+python -c "import torch, torch_geometric; print(torch.__version__, torch.version.cuda, torch_geometric.__version__)"
+pytest -q
+```
+
+已有同名环境需要同步时：
+
+```bash
+conda env update --name cgdit --file environment.yml --prune
+conda activate cgdit
+```
+
+不要同时激活 Conda 环境又使用项目 `.venv`。uv 用户使用 `uv run --locked ...`；
+Conda 用户激活 `cgdit` 后直接运行 `python ...`。
+
+两种方案都固定为 CUDA 12.4 构建，不能混装 `+cpu`、`pt24cpu` 或其他 CUDA
+版本的扩展。登录节点看不到 GPU 属于正常现象；CUDA 可用性必须在 SLURM 分配的
+GPU 节点内检查。本次验证使用 `rtx4090` 分区并实际分配到 RTX 3090；集群状态会
+变化，提交前应先用 `sinfo` 检查可用分区。例如从项目根目录提交检查：
+
+```bash
+sbatch --partition=rtx4090 --gres=gpu:1 --time=00:05:00 --wrap='uv run --locked python -c "import torch; assert torch.cuda.is_available(); print(torch.cuda.get_device_name(), torch.version.cuda)"'
+```
 
 ### Configure `.env`
 
-复制 `.env.template` 为 `.env`，并填写绝对路径：
+复制模板并填写当前服务器的绝对路径：
 
-```dotenv
-PROJECT_ROOT=E:/WORKSPACE/CodePlace/test_CGDiT
-HYDRA_JOBS=E:/WORKSPACE/CodePlace/test_CGDiT/output
-WABDB_DIR=E:/WORKSPACE/CodePlace/test_CGDiT/wandb
-WANDB_API_KEY=
-MP_API_KEY=
+```bash
+cp .env.template .env
 ```
-
-Linux 服务器示例：
 
 ```dotenv
 PROJECT_ROOT=/absolute/path/to/test_CGDiT
 HYDRA_JOBS=/absolute/path/to/test_CGDiT/output
-WABDB_DIR=/absolute/path/to/test_CGDiT/wandb
+WANDB_DIR=/absolute/path/to/test_CGDiT/wandb
 WANDB_API_KEY=
 MP_API_KEY=
 ```
 
-注意：代码当前使用的是拼写为 `WABDB_DIR` 的环境变量，虽然它看起来像 `WANDB_DIR` 的拼写错误，但在修改 `conf/default.yaml` 之前必须保持这个名称。
+`WANDB_API_KEY` 和 `MP_API_KEY` 只保存在本机 `.env`，不得写入代码、notebook
+或提交到 Git。W&B 默认使用离线模式。
 
-如果不希望在线上传 W&B，可以在命令中覆盖：
+本文后续命令以激活的 Conda 环境为简写；uv 用户应在相同命令前加
+`uv run --locked`。例如：
 
 ```shell
-python cgdit/run.py data=mp_20 model=exp_mp20_base expname=mp20_base logging.wandb.mode=offline
+uv run --locked python -m cgdit.run data=mp_20 model=exp_mp20_base expname=mp20_base
 ```
 
 
@@ -636,30 +673,13 @@ from cgdit.evaluation.metrics import Crystal, GenEval, RecEval
 from cgdit.evaluation.visualization import plot_property_parity
 ```
 
-不建议在新代码中写：
-
-```python
-from eval_utils import ...
-from sample_api import ...
-```
-
-旧文件仍作为兼容入口保留，例如：
-
-```text
-scripts/generation.py
-scripts/evaluate.py
-scripts/compute_metrics.py
-scripts/sample.py
-scripts/predict_property.py
-scripts/eval_crystals.py
-```
+旧的根目录兼容脚本和 `scripts/legacy/` 已清理；Python API 统一从 `cgdit`
+导入，命令行统一使用 `python -m scripts.cli.<group>.<command>`。
 
 
 ## Known Limitations
 
-- `setup/env.yml` 为空，服务器环境尚未形成正式可复现清单；
-- `requirements.txt` 是 Windows Conda 快照，不是跨平台 pip 文件；
-- `WABDB_DIR` 是当前代码实际使用的历史拼写；
+- uv 与 Conda 当前固定为 CUDA 12.4 构建，须通过 SLURM GPU 作业运行 CUDA 任务；
 - `main.py` 不是项目入口；
 - `conf/train/finetuned.yaml` 含有旧检查点绝对路径；
 - `submit_python/run_remaining_mp20.sh` 含有旧服务器绝对路径；

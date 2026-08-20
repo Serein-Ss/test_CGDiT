@@ -5,10 +5,9 @@ val_check_interval: 5
 wandb:
   name: ${expname}
   project: cgdit_diffcsp
-#  entity: null
-  entity: serein_ss-tsinghua-university
+  entity: null
   log_model: True
-  mode: 'online'
+  mode: 'offline'
   group: ${expname}
 
 wandb_watch:

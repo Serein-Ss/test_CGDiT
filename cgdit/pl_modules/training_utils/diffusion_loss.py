@@ -10,6 +10,7 @@ from cgdit.pl_modules.diff_utils.diff_utils import d_log_p_wrapped_normal
 from cgdit.pl_modules.diff_utils.discrete_diff_utils import (
 DiscreteDiffusionBase, compute_kl_reverse_process
 )
+from cgdit.rl.symmetry_quotient import representative_indices
 
 
 class DiffusionLoss(nn.Module):
@@ -66,7 +67,8 @@ class DiffusionLoss(nn.Module):
         loss_coord = F.mse_loss(pred_x_proj, tar_x_anchor)
         return loss_coord
 
-    def calc_atom_loss(self, pred_atom_logits, x_start_atoms, input_atom_types, t_discrete, batch_idx, num_graphs):
+    def calc_atom_loss(self, pred_atom_logits, x_start_atoms, input_atom_types,
+                       t_discrete, batch_idx, num_graphs, anchor_index):
         """
         计算原子类型的 D3PM Loss (VB term or Cross Entropy)
         Args:
@@ -77,13 +79,14 @@ class DiffusionLoss(nn.Module):
             batch_idx: batch index vector
             num_graphs: batch size
         """
+        orbit_representatives = representative_indices(anchor_index)
         loss_atom = compute_d3pm_loss(
             diffusion=self.d3pm,
-            score_model_logits=pred_atom_logits,
-            t=t_discrete,
-            x_start=x_start_atoms,
-            x_t=input_atom_types,
-            batch_idx=batch_idx,
+            score_model_logits=pred_atom_logits[orbit_representatives],
+            t=t_discrete[orbit_representatives],
+            x_start=x_start_atoms[orbit_representatives],
+            x_t=input_atom_types[orbit_representatives],
+            batch_idx=batch_idx[orbit_representatives],
             batch_size=num_graphs,
             hybrid_lambda=self.hybrid_lambda,
             reduce='mean',
@@ -112,7 +115,8 @@ class DiffusionLoss(nn.Module):
             input_atom_types,
             t_discrete,
             batch.batch,
-            batch.num_graphs
+            batch.num_graphs,
+            batch.anchor_index,
         )
 
         # 4. Weighted Sum

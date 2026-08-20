@@ -3,13 +3,13 @@ Property prediction script using a trained M3GNetSurrogate checkpoint.
 
 Usage examples:
   # Predict formation_energy_per_atom from a CSV with 'cif' column:
-  python scripts/predict_property.py \
+  python -m scripts.cli.evaluation.predict_property \
       --ckpt output/singlerun/<date>/<time>/best.ckpt \
       --input data/mp_20/test.csv \
       --output predictions.csv
 
   # Predict without ground truth (CSV needs only 'material_id' and 'cif' columns):
-  python scripts/predict_property.py \
+  python -m scripts.cli.evaluation.predict_property \
       --ckpt output/.../best.ckpt \
       --input my_structures.csv \
       --output my_predictions.csv \
@@ -182,10 +182,6 @@ def predict_structures(
         entry = {'graph_arrays': graph_arrays}
         data_list.append(cache_entry_to_data(entry))
 
-    add_scaled_lattice_prop(
-        [{'graph_arrays': d.to('cpu')} for d in data_list],
-        lattice_scale_method
-    )
 
     all_preds = []
     for i in range(0, len(data_list), batch_size):

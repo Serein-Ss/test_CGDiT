@@ -29,3 +29,16 @@ post_processing/plots/
 post_processing/*.pdf
 post_processing/*.png
 scripts/*.csv
+
+# uv and local test/build artifacts
+.venv/
+.uv-cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.pytest_cache/
+*.egg-info/
+
+# Local literature extraction artifacts
+paper_research/**/rendered-pages/
+paper_research/**/source_bundle.json

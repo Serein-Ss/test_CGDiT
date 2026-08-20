@@ -5,7 +5,21 @@ root_path: ${oc.env:PROJECT_ROOT}/data/mp_20
 
 # target property
 prop: formation_energy_per_atom
+prop_list: [formation_energy_per_atom, band_gap, e_above_hull]
 num_targets: 1
+
+# MP-20 training-split population statistics (ddof=0). These are used only to
+# standardize the regression loss; predictions are returned in physical units.
+target_stats:
+  formation_energy_per_atom:
+    mean: -1.219803
+    std: 1.029374
+  band_gap:
+    mean: 0.791848
+    std: 1.417749
+  e_above_hull:
+    mean: 0.017478
+    std: 0.023265
 
 # training control (required by train.yaml)
 train_max_epochs: 300
@@ -30,10 +44,11 @@ datamodule:
   datasets:
     train:
       _target_: cgdit.pl_data.dataset.CrystDataset
-      name: MP20 Formation Energy Train
+      name: MP20 Property Predictor Train
       path: ${data.root_path}/train.csv
       save_path: ${data.root_path}/train_sym.pt
       prop: ${data.prop}
+      prop_list: ${data.prop_list}
       niggli: ${data.niggli}
       primitive: ${data.primitive}
       graph_method: ${data.graph_method}
@@ -46,10 +61,11 @@ datamodule:
 
     val:
       - _target_: cgdit.pl_data.dataset.CrystDataset
-        name: MP20 Formation Energy Val
+        name: MP20 Property Predictor Val
         path: ${data.root_path}/val.csv
         save_path: ${data.root_path}/val_sym.pt
         prop: ${data.prop}
+        prop_list: ${data.prop_list}
         niggli: ${data.niggli}
         primitive: ${data.primitive}
         graph_method: ${data.graph_method}
@@ -62,10 +78,11 @@ datamodule:
 
     test:
       - _target_: cgdit.pl_data.dataset.CrystDataset
-        name: MP20 Formation Energy Test
+        name: MP20 Property Predictor Test
         path: ${data.root_path}/test.csv
         save_path: ${data.root_path}/test_sym.pt
         prop: ${data.prop}
+        prop_list: ${data.prop_list}
         niggli: ${data.niggli}
         primitive: ${data.primitive}
         graph_method: ${data.graph_method}

@@ -46,9 +46,20 @@ class CrystDataset(Dataset):
 
     def preprocess(self, save_path, preprocess_workers):
         if os.path.exists(save_path):
-            self.cached_data = torch.load(save_path, weights_only=False)
-        else:
-            cached_data = preprocess(
+            cached_data = torch.load(save_path, weights_only=False)
+            cache_is_current = (
+                len(cached_data) == len(self.df)
+                and (
+                    not cached_data
+                    or all(prop in cached_data[0] for prop in self.prop_list)
+                )
+                and os.path.getmtime(save_path) >= os.path.getmtime(self.path)
+            )
+            if cache_is_current:
+                self.cached_data = cached_data
+                return
+
+        cached_data = preprocess(
             self.path,
             preprocess_workers,
             niggli=self.niggli,
@@ -57,8 +68,8 @@ class CrystDataset(Dataset):
             prop_list=self.prop_list,
             use_space_group=self.use_space_group,
             tol=self.tolerance)
-            torch.save(cached_data, save_path)
-            self.cached_data = cached_data
+        torch.save(cached_data, save_path)
+        self.cached_data = cached_data
 
     def __len__(self) -> int:
         return len(self.cached_data)
