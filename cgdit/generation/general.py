@@ -110,7 +110,9 @@ class AbInitioDataset(Dataset):
         if self.use_empirical_prior and train_set is not None:
             atom_counts = []
             for i in range(len(train_set)):
-                n = int(train_set[i].num_atoms.item())
+                # n = int(train_set[i].num_atoms.item())
+                num_atoms = train_set[i].num_atoms
+                n = int(num_atoms.item()) if hasattr(num_atoms, "item") else int(num_atoms)
                 if n <= self.max_atoms:
                     atom_counts.append(n)
 
@@ -186,7 +188,8 @@ class AbInitioDataset(Dataset):
                 ops_inv.append(found_op.inverse.affine_matrix)
 
         ops = torch.tensor(np.array(ops), dtype=torch.float32)
-        ops_inv = torch.tensor(np.array(ops_inv), dtype=torch.float32)
+        # ops_inv = torch.tensor(np.array(ops_inv), dtype=torch.float32)
+        ops_inv = torch.linalg.pinv(ops[:, :3, :3])
 
         return Data(
             frac_coords=frac_coords,
@@ -196,7 +199,8 @@ class AbInitioDataset(Dataset):
             spacegroup=spacegroup,
             ops=ops,
             ops_inv=ops_inv,
-            anchor_index=anchor_index
+            anchor_index=anchor_index,
+            num_nodes=actual_num_atoms,
         )
 
 
