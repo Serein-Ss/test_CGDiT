@@ -6,6 +6,8 @@
 > 本地来源：`D:\app\Zotero\storage\Y7JZMA8T\Schusterbauer 等 - 2025 - Diff2Flow Training Flow Matching Models via Diffusion Model Alignment.pdf`  
 > 项目：`E:\WORKSPACE\CodePlace\test_CGDiT`
 
+> **项目状态更新（2026-08-09）**：Diff2Flow 已不再作为当前研究主线或开展 GRPO 的前置条件。当前唯一主线是“直接在 CGDiT 扩散采样链上实现面向晶体异构动作空间的 GRPO”。本文档保留为后续效率增强的技术储备；只有直接 GRPO 闭环成立、实测 rollout 占总训练时间超过约 70%，且 D2F-L 试点满足总效率和质量门槛时，才启动后续转换工作。最新执行顺序和验收条件以 `diffusion_rl_research_and_plan.md` v0.2 为准。
+
 ## 1. 结论
 
 这篇工作对 CGDiT 有意义，而且可以采用，但不能把论文公式不加修改地同时用于晶格、周期分数坐标和离散原子类型。
@@ -344,18 +346,18 @@ C_{pair-generation}+C_{reflow-training}.
 
 ## 10. 最终建议
 
-建议采用，但采用顺序应是：
+Diff2Flow 当前不进入研究主线。只有直接 CGDiT-GRPO 已经形成最小闭环，并且实测 rollout 成本触发主计划中的 M5 门槛后，才按以下顺序开展：
 
-1. **不要直接运行当前 `diff2flow.py`。** 先把它标记为原型或另建真正的 alignment module；
-2. **先做 D2F-L 晶格通道小实验。** 它成本最低，能快速验证 checkpoint prior 是否真的带来更快收敛；
-3. **如果 D2F-L 没有明显优势，就停止扩展。** 说明当前 checkpoint、网络容量或任务并不适合这条路线；
-4. **若有效，再处理 torus 坐标。** 这是核心技术难点和潜在创新中心；
-5. **原子类型先保留 D3PM hybrid。** 不要一开始同时引入 discrete flow；
-6. **Reflow 最后做，并先算盈亏平衡。** 它主要服务大规模生成和 RL，不是当前 base 训练加速的第一优先级。
+1. **先完成直接 diffusion-GRPO 和成本 profiling。** 不以转换工作阻塞 RL 方法验证；
+2. **不要直接运行当前 `diff2flow.py`。** 先把它标记为原型或另建真正的 alignment module；
+3. **只做 D2F-L 晶格通道小实验。** 它用于验证 checkpoint prior 是否带来实际的端到端效率收益；
+4. **如果 D2F-L 未达到至少 1.5 倍总效率，或 20–50 NFE 质量明显下降，就停止扩展。** 不进入 torus 和离散通道；
+5. **若门槛通过，再处理 torus 坐标。** 原子类型先保留同步 D3PM hybrid；
+6. **Reflow 最后做，并先计算未来 rollout 节省是否能覆盖配对生成和训练成本。**
 
 一句话概括：
 
-> Diff2Flow 最适合成为你“已训练 CGDiT → 少量微调的少步晶体生成器 → 低成本 RL rollout”的桥梁，而不是替代当前所有训练加速手段的万能方案。
+> 当前先直接在 CGDiT diffusion policy 上完成 GRPO；只有 rollout 成本经实测成为主要瓶颈时，Diff2Flow 才作为“少步生成器 → 低成本 RL rollout”的条件效率模块。
 
 ## 11. 来源与证据边界
 
