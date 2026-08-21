@@ -90,8 +90,7 @@ test_CGDiT/
 │   │   ├── evaluation/               # 评估命令
 │   │   ├── visualization/            # 绘图命令
 │   │   └── tools/                    # 查询与数据准备工具
-│   ├── legacy/                       # 暂时保留的旧实现
-│   └── *.py                          # 旧命令兼容入口
+│   └── test.ipynb                    # 开发期实验记录
 ├── pre_processing/                   # 数据预处理与分析
 ├── post_processing/                  # 旧版结果后处理脚本
 ├── submit_python/                    # 服务器批量训练脚本
@@ -363,7 +362,7 @@ output/singlerun/YYYY-MM-DD/HH-MM-SS-<expname>/
 
 ## Generation
 
-可复用代码位于 `cgdit/generation`，命令行入口位于 `scripts/cli/generation`。新代码应导入 `cgdit.generation`，而不是导入旧的 `scripts/*.py`。
+可复用代码位于 `cgdit/generation`，唯一命令行入口位于 `scripts/cli/generation`。新代码应直接导入 `cgdit.generation`；命令行统一使用 `python -m scripts.cli...`。
 
 ### 1. Template Generation
 
@@ -636,22 +635,13 @@ from cgdit.evaluation.metrics import Crystal, GenEval, RecEval
 from cgdit.evaluation.visualization import plot_property_parity
 ```
 
-不建议在新代码中写：
-
-```python
-from eval_utils import ...
-from sample_api import ...
-```
-
-旧文件仍作为兼容入口保留，例如：
+旧版 `scripts/*.py` 兼容入口和 `scripts/legacy` 实现已经删除。所有生成、重建、评估、性质预测和可视化结果只允许从以下正式模块入口产生：
 
 ```text
-scripts/generation.py
-scripts/evaluate.py
-scripts/compute_metrics.py
-scripts/sample.py
-scripts/predict_property.py
-scripts/eval_crystals.py
+scripts/cli/generation/
+scripts/cli/evaluation/
+scripts/cli/visualization/
+scripts/cli/tools/
 ```
 
 

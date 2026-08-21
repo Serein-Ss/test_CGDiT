@@ -224,7 +224,7 @@ Diffusion-DPO 等方法使用 winner–loser 样本对进行离线优化，不�
 
 - `cgdit/prop_models/gnn_models/m3gnet.py`
 - `conf/model/m3gnet.yaml`
-- `scripts/predict_property.py`
+- `scripts/cli/evaluation/predict_property.py`
 
 当前脚本可以作为奖励模型接口原型，但在正式 RL 中不能直接把单个 surrogate 同时作为训练奖励和最终评价器。
 

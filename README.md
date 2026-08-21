@@ -53,7 +53,6 @@ Reusable Python code is separated from command-line entry points:
 - `scripts/cli/generation`: structure-generation commands.
 - `scripts/cli/evaluation`: metric and evaluation commands.
 - `scripts/cli/visualization`: evaluation plotting commands.
-- `scripts/legacy`: deprecated implementations retained for compatibility.
 
 Run commands from the repository root in the `cgdit` environment:
 
@@ -64,4 +63,5 @@ python -m scripts.cli.evaluation.evaluate_metrics --root_path <model_path> --tas
 python -m scripts.cli.evaluation.evaluate_stability --input <eval_gen.pt> --train-csv data/<dataset>/train.csv
 ```
 
-The historical commands under `scripts/*.py` remain available as compatibility wrappers.
+Only the module-based commands under `scripts/cli` are supported. Historical
+`scripts/*.py` compatibility entry points have been removed.
