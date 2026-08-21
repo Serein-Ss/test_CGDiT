@@ -30,16 +30,22 @@ python cgdit/run.py data=<data_config> model=<model_config> expname=<experiment_
 
 注意：项目根目录的 `main.py` 只是 PyCharm 自动生成的示例文件，不是训练入口。
 
-当前本机保留 4 组 MP-20 生成模型训练结果：
+当前本机保留 8 组 MP-20 生成模型训练结果：
 
 | 实验 | 条件 | 模型目录 |
 |---|---|---|
 | mp20_base | 无性质条件 | `output/singlerun/2026-06-27/00-32-50-mp20_base` |
 | mp20_fe | Formation Energy | `output/singlerun/2026-06-28/16-46-08-mp20_fe` |
 | mp20_bg | Band Gap | `output/singlerun/2026-06-30/11-28-44-mp20_bg` |
-| mp20_fe_bg | 双条件 | `output/singlerun/2026-08-07/07-54-15-mp20_fe_bg` |
+| mp20_eh | Energy Above Hull | `output/singlerun/2026-07-02/04-07-02-mp20_eh` |
+| mp20_fe_bg_eh | FE + BG + Ehull 三条件 | `output/singlerun/2026-08-05/13-12-29-mp20_fe_bg_eh` |
+| mp20_fe_bg | FE + BG 双条件 | `output/singlerun/2026-08-07/07-54-15-mp20_fe_bg` |
+| mp20_fe_eh | FE + Ehull 双条件 | `output/singlerun/2026-08-08/18-02-14-mp20_fe_eh` |
+| mp20_bg_eh | BG + Ehull 双条件 | `output/singlerun/2026-08-10/02-53-51-mp20_bg_eh` |
 
-此外保留 FE、BG、Ehull 三个性质预测器，供 RL 训练奖励与固定 probe 验证使用；其登记信息见 `conf/rl/reward_models_mp20.yaml`。Ehull 相关生成模型结果已清理，但 Ehull 预测器仍作为辅助稳定性奖励保留。以上路径是当前机器上的结果快照，不应写死在新的代码或服务器脚本中。
+当前强化学习研究范围暂时只启用 FE 和 BG。训练奖励与固定 probe 均冻结为 seed=42：FE 使用 `mp20_predictor_fe`，BG 使用 `mp20_predictor_bg`。FE/BG 的 seed=123 虽然已有测试输出，但多 seed 预测器体系尚未完整冻结，因此当前不组成 ensemble，也不参与 reward 或 checkpoint 选择。Ehull predictor 和所有含 Ehull 的生成模型只作为历史资产保留，不进入当前研究主线。
+
+8 组生成模型仍完整保留以保证可追溯性；当前 FE/BG 主线实际使用 `mp20_base`、`mp20_fe`、`mp20_bg` 和 `mp20_fe_bg` 四个基线，对应 11 组正式 seed=42 生成/性质评估，每组 4096 个结构。完整 23 组结果不删除。具体状态见 `output/README.md` 和 `conf/rl/reward_models_mp20.yaml`。汇总文件中的 `/public/home/...` 是原服务器来源记录，本机执行必须使用当前项目相对路径。
 
 
 ## Project Structure

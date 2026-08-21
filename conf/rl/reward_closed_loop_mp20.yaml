@@ -1,0 +1,86 @@
+# Fixed-scale reward contract for the current Base -> RL FE/BG study.
+name: closed_loop_general_material_reward
+dataset: mp_20
+initial_policy: mp20_base
+conditioning:
+  condition_values: {}
+  guidance_scale: 0.0
+
+properties:
+  formation_energy_per_atom:
+    mode: target
+    target: -1.5
+    tolerance: 0.06
+    unit: eV/atom
+  band_gap:
+    mode: target
+    target: 2.0
+    tolerance: 0.45
+    unit: eV
+
+joint_property:
+  primary:
+    mode: bottleneck
+  ablation:
+    mode: weighted_mean
+    weights:
+      formation_energy_per_atom: 1.0
+      band_gap: 1.0
+
+validity:
+  invalid_penalty: 1.0
+  required:
+    - finite_structure
+    - finite_prediction
+    - composition_valid
+    - geometry_valid
+    - orbit_consistent
+
+# Chemeleon2-inspired exploration components are off in the causal first run.
+# Activate them only in the registered anti-collapse ablation.
+auxiliary_components:
+  activation: collapse_triggered_ablation
+  creativity:
+    enabled: false
+    weight: 1.0
+    boundary_score: same_formula_amd_distance
+  stability:
+    enabled: false
+    weight: 1.0
+    maximum_energy_above_hull: 1.0
+    reason: e_above_hull_is_out_of_current_FE_BG_scope
+  composition_diversity:
+    enabled: false
+    weight: 1.0
+    method: leave_one_out_mmd
+    fixed_scale: null
+  structure_diversity:
+    enabled: false
+    weight: 0.1
+    method: leave_one_out_mmd
+    fixed_scale: null
+
+normalization:
+  raw_reward: none
+  ppo_advantage: fixed_or_ema_baseline
+  grpo_advantage: within_group_standardization
+  paired_probe_reward: none
+
+closed_loop:
+  common_random_numbers: true
+  confidence: 0.95
+  bootstrap_samples: 2000
+  safety_drop_tolerance: 0.03
+  pilot_probe_size: 32
+  formal_probe_size: 128
+  attenuation_scale: 0.25
+  decision:
+    accept: primary_LCB_positive_and_safety_passes
+    attenuate: primary_mean_positive_but_LCB_inconclusive
+    reject: primary_not_improved_or_safety_regresses
+  safety_metrics:
+    - validity
+    - uniqueness
+    - novelty
+    - composition_diversity
+    - structure_diversity

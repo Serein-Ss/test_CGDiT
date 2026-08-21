@@ -6,7 +6,10 @@ from cgdit.rl.channel_time_credit import (
     temporal_difference_scores,
 )
 from cgdit.rl.objectives import grpo_objective, group_relative_advantages, ppo_objective
-from cgdit.rl.policy_improvement import decide_policy_improvement
+from cgdit.rl.policy_improvement import (
+    decide_policy_improvement,
+    decide_reward_improvement,
+)
 
 
 def make_log_probs(offset=0.0):
@@ -71,3 +74,20 @@ def test_paired_pirl_gate_accepts_safe_improvement_and_rejects_regression():
     )
     assert accepted.action == "accept" and accepted.scale == 1.0
     assert rejected.action == "reject" and rejected.scale == 0.0
+
+
+def test_closed_loop_reward_gate_uses_raw_reward_and_named_safety_metrics():
+    old_reward = torch.zeros(16)
+    new_reward = torch.ones(16)
+    old_safety = {"validity": torch.ones(16)}
+    new_safety = {"validity": torch.full((16,), 0.8)}
+    decision = decide_reward_improvement(
+        old_reward,
+        new_reward,
+        old_safety,
+        new_safety,
+        safety_tolerances={"validity": 0.1},
+        n_bootstrap=100,
+        seed=7,
+    )
+    assert decision.action == "reject"

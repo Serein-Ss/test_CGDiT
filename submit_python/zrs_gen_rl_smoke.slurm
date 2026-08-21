@@ -21,9 +21,8 @@ export PYTHONUNBUFFERED=1
 
 cd "${PROJECT_ROOT}"
 
-srun uv run --locked python -m scripts.cli.training.legacy_rl_gpu_smoke \
-    --model-path output/singlerun/2026-06-27/00-32-50-mp20_base \
-    --output-root output/rl_legacy_smoke \
-    --batch-size 4 \
-    --short-diff-ratio 0.02 \
-    --seed 42
+srun uv run --locked python -m scripts.cli.training.train_crystal_rl \
+    --train-config conf/rl/ppo_fe.yaml
+
+srun uv run --locked python -m scripts.cli.training.train_crystal_rl \
+    --train-config conf/rl/grpo_fe.yaml

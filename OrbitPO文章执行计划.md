@@ -5,7 +5,7 @@
 > 方法命名：`CrystalPIRL` 为文章主方法；`OrbitPO` 为其对称约化概率基础模块
 > 项目分支：`newton`
 > 文档性质：预注册式执行计划；所有结果位置均为待实验占位，不得提前填写结论
-> 当前状态：4 个 MP20 生成 checkpoint（base、FE、BG、FE+BG）和 FE/BG/Ehull 训练奖励模型已上传并通过文件完整性检查；Ehull 生成 checkpoint 已清理但预测器保留为辅助稳定性奖励；阶段二至四核心代码已落地；最终独立评估器、原始 PIPO 对照和正式 GPU 强化学习实验仍待完成
+> 当前状态：完整 8 个 MP20 生成 checkpoint 和 23 组结果保留归档；当前研究只启用 FE/BG、seed=42 奖励预测器及 base/FE/BG/FE+BG 四个生成基线（11 组正式评估）。不同 seed 的预测器体系尚未完整冻结，暂不使用 ensemble；阶段二至四核心代码已落地；FE/BG 最终独立评估器、原始 PIPO 对照和正式 GPU 强化学习实验仍待完成
 
 ---
 
@@ -15,19 +15,20 @@
 
 本文检验：
 
-> 在固定 probe 条件下，让候选策略与已验证策略共享目标、空间群、原子数和全部连续/离散随机流，用成对性能差及 bootstrap 下置信界决定接受、衰减或拒绝更新，能否在相同生成与性质查询预算下同时降低 PPO 和 GRPO 的坏更新率，并稳定提升通用材料性质？
+> 将固定物理标度的通用材料奖励同时作为 PPO/GRPO 的优化信号和候选策略验收信号，在固定 probe 条件下让候选策略与已验证策略共享目标、空间群、原子数和全部连续/离散随机流，用成对性能差及 bootstrap 下置信界决定接受、衰减或拒绝更新，能否在相同生成与性质查询预算下同时降低坏更新率，并稳定提升材料性质且不牺牲有效性和多样性？
 
 `OrbitPO` 解决这项检验所依赖的概率基础：在空间群约束下，元素、周期坐标和晶格必须按真实独立自由度计算联合 transition log-prob，避免错误 importance ratio 干扰策略更新及其验证。因此，文章的因果链为：
 
 ```text
 对称约化且可重算的策略概率
+→ 固定物理标度的目标/有效性/探索奖励
 → PPO/GRPO 候选更新
-→ 固定 probe + 共同随机数成对比较
+→ 固定 probe + 共同随机数成对比较原始奖励与安全指标
 → LCB 风险门控与 verified checkpoint
 → 更少坏更新、更高预算效率和更可靠的性质提升
 ```
 
-文章不以“首次将 PPO/GRPO 用于材料扩散”、普通多目标奖励、一般性的生成—打分—更新闭环或单纯使用独立轨道表示为主张。原始 PIPO 已经提出跨轮策略改进反馈；本文必须通过直接对照证明，固定 probe、共同随机数、成对差分、置信门控和回滚在晶体扩散中具有额外必要性。投稿前不使用“首个”表述。
+文章不以“首次将 PPO/GRPO 用于材料扩散”、创造性—稳定性—多样性加权奖励、一般性的生成—打分—更新闭环或单纯使用独立轨道表示为主张。Chemeleon2 已实现潜空间 GRPO 与多目标材料奖励；原始 PIPO 已经提出跨轮策略改进反馈。本文所称“闭环通用材料生成奖励”专指固定标度原始奖励参与候选策略的成对验收、置信门控和回滚，而不是普通加权和。投稿前不使用“首个”表述。
 
 ---
 
@@ -37,9 +38,10 @@
 
 正文按以下优先级组织：
 
-1. **Paired policy-improvement verification**：固定 probe，新旧策略共享随机流，使用 paired delta、bootstrap LCB 与 accept/attenuate/reject 决策维护 verified checkpoint。
-2. **Algorithm-agnostic closed-loop evaluation**：分别在 PPO 和 GRPO 上比较无验证器、原始 PIPO 与 Paired-PIRL，判断改进是否跨算法成立，而不是只对 GRPO 有效。
-3. **OrbitPO probability foundation**：元素采用轨道一致 D3PM，坐标采用代表点 wrapped likelihood，晶格采用空间群有效子空间 Gaussian；三者形成可重算的联合策略概率。
+1. **Closed-loop general material generation reward**：固定目标、容差、有效性和可选探索分量，区分原始奖励、策略优势与 probe 指标。
+2. **Paired policy-improvement verification**：固定 probe，新旧策略共享随机流，使用 paired delta、bootstrap LCB 与 accept/attenuate/reject 决策维护 verified checkpoint。
+3. **Algorithm-agnostic closed-loop evaluation**：分别在 PPO 和 GRPO 上比较无验证器、原始 PIPO 与 Paired-PIRL，判断改进是否跨算法成立，而不是只对 GRPO 有效。
+4. **OrbitPO probability foundation**：元素采用轨道一致 D3PM，坐标采用代表点 wrapped likelihood，晶格采用空间群有效子空间 Gaussian；三者形成可重算的联合策略概率。
 
 ### 2.2 只做内部效果检查、不写入文章结果总结的内容
 
@@ -54,7 +56,17 @@
 
 ## 3. 可检验的文章贡献
 
-### C1：Paired-PIRL 风险控制的策略改进验证
+### C1：闭环通用材料生成奖励与 Paired-PIRL 风险控制
+
+本文首先定义可跨 batch、跨更新比较的通用材料原始奖励。性质分量由固定目标和容差映射到 [0,1]，联合目标默认使用瓶颈聚合；无效结构得到显式负惩罚。创造性、稳定性、组成多样性和结构多样性采用 Chemeleon2 启发的模块化接口，但第一轮只监控，触发预注册坍缩阈值后才作为增强消融启用。
+
+GRPO 可以对同一 group 的原始奖励进行标准化以构造 advantage，但不得覆盖原始奖励。Paired-PIRL 始终比较未经过批次 min–max 的固定标度奖励。因此，本贡献的闭环是：
+
+\[
+R_{raw}\rightarrow A_{PPO/GRPO}\rightarrow\pi_{candidate}
+\rightarrow\Delta R_{raw}^{paired}\rightarrow
+\{\mathrm{accept,attenuate,reject}\}.
+\]
 
 对固定 probe 中每个条件与随机流 $j$，比较 verified old policy 和 candidate new policy：
 
@@ -135,42 +147,56 @@
 
 当前单元测试覆盖的是概率与接口正确性，不等价于已完成 GPU 训练、MLFF 松弛或 DFT 计算。
 
+新增奖励代码状态：
+
+| 功能 | 文件 | 状态 | 边界 |
+|---|---|---|---|
+| 固定标度性质与联合奖励 | cgdit/rl/rewards.py | 已实现 | 真实 predictor adapter 待接入 |
+| 显式无效结构惩罚 | cgdit/rl/rewards.py | 已实现 | validity 判据需在实验契约冻结 |
+| 创造性、稳定性、leave-one-out MMD | cgdit/rl/rewards.py | 已实现张量接口 | AMD/特征计算需接真实结构 |
+| raw reward 配对验收 | cgdit/rl/policy_improvement.py | 已实现 | 真实固定 probe 待 GPU 验证 |
+| MP20 奖励契约 | conf/rl/reward_closed_loop_mp20.yaml | 已建立 | 正式 target/scale 在 WP0 冻结 |
+
 ---
 
 ## 5. 五阶段执行路线
 
 ### 阶段一：冻结外部基线、训练奖励模型和独立评价器
 
-状态：**生成 checkpoint 与三个训练奖励模型已上传；最终独立评价器仍缺失。**
+状态：**FE/BG 的 seed=42 训练奖励模型和四个当前生成基线已冻结；多 seed predictor 暂不启用，FE/BG 最终独立评价器仍缺失。**
 
 当前训练奖励模型统一登记在 `conf/rl/reward_models_mp20.yaml`。这些 checkpoint 可用于 RL reward 与固定 probe 验证，但不得同时作为文章最终独立评价器。
 
 ### 需要上传的生成基线
 
-当前已保留：
+当前 FE/BG 主线启用：
 
 - `mp20_base`；
 - `mp20_fe`；
 - `mp20_bg`；
 - `mp20_fe_bg`；
-- 固定 seed 列表；
+
+以下结果只保留归档，不进入当前实验矩阵：`mp20_eh`、`mp20_fe_eh`、`mp20_bg_eh`、`mp20_fe_bg_eh`。
+
+当前实验还必须固定：
+
+- 固定 RL seed 列表；
 - 每个模型相同样本数、NFE、guidance scale 和 GPU 时间；
 - 生成结构原始 `.pt` 或 `.csv/.cif`，不能只上传汇总均值。
 
-Ehull 生成 checkpoint 已按当前清理方案移除，不再作为现有生成基线；Ehull predictor 仍可作为辅助稳定性奖励或安全约束。若以后恢复 Ehull 条件生成实验，需要重新提供对应 checkpoint 和同预算基线结果。
+当前性质执行顺序固定为 FE 单目标→BG 单目标→FE+BG 联合目标。Ehull 及含 Ehull 条件结果不进入当前 reward、probe、消融、主表或结论；历史文件保留但不调用。
 
 ### 需要上传的性质预测器
 
-每个性质至少需要训练 reward predictor 和独立 evaluator：
+当前两个性质分别需要训练 reward predictor 和独立 evaluator：
 
 - formation energy per atom；
 - band gap；
-- energy above hull；
 - checkpoint；
 - train/validation/test split 标识；
 - MAE、RMSE、校准曲线数据；
 - 训练 seed 与模型配置；
-- 若为 ensemble，保存每个成员的独立预测。
+- 当前冻结 seed=42 单模型；未来启用 ensemble 时再保存每个成员的独立预测。
 
 ### 阶段一验收条件
 
@@ -325,15 +351,28 @@ probe 门控只能使用训练 reward 或单独的 verifier；最终独立 evalu
 
 ### 5.3 通用性质任务
 
-按以下顺序逐步扩展：
+当前只按以下顺序执行：
 
 1. formation energy 最小化；
-2. band gap 目标值；
-3. Ehull 最小化；
-4. band gap 区间；
-5. 低 Ehull + 指定 band gap 联合约束。
+2. band gap 目标值或预注册区间；
+3. formation energy + band gap 联合约束。
 
-奖励全部使用有界函数，invalid 结构硬门控，ensemble uncertainty 作为惩罚项。正式阈值由阶段一冻结 evaluator 的测试分布确定，不在看到 RL 结果后修改。
+奖励使用有界函数并对 invalid 结构硬门控。当前只使用冻结的 seed=42 单预测器，不使用未完整冻结的 ensemble uncertainty；正式阈值由阶段一冻结 evaluator 的测试分布确定，不在看到 RL 结果后修改。Ehull 延后到下一研究阶段。
+
+闭环奖励固定为三层：
+
+1. raw_reward：固定目标/容差与显式 invalid penalty，不做批次 min–max；
+2. policy_advantage：PPO baseline 或 GRPO 组内标准化；
+3. probe_metrics：原始奖励为主指标，validity、uniqueness、novelty 和 diversity 为安全指标。
+
+Chemeleon2 对照消融只在 FE/BG 基础奖励通过后运行：
+
+- property + validity；
+- property + validity + composition diversity；
+- property + validity + composition diversity + structure diversity；
+- Chemeleon2 风格批次归一化奖励复现基线。
+
+最后一项只作为复现对照，不用于 CrystalPIRL 验收。
 
 ### 5.4 H2 内部实验，不进入文章结果总结
 
@@ -462,7 +501,7 @@ probe 门控只能使用训练 reward 或单独的 verifier；最终独立 evalu
 
 1. **背景**：强化学习可直接优化生成材料性质，但晶体扩散更新受长轨迹、随机 rollout、代理误差和混合动作影响。
 2. **缺口**：现有开放式更新和滑动历史 PIPO 都不能在共享随机条件下直接识别候选策略是否优于已验证策略。
-3. **方法**：提出 CrystalPIRL，以固定 probe、共同随机数、成对性能差、bootstrap LCB 和回滚实现风险控制的策略改进验证，并以 OrbitPO 提供对称约化联合概率。
+3. **方法**：提出固定标度闭环通用材料生成奖励与 CrystalPIRL，以同一原始奖励连接 PPO/GRPO 优化和固定 probe 的成对验收，并以 OrbitPO 提供对称约化联合概率。
 4. **实验**：在相同预算下进行 PPO/GRPO × 无验证器/原始 PIPO/Paired-PIRL 的 2×3 比较，并覆盖多种通用性质、空间群和结构规模。
 5. **结论**：只填写被三个或更多 seed、预注册判据和最终独立 evaluator 支持的结果。
 
@@ -502,33 +541,37 @@ probe 门控只能使用训练 reward 或单独的 verifier；最终独立 evalu
 
 给出 fixed probe、common random numbers、paired delta、bootstrap LCB、accept/attenuate/reject、verified checkpoint 和 rollback 伪代码。说明候选更新由 PPO/GRPO 产生，门控不改写 importance ratio。
 
-#### 8.6.2 Original PIPO comparison
+#### 8.6.2 Closed-loop general material generation reward
+
+定义 target/maximize/minimize/range 四类性质映射、显式 validity gate、FE+BG 瓶颈聚合、可选 creativity/stability/leave-one-out MMD 组件，以及 raw_reward、policy_advantage、probe_metrics 三层契约。说明为何组内标准化只用于梯度，而固定 probe 使用未归一化原始奖励；Chemeleon2 风格批次 min–max 只作为对照。
+
+#### 8.6.3 Original PIPO comparison
 
 严格实现滑动历史 anchor、标准化 improvement signal 与 retrospective modulation，列出与本文固定 probe 机制的差异，避免把原始 PIPO 当作“无验证”基线。
 
-#### 8.6.3 Orbit-consistent discrete diffusion
+#### 8.6.4 Orbit-consistent discrete diffusion
 
 写清代表点前向加噪、轨道级损失、反向后验与广播，并用“已占据晶体学轨道/非对称单元代表点”而不是含混的“独立 Wyckoff 轨道”。
 
-#### 8.6.4 Rank-aware lattice transition
+#### 8.6.5 Rank-aware lattice transition
 
 说明 active mask、affine constraint 和有效维数；给出有效子空间 Gaussian，解释为何不在退化六维环境空间使用普通密度。
 
-#### 8.6.5 Periodic coordinate transition
+#### 8.6.6 Periodic coordinate transition
 
 描述 corrector/predictor 概率、有限镜像 wrapped Gaussian 和代表点计数；主动声明当前没有完整 site-stabilizer 切空间。
 
-#### 8.6.6 Mixed joint policy measure and PPO/GRPO
+#### 8.6.7 Mixed joint policy measure and PPO/GRPO
 
 给出三通道联合 log-prob、importance ratio、KL 诊断、确定性末步处理，以及 PPO 外部 advantage 和 GRPO 组内标准化的公平实现。
 
-#### 8.6.7 Computational complexity
+#### 8.6.8 Computational complexity
 
 分别报告 rollout、概率重放、wrapped image sum、原始 PIPO 历史维护和 paired probe 的时间、显存及查询复杂度。
 
 ### 8.7 Experimental Setup
 
-完整写明 MP20 划分、冻结 checkpoint、reward predictor/probe verifier/最终独立 evaluator 的隔离，FE/BG/Ehull 目标及阈值、优化超参数、diffusion 步数、timestep 抽样、三个或更多 seed、GPU-hour/NFE/查询预算和统计方法。主实验是六组合，不是四组合。
+完整写明 MP20 划分、冻结 checkpoint、reward predictor/probe verifier/最终独立 evaluator 的隔离，FE/BG 目标及阈值、优化超参数、diffusion 步数、timestep 抽样、三个或更多 RL seed、GPU-hour/NFE/查询预算和统计方法。RL 实验 seed 与 predictor 训练 seed 分开记录。主实验是六组合，不是四组合。
 
 固定 probe 不得在观察主实验结果后更换。最终独立 evaluator 只评估冻结策略，不参与 accept/reject 或 checkpoint 选择。
 
@@ -539,7 +582,8 @@ probe 门控只能使用训练 reward 或单独的 verifier；最终独立 evalu
 - **RQ1：Paired-PIRL 是否比开放式更新和原始 PIPO 更可靠？** 报告坏更新率、错误接受率、paired delta/LCB、rollback 和额外成本。
 - **RQ2：这种作用是否跨 PPO/GRPO 成立？** 报告 2×3 交互、效应量与等效区间；允许得出算法相关或 GRPO 已足够稳定的负结论。
 - **RQ3：OrbitPO 是否提供正确且无系统规模偏置的策略概率？** 报告 old=current、数值密度对照、ratio/KL 对原子数、空间群有效维数和轨道多重度的分层结果。
-- **RQ4：在相同预算下是否提升通用性质且不牺牲生成质量？** 报告 FE/BG/Ehull、联合命中率、validity、uniqueness、novelty 和成本。
+- **RQ4：在相同预算下是否提升当前目标性质且不牺牲生成质量？** 报告 FE、BG、FE+BG 联合命中率、validity、uniqueness、novelty 和成本。
+- **RQ5：闭环奖励是否优于只用于梯度的开放式奖励？** 比较固定标度闭环、Chemeleon2 风格批次归一化、是否加入多样性组件，以及它们的坏更新率、目标产率和模式坍缩指标。
 
 Results 不展示 H2 与 predictor→MLFF→DFT 内部实验。
 
@@ -595,7 +639,7 @@ H2 与多保真效果保留为项目内部报告，不放入投稿附件，除�
 
 ### Figure 4：算法普适性与通用性质结果
 
-展示 PPO/GRPO × 三种验证机制的 2×3 交互、FE/BG/Ehull 命中率、生成质量及收益—额外成本。
+展示 PPO/GRPO × 三种验证机制的 2×3 交互、FE/BG 及联合命中率、生成质量与收益—额外成本。
 
 ### Table 1：主结果
 
@@ -678,12 +722,12 @@ output/rl_internal/
 3. 用旧 checkpoint 执行轨道级采样兼容评估；
 4. 决定短程微调还是正式重训轨道一致模型；
 5. 用真实 decoder 跑 transition replay 梯度 smoke test；
-6. 单性质 PPO 128–512 rollout；
-7. 单性质 GRPO 128–512 rollout；
-8. 实现并验证原始 PIPO 基线，建立固定 probe，运行 PPO/GRPO × 无验证/原始 PIPO/Paired-PIRL 的 2×3 小实验；
-9. 通过 Gate B 后扩展 FE、BG、Ehull 和联合约束；
+6. 先运行 FE 的 PPO、GRPO 128–512 rollout；
+7. 实现并验证原始 PIPO 基线，完成 FE 的 PPO/GRPO × 无验证/原始 PIPO/Paired-PIRL 2×3 小实验；
+8. 通过 Gate B 后，用相同接口和预算复跑 BG 的 2×3 实验；
+9. FE 与 BG 单目标均通过后，再运行 FE+BG 联合约束；
 10. 独立运行 H2 与多保真内部实验；
-11. 冻结三个 seed 结果后生成文章图表；
+11. 冻结三个或更多 RL seed 结果后生成文章图表；predictor seed 仍固定为 42；
 12. 按第 8 节逐段撰写，所有数字从冻结表格自动引用。
 
 ---

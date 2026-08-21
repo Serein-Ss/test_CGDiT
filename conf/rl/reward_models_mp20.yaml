@@ -1,10 +1,25 @@
-# These checkpoints are used by RL training and probe verification only.
-# They must not be reused as the final independent evaluators.
+# Active RL reward/probe configuration for the current FE/BG study.
+# These checkpoints must not be reused as final independent evaluators.
 dataset: mp_20
 role: training_reward
+audit_date: 2026-08-21
+source_archive: output.zip
+
+active_scope:
+  properties:
+    - formation_energy_per_atom
+    - band_gap
+  predictor_seeds:
+    - 42
+  generation_models:
+    - mp20_base
+    - mp20_fe
+    - mp20_bg
+    - mp20_fe_bg
 
 models:
   formation_energy_per_atom:
+    seed: 42
     checkpoint: output/singlerun/2026-08-16/01-27-48-mp20_predictor_fe/epoch=274-step=233200.ckpt
     test_predictions: output/singlerun/2026-08-16/01-27-48-mp20_predictor_fe/test_preds.npy
     test_targets: output/singlerun/2026-08-16/01-27-48-mp20_predictor_fe/test_targets.npy
@@ -15,6 +30,7 @@ models:
     test_r2: 0.99810629
 
   band_gap:
+    seed: 42
     checkpoint: output/singlerun/2026-08-16/15-18-32-mp20_predictor_bg/epoch=274-step=233200.ckpt
     test_predictions: output/singlerun/2026-08-16/15-18-32-mp20_predictor_bg/test_preds.npy
     test_targets: output/singlerun/2026-08-16/15-18-32-mp20_predictor_bg/test_targets.npy
@@ -24,12 +40,42 @@ models:
     test_rmse: 0.51360671
     test_r2: 0.86652920
 
+# These runs remain available for provenance but are not loaded by the current
+# reward path. The multi-seed predictor set has not been frozen as an ensemble.
+non_active_seed_runs:
+  formation_energy_per_atom:
+    - seed: 123
+      checkpoint: output/singlerun/2026-08-20/20-24-50-mp20_predictor_fe_seed123/epoch=224-step=190800.ckpt
+      test_predictions: output/singlerun/2026-08-20/20-24-50-mp20_predictor_fe_seed123/test_preds.npy
+      test_targets: output/singlerun/2026-08-20/20-24-50-mp20_predictor_fe_seed123/test_targets.npy
+      test_samples: 9046
+      test_mae: 0.02749113
+      test_rmse: 0.04432824
+      test_r2: 0.99813019
+      status: evaluated_not_frozen_for_current_study
+
+  band_gap:
+    - seed: 123
+      checkpoint: output/singlerun/2026-08-21/08-37-12-mp20_predictor_bg_seed123/epoch=254-step=216240.ckpt
+      test_predictions: output/singlerun/2026-08-21/08-37-12-mp20_predictor_bg_seed123/test_preds.npy
+      test_targets: output/singlerun/2026-08-21/08-37-12-mp20_predictor_bg_seed123/test_targets.npy
+      test_samples: 9046
+      test_mae: 0.21229719
+      test_rmse: 0.51004881
+      test_r2: 0.86837196
+      status: evaluated_not_frozen_for_current_study
+
+archived_out_of_scope_models:
   e_above_hull:
-    checkpoint: output/singlerun/2026-08-17/05-54-35-mp20_predictor_eh/epoch=19-step=16960.ckpt
-    test_predictions: output/singlerun/2026-08-17/05-54-35-mp20_predictor_eh/test_preds.npy
-    test_targets: output/singlerun/2026-08-17/05-54-35-mp20_predictor_eh/test_targets.npy
-    unit: eV/atom
-    test_samples: 9046
-    test_mae: 0.01430484
-    test_rmse: 0.01970880
-    test_r2: 0.26369541
+    seed_42:
+      checkpoint: output/singlerun/2026-08-17/05-54-35-mp20_predictor_eh/epoch=19-step=16960.ckpt
+      test_predictions: output/singlerun/2026-08-17/05-54-35-mp20_predictor_eh/test_preds.npy
+      test_targets: output/singlerun/2026-08-17/05-54-35-mp20_predictor_eh/test_targets.npy
+      test_samples: 9046
+      test_mae: 0.01430484
+      test_rmse: 0.01970880
+      test_r2: 0.26369541
+      status: evaluated_but_out_of_current_scope
+    seed_123:
+      checkpoint: output/singlerun/2026-08-21/17-20-41-mp20_predictor_eh_seed123/epoch=19-step=16960.ckpt
+      status: checkpoint_only_no_test_outputs
