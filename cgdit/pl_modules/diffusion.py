@@ -21,6 +21,18 @@ from cgdit.pl_modules.diff_utils.discrete_diff_utils import (
 
 from cgdit.pl_modules.cfg_utils import ConditioningEncoder
 from cgdit.pl_modules.training_utils import DiffusionLoss
+from cgdit.rl.symmetry_quotient import (
+    broadcast_from_representatives,
+    lattice_active_mask,
+    representative_indices,
+    select_representatives,
+)
+from cgdit.rl.trajectory import CrystalState, RLTrajectory, RLTransition
+from cgdit.rl.transition_logprob import (
+    categorical_orbit_log_prob,
+    coordinate_orbit_log_prob,
+    subspace_normal_log_prob,
+)
 
 
 MAX_ATOMIC_NUM = 100
@@ -173,15 +185,18 @@ class Diffusion(BaseModule):
         # print(x_start_atoms)
         x_start_atoms = torch.clamp(x_start_atoms, min=0, max=self.num_atom_types - 1)
 
-        times_per_atom = times.repeat_interleave(batch.num_atoms)
-        t_discrete = times_per_atom.long() + 1
-        t_discrete = torch.clamp(t_discrete, max=self.beta_scheduler.timesteps - 1)
+        times_per_atom = times.repeat_interleave(batch.num_atoms).long()
+        d3pm_loss_t = times_per_atom - 1
 
-        input_atom_types = self.q_sample(
-            x_start=x_start_atoms,
-            t=t_discrete,
+        orbit_representatives = representative_indices(batch.anchor_index)
+        input_atom_types_representative = self.q_sample(
+            x_start=x_start_atoms[orbit_representatives],
+            t=times_per_atom[orbit_representatives],
             diffusion=self.d3pm,
             return_logits=False
+        )
+        input_atom_types = broadcast_from_representatives(
+            input_atom_types_representative, batch.anchor_index
         )
 
         # --- Model Prediction ---
@@ -208,22 +223,49 @@ class Diffusion(BaseModule):
             pred_atom_logits=pred_atom_types_logits,
             x_start_atoms=x_start_atoms,
             input_atom_types=input_atom_types,
-            t_discrete=t_discrete
+            t_discrete=d3pm_loss_t
         )
 
         # breakpoint()
         return output_dict
 
     @torch.no_grad()
-    def sample(self, batch, diff_ratio=1.0, step_lr=1e-5, guidance_scale=1.0, fixed_atom_types=None):
+    def sample(self, batch, diff_ratio=1.0, step_lr=1e-5, guidance_scale=1.0,
+               fixed_atom_types=None, return_rl_trajectory=False, noise_seed=None):
+        if noise_seed is not None:
+            fork_devices = []
+            if self.device.type == 'cuda':
+                fork_devices = [
+                    self.device.index
+                    if self.device.index is not None
+                    else torch.cuda.current_device()
+                ]
+            with torch.random.fork_rng(devices=fork_devices):
+                torch.manual_seed(noise_seed)
+                if self.device.type == 'cuda':
+                    torch.cuda.manual_seed(noise_seed)
+                return Diffusion.sample(
+                    self,
+                    batch,
+                    diff_ratio=diff_ratio,
+                    step_lr=step_lr,
+                    guidance_scale=guidance_scale,
+                    fixed_atom_types=fixed_atom_types,
+                    return_rl_trajectory=return_rl_trajectory,
+                    noise_seed=None,
+                )
         if not 0.0 < diff_ratio <= 1.0:
             raise ValueError(f"diff_ratio must be in (0, 1], got {diff_ratio}.")
 
         batch_size = batch.num_graphs
+        orbit_representatives = representative_indices(batch.anchor_index)
 
         if fixed_atom_types is not None:
             fixed_atom_types = fixed_atom_types.long().to(self.device)
             fixed_atom_types = torch.clamp(fixed_atom_types, min=0, max=self.num_atom_types - 1)
+            fixed_atom_types = broadcast_from_representatives(
+                fixed_atom_types[orbit_representatives], batch.anchor_index
+            )
 
         x_T = torch.rand([batch.num_nodes, 3]).to(self.device)
         crys_fam_T = torch.randn([batch_size, 6]).to(self.device)
@@ -231,12 +273,20 @@ class Diffusion(BaseModule):
 
         if fixed_atom_types is not None:
             # 如果 diff_ratio < 1，会在后面被覆盖，这里先按 T 初始化
-            t_max_tensor = torch.full(fixed_atom_types.shape, self.beta_scheduler.timesteps - 1,
+            t_max_tensor = torch.full((orbit_representatives.numel(),), self.beta_scheduler.timesteps - 1,
                                       device=self.device, dtype=torch.long)
-            atom_types_T = self.q_sample(x_start=fixed_atom_types, t=t_max_tensor, diffusion=self.d3pm)
+            atom_types_T = self.q_sample(
+                x_start=fixed_atom_types[orbit_representatives],
+                t=t_max_tensor,
+                diffusion=self.d3pm,
+            )
+            atom_types_T = broadcast_from_representatives(atom_types_T, batch.anchor_index)
         else:
             # 否则，从全 MASK 分布开始
-            atom_types_T = self.d3pm.sample_stationary(batch.atom_types.shape).to(self.device)
+            atom_types_T = self.d3pm.sample_stationary(
+                (orbit_representatives.numel(),)
+            ).to(self.device)
+            atom_types_T = broadcast_from_representatives(atom_types_T, batch.anchor_index)
 
         if diff_ratio < 1:
             time_start = max(1, int(self.beta_scheduler.timesteps * diff_ratio))
@@ -267,19 +317,20 @@ class Diffusion(BaseModule):
             x_T = (frac_coords + sigmas * rand_x) % 1.
 
             # 增加对离散数据的加噪
-            t_discrete_start = torch.full(batch.atom_types.shape, time_start,
+            t_discrete_start = torch.full((orbit_representatives.numel(),), time_start,
                                           device=self.device, dtype=torch.long)
 
             if fixed_atom_types is not None:
                 # 使用传入的 fixed_atom_types 加噪到 time_start
-                atom_types_T = self.q_sample(x_start=fixed_atom_types, t=t_discrete_start,
+                atom_types_T = self.q_sample(x_start=fixed_atom_types[orbit_representatives], t=t_discrete_start,
                                              diffusion=self.d3pm)
             else:
                 # 使用 batch 中原有的 atom_types 加噪 (常规流程)
                 x_start_atoms = batch.atom_types.long() - 1
                 x_start_atoms = torch.clamp(x_start_atoms, min=0, max=self.num_atom_types - 1)
-                atom_types_T = self.q_sample(x_start=x_start_atoms, t=t_discrete_start,
+                atom_types_T = self.q_sample(x_start=x_start_atoms[orbit_representatives], t=t_discrete_start,
                                              diffusion=self.d3pm)
+            atom_types_T = broadcast_from_representatives(atom_types_T, batch.anchor_index)
 
         else:
             time_start = self.beta_scheduler.timesteps - 1
@@ -298,6 +349,7 @@ class Diffusion(BaseModule):
             'lattices': l_T,
             'crys_fam': crys_fam_T
         }}
+        rl_transitions = []
 
         for t in tqdm(range(time_start, 0, -1)):
             times = torch.full((batch_size,), t, device=self.device)
@@ -333,6 +385,7 @@ class Diffusion(BaseModule):
             rand_x_anchor = rand_x[batch.anchor_index]
             rand_x_anchor = (batch.ops_inv[batch.anchor_index] @ rand_x_anchor.unsqueeze(-1)).squeeze(-1)
             rand_x = (batch.ops[:, :3, :3] @ rand_x_anchor.unsqueeze(-1)).squeeze(-1)
+            corrector_noise = rand_x
 
             # pred_crys_fam, pred_x, pred_atom_types_logits = self.decoder(
             #     time_emb,
@@ -362,7 +415,9 @@ class Diffusion(BaseModule):
 
             pred_x = (batch.ops[:, :3, :3] @ pred_x_anchor.unsqueeze(-1)).squeeze(-1)
 
-            x_t_minus_05 = x_t - step_size * pred_x + std_x * rand_x
+            corrector_mean = x_t - step_size * pred_x
+            corrector_std = std_x
+            x_t_minus_05 = corrector_mean + corrector_std * rand_x
 
             crys_fam_t_minus_05 = crys_fam_t
 
@@ -378,6 +433,7 @@ class Diffusion(BaseModule):
 
             rand_crys_fam = torch.randn_like(crys_fam_T)
             rand_crys_fam = self.crystal_family.proj_k_to_spacegroup(rand_crys_fam, batch.spacegroup)
+            lattice_noise = rand_crys_fam
             ori_crys_fam = crys_fam_t
             rand_x = torch.randn_like(x_T) if t > 1 else torch.zeros_like(x_T)
 
@@ -388,6 +444,7 @@ class Diffusion(BaseModule):
             rand_x_anchor = rand_x[batch.anchor_index]
             rand_x_anchor = (batch.ops_inv[batch.anchor_index] @ rand_x_anchor.unsqueeze(-1)).squeeze(-1)
             rand_x = (batch.ops[:, :3, :3] @ rand_x_anchor.unsqueeze(-1)).squeeze(-1)
+            predictor_noise = rand_x
 
             # pred_crys_fam, pred_x, pred_atom_types_logits = self.decoder(
             #     time_emb,
@@ -411,14 +468,20 @@ class Diffusion(BaseModule):
 
             pred_x = pred_x * torch.sqrt(sigma_norm)
 
-            crys_fam_t_minus_1 = c0 * (ori_crys_fam - c1 * pred_crys_fam) + sigmas * rand_crys_fam
+            lattice_mean = c0 * (ori_crys_fam - c1 * pred_crys_fam)
+            lattice_mean = self.crystal_family.proj_k_to_spacegroup(
+                lattice_mean, batch.spacegroup
+            )
+            crys_fam_t_minus_1 = lattice_mean + sigmas * rand_crys_fam
             crys_fam_t_minus_1 = self.crystal_family.proj_k_to_spacegroup(crys_fam_t_minus_1, batch.spacegroup)
 
             pred_x_proj = torch.einsum('bij, bj-> bi', batch.ops_inv, pred_x)
             pred_x_anchor = scatter(pred_x_proj, batch.anchor_index, dim=0, reduce='mean')[batch.anchor_index]
             pred_x = (batch.ops[:, :3, :3] @ pred_x_anchor.unsqueeze(-1)).squeeze(-1)
 
-            x_t_minus_1 = x_t_minus_05 - step_size * pred_x + std_x * rand_x
+            predictor_mean = x_t_minus_05 - step_size * pred_x
+            predictor_std = std_x
+            x_t_minus_1 = predictor_mean + predictor_std * rand_x
 
             l_t_minus_1 = self.crystal_family.v2m(crys_fam_t_minus_1)
 
@@ -430,27 +493,42 @@ class Diffusion(BaseModule):
 
             # 更新离散变量，只关心真实的元素类型 (0-99)，忽略 [MASK] (100)
             if fixed_atom_types is not None:
+                p_t_minus_1_logits = None
                 # === 模式 A: 固定原子类型 ===
                 target_t = t - 1
                 if target_t == 0:
                     atom_types_t_minus_1 = fixed_atom_types
                 else:
                     # 中间步骤：从 Clean 数据前向加噪到 t-1
-                    t_next_tensor = torch.full(fixed_atom_types.shape, target_t,
+                    t_next_tensor = torch.full((orbit_representatives.numel(),), target_t,
                                                device=self.device, dtype=torch.long)
                     atom_types_t_minus_1 = self.q_sample(
-                        x_start=fixed_atom_types,
+                        x_start=fixed_atom_types[orbit_representatives],
                         t=t_next_tensor,
                         diffusion=self.d3pm
+                    )
+                    atom_types_t_minus_1 = broadcast_from_representatives(
+                        atom_types_t_minus_1, batch.anchor_index
                     )
             else:
                 # === 模式 B: 全生成 ===
                 # 使用模型预测 logits 进行后验采样
-                pred_x0_atom_logits = pred_atom_types_logits[:, :self.num_atom_types]
-                t_discrete_tensor = torch.full(atom_types_t.shape, t, device=self.device, dtype=torch.long)
-                atom_types_t_long = atom_types_t_minus_05.long()
+                pred_x0_atom_logits = pred_atom_types_logits[
+                    orbit_representatives, :self.num_atom_types
+                ]
+                t_discrete_tensor = torch.full(
+                    (orbit_representatives.numel(),), t,
+                    device=self.device, dtype=torch.long
+                )
+                atom_types_t_long = atom_types_t_minus_05[
+                    orbit_representatives
+                ].long()
 
-                full_logits = torch.full((atom_types_t.shape[0], self.num_atom_types + 1), -1e9, device=self.device)
+                full_logits = torch.full(
+                    (orbit_representatives.numel(), self.num_atom_types + 1),
+                    -1e9,
+                    device=self.device,
+                )
                 full_logits[:, :self.num_atom_types] = pred_x0_atom_logits
                 pred_x0_atom_probs = full_logits.softmax(dim=-1)
 
@@ -463,6 +541,97 @@ class Diffusion(BaseModule):
                     atom_types_t_minus_1 = torch.distributions.Categorical(logits=p_t_minus_1_logits).sample()
                 else:
                     atom_types_t_minus_1 = torch.argmax(p_t_minus_1_logits, dim=-1)
+                atom_types_t_minus_1 = broadcast_from_representatives(
+                    atom_types_t_minus_1, batch.anchor_index
+                )
+
+            if return_rl_trajectory:
+                state_t_record = CrystalState(
+                    atom_types=atom_types_t.detach().clone(),
+                    frac_coords=x_t.detach().clone(),
+                    crys_fam=crys_fam_t.detach().clone(),
+                )
+                state_half_record = CrystalState(
+                    atom_types=atom_types_t_minus_05.detach().clone(),
+                    frac_coords=x_t_minus_05.detach().clone(),
+                    crys_fam=crys_fam_t_minus_05.detach().clone(),
+                )
+                state_next_record = CrystalState(
+                    atom_types=atom_types_t_minus_1.detach().clone(),
+                    frac_coords=x_t_minus_1.detach().clone(),
+                    crys_fam=crys_fam_t_minus_1.detach().clone(),
+                )
+                zero_log_prob = crys_fam_t.new_zeros(batch_size)
+                if t > 1:
+                    old_lattice_log_prob = subspace_normal_log_prob(
+                        crys_fam_t_minus_1,
+                        lattice_mean,
+                        sigmas,
+                        lattice_active_mask(self.crystal_family, batch.spacegroup),
+                    )
+                    old_coord_log_prob = coordinate_orbit_log_prob(
+                        x_t_minus_05,
+                        corrector_mean,
+                        corrector_std,
+                        batch.anchor_index,
+                        batch.batch,
+                        batch_size,
+                    ) + coordinate_orbit_log_prob(
+                        x_t_minus_1,
+                        predictor_mean,
+                        predictor_std,
+                        batch.anchor_index,
+                        batch.batch,
+                        batch_size,
+                    )
+                    if p_t_minus_1_logits is None:
+                        old_atom_log_prob = zero_log_prob
+                    else:
+                        old_atom_log_prob = categorical_orbit_log_prob(
+                            p_t_minus_1_logits,
+                            atom_types_t_minus_1,
+                            batch.anchor_index,
+                            batch.batch,
+                            batch_size,
+                        )
+                else:
+                    old_lattice_log_prob = zero_log_prob
+                    old_coord_log_prob = zero_log_prob
+                    old_atom_log_prob = zero_log_prob
+
+                rl_transitions.append(RLTransition(
+                    timestep=t,
+                    state_t=state_t_record,
+                    state_half=state_half_record,
+                    state_next=state_next_record,
+                    old_log_prob_by_channel={
+                        'lattice': old_lattice_log_prob.detach().clone(),
+                        'coord': old_coord_log_prob.detach().clone(),
+                        'atom': old_atom_log_prob.detach().clone(),
+                    },
+                    actions_by_channel={
+                        'lattice': crys_fam_t_minus_1.detach().clone(),
+                        'coord_corrector': select_representatives(
+                            x_t_minus_05, batch.anchor_index
+                        ).detach().clone(),
+                        'coord_predictor': select_representatives(
+                            x_t_minus_1, batch.anchor_index
+                        ).detach().clone(),
+                        'atom': select_representatives(
+                            atom_types_t_minus_1, batch.anchor_index
+                        ).detach().clone(),
+                    },
+                    noise_by_channel={
+                        'lattice': lattice_noise.detach().clone(),
+                        'coord_corrector': select_representatives(
+                            corrector_noise, batch.anchor_index
+                        ).detach().clone(),
+                        'coord_predictor': select_representatives(
+                            predictor_noise, batch.anchor_index
+                        ).detach().clone(),
+                    },
+                    stochastic=t > 1,
+                ))
 
             traj[t - 1] = {
                 'num_atoms': batch.num_atoms,
@@ -479,7 +648,37 @@ class Diffusion(BaseModule):
             'all_lattices': torch.stack([traj[i]['lattices'] for i in range(time_start, -1, -1)])
         }
 
+        if return_rl_trajectory:
+            rl_trajectory = RLTrajectory(
+                transitions=rl_transitions,
+                final_state=CrystalState(
+                    atom_types=traj[0]['atom_types'].detach().clone(),
+                    frac_coords=traj[0]['frac_coords'].detach().clone(),
+                    crys_fam=traj[0]['crys_fam'].detach().clone(),
+                ),
+                num_atoms=batch.num_atoms.detach().clone(),
+                metadata={
+                    'spacegroup': batch.spacegroup.detach().clone(),
+                    'anchor_index': batch.anchor_index.detach().clone(),
+                    'batch': batch.batch.detach().clone(),
+                },
+            )
+            return traj[0], traj_stack, rl_trajectory
         return traj[0], traj_stack
+
+    def sample_rl(self, batch, diff_ratio=1.0, step_lr=1e-5,
+                  guidance_scale=1.0, fixed_atom_types=None, noise_seed=None):
+        """Sample and retain the actions required for differentiable replay."""
+        return Diffusion.sample(
+            self,
+            batch,
+            diff_ratio=diff_ratio,
+            step_lr=step_lr,
+            guidance_scale=guidance_scale,
+            fixed_atom_types=fixed_atom_types,
+            return_rl_trajectory=True,
+            noise_seed=noise_seed,
+        )
 
     def _get_model_output(self,
                           time_emb_base,

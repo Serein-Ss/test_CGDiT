@@ -1,7 +1,8 @@
-"""Independent property evaluation for generated ``eval_gen_*.pt`` files."""
+"""Property evaluation for generated ``eval_gen_*.pt`` files."""
 
 from __future__ import annotations
 
+import argparse
 import json
 import multiprocessing as mp
 import os
@@ -28,7 +29,7 @@ DEFAULT_TOLERANCES = {
 
 
 def discover_formal_generation_files(root_path: str | Path) -> list[Path]:
-    """Return only the 23 formal template/ab-initio outputs."""
+    """Return formal seed-42 template and ab-initio generation outputs."""
     root = Path(root_path)
     paths = set(root.rglob("eval_gen_template_*_n4096_seed42.pt"))
     paths.update(root.rglob("eval_gen_abinitio_empirical_*_n4096_seed42.pt"))
@@ -93,18 +94,18 @@ def compute_property_metrics(
             })
 
             if reference_predictions and name in reference_predictions:
-                ref = np.asarray(reference_predictions[name], dtype=float)
-                ref = ref[np.isfinite(ref)]
-                if ref.size:
+                reference = np.asarray(reference_predictions[name], dtype=float)
+                reference = reference[np.isfinite(reference)]
+                if reference.size:
                     prop_metrics["wdist_to_test_predictions"] = float(
-                        wasserstein_distance(valid_values, ref)
+                        wasserstein_distance(valid_values, reference)
                     )
             if reference_targets and name in reference_targets:
-                ref = np.asarray(reference_targets[name], dtype=float)
-                ref = ref[np.isfinite(ref)]
-                if ref.size:
+                reference = np.asarray(reference_targets[name], dtype=float)
+                reference = reference[np.isfinite(reference)]
+                if reference.size:
                     prop_metrics["wdist_to_test_targets"] = float(
-                        wasserstein_distance(valid_values, ref)
+                        wasserstein_distance(valid_values, reference)
                     )
 
         if name in targets:
@@ -117,10 +118,18 @@ def compute_property_metrics(
                 "target": target,
                 "target_tolerance": float(tolerances[name]),
                 "target_mae": float(np.mean(finite_errors)) if finite_errors.size else None,
-                "target_rmse": float(np.sqrt(np.mean(finite_errors ** 2))) if finite_errors.size else None,
-                "target_bias": float(np.mean(values[finite] - target)) if finite_errors.size else None,
+                "target_rmse": (
+                    float(np.sqrt(np.mean(finite_errors ** 2)))
+                    if finite_errors.size else None
+                ),
+                "target_bias": (
+                    float(np.mean(values[finite] - target))
+                    if finite_errors.size else None
+                ),
                 "n_hits": int(hits.sum()),
-                "hit_rate_predicted": float(hits.sum() / finite.sum()) if finite.any() else 0.0,
+                "hit_rate_predicted": (
+                    float(hits.sum() / finite.sum()) if finite.any() else 0.0
+                ),
                 "hit_rate_all": float(hits.sum() / total_count) if total_count else 0.0,
             })
 
@@ -128,7 +137,9 @@ def compute_property_metrics(
 
     if targets:
         target_names = [name for name in PROPERTY_NAMES if name in targets]
-        joint_predictable = np.logical_and.reduce([finite_masks[name] for name in target_names])
+        joint_predictable = np.logical_and.reduce([
+            finite_masks[name] for name in target_names
+        ])
         joint_hits = np.logical_and.reduce([hit_masks[name] for name in target_names])
         metrics["joint"] = {
             "target_properties": target_names,
@@ -138,12 +149,22 @@ def compute_property_metrics(
                 float(joint_hits.sum() / joint_predictable.sum())
                 if joint_predictable.any() else 0.0
             ),
-            "joint_hit_rate_all": float(joint_hits.sum() / total_count) if total_count else 0.0,
+            "joint_hit_rate_all": (
+                float(joint_hits.sum() / total_count) if total_count else 0.0
+            ),
         }
     else:
         metrics["joint"] = None
 
     return metrics
+
+
+def load_generation_payload(path: str | Path) -> dict[str, Any]:
+    """Load a generated tensor payload without enabling arbitrary pickle code."""
+    import torch
+
+    torch.serialization.add_safe_globals([argparse.Namespace])
+    return torch.load(path, map_location="cpu", weights_only=True)
 
 
 def _crystal_array_list(payload: dict[str, Any]) -> list[dict[str, np.ndarray]]:
@@ -153,8 +174,7 @@ def _crystal_array_list(payload: dict[str, Any]) -> list[dict[str, np.ndarray]]:
         payload["frac_coords"], payload["atom_types"], payload["lengths"],
         payload["angles"], payload["num_atoms"],
     )
-    # Diffusion atom types are zero-based class indices; property training uses
-    # atomic numbers (H=1, He=2, ...).
+    # Diffusion outputs zero-based element classes; predictor graphs use Z=1...N.
     for crystal in arrays:
         crystal["atom_types"] = np.asarray(crystal["atom_types"], dtype=np.int64) + 1
     return arrays
@@ -163,14 +183,16 @@ def _crystal_array_list(payload: dict[str, Any]) -> list[dict[str, np.ndarray]]:
 def _build_graph(task: tuple[int, dict[str, np.ndarray], bool, bool, str]):
     index, crystal_array, niggli, primitive, graph_method = task
     try:
-        from pymatgen.core import Lattice, Structure
         import torch
+        from pymatgen.core import Lattice, Structure
         from torch_geometric.data import Data
+
         from cgdit.common.data_utils import build_crystal_graph
 
         structure = Structure(
             lattice=Lattice.from_parameters(*(
-                crystal_array["lengths"].tolist() + crystal_array["angles"].tolist()
+                crystal_array["lengths"].tolist()
+                + crystal_array["angles"].tolist()
             )),
             species=crystal_array["atom_types"],
             coords=crystal_array["frac_coords"],
@@ -180,10 +202,6 @@ def _build_graph(task: tuple[int, dict[str, np.ndarray], bool, bool, str]):
             structure = structure.get_primitive_structure()
         if niggli:
             structure = structure.get_reduced_structure()
-        # Match ``build_crystal`` used by the training dataset: Niggli
-        # reduction can leave an equivalent but differently oriented lattice
-        # matrix, while ``build_crystal_graph`` expects the canonical matrix
-        # reconstructed from (a, b, c, alpha, beta, gamma).
         structure = Structure(
             lattice=Lattice.from_parameters(*structure.lattice.parameters),
             species=structure.species,
@@ -191,8 +209,10 @@ def _build_graph(task: tuple[int, dict[str, np.ndarray], bool, bool, str]):
             coords_are_cartesian=False,
         )
 
-        (frac_coords, atom_types, lengths, angles,
-         edge_indices, to_jimages, num_atoms) = build_crystal_graph(structure, graph_method)
+        (
+            frac_coords, atom_types, lengths, angles,
+            edge_indices, to_jimages, num_atoms,
+        ) = build_crystal_graph(structure, graph_method)
         edge_indices = np.asarray(edge_indices)
         to_jimages = np.asarray(to_jimages)
         if edge_indices.size == 0:
@@ -200,7 +220,9 @@ def _build_graph(task: tuple[int, dict[str, np.ndarray], bool, bool, str]):
             to_jimages_tensor = torch.empty((0, 3), dtype=torch.long)
             num_bonds = 0
         else:
-            edge_index = torch.as_tensor(edge_indices.T, dtype=torch.long).contiguous()
+            edge_index = torch.as_tensor(
+                edge_indices.T, dtype=torch.long
+            ).contiguous()
             to_jimages_tensor = torch.as_tensor(to_jimages, dtype=torch.long)
             num_bonds = int(edge_indices.shape[0])
 
@@ -216,7 +238,7 @@ def _build_graph(task: tuple[int, dict[str, np.ndarray], bool, bool, str]):
             num_nodes=int(num_atoms),
         )
         return index, data, None
-    except Exception as exc:  # keep failed structures visible in the result CSV
+    except Exception as exc:
         return index, None, f"{type(exc).__name__}: {exc}"
 
 
@@ -232,15 +254,14 @@ def build_graphs(
         for index, crystal in enumerate(crystal_arrays)
     ]
     if num_workers > 1:
-        # Use spawn because later groups are graphed after CUDA inference; fork
-        # from a CUDA-initialized parent is unsafe even when workers use CPU.
         with ProcessPoolExecutor(
             max_workers=num_workers,
             mp_context=mp.get_context("spawn"),
         ) as executor:
             results = list(tqdm(
                 executor.map(_build_graph, tasks, chunksize=8),
-                total=len(tasks), desc="Building graphs",
+                total=len(tasks),
+                desc="Building graphs",
             ))
     else:
         results = [_build_graph(task) for task in tqdm(tasks, desc="Building graphs")]
@@ -263,7 +284,9 @@ def resolve_checkpoint(run_path: str | Path) -> Path:
         return path
     checkpoints = sorted(path.glob("*.ckpt"))
     if len(checkpoints) != 1:
-        raise RuntimeError(f"Expected exactly one checkpoint in {path}, found {len(checkpoints)}")
+        raise RuntimeError(
+            f"Expected exactly one checkpoint in {path}, found {len(checkpoints)}"
+        )
     return checkpoints[0]
 
 
@@ -278,20 +301,26 @@ def predict_graphs(
 ) -> np.ndarray:
     import torch
     from torch_geometric.loader import DataLoader
+
     from cgdit.prop_models.gnn_models.m3gnet import M3GNetSurrogate
 
     output = np.full(total_count, np.nan, dtype=np.float64)
     if not data_list:
         return output
 
-    model = M3GNetSurrogate.load_from_checkpoint(str(checkpoint), map_location=device)
+    model = M3GNetSurrogate.load_from_checkpoint(
+        str(checkpoint), map_location=device
+    )
     if model.target_prop != expected_property:
         raise RuntimeError(
-            f"Checkpoint {checkpoint} predicts {model.target_prop}, expected {expected_property}"
+            f"Checkpoint {checkpoint} predicts {model.target_prop}, "
+            f"expected {expected_property}"
         )
     model.eval().to(device)
     predictions: list[np.ndarray] = []
-    loader = DataLoader(data_list, batch_size=batch_size, shuffle=False, num_workers=0)
+    loader = DataLoader(
+        data_list, batch_size=batch_size, shuffle=False, num_workers=0
+    )
     with torch.inference_mode():
         for batch in tqdm(loader, desc=f"Predicting {model.target_prop}"):
             values = model(batch.to(device)).detach().cpu().numpy().reshape(-1)
@@ -305,7 +334,9 @@ def predict_graphs(
 
 def _atomic_json(path: Path, payload: dict[str, Any]) -> None:
     temporary = path.with_suffix(path.suffix + ".tmp")
-    temporary.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+    temporary.write_text(
+        json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8"
+    )
     os.replace(temporary, path)
 
 
@@ -342,11 +373,14 @@ def evaluate_generation_files(
     overwrite: bool = False,
 ) -> list[dict[str, Any]]:
     import pandas as pd
-    import torch
 
     generation_files = list(generation_files)
+    if not generation_files:
+        raise ValueError("No formal generation files were provided")
     output_dir.mkdir(parents=True, exist_ok=True)
-    checkpoints = {name: resolve_checkpoint(path) for name, path in predictor_runs.items()}
+    checkpoints = {
+        name: resolve_checkpoint(predictor_runs[name]) for name in PROPERTY_NAMES
+    }
     reference_predictions = {
         name: np.load(Path(predictor_runs[name]) / "test_preds.npy")
         for name in PROPERTY_NAMES
@@ -357,11 +391,17 @@ def evaluate_generation_files(
     }
 
     summaries: list[dict[str, Any]] = []
-    for position, gen_path in enumerate(generation_files, start=1):
-        label = gen_path.stem.removeprefix("eval_gen_")
-        predictions_path = gen_path.parent / f"eval_properties_gen_{label}_predictor_seed42.csv"
-        metrics_path = gen_path.parent / f"eval_property_metrics_gen_{label}_predictor_seed42.json"
-        print(f"\n[{position}/{len(generation_files)}] {gen_path}")
+    for position, generation_path in enumerate(generation_files, start=1):
+        label = generation_path.stem.removeprefix("eval_gen_")
+        predictions_path = (
+            generation_path.parent
+            / f"eval_properties_gen_{label}_predictor_seed42.csv"
+        )
+        metrics_path = (
+            generation_path.parent
+            / f"eval_property_metrics_gen_{label}_predictor_seed42.json"
+        )
+        print(f"\n[{position}/{len(generation_files)}] {generation_path}")
 
         predictions_exist = predictions_path.exists() and predictions_path.stat().st_size > 0
         metrics_exist = metrics_path.exists() and metrics_path.stat().st_size > 0
@@ -371,10 +411,10 @@ def evaluate_generation_files(
             summaries.append(_flatten_metrics(metrics))
             continue
 
-        payload = torch.load(gen_path, map_location="cpu", weights_only=False)
+        payload = load_generation_payload(generation_path)
         crystal_arrays = _crystal_array_list(payload)
         data_list, successful_indices, graph_errors = build_graphs(
-            crystal_arrays, num_workers=num_workers,
+            crystal_arrays, num_workers=num_workers
         )
         predictions = {
             name: predict_graphs(
@@ -393,14 +433,20 @@ def evaluate_generation_files(
             reference_predictions=reference_predictions,
             reference_targets=reference_targets,
         )
-        structural_metrics_path = gen_path.parent / f"eval_metrics_gen_{label}.json"
+        structural_metrics_path = (
+            generation_path.parent / f"eval_metrics_gen_{label}.json"
+        )
         if not structural_metrics_path.exists():
-            raise RuntimeError(f"Missing structural metrics: {structural_metrics_path}")
-        structural_metrics = json.loads(structural_metrics_path.read_text(encoding="utf-8"))
+            raise RuntimeError(
+                f"Missing structural metrics: {structural_metrics_path}"
+            )
+        structural_metrics = json.loads(
+            structural_metrics_path.read_text(encoding="utf-8")
+        )
         metrics.update({
-            "source_file": str(gen_path.resolve()),
+            "source_file": str(generation_path.resolve()),
             "generation_label": label,
-            "generation_model_dir": gen_path.parent.name,
+            "generation_model_dir": generation_path.parent.name,
             "structural_metrics_file": str(structural_metrics_path.resolve()),
             "structural_metrics": structural_metrics,
             "predictor_checkpoints": {
@@ -420,11 +466,16 @@ def evaluate_generation_files(
                 errors = np.abs(values - condition_targets[name])
                 table[f"target_{name}"] = condition_targets[name]
                 table[f"absolute_error_{name}"] = errors
-                table[f"hit_{name}"] = np.isfinite(values) & (errors <= tolerances[name])
+                table[f"hit_{name}"] = (
+                    np.isfinite(values) & (errors <= tolerances[name])
+                )
         if condition_targets:
-            target_names = [name for name in PROPERTY_NAMES if name in condition_targets]
+            target_names = [
+                name for name in PROPERTY_NAMES if name in condition_targets
+            ]
             table["joint_hit"] = np.logical_and.reduce([
-                np.asarray(table[f"hit_{name}"], dtype=bool) for name in target_names
+                np.asarray(table[f"hit_{name}"], dtype=bool)
+                for name in target_names
             ])
 
         _atomic_csv(predictions_path, pd.DataFrame(table))
@@ -434,5 +485,7 @@ def evaluate_generation_files(
 
     summary_table = pd.DataFrame(summaries)
     _atomic_csv(output_dir / "seed42_property_summary.csv", summary_table)
-    _atomic_json(output_dir / "seed42_property_summary.json", {"groups": summaries})
+    _atomic_json(
+        output_dir / "seed42_property_summary.json", {"groups": summaries}
+    )
     return summaries

@@ -160,7 +160,8 @@ class RecEval(object):
 
 class GenEval(object):
 
-    def __init__(self, pred_crys, gt_crys, n_samples=1000, eval_model_name=None, calc_prop=True, prop_model_path=None):
+    def __init__(self, pred_crys, gt_crys, n_samples=1000, eval_model_name=None, calc_prop=True,
+                 prop_model_path=None, seed=42):
         self.crys = pred_crys
         self.gt_crys = gt_crys
         self.n_samples = n_samples
@@ -169,10 +170,12 @@ class GenEval(object):
         # 新增控制参数
         self.calc_prop = calc_prop
         self.prop_model_path = prop_model_path
+        self.seed = seed
 
         valid_crys = [c for c in pred_crys if c.valid]
         if len(valid_crys) >= n_samples:
-            sampled_indices = np.random.choice(
+            rng = np.random.default_rng(seed)
+            sampled_indices = rng.choice(
                 len(valid_crys), n_samples, replace=False)
             self.valid_samples = [valid_crys[i] for i in sampled_indices]
         else:
@@ -216,8 +219,10 @@ class GenEval(object):
                 # 默认加载 matgl 内部预训练好的带隙模型
                 try:
                     model = matgl.load_model("MEGNet-MP-2018.6.1-BandGap-mfi")
-                except:
-                    model = matgl.load_model("M3GNet-MP-2018.6.1-Eform")
+                except Exception as exc:
+                    raise RuntimeError(
+                        "Unable to load the default MatGL band-gap model."
+                    ) from exc
             else:
                 print(f"Loading local matgl checkpoint from {self.prop_model_path}...")
                 if self.prop_model_path.endswith('.ckpt'):
@@ -236,15 +241,17 @@ class GenEval(object):
             # 使用模型进行预测辅助函数
             def predict_properties(crys_list, desc="Predicting Properties"):
                 props = []
-                for c in tqdm(crys_list, desc=desc):
+                for index, c in enumerate(tqdm(crys_list, desc=desc)):
                     try:
                         val = model.predict_structure(c.structure)
                         if isinstance(val, torch.Tensor):
                             val = val.detach().cpu().item()
                         props.append(float(val))
-                    except Exception as e:
-                        # 对于生成出的偶尔完全不合法的结构提供 fallback
-                        props.append(0.0)
+                    except Exception as exc:
+                        raise RuntimeError(
+                            f"MatGL property prediction failed for {desc} item {index}; "
+                            "the property metric was not written."
+                        ) from exc
                 return props
 
             pred_props = predict_properties(self.valid_samples, desc="Predicting Generated Properties")
@@ -410,7 +417,8 @@ def main(args):
             gen_crys, gt_crys,
             eval_model_name=eval_model_name,
             calc_prop=calc_prop,
-            prop_model_path=args.prop_model_path
+            prop_model_path=args.prop_model_path,
+            seed=args.seed
         )
         gen_metrics = gen_evaluator.get_metrics()
         all_metrics.update(gen_metrics)
@@ -483,6 +491,8 @@ def build_parser():
     parser.add_argument('--gt_file', default='')
     parser.add_argument('--num_workers', default=1, type=int,
                         help='Number of worker processes. Default 1 (single process) to save memory.')
+    parser.add_argument('--seed', default=42, type=int,
+                        help='Random seed used to sample structures for generation metrics.')
 
     # --- 新增参数 ---
     parser.add_argument('--calc_prop', type=str, default='true', choices=['true', 'false'],
