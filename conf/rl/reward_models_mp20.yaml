@@ -1,0 +1,35 @@
+# These checkpoints are used by RL training and probe verification only.
+# They must not be reused as the final independent evaluators.
+dataset: mp_20
+role: training_reward
+
+models:
+  formation_energy_per_atom:
+    checkpoint: output/singlerun/2026-08-16/01-27-48-mp20_predictor_fe/epoch=274-step=233200.ckpt
+    test_predictions: output/singlerun/2026-08-16/01-27-48-mp20_predictor_fe/test_preds.npy
+    test_targets: output/singlerun/2026-08-16/01-27-48-mp20_predictor_fe/test_targets.npy
+    unit: eV/atom
+    test_samples: 9046
+    test_mae: 0.02717513
+    test_rmse: 0.04461064
+    test_r2: 0.99810629
+
+  band_gap:
+    checkpoint: output/singlerun/2026-08-16/15-18-32-mp20_predictor_bg/epoch=274-step=233200.ckpt
+    test_predictions: output/singlerun/2026-08-16/15-18-32-mp20_predictor_bg/test_preds.npy
+    test_targets: output/singlerun/2026-08-16/15-18-32-mp20_predictor_bg/test_targets.npy
+    unit: eV
+    test_samples: 9046
+    test_mae: 0.21468140
+    test_rmse: 0.51360671
+    test_r2: 0.86652920
+
+  e_above_hull:
+    checkpoint: output/singlerun/2026-08-17/05-54-35-mp20_predictor_eh/epoch=19-step=16960.ckpt
+    test_predictions: output/singlerun/2026-08-17/05-54-35-mp20_predictor_eh/test_preds.npy
+    test_targets: output/singlerun/2026-08-17/05-54-35-mp20_predictor_eh/test_targets.npy
+    unit: eV/atom
+    test_samples: 9046
+    test_mae: 0.01430484
+    test_rmse: 0.01970880
+    test_r2: 0.26369541

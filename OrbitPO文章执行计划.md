@@ -1,26 +1,33 @@
-# OrbitPO 文章执行计划
+# CrystalPIRL / OrbitPO 文章执行计划
 
-> 工作题目：**OrbitPO: Measure-Correct Policy Optimization on Crystal Symmetry Quotient Spaces**
-> 中文题目：**晶体对称商空间上的测度一致策略优化**
+> 工作题目：**CrystalPIRL: Paired Policy-Improvement Verification for Reinforcement Fine-Tuning of Symmetry-Constrained Crystal Diffusion**
+> 中文题目：**面向对称约束晶体扩散强化微调的成对策略改进验证**
+> 方法命名：`CrystalPIRL` 为文章主方法；`OrbitPO` 为其对称约化概率基础模块
 > 项目分支：`newton`
 > 文档性质：预注册式执行计划；所有结果位置均为待实验占位，不得提前填写结论
-> 当前状态：阶段一由外部服务器执行；阶段二至四的核心代码已落地；正式 GPU 强化学习实验等待基线评估与性质预测器上传
+> 当前状态：4 个 MP20 生成 checkpoint（base、FE、BG、FE+BG）和 FE/BG/Ehull 训练奖励模型已上传并通过文件完整性检查；Ehull 生成 checkpoint 已清理但预测器保留为辅助稳定性奖励；阶段二至四核心代码已落地；最终独立评估器、原始 PIPO 对照和正式 GPU 强化学习实验仍待完成
 
 ---
 
 ## 1. 文章要回答的唯一核心问题
 
-空间群约束晶体扩散的反向过程同时包含：
+现有材料扩散强化学习通常根据当前 rollout 的终止奖励直接更新策略。即使平均奖励上升，长扩散轨迹、随机采样、代理预测器误差和晶格—坐标—元素混合动作仍可能使某次候选更新在真实策略层面退化。原始 PIPO 用滑动历史回顾上一轮更新，但不同轮次的样本噪声会混入策略差异。
 
-1. 独立 Wyckoff 轨道上的离散元素类别；
-2. 独立轨道代表点上的周期分数坐标；
-3. 空间群允许的低维晶格子空间。
+本文检验：
 
-如果 PPO/GRPO 仍然在完整晶胞和六维环境空间中计算概率，就会重复计算对称复制原子，并在晶格退化维度上使用不成立的普通高斯密度。本文检验：
+> 在固定 probe 条件下，让候选策略与已验证策略共享目标、空间群、原子数和全部连续/离散随机流，用成对性能差及 bootstrap 下置信界决定接受、衰减或拒绝更新，能否在相同生成与性质查询预算下同时降低 PPO 和 GRPO 的坏更新率，并稳定提升通用材料性质？
 
-> 在真实独立自由度上定义元素、坐标和晶格的联合策略测度，是否能够降低由晶胞大小、Wyckoff 多重度和空间群有效维数造成的策略比偏置，并在相同生成与性质查询预算下更稳定地提升通用材料性质？
+`OrbitPO` 解决这项检验所依赖的概率基础：在空间群约束下，元素、周期坐标和晶格必须按真实独立自由度计算联合 transition log-prob，避免错误 importance ratio 干扰策略更新及其验证。因此，文章的因果链为：
 
-文章不以“首次将 PPO/GRPO 用于材料扩散”为主张，也不以“使用多目标奖励”为主张。
+```text
+对称约化且可重算的策略概率
+→ PPO/GRPO 候选更新
+→ 固定 probe + 共同随机数成对比较
+→ LCB 风险门控与 verified checkpoint
+→ 更少坏更新、更高预算效率和更可靠的性质提升
+```
+
+文章不以“首次将 PPO/GRPO 用于材料扩散”、普通多目标奖励、一般性的生成—打分—更新闭环或单纯使用独立轨道表示为主张。原始 PIPO 已经提出跨轮策略改进反馈；本文必须通过直接对照证明，固定 probe、共同随机数、成对差分、置信门控和回滚在晶体扩散中具有额外必要性。投稿前不使用“首个”表述。
 
 ---
 
@@ -28,11 +35,11 @@
 
 ### 2.1 正文公开主线
 
-正文围绕以下三项内容组织：
+正文按以下优先级组织：
 
-1. **Orbit-consistent D3PM**：元素扩散、损失与采样均只在独立轨道代表点上进行，再广播到完整轨道。
-2. **Symmetry-quotient transition measure**：晶格使用空间群有效子空间高斯，坐标使用独立轨道代表点上的 wrapped Gaussian，元素使用轨道级 categorical probability。
-3. **Algorithm-agnostic PIRL evaluation**：同一商空间策略分别采用 PPO 和 GRPO，并检验共同随机数配对验收层对两种算法是否都有增益。
+1. **Paired policy-improvement verification**：固定 probe，新旧策略共享随机流，使用 paired delta、bootstrap LCB 与 accept/attenuate/reject 决策维护 verified checkpoint。
+2. **Algorithm-agnostic closed-loop evaluation**：分别在 PPO 和 GRPO 上比较无验证器、原始 PIPO 与 Paired-PIRL，判断改进是否跨算法成立，而不是只对 GRPO 有效。
+3. **OrbitPO probability foundation**：元素采用轨道一致 D3PM，坐标采用代表点 wrapped likelihood，晶格采用空间群有效子空间 Gaussian；三者形成可重算的联合策略概率。
 
 ### 2.2 只做内部效果检查、不写入文章结果总结的内容
 
@@ -47,9 +54,39 @@
 
 ## 3. 可检验的文章贡献
 
-### C1：轨道一致的离散扩散
+### C1：Paired-PIRL 风险控制的策略改进验证
 
-对每个轨道代表点 $o\in\mathcal O$：
+对固定 probe 中每个条件与随机流 $j$，比较 verified old policy 和 candidate new policy：
+
+\[
+\Delta m_j=m(C_j^{new})-m(C_j^{old}).
+\]
+
+对主指标的成对差计算 bootstrap 下置信界，并同时检查 validity、uniqueness、novelty 等安全指标：
+
+- `accept`：主指标 LCB 明确为正且安全约束满足，候选成为新的 verified checkpoint；
+- `attenuate`：均值为正但证据不足，只保留预注册的小更新尺度；
+- `reject`：主指标不改善或安全指标退化，回滚到最近 verified checkpoint。
+
+训练 reward/probe evaluator 可以参与门控；最终独立 evaluator 不能参与训练、probe 决策或 checkpoint 选择，否则它不再是独立评价器。
+
+验证证据包括坏更新率、错误接受/错误拒绝率、accepted-update efficiency、rollback 次数、probe 额外成本以及最终独立评价结果。
+
+### C2：跨 PPO/GRPO 的算法普适性与原始 PIPO 对照
+
+在完全相同的 OrbitPO 概率、初始 checkpoint、目标、seed 和预算下，对每种 RL 算法比较：
+
+1. 无策略改进验证；
+2. 原始 PIPO：滑动历史 anchor 与 retrospective modulation；
+3. Paired-PIRL：固定 probe、共同随机数、成对差分、LCB 门控与回滚。
+
+该设计回答两件不同的问题：Paired-PIRL 是否优于直接开放式更新；其收益是否超出原始 PIPO 已有的跨轮反馈。只有两种算法均显示方向一致且成本可接受的改善，才能支持“算法普适”；若只在 PPO 上有效，则结论必须收缩。
+
+### C3：OrbitPO 对称约化的混合策略概率基础
+
+#### C3.1 轨道一致的离散扩散
+
+对每个已占据晶体学轨道的非对称单元代表点 $o\in\mathcal O$：
 
 \[
 \log p_\theta^A
@@ -59,43 +96,20 @@
 
 完整晶胞内的等价原子只接受广播结果，不重复采样、不重复计入损失或策略概率。
 
-验证证据：
-
-- 任意采样步，同一轨道的元素完全一致；
-- 改变同一轨道的复制多重度不改变轨道级离散损失与 log-prob；
-- PyG 多晶体批处理后不存在跨晶体 anchor 映射；
-- 轨道级训练与轨道级推理使用相同测度。
-
-### C2：测度一致的混合策略概率
-
-联合概率定义为：
+#### C3.2 测度一致的联合概率
 
 \[
 \log\pi_\theta(a_t\mid s_t)
-=\log p_\theta^K+\log p_\theta^X+\log p_\theta^A.
+=\log p_\theta^K+\log p_\theta^X+\log p_\theta^A,
 \]
 
-其中：
+其中晶格只在空间群允许的有效子空间计算 Gaussian，坐标在轨道代表点的三维环面上计算有限镜像 wrapped Gaussian，元素在代表点上计算 D3PM 后验 categorical probability。原始 joint log-prob 用于 importance ratio；每自由度归一化只作为诊断量。
 
-- $p^K$：只在 `CrystalFamily.masks[spacegroup]` 激活的晶格坐标上计算；
-- $p^X$：在独立轨道代表点的三维环面上使用有限镜像 wrapped Gaussian；
-- $p^A$：在独立轨道代表点上使用 D3PM 后验 categorical probability。
+#### 术语与主张边界
 
-必须保留原始 joint log-prob 作为 importance ratio。每自由度归一化只允许作为诊断量，不能冒充精确联合概率。
+“Wyckoff position”是空间群中的位置类型；一个具体晶体中实际被元素占据并由对称操作展开的实例才是本文处理的 crystallographic orbit。正文优先使用“已占据的独立晶体学轨道集合”与“非对称单元代表点”，不把二者笼统写成“独立 Wyckoff 轨道集合”。
 
-当前 CGDiT 数据只提供轨道展开操作，没有提供完整 site-stabilizer 元数据。因此正文应准确表述为“orbit-representative torus measure”，不能声称已经解析所有特殊 Wyckoff 位置的低维切空间。若以后补充 site-symmetry stabilizer，必须新增切空间秩测试后才能升级该主张。
-
-### C3：PIRL 是否具有算法普适性
-
-PIRL 在本文中定义为算法外层：
-
-1. 固定 probe 条件、空间群、原子数和噪声种子；
-2. 新旧策略使用完全相同的连续与离散随机流；
-3. 计算成对性质差与安全指标差；
-4. 用 bootstrap 下置信界决定接受、衰减或拒绝更新；
-5. 同一决策尺度作用于 PPO 外部 advantage 和 GRPO 组内标准化后的 advantage。
-
-它不能改变 PPO/GRPO 的 importance ratio，也不能把共同随机数描述成无偏梯度估计器。
+当前 CGDiT 数据提供轨道展开操作，但没有完整 site-stabilizer 元数据。因此坐标模块只能主张 **orbit-representative symmetry-reduced torus measure**，不能声称已经实现所有特殊 Wyckoff 位置的完整低维商空间测度。若以后补充 site-symmetry stabilizer，必须增加切空间秩和规范化测试后才能升级该主张。
 
 ---
 
@@ -108,11 +122,12 @@ PIRL 在本文中定义为算法外层：
 | 轨道级 D3PM 损失 | `cgdit/pl_modules/training_utils/diffusion_loss.py` | 已实现 | 与完整晶胞损失做多重度消融 |
 | `sample_rl()` 轨迹 | `cgdit/pl_modules/diffusion.py` | 已实现 | GPU 长轨迹显存和吞吐 |
 | 轨迹数据契约 | `cgdit/rl/trajectory.py` | 已实现 | checkpoint/resume 序列化 |
-| 商空间 transition log-prob | `cgdit/rl/transition_logprob.py` | 已实现 | 大/小噪声 wrapped sum 收敛 |
+| OrbitPO 对称约化 transition log-prob | `cgdit/rl/transition_logprob.py` | 已实现 | 大/小噪声 wrapped sum 收敛 |
 | 可微概率重放 | `cgdit/rl/rollout.py` | 已实现 | 真实 decoder 梯度有限性 |
 | PPO/GRPO | `cgdit/rl/objectives.py` | 已实现 | 真实 rollout smoke training |
 | 统一训练目标入口 | `cgdit/rl/trainer.py` | 已实现 | 接入上传后的 reward evaluator |
-| PIRL 配对验收 | `cgdit/rl/policy_improvement.py` | 已实现 | 固定 probe 的真实更新验收 |
+| Paired-PIRL 配对验收 | `cgdit/rl/policy_improvement.py` | 已实现 | 固定 probe 的真实更新验收 |
+| 原始 PIPO 对照 | 尚无对应实现 | 待实现 | 滑动历史 anchor 与 retrospective modulation |
 | 共同随机数采样 | `cgdit/rl/paired_probe.py` | 已实现 | 新旧真实 checkpoint 配对 |
 | H2 信用分配 | `cgdit/rl/channel_time_credit.py` | 已实现 | 中间状态与反事实 reward 生成 |
 | 通用性质奖励 | `cgdit/rl/rewards.py` | 已实现 | 用 evaluator 标定 target/tolerance |
@@ -124,22 +139,25 @@ PIRL 在本文中定义为算法外层：
 
 ## 5. 五阶段执行路线
 
-### 阶段一：冻结外部基线和独立评价器
+### 阶段一：冻结外部基线、训练奖励模型和独立评价器
 
-状态：**等待用户从其他服务器上传。**
+状态：**生成 checkpoint 与三个训练奖励模型已上传；最终独立评价器仍缺失。**
+
+当前训练奖励模型统一登记在 `conf/rl/reward_models_mp20.yaml`。这些 checkpoint 可用于 RL reward 与固定 probe 验证，但不得同时作为文章最终独立评价器。
 
 ### 需要上传的生成基线
 
-至少包含：
+当前已保留：
 
 - `mp20_base`；
 - `mp20_fe`；
 - `mp20_bg`；
-- `mp20_eh`；
-- `mp20_fe_bg_eh`；
+- `mp20_fe_bg`；
 - 固定 seed 列表；
 - 每个模型相同样本数、NFE、guidance scale 和 GPU 时间；
 - 生成结构原始 `.pt` 或 `.csv/.cif`，不能只上传汇总均值。
+
+Ehull 生成 checkpoint 已按当前清理方案移除，不再作为现有生成基线；Ehull predictor 仍可作为辅助稳定性奖励或安全约束。若以后恢复 Ehull 条件生成实验，需要重新提供对应 checkpoint 和同预算基线结果。
 
 ### 需要上传的性质预测器
 
@@ -222,7 +240,7 @@ PIRL 在本文中定义为算法外层：
 
 ---
 
-### 阶段四：商空间概率与 PPO/GRPO
+### 阶段四：OrbitPO 对称约化概率与 PPO/GRPO
 
 代码状态：**数学模块和统一目标入口完成；等待真实奖励闭环。**
 
@@ -261,43 +279,49 @@ PIRL 在本文中定义为算法外层：
 
 ---
 
-### 阶段五：PIRL 对比、通用性质扩展和内部模块
+### 阶段五：Paired-PIRL、原始 PIPO 对照、通用性质扩展和内部模块
 
-### 5.1 PIRL 的 2×2 核心比较
+### 5.1 PPO/GRPO × 三种验证机制的 2×3 核心比较
 
-固定商空间策略和相同预算，只改变 RL 算法与 PIRL：
+固定 OrbitPO 概率、初始 checkpoint 和总预算，只改变 RL 算法与更新验证机制：
 
-| 编号 | RL 算法 | PIRL | 目的 |
-|---|---|---:|---|
-| P1 | PPO | 否 | PPO 基线 |
-| P2 | PPO | 是 | 检验 PIRL 对 PPO 的作用 |
-| G1 | GRPO | 否 | GRPO 基线 |
-| G2 | GRPO | 是 | 检验 GRPO 是否已足够稳定 |
+| 编号 | RL 算法 | 更新验证 | 目的 |
+|---|---|---|---|
+| P0 | PPO | 无 | PPO 开放式更新基线 |
+| P1 | PPO | 原始 PIPO | 检验滑动历史回顾反馈 |
+| P2 | PPO | Paired-PIRL | 检验成对置信门控的额外价值 |
+| G0 | GRPO | 无 | GRPO 开放式更新基线 |
+| G1 | GRPO | 原始 PIPO | 检验 PIPO 对组相对优势的作用 |
+| G2 | GRPO | Paired-PIRL | 检验 GRPO 是否仍需要更新验证 |
 
-每次候选更新都在固定 probe 上用相同 noise seed 比较新旧策略。PIRL 输出：
+原始 PIPO 按论文使用滑动历史 anchor 和 retrospective modulation，不使用固定成对 probe。Paired-PIRL 对每次候选更新在固定 probe 上以相同 noise seed 比较新旧策略，输出：
 
 - `accept`：LCB 明确为正，更新尺度 1；
-- `attenuate`：均值为正但 LCB 不充分，更新尺度默认 0.25；
-- `reject`：主指标不改善或安全指标退化，尺度 0，并保留最近 verified checkpoint。
+- `attenuate`：均值为正但 LCB 不充分，使用预注册尺度，默认 0.25；
+- `reject`：主指标不改善或安全指标退化，尺度 0，并回滚/保留最近 verified checkpoint。
 
-### 5.2 “PIRL 是否算法普适”的判据
+probe 门控只能使用训练 reward 或单独的 verifier；最终独立 evaluator 只在冻结策略后使用。
 
-不能只看四条曲线谁最高。需要预先定义：
+### 5.2 Paired-PIRL 是否具有额外价值和算法普适性的判据
 
-- 坏更新率：更新后 probe 主指标显著下降的比例；
-- accepted update efficiency：每次被接受更新带来的 reward 增量；
-- 样本效率：每 1000 次 predictor query 的 target hit 增量；
+不能只看六条曲线谁最高。需要预先定义：
+
+- 坏更新率：候选更新后 probe 主指标显著下降的比例；
+- 错误接受率：被门控接受但在独立复测中退化的比例；
+- accepted-update efficiency：每次接受更新带来的 reward 增量；
+- 样本效率：每 1000 次 predictor query 的 target-hit 增量；
 - 稳定性：不同 seed 的最终 reward 方差；
-- 成本：PIRL probe 额外 NFE 和 GPU-hour；
-- 等效界值：GRPO 与 GRPO+PIRL 的可接受差异范围。
+- 成本：历史反馈或 paired probe 的额外 NFE、查询和 GPU-hour；
+- 等效界值：带验证方法与无验证方法之间的预注册等效区间。
 
 解释规则：
 
-1. P2 和 G2 都显著降低坏更新率且收益超过额外成本：支持 PIRL 算法普适；
-2. P2 明显改善而 G2 与 G1 在等效界内：说明 GRPO 已足够稳定，PIRL 主要帮助 PPO；
-3. G2 仍明显改善：说明组相对 advantage 不能替代策略更新验收；
-4. 平均 reward 提升但 novelty/validity 下降：不得判定 PIRL 有效；
-5. 仅一个 seed 改善：只能记录为探索性结果。
+1. P2/G2 相对 P0/G0 均降低坏更新率：支持成对验证跨算法有效；
+2. P2/G2 还相对 P1/G1 改善：支持本文机制超出原始 PIPO 的额外贡献；
+3. 只相对无验证基线有效、但不优于原始 PIPO：只能说明策略改进反馈有用，不能支持新验证机制；
+4. PPO 改善而 GRPO 在等效界内：说明 Paired-PIRL 主要帮助 PPO，不能声称普适；
+5. GRPO 仍明显改善：说明组相对 advantage 不能替代策略更新验收；
+6. 平均 reward 提升但 validity/novelty 下降，或只在一个 seed 上改善：不得形成主结论。
 
 ### 5.3 通用性质任务
 
@@ -309,50 +333,26 @@ PIRL 在本文中定义为算法外层：
 4. band gap 区间；
 5. 低 Ehull + 指定 band gap 联合约束。
 
-奖励全部使用有界函数，invalid 结构硬门控，ensemble uncertainty 作为惩罚项。正式阈值由阶段一独立 evaluator 的测试分布确定，不在看到 RL 结果后修改。
+奖励全部使用有界函数，invalid 结构硬门控，ensemble uncertainty 作为惩罚项。正式阈值由阶段一冻结 evaluator 的测试分布确定，不在看到 RL 结果后修改。
 
 ### 5.4 H2 内部实验，不进入文章结果总结
 
 实现路线：
 
 1. 将反向时间划分为 4–10 个固定桶；
-2. 对每个桶的中间去噪状态估计 $\hat C_0(t)$ 性质；
+2. 对每个桶的中间去噪状态估计性质；
 3. 计算相邻桶 reward increment；
 4. 在共同噪声下替换 lattice/coordinate/atom 单通道，得到反事实贡献；
 5. 将终止 advantage 按 `[time bucket, channel]` 的贡献绝对值归一分配；
 6. 各通道独立 clipping，但不得称为精确 joint ratio。
 
-内部报告至少包含：
-
-- 终止统一 advantage vs 时间分桶；
-- 时间分桶 vs 通道—时间联合；
-- 各桶/通道梯度方差；
-- FE、BG、Ehull 对三个通道的贡献热图；
-- 额外 predictor 查询成本；
-- 是否出现 predictor exploitation 集中在某个通道。
+内部报告至少保存统一 advantage、时间分桶、通道—时间联合三种方案的梯度方差、命中率、贡献热图、额外查询成本和 reward exploitation 风险。
 
 ### 5.5 多保真内部实验，不进入文章结果总结
 
-执行四级验证：
+执行 predictor→MLFF→DFT 四级验证，记录每级进入/退出数量、失败样本、代理与高保真结果的一致性、结构松弛变化、选择概率和每次 DFT 调用的真实命中数。高 reward exploitation quota 与高 uncertainty exploration quota 必须分开。
 
-| 层级 | 内容 | 预算原则 |
-|---|---|---|
-| L0 | 几何/结构/空间群有效性 | 全部结构 |
-| L1 | predictor ensemble | 全部有效结构 |
-| L2 | MLFF 单点与松弛 | 高 reward 与高 uncertainty 混合预算 |
-| L3 | DFT 松弛/能带/真实性质 | 固定小预算 |
-
-内部效果必须记录：
-
-- 每级进入/退出数量；
-- MLFF/DFT 失败与不收敛样本，不能静默删除；
-- proxy 与 MLFF/DFT 的相关性和校准误差；
-- 松弛前后性质、RMSD、晶格变化和最大残余力；
-- 选择概率；若采用随机选择则计算 inverse propensity weight；
-- 每次 DFT 调用获得的真实命中数；
-- 高 reward exploitation quota 与高 uncertainty exploration quota。
-
-当前代码已经实现预算编排、ensemble 均值/不确定度、校准奖励和外部选择概率权重。真实 MLFF/DFT evaluator 仍需根据服务器任务系统、势函数、赝势、泛函和收敛参数接入；在这些配置确定前不得伪造“已完成 DFT 闭环”。
+当前代码只实现预算编排、ensemble 统计、校准奖励和选择概率权重。真实 MLFF/DFT evaluator 仍需在势函数、赝势、泛函、收敛参数和任务系统明确后接入；未接入前不得表述为已完成物理闭环。
 
 ---
 
@@ -360,17 +360,19 @@ PIRL 在本文中定义为算法外层：
 
 ### 6.1 主表方法
 
-| 编号 | 方法 | 轨道级元素 | 商空间概率 | PIRL |
-|---|---|---:|---:|---:|
-| B0 | 原始条件 CGDiT | 否/旧实现 | 否 | 否 |
-| B1 | 轨道一致 CGDiT | 是 | 不适用 | 否 |
-| B2 | Best-of-N | 是 | 不适用 | 否 |
-| B3 | ambient/full-cell PPO | 是 | 否 | 否 |
-| B4 | ambient/full-cell GRPO | 是 | 否 | 否 |
-| M1 | OrbitPO-PPO | 是 | 是 | 否 |
-| M2 | OrbitPO-PPO-PIRL | 是 | 是 | 是 |
-| M3 | OrbitPO-GRPO | 是 | 是 | 否 |
-| M4 | OrbitPO-GRPO-PIRL | 是 | 是 | 是 |
+| 编号 | 方法 | 轨道级元素 | OrbitPO 概率 | 更新验证 |
+|---|---|---:|---:|---|
+| B0 | 原始条件 CGDiT | 否/旧实现 | 否 | 无 |
+| B1 | 轨道一致 CGDiT | 是 | 不适用 | 无 |
+| B2 | Best-of-N | 是 | 不适用 | 无 |
+| B3 | ambient/full-cell PPO | 是 | 否 | 无 |
+| B4 | ambient/full-cell GRPO | 是 | 否 | 无 |
+| M1 | OrbitPO-PPO | 是 | 是 | 无 |
+| M2 | OrbitPO-PPO-PIPO | 是 | 是 | 原始 PIPO |
+| M3 | CrystalPIRL-PPO | 是 | 是 | Paired-PIRL |
+| M4 | OrbitPO-GRPO | 是 | 是 | 无 |
+| M5 | OrbitPO-GRPO-PIPO | 是 | 是 | 原始 PIPO |
+| M6 | CrystalPIRL-GRPO | 是 | 是 | Paired-PIRL |
 
 ### 6.2 概率消融
 
@@ -450,19 +452,19 @@ PIRL 在本文中定义为算法外层：
 
 建议正文题目：
 
-> OrbitPO: Measure-Correct Policy Optimization on Crystal Symmetry Quotient Spaces
+> CrystalPIRL: Paired Policy-Improvement Verification for Reinforcement Fine-Tuning of Symmetry-Constrained Crystal Diffusion
 
-题目必须同时出现“policy optimization”和“crystal symmetry quotient”，避免只写泛化的 reinforcement learning。
+题目突出“策略更新是否真的改进”这一核心问题。`OrbitPO` 作为方法组件在摘要和 Methods 中定义，不再占据标题中心。
 
 ### 8.2 Abstract
 
 摘要按五句话组织：
 
-1. **背景**：强化学习能直接优化生成材料性质，但晶体反向扩散具有离散、周期和对称约束混合动作。
-2. **缺口**：完整晶胞/环境空间概率会重复对称轨道并在退化晶格维度上定义不一致的策略比。
-3. **方法**：提出 OrbitPO，联合轨道级 D3PM、代表点 wrapped likelihood 和空间群子空间 Gaussian。
-4. **实验**：在相同预算下用 PPO/GRPO、多种通用性质、空间群/原子数分层和 PIRL 2×2 比较进行验证。
-5. **结论**：只填写被三个 seed、独立 evaluator 和统计检验支持的结论。
+1. **背景**：强化学习可直接优化生成材料性质，但晶体扩散更新受长轨迹、随机 rollout、代理误差和混合动作影响。
+2. **缺口**：现有开放式更新和滑动历史 PIPO 都不能在共享随机条件下直接识别候选策略是否优于已验证策略。
+3. **方法**：提出 CrystalPIRL，以固定 probe、共同随机数、成对性能差、bootstrap LCB 和回滚实现风险控制的策略改进验证，并以 OrbitPO 提供对称约化联合概率。
+4. **实验**：在相同预算下进行 PPO/GRPO × 无验证器/原始 PIPO/Paired-PIRL 的 2×3 比较，并覆盖多种通用性质、空间群和结构规模。
+5. **结论**：只填写被三个或更多 seed、预注册判据和最终独立 evaluator 支持的结果。
 
 摘要不写 H2、多保真闭环、高居里温度或迁移率。
 
@@ -470,226 +472,142 @@ PIRL 在本文中定义为算法外层：
 
 建议 5 段：
 
-#### 第 1 段：材料逆向设计问题
-
-需要说明结构空间巨大、性质 oracle 昂贵、条件扩散与后训练优化的互补关系。不要提前讨论具体算法细节。
-
-#### 第 2 段：现有扩散 RL 的进展
-
-说明 PPO/GRPO 已用于图像、分子或材料生成，因此简单拼接不是创新。引出晶体实空间动作的特殊性。
-
-#### 第 3 段：关键技术缺口
-
-用一个同一独立晶位被复制 2 次、4 次、8 次的例子解释：完整晶胞概率会人为改变 joint log-prob；再用立方晶格只有一个激活自由度说明六维高斯问题。
-
-#### 第 4 段：本文方法
-
-概述三个策略通道和统一商空间测度，说明 PIRL 是算法外层而不是替代 PPO/GRPO。
-
-#### 第 5 段：贡献列表
-
-只列 C1–C3，每项必须对应一个方法小节、一个关键实验和一个消融。
+1. 材料逆向设计的巨大结构空间、昂贵 oracle，以及条件生成与后训练优化的互补关系；
+2. PPO/GRPO 已用于图像、分子和材料扩散，生成—打分—更新闭环本身不是创新；
+3. 核心缺口是候选策略更新未经同条件、同随机流验证，滑动历史统计也会混入跨批次采样噪声；
+4. 提出 CrystalPIRL，并说明可信比较需要 OrbitPO 对三种晶体动作给出可重算且对称一致的联合概率；
+5. 按 C1–C3 列贡献，每项对应一个方法小节、关键实验和消融。
 
 ### 8.4 Related Work
 
 建议分三小节：
 
-1. symmetry-aware crystal diffusion；
-2. reinforcement learning for diffusion/material generation；
-3. policy-improvement verification and paired evaluation。
+1. symmetry-aware crystal diffusion and independent-site representations；
+2. reinforcement fine-tuning for diffusion and material generation；
+3. policy-improvement feedback, PIPO and paired evaluation。
 
-每节最后一句明确“已有工作解决了什么、尚未解决什么”。不能用“首个”措辞，除非投稿前完成一次更新后的系统检索。
+必须明确：已有晶体 ReFT 已涉及代表晶位、周期坐标和联合概率，因此本文不把“使用独立轨道/商空间”单独声明为首创；方法差异集中在轨道级离散 D3PM、可验证概率实现以及 Paired-PIRL 更新门控。投稿前重新检索，不使用未经核实的“首个”。
 
 ### 8.5 Problem Formulation
 
-需要定义：
+定义晶体状态、predictor/corrector 子转移、终止 reward、已占据晶体学轨道集合、空间群晶格 active mask，以及 old/candidate/verified/reference 四类策略角色。区分：
 
-- 晶体状态 $s_t=(K_t,X_t,A_t,c,SG,\mathcal O)$；
-- predictor/corrector 子转移；
-- 终止材料 reward；
-- 独立轨道集合；
-- 空间群晶格 active mask；
-- PPO/GRPO old、current 和 reference policy；
-- 真实联合概率与诊断归一化量的区别。
-
-本节必须给出完整的符号表。
+- 原始 joint log-prob 与诊断性 per-DOF 归一化量；
+- 训练 reward/probe verifier 与最终独立 evaluator；
+- 原始 PIPO 的跨轮历史比较与 Paired-PIRL 的同 probe 成对比较。
 
 ### 8.6 Methods
 
-#### 8.6.1 Orbit-consistent discrete diffusion
+#### 8.6.1 CrystalPIRL paired policy-improvement verification
 
-写清前向加噪、轨道级损失、反向后验和广播。配一个两轨道晶胞示意图。
+给出 fixed probe、common random numbers、paired delta、bootstrap LCB、accept/attenuate/reject、verified checkpoint 和 rollback 伪代码。说明候选更新由 PPO/GRPO 产生，门控不改写 importance ratio。
 
-#### 8.6.2 Rank-aware lattice transition
+#### 8.6.2 Original PIPO comparison
 
-说明 active mask、affine constraint 和有效维数。给出子空间 Gaussian 公式，解释为什么不使用奇异六维协方差的普通密度。
+严格实现滑动历史 anchor、标准化 improvement signal 与 retrospective modulation，列出与本文固定 probe 机制的差异，避免把原始 PIPO 当作“无验证”基线。
 
-#### 8.6.3 Periodic coordinate transition
+#### 8.6.3 Orbit-consistent discrete diffusion
 
-分别描述 corrector 与 predictor 概率；给出 wrapped Gaussian 有限镜像和数值稳定实现。强调只统计代表点。
+写清代表点前向加噪、轨道级损失、反向后验与广播，并用“已占据晶体学轨道/非对称单元代表点”而不是含混的“独立 Wyckoff 轨道”。
 
-#### 8.6.4 Mixed joint policy measure
+#### 8.6.4 Rank-aware lattice transition
 
-给出三通道求和、importance ratio、KL 诊断与确定性末步处理。
+说明 active mask、affine constraint 和有效维数；给出有效子空间 Gaussian，解释为何不在退化六维环境空间使用普通密度。
 
-#### 8.6.5 PPO and GRPO optimization
+#### 8.6.5 Periodic coordinate transition
 
-两种算法使用相同策略测度。PPO 说明 advantage 来源；GRPO 说明 group 构造、组内标准化和 group size。
+描述 corrector/predictor 概率、有限镜像 wrapped Gaussian 和代表点计数；主动声明当前没有完整 site-stabilizer 切空间。
 
-#### 8.6.6 Paired improvement reliability layer
+#### 8.6.6 Mixed joint policy measure and PPO/GRPO
 
-给出固定 probe、共同随机数、paired delta、bootstrap LCB 和 accept/attenuate/reject 规则。明确 PIRL 对两种算法都在 advantage 估计之后作用。
+给出三通道联合 log-prob、importance ratio、KL 诊断、确定性末步处理，以及 PPO 外部 advantage 和 GRPO 组内标准化的公平实现。
 
 #### 8.6.7 Computational complexity
 
-报告轨迹存储、概率重放、wrapped image sum 和 probe 的额外时间/显存复杂度。
+分别报告 rollout、概率重放、wrapped image sum、原始 PIPO 历史维护和 paired probe 的时间、显存及查询复杂度。
 
 ### 8.7 Experimental Setup
 
-需要完整写明：
+完整写明 MP20 划分、冻结 checkpoint、reward predictor/probe verifier/最终独立 evaluator 的隔离，FE/BG/Ehull 目标及阈值、优化超参数、diffusion 步数、timestep 抽样、三个或更多 seed、GPU-hour/NFE/查询预算和统计方法。主实验是六组合，不是四组合。
 
-- MP20 划分和预处理；
-- 五个冻结 checkpoint 的角色；
-- reward predictor 与独立 evaluator 的隔离方式；
-- FE/BG/Ehull 的单位、目标、阈值和 tolerance；
-- optimizer、学习率、batch/group size、更新 epoch、clip、KL、梯度裁剪；
-- diffusion 步数、被抽样重放的 timestep；
-- PPO/GRPO/PIRL 四组合；
-- 所有基线；
-- 三个或更多 seed；
-- GPU 型号、GPU-hour、NFE 和查询预算；
-- 统计检验与多重比较处理。
+固定 probe 不得在观察主实验结果后更换。最终独立 evaluator 只评估冻结策略，不参与 accept/reject 或 checkpoint 选择。
 
 ### 8.8 Results
 
-正文建议按问题而不是按模块组织：
+正文按问题组织：
 
-#### RQ1：轨道级离散扩散是否修复化学对称一致性？
+- **RQ1：Paired-PIRL 是否比开放式更新和原始 PIPO 更可靠？** 报告坏更新率、错误接受率、paired delta/LCB、rollback 和额外成本。
+- **RQ2：这种作用是否跨 PPO/GRPO 成立？** 报告 2×3 交互、效应量与等效区间；允许得出算法相关或 GRPO 已足够稳定的负结论。
+- **RQ3：OrbitPO 是否提供正确且无系统规模偏置的策略概率？** 报告 old=current、数值密度对照、ratio/KL 对原子数、空间群有效维数和轨道多重度的分层结果。
+- **RQ4：在相同预算下是否提升通用性质且不牺牲生成质量？** 报告 FE/BG/Ehull、联合命中率、validity、uniqueness、novelty 和成本。
 
-需要轨道一致率、validity、损失—多重度关系和采样示例。
-
-#### RQ2：商空间概率是否消除结构规模与空间群偏置？
-
-需要 ratio/KL 对原子数、空间群有效维数、轨道多重度的分层图；需要 ambient 与 quotient 消融。
-
-#### RQ3：OrbitPO 是否在相同预算下提升通用性质？
-
-需要 FE、BG、Ehull 和联合约束的 hit rate、质量指标、成本指标，以及 PPO/GRPO 的公平比较。
-
-#### RQ4：PIRL 对 PPO 和 GRPO 是否都有价值？
-
-需要 2×2 交互图、坏更新率、LCB 验收统计、样本效率和额外成本。必须同时报告 GRPO+PIRL 与 GRPO 的等效性或差异区间。
-
-Results 不展示 H2 和多保真闭环结果。
+Results 不展示 H2 与 predictor→MLFF→DFT 内部实验。
 
 ### 8.9 Discussion
 
-讨论四点：
-
-1. 为什么晶体对称商空间是概率问题而不只是数据增强；
-2. OrbitPO 在何种空间群/多重度下收益最大；
-3. PIRL 与 GRPO 的关系是互补、冗余还是算法相关；
-4. 方法能否迁移到分子、表面、缺陷或其他带约束的生成空间。
-
-不得把 predictor 上的提升直接称为真实材料发现。
+讨论：为什么更新验证不同于一般 reward feedback；共同随机数减少的是比较方差而不是提供无偏策略梯度；Paired-PIRL 与 PPO/GRPO 的互补或冗余关系；OrbitPO 的适用范围；以及向分子、表面、缺陷和其他约束生成空间迁移的条件。
 
 ### 8.10 Limitations
 
 必须主动说明：
 
-- 当前坐标策略使用每个轨道代表点三维环面，没有完整特殊 Wyckoff stabilizer 切空间；
-- predictor 会有 OOD 与 reward hacking 风险；
+- 当前坐标策略没有完整特殊 Wyckoff stabilizer 切空间；
+- probe verifier 与最终独立 evaluator 都可能有 OOD 风险；
+- probe 会增加生成与性质查询成本；
 - 长扩散轨迹重放成本高；
-- DFT 未进入正文主证据时，结论限于独立代理评价；
+- 没有 DFT 正文主证据时，结论限于独立代理评价；
 - MP20 不能代表全部材料体系；
-- 本文没有直接解决高居里温度和高迁移率设计。
+- 本文不直接解决高居里温度和高迁移率设计。
 
 ### 8.11 Conclusion
 
 只回答三件事：
 
-1. 是否验证了测度偏置；
-2. OrbitPO 是否在公平预算下改善通用性质与稳定性；
-3. PIRL 对 PPO/GRPO 的实验结论是什么。
+1. Paired-PIRL 相对无验证和原始 PIPO 是否降低坏更新并提高预算效率；
+2. 结论是否同时适用于 PPO 与 GRPO；
+3. OrbitPO 是否为该比较提供了经验证、无明显规模偏置的策略概率基础。
 
-不引入正文未展示的新模块或未来应用结果。
+### 8.12 Reproducibility Appendix
 
-### 8.12 Methods/Reproducibility Appendix
-
-包含：
-
-- 完整伪代码；
-- 所有超参数；
-- checkpoint 选择规则；
-- seed 列表；
-- wrapped Gaussian 镜像截断误差；
-- D3PM 后验实现；
-- 确定性末步处理；
-- 单元测试清单；
-- 失败 run 和排除标准；
-- 硬件与软件环境；
-- uv 锁文件哈希。
+包含完整伪代码、原始 PIPO 实现、所有超参数、checkpoint/rollback 规则、probe 构造、seed、wrapped Gaussian 截断误差、D3PM 后验、确定性末步、单元测试、失败 run、排除标准、硬件环境和 `uv.lock` 哈希。
 
 H2 与多保真效果保留为项目内部报告，不放入投稿附件，除非后续明确授权。
 
 ### 8.13 Data and Code Availability
 
-投稿前需要准备：
-
-- 数据集来源、版本和许可；
-- 数据 split 文件；
-- 生成结构与筛选日志；
-- reward/evaluator checkpoint；
-- `uv.lock`；
-- 训练、恢复、评估命令；
-- 随机 seed 与配置；
-- 公开代码范围和暂不能公开内容的原因。
+准备数据来源与许可、split、生成结构与完整筛选日志、reward/probe/final evaluator checkpoint、`uv.lock`、训练/恢复/评估命令、seed、配置和公开范围。
 
 ---
 
 ## 9. 主图和主表规划
 
-### Figure 1：问题与方法总览
+### Figure 1：CrystalPIRL 方法总览
 
-- 完整晶胞重复计数示意；
-- 轨道代表点 D3PM；
-- 晶格 active subspace；
-- wrapped coordinate transition；
-- PPO/GRPO 后接 PIRL 验收。
+以“候选更新→固定成对 probe→LCB 门控→accept/attenuate/reject→verified checkpoint”为视觉中心；OrbitPO 的轨道级 D3PM、晶格子空间和周期坐标概率作为候选更新的支撑模块。
 
-### Figure 2：概率正确性
+### Figure 2：策略改进验证证据
 
-- old=current ratio；
-- density 数值/解析对照；
-- ratio 对原子数；
-- ratio 对 Wyckoff 多重度；
-- ratio 对空间群有效维数。
+展示共享随机流的新旧样本对、paired delta 分布、bootstrap LCB、坏更新/错误接受率以及原始 PIPO 与 Paired-PIRL 的差异。
 
-### Figure 3：通用性质优化
+### Figure 3：OrbitPO 概率正确性
 
-- FE、BG、Ehull 的 hit rate；
-- validity/uniqueness/novelty；
-- reward—查询预算曲线；
-- PPO 与 GRPO 对照。
+展示 old=current ratio、数值/解析密度对照，以及 ratio/KL 对原子数、轨道多重度和空间群有效维数的关系。
 
-### Figure 4：PIRL 算法普适性
+### Figure 4：算法普适性与通用性质结果
 
-- PPO/PPO+PIRL/GRPO/GRPO+PIRL 四曲线；
-- 坏更新率；
-- paired delta 与 LCB；
-- 收益—额外成本图。
+展示 PPO/GRPO × 三种验证机制的 2×3 交互、FE/BG/Ehull 命中率、生成质量及收益—额外成本。
 
 ### Table 1：主结果
 
-报告三 seed 的通用性质、质量与成本。禁止只报告最优值。
+报告三个或更多 seed 的通用性质、质量、坏更新率和成本，禁止只报告最优值。
 
 ### Table 2：概率消融
 
-报告轨道计数、晶格子空间、wrapped likelihood 的独立贡献。
+报告轨道计数、晶格子空间和 wrapped likelihood 的独立贡献。
 
-### Table 3：PIRL 2×2 比较
+### Table 3：2×3 策略更新验证比较
 
-报告坏更新率、最终 reward、hit rate、方差、probe 成本和等效性区间。
+报告无验证、原始 PIPO、Paired-PIRL 在 PPO/GRPO 下的最终 reward、独立 hit rate、坏更新率、错误接受率、方差、probe 成本和等效区间。
 
 ---
 
@@ -748,7 +666,7 @@ output/rl_internal/
 - 只在 reward predictor 上有效、独立 evaluator 无效；
 - 改善来自更多查询或更多 GPU 预算；
 - 没有 ambient/full-cell 概率消融；
-- PIRL 结论没有 2×2 公平比较；
+- Paired-PIRL 结论没有在 PPO/GRPO 下同时对照无验证与原始 PIPO；
 - 负结果或失败 run 被选择性删除。
 
 ---
@@ -762,7 +680,7 @@ output/rl_internal/
 5. 用真实 decoder 跑 transition replay 梯度 smoke test；
 6. 单性质 PPO 128–512 rollout；
 7. 单性质 GRPO 128–512 rollout；
-8. 建立固定 probe 并运行 PPO/GRPO × PIRL 2×2 小实验；
+8. 实现并验证原始 PIPO 基线，建立固定 probe，运行 PPO/GRPO × 无验证/原始 PIPO/Paired-PIRL 的 2×3 小实验；
 9. 通过 Gate B 后扩展 FE、BG、Ehull 和联合约束；
 10. 独立运行 H2 与多保真内部实验；
 11. 冻结三个 seed 结果后生成文章图表；
@@ -774,10 +692,10 @@ output/rl_internal/
 
 以下问题必须等待真实实验：
 
-- OrbitPO 是否优于 ambient PPO/GRPO；
-- PPO 还是 GRPO 更适合当前 CGDiT；
-- PIRL 是否对两种算法都有效；
-- GRPO 是否已经足够稳定而无需 PIRL；
+- Paired-PIRL 是否相对无验证和原始 PIPO 降低坏更新率；
+- 这种额外收益是否同时适用于 PPO 与 GRPO；
+- OrbitPO 是否优于 ambient/full-cell 概率实现；
+- GRPO 是否已经足够稳定而无需更新验证；
 - H2 是否降低梯度方差或只是增加 oracle 成本；
 - predictor→MLFF→DFT 是否提高真实命中率；
 - 轨道级 D3PM 是否需要从头重训；
