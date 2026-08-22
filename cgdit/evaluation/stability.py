@@ -225,7 +225,6 @@ class CrystalEvaluator:
                             transform=ax.transAxes, fontsize=12, fontweight='bold',
                             bbox=dict(facecolor='white', alpha=0.8, edgecolor='gray'))
 
-            ax.set_title(f"Distribution of {title}", fontsize=14, fontweight='bold')
             ax.set_xlabel(title, fontsize=12)
             ax.set_ylabel("Probability Density", fontsize=12)
             ax.legend(loc='upper right')
@@ -294,8 +293,6 @@ class CrystalEvaluator:
 
         ax.set_xlabel("Reference Structures (Training Set)", fontsize=12, fontweight='bold')
         ax.set_ylabel("Generated Candidates", fontsize=12, fontweight='bold')
-        ax.set_title("Micro-Geometric Novelty:\nRDF Wasserstein Distance Heatmap", fontsize=14, fontweight='bold')
-
         cbar = fig.colorbar(cax, ax=ax)
         cbar.set_label("Earth Mover's Distance (EMD) of RDF", fontsize=11)
 
@@ -412,7 +409,6 @@ class CrystalEvaluator:
             plt.axis('off')
             plt.gca().set_aspect('equal')
 
-        plt.title(f"{num_els}-ary Phase Diagram: {sys_name}\nTarget: {initial_struct.composition.reduced_formula}")
         plt.legend(loc='upper right', fontsize='small')
 
         filename = f"PD_{sys_name}_{initial_struct.composition.reduced_formula}_{uuid.uuid4().hex[:4]}.png"
@@ -432,7 +428,6 @@ class CrystalEvaluator:
         plt.axhline(0, color='darkred', linestyle='--', linewidth=2, label='E_hull = 0 (Ground State)', zorder=1)
         plt.xlabel('Physical Density (g/cm³)', fontsize=14, fontweight='bold')
         plt.ylabel('$E_{hull}$ (eV/atom)', fontsize=14, fontweight='bold')
-        plt.title('Energy-Density Funnel Plot', fontsize=16, fontweight='bold')
         plt.legend(fontsize=12)
         plt.grid(True, linestyle=':', alpha=0.7)
         plt.tight_layout()
@@ -475,7 +470,6 @@ class CrystalEvaluator:
                         fontstyle='italic')
         ax.set_xlim(-max_val * 0.8, max_val * 0.8)
         ax.axis('off')
-        plt.title('Generative Pipeline Retention Funnel', fontsize=16, fontweight='bold', y=1.02)
         plt.tight_layout()
         plt.savefig(save_path, dpi=300)
         plt.close()
@@ -714,7 +708,6 @@ if __name__ == "__main__":
             plt.figure(figsize=(8, 6))
             plt.hist(ehull_list, bins=30, color='skyblue', edgecolor='black', alpha=0.7)
             plt.axvline(x=0.0, color='red', linestyle='--', linewidth=2, label='E_hull = 0 (Stable Base)')
-            plt.title('Distribution of Energy Above Hull ($E_{hull}$)', fontsize=14)
             plt.xlabel('$E_{hull}$ (eV/atom)', fontsize=12)
             plt.ylabel('Frequency', fontsize=12)
             plt.legend(fontsize=12)

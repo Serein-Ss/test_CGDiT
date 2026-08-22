@@ -499,7 +499,6 @@ def plot_target_distributions(
         fig, ax = plt.subplots(figsize=(7.2, 4.0))
         _plot_ecdf(ax, frame, target.column, include_missing=True)
         ax.set_xlabel(target.axis_label)
-        ax.set_title(f"{spec.display_name}: {target.label} across fixed data splits")
         ks = _ks_against_train(frame, target.column)
         details = []
         for split in ("val", "test"):
@@ -566,7 +565,6 @@ def _grouped_percentage_bars(
 
 def plot_compositional_diversity(
     frame: pd.DataFrame,
-    spec: DatasetSpec,
     output_dir: Path,
     formats: Sequence[str],
 ) -> list[Path]:
@@ -575,16 +573,6 @@ def plot_compositional_diversity(
     fig, ax = plt.subplots(figsize=(7.2, 4.0))
     _grouped_percentage_bars(ax, categories, percentages)
     ax.set_xlabel("Unique elements per structure")
-
-    train = percentages["train"] / 100
-    distances = []
-    for split in ("val", "test"):
-        distance = 0.5 * np.abs(train - percentages[split] / 100).sum()
-        distances.append(f"TV(train, {split}) = {distance:.3f}")
-    ax.set_title(
-        f"{spec.display_name}: compositional complexity\n"
-        + ", ".join(distances)
-    )
     return save_figure(fig, output_dir / "02_compositional_diversity", formats)
 
 
@@ -613,7 +601,6 @@ def plot_symmetry_diversity(
     fig, ax = plt.subplots(figsize=(7.2, 4.2))
     _grouped_percentage_bars(ax, categories, percentages)
     ax.set_xlabel(axis_label)
-    ax.set_title(f"{spec.display_name}: symmetry coverage")
     ax.tick_params(axis="x", labelrotation=35)
     for label in ax.get_xticklabels():
         label.set_ha("right")
@@ -642,10 +629,8 @@ def plot_physical_properties(
     for ax, (column, label) in zip(axes, panels):
         _plot_ecdf(ax, frame, column)
         ax.set_xlabel(label)
-        ax.set_title(label.split(" (")[0])
     axes[0].legend(loc="best")
     axes[1].legend().remove()
-    fig.suptitle(f"{spec.display_name}: physical scale", fontsize=8.5, fontweight="semibold")
     return save_figure(fig, output_dir / "04_physical_properties_distribution", formats)
 
 
@@ -666,7 +651,6 @@ def plot_lattice_parameters(
     ax.set_xlabel("Lattice length (Å)")
     ax.set_ylabel("Cumulative fraction")
     ax.set_ylim(0, 1.02)
-    ax.set_title(f"{spec.display_name}: lattice-length distribution")
     ax.legend(loc="best")
     _style_axis(ax)
     return save_figure(fig, output_dir / "05_lattice_parameters", formats)
@@ -705,7 +689,6 @@ def _element_frequency_table(frame: pd.DataFrame) -> pd.DataFrame:
 
 def plot_element_frequency(
     element_table: pd.DataFrame,
-    spec: DatasetSpec,
     output_dir: Path,
     formats: Sequence[str],
 ) -> list[Path]:
@@ -729,7 +712,6 @@ def plot_element_frequency(
         ax.text(value, bar.get_y() + bar.get_height() / 2, f" {value:.1f}%", va="center", fontsize=6.5)
     ax.set_xlabel("Structures containing element (%)")
     ax.set_ylabel("Element")
-    ax.set_title(f"{spec.display_name}: most prevalent elements (all splits)")
     ax.set_xlim(0, max(overall["structures_percent"].max() * 1.16, 1))
     _style_axis(ax)
     return save_figure(fig, output_dir / "06_top_elements_frequency", formats)
@@ -779,7 +761,6 @@ def plot_feature_target_correlation(
         spine.set_visible(False)
     colorbar = fig.colorbar(image, ax=ax, fraction=0.035, pad=0.03)
     colorbar.set_label("Spearman ρ")
-    ax.set_title(f"{spec.display_name}: structure–property associations")
     return save_figure(fig, output_dir / "07_feature_target_correlation", formats)
 
 
@@ -990,7 +971,6 @@ def plot_model_parity(
             ax.plot([lower, upper], [lower, upper], color="#272727", linestyle="--", linewidth=1)
             ax.set_xlim(lower, upper)
             ax.set_ylim(lower, upper)
-            ax.set_title(metric["model"])
             ax.text(
                 0.04,
                 0.96,
@@ -1005,11 +985,6 @@ def plot_model_parity(
             ax.set_ylabel(f"Predicted {target.axis_label}")
         for ax in axes[-1, :]:
             ax.set_xlabel(f"Observed {target.axis_label}")
-        fig.suptitle(
-            f"{spec.display_name}: fixed-test parity for {target.label}",
-            fontsize=8.5,
-            fontweight="semibold",
-        )
         saved.extend(save_figure(fig, model_dir / "parity_plots", formats))
     return saved
 
@@ -1037,13 +1012,13 @@ def process_dataset(
 
     generated: list[Path] = []
     generated.extend(plot_target_distributions(frame, spec, output_dir, formats))
-    generated.extend(plot_compositional_diversity(frame, spec, output_dir, formats))
+    generated.extend(plot_compositional_diversity(frame, output_dir, formats))
     symmetry_files, symmetry_values = plot_symmetry_diversity(frame, spec, output_dir, formats)
     generated.extend(symmetry_files)
     generated.extend(plot_physical_properties(frame, spec, output_dir, formats))
     generated.extend(plot_lattice_parameters(frame, spec, output_dir, formats))
     element_table = _element_frequency_table(frame)
-    generated.extend(plot_element_frequency(element_table, spec, output_dir, formats))
+    generated.extend(plot_element_frequency(element_table, output_dir, formats))
     correlations = correlation_table(frame, spec)
     generated.extend(plot_feature_target_correlation(correlations, spec, output_dir, formats))
     if include_model_parity:
