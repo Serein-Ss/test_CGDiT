@@ -11,8 +11,10 @@ assets/
 
 # Archives, logs, checkpoints, and generated training artifacts
 *.zip
+*.tar.gz
 *.log
 logs/
+tmp/
 *.pt
 *.ckpt
 *.pth
@@ -29,3 +31,14 @@ post_processing/plots/
 post_processing/*.pdf
 post_processing/*.png
 scripts/*.csv
+
+# Local test/build artifacts
+.ruff_cache/
+.coverage
+htmlcov/
+.pytest_cache/
+*.egg-info/
+
+# Local literature extraction artifacts
+paper_research/**/rendered-pages/
+paper_research/**/source_bundle.json

@@ -3,7 +3,7 @@
 ---
 
 CGDiT (Crystal Graph Diffusion Transformer) is a **graph-based diffusion model** designed for **crystal structure generation**.  
-It integrates the strengths of **graph neural networks (GNNs)** for atomic-level representation and **Transformer-based denoising** for efficient diffusion in the discrete lattice space.
+It combines graph neural networks with continuous coordinate/lattice diffusion and D3PM atom-type diffusion.
 
 ---
 
@@ -13,7 +13,7 @@ Traditional diffusion models excel in image and text generation but struggle to 
 CGDiT addresses this challenge by:
 - Representing atomic systems as **crystal graphs**
 - Modeling diffusion with **discrete noise schedules**
-- Employing a **Transformer-based denoiser** to predict clean graph states
+- Employing a symmetry-aware message-passing denoiser to predict clean graph states
 - Supporting **conditional generation** (e.g., composition, symmetry, or property constraints)
 
 ---
@@ -33,14 +33,29 @@ CGDiT addresses this challenge by:
 ### Setup
 
 ```bash
-bash setup/setup.sh
+conda env create -f environment.yml
+conda activate cgdit
+cp .env.template .env
 ```
-Rename the `.env.template` file into `.env` and specify the following variables:
+
+Set the paths in `.env`. The Conda environment uses Python 3.10, PyTorch 2.4.1
+with CUDA 12.4, and matching PyG CUDA extensions. Run project commands from
+the repository root after activating `cgdit`:
+
+```bash
+python -m pytest -q
+python -c "import torch; print(torch.__version__, torch.version.cuda)"
 ```
-PROJECT_ROOT=/absolute/path/to/this/repo
-HYDRA_JOBS=/absolute/path/to/save/hydra/outputs
-WABDB_DIR=/absolute/path/to/save/wandb/outputs
+
+For stability evaluation, install MatGL in the active environment:
+
+```bash
+python -m pip install "matgl>=2,<3"
 ```
+
+The login node does not expose a GPU. Submit CUDA commands through SLURM with a
+GPU allocation (for example, `--partition=rtx4090 --gres=gpu:1`); a false
+`torch.cuda.is_available()` result on the login node is therefore expected.
 
 ## Datasets
 
@@ -54,7 +69,7 @@ Reusable Python code is separated from command-line entry points:
 - `scripts/cli/evaluation`: metric and evaluation commands.
 - `scripts/cli/visualization`: evaluation plotting commands.
 
-Run commands from the repository root in the `cgdit` environment:
+Run commands from the repository root in the activated Conda environment:
 
 ```bash
 python -m scripts.cli.generation.generate --model_path <model_path>
@@ -63,5 +78,14 @@ python -m scripts.cli.evaluation.evaluate_metrics --root_path <model_path> --tas
 python -m scripts.cli.evaluation.evaluate_stability --input <eval_gen.pt> --train-csv data/<dataset>/train.csv
 ```
 
-Only the module-based commands under `scripts/cli` are supported. Historical
-`scripts/*.py` compatibility entry points have been removed.
+Generated structures are stored under each model run in
+`generated_structures/<stage>/<method>/<conditioning>/`. Structural metrics,
+property predictions, and property summaries are stored in the corresponding
+`evaluations/` tree with an `evaluations/source_manifest.json` provenance file.
+To migrate a legacy `output/` tree, first preview and then apply and verify:
+
+```bash
+python -m scripts.cli.tools.migrate_output_layout
+python -m scripts.cli.tools.migrate_output_layout --apply
+python -m scripts.cli.tools.migrate_output_layout --verify
+```

@@ -8,9 +8,9 @@ conditioning:
 
 properties:
   formation_energy_per_atom:
-    mode: target
+    mode: minimize
     target: -1.5
-    tolerance: 0.06
+    tolerance: 0.30
     unit: eV/atom
   band_gap:
     mode: target

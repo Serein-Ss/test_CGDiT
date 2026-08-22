@@ -1,12 +1,12 @@
 # Diff2Flow 对 CGDiT 的意义、可采用范围与实施计划
 
-> 文档状态：项目适配分析初稿，尚未实施代码  
-> 创建日期：2026-08-04  
-> 论文：Schusterbauer et al., *Diff2Flow: Training Flow Matching Models via Diffusion Model Alignment*, CVPR 2025  
-> 本地来源：`D:\app\Zotero\storage\Y7JZMA8T\Schusterbauer 等 - 2025 - Diff2Flow Training Flow Matching Models via Diffusion Model Alignment.pdf`  
+> 文档状态：历史归档；非当前研究主线
+> 创建日期：2026-08-04
+> 论文：Schusterbauer et al., *Diff2Flow: Training Flow Matching Models via Diffusion Model Alignment*, CVPR 2025
+> 本地来源：`D:\app\Zotero\storage\Y7JZMA8T\Schusterbauer 等 - 2025 - Diff2Flow Training Flow Matching Models via Diffusion Model Alignment.pdf`
 > 项目：`E:\WORKSPACE\CodePlace\test_CGDiT`
 
-> **项目状态更新（2026-08-09）**：Diff2Flow 已不再作为当前研究主线或开展 GRPO 的前置条件。当前唯一主线是“直接在 CGDiT 扩散采样链上实现面向晶体异构动作空间的 GRPO”。本文档保留为后续效率增强的技术储备；只有直接 GRPO 闭环成立、实测 rollout 占总训练时间超过约 70%，且 D2F-L 试点满足总效率和质量门槛时，才启动后续转换工作。最新执行顺序和验收条件以 `diffusion_rl_research_and_plan.md` v0.2 为准。
+> **项目状态更新（2026-08-20）**：本文档已归档。Diff2Flow 不再作为当前研究主线或开展 GRPO 的前置条件；只有直接 GRPO 闭环成立、实测 rollout 占总训练时间超过约 70%，且 D2F-L 试点满足总效率和质量门槛时，才重新启用。当前执行顺序和验收条件以 [`OrbitPO文章执行计划.md`](../../OrbitPO文章执行计划.md) 为准。
 
 ## 1. 结论
 

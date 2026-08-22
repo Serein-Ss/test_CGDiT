@@ -2,7 +2,7 @@
 
 set -Eeuo pipefail
 
-PROJECT_ROOT="/root/private_data/rszhong/workspace/test_CGDiT"
+PROJECT_ROOT="${PROJECT_ROOT:-$(cd "$(dirname "$0")" && pwd)}"
 cd "${PROJECT_ROOT}"
 
 WORKER="submit_python/run_additional_mp20_predictors.sh"

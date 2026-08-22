@@ -6,6 +6,10 @@ from pathlib import Path
 from torch_geometric.data import DataLoader, Data
 from torch.utils.data import Dataset
 from cgdit.common.evaluation_utils import load_model, lattices_to_params_shape
+from cgdit.common.output_paths import (
+    generation_output_path,
+    record_generated_structure,
+)
 from cgdit.generation.conditioning import (
     add_condition_arguments,
     apply_condition_values,
@@ -44,7 +48,7 @@ def diffusion(
         print("Standard unconditional generation (sampling from data distribution).")
 
     for idx, batch in enumerate(tqdm(loader, desc="Generating")):
-        if torch.cuda.is_available():
+        if torch.cuda.is_available() and hasattr(batch, "cuda"):
             batch = batch.cuda()
 
         apply_condition_values(batch, condition_values, condition_configs)
@@ -284,9 +288,10 @@ def main(args):
     else:
         label = args.label
 
-    gen_out_name = f'eval_gen_{label}.pt'
+    output_path = generation_output_path(model_path, label)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
     print(f"Generation completed in {time.time() - start_time:.2f}s.")
-    print(f"Saving results to {model_path / gen_out_name}")
+    print(f"Saving results to {output_path}")
 
     torch.save({
         'eval_setting': args,
@@ -300,7 +305,8 @@ def main(args):
         'target_value': args.target_value,
         'guidance_scale': args.guidance_scale,
         'seed': args.seed,
-    }, model_path / gen_out_name)
+    }, output_path)
+    record_generated_structure(output_path)
 
 
 def build_parser():

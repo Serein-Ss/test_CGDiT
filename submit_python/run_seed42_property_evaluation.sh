@@ -40,7 +40,7 @@ python -m scripts.cli.evaluation.evaluate_generated_properties \
     --fe_run "${FE_RUN}" \
     --bg_run "${BG_RUN}" \
     --eh_run "${EH_RUN}" \
-    --output_dir output/property_evaluation_seed42 \
+    --output_dir assets/model_results/source_data/property_evaluation_seed42 \
     --batch_size "${BATCH_SIZE}" \
     --num_workers "${NUM_WORKERS}" \
     --device "${DEVICE}"

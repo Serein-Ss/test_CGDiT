@@ -24,6 +24,12 @@ import pickle
 from cgdit.common.evaluation_utils import (
     smact_validity, structure_validity, CompScaler, get_fp_pdist,
     load_config, load_data, get_crystals_list, prop_model_eval, compute_cov)
+from cgdit.common.output_paths import (
+    evaluation_output_path,
+    provenance_path,
+    record_evaluation_metric,
+    resolve_generation_output_path,
+)
 
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 
@@ -382,7 +388,7 @@ def main(args):
 
     if 'gen' in args.tasks:
 
-        gen_file_path = get_file_paths(args.root_path, 'gen', args.label)
+        gen_file_path = resolve_generation_output_path(args.root_path, args.label)
         recon_file_path = get_file_paths(args.root_path, 'recon', args.label)
         crys_array_list, _ = get_crystal_array_list(gen_file_path, batch_idx=-2)
 
@@ -464,7 +470,18 @@ def main(args):
         metrics_out_file = f'eval_metrics_{task_str}.json'
     else:
         metrics_out_file = f'eval_metrics_{task_str}_{args.label}.json'
-    metrics_out_file = os.path.join(args.root_path, metrics_out_file)
+    if 'gen' in args.tasks:
+        metrics_out_file = evaluation_output_path(
+            gen_file_path, "structural_metrics", metrics_out_file
+        )
+        all_metrics.update({
+            "source_generation": provenance_path(gen_file_path),
+            "evaluation_model_name": str(eval_model_name),
+            "evaluation_seed": int(args.seed),
+        })
+    else:
+        metrics_out_file = Path(args.root_path) / metrics_out_file
+    Path(metrics_out_file).parent.mkdir(parents=True, exist_ok=True)
 
     # only overwrite metrics computed in the new run.
     if Path(metrics_out_file).exists():
@@ -481,6 +498,11 @@ def main(args):
     else:
         with open(metrics_out_file, 'w') as f:
             json.dump(all_metrics, f)
+
+    if 'gen' in args.tasks:
+        record_evaluation_metric(
+            "structural_metrics", metrics_out_file, gen_file_path
+        )
 
 
 def build_parser():

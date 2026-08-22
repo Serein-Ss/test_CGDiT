@@ -151,7 +151,7 @@ def main():
                         sub_data[k] = data[k][e]
                 process_batch(sub_data, f"eval_{e}", output_dir)
         else:
-            # 兼容正式生成入口输出的单维度结构
+            # 兼容 template_generation.py 生成的单维度结构
             process_batch(data, "batch_0", output_dir)
 
     # 兼容 List 格式存储的批次数据

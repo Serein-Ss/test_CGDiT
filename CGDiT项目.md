@@ -1,6 +1,6 @@
 # Crystal Graph Diffusion Transformer
 
-> 本文档对应当前 `test_CGDiT` 工作区，最后核对日期：2026-08-14。
+> 本文档对应当前 `test_CGDiT` 工作区，最后核对日期：2026-08-21。
 > 文档中的命令默认在项目根目录执行，并优先使用重构后的模块化入口。
 
 
@@ -30,7 +30,7 @@ python cgdit/run.py data=<data_config> model=<model_config> expname=<experiment_
 
 注意：项目根目录的 `main.py` 只是 PyCharm 自动生成的示例文件，不是训练入口。
 
-当前本机已存在 8 组 MP-20 训练结果：
+当前本机保留 8 组 MP-20 生成模型训练结果：
 
 | 实验 | 条件 | 模型目录 |
 |---|---|---|
@@ -38,12 +38,14 @@ python cgdit/run.py data=<data_config> model=<model_config> expname=<experiment_
 | mp20_fe | Formation Energy | `output/singlerun/2026-06-28/16-46-08-mp20_fe` |
 | mp20_bg | Band Gap | `output/singlerun/2026-06-30/11-28-44-mp20_bg` |
 | mp20_eh | Energy Above Hull | `output/singlerun/2026-07-02/04-07-02-mp20_eh` |
-| mp20_fe_bg_eh | 三条件 | `output/singlerun/2026-08-05/13-12-29-mp20_fe_bg_eh` |
-| mp20_fe_bg | 双条件 | `output/singlerun/2026-08-07/07-54-15-mp20_fe_bg` |
-| mp20_fe_eh | 双条件 | `output/singlerun/2026-08-08/18-02-14-mp20_fe_eh` |
-| mp20_bg_eh | 双条件 | `output/singlerun/2026-08-10/02-53-51-mp20_bg_eh` |
+| mp20_fe_bg_eh | FE + BG + Ehull 三条件 | `output/singlerun/2026-08-05/13-12-29-mp20_fe_bg_eh` |
+| mp20_fe_bg | FE + BG 双条件 | `output/singlerun/2026-08-07/07-54-15-mp20_fe_bg` |
+| mp20_fe_eh | FE + Ehull 双条件 | `output/singlerun/2026-08-08/18-02-14-mp20_fe_eh` |
+| mp20_bg_eh | BG + Ehull 双条件 | `output/singlerun/2026-08-10/02-53-51-mp20_bg_eh` |
 
-这些路径是当前机器上的结果快照，不应写死在新的代码或服务器脚本中。
+当前强化学习研究范围暂时只启用 FE 和 BG。训练奖励与固定 probe 均冻结为 seed=42：FE 使用 `mp20_predictor_fe`，BG 使用 `mp20_predictor_bg`。FE/BG 的 seed=123 虽然已有测试输出，但多 seed 预测器体系尚未完整冻结，因此当前不组成 ensemble，也不参与 reward 或 checkpoint 选择。Ehull predictor 和所有含 Ehull 的生成模型只作为历史资产保留，不进入当前研究主线。
+
+8 组生成模型仍完整保留以保证可追溯性；当前 FE/BG 主线实际使用 `mp20_base`、`mp20_fe`、`mp20_bg` 和 `mp20_fe_bg` 四个基线，对应 11 组正式 seed=42 生成/性质评估，每组 4096 个结构。完整 23 组结果不删除。具体状态见 `output/README.md` 和 `conf/rl/reward_models_mp20.yaml`。汇总文件中的 `/public/home/...` 是原服务器来源记录，本机执行必须使用当前项目相对路径。
 
 
 ## Project Structure
@@ -90,7 +92,7 @@ test_CGDiT/
 │   │   ├── evaluation/               # 评估命令
 │   │   ├── visualization/            # 绘图命令
 │   │   └── tools/                    # 查询与数据准备工具
-│   └── test.ipynb                    # 开发期实验记录
+│   └── dataset_figures/              # 统一数据集科学绘图
 ├── pre_processing/                   # 数据预处理与分析
 ├── post_processing/                  # 旧版结果后处理脚本
 ├── submit_python/                    # 服务器批量训练脚本
@@ -99,7 +101,9 @@ test_CGDiT/
 ├── logs/                             # 批量训练日志
 ├── .env                              # 本机环境变量，不上传 GitHub
 ├── .env.template                     # 环境变量模板
-└── requirements.txt                  # 当前 Windows Conda 环境快照
+├── requirements.txt                  # 既有 Conda/Python 环境快照
+├── setup/                            # 既有安装与环境辅助文件
+└── environment.yml                   # Conda 环境配置
 ```
 
 
@@ -180,65 +184,77 @@ conditions:
 
 ## Setup Environment
 
-### Existing Local Environment
-
-当前已验证可用的环境是：
-
-```powershell
-conda activate cgdit
-python --version
-python -c "import torch, pymatgen, pyxtal, hydra; print(torch.__version__)"
-```
-
-当前系统默认 Base Python 不是项目环境：它缺少 `torch`，且 NumPy 与 Matplotlib 存在二进制版本冲突。因此运行本项目之前必须先激活 `cgdit`。
-
 ### Environment Files
 
-当前环境文件存在以下边界：
+当前保留的环境配置文件如下：
 
-- `requirements.txt` 是 `win-64` 的 Conda 环境快照，不是标准 `pip requirements.txt`；
-- 不建议执行 `pip install -r requirements.txt`；
-- `setup/env.yml` 当前为空，尚不能作为服务器重建环境的依据；
-- 当前环境实际使用 Python 3.10 系列，旧文档中的 Python 3.11 创建命令不再作为已验证方案；
-- `setup/setup.py` 仅保存最小包元数据，项目仍要求从仓库根目录运行。
+| 文件 | 用途 |
+|---|---|
+| `environment.yml` | 推荐的 Conda 环境入口，使用 Python 3.10、CUDA 12.4 PyTorch 和匹配的 PyG 轮子 |
+| `requirements.txt` | 既有环境快照，仅用于版本核对，不建议在不同操作系统间直接安装 |
+| `setup/` | 既有安装辅助文件，为兼容旧环境保留 |
+| `.env.template` | 本机路径和可选凭据模板；实际 `.env` 不提交 |
 
-迁移到新服务器前，建议在当前可用环境额外导出：
+### Conda 环境
+
+当前服务器 GPU 节点使用 NVIDIA 550.54.15 驱动（CUDA 12.4），环境固定为
+Python 3.10、PyTorch 2.4.1 cu124、PyTorch Geometric 2.7.0，以及匹配的
+torch-scatter/torch-sparse `pt24cu124` 轮子。
+
+首次创建环境：
 
 ```bash
-conda env export --from-history > environment.from-history.yml
-conda env export > environment.lock.yml
+conda env create -f environment.yml
+conda activate cgdit
+python -c "import torch, torch_geometric; print(torch.__version__, torch.version.cuda, torch_geometric.__version__)"
+python -m pytest -q
 ```
 
-服务器上还需要根据 CUDA 和 GPU 驱动重新选择匹配的 PyTorch/PyG 版本，不能直接复制 Windows 二进制包。
+稳定性评估需要 MatGL 时，在已激活的环境中安装：
+
+```bash
+python -m pip install "matgl>=2,<3"
+```
+
+已有同名环境需要同步时：
+
+```bash
+conda env update --name cgdit --file environment.yml
+conda activate cgdit
+```
+
+该环境固定为 CUDA 12.4 构建，不能混装 `+cpu`、`pt24cpu` 或其他 CUDA
+版本的扩展。登录节点看不到 GPU 属于正常现象；CUDA 可用性必须在 SLURM 分配的
+GPU 节点内检查。本次验证使用 `rtx4090` 分区并实际分配到 RTX 3090；集群状态会
+变化，提交前应先用 `sinfo` 检查可用分区。例如从项目根目录提交检查：
+
+```bash
+sbatch --partition=rtx4090 --gres=gpu:1 --time=00:05:00 --wrap='python -c "import torch; assert torch.cuda.is_available(); print(torch.cuda.get_device_name(), torch.version.cuda)"'
+```
 
 ### Configure `.env`
 
-复制 `.env.template` 为 `.env`，并填写绝对路径：
+复制模板并填写当前服务器的绝对路径：
 
-```dotenv
-PROJECT_ROOT=E:/WORKSPACE/CodePlace/test_CGDiT
-HYDRA_JOBS=E:/WORKSPACE/CodePlace/test_CGDiT/output
-WABDB_DIR=E:/WORKSPACE/CodePlace/test_CGDiT/wandb
-WANDB_API_KEY=
-MP_API_KEY=
+```bash
+cp .env.template .env
 ```
-
-Linux 服务器示例：
 
 ```dotenv
 PROJECT_ROOT=/absolute/path/to/test_CGDiT
 HYDRA_JOBS=/absolute/path/to/test_CGDiT/output
-WABDB_DIR=/absolute/path/to/test_CGDiT/wandb
+WANDB_DIR=/absolute/path/to/test_CGDiT/wandb
 WANDB_API_KEY=
 MP_API_KEY=
 ```
 
-注意：代码当前使用的是拼写为 `WABDB_DIR` 的环境变量，虽然它看起来像 `WANDB_DIR` 的拼写错误，但在修改 `conf/default.yaml` 之前必须保持这个名称。
+`WANDB_API_KEY` 和 `MP_API_KEY` 只保存在本机 `.env`，不得写入代码、notebook
+或提交到 Git。W&B 默认使用离线模式。
 
-如果不希望在线上传 W&B，可以在命令中覆盖：
+本文后续命令均假定已经激活 Conda 环境。例如：
 
 ```shell
-python cgdit/run.py data=mp_20 model=exp_mp20_base expname=mp20_base logging.wandb.mode=offline
+python -m cgdit.run data=mp_20 model=exp_mp20_base expname=mp20_base
 ```
 
 
@@ -342,27 +358,47 @@ python cgdit/run.py data=mpts_52 model=diffusion_finetuned train=finetuned expna
 
 ### Training Outputs
 
-Hydra 输出路径由 `conf/default.yaml` 决定：
+Hydra 输出路径由 `conf/default.yaml` 决定。训练产物仍保存在本次运行根目录，生成和评估结果使用分层目录：
 
 ```text
 output/singlerun/YYYY-MM-DD/HH-MM-SS-<expname>/
 ├── epoch=<epoch>-step=<step>.ckpt
 ├── hparams.yaml
-└── run.log
+├── run.log
+├── generated_structures/
+│   ├── pilot/
+│   ├── formal/
+│   └── test/
+└── evaluations/
+    ├── structural_metrics/
+    ├── property_predictions/
+    ├── property_metrics/
+    └── source_manifest.json
 ```
 
 - `hparams.yaml` 是模型重建与结果追踪的重要依据；
 - `.ckpt` 是模型权重；
 - `run.log` 是本次运行日志；
-- `eval_gen_*.pt`、`eval_diff_*.pt` 和 `eval_metrics_*.json` 是后续生成与评估产生的文件；
+- `generated_structures/` 保存结构张量，并继续按模板/ab initio、条件/无条件分类；
+- `evaluations/` 保存结构指标、逐结构性质预测、汇总性质指标和来源清单；
 - 迁移模型时至少要同时保留 `.ckpt` 和 `hparams.yaml`。
+
+旧版直接保存在模型目录下的 `eval_gen_*.pt` 和 `eval_metrics_gen_*.json`
+可通过以下命令迁移。默认只预览，增加 `--apply` 才会执行；原文件会先备份到
+`output/_legacy_layout_backup_20260822/`：
+
+```shell
+python -m scripts.cli.tools.migrate_output_layout
+python -m scripts.cli.tools.migrate_output_layout --apply
+python -m scripts.cli.tools.migrate_output_layout --verify
+```
 
 训练脚本只会在本次 Hydra 输出目录中寻找检查点。重新启动命令通常会创建新的时间戳目录，因此不能把它理解为会自动恢复任意旧目录中的训练。
 
 
 ## Generation
 
-可复用代码位于 `cgdit/generation`，唯一命令行入口位于 `scripts/cli/generation`。新代码应直接导入 `cgdit.generation`；命令行统一使用 `python -m scripts.cli...`。
+可复用代码位于 `cgdit/generation`，命令行入口位于 `scripts/cli/generation`。新代码应导入 `cgdit.generation`，而不是导入旧的 `scripts/*.py`。
 
 ### 1. Template Generation
 
@@ -375,7 +411,7 @@ python -m scripts.cli.generation.generate --model_path <model_path> --label temp
 输出：
 
 ```text
-<model_path>/eval_gen_template_uncond.pt
+<model_path>/generated_structures/formal/template/unconditional/eval_gen_template_uncond.pt
 ```
 
 ### 2. Property-guided Generation
@@ -493,7 +529,7 @@ python -m scripts.cli.evaluation.evaluate_metrics --root_path <model_path> --tas
 输出：
 
 ```text
-<model_path>/eval_metrics_gen_mp20_uncond.json
+<model_path>/evaluations/structural_metrics/eval_metrics_gen_mp20_uncond.json
 ```
 
 生成指标包括：
@@ -534,7 +570,7 @@ python -m scripts.cli.evaluation.evaluate_metrics --root_path <model_path> --tas
 ### 3. Stability, Novelty and Uniqueness
 
 ```shell
-python -m scripts.cli.evaluation.evaluate_stability --input <model_path>/eval_gen_mp20_uncond.pt --train-csv data/mp_20/train.csv --output-dir <model_path>/Stability --samples-per-family 3
+python -m scripts.cli.evaluation.evaluate_stability --input <model_path>/generated_structures/formal/template/unconditional/eval_gen_mp20_uncond.pt --train-csv data/mp_20/train.csv --output-dir <model_path>/evaluations/stability --samples-per-family 3
 ```
 
 可选弛豫：
@@ -635,21 +671,13 @@ from cgdit.evaluation.metrics import Crystal, GenEval, RecEval
 from cgdit.evaluation.visualization import plot_property_parity
 ```
 
-旧版 `scripts/*.py` 兼容入口和 `scripts/legacy` 实现已经删除。所有生成、重建、评估、性质预测和可视化结果只允许从以下正式模块入口产生：
-
-```text
-scripts/cli/generation/
-scripts/cli/evaluation/
-scripts/cli/visualization/
-scripts/cli/tools/
-```
+旧的根目录兼容脚本和 `scripts/legacy/` 已清理；Python API 统一从 `cgdit`
+导入，命令行统一使用 `python -m scripts.cli.<group>.<command>`。
 
 
 ## Known Limitations
 
-- `setup/env.yml` 为空，服务器环境尚未形成正式可复现清单；
-- `requirements.txt` 是 Windows Conda 快照，不是跨平台 pip 文件；
-- `WABDB_DIR` 是当前代码实际使用的历史拼写；
+- uv 与 Conda 当前固定为 CUDA 12.4 构建，须通过 SLURM GPU 作业运行 CUDA 任务；
 - `main.py` 不是项目入口；
 - `conf/train/finetuned.yaml` 含有旧检查点绝对路径；
 - `submit_python/run_remaining_mp20.sh` 含有旧服务器绝对路径；

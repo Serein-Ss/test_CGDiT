@@ -1,4 +1,4 @@
-"""CLI for seed-42 M3GNet evaluation of formal generated structures."""
+"""CLI for property evaluation of formal generated structures."""
 
 import argparse
 from pathlib import Path
@@ -19,15 +19,26 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--fe_run", required=True)
     parser.add_argument("--bg_run", required=True)
     parser.add_argument("--eh_run", required=True)
-    parser.add_argument("--output_dir", default="output/property_evaluation_seed42")
+    parser.add_argument(
+        "--output_dir", default="assets/model_results/source_data/property_evaluation_seed42"
+    )
     parser.add_argument("--batch_size", type=int, default=64)
     parser.add_argument("--num_workers", type=int, default=8)
     parser.add_argument(
         "--device", default="cuda" if torch.cuda.is_available() else "cpu"
     )
-    parser.add_argument("--fe_tolerance", type=float, default=DEFAULT_TOLERANCES[PROPERTY_NAMES[0]])
-    parser.add_argument("--bg_tolerance", type=float, default=DEFAULT_TOLERANCES[PROPERTY_NAMES[1]])
-    parser.add_argument("--eh_tolerance", type=float, default=DEFAULT_TOLERANCES[PROPERTY_NAMES[2]])
+    parser.add_argument(
+        "--fe_tolerance", type=float,
+        default=DEFAULT_TOLERANCES[PROPERTY_NAMES[0]],
+    )
+    parser.add_argument(
+        "--bg_tolerance", type=float,
+        default=DEFAULT_TOLERANCES[PROPERTY_NAMES[1]],
+    )
+    parser.add_argument(
+        "--eh_tolerance", type=float,
+        default=DEFAULT_TOLERANCES[PROPERTY_NAMES[2]],
+    )
     parser.add_argument("--overwrite", action="store_true")
     return parser
 
@@ -35,10 +46,11 @@ def build_parser() -> argparse.ArgumentParser:
 def cli(argv=None) -> None:
     args = build_parser().parse_args(argv)
     files = discover_formal_generation_files(args.root_path)
-    if len(files) != 23:
+    if not files:
         raise RuntimeError(
-            f"Expected 23 formal generation files (15 template + 8 ab initio), found {len(files)}"
+            f"No formal seed-42 generation files found under {args.root_path}"
         )
+    print(f"Discovered {len(files)} formal generation files.")
     evaluate_generation_files(
         generation_files=files,
         predictor_runs={

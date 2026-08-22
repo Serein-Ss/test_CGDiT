@@ -1,37 +1,40 @@
 # CGDiT 强化学习研究、创新设计与实施总览
 
-> 项目：CGDiT 多目标晶体扩散生成  
-> 整理日期：2026-08-16  
-> 文档定位：对前期强化学习调研、CGDiT 代码分析、PIRL/PIPO 讨论、创新方案、实验设计和实施计划的统一整理  
-> 当前主线：直接在 CGDiT 的晶格—周期坐标—元素三通道扩散链上实现强化学习；Diff2Flow 仅作为满足效率门槛后的备选加速分支
+> 项目：CGDiT 多目标晶体扩散生成
+> 整理日期：2026-08-21
+> 文档定位：对前期强化学习调研、CGDiT 代码分析、PIRL/PIPO 讨论、创新方案、实验设计和实施计划的统一整理
+> 当前主线：以固定物理标度的闭环通用材料生成奖励连接 PPO/GRPO 优化与 `CrystalPIRL` 的固定 probe、共同随机数成对比较和置信门控，在 CGDiT 三通道扩散链上验证策略更新是否真实改进；`OrbitPO` 提供对称约化概率基础
+> 使用边界：本文档保留宽口径研究背景；当前文章范围、实验顺序和停止条件以 `OrbitPO文章执行计划.md` 为唯一执行依据
 
 ---
 
 ## 1. 结论摘要
 
-CGDiT 可以引入强化学习，但以下内容已经不足以单独构成强创新：
+CGDiT 可以引入强化学习，但以下内容不足以单独构成强创新：
 
 - CGDiT + PPO/DDPO/GRPO；
-- 形成能、带隙或能量高于凸包作为奖励；
-- 普通多目标加权奖励；
-- KL、entropy、LoRA、experience replay；
-- 直接在实空间晶体扩散上执行策略优化；
-- 单纯把 1000 步扩散减少为更少步骤；
-- 只把 PIRL/PIPO 原样接到 CGDiT 上。
+- FE、BG、Ehull 或普通多目标奖励；
+- 生成→性质打分→策略更新的一般闭环；
+- KL、entropy、LoRA、replay 或减少去噪步数；
+- 只在独立代表晶位上定义概率；
+- 原样迁移 PIRL/PIPO 的滑动历史反馈。
 
-推荐的完整研究主线是：
+推荐文章主线为：
 
-> **在空间群约束下，为晶格、周期分数坐标和离散元素类型建立对称约化的联合策略概率；通过分通道、分时间步的信用分配执行 GRPO；再使用成对比较、Pareto 安全约束和代理模型—MLFF—DFT 多保真验证，将开环奖励优化升级为真正面向高性能材料发现的闭环策略改进。**
+> **固定物理标度的闭环通用材料生成奖励同时产生 PPO/GRPO 优势与 Paired-PIRL 验收信号；CrystalPIRL 在每次候选更新后，以固定 probe 和完全共享的连续/离散随机流比较候选策略与最近 verified policy，用成对原始奖励差、bootstrap 下置信界及安全约束决定接受、衰减或回滚；OrbitPO 则在晶格—周期坐标—元素的真实独立自由度上提供可重算的联合策略概率。**
 
-可以将其概括为三个核心贡献：
+核心贡献按重要性排序：
 
-1. **Symmetry-reduced heterogeneous crystal policy**：在独立晶体自由度上定义策略概率，避免对称复制原子和空间群投影导致的重复计数与奇异密度问题。
-2. **Paired Pareto policy improvement**：在相同目标条件、空间群、原子数和初始噪声下成对比较新旧策略，只有在联合性质和安全约束上出现统计可信改进时才强化更新。
-3. **Physics-verified multi-fidelity loop**：以性质预测器为快速奖励，以 MLFF 为中保真筛选，以 DFT 为高保真验证，并使用不确定性和校准机制抑制 reward hacking。
+1. **Closed-loop general material generation reward**：以固定目标/容差、显式有效性和可选探索分量构造可跨 batch 比较的原始奖励，严格分离 raw reward、PPO/GRPO advantage 与 probe safety metrics。
+2. **Paired risk-controlled policy-improvement verification**：把“按当前 reward 直接更新”改为候选更新—成对原始奖励验证—置信门控—verified checkpoint 的闭环，并显式量化坏更新和错误接受。
+3. **Algorithm-agnostic evidence**：在 PPO 和 GRPO 上均比较无验证、原始 PIPO 与 Paired-PIRL，区分“策略改进反馈有用”与“本文成对机制有额外价值”。
+4. **OrbitPO probability foundation**：以轨道级 D3PM、代表点 wrapped likelihood 和空间群有效子空间 Gaussian 形成对称约化混合策略概率。
 
-可选的第四个贡献是：
+H2 通道—时间信用分配和 predictor→MLFF→DFT 多保真闭环继续实现并保存内部结果，但不进入当前文章摘要、主结果与结论。
 
-4. **Channel- and timestep-specific improvement attribution**：将策略改进反馈分配到晶格、坐标、元素以及不同扩散时间段。
+创造性—稳定性—多样性加权奖励和 GRPO 已由 Chemeleon2 实现，因此奖励组件本身不能单独支撑新颖性。本文创新候选是：固定标度通用奖励既作为优化信号，又成为对 **候选策略更新本身** 的低方差、风险控制验收信号。原始 PIPO 用跨轮滑动历史进行回顾性调制；CrystalPIRL 使用同一固定 probe、共同随机数、成对差分、置信门控和回滚。是否构成强创新必须由 2×3 公平实验及奖励闭环消融而不是概念描述证明。
+
+当前实现入口为 cgdit/rl/rewards.py、cgdit/rl/policy_improvement.py 和 conf/rl/reward_closed_loop_mp20.yaml。张量级组件与单元测试已经完成；真实 predictor、AMD/结构特征、训练 CLI 和 GPU 固定 probe 尚未接通，不能把接口完成写成实验完成。
 
 ---
 
@@ -199,9 +202,10 @@ PIPO 原文实验集中在语言模型数学、代码、工具调用和自蒸馏
 
 因此：
 
-- `CGDiT + scalar PIPO`：可作为新应用或增强基线，创新性中等；
-- `CGDiT + paired/Pareto/physics-verified PIPO`：有更强的方法创新潜力；
-- 再与对称约化策略概率、通道信用分配结合：可构成完整主方法。
+- `CGDiT + scalar PIPO`：是必须保留的原论文迁移基线，创新性中等；
+- `CrystalPIRL`：以固定 probe、共同随机数、成对差分、bootstrap LCB、accept/attenuate/reject 和 rollback 形成文章核心方法；
+- `OrbitPO`：为 PPO/GRPO 和策略验证提供对称约化的联合概率基础；
+- Pareto、多保真和通道—时间归因作为扩展或内部研究，不能稀释主因果问题。
 
 ---
 
@@ -246,26 +250,34 @@ C=(K,X,A),
 - `cgdit/pl_modules/diffusion.py:447-465`；
 - `cgdit/pl_modules/diff_utils/discrete_diff_utils.py:259-384`。
 
-D3PM 已能返回 posterior logits/probabilities，但尚未形成 RL policy log-prob API。
+D3PM 已形成轨道级 posterior categorical log-prob 与 RL 概率重放接口；正式 checkpoint 上的 GPU 数值和梯度验证仍待完成。
 
 ### 6.3 CFG 与联合条件
 
 `cgdit/pl_modules/diffusion.py:484` 的 `_get_model_output()` 已支持 conditional/unconditional 输出组合，因此现有 CFG、联合条件模型和强化学习必须在相同目标与计算预算下公平比较。
 
-### 6.4 当前缺失内容
+### 6.4 当前实现与真实缺口
 
-现有 `sample()` 返回状态轨迹，但没有：
+当前分支已经实现：
 
-- 每步 action；
-- 采样噪声；
-- old/current/reference log-prob；
-- 晶格连续转移概率；
-- torus 坐标转移概率；
-- D3PM action log-prob；
-- rollout buffer；
-- PPO/GRPO ratio、clip、KL；
-- PIPO 历史更新验证；
-- 多保真奖励和不确定性校准。
+- `sample_rl()` 的可重算轨迹接口；
+- action、连续/离散随机量、old-policy 分通道 log-prob 与元数据契约；
+- 晶格有效子空间、代表点 torus 坐标和轨道级 D3PM transition log-prob；
+- 可微概率重放、PPO/GRPO 目标与统一 trainer；
+- 固定 probe 的共同随机数采样；
+- paired bootstrap LCB 和 accept/attenuate/reject 决策；
+- 有界性质奖励、H2 信用分配以及多保真预算编排接口。
+
+仍然缺少或尚未完成：
+
+- 原始 PIPO 的滑动历史 anchor 与 retrospective modulation 对照；
+- 已上传 reward predictor 的正式 RL 接入，以及仍缺失的最终独立 evaluator；
+- 真实 checkpoint 上的 GPU rollout/replay/梯度 smoke test；
+- 正式 PPO/GRPO 训练入口、配置与 checkpoint/resume 端到端验证；
+- MLFF/DFT 真实计算 adapter 与服务器任务配置；
+- 多 seed 正式实验、消融和文章证据。
+
+因此，现有单元接口不能表述为“RL 训练已经完成”，Paired-PIRL 代码存在也不能替代原始 PIPO 对照。
 
 ---
 
@@ -314,7 +326,7 @@ R(C_0,c)=R(K_0,X_0,A_0;c).
 
 ---
 
-## 8. 主创新 H1：对称约化的异构联合策略概率
+## 8. OrbitPO 概率基础：对称约化的异构联合策略概率
 
 ### 8.1 晶格子空间概率
 
@@ -396,7 +408,7 @@ p(x)=\sum_{n\in\mathbb Z^d}\mathcal N(x+n;\mu,\Sigma).
 
 ---
 
-## 9. 最小 GRPO 与主创新 H2：通道/时间步信用分配
+## 9. 最小 GRPO 与内部 H2：通道/时间步信用分配
 
 ### 9.1 Vanilla GRPO
 
@@ -490,7 +502,11 @@ L_c=-\mathbb E\left[
 
 ---
 
-## 10. PIPO 的材料化升级：成对、Pareto 和物理验证
+## 10. CrystalPIRL：PIPO 启发的成对策略改进验证
+
+本节是当前文章的首要方法创新。它不把普通 reward feedback 重新命名为闭环，而是把每次参数更新视为待验证候选：只有候选策略在同条件、同随机流的固定 probe 上显示统计可信改进，才更新 verified checkpoint。原始 PIPO 的滑动历史反馈保留为直接对照。
+
+最终独立 evaluator 不参与 probe、门控或 checkpoint 选择；若某个模型参与这些决策，它应被称为 verifier，并另设独立最终评价器。
 
 ### 10.1 固定 probe set
 
@@ -627,11 +643,12 @@ R_p=\exp\left[-\frac{(\hat y_p-y_p^*)^2}{2\tau_p^2}\right].
 
 对于只要求越低越好的性质，可以使用带阈值的饱和函数，避免模型无限追求 predictor 外推区间。
 
-当前三项性质：
+当前只启用两项性质：
 
 - `formation_energy_per_atom`；
-- `band_gap`；
-- `e_above_hull`。
+- `band_gap`。
+
+`e_above_hull` 相关资产保留归档，但不进入当前 reward、probe 或文章主结果。
 
 ### 11.3 稳定性奖励
 
@@ -701,15 +718,15 @@ R_p^{robust}=R_p(\mu_p)-\lambda_u\sigma_p.
 
 ---
 
-## 12. 主创新 H3：代理模型—MLFF—DFT 多保真闭环
+## 12. 内部研究 H3：代理模型—MLFF—DFT 多保真闭环
 
 ### 12.1 四级 verifier
 
 | 层级 | 内容 | 频率 | 作用 |
 |---|---|---|---|
 | Level 0 | 几何、SMACT、结构/空间群有效性 | 每个样本 | 快速硬过滤 |
-| Level 1 | FE/BG/Ehull predictor ensemble | 每个有效样本 | 训练主奖励 |
-| Level 2 | MLFF 松弛、能量、力、Ehull | 周期性/高价值样本 | 中保真物理筛选 |
+| Level 1 | 冻结的 seed=42 FE/BG predictor | 每个有效样本 | 当前训练主奖励 |
+| Level 2 | MLFF 松弛、能量和力 | 周期性/高价值样本 | 中保真物理筛选 |
 | Level 3 | DFT 松弛、能带、真实性质 | 少量高价值样本 | 最终科学证据与校准 |
 
 ### 12.2 校准后的奖励
@@ -741,9 +758,9 @@ DFT/MLFF 新数据可用于：
 
 ---
 
-## 13. 八个训练模型在 RL 研究中的角色
+## 13. 当前八个生成模型在 RL 研究中的角色
 
-当前 MP20 模型组合为：
+当前服务器保留的 MP20 生成模型为：
 
 1. `mp20_base`；
 2. `mp20_fe`；
@@ -754,18 +771,22 @@ DFT/MLFF 新数据可用于：
 7. `mp20_bg_eh`；
 8. `mp20_fe_bg_eh`。
 
-不建议一开始对八个模型分别训练八套 RL。
+八组生成模型及 23 组 seed=42 正式结果完整保留，但当前 FE/BG 研究只启用 base、FE、BG、FE+BG 四个生成基线和对应 11 组评估。训练奖励与 probe 只使用 seed=42 FE/BG predictor；seed=123 FE/BG 虽已评估，但多 seed 体系尚未完整冻结，当前不组成 ensemble。Ehull 全部归档。训练/探针预测器不能兼作最终独立 evaluator。
 
 推荐设计：
 
-- 前七个模型作为无条件、单目标和双目标基线；
-- 三目标联合模型作为主要 RL policy；
-- 预训练联合模型冻结副本作为 `reference policy`；
+- `mp20_base` 作为无条件生成先验基线；
+- `mp20_fe`、`mp20_bg` 作为单目标条件基线；
+- `mp20_fe_bg` 作为双目标条件基线；
+- `mp20_eh`、`mp20_fe_eh`、`mp20_bg_eh`、`mp20_fe_bg_eh` 仅作历史归档；
+- 当前按 FE→BG→FE+BG 顺序推进，不把归档模型加入当前消融；
+- 每个实验冻结对应预训练模型副本作为 `reference policy`；
 - 每轮更新前策略作为 `old policy`；
 - 同一个 RL policy 在不同目标向量上训练；
-- 检验它对单目标、双目标、三目标和未见目标组合的泛化。
+- 检验它对 FE、BG、FE+BG 目标和未见目标值的泛化；
+- Ehull 当前不作为奖励、约束或主结果指标；如未来恢复，必须重新预注册研究范围。
 
-这可以形成“universal multi-target crystal policy”的实验贡献，但不能替代对称策略概率和闭环验证这两个方法贡献。
+这可以形成多目标晶体策略的实验贡献，但不能替代对称策略概率和闭环验证这两个方法贡献。
 
 ---
 
@@ -818,40 +839,31 @@ FE、BG 和 Ehull 是通用筛选指标，还不能单独定义“优秀性能�
 
 ---
 
-## 15. 推荐代码模块划分
+## 15. 当前代码模块映射
 
-保留现有 `sample()` 用于普通生成，新建 RL 路径，避免破坏当前推理。
+保留现有 `sample()` 用于普通生成，RL 逻辑集中在独立模块中：
 
 ```text
 cgdit/
 ├── pl_modules/
-│   └── diffusion.py                 # 保留 sample()，增加或调用 sample_rl()
-├── rl/
-│   ├── trajectory.py                # 轨迹、动作、噪声、mask、条件
-│   ├── transition_logprob.py        # 晶格、torus、D3PM 概率
-│   ├── symmetry_quotient.py         # 晶格子空间、anchor/Wyckoff 独立自由度
-│   ├── rollout_buffer.py            # old/ref log-prob 与回放
-│   ├── rewards.py                   # 分层奖励
-│   ├── uncertainty.py               # predictor ensemble 和校准
-│   ├── grpo.py                      # vanilla/channel-wise GRPO
-│   ├── policy_improvement.py        # PIRL/PIPO 与 retrospective update
-│   ├── paired_probe.py              # 固定条件和相同噪声成对比较
-│   ├── pareto.py                    # Pareto、hypervolume、安全约束
-│   └── multifidelity.py             # predictor/MLFF/DFT 闭环
+│   └── diffusion.py                 # 轨道级扩散与 sample_rl()
+└── rl/
+    ├── trajectory.py                # 轨迹、动作、随机量和元数据契约
+    ├── transition_logprob.py        # 晶格、torus、D3PM 转移概率
+    ├── symmetry_quotient.py         # active mask、轨道代表点和广播
+    ├── rollout.py                   # 轨迹概率重放
+    ├── objectives.py                # PPO/GRPO 目标
+    ├── trainer.py                   # 统一策略目标入口
+    ├── policy_improvement.py        # Paired-PIRL LCB 与更新决策
+    ├── paired_probe.py              # 固定条件和共同随机数配对采样
+    ├── rewards.py                   # 通用有界性质奖励
+    ├── channel_time_credit.py       # 内部 H2 信用分配
+    └── multifidelity.py             # 内部多保真预算编排
 scripts/cli/training/
-│   └── train_crystal_rl.py
-conf/rl/
-│   ├── vanilla_grpo_mp20.yaml
-│   ├── symmetry_grpo_mp20.yaml
-│   └── physics_verified_pirl_mp20.yaml
-tests/
-├── test_rl_transition_logprob.py
-├── test_rl_symmetry_quotient.py
-├── test_rl_ratio_kl.py
-├── test_rl_paired_probe.py
-├── test_rl_pareto_gate.py
-└── test_rl_resume.py
+└── legacy_rl_gpu_smoke.py           # 旧 smoke 脚本，不是正式训练入口
 ```
+
+需要新增但尚不存在的最小文件是原始 PIPO 基线实现及正式训练配置/入口。不要把 `policy_improvement.py` 误写为已经实现原始 PIPO。
 
 ### 15.1 `sample_rl()` 建议返回
 
@@ -897,7 +909,7 @@ trajectory[t]
 
 ### 阶段 2：独立奖励与评价系统
 
-训练 FE/BG/Ehull predictor ensemble，建立训练 reward 与独立 evaluator，避免同一个预测器既训练又报告最终结果。
+冻结 seed=42 FE/BG reward predictor，并分别建立不参与训练和 checkpoint 选择的 FE/BG 独立 evaluator；多 seed predictor ensemble 延后到各成员完整训练和统一评估之后。
 
 验证：测试集误差、校准曲线、OOD 检测和 predictor 间一致性明确。
 
@@ -941,17 +953,17 @@ trajectory[t]
 
 验证：梯度方差降低，联合命中率或样本效率提高；消融能解释不同通道的作用。
 
-### 阶段 7：scalar PIPO 基线
+### 阶段 7：原始 PIPO 基线
 
-按原论文方式加入滑动历史 anchor 和 retrospective update。
+分别为 PPO 和 GRPO 按原论文加入滑动历史 anchor 和 retrospective modulation；不得使用 Paired-PIRL 的固定 probe 逻辑污染该基线。
 
-验证：相对 vanilla GRPO，训练方差和坏更新次数降低。
+验证：实现与论文公式一致，历史窗口与调制信号可复算，并在相同预算下相对无验证基线报告坏更新率和训练方差。
 
-### 阶段 8：paired Pareto policy improvement
+### 阶段 8：CrystalPIRL paired policy improvement
 
-加入固定 probe set、相同噪声、新旧策略成对比较、置信区间和 Pareto gate。
+加入固定 probe、共享连续与离散随机流、新旧策略成对比较、bootstrap LCB、accept/attenuate/reject 和 verified-checkpoint rollback。先用 predictor/verifier 完成通用性质实验；Pareto 与物理验证作为扩展。
 
-验证：在相同预算下，DFT/MLFF 联合命中率提高，同时 validity、uniqueness、novelty 不出现不可接受退化。
+验证：相对无验证和原始 PIPO，PPO/GRPO 的坏更新率下降，额外成本可接受，冻结策略在最终独立 evaluator 上保持性质与生成质量改善。
 
 ### 阶段 9：多保真闭环
 
@@ -967,34 +979,35 @@ trajectory[t]
 
 ## 17. 实验矩阵
 
-| 编号 | 方法 | 在线 RL | 作用 |
-|---|---|---:|---|
-| B0 | 原始 unconditional/base | 否 | 生成先验基线 |
-| B1 | 条件模型 | 否 | 条件生成基线 |
-| B2 | CFG | 否 | 当前最重要启发式条件基线 |
-| B3 | best-of-N | 否 | 纯筛选上限基线 |
-| B4 | rejection sampling | 否 | 不更新模型的奖励控制 |
-| B5 | differentiable reward/DRaFT | 可选 | 可微奖励强基线 |
-| B6 | DDPO/PPO | 是 | 标准在线扩散 RL |
-| B7 | vanilla GRPO | 是 | 组相对基线 |
-| M1 | mixed-action GRPO | 是 | 三通道联合概率 |
-| M2 | symmetry-reduced GRPO | 是 | H1 主方法 |
-| M3 | channel/timestep GRPO | 是 | H2 主方法 |
-| M4 | scalar PIPO + M3 | 是 | 原论文迁移基线 |
-| M5 | paired PIPO + M3 | 是 | 相同噪声成对改进 |
-| M6 | Pareto-safe PIPO + M3 | 是 | 多目标安全改进 |
-| M7 | physics-verified Pareto-PIRL | 是 | 完整方法 |
+### 17.1 文章主矩阵：算法 × 更新验证
 
-所有比较必须对齐：
+所有方法使用相同 OrbitPO 概率、初始 checkpoint、目标、seed、NFE、reward 查询和可训练参数：
 
-- 生成结构数量；
-- 条件目标集合；
-- 随机种子；
-- NFE；
-- reward 查询次数；
-- MLFF/DFT 预算；
-- GPU 时间；
-- 参数更新规模。
+| 编号 | RL 算法 | 更新验证 | 作用 |
+|---|---|---|---|
+| P0 | PPO | 无 | PPO 开放式更新基线 |
+| P1 | PPO | 原始 PIPO | 原论文迁移基线 |
+| P2 | PPO | Paired-PIRL | CrystalPIRL-PPO |
+| G0 | GRPO | 无 | GRPO 开放式更新基线 |
+| G1 | GRPO | 原始 PIPO | 原论文迁移基线 |
+| G2 | GRPO | Paired-PIRL | CrystalPIRL-GRPO |
+
+### 17.2 概率基础与外部基线
+
+| 编号 | 方法 | 作用 |
+|---|---|---|
+| B0 | 原始 unconditional/base | 生成先验基线 |
+| B1 | 条件模型/CFG | 条件生成基线 |
+| B2 | best-of-N/rejection sampling | 不更新模型的预算基线 |
+| B3 | ambient/full-cell PPO | OrbitPO 概率消融 |
+| B4 | ambient/full-cell GRPO | OrbitPO 概率消融 |
+| B5 | differentiable reward/DRaFT | 可选可微奖励强基线 |
+
+### 17.3 内部扩展矩阵
+
+H2 通道—时间信用分配、Pareto gate 与 predictor→MLFF→DFT 多保真实验单独存档，不进入当前文章主表和最终结果总结。
+
+所有比较必须对齐生成结构数、条件目标、随机 seed、NFE、reward/probe 查询、参数更新规模和最大 GPU-hour。Paired-PIRL 的 probe 成本单独报告，并同时给出包含与不包含额外验证成本的预算对齐结果。
 
 ---
 
@@ -1034,7 +1047,7 @@ trajectory[t]
 - MLFF relaxation 收敛率；
 - 松弛前后 RMSD/晶格变化；
 - 最大残余力；
-- Ehull < 0.1 eV/atom 比例；
+- 松弛后 FE 目标命中率；
 - DFT relaxation 收敛率；
 - DFT-confirmed target hit；
 - 必要时 phonon/dynamic stability。
@@ -1128,43 +1141,40 @@ trajectory[t]
 ### 20.1 不应作为核心创新的内容
 
 - 把 GRPO/PPO 接到 CGDiT；
-- 使用 FE/BG/Ehull 奖励；
-- 普通多目标权重；
-- KL、entropy、LoRA；
-- 只增加新颖性/多样性奖励；
+- 使用 FE/BG/Ehull 或普通多目标奖励；
+- 一般性的生成—打分—更新循环；
+- KL、entropy、LoRA、新颖性或多样性奖励；
 - 只增加 PIPO 滑动平均；
-- 只将 Diff2Flow/FlowMM 用于加速。
+- 只使用独立代表晶位、wrapped coordinate 或 Diff2Flow 加速。
 
-### 20.2 中等创新
+### 20.2 中等创新或必要系统贡献
 
-- 一个三目标联合策略覆盖多个目标组合；
-- PIPO 在晶体扩散中的首次系统应用；
-- 合成可行性或供应链约束；
-- 实空间 direct GRPO 的完整工程实现。
+- 原始 PIPO 在晶体扩散中的系统迁移；
+- OrbitPO 三通道概率的工程完整性；
+- 三目标联合策略和实空间 direct RL；
+- 合成可行性、供应链约束或内部多保真编排。
 
-这些内容可以成为应用贡献或系统贡献，但最好不要单独作为主方法。
+这些内容可以支撑完整系统，但不单独承担文章标题级创新。
 
-### 20.3 强创新候选
+### 20.3 当前最强创新候选
 
-1. 空间群商空间上的严格/可验证策略概率；
-2. 周期坐标 wrapped transition likelihood；
-3. 对称轨道重复计数与梯度尺度偏差修正；
-4. 晶格—坐标—元素的通道/时间信用分配；
-5. 相同噪声下的新旧扩散策略成对改进估计；
-6. Pareto-safe 策略接受与回顾性修正；
-7. 代理—MLFF—DFT 多保真且校准的策略改进反馈；
-8. 连续且晶体学不变的原型新颖性奖励。
+1. **固定 probe 的共同随机数成对策略比较**：把更新差异从跨批次采样噪声中分离出来；
+2. **bootstrap LCB 与 verified-checkpoint 风险门控**：显式产生 accept/attenuate/reject，并量化错误接受、坏更新和回滚；
+3. **跨 PPO/GRPO 的算法普适性检验**：用 2×3 设计证明成对验证是否超出原始 PIPO，而非把某一算法曲线变好视为充分证据；
+4. **OrbitPO 对称约化联合概率基础**：确保策略比及验证建立在晶体真实独立自由度上，避免规模/多重度偏置成为混杂因素。
+
+Pareto、安全约束、多保真反馈和通道—时间信用可增强方法，但在当前稿件中只作为内部扩展，不写入主结果总结。
 
 ### 20.4 论文主张必须满足
 
-- 有明确方法差异，而不是只换 reward；
-- 有数学定义和实现一致性；
-- 有 log-prob/ratio/KL 单元测试；
-- 有公平基线和至少三个随机种子；
-- 有失败案例和模式坍缩分析；
-- 有 proxy 与 DFT 的一致性验证；
-- 有消融证明每个核心模块必要；
-- 有真实高性能候选，而不是只有预测 reward 曲线。
+- 直接比较无验证、原始 PIPO 与 Paired-PIRL；
+- PPO 与 GRPO 均至少三个随机 seed；
+- probe、阈值、accept/attenuate/reject 与 rollback 规则预先冻结；
+- 最终独立 evaluator 不参与训练、门控或 checkpoint 选择；
+- 同时报告坏更新率、错误接受率、性质、生成质量和额外成本；
+- 有 log-prob/ratio/KL 单元测试及 ambient/full-cell 消融；
+- 保存所有失败 run，不根据结果更改指标或 probe；
+- 只有证据支持时才使用“算法普适”或更强的新颖性表述。
 
 ---
 
@@ -1239,30 +1249,29 @@ T_{total}=T_{rollout}+T_{reward}+T_{update}+T_{verification}+T_{I/O}.
 建议按以下顺序执行：
 
 ```text
-复现与冻结 8 个模型基线
-→ 独立性质预测器与评价器
-→ sample_rl() 与 log-prob 单元测试
-→ vanilla GRPO
-→ 对称约化三通道 GRPO
-→ 分通道/分时间信用分配
-→ scalar PIPO 基线
-→ paired Pareto policy improvement
-→ predictor/MLFF/DFT 多保真闭环
+复现并冻结非 RL 基线、reward predictor、probe verifier 与最终独立 evaluator
+→ sample_rl() 与 OrbitPO log-prob 单元测试
+→ PPO/GRPO 无验证基线
+→ 原始 PIPO 的滑动历史对照
+→ CrystalPIRL 固定 probe、共同随机数、LCB 与 rollback
+→ PPO/GRPO × 无验证/原始 PIPO/Paired-PIRL 2×3 正式实验
+→ FE、BG 与 FE+BG 联合约束
+→ 三随机种子、消融、成本和失败案例
+→ H2 与 predictor/MLFF/DFT 内部扩展
 → 具体高性能材料任务
-→ 三随机种子、消融、DFT 候选和论文证据
 ```
 
 推荐论文方法主线：
 
-> **Closed-Loop Physics-Verified Policy Improvement for Symmetry-Constrained Multi-Objective Crystal Diffusion**
+> **CrystalPIRL: Paired Policy-Improvement Verification for Reinforcement Fine-Tuning of Symmetry-Constrained Crystal Diffusion**
 
 推荐中文表述：
 
-> **面向对称约束多目标晶体扩散的闭环物理验证策略改进方法**
+> **面向对称约束晶体扩散强化微调的成对策略改进验证**
 
-最终评价重点应从“预测 reward 是否上升”转向：
+当前论文的首要评价问题是：
 
-> **在相同生成、GPU、MLFF 和 DFT 预算下，方法是否生成了更多经过高保真验证、同时满足功能目标、热力学稳定、结构有效、新颖且唯一的材料候选。**
+> **在相同生成、性质查询和 GPU 预算下，Paired-PIRL 是否比开放式 PPO/GRPO 和原始 PIPO 更少接受退化更新，并在冻结后的独立评价中获得更稳定的通用性质提升？**
 
 ---
 
@@ -1295,8 +1304,8 @@ T_{total}=T_{rollout}+T_{reward}+T_{update}+T_{verification}+T_{I/O}.
 
 ### 项目内补充文档
 
-- `diffusion_rl_research_and_plan.md`：此前的 direct CGDiT-GRPO 调研和阶段计划；
-- `diff2flow_project_relevance_analysis.md`：Diff2Flow 的技术储备、适配边界与 go/no-go 条件；
+- `OrbitPO文章执行计划.md`：当前文章范围、五阶段实验路线和停止条件；
+- `docs/archive/diff2flow_project_relevance_analysis.md`：已归档的 Diff2Flow 技术储备、适配边界与 go/no-go 条件；
 - `CGDiT项目.md`：项目结构、模型、生成与评估说明。
 
 ---
@@ -1308,5 +1317,5 @@ T_{total}=T_{rollout}+T_{reward}+T_{update}+T_{verification}+T_{I/O}.
 特别需要区分：
 
 - **已验证事实**：当前采样器结构、三通道类型、D3PM 后验接口、现有评价指标和公开文献中的已发表方法；
-- **研究假设**：对称约化概率能降低偏差/方差、通道信用能提高样本效率、paired Pareto PIPO 能稳定多目标材料 RL；
-- **成功结论**：只能在实现、单元测试、公平基线、多个随机种子和 MLFF/DFT 验证后给出。
+- **首要研究假设**：固定 probe、共同随机数与置信门控能使 Paired-PIRL 相对无验证和原始 PIPO 降低 PPO/GRPO 的坏更新率；OrbitPO 是排除策略概率偏置所需的基础；
+- **成功结论**：只能在实现、单元测试、公平基线、多个随机种子和冻结后的最终独立评价后给出；只有涉及物理验证的主张才额外要求 MLFF/DFT 证据。

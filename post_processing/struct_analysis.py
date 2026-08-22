@@ -209,7 +209,6 @@ def plot_element_distribution(dfs, output_dir):
 
     plt.xlabel("Number of Unique Elements")
     plt.ylabel("Density (Frequency)")
-    # plt.title("Distribution of Elements per Structure")
     plt.xticks(np.arange(vmin, vmax + 1))
     plt.legend()
     plt.grid(alpha=0.25, axis='y')
@@ -293,7 +292,6 @@ def plot_spacegroup_distribution(dfs, output_dir):
 
     plt.xlabel("Space Group Number (1-230)")
     plt.ylabel("Density")
-    # plt.title("Space Group Distribution Comparison")
     plt.legend(loc="upper left", frameon=True, facecolor='white', framealpha=0.9)
 
     boundary_ticks = [1] + [sys[1][1] for sys in crystal_systems]

@@ -1,5 +1,0 @@
-setup.py
-cgdit.egg-info/PKG-INFO
-cgdit.egg-info/SOURCES.txt
-cgdit.egg-info/dependency_links.txt
-cgdit.egg-info/top_level.txt

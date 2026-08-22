@@ -1,10 +1,10 @@
 # CGDiT 扩散模型强化学习调研、技术分析与工作计划
 
 > 文档状态：v0.2，研究主目标已确认
-> 创建日期：2026-08-04  
+> 创建日期：2026-08-04
 > 主目标确认日期：2026-08-09
-> 适用仓库：`E:\WORKSPACE\CodePlace\test_CGDiT`  
-> 调研截止日期：2026-08-04  
+> 适用仓库：`E:\WORKSPACE\CodePlace\test_CGDiT`
+> 调研截止日期：2026-08-04
 > 维护方式：在“待确认事项”和各阶段复选框中记录决策与进度
 
 ## 1. 文档目的
@@ -224,7 +224,7 @@ Diffusion-DPO 等方法使用 winner–loser 样本对进行离线优化，不�
 
 - `cgdit/prop_models/gnn_models/m3gnet.py`
 - `conf/model/m3gnet.yaml`
-- `scripts/cli/evaluation/predict_property.py`
+- `scripts/predict_property.py`
 
 当前脚本可以作为奖励模型接口原型，但在正式 RL 中不能直接把单个 surrogate 同时作为训练奖励和最终评价器。
 

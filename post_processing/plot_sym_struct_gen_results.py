@@ -58,7 +58,6 @@ def plot_accuracy_comparison(data, output_path):
                     edgecolor='black')
 
     ax.set_ylabel('Accuracy (%)', fontweight='bold')
-    ax.set_title('Space Group Accuracy Comparison', fontweight='bold', pad=15)
     ax.set_xticks(x)
     ax.set_xticklabels(labels, fontweight='bold')
     ax.legend()
@@ -146,7 +145,6 @@ def plot_unique_elements_hist(dfs, output_dir):
 
     plt.xlabel("Number of Unique Elements", fontweight='bold')
     plt.ylabel("Density", fontweight='bold')
-    plt.title("Element Diversity Comparison", fontweight='bold')
     plt.legend()
     plt.grid(alpha=0.3)
     plt.savefig(os.path.join(output_dir, "gen_elements_hist.png"), dpi=300)
@@ -189,7 +187,6 @@ def plot_spacegroup_hist(dfs, output_dir):
     plt.ylim(0, max_d * 1.2)
     plt.xlabel("Space Group Number", fontweight='bold')
     plt.ylabel("Density", fontweight='bold')
-    plt.title("Space Group Distribution Comparison", fontweight='bold', pad=20)
     plt.legend(loc="upper right")
     plt.grid(alpha=0.2)
     plt.savefig(os.path.join(output_dir, "gen_spacegroup_hist.png"), dpi=300)
