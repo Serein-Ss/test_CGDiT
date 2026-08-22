@@ -11,6 +11,13 @@ from pathlib import Path
 from typing import Any, Iterable
 
 import numpy as np
+
+from cgdit.common.output_paths import (
+    evaluation_output_path,
+    model_root_from_generation,
+    provenance_path,
+    record_evaluation_metric,
+)
 from scipy.stats import wasserstein_distance
 from tqdm import tqdm
 
@@ -393,13 +400,15 @@ def evaluate_generation_files(
     summaries: list[dict[str, Any]] = []
     for position, generation_path in enumerate(generation_files, start=1):
         label = generation_path.stem.removeprefix("eval_gen_")
-        predictions_path = (
-            generation_path.parent
-            / f"eval_properties_gen_{label}_predictor_seed42.csv"
+        predictions_path = evaluation_output_path(
+            generation_path,
+            "property_predictions",
+            f"eval_properties_gen_{label}_predictor_seed42.csv",
         )
-        metrics_path = (
-            generation_path.parent
-            / f"eval_property_metrics_gen_{label}_predictor_seed42.json"
+        metrics_path = evaluation_output_path(
+            generation_path,
+            "property_metrics",
+            f"eval_property_metrics_gen_{label}_predictor_seed42.json",
         )
         print(f"\n[{position}/{len(generation_files)}] {generation_path}")
 
@@ -408,6 +417,18 @@ def evaluate_generation_files(
         if not overwrite and predictions_exist and metrics_exist:
             print(f"[SKIP] Existing property results: {metrics_path}")
             metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
+            record_evaluation_metric(
+                "per_structure_property_predictions",
+                predictions_path,
+                generation_path,
+                checkpoints,
+            )
+            record_evaluation_metric(
+                "aggregate_property_metrics",
+                metrics_path,
+                generation_path,
+                checkpoints,
+            )
             summaries.append(_flatten_metrics(metrics))
             continue
 
@@ -433,8 +454,10 @@ def evaluate_generation_files(
             reference_predictions=reference_predictions,
             reference_targets=reference_targets,
         )
-        structural_metrics_path = (
-            generation_path.parent / f"eval_metrics_gen_{label}.json"
+        structural_metrics_path = evaluation_output_path(
+            generation_path,
+            "structural_metrics",
+            f"eval_metrics_gen_{label}.json",
         )
         if not structural_metrics_path.exists():
             raise RuntimeError(
@@ -444,13 +467,15 @@ def evaluate_generation_files(
             structural_metrics_path.read_text(encoding="utf-8")
         )
         metrics.update({
-            "source_file": str(generation_path.resolve()),
+            "source_file": provenance_path(generation_path),
             "generation_label": label,
-            "generation_model_dir": generation_path.parent.name,
-            "structural_metrics_file": str(structural_metrics_path.resolve()),
+            "generation_model_dir": model_root_from_generation(
+                generation_path
+            ).name,
+            "structural_metrics_file": provenance_path(structural_metrics_path),
             "structural_metrics": structural_metrics,
             "predictor_checkpoints": {
-                name: str(checkpoints[name].resolve()) for name in PROPERTY_NAMES
+                name: provenance_path(checkpoints[name]) for name in PROPERTY_NAMES
             },
         })
 
@@ -478,8 +503,22 @@ def evaluate_generation_files(
                 for name in target_names
             ])
 
+        predictions_path.parent.mkdir(parents=True, exist_ok=True)
+        metrics_path.parent.mkdir(parents=True, exist_ok=True)
         _atomic_csv(predictions_path, pd.DataFrame(table))
         _atomic_json(metrics_path, metrics)
+        record_evaluation_metric(
+            "per_structure_property_predictions",
+            predictions_path,
+            generation_path,
+            checkpoints,
+        )
+        record_evaluation_metric(
+            "aggregate_property_metrics",
+            metrics_path,
+            generation_path,
+            checkpoints,
+        )
         summaries.append(_flatten_metrics(metrics))
         del payload, crystal_arrays, data_list, predictions
 
@@ -487,5 +526,26 @@ def evaluate_generation_files(
     _atomic_csv(output_dir / "seed42_property_summary.csv", summary_table)
     _atomic_json(
         output_dir / "seed42_property_summary.json", {"groups": summaries}
+    )
+    source_manifests = sorted({
+        model_root_from_generation(path) / "evaluations/source_manifest.json"
+        for path in generation_files
+    })
+    _atomic_json(
+        output_dir / "source_manifest.json",
+        {
+            "summary_directory": provenance_path(output_dir),
+            "summary_files": [
+                provenance_path(output_dir / "seed42_property_summary.json"),
+                provenance_path(output_dir / "seed42_property_summary.csv"),
+            ],
+            "source_model_manifests": [
+                provenance_path(path) for path in source_manifests
+            ],
+            "source_groups": len(summaries),
+            "source_predictors": {
+                name: provenance_path(path) for name, path in checkpoints.items()
+            },
+        },
     )
     return summaries

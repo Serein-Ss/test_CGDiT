@@ -97,7 +97,7 @@ def add_panel_label(ax, label: str) -> None:
 
 
 def load_generation_groups(project_root: Path) -> list[dict]:
-    path = project_root / "output/property_evaluation_seed42/seed42_property_summary.json"
+    path = project_root / "assets/model_results/source_data/property_evaluation_seed42/seed42_property_summary.json"
     payload = json.loads(path.read_text())
     groups = payload.get("groups")
     if not isinstance(groups, list) or len(groups) != 23:

@@ -62,7 +62,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--property", choices=PROPERTY_NAMES, default="fe")
     parser.add_argument("--algorithm", choices=("ppo", "grpo"), default="grpo")
     parser.add_argument("--pirl", action=argparse.BooleanOptionalAction, default=False)
-    parser.add_argument("--output-root", type=Path, default=Path("output/rl_smoke"))
+    parser.add_argument("--output-root", type=Path, default=Path("output/rl_finetune"))
+    parser.add_argument("--run-kind", choices=("train", "test"), default="train")
     parser.add_argument("--num-prompts", type=int, default=1)
     parser.add_argument("--group-size", type=int, default=4)
     parser.add_argument("--updates", type=int, default=1)
@@ -252,6 +253,13 @@ def _append_jsonl(path: Path, record: dict[str, Any]) -> None:
         handle.write(json.dumps(record, ensure_ascii=False) + "\n")
 
 
+def _run_output_paths(
+    output_root: Path, run_name: str, run_kind: str
+) -> tuple[Path, Path]:
+    run_root = output_root / run_name
+    return run_root / "model", run_root / f"{run_kind}_results"
+
+
 def _save_checkpoint(
     model: torch.nn.Module,
     optimizer: torch.optim.Optimizer,
@@ -346,12 +354,15 @@ def main() -> None:
     run_name = f"{args.algorithm}_{args.property}_seed{args.seed}"
     if args.pirl:
         run_name += "_pirl"
-    output_dir = args.output_root / run_name
-    output_dir.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(args.model_path / "hparams.yaml", output_dir / "hparams.yaml")
+    model_dir, results_dir = _run_output_paths(
+        args.output_root, run_name, args.run_kind
+    )
+    model_dir.mkdir(parents=True, exist_ok=True)
+    results_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(args.model_path / "hparams.yaml", model_dir / "hparams.yaml")
     source_checkpoint = resolve_checkpoint(args.model_path)
 
-    metrics_path = output_dir / "metrics.jsonl"
+    metrics_path = results_dir / "metrics.jsonl"
 
     for step in range(start_step, start_step + args.updates):
         old_policy = copy.deepcopy(model).eval() if args.pirl else None
@@ -470,7 +481,7 @@ def main() -> None:
             optimizer=optimizer,
             scheduler=scheduler,
             source_checkpoint=source_checkpoint,
-            output_dir=output_dir,
+            output_dir=model_dir,
             step=step,
             metadata=record,
         )

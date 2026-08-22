@@ -6,6 +6,7 @@ import torch
 from scripts.cli.training.train_crystal_rl import (
     _blend_decoder,
     _grouped_batch,
+    _run_output_paths,
     _transition_indices,
 )
 
@@ -49,3 +50,12 @@ def test_blend_decoder_applies_decision_scale():
     _blend_decoder(model, old_state, 0.25)
 
     assert model.decoder.weight.item() == pytest.approx(1.5)
+
+
+def test_rl_test_outputs_separate_model_and_test_results(tmp_path):
+    model_dir, results_dir = _run_output_paths(
+        tmp_path, "grpo_fe_seed42", "test"
+    )
+
+    assert model_dir == tmp_path / "grpo_fe_seed42/model"
+    assert results_dir == tmp_path / "grpo_fe_seed42/test_results"

@@ -4,9 +4,13 @@ set -Eeuo pipefail
 
 PROJECT_ROOT="${PROJECT_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
 RUN_ID="${RUN_ID:-$(date '+%Y%m%d-%H%M%S')}"
-OUTPUT_ROOT="${PROJECT_ROOT}/output/remote_rl_smoke/${RUN_ID}"
+RUN_DATE="${RUN_DATE:-${RUN_ID:0:4}-${RUN_ID:4:2}-${RUN_ID:6:2}}"
+RUN_TIME="${RUN_TIME:-${RUN_ID:9:2}-${RUN_ID:11:2}-${RUN_ID:13:2}}"
+RUN_NAME="${RUN_TIME}-test-zrs-gen-rl-smoke"
+OUTPUT_ROOT="${PROJECT_ROOT}/output/rl_finetune/${RUN_DATE}/${RUN_NAME}"
 LOG_ROOT="${PROJECT_ROOT}/logs/remote_rl/${RUN_ID}"
-MANIFEST="${OUTPUT_ROOT}/run_manifest.txt"
+RESULTS_ROOT="${OUTPUT_ROOT}/test_results"
+MANIFEST="${RESULTS_ROOT}/run_manifest.txt"
 
 if [[ -z "${CONDA_PREFIX:-}" ]]; then
     echo "The worker requires an active Conda environment." >&2
@@ -14,7 +18,7 @@ if [[ -z "${CONDA_PREFIX:-}" ]]; then
 fi
 
 cd "${PROJECT_ROOT}"
-mkdir -p "${OUTPUT_ROOT}" "${LOG_ROOT}"
+mkdir -p "${RESULTS_ROOT}" "${LOG_ROOT}"
 
 export PROJECT_ROOT
 export WANDB_MODE=offline
@@ -63,12 +67,14 @@ python -m scripts.cli.training.train_crystal_rl \
 python -m scripts.cli.training.train_crystal_rl \
     --train-config conf/rl/ppo_fe.yaml \
     --no-pirl \
+    --run-kind test \
     --output-root "${OUTPUT_ROOT}" \
     2>&1 | tee "${LOG_ROOT}/ppo_fe.log"
 
 python -m scripts.cli.training.train_crystal_rl \
     --train-config conf/rl/grpo_fe.yaml \
     --no-pirl \
+    --run-kind test \
     --output-root "${OUTPUT_ROOT}" \
     2>&1 | tee "${LOG_ROOT}/grpo_fe.log"
 
@@ -76,6 +82,42 @@ python -m scripts.cli.training.train_crystal_rl \
     echo "end_time=$(date '+%Y-%m-%d %H:%M:%S %z')"
     echo "status=complete"
 } >> "${MANIFEST}"
+
+python - "${OUTPUT_ROOT}" "${RUN_ID}" <<'PY'
+import json
+import sys
+from pathlib import Path
+
+run_root = Path(sys.argv[1]).resolve()
+project_root = Path.cwd().resolve()
+
+def relative(path):
+    return str(path.resolve().relative_to(project_root))
+
+algorithms = {}
+for algorithm_root in sorted(
+    path for path in run_root.iterdir() if (path / "model").is_dir()
+):
+    checkpoints = sorted((algorithm_root / "model").glob("*.ckpt"))
+    if len(checkpoints) != 1:
+        raise RuntimeError(f"Expected one RL checkpoint in {algorithm_root / 'model'}")
+    algorithms[algorithm_root.name] = {
+        "checkpoint": relative(checkpoints[0]),
+        "model_hparams": relative(algorithm_root / "model/hparams.yaml"),
+        "test_metrics": relative(algorithm_root / "test_results/metrics.jsonl"),
+    }
+manifest = {
+    "run_type": "test",
+    "test_kind": "one_update_rl_smoke",
+    "original_run_id": sys.argv[2],
+    "run_directory": relative(run_root),
+    "algorithms": algorithms,
+    "environment_manifest": relative(run_root / "test_results/run_manifest.txt"),
+}
+(run_root / "test_results/source_manifest.json").write_text(
+    json.dumps(manifest, indent=2) + "\n", encoding="utf-8"
+)
+PY
 
 echo "zrs-gen-rl smoke completed."
 echo "Results: ${OUTPUT_ROOT}"

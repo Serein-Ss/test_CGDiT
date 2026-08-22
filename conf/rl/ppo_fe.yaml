@@ -4,7 +4,8 @@ reward_registry: conf/rl/reward_models_mp20.yaml
 property: fe
 algorithm: ppo
 pirl: false
-output_root: output/rl_smoke
+output_root: output/rl_finetune
+run_kind: test
 num_prompts: 2
 group_size: 8
 updates: 1

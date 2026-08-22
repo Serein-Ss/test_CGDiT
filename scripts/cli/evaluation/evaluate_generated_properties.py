@@ -20,7 +20,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--bg_run", required=True)
     parser.add_argument("--eh_run", required=True)
     parser.add_argument(
-        "--output_dir", default="output/property_evaluation_seed42"
+        "--output_dir", default="assets/model_results/source_data/property_evaluation_seed42"
     )
     parser.add_argument("--batch_size", type=int, default=64)
     parser.add_argument("--num_workers", type=int, default=8)

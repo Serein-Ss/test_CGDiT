@@ -108,6 +108,10 @@ condition_args_for() {
     done
 }
 
+generation_file_for() {
+    python -c 'import sys; from cgdit.common.output_paths import generation_output_path; print(generation_output_path(sys.argv[1], sys.argv[2]))' "$1" "$2"
+}
+
 run_generation() {
     local model_name="$1"
     local model_path="$2"
@@ -116,7 +120,8 @@ run_generation() {
     local num_batches="$5"
     local mode="$6"
     local use_conditions="$7"
-    local output_file="${model_path}/eval_gen_${label}.pt"
+    local output_file
+    output_file="$(generation_file_for "${model_path}" "${label}")"
 
     if [[ -s "${output_file}" ]]; then
         echo "[SKIP] Existing generation output: ${output_file}"
@@ -152,8 +157,9 @@ run_metrics() {
     local model_name="$1"
     local model_path="$2"
     local label="$3"
-    local input_file="${model_path}/eval_gen_${label}.pt"
-    local metrics_file="${model_path}/eval_metrics_gen_${label}.json"
+    local input_file
+    input_file="$(generation_file_for "${model_path}" "${label}")"
+    local metrics_file="${model_path}/evaluations/structural_metrics/eval_metrics_gen_${label}.json"
 
     if [[ ! -s "${input_file}" ]]; then
         echo "[FAILED] Missing generation output for metrics: ${input_file}" \
@@ -318,5 +324,5 @@ if [[ ${#FAILURES[@]} -gt 0 ]]; then
 fi
 
 echo "All executable tasks completed successfully."
-echo "Outputs: each model directory under output/singlerun/"
+echo "Outputs: generated_structures/ and evaluations/ under each model directory."
 echo "Logs: ${LOG_DIR}"

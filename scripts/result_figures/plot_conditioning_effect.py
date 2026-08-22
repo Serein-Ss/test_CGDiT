@@ -21,6 +21,10 @@ from scipy.stats import gaussian_kde
 import torch
 
 from cgdit.common.evaluation_utils import smact_validity, structure_validity
+from cgdit.common.output_paths import (
+    evaluation_output_path,
+    generation_output_path,
+)
 from cgdit.evaluation.generated_properties import _crystal_array_list
 
 
@@ -39,6 +43,19 @@ BG_TOLERANCE = 0.45
 FE_DIR = Path("output/singlerun/2026-06-28/16-46-08-mp20_fe")
 BG_DIR = Path("output/singlerun/2026-06-30/11-28-44-mp20_bg")
 JOINT_DIR = Path("output/singlerun/2026-08-07/07-54-15-mp20_fe_bg")
+
+
+def generated_result(model_dir: Path, label: str) -> Path:
+    return generation_output_path(model_dir, label)
+
+
+def property_result(model_dir: Path, label: str) -> Path:
+    generation_path = generated_result(model_dir, label)
+    return evaluation_output_path(
+        generation_path,
+        "property_predictions",
+        f"eval_properties_gen_{label}_predictor_seed42.csv",
+    )
 
 
 def add_panel_label(ax, label: str) -> None:
@@ -294,47 +311,46 @@ def plot_conditioning_distributions(
     training_bg = train["band_gap"].dropna().to_numpy(dtype=float)
 
     fe_uncond = read_values(
-        project_root / FE_DIR
-        / "eval_properties_gen_template_uncond_n4096_seed42_predictor_seed42.csv",
+        project_root / property_result(FE_DIR, "template_uncond_n4096_seed42"),
         "predicted_formation_energy_per_atom",
     )
     fe_template = read_values(
-        project_root / FE_DIR
-        / "eval_properties_gen_template_fe_m1p5_n4096_seed42_predictor_seed42.csv",
+        project_root / property_result(FE_DIR, "template_fe_m1p5_n4096_seed42"),
         "predicted_formation_energy_per_atom",
     )
     fe_ab_initio = read_values(
-        project_root / FE_DIR
-        / "eval_properties_gen_abinitio_empirical_fe_m1p5_n4096_seed42_predictor_seed42.csv",
+        project_root / property_result(
+            FE_DIR, "abinitio_empirical_fe_m1p5_n4096_seed42"
+        ),
         "predicted_formation_energy_per_atom",
     )
     bg_uncond = read_values(
-        project_root / BG_DIR
-        / "eval_properties_gen_template_uncond_n4096_seed42_predictor_seed42.csv",
+        project_root / property_result(BG_DIR, "template_uncond_n4096_seed42"),
         "predicted_band_gap",
     )
     bg_template = read_values(
-        project_root / BG_DIR
-        / "eval_properties_gen_template_bg_2_n4096_seed42_predictor_seed42.csv",
+        project_root / property_result(BG_DIR, "template_bg_2_n4096_seed42"),
         "predicted_band_gap",
     )
     bg_ab_initio = read_values(
-        project_root / BG_DIR
-        / "eval_properties_gen_abinitio_empirical_bg_2_n4096_seed42_predictor_seed42.csv",
+        project_root / property_result(
+            BG_DIR, "abinitio_empirical_bg_2_n4096_seed42"
+        ),
         "predicted_band_gap",
     )
 
     joint_uncond = load_joint(
-        project_root / JOINT_DIR
-        / "eval_properties_gen_template_uncond_n4096_seed42_predictor_seed42.csv"
+        project_root / property_result(JOINT_DIR, "template_uncond_n4096_seed42")
     )
     joint_template = load_joint(
-        project_root / JOINT_DIR
-        / "eval_properties_gen_template_fe_m1p5_bg_2_n4096_seed42_predictor_seed42.csv"
+        project_root / property_result(
+            JOINT_DIR, "template_fe_m1p5_bg_2_n4096_seed42"
+        )
     )
     joint_ab_initio = load_joint(
-        project_root / JOINT_DIR
-        / "eval_properties_gen_abinitio_empirical_fe_m1p5_bg_2_n4096_seed42_predictor_seed42.csv"
+        project_root / property_result(
+            JOINT_DIR, "abinitio_empirical_fe_m1p5_bg_2_n4096_seed42"
+        )
     )
 
     fig = plt.figure(figsize=(7.2, 5.8), constrained_layout=True)
@@ -529,25 +545,22 @@ def plot_conditioned_structures(
     specs = [
         (
             "FE - Template",
-            FE_DIR / "eval_gen_template_fe_m1p5_n4096_seed42.pt",
-            FE_DIR
-            / "eval_properties_gen_template_fe_m1p5_n4096_seed42_predictor_seed42.csv",
+            generated_result(FE_DIR, "template_fe_m1p5_n4096_seed42"),
+            property_result(FE_DIR, "template_fe_m1p5_n4096_seed42"),
             lambda frame: np.abs(
                 frame["predicted_formation_energy_per_atom"] - FE_TARGET
             ),
         ),
         (
             "BG - Template",
-            BG_DIR / "eval_gen_template_bg_2_n4096_seed42.pt",
-            BG_DIR
-            / "eval_properties_gen_template_bg_2_n4096_seed42_predictor_seed42.csv",
+            generated_result(BG_DIR, "template_bg_2_n4096_seed42"),
+            property_result(BG_DIR, "template_bg_2_n4096_seed42"),
             lambda frame: np.abs(frame["predicted_band_gap"] - BG_TARGET),
         ),
         (
             "FE+BG - Template",
-            JOINT_DIR / "eval_gen_template_fe_m1p5_bg_2_n4096_seed42.pt",
-            JOINT_DIR
-            / "eval_properties_gen_template_fe_m1p5_bg_2_n4096_seed42_predictor_seed42.csv",
+            generated_result(JOINT_DIR, "template_fe_m1p5_bg_2_n4096_seed42"),
+            property_result(JOINT_DIR, "template_fe_m1p5_bg_2_n4096_seed42"),
             lambda frame: np.sqrt(
                 (
                     (frame["predicted_formation_energy_per_atom"] - FE_TARGET)
@@ -560,9 +573,12 @@ def plot_conditioned_structures(
         ),
         (
             "FE+BG - Ab initio",
-            JOINT_DIR / "eval_gen_abinitio_empirical_fe_m1p5_bg_2_n4096_seed42.pt",
-            JOINT_DIR
-            / "eval_properties_gen_abinitio_empirical_fe_m1p5_bg_2_n4096_seed42_predictor_seed42.csv",
+            generated_result(
+                JOINT_DIR, "abinitio_empirical_fe_m1p5_bg_2_n4096_seed42"
+            ),
+            property_result(
+                JOINT_DIR, "abinitio_empirical_fe_m1p5_bg_2_n4096_seed42"
+            ),
             lambda frame: np.sqrt(
                 (
                     (frame["predicted_formation_energy_per_atom"] - FE_TARGET)
