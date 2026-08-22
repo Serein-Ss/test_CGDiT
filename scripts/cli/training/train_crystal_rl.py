@@ -230,7 +230,7 @@ def _reward_summary(evaluation: Any) -> dict[str, Any]:
             name: float(value[torch.isfinite(value)].mean().item())
             if torch.isfinite(value).any()
             else None
-            for name, value in evaluation.properties.items()
+            for name, value in evaluation.predictions.items()
         },
         "graph_errors": evaluation.graph_errors,
     }
@@ -372,7 +372,7 @@ def main() -> None:
             diff_ratio=args.short_diff_ratio,
         )
         evaluation = adapter.evaluate_state(
-            state=trajectory.final_state,
+            final_state=trajectory.final_state,
             num_atoms=trajectory.num_atoms,
             crystal_family=model.crystal_family,
         )

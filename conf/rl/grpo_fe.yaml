@@ -5,8 +5,8 @@ property: fe
 algorithm: grpo
 pirl: false
 output_root: output/rl_smoke
-num_prompts: 1
-group_size: 4
+num_prompts: 2
+group_size: 8
 updates: 1
 short_diff_ratio: 0.02
 step_lr: 1.0e-5

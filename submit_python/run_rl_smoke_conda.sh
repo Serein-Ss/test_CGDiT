@@ -38,7 +38,17 @@ export PYTHONUNBUFFERED=1
         conf/rl/reward_models_mp20.yaml
 } > "${MANIFEST}"
 
-python -m pytest -q 2>&1 | tee "${LOG_ROOT}/pytest.log"
+python -m pytest -q \
+    tests/test_diffusion_sampling.py \
+    tests/test_property_predictor.py \
+    tests/test_rl_multifidelity.py \
+    tests/test_rl_objectives.py \
+    tests/test_rl_property_reward.py \
+    tests/test_rl_rewards.py \
+    tests/test_rl_symmetry_quotient.py \
+    tests/test_rl_training_cli.py \
+    tests/test_rl_transition_logprob.py \
+    2>&1 | tee "${LOG_ROOT}/pytest_rl.log"
 
 python -m scripts.cli.training.train_crystal_rl \
     --train-config conf/rl/ppo_fe.yaml \
