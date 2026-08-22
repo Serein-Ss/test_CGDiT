@@ -454,10 +454,10 @@ def main() -> None:
                 attenuation=float(contract.closed_loop.attenuation_scale),
                 seed=args.probe_seed + step,
             )
-            if decision.update_scale < 1.0:
+            if decision.scale < 1.0:
                 assert old_decoder_state is not None
                 assert old_optimizer_state is not None
-                _blend_decoder(model, old_decoder_state, decision.update_scale)
+                _blend_decoder(model, old_decoder_state, decision.scale)
                 optimizer.load_state_dict(old_optimizer_state)
             decision_record = _decision_summary(decision)
             del old_policy
