@@ -79,3 +79,14 @@ archived_out_of_scope_models:
     seed_123:
       checkpoint: output/singlerun/2026-08-21/17-20-41-mp20_predictor_eh_seed123/epoch=19-step=16960.ckpt
       status: checkpoint_only_no_test_outputs
+
+pilot_safety:
+  scope: exploratory_seed42_only
+  not_for_final_stability_claim: true
+  stability:
+    proxy: bounded_formation_energy_per_atom
+    predictor_seed: 123
+    checkpoint: output/singlerun/2026-08-20/20-24-50-mp20_predictor_fe_seed123/epoch=224-step=190800.ckpt
+    target: 0.0
+    tolerance: 0.30
+    unit: eV/atom

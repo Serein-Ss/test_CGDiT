@@ -11,6 +11,16 @@ class ImprovementDecision:
     scale: float
     mean_delta: torch.Tensor
     lower_confidence_bound: torch.Tensor
+    requires_recheck: bool = False
+
+
+@dataclass(frozen=True)
+class DualBaselineDecision:
+    action: str
+    scale: float
+    local: ImprovementDecision
+    absolute: ImprovementDecision
+    requires_recheck: bool
 
 
 def paired_bootstrap_lcb(
@@ -104,4 +114,66 @@ def decide_reward_improvement(
         primary_metric=0,
         safety_tolerances=indexed_tolerances,
         **decision_kwargs,
+    )
+
+
+def decide_dual_baseline_reward_improvement(
+    base_reward: torch.Tensor,
+    current_reward: torch.Tensor,
+    candidate_reward: torch.Tensor,
+    base_safety_metrics: dict[str, torch.Tensor] | None = None,
+    current_safety_metrics: dict[str, torch.Tensor] | None = None,
+    candidate_safety_metrics: dict[str, torch.Tensor] | None = None,
+    safety_tolerances: dict[str, float] | None = None,
+    attenuation: float = 0.25,
+    **decision_kwargs,
+) -> DualBaselineDecision:
+    """Require target improvement over both anchors and base-anchored safety.
+
+    An attenuated update is only a proposal. Callers must rollout and evaluate
+    that scaled candidate again before it can become a verified checkpoint.
+    Safety metrics are anti-collapse constraints relative to the frozen base;
+    they are not required to improve over the current policy at every step.
+    """
+    base_safety_metrics = base_safety_metrics or {}
+    current_safety_metrics = current_safety_metrics or {}
+    candidate_safety_metrics = candidate_safety_metrics or {}
+    safety_tolerances = safety_tolerances or {}
+    names = set(base_safety_metrics)
+    if names != set(current_safety_metrics) or names != set(candidate_safety_metrics):
+        raise ValueError(
+            "base, current and candidate safety metrics must use the same names"
+        )
+
+    local = decide_reward_improvement(
+        old_reward=current_reward,
+        new_reward=candidate_reward,
+        attenuation=attenuation,
+        **decision_kwargs,
+    )
+    absolute = decide_reward_improvement(
+        old_reward=base_reward,
+        new_reward=candidate_reward,
+        old_safety_metrics=base_safety_metrics,
+        new_safety_metrics=candidate_safety_metrics,
+        safety_tolerances=safety_tolerances,
+        attenuation=attenuation,
+        **decision_kwargs,
+    )
+
+    if local.action == "accept" and absolute.action == "accept":
+        action = "accept"
+        scale = 1.0
+    elif local.action != "reject" and absolute.action != "reject":
+        action = "attenuate"
+        scale = attenuation
+    else:
+        action = "reject"
+        scale = 0.0
+    return DualBaselineDecision(
+        action=action,
+        scale=scale,
+        local=local,
+        absolute=absolute,
+        requires_recheck=action == "attenuate",
     )

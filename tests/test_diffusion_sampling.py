@@ -175,6 +175,24 @@ def test_probability_replay_can_subsample_long_trajectory_steps():
         assert torch.allclose(replayed[channel], recorded[channel], atol=1e-5)
 
 
+def test_sample_rl_can_retain_only_replayed_steps_without_shortening_denoising():
+    model = FakeDiffusionModel()
+    batch = make_batch(torch.tensor([0, 0, 2, 2]))
+
+    final, stack, trajectory = Diffusion.sample_rl(
+        model,
+        batch,
+        noise_seed=23,
+        replay_transitions=1,
+        retain_trajectory_stack=False,
+    )
+
+    assert final["atom_types"].shape == (4,)
+    assert stack is None
+    assert [transition.timestep for transition in trajectory.transitions] == [2]
+    assert model.beta_scheduler.timesteps == 3
+
+
 @pytest.mark.parametrize("diff_ratio", [0.0, -0.1, 1.1])
 def test_invalid_diff_ratio_is_rejected(diff_ratio):
     with pytest.raises(ValueError, match="diff_ratio"):

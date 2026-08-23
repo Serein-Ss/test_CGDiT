@@ -118,12 +118,37 @@ def plot_marginal_density(
         lw=0,
         label=f"MP20 train (n={training.size:,})",
     )
+    histogram_ax = ax.twinx()
+    histogram_ax.set_zorder(ax.get_zorder() - 1)
+    ax.patch.set_visible(False)
+    histogram_edges = np.linspace(*xlim, 49)
+    histogram_specs = [
+        (training, GRAY_LIGHT, "-"),
+        (unconditional, GRAY, "--"),
+        (template, BLUE, "-"),
+        (ab_initio, TEAL, "-"),
+    ]
+    for values, color, linestyle in histogram_specs:
+        counts, _ = np.histogram(values, bins=histogram_edges)
+        histogram_ax.stairs(
+            counts / values.size,
+            histogram_edges,
+            color=color,
+            lw=0.75,
+            ls=linestyle,
+            alpha=0.62,
+        )
+    histogram_ax.set_ylim(bottom=0)
+    histogram_ax.tick_params(axis="y", colors=GRAY, labelsize=5.5)
+    histogram_ax.spines["top"].set_visible(False)
+    histogram_ax.spines["right"].set_color(GRAY_LIGHT)
     ax.plot(
         grid,
         density_curve(unconditional, grid),
         color=GRAY,
         lw=1.25,
         ls="--",
+        zorder=3,
         label=f"Unconditioned (n={unconditional.size:,})",
     )
     ax.plot(
@@ -131,6 +156,7 @@ def plot_marginal_density(
         density_curve(template, grid),
         color=BLUE,
         lw=1.6,
+        zorder=3,
         label=f"Template conditioned (n={template.size:,})",
     )
     ax.plot(
@@ -138,6 +164,7 @@ def plot_marginal_density(
         density_curve(ab_initio, grid),
         color=TEAL,
         lw=1.45,
+        zorder=3,
         label=f"Ab initio conditioned (n={ab_initio.size:,})",
     )
     ax.axvspan(target - tolerance, target + tolerance, color=RED, alpha=0.10, lw=0)
@@ -282,7 +309,13 @@ def plot_joint_contours(
     ax.set_ylim(*bg_range)
     ax.set_xlabel("Formation energy (eV atom⁻¹)")
     ax.set_ylabel("Band gap (eV)")
-    ax.legend(handles=legend_handles, loc="upper left", ncol=2)
+    ax.legend(
+        handles=legend_handles,
+        loc="upper left",
+        ncol=2,
+        title="Line style: route; contour width: thick inner 50%, thin outer 90%",
+        title_fontsize=5.8,
+    )
 
 
 def write_rows(path: Path, rows: list[dict]) -> None:
@@ -353,8 +386,8 @@ def plot_conditioning_distributions(
         )
     )
 
-    fig = plt.figure(figsize=(7.2, 5.8), constrained_layout=True)
-    grid = fig.add_gridspec(3, 2, height_ratios=[0.12, 1.0, 1.18])
+    fig = plt.figure(figsize=(7.2, 5.9), constrained_layout=True)
+    grid = fig.add_gridspec(3, 2, height_ratios=[0.17, 1.0, 1.18])
     ax_legend = fig.add_subplot(grid[0, :])
     ax_fe = fig.add_subplot(grid[1, 0])
     ax_bg = fig.add_subplot(grid[1, 1])
@@ -383,7 +416,21 @@ def plot_conditioning_distributions(
         "Band gap (eV)",
     )
     handles, labels = ax_fe.get_legend_handles_labels()
-    ax_legend.legend(handles, labels, loc="center", ncol=3)
+    handles.extend(
+        [
+            Line2D([0], [0], color=BLACK, lw=1.2),
+            Line2D(
+                [0],
+                [0],
+                color=BLACK,
+                lw=0.8,
+                drawstyle="steps-mid",
+                alpha=0.62,
+            ),
+        ]
+    )
+    labels.extend(["Smooth curves: KDE", "Histogram: fraction/bin (right axis; 48 bins)"])
+    ax_legend.legend(handles, labels, loc="center", ncol=4)
     ax_legend.set_axis_off()
 
     columns = ["predicted_formation_energy_per_atom", "predicted_band_gap"]

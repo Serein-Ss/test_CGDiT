@@ -85,4 +85,4 @@
 - **从三通道异构动力学出发的信用分配，而不是给整条轨迹复制同一个优势**；
 - 在相同奖励调用和高保真预算下，证明其优于 DiffCSP++-ReFT/MatInvent 类直接空间 RL 与 Chemeleon2 潜空间 GRPO。
 
-当前文章范围和实验要求见 [OrbitPO文章执行计划.md](../OrbitPO文章执行计划.md)；宽口径创新判断见 [CGDiT_RL_complete_research_plan.md](../CGDiT_RL_complete_research_plan.md)。
+当前文章范围和实验要求见 [CrystalPIRL文章执行计划.md](../CrystalPIRL文章执行计划.md)；宽口径创新判断见 [CGDiT_RL_complete_research_plan.md](../CGDiT_RL_complete_research_plan.md)。

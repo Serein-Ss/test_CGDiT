@@ -4,7 +4,7 @@
 > 项目分支：`newton`
 > 研究范围：与本项目直接可比的晶体/原子结构生成扩散模型，以及“用强化学习后训练生成式扩散模型”的工作。
 
-> 当前执行依据：本目录只保存文献证据与检索边界；文章范围和实验决策以根目录的 [`OrbitPO文章执行计划.md`](../OrbitPO文章执行计划.md) 为准，宽口径研究背景见 [`CGDiT_RL_complete_research_plan.md`](../CGDiT_RL_complete_research_plan.md)。
+> 当前执行依据：本目录只保存文献证据与检索边界；文章范围和实验决策以根目录的 [`CrystalPIRL文章执行计划.md`](../CrystalPIRL文章执行计划.md) 为准，宽口径研究背景见 [`CGDiT_RL_complete_research_plan.md`](../CGDiT_RL_complete_research_plan.md)。
 
 ## 结论先行
 

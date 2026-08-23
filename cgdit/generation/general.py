@@ -15,6 +15,7 @@ from cgdit.generation.conditioning import (
     apply_condition_values,
     condition_label,
     condition_values_from_args,
+    parse_condition_assignments,
     seed_generation,
     validate_condition_values,
 )
@@ -48,7 +49,7 @@ def diffusion(
         print("Standard unconditional generation (sampling from data distribution).")
 
     for idx, batch in enumerate(tqdm(loader, desc="Generating")):
-        if torch.cuda.is_available():
+        if torch.cuda.is_available() and hasattr(batch, "cuda"):
             batch = batch.cuda()
 
         apply_condition_values(batch, condition_values, condition_configs)
@@ -234,6 +235,7 @@ def main(args):
         model.to('cuda')
 
     condition_values = condition_values_from_args(args)
+    evaluation_targets = parse_condition_assignments(args.evaluation_target)
     condition_configs = cfg.model.get('conditions', {})
     validate_condition_values(condition_values, condition_configs)
     seed_generation(args.seed)
@@ -301,6 +303,7 @@ def main(args):
         'lengths': lengths,
         'angles': angles,
         'conditions': condition_values,
+        'evaluation_targets': evaluation_targets,
         'property_name': args.property_name,
         'target_value': args.target_value,
         'guidance_scale': args.guidance_scale,
@@ -317,6 +320,10 @@ def build_parser():
     parser.add_argument('--batch_size', default=500, type=int)
     parser.add_argument('--seed', default=9999, type=int)
     parser.add_argument('--label', default='')
+    parser.add_argument(
+        '--evaluation_target', action='append', default=[], metavar='NAME=VALUE',
+        help='Target metadata used only for post-hoc evaluation; it is not applied as CFG input.',
+    )
 
     # 性质条件生成
     add_condition_arguments(parser)

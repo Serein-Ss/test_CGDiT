@@ -1,6 +1,6 @@
 # Crystal Graph Diffusion Transformer
 
-> 本文档对应当前 `test_CGDiT` 工作区，最后核对日期：2026-08-21。
+> 本文档对应当前 `test_CGDiT` 工作区，最后核对日期：2026-08-23。
 > 文档中的命令默认在项目根目录执行，并优先使用重构后的模块化入口。
 
 
@@ -46,6 +46,29 @@ python cgdit/run.py data=<data_config> model=<model_config> expname=<experiment_
 当前强化学习研究范围暂时只启用 FE 和 BG。训练奖励与固定 probe 均冻结为 seed=42：FE 使用 `mp20_predictor_fe`，BG 使用 `mp20_predictor_bg`。FE/BG 的 seed=123 虽然已有测试输出，但多 seed 预测器体系尚未完整冻结，因此当前不组成 ensemble，也不参与 reward 或 checkpoint 选择。Ehull predictor 和所有含 Ehull 的生成模型只作为历史资产保留，不进入当前研究主线。
 
 8 组生成模型仍完整保留以保证可追溯性；当前 FE/BG 主线实际使用 `mp20_base`、`mp20_fe`、`mp20_bg` 和 `mp20_fe_bg` 四个基线，对应 11 组正式 seed=42 生成/性质评估，每组 4096 个结构。完整 23 组结果不删除。具体状态见 `output/README.md` 和 `conf/rl/reward_models_mp20.yaml`。汇总文件中的 `/public/home/...` 是原服务器来源记录，本机执行必须使用当前项目相对路径。
+
+### Core RL Research Objective
+
+当前强化学习研究的核心目标不是单纯提高训练 reward，而是实现一个可审计的闭环晶体结构生成策略：
+
+> 从同一个冻结无条件基础扩散模型出发，仅通过 PPO/GRPO 奖励反馈形成 FE、BG 和 FE+BG 目标偏好；每次候选更新只有在目标性质相对当前策略和原始基础策略都产生统计可信改善，并且稳定性、有效性、唯一性和多样性不发生不可接受退化时才进入 verified checkpoint。
+
+闭环永久维护：
+
+- frozen base \(\pi_0\)：原始绝对基线，整个实验期间不可改变；
+- current verified policy \(\pi_k\)：最近通过门控的局部基线；
+- candidate \(\pi'\)：本轮 PPO/GRPO 待验收更新。
+
+候选使用固定 probe、共同随机数和 bootstrap LCB 同时执行 candidate-vs-current 与 candidate-vs-base 比较。决策包括：
+
+- `accept`：双重性质改进和全部安全约束通过；
+- `attenuate`：缩小候选更新后重新生成、重新评估，不自动接受；
+- `reject`：保留 current verified policy；
+- `rollback`：holdout 或独立审计发现绝对退化时恢复最近安全 checkpoint。
+
+当前 Gate 2、Gate 3b 和 Gate 3c 已验证真实 GPU 轨迹、梯度、PPO/GRPO 更新、精确复现、更新尺度敏感性、双锚点 LCB 与 attenuate 复验。作业 667914 中 PPO 两步均被拒绝；GRPO 第一步通过奖励门控，第二步因相对 current 退化而被拒绝。由于在线安全审计仍只有 validity，所有 Gate 3c checkpoint 均为 `diagnostic_only` 且未更新 verified checkpoint；完整安全指标、holdout rollback、多种子正式实验和最终独立 evaluator 尚未完成，因此当前不能声称已实现完整闭环或真实材料性质提升。
+
+研究论证以 `CGDiT_RL_complete_research_plan.md` 为总览，以 `CrystalPIRL文章执行计划.md` 为文章预注册计划，以 `RL实际执行计划_临时审阅.md` 为当前实际执行清单。
 
 
 ## Project Structure

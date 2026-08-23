@@ -1,10 +1,10 @@
 # CGDiT 强化学习研究、创新设计与实施总览
 
 > 项目：CGDiT 多目标晶体扩散生成
-> 整理日期：2026-08-21
+> 整理日期：2026-08-23
 > 文档定位：对前期强化学习调研、CGDiT 代码分析、PIRL/PIPO 讨论、创新方案、实验设计和实施计划的统一整理
-> 当前主线：以固定物理标度的闭环通用材料生成奖励连接 PPO/GRPO 优化与 `CrystalPIRL` 的固定 probe、共同随机数成对比较和置信门控，在 CGDiT 三通道扩散链上验证策略更新是否真实改进；`OrbitPO` 提供对称约化概率基础
-> 使用边界：本文档保留宽口径研究背景；当前文章范围、实验顺序和停止条件以 `OrbitPO文章执行计划.md` 为唯一执行依据
+> 当前主线：从冻结无条件基础策略出发，以固定物理标度的目标性质奖励驱动 PPO/GRPO；`CrystalPIRL` 要求目标性质同时优于当前 verified policy 与永久冻结的原始基础策略，而稳定性、有效性、唯一性、新颖性和多样性只作为相对冻结基础策略的预注册抗坍塌约束，允许在容忍界内小幅下降；`OrbitPO` 提供对称约化概率基础
+> 使用边界：本文档保留宽口径研究背景；当前文章范围、实验顺序和停止条件以 `CrystalPIRL文章执行计划.md` 为唯一执行依据
 
 ---
 
@@ -21,12 +21,12 @@ CGDiT 可以引入强化学习，但以下内容不足以单独构成强创新�
 
 推荐文章主线为：
 
-> **固定物理标度的闭环通用材料生成奖励同时产生 PPO/GRPO 优势与 Paired-PIRL 验收信号；CrystalPIRL 在每次候选更新后，以固定 probe 和完全共享的连续/离散随机流比较候选策略与最近 verified policy，用成对原始奖励差、bootstrap 下置信界及安全约束决定接受、衰减或回滚；OrbitPO 则在晶格—周期坐标—元素的真实独立自由度上提供可重算的联合策略概率。**
+> **固定物理标度的目标性质奖励同时产生 PPO/GRPO 优势与 CrystalPIRL 双锚点验收信号；每次候选更新的目标性质既与当前 verified policy 比较局部改进，也与永久冻结的原始基础策略比较绝对收益。稳定性、有效性、唯一性、新颖性和多样性不要求逐步提高，只要求相对冻结基础策略不越过预注册抗坍塌容忍界；通过后才接受，否则缩放复验、拒绝或回滚。OrbitPO 在晶格—周期坐标—元素的真实独立自由度上提供可重算的联合策略概率。**
 
 核心贡献按重要性排序：
 
 1. **Closed-loop general material generation reward**：以固定目标/容差、显式有效性和可选探索分量构造可跨 batch 比较的原始奖励，严格分离 raw reward、PPO/GRPO advantage 与 probe safety metrics。
-2. **Paired risk-controlled policy-improvement verification**：把“按当前 reward 直接更新”改为候选更新—成对原始奖励验证—置信门控—verified checkpoint 的闭环，并显式量化坏更新和错误接受。
+2. **Dual-anchor risk-controlled policy-improvement verification**：把“按当前 reward 直接更新”改为候选更新—当前策略局部比较—冻结基础策略绝对比较—多指标置信门控—verified checkpoint 的闭环，避免策略在已经退化的当前状态附近产生“相对改善但仍劣于原始模型”的假改进。
 3. **Algorithm-agnostic evidence**：在 PPO 和 GRPO 上均比较无验证、原始 PIPO 与 Paired-PIRL，区分“策略改进反馈有用”与“本文成对机制有额外价值”。
 4. **OrbitPO probability foundation**：以轨道级 D3PM、代表点 wrapped likelihood 和空间群有效子空间 Gaussian 形成对称约化混合策略概率。
 
@@ -34,7 +34,7 @@ H2 通道—时间信用分配和 predictor→MLFF→DFT 多保真闭环继续�
 
 创造性—稳定性—多样性加权奖励和 GRPO 已由 Chemeleon2 实现，因此奖励组件本身不能单独支撑新颖性。本文创新候选是：固定标度通用奖励既作为优化信号，又成为对 **候选策略更新本身** 的低方差、风险控制验收信号。原始 PIPO 用跨轮滑动历史进行回顾性调制；CrystalPIRL 使用同一固定 probe、共同随机数、成对差分、置信门控和回滚。是否构成强创新必须由 2×3 公平实验及奖励闭环消融而不是概念描述证明。
 
-当前实现入口为 cgdit/rl/rewards.py、cgdit/rl/policy_improvement.py 和 conf/rl/reward_closed_loop_mp20.yaml。张量级组件与单元测试已经完成；真实 predictor、AMD/结构特征、训练 CLI 和 GPU 固定 probe 尚未接通，不能把接口完成写成实验完成。
+当前已接通训练 CLI、M3GNet reward adapter、PPO/GRPO 更新、checkpoint、固定 probe、共同随机数、bootstrap LCB、双锚点门控和 attenuate 重新验收。Gate 3c 作业 667914 验证了 PPO/GRPO 的 candidate-vs-current、candidate-vs-base 和拒绝路径；其中 GRPO 第二步只通过绝对门、未通过局部门，因而被正确拒绝。当前仍未把稳定性、唯一性、新颖性和多样性接入正式接受条件，也没有 holdout rollback、多 seed 和最终独立 evaluator；因此不能把工程诊断写成完整闭环或材料物性提升。
 
 ---
 
@@ -504,7 +504,13 @@ L_c=-\mathbb E\left[
 
 ## 10. CrystalPIRL：PIPO 启发的成对策略改进验证
 
-本节是当前文章的首要方法创新。它不把普通 reward feedback 重新命名为闭环，而是把每次参数更新视为待验证候选：只有候选策略在同条件、同随机流的固定 probe 上显示统计可信改进，才更新 verified checkpoint。原始 PIPO 的滑动历史反馈保留为直接对照。
+本节是当前文章的首要方法创新。它不把普通 reward feedback 重新命名为闭环，而是把每次参数更新视为待验证候选。必须同时维护三种策略角色：
+
+- \(\pi_0\)：永久冻结的原始无条件基础策略，提供绝对性能锚点；
+- \(\pi_k\)：第 \(k\) 轮最近一次通过验收的 verified policy，提供局部改进锚点；
+- \(\pi'\)：由 PPO/GRPO 产生、尚未被接受的 candidate policy。
+
+候选只有在同条件、同随机流的 probe 上相对 \(\pi_k\) 出现可信局部改善、相对 \(\pi_0\) 保持绝对改善，并满足生成质量非退化约束时，才成为新的 verified checkpoint。原始 PIPO 的滑动历史反馈保留为直接对照。
 
 最终独立 evaluator 不参与 probe、门控或 checkpoint 选择；若某个模型参与这些决策，它应被称为 verifier，并另设独立最终评价器。
 
@@ -534,6 +540,8 @@ C_j^{new}=G_{\theta_{t+1}}(c_j,z_j).
 
 common random numbers 可以显著降低扩散采样随机性对策略比较的影响。
 
+固定 probe 用于候选门控，另设不参与门控的 holdout probe 和最终独立 evaluator 检查多种子泛化。门控阈值、probe seed、样本量和 bootstrap 置信水平必须在观察正式结果前冻结。
+
 ### 10.2 多目标性能向量
 
 不使用单一平均 reward，定义：
@@ -551,29 +559,54 @@ common random numbers 可以显著降低扩散采样随机性对策略比较的�
 \end{bmatrix}.
 \]
 
-### 10.3 Pareto-safe 策略接受条件
+### 10.3 双重基线与 Pareto-safe 策略接受条件
 
-一次策略更新只有在下列条件成立时才被强化：
-
-\[
-\operatorname{LCB}(\Delta HV)>0,
-\]
-
-且满足安全约束：
+对任一待验收指标 \(m\)，分别计算局部差和绝对差：
 
 \[
-\operatorname{LCB}(\Delta\mathrm{Validity})\ge -\delta_v,
+\Delta m_j^{local}=m(C_j^{\pi'})-m(C_j^{\pi_k}),
 \]
 
 \[
-\operatorname{LCB}(\Delta\mathrm{Uniqueness})\ge -\delta_u,
+\Delta m_j^{absolute}=m(C_j^{\pi'})-m(C_j^{\pi_0}).
+\]
+
+主性质目标必须同时满足：
+
+\[
+\operatorname{LCB}(\Delta R^{local})>0,
 \]
 
 \[
-\operatorname{LCB}(\Delta\mathrm{Metastability})\ge -\delta_s.
+\operatorname{LCB}(\Delta R^{absolute})>0.
 \]
 
-其中 \(HV\) 是 Pareto hypervolume，LCB 是统计下置信界。
+如果任务采用多目标 Pareto 表述，则将 \(R\) 替换为预注册的 hypervolume 或有效目标产率。与此同时，候选相对冻结基础策略必须满足：
+
+\[
+\operatorname{LCB}(\Delta\mathrm{Validity}^{absolute})\ge -\delta_v,
+\]
+
+\[
+\operatorname{LCB}(\Delta\mathrm{Stability}^{absolute})\ge -\delta_s,
+\]
+
+\[
+\operatorname{LCB}(\Delta\mathrm{Uniqueness}^{absolute})\ge -\delta_u,
+\]
+
+\[
+\operatorname{LCB}(\Delta\mathrm{Diversity}^{absolute})\ge -\delta_d.
+\]
+
+局部比较防止接受当前轮次的坏更新；绝对比较防止策略虽然相对已退化的 \(\pi_k\) 有所恢复，却仍低于 \(\pi_0\)。安全指标允许预注册的统计容忍量，而不允许随训练轮次累计退化。若候选只满足部分条件，则按预注册尺度进行线搜索并重新完整评估，不能直接根据均值选择最佳尺度。
+
+最终决策为：
+
+- `accept`：局部与绝对主目标 LCB 均通过，全部安全约束满足；
+- `attenuate`：候选方向有信号但完整步长未通过，缩小后重新评估，只有重新通过双重门控才接受；
+- `reject`：主目标不改善或任一安全指标越界，保留 \(\pi_k\)；
+- `rollback`：holdout 或周期性独立审计发现已接受策略不再满足绝对基线约束，恢复最近通过审计的 checkpoint。
 
 ### 10.4 材料策略改进反馈
 
@@ -961,7 +994,7 @@ trajectory[t]
 
 ### 阶段 8：CrystalPIRL paired policy improvement
 
-加入固定 probe、共享连续与离散随机流、新旧策略成对比较、bootstrap LCB、accept/attenuate/reject 和 verified-checkpoint rollback。先用 predictor/verifier 完成通用性质实验；Pareto 与物理验证作为扩展。
+加入固定 probe、共享连续与离散随机流、candidate-vs-current 局部比较、candidate-vs-frozen-base 绝对比较、多指标 bootstrap LCB、attenuate 后重新评估和 verified-checkpoint rollback。先用 predictor/verifier 完成通用性质实验；Pareto 与物理验证作为扩展。
 
 验证：相对无验证和原始 PIPO，PPO/GRPO 的坏更新率下降，额外成本可接受，冻结策略在最终独立 evaluator 上保持性质与生成质量改善。
 
@@ -1304,7 +1337,7 @@ T_{total}=T_{rollout}+T_{reward}+T_{update}+T_{verification}+T_{I/O}.
 
 ### 项目内补充文档
 
-- `OrbitPO文章执行计划.md`：当前文章范围、五阶段实验路线和停止条件；
+- `CrystalPIRL文章执行计划.md`：当前文章范围、五阶段实验路线和停止条件；
 - `docs/archive/diff2flow_project_relevance_analysis.md`：已归档的 Diff2Flow 技术储备、适配边界与 go/no-go 条件；
 - `CGDiT项目.md`：项目结构、模型、生成与评估说明。
 
@@ -1314,8 +1347,18 @@ T_{total}=T_{rollout}+T_{reward}+T_{update}+T_{verification}+T_{I/O}.
 
 本文档是当前统一研究蓝图，不代表所有创新假设已经被实验验证。
 
+截至 2026-08-23 的新增工程证据：
+
+- Gate 2 已通过完整轨迹复现、非零有限梯度、PPO/GRPO 更新和 checkpoint 输出；
+- Gate 3b 作业 667909 在固定 seed=42、probe seed=4242、batch=16 下完成尺度扫描，两次跨进程复现哈希完全一致；
+- PPO 在 scale=0.5 时得到正 LCB，GRPO 在 scale=0.25 和 1.0 时得到正 LCB，说明两种算法都存在候选改进方向且安全尺度不同；
+- 这些结果只支持“更新方向与门控机制可诊断”，不支持多种子稳健性、生成质量非退化、真实材料稳定性或最终物性提升。
+- Gate 3c 作业 667914 完成双锚点 GPU 诊断：PPO 两步均被拒绝，GRPO 第一步奖励门控接受、第二步因 local LCB 为负而拒绝；
+- PPO 缩放候选重新 rollout 后 LCB 仍略低于零并被拒绝，证明 attenuate 不会绕过完整复验；
+- 当前安全审计只有 validity，所有 checkpoint 均保持 `diagnostic_only`，未更新 verified checkpoint。
+
 特别需要区分：
 
-- **已验证事实**：当前采样器结构、三通道类型、D3PM 后验接口、现有评价指标和公开文献中的已发表方法；
-- **首要研究假设**：固定 probe、共同随机数与置信门控能使 Paired-PIRL 相对无验证和原始 PIPO 降低 PPO/GRPO 的坏更新率；OrbitPO 是排除策略概率偏置所需的基础；
+- **已验证事实**：当前采样器结构、三通道类型、D3PM 后验接口、GPU 完整轨迹可复现性、单步 PPO/GRPO 候选更新、双锚点 LCB、attenuate 复验与局部退化拒绝路径；
+- **首要研究假设**：双重基线、共同随机数与多指标置信门控能使 CrystalPIRL 相对无验证和原始 PIPO 降低 PPO/GRPO 的坏更新率，并避免相对已退化策略产生假改进；OrbitPO 是排除策略概率偏置所需的基础；
 - **成功结论**：只能在实现、单元测试、公平基线、多个随机种子和冻结后的最终独立评价后给出；只有涉及物理验证的主张才额外要求 MLFF/DFT 证据。

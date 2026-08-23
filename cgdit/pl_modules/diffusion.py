@@ -231,7 +231,8 @@ class Diffusion(BaseModule):
 
     @torch.no_grad()
     def sample(self, batch, diff_ratio=1.0, step_lr=1e-5, guidance_scale=1.0,
-               fixed_atom_types=None, return_rl_trajectory=False, noise_seed=None):
+               fixed_atom_types=None, return_rl_trajectory=False, noise_seed=None,
+               rl_transition_count=None, retain_trajectory_stack=True):
         if noise_seed is not None:
             fork_devices = []
             if self.device.type == 'cuda':
@@ -253,6 +254,8 @@ class Diffusion(BaseModule):
                     fixed_atom_types=fixed_atom_types,
                     return_rl_trajectory=return_rl_trajectory,
                     noise_seed=None,
+                    rl_transition_count=rl_transition_count,
+                    retain_trajectory_stack=retain_trajectory_stack,
                 )
         if not 0.0 < diff_ratio <= 1.0:
             raise ValueError(f"diff_ratio must be in (0, 1], got {diff_ratio}.")
@@ -334,6 +337,26 @@ class Diffusion(BaseModule):
 
         else:
             time_start = self.beta_scheduler.timesteps - 1
+
+        rl_record_timesteps = None
+        if return_rl_trajectory and rl_transition_count is not None:
+            if rl_transition_count < 0:
+                raise ValueError("rl_transition_count must be >= 0")
+            stochastic_timesteps = list(range(time_start, 1, -1))
+            count = min(len(stochastic_timesteps), rl_transition_count)
+            if count:
+                indices = (
+                    torch.linspace(0, len(stochastic_timesteps) - 1, steps=count)
+                    .round()
+                    .long()
+                    .unique()
+                    .tolist()
+                )
+                rl_record_timesteps = {
+                    stochastic_timesteps[index] for index in indices
+                }
+            else:
+                rl_record_timesteps = set()
 
         l_T = self.crystal_family.v2m(crys_fam_T)
 
@@ -545,7 +568,9 @@ class Diffusion(BaseModule):
                     atom_types_t_minus_1, batch.anchor_index
                 )
 
-            if return_rl_trajectory:
+            if return_rl_trajectory and (
+                rl_record_timesteps is None or t in rl_record_timesteps
+            ):
                 state_t_record = CrystalState(
                     atom_types=atom_types_t.detach().clone(),
                     frac_coords=x_t.detach().clone(),
@@ -641,12 +666,17 @@ class Diffusion(BaseModule):
                 'crys_fam': crys_fam_t_minus_1
             }
 
-        traj_stack = {
-            'num_atoms': batch.num_atoms,
-            'all_atom_types': torch.stack([traj[i]['atom_types'] for i in range(time_start, -1, -1)]),
-            'all_frac_coords': torch.stack([traj[i]['frac_coords'] for i in range(time_start, -1, -1)]),
-            'all_lattices': torch.stack([traj[i]['lattices'] for i in range(time_start, -1, -1)])
-        }
+            if not retain_trajectory_stack:
+                del traj[t]
+
+        traj_stack = None
+        if retain_trajectory_stack:
+            traj_stack = {
+                'num_atoms': batch.num_atoms,
+                'all_atom_types': torch.stack([traj[i]['atom_types'] for i in range(time_start, -1, -1)]),
+                'all_frac_coords': torch.stack([traj[i]['frac_coords'] for i in range(time_start, -1, -1)]),
+                'all_lattices': torch.stack([traj[i]['lattices'] for i in range(time_start, -1, -1)])
+            }
 
         if return_rl_trajectory:
             rl_trajectory = RLTrajectory(
@@ -667,7 +697,8 @@ class Diffusion(BaseModule):
         return traj[0], traj_stack
 
     def sample_rl(self, batch, diff_ratio=1.0, step_lr=1e-5,
-                  guidance_scale=1.0, fixed_atom_types=None, noise_seed=None):
+                  guidance_scale=1.0, fixed_atom_types=None, noise_seed=None,
+                  replay_transitions=None, retain_trajectory_stack=True):
         """Sample and retain the actions required for differentiable replay."""
         return Diffusion.sample(
             self,
@@ -678,6 +709,8 @@ class Diffusion(BaseModule):
             fixed_atom_types=fixed_atom_types,
             return_rl_trajectory=True,
             noise_seed=noise_seed,
+            rl_transition_count=replay_transitions,
+            retain_trajectory_stack=retain_trajectory_stack,
         )
 
     def _get_model_output(self,

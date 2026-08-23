@@ -104,6 +104,7 @@ class DiffusionPolicyObjective:
                 group_index,
                 self.clip_epsilon,
                 pirl_scale,
+                advantages,
             )
         loss = result.loss
         if reference_penalty is not None:

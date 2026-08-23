@@ -6,7 +6,7 @@
 > 本地来源：`D:\app\Zotero\storage\Y7JZMA8T\Schusterbauer 等 - 2025 - Diff2Flow Training Flow Matching Models via Diffusion Model Alignment.pdf`
 > 项目：`E:\WORKSPACE\CodePlace\test_CGDiT`
 
-> **项目状态更新（2026-08-20）**：本文档已归档。Diff2Flow 不再作为当前研究主线或开展 GRPO 的前置条件；只有直接 GRPO 闭环成立、实测 rollout 占总训练时间超过约 70%，且 D2F-L 试点满足总效率和质量门槛时，才重新启用。当前执行顺序和验收条件以 [`OrbitPO文章执行计划.md`](../../OrbitPO文章执行计划.md) 为准。
+> **项目状态更新（2026-08-20）**：本文档已归档。Diff2Flow 不再作为当前研究主线或开展 GRPO 的前置条件；只有直接 GRPO 闭环成立、实测 rollout 占总训练时间超过约 70%，且 D2F-L 试点满足总效率和质量门槛时，才重新启用。当前执行顺序和验收条件以 [`CrystalPIRL文章执行计划.md`](../../CrystalPIRL文章执行计划.md) 为准。
 
 ## 1. 结论
 

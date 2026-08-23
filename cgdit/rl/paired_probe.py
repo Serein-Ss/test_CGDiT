@@ -29,6 +29,8 @@ def paired_policy_rollout(
         step_lr=step_lr,
         guidance_scale=guidance_scale,
         noise_seed=noise_seed,
+        replay_transitions=0,
+        retain_trajectory_stack=False,
     )
     new_final, _, new_trajectory = new_policy.sample_rl(
         batch,
@@ -36,6 +38,8 @@ def paired_policy_rollout(
         step_lr=step_lr,
         guidance_scale=guidance_scale,
         noise_seed=noise_seed,
+        replay_transitions=0,
+        retain_trajectory_stack=False,
     )
     return PairedRollout(
         old_final=old_final,

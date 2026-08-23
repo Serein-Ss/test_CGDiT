@@ -2,7 +2,7 @@
 
 set -Eeuo pipefail
 
-PROJECT_ROOT="${PROJECT_ROOT:-$(cd "$(dirname "$0")" && pwd)}"
+PROJECT_ROOT="${PROJECT_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
 cd "${PROJECT_ROOT}"
 
 WORKER="submit_python/run_seed42_property_evaluation.sh"

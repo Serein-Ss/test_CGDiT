@@ -55,7 +55,8 @@ def lattices_to_params_shape(lattices):
     return lengths, angles
 
 def load_data(file_path):
-    if file_path[-3:] == 'npy':
+    file_path = Path(file_path)
+    if file_path.suffix == '.npy':
         data = np.load(file_path, allow_pickle=True).item()
         for k, v in data.items():
             if k == 'input_data_batch':

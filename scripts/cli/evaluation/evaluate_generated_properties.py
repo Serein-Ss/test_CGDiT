@@ -18,7 +18,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--root_path", required=True)
     parser.add_argument("--fe_run", required=True)
     parser.add_argument("--bg_run", required=True)
-    parser.add_argument("--eh_run", required=True)
+    parser.add_argument("--eh_run")
+    parser.add_argument("--predictor_label", default="seed42")
     parser.add_argument(
         "--output_dir", default="assets/model_results/source_data/property_evaluation_seed42"
     )
@@ -51,23 +52,27 @@ def cli(argv=None) -> None:
             f"No formal seed-42 generation files found under {args.root_path}"
         )
     print(f"Discovered {len(files)} formal generation files.")
+    predictor_runs = {
+        "formation_energy_per_atom": Path(args.fe_run),
+        "band_gap": Path(args.bg_run),
+    }
+    tolerances = {
+        "formation_energy_per_atom": args.fe_tolerance,
+        "band_gap": args.bg_tolerance,
+    }
+    if args.eh_run:
+        predictor_runs["e_above_hull"] = Path(args.eh_run)
+        tolerances["e_above_hull"] = args.eh_tolerance
     evaluate_generation_files(
         generation_files=files,
-        predictor_runs={
-            "formation_energy_per_atom": Path(args.fe_run),
-            "band_gap": Path(args.bg_run),
-            "e_above_hull": Path(args.eh_run),
-        },
+        predictor_runs=predictor_runs,
         output_dir=Path(args.output_dir),
-        tolerances={
-            "formation_energy_per_atom": args.fe_tolerance,
-            "band_gap": args.bg_tolerance,
-            "e_above_hull": args.eh_tolerance,
-        },
+        tolerances=tolerances,
         batch_size=args.batch_size,
         num_workers=args.num_workers,
         device=args.device,
         overwrite=args.overwrite,
+        predictor_label=args.predictor_label,
     )
 
 

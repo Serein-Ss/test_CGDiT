@@ -94,7 +94,8 @@ class SamplingRecorder:
         }, {}
 
 
-def test_unconditional_generation_forces_the_null_cfg_branch():
+def test_unconditional_generation_forces_the_null_cfg_branch(monkeypatch):
+    monkeypatch.setattr(torch.cuda, "is_available", lambda: True)
     model = SamplingRecorder()
     batch = SimpleNamespace(
         batch=torch.tensor([0]),

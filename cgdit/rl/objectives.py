@@ -93,9 +93,11 @@ def grpo_objective(
     group_index: torch.Tensor,
     clip_epsilon: float = 0.2,
     pirl_scale: float = 1.0,
+    advantages: torch.Tensor | None = None,
 ) -> PolicyObjectiveResult:
     """GRPO objective using group-relative terminal rewards."""
-    advantages = group_relative_advantages(rewards, group_index)
+    if advantages is None:
+        advantages = group_relative_advantages(rewards, group_index)
     return clipped_policy_objective(
         current_log_prob_by_channel,
         old_log_prob_by_channel,

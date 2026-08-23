@@ -1,0 +1,66 @@
+# Exploratory seed-42 contract. Not valid for multi-seed or DFT claims.
+name: closed_loop_general_material_reward_seed42_pilot
+dataset: mp_20
+scope: exploratory_seed42_only
+initial_policy: mp20_base
+
+properties:
+  formation_energy_per_atom:
+    mode: minimize
+    target: -1.5
+    tolerance: 0.30
+    unit: eV/atom
+  band_gap:
+    mode: target
+    target: 2.0
+    tolerance: 0.45
+    unit: eV
+
+joint_property:
+  primary:
+    mode: bottleneck
+  ablation:
+    mode: weighted_mean
+    weights:
+      formation_energy_per_atom: 1.0
+      band_gap: 1.0
+
+validity:
+  invalid_penalty: 1.0
+  required:
+    - finite_structure
+    - finite_prediction
+    - composition_valid
+    - geometry_valid
+    - orbit_consistent
+
+closed_loop:
+  common_random_numbers: true
+  confidence: 0.95
+  bootstrap_samples: 2000
+  safety_drop_tolerance: 0.03
+  safety_drop_tolerances:
+    validity: 0.03
+    stability: 0.03
+  pilot_probe_size: 64
+  attenuation_scale: 0.25
+  decision:
+    anchors:
+      local: candidate_vs_current_verified
+      absolute: candidate_vs_frozen_base
+    safety_anchor: candidate_vs_frozen_base_only
+    accept: both_target_LCBs_positive_and_base_anchored_pilot_safety_pass
+    attenuation_requires_new_rollout: true
+    incomplete_safety_metrics: reject
+  safety_metrics:
+    - validity
+    - stability
+
+pilot_limitations:
+  stability: bounded_seed123_formation_energy_surrogate
+  posthoc_only:
+    - uniqueness
+    - novelty
+    - composition_diversity
+    - structure_diversity
+  final_claim_requires_full_six_metric_gate: true

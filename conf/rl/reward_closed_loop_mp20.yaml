@@ -70,16 +70,33 @@ closed_loop:
   common_random_numbers: true
   confidence: 0.95
   bootstrap_samples: 2000
+  # Backward-compatible default for legacy diagnostic scripts.
   safety_drop_tolerance: 0.03
+  # General material quality is a frozen-base anti-collapse constraint, not a
+  # requirement to improve over the current policy at every update.
+  safety_drop_tolerances:
+    validity: 0.03
+    stability: 0.03
+    uniqueness: 0.03
+    novelty: 0.03
+    composition_diversity: 0.03
+    structure_diversity: 0.03
   pilot_probe_size: 32
   formal_probe_size: 128
   attenuation_scale: 0.25
   decision:
-    accept: primary_LCB_positive_and_safety_passes
-    attenuate: primary_mean_positive_but_LCB_inconclusive
-    reject: primary_not_improved_or_safety_regresses
+    anchors:
+      local: candidate_vs_current_verified
+      absolute: candidate_vs_frozen_base
+    safety_anchor: candidate_vs_frozen_base_only
+    accept: both_target_LCBs_positive_and_base_anchored_anti_collapse_constraints_pass
+    attenuate: both_primary_means_positive_but_at_least_one_LCB_inconclusive
+    attenuation_requires_new_rollout: true
+    reject: either_target_anchor_not_improved_or_base_anchored_safety_exceeds_tolerance
+    incomplete_safety_metrics: diagnostic_only
   safety_metrics:
     - validity
+    - stability
     - uniqueness
     - novelty
     - composition_diversity

@@ -36,6 +36,7 @@ class PropertyRewardEvaluation:
     predictions: dict[str, torch.Tensor]
     valid: torch.Tensor
     graph_errors: tuple[str | None, ...]
+    safety_metrics: dict[str, torch.Tensor]
 
 
 def _crystal_is_valid(crystal: dict[str, np.ndarray]) -> bool:
@@ -73,6 +74,9 @@ class M3GNetRewardAdapter:
         invalid_penalty: float = 1.0,
         property_mode: str = "bottleneck",
         property_weights: dict[str, float] | None = None,
+        stability_predictor: torch.nn.Module | None = None,
+        stability_target: float = 0.0,
+        stability_tolerance: float = 0.3,
     ):
         if set(predictors) != set(specs):
             raise ValueError("predictors and specs must use the same property names")
@@ -83,6 +87,11 @@ class M3GNetRewardAdapter:
         self.invalid_penalty = invalid_penalty
         self.property_mode = property_mode
         self.property_weights = property_weights
+        if stability_tolerance <= 0:
+            raise ValueError("stability_tolerance must be positive")
+        self.stability_predictor = stability_predictor
+        self.stability_target = stability_target
+        self.stability_tolerance = stability_tolerance
         for name, predictor in self.predictors.items():
             target_prop = getattr(predictor, "target_prop", name)
             if target_prop != name:
@@ -92,6 +101,17 @@ class M3GNetRewardAdapter:
             predictor.eval().to(self.device)
             for parameter in predictor.parameters():
                 parameter.requires_grad_(False)
+        if self.stability_predictor is not None:
+            target_prop = getattr(
+                self.stability_predictor, "target_prop", None
+            )
+            if target_prop != "formation_energy_per_atom":
+                raise ValueError(
+                    "stability predictor must report formation_energy_per_atom"
+                )
+            self.stability_predictor.eval().to(self.device)
+            for parameter in self.stability_predictor.parameters():
+                parameter.requires_grad_(False)
 
     @classmethod
     def from_checkpoints(
@@ -99,6 +119,7 @@ class M3GNetRewardAdapter:
         checkpoints: dict[str, str],
         specs: dict[str, PropertyRewardSpec],
         device: str | torch.device,
+        stability_checkpoint: str | None = None,
         **kwargs,
     ) -> "M3GNetRewardAdapter":
         predictors = {
@@ -108,7 +129,20 @@ class M3GNetRewardAdapter:
             )
             for name, checkpoint in checkpoints.items()
         }
-        return cls(predictors, specs, device, **kwargs)
+        stability_predictor = (
+            M3GNetSurrogate.load_from_checkpoint(
+                stability_checkpoint, map_location=device
+            )
+            if stability_checkpoint is not None
+            else None
+        )
+        return cls(
+            predictors,
+            specs,
+            device,
+            stability_predictor=stability_predictor,
+            **kwargs,
+        )
 
     def evaluate_state(
         self,
@@ -174,6 +208,16 @@ class M3GNetRewardAdapter:
             )
             for name in self.predictors
         }
+        stability_predictions = (
+            torch.full(
+                (total_count,),
+                torch.nan,
+                dtype=torch.float,
+                device=self.device,
+            )
+            if self.stability_predictor is not None
+            else None
+        )
         if data_list:
             loader = DataLoader(
                 data_list,
@@ -182,11 +226,16 @@ class M3GNetRewardAdapter:
                 num_workers=0,
             )
             collected = {name: [] for name in self.predictors}
+            stability_collected = []
             with torch.inference_mode():
                 for batch in loader:
                     batch = batch.to(self.device)
                     for name, predictor in self.predictors.items():
                         collected[name].append(predictor(batch).reshape(-1))
+                    if self.stability_predictor is not None:
+                        stability_collected.append(
+                            self.stability_predictor(batch).reshape(-1)
+                        )
             indices = torch.as_tensor(
                 successful_indices,
                 dtype=torch.long,
@@ -194,6 +243,10 @@ class M3GNetRewardAdapter:
             )
             for name in predictions:
                 predictions[name][indices] = torch.cat(collected[name])
+            if stability_predictions is not None:
+                stability_predictions[indices] = torch.cat(
+                    stability_collected
+                )
 
         finite = torch.stack([
             torch.isfinite(value) for value in predictions.values()
@@ -218,9 +271,24 @@ class M3GNetRewardAdapter:
             property_weights=self.property_weights,
             invalid_penalty=self.invalid_penalty,
         )
+        safety_metrics = {}
+        if stability_predictions is not None:
+            finite_stability = torch.isfinite(stability_predictions)
+            stability = property_reward(
+                torch.nan_to_num(stability_predictions),
+                mode="minimize",
+                target=self.stability_target,
+                tolerance=self.stability_tolerance,
+            )
+            safety_metrics["stability"] = torch.where(
+                valid & finite_stability,
+                stability,
+                torch.zeros_like(stability),
+            )
         return PropertyRewardEvaluation(
             reward=reward,
             predictions=predictions,
             valid=valid,
             graph_errors=graph_errors,
+            safety_metrics=safety_metrics,
         )

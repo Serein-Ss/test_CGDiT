@@ -18,10 +18,31 @@ CGDiT addresses this challenge by:
 
 ---
 
+## Current RL research direction
+
+The active research goal is a closed-loop reinforcement fine-tuning system for
+crystal generation, starting from the same frozen unconditional CGDiT model.
+Every PPO/GRPO candidate update must be evaluated against both:
+
+- the current verified policy, to establish a local improvement; and
+- the permanently frozen base policy, to establish an absolute improvement.
+
+An update is accepted only when the target-property lower confidence bound is
+positive under both comparisons and pre-registered stability, validity,
+uniqueness, and diversity constraints do not regress. Attenuated updates are
+re-generated and re-evaluated rather than accepted automatically.
+
+See [CGDiT_RL_complete_research_plan.md](CGDiT_RL_complete_research_plan.md),
+[CrystalPIRL文章执行计划.md](CrystalPIRL文章执行计划.md), and
+[RL实际执行计划_临时审阅.md](RL实际执行计划_临时审阅.md).
+
+---
+
 
 
 ## Table of Contents
 - [Installation](#installation)
+- [Current RL research direction](#current-rl-research-direction)
 - [Datasets](#datasets)
 - [Usage](#usage)
 - [Citation](#citation)

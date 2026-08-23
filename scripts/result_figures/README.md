@@ -17,8 +17,8 @@ CGDiT generation checkpoints and the current FE/BG property predictors.
   active Base/FE/BG/FE+BG checkpoints.
 - **Property evidence:** Figure 2 compares MP20 training data, matched
   unconditioned samples, template-conditioned samples, and ab-initio-conditioned
-  samples using FE/BG marginal densities and all joint FE-BG points overlaid
-  with 50%/90% density regions.
+  samples using FE/BG KDE curves plus 48-bin fraction-per-bin histograms and all joint
+  FE-BG points overlaid with thick inner 50% and thin outer 90% density regions.
 - **Structure evidence:** Figure 4 shows four unrelaxed generated unit cells
   selected by target proximity after composition and geometry validity checks.
 - **Predictor evidence:** Figure 3 retains FE/BG parity, residual, and

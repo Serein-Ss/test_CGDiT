@@ -2,7 +2,7 @@
 
 set -Eeuo pipefail
 
-PROJECT_ROOT="${PROJECT_ROOT:-$(cd "$(dirname "$0")" && pwd)}"
+PROJECT_ROOT="${PROJECT_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
 WORKER="submit_python/run_rl_gate2_conda.sh"
 RUN_ID="${RUN_ID:-$(date '+%Y%m%d-%H%M%S')}"
 LOG_DIR="${PROJECT_ROOT}/logs/remote_rl/${RUN_ID}"
