@@ -136,6 +136,26 @@ def run(cfg: DictConfig) -> None:
         if len(load_result.unexpected_keys) > 0:
             hydra.utils.log.info(f"Unexpected keys: {len(load_result.unexpected_keys)}")
 
+        if cfg.train.get('require_full_finetune_load', False) and (
+            load_result.missing_keys or load_result.unexpected_keys
+        ):
+            raise RuntimeError(
+                "Full fine-tune checkpoint loading was requested, but the "
+                f"checkpoint has {len(load_result.missing_keys)} missing and "
+                f"{len(load_result.unexpected_keys)} unexpected keys."
+            )
+
+        if hasattr(model, 'pretrained_load_report'):
+            model.pretrained_load_report = {
+                "mode": "full_checkpoint_finetune",
+                "checkpoint": str(Path(finetune_path).expanduser().resolve()),
+                "missing_keys": list(load_result.missing_keys),
+                "unexpected_keys": list(load_result.unexpected_keys),
+                "full_load_required": bool(
+                    cfg.train.get('require_full_finetune_load', False)
+                ),
+            }
+
         hydra.utils.log.info(f"================================")
 
     # Pass scaler from datamodule to model

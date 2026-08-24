@@ -78,7 +78,15 @@ class DiffusionBackboneRegressor(BaseModule):
         if not getattr(self.backbone, "pred_scalar", False):
             raise ValueError("The CSPNet decoder must set pred_scalar=true")
 
-        self.loss_fn = nn.MSELoss()
+        loss_type = str(self.hparams.get("loss_type", "mse")).lower()
+        if loss_type == "mse":
+            self.loss_fn = nn.MSELoss()
+        elif loss_type == "huber":
+            self.loss_fn = nn.HuberLoss(
+                delta=float(self.hparams.get("huber_delta", 1.0))
+            )
+        else:
+            raise ValueError(f"Unsupported loss_type: {loss_type!r}")
         self.mae = nn.L1Loss()
         self.pretrained_load_report: dict[str, Any] = {
             "mode": "scratch",

@@ -1,15 +1,12 @@
-_target_: cgdit.prop_models.diffusion_backbone.DiffusionBackboneRegressor
+_target_: cgdit.prop_models.tc_classifier.DiffusionBackboneBinaryClassifier
 
 target_prop: ${data.prop}
-target_mean: ${data.target_stats.${data.prop}.mean}
-target_std: ${data.target_stats.${data.prop}.std}
+target_mean: 0.0
+target_std: 1.0
 pretrained_model_path: null
-loss_type: mse
-huber_delta: 1.0
+pos_weight: 1.0
 time_dim: 256
 
-# This exactly matches the decoder architecture used by the MP-20 diffusion
-# checkpoints. Only the scalar head is new and always initialized from scratch.
 decoder:
   _target_: cgdit.pl_modules.decoder.cspnet.CSPNet
   hidden_dim: 512

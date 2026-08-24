@@ -284,7 +284,7 @@ data/<dataset>/
 | `c2db_51` | `gap`, `ehull`, `hform` | CSV 已存在 |
 | `mpts_52` | `formation_energy_per_atom`, `energy_above_hull` | CSV 已存在 |
 | `test_data` | MP-20 风格测试字段 | CSV 与 symmetry cache 已存在 |
-| `magndata` | 尚未形成完整可运行配置 | 需要继续补充 |
+| `magndata` | `tc`、派生门控标签 `high_tc` | 固定无化学式泄漏划分，支持四组 Tc 基准和高/低 Tc 门控回归 |
 
 CSV 至少需要与对应 `conf/data/*.yaml` 中引用的字段一致。结构列使用 `cif`，材料标识通常使用 `material_id`。
 

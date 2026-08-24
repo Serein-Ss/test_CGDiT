@@ -94,7 +94,105 @@ output/magndata_tc_benchmark/<RUN_ID>/
 └── run_manifest.txt
 ```
 
-## 3. RL 微调模型的目标结构生成
+## 3. 高/低 Tc 门控回归
+
+该实验在固定的 Magndata 划分上训练一个二分类门控网络和两个回归专家。默认物理
+阈值为 `300 K`：`tc >= 300 K` 记为高 Tc，否则为低 Tc。门控网络使用无条件
+MP-20 基础扩散模型的 CSPNet decoder 作为预训练骨干，采用按训练集类别比例设置
+`pos_weight` 的加权 BCE，并以验证集 PR-AUC 保存最佳 checkpoint。
+
+当前固定数据在该阈值下的类别计数为：训练集低/高 Tc=`912/111`，验证集
+`111/11`，测试集 `123/16`；因此训练时的默认正类权重由脚本从训练集动态计算为
+`912 / 111 = 8.216...`，不是手写常数。
+
+每个随机种子还训练两个专家：
+
+1. `low_expert` 只用训练/验证集中的低 Tc 样本微调；
+2. `high_expert` 只用训练/验证集中的高 Tc 样本微调；
+3. 两个专家都完整加载相同种子的 `diffusion_base_pretrained` 全局 Tc 回归器；
+4. 两个专家使用 Huber loss 和全局 Magndata 训练集的同一套 Tc 标准化，确保加载
+   checkpoint 后初始预测函数不因更换标准化参数而改变；
+5. 两个专家都对完整测试集预测，最后统一进行路由和对比。
+
+主结果为软路由
+`(1 - p_high) * low_prediction + p_high * high_prediction`。同时报告硬路由消融和
+使用真实高/低标签的 oracle 路由上限。硬路由阈值只在验证集上选择：在高 Tc
+召回率不低于 `0.80` 的候选中最大化 MCC，不读取测试标签选阈值。
+
+### 启动
+
+先确认四组严格对照结果 `20260824-113321` 仍在服务器上，然后执行：
+
+```bash
+cd /root/private_data/rszhong/workspace/test_CGDiT
+conda activate cgdit
+
+bash -n submit/run_magndata_tc_moe.sh
+bash -n submit_python/run_magndata_tc_moe.sh
+
+SEEDS="42 123 3407" \
+TC_THRESHOLD_K=300 \
+MIN_GATE_RECALL=0.80 \
+BASE_DIFFUSION_MODEL="output/singlerun/2026-06-27/00-32-50-mp20_base" \
+GLOBAL_TC_BENCHMARK_ROOT="output/magndata_tc_benchmark/20260824-113321" \
+GPU_ID=0 \
+bash submit/run_magndata_tc_moe.sh
+```
+
+启动入口已经使用 `nohup` 放到后台，不要再套一层 `nohup`。先用单种子做端到端
+试运行时可执行：
+
+```bash
+SEEDS="42" GPU_ID=0 bash submit/run_magndata_tc_moe.sh
+```
+
+断点续跑需要沿用第一次输出的 `RUN_ID`：
+
+```bash
+RUN_ID=<原RUN_ID> GPU_ID=0 bash submit/run_magndata_tc_moe.sh
+```
+
+### 查看进度和结果
+
+```bash
+bash submit/check_magndata_tc_moe.sh
+```
+
+也可以指定某次任务：
+
+```bash
+bash submit/check_magndata_tc_moe.sh <RUN_ID>
+```
+
+每个种子应完成门控、低温专家、高温专家三次训练；三个种子共 `9/9`。结果位于：
+
+```text
+output/magndata_tc_moe/<RUN_ID>/
+├── data/
+│   ├── gate/{train,val,test}.csv
+│   ├── low/{train,val,test}.csv
+│   ├── high/{train,val,test}.csv
+│   └── moe_data_manifest.json
+├── seed_<SEED>/
+│   ├── gate/
+│   ├── low_expert/
+│   └── high_expert/
+├── gate_metrics_per_seed.csv
+├── gate_metrics_aggregate.csv
+├── regression_metrics_per_seed.csv
+├── regression_metrics_aggregate.csv
+├── routing_differences.csv
+├── test_predictions.csv
+├── moe_summary.json
+└── run_manifest.txt
+```
+
+门控指标包括 PR-AUC、ROC-AUC、MCC、balanced accuracy、precision、recall、
+specificity、F1 和混淆矩阵。回归部分对全测试集、真实低 Tc 子集、真实高 Tc
+子集分别统计 MAE、RMSE、median AE、max AE、bias、R2、Pearson r、Spearman rho
+和 MAE bootstrap 95% CI，并直接给出 soft/hard/oracle 相对全局回归器的差值。
+
+## 4. RL 微调模型的目标结构生成
 
 该任务在同一个后台进程中依次处理 FE-RL 和 BG-RL 两个策略模型。每个模型先生成
 4096个 ab initio 结构，再生成4096个模板结构，合计4批、16384个结构。RL 已经把目标偏好写入策略，因此目标通过
@@ -162,7 +260,7 @@ output/rl_generation/<RUN_ID>/
 最终应有4个生成 `.pt`、4个结构指标 JSON、4个逐结构性质 CSV 和4个性质指标
 JSON。每批用 Seed42 的 FE、BG、Ehull 预测器进行统一评估。
 
-## 4. 单 GPU 执行建议
+## 5. 单 GPU 执行建议
 
 两个启动入口是彼此独立的后台任务，但每个都会使用 GPU。只有一张 RTX 4090 时，
 建议先启动 RL 生成，完成后再启动 Magndata-Tc 训练；同时运行可能显著变慢，并在
