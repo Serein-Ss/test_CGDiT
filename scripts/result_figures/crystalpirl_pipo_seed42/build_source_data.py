@@ -193,6 +193,12 @@ def _build_training_dynamics(rl_specs: list[dict[str, Any]]) -> pd.DataFrame:
         records = _read_metrics(spec["results_root"] / "metrics.jsonl")
         for record in records:
             feedback = (record.get("pipo_feedback") or {}).get("feedback") or {}
+            observed_max_atoms = int(
+                max(record["trajectory"]["num_atoms_per_structure"])
+            )
+            configured_max_atoms = record["sampling_contract"].get(
+                "max_prompt_atoms"
+            )
             row = {
                 "run_id": spec["run_name"],
                 "method": spec["method"],
@@ -229,7 +235,16 @@ def _build_training_dynamics(rl_specs: list[dict[str, Any]]) -> pd.DataFrame:
                     record["sampling_contract"]["policy_microbatch_prompts"]
                 ),
                 "max_prompt_atoms": int(
-                    record["sampling_contract"]["max_prompt_atoms"]
+                    configured_max_atoms
+                    if configured_max_atoms is not None
+                    else observed_max_atoms
+                ),
+                "max_prompt_atoms_configured": configured_max_atoms,
+                "max_prompt_atoms_observed": observed_max_atoms,
+                "max_prompt_atoms_provenance": (
+                    "configured_cap"
+                    if configured_max_atoms is not None
+                    else "observed_legacy_record"
                 ),
                 "mean_orbits_per_structure": float(
                     np.mean(record["trajectory"]["num_orbits_per_structure"])
