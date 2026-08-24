@@ -28,6 +28,7 @@ MODEL_ROOTS=(
     output/singlerun/2026-06-27/00-32-50-mp20_base
     output/singlerun/2026-06-28/16-46-08-mp20_fe
     output/singlerun/2026-06-30/11-28-44-mp20_bg
+    output/singlerun/2026-08-07/07-54-15-mp20_fe_bg
 )
 
 cd "${PROJECT_ROOT}"
@@ -51,7 +52,7 @@ trap record_failure ERR
     echo "status=running"
     echo "seed=42"
     echo "predictor_label=seed123"
-    echo "scope=base_fe_cfg_bg_cfg"
+    echo "scope=base_fe_cfg_bg_cfg_fe_bg_cfg"
     echo "start_time=$(date '+%Y-%m-%d %H:%M:%S %z')"
     sha256sum cgdit/evaluation/generated_properties.py scripts/cli/evaluation/evaluate_generated_properties.py
 } > "${MANIFEST}"
