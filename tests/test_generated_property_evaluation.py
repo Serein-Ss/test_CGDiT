@@ -8,6 +8,7 @@ from cgdit.evaluation.generated_properties import (
     DEFAULT_TOLERANCES,
     build_graphs,
     compute_property_metrics,
+    crystal_validity,
     discover_formal_generation_files,
     extract_condition_targets,
     load_generation_payload,
@@ -26,6 +27,17 @@ def test_extract_condition_targets_prefers_joint_condition_dict():
     assert extract_condition_targets(payload) == {
         "formation_energy_per_atom": -1.5,
         "band_gap": 2.0,
+    }
+
+
+def test_extract_condition_targets_accepts_evaluation_only_metadata():
+    payload = {
+        "conditions": {},
+        "evaluation_targets": {"formation_energy_per_atom": -1.5},
+    }
+
+    assert extract_condition_targets(payload) == {
+        "formation_energy_per_atom": -1.5
     }
 
 
@@ -57,6 +69,26 @@ def test_property_metrics_include_single_and_joint_hit_rates():
     assert metrics["joint"]["joint_hit_rate_predicted"] == pytest.approx(0.5)
     assert metrics["joint"]["joint_hit_rate_all"] == pytest.approx(1 / 3)
     assert "wdist_to_test_predictions" in formation_energy
+
+
+def test_property_metrics_support_fe_bg_only_scope():
+    predictions = {
+        "formation_energy_per_atom": np.array([-1.5, -1.0]),
+        "band_gap": np.array([2.0, 1.0]),
+    }
+
+    metrics = compute_property_metrics(
+        predictions=predictions,
+        targets={"formation_energy_per_atom": -1.5},
+        tolerances=DEFAULT_TOLERANCES,
+        total_count=2,
+        graph_success_count=2,
+    )
+
+    assert set(metrics["properties"]) == set(predictions)
+    assert metrics["joint"]["target_properties"] == [
+        "formation_energy_per_atom"
+    ]
 
 
 def test_discovery_is_not_tied_to_the_removed_ehull_models(tmp_path):
@@ -91,6 +123,25 @@ def test_generation_payload_uses_safe_tensor_loading(tmp_path):
     assert torch.equal(payload["atom_types"], torch.tensor([0, 13]))
 
 
+def test_generation_payload_supports_torch_without_safe_globals(
+    tmp_path, monkeypatch
+):
+    path = tmp_path / "legacy_generation.pt"
+    torch.save(
+        {
+            "eval_setting": argparse.Namespace(seed=123),
+            "atom_types": torch.tensor([7, 25]),
+        },
+        path,
+    )
+    monkeypatch.delattr(torch.serialization, "add_safe_globals", raising=False)
+
+    payload = load_generation_payload(path)
+
+    assert payload["eval_setting"].seed == 123
+    assert torch.equal(payload["atom_types"], torch.tensor([7, 25]))
+
+
 def test_graph_builder_canonicalizes_reordered_niggli_lattice():
     crystal = {
         "frac_coords": np.array([[0.0, 0.0, 0.0], [0.5, 0.5, 0.5]]),
@@ -102,3 +153,18 @@ def test_graph_builder_canonicalizes_reordered_niggli_lattice():
     assert indices == [0]
     assert errors == [None]
     assert len(data_list) == 1
+
+
+def test_crystal_validity_returns_per_structure_components():
+    crystal = {
+        "frac_coords": np.array([[0.0, 0.0, 0.0], [0.25, 0.25, 0.25]]),
+        "atom_types": np.array([11, 17]),
+        "lengths": np.array([5.6, 5.6, 5.6]),
+        "angles": np.array([90.0, 90.0, 90.0]),
+    }
+
+    composition_valid, structure_valid, valid = crystal_validity(crystal)
+
+    assert composition_valid
+    assert structure_valid
+    assert valid

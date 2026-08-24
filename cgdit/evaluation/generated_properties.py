@@ -6,6 +6,7 @@ import argparse
 import json
 import multiprocessing as mp
 import os
+from collections import Counter
 from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
 from typing import Any, Iterable
@@ -13,10 +14,10 @@ from typing import Any, Iterable
 import numpy as np
 
 from cgdit.common.output_paths import (
+    evaluation_output_path,
     model_root_from_generation,
     provenance_path,
     record_evaluation_metric,
-    resolve_evaluation_output_path,
 )
 from scipy.stats import wasserstein_distance
 from tqdm import tqdm
@@ -44,8 +45,14 @@ def discover_formal_generation_files(root_path: str | Path) -> list[Path]:
 
 
 def extract_condition_targets(payload: dict[str, Any]) -> dict[str, float]:
-    raw = payload.get("conditions") or {}
+    raw = payload.get("evaluation_targets") or {}
     targets: dict[str, float] = {}
+    if isinstance(raw, dict):
+        for name, value in raw.items():
+            if name in PROPERTY_NAMES:
+                targets[name] = float(value.item() if hasattr(value, "item") else value)
+
+    raw = payload.get("conditions") or {}
     if isinstance(raw, dict):
         for name, value in raw.items():
             if name in PROPERTY_NAMES:
@@ -68,18 +75,24 @@ def compute_property_metrics(
     reference_targets: dict[str, np.ndarray] | None = None,
 ) -> dict[str, Any]:
     """Calculate distribution, target-adherence, and joint-hit metrics."""
+    property_names = tuple(predictions)
+    unknown = sorted(set(property_names) - set(PROPERTY_NAMES))
+    if unknown:
+        raise ValueError(f"Unsupported properties: {unknown}")
+    if not property_names:
+        raise ValueError("At least one property prediction is required")
     metrics: dict[str, Any] = {
         "n_total": int(total_count),
         "n_graph_success": int(graph_success_count),
         "graph_success_rate": float(graph_success_count / total_count) if total_count else 0.0,
         "condition_targets": dict(targets),
-        "tolerances": {name: float(tolerances[name]) for name in PROPERTY_NAMES},
+        "tolerances": {name: float(tolerances[name]) for name in property_names},
         "properties": {},
     }
 
     finite_masks: dict[str, np.ndarray] = {}
     hit_masks: dict[str, np.ndarray] = {}
-    for name in PROPERTY_NAMES:
+    for name in property_names:
         values = np.asarray(predictions[name], dtype=float).reshape(-1)
         finite = np.isfinite(values)
         finite_masks[name] = finite
@@ -143,7 +156,7 @@ def compute_property_metrics(
         metrics["properties"][name] = prop_metrics
 
     if targets:
-        target_names = [name for name in PROPERTY_NAMES if name in targets]
+        target_names = [name for name in property_names if name in targets]
         joint_predictable = np.logical_and.reduce([
             finite_masks[name] for name in target_names
         ])
@@ -167,11 +180,17 @@ def compute_property_metrics(
 
 
 def load_generation_payload(path: str | Path) -> dict[str, Any]:
-    """Load a generated tensor payload without enabling arbitrary pickle code."""
+    """Load a trusted generated payload across supported PyTorch versions."""
     import torch
 
-    torch.serialization.add_safe_globals([argparse.Namespace])
-    return torch.load(path, map_location="cpu", weights_only=True)
+    add_safe_globals = getattr(torch.serialization, "add_safe_globals", None)
+    if add_safe_globals is not None:
+        add_safe_globals([argparse.Namespace])
+        return torch.load(path, map_location="cpu", weights_only=True)
+
+    # PyTorch < 2.4 has no safe-globals API. Generation files are trusted local
+    # outputs produced by this project, so the legacy loader is appropriate.
+    return torch.load(path, map_location="cpu", weights_only=False)
 
 
 def _crystal_array_list(payload: dict[str, Any]) -> list[dict[str, np.ndarray]]:
@@ -185,6 +204,44 @@ def _crystal_array_list(payload: dict[str, Any]) -> list[dict[str, np.ndarray]]:
     for crystal in arrays:
         crystal["atom_types"] = np.asarray(crystal["atom_types"], dtype=np.int64) + 1
     return arrays
+
+
+def crystal_validity(
+    crystal_array: dict[str, np.ndarray],
+) -> tuple[bool, bool, bool]:
+    from pymatgen.core import Lattice, Structure
+
+    from cgdit.common.evaluation_utils import smact_validity, structure_validity
+
+    counts = Counter(int(value) for value in crystal_array["atom_types"])
+    elements, amounts = zip(*sorted(counts.items()))
+    divisor = np.gcd.reduce(amounts)
+    composition_valid = bool(
+        smact_validity(
+            tuple(elements),
+            tuple(int(amount // divisor) for amount in amounts),
+        )
+    )
+    try:
+        structure = Structure(
+            lattice=Lattice.from_parameters(
+                *(
+                    crystal_array["lengths"].tolist()
+                    + crystal_array["angles"].tolist()
+                )
+            ),
+            species=crystal_array["atom_types"],
+            coords=crystal_array["frac_coords"],
+            coords_are_cartesian=False,
+        )
+        structural_valid = bool(structure_validity(structure))
+    except Exception:
+        structural_valid = False
+    return (
+        composition_valid,
+        structural_valid,
+        composition_valid and structural_valid,
+    )
 
 
 def _build_graph(task: tuple[int, dict[str, np.ndarray], bool, bool, str]):
@@ -378,37 +435,48 @@ def evaluate_generation_files(
     num_workers: int = 8,
     device: str = "cuda",
     overwrite: bool = False,
+    predictor_label: str = "seed42",
 ) -> list[dict[str, Any]]:
     import pandas as pd
 
     generation_files = list(generation_files)
     if not generation_files:
         raise ValueError("No formal generation files were provided")
+    property_names = tuple(predictor_runs)
+    unknown = sorted(set(property_names) - set(PROPERTY_NAMES))
+    if unknown:
+        raise ValueError(f"Unsupported predictor properties: {unknown}")
+    if not property_names:
+        raise ValueError("At least one predictor run is required")
+    if not predictor_label.replace("_", "").isalnum():
+        raise ValueError(
+            "predictor_label must contain only letters, numbers, or underscores"
+        )
     output_dir.mkdir(parents=True, exist_ok=True)
     checkpoints = {
-        name: resolve_checkpoint(predictor_runs[name]) for name in PROPERTY_NAMES
+        name: resolve_checkpoint(predictor_runs[name]) for name in property_names
     }
     reference_predictions = {
         name: np.load(Path(predictor_runs[name]) / "test_preds.npy")
-        for name in PROPERTY_NAMES
+        for name in property_names
     }
     reference_targets = {
         name: np.load(Path(predictor_runs[name]) / "test_targets.npy")
-        for name in PROPERTY_NAMES
+        for name in property_names
     }
 
     summaries: list[dict[str, Any]] = []
     for position, generation_path in enumerate(generation_files, start=1):
         label = generation_path.stem.removeprefix("eval_gen_")
-        predictions_path = resolve_evaluation_output_path(
+        predictions_path = evaluation_output_path(
             generation_path,
             "property_predictions",
-            f"eval_properties_gen_{label}_predictor_seed42.csv",
+            f"eval_properties_gen_{label}_predictor_{predictor_label}.csv",
         )
-        metrics_path = resolve_evaluation_output_path(
+        metrics_path = evaluation_output_path(
             generation_path,
             "property_metrics",
-            f"eval_property_metrics_gen_{label}_predictor_seed42.json",
+            f"eval_property_metrics_gen_{label}_predictor_{predictor_label}.json",
         )
         print(f"\n[{position}/{len(generation_files)}] {generation_path}")
 
@@ -434,6 +502,7 @@ def evaluate_generation_files(
 
         payload = load_generation_payload(generation_path)
         crystal_arrays = _crystal_array_list(payload)
+        validity = [crystal_validity(crystal) for crystal in crystal_arrays]
         data_list, successful_indices, graph_errors = build_graphs(
             crystal_arrays, num_workers=num_workers
         )
@@ -442,7 +511,7 @@ def evaluate_generation_files(
                 checkpoints[name], name, data_list, successful_indices,
                 len(crystal_arrays), batch_size, device,
             )
-            for name in PROPERTY_NAMES
+            for name in property_names
         }
         condition_targets = extract_condition_targets(payload)
         metrics = compute_property_metrics(
@@ -454,7 +523,7 @@ def evaluate_generation_files(
             reference_predictions=reference_predictions,
             reference_targets=reference_targets,
         )
-        structural_metrics_path = resolve_evaluation_output_path(
+        structural_metrics_path = evaluation_output_path(
             generation_path,
             "structural_metrics",
             f"eval_metrics_gen_{label}.json",
@@ -475,7 +544,7 @@ def evaluate_generation_files(
             "structural_metrics_file": provenance_path(structural_metrics_path),
             "structural_metrics": structural_metrics,
             "predictor_checkpoints": {
-                name: provenance_path(checkpoints[name]) for name in PROPERTY_NAMES
+                name: provenance_path(checkpoints[name]) for name in property_names
             },
         })
 
@@ -483,8 +552,11 @@ def evaluate_generation_files(
             "structure_index": np.arange(len(crystal_arrays)),
             "graph_success": [error is None for error in graph_errors],
             "graph_error": [error or "" for error in graph_errors],
+            "composition_valid": [value[0] for value in validity],
+            "structure_valid": [value[1] for value in validity],
+            "valid": [value[2] for value in validity],
         }
-        for name in PROPERTY_NAMES:
+        for name in property_names:
             values = predictions[name]
             table[f"predicted_{name}"] = values
             if name in condition_targets:
@@ -496,7 +568,7 @@ def evaluate_generation_files(
                 )
         if condition_targets:
             target_names = [
-                name for name in PROPERTY_NAMES if name in condition_targets
+                name for name in property_names if name in condition_targets
             ]
             table["joint_hit"] = np.logical_and.reduce([
                 np.asarray(table[f"hit_{name}"], dtype=bool)
@@ -546,6 +618,7 @@ def evaluate_generation_files(
             "source_predictors": {
                 name: provenance_path(path) for name, path in checkpoints.items()
             },
+            "predictor_label": predictor_label,
         },
     )
     return summaries
