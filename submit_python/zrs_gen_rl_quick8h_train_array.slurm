@@ -70,6 +70,7 @@ trap record_failure ERR
     echo "run_name=${RUN_NAME}"
     echo "method_mode=${MODE}"
     echo "training_contract=3_updates_x_2_prompts_x_16_trajectories"
+    echo "pipo_smoke_history_window=2"
     echo "independent_validation_contract=8_prompts_x_1_trajectory"
     echo "start_time=$(date '+%Y-%m-%d %H:%M:%S %z')"
     sha256sum "${CONFIG}" scripts/cli/training/train_crystal_rl.py
@@ -83,6 +84,7 @@ srun "${PYTHON}" -m scripts.cli.training.train_crystal_rl \
     --probe-num-prompts 8 \
     --probe-group-size 1 \
     --updates 3 \
+    --pipo-history-window 2 \
     --output-root "${TRAIN_ROOT}" \
     > "${AUDIT_ROOT}/training.log" 2>&1
 

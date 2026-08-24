@@ -1,4 +1,4 @@
-"""Sample one real base-CGDiT trajectory and export ten PPT-ready PNG assets."""
+"""Sample one real base-CGDiT trajectory and export PPT-ready PNG assets."""
 
 from __future__ import annotations
 
@@ -19,6 +19,7 @@ from torch_geometric.loader import DataLoader
 from cgdit.common.evaluation_utils import lattices_to_params_shape, load_model
 from cgdit.generation.conditioning import seed_generation
 from cgdit.generation.general import SampleDataset
+from cgdit.rl.symmetry_quotient import representative_indices
 
 
 ROTATION = "10x,20y,0z"
@@ -174,6 +175,16 @@ def trajectory_state(payload: dict[str, object], timestep: int) -> dict[str, np.
         "lattice": payload["all_lattices"][index, 0].numpy(),
     }
 
+def representative_state(
+    state: dict[str, np.ndarray], representatives: np.ndarray
+) -> dict[str, np.ndarray]:
+    return {
+        "atom_types": state["atom_types"][representatives],
+        "frac_coords": state["frac_coords"][representatives],
+        "lattice": state["lattice"],
+    }
+
+
 
 def make_atoms(
     state: dict[str, np.ndarray],
@@ -205,7 +216,7 @@ def make_atoms(
         cell=state["lattice"],
         pbc=True,
     )
-    show_cell = 2 if mode == "full" else 0
+    show_cell = 2 if mode in {"full", "mask"} else 0
     return atoms, colors, RADIUS_SCALE, show_cell
 
 
@@ -264,6 +275,12 @@ def export_assets(payload: dict[str, object], args: argparse.Namespace) -> list[
     adjacent = trajectory_state(payload, middle_t - 1)
     final = trajectory_state(payload, 0)
     initial_bbox = common_bbox([initial])
+    representatives = representative_indices(payload["anchor_index"]).numpy()
+    middle_representatives = representative_state(middle, representatives)
+    adjacent_representatives = representative_state(adjacent, representatives)
+    payload["orbit_representative_indices"] = torch.from_numpy(representatives)
+    payload["num_orbits"] = int(representatives.size)
+    torch.save(payload, args.cache)
     middle_full_bbox = common_bbox([middle])
     adjacent_full_bbox = common_bbox([adjacent])
     final_bbox = common_bbox([final])
@@ -276,11 +293,13 @@ def export_assets(payload: dict[str, object], args: argparse.Namespace) -> list[
         ("03_trajectory_middle_t_minus_1.png", adjacent, "full", adjacent_full_bbox),
         ("04_trajectory_final.png", final, "full", final_bbox),
         ("05_middle_t_lattice.png", middle, "lattice", middle_bbox),
-        ("06_middle_t_elements.png", middle, "elements", middle_bbox),
-        ("07_middle_t_mask_coordinates.png", middle, "mask", middle_bbox),
+        ("06_middle_t_elements.png", middle_representatives, "elements", middle_bbox),
+        ("07_middle_t_mask_coordinates.png", middle_representatives, "mask", middle_bbox),
         ("08_middle_t_minus_1_lattice.png", adjacent, "lattice", middle_bbox),
-        ("09_middle_t_minus_1_elements.png", adjacent, "elements", middle_bbox),
-        ("10_middle_t_minus_1_mask_coordinates.png", adjacent, "mask", middle_bbox),
+        ("09_middle_t_minus_1_elements.png", adjacent_representatives, "elements", middle_bbox),
+        ("10_middle_t_minus_1_mask_coordinates.png", adjacent_representatives, "mask", middle_bbox),
+        ("11_middle_t_orbit_representative_skeleton.png", middle_representatives, "full", middle_bbox),
+        ("12_middle_t_minus_1_orbit_representative_skeleton.png", adjacent_representatives, "full", middle_bbox),
     ]
     args.output_dir.mkdir(parents=True, exist_ok=True)
     outputs = []

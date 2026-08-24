@@ -24,7 +24,7 @@ COLORS = {
     "pipo": "#9467BD",
     "crystalpirl": "#2A9D8F",
 }
-MARKERS = {"template": "o", "abinitio": "s"}
+MARKERS = {"abinitio": "s"}
 LINESTYLES = {"ppo": "-", "grpo": "--"}
 
 mpl.rcParams.update(
@@ -417,16 +417,7 @@ def _outcome_scatter(ax: plt.Axes, frame: pd.DataFrame, task: str) -> None:
         )
     ax.set_xlabel(f"{task.upper()} independent target MAE")
     ax.set_ylabel("Valid-target yield")
-    ax.legend(
-        handles=[
-            Line2D(
-                [], [], marker=MARKERS[mode], linestyle="none", color="#555555",
-                label=label,
-            )
-            for mode, label in (("template", "Template"), ("abinitio", "Ab initio"))
-        ],
-        loc="best",
-    )
+    ax.text(0.98, 0.04, "Ab initio only", transform=ax.transAxes, ha="right", fontsize=5.5)
 
 
 def _fig3(source: Path, output: Path) -> None:
@@ -434,51 +425,31 @@ def _fig3(source: Path, output: Path) -> None:
     summary = pd.read_csv(source / "fig3_method_summary.csv")
     fig, axes = plt.subplots(
         2,
-        3,
-        figsize=(183 * MM, 122 * MM),
+        2,
+        figsize=(183 * MM, 112 * MM),
         constrained_layout=True,
     )
-    panel = iter("abcdef")
-    for row, task, target, tolerance, xlabel in [
-        (0, "fe", -1.5, 0.30, "Formation energy (eV atom⁻¹)"),
-        (1, "bg", 2.0, 0.45, "Band gap (eV)"),
+    for row, task, target, tolerance, xlabel, labels in [
+        (0, "fe", -1.5, 0.30, "Formation energy (eV atom⁻¹)", ("a", "b")),
+        (1, "bg", 2.0, 0.45, "Band gap (eV)", ("c", "d")),
     ]:
-        for col, mode in enumerate(("template", "abinitio")):
-            ax = axes[row, col]
-            _panel(ax, next(panel))
-            frame = raw[(raw["task"] == task) & (raw["generation_mode"] == mode)]
-            _hist_density(ax, frame, target, tolerance, xlabel)
-        ax = axes[row, 2]
-        _panel(ax, next(panel))
+        ax = axes[row, 0]
+        _panel(ax, labels[0])
+        frame = raw[(raw["task"] == task) & (raw["generation_mode"] == "abinitio")]
+        _hist_density(ax, frame, target, tolerance, xlabel)
+        ax.text(0.02, 0.97, "Ab initio", transform=ax.transAxes, va="top", fontsize=6)
+        ax = axes[row, 1]
+        _panel(ax, labels[1])
         _outcome_scatter(ax, summary[summary["task"] == task], task)
     handles, labels = axes[0, 0].get_legend_handles_labels()
     by_label = dict(zip(labels, handles))
-    axes[0, 1].legend(
+    axes[0, 0].legend(
         by_label.values(),
         by_label.keys(),
         ncol=2,
         loc="upper right",
         fontsize=5.3,
     )
-    for row, mode in enumerate(("Template", "Ab initio")):
-        axes[0, row].text(
-            0.02,
-            0.97,
-            mode,
-            transform=axes[0, row].transAxes,
-            va="top",
-            fontsize=6,
-            color="#444444",
-        )
-        axes[1, row].text(
-            0.02,
-            0.97,
-            mode,
-            transform=axes[1, row].transAxes,
-            va="top",
-            fontsize=6,
-            color="#444444",
-        )
     _pilot_note(fig, source)
     _save(fig, output / "fig3_independent_fe_bg_control.png")
 
@@ -569,14 +540,6 @@ def _fig4(source: Path, output: Path) -> None:
             Line2D(
                 [], [], marker="o", linestyle="none", markerfacecolor="none",
                 markeredgecolor="#777777", label="BG",
-            ),
-            Line2D(
-                [], [], marker="o", linestyle="none", color="#555555",
-                label="Template",
-            ),
-            Line2D(
-                [], [], marker="s", linestyle="none", color="#555555",
-                label="Ab initio",
             ),
         ],
         ncol=2,

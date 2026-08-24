@@ -1,7 +1,11 @@
+import json
 from types import SimpleNamespace
 
 import pytest
 import torch
+from torch_geometric.data import Batch, Data
+
+from cgdit.rl.trajectory import CrystalState, RLTrajectory, RLTransition
 
 from scripts.cli.training.train_crystal_rl import (
     _advantage_summary,
@@ -9,8 +13,11 @@ from scripts.cli.training.train_crystal_rl import (
     _configured_safety_tolerances,
     _evaluation_safety_metrics,
     _grouped_batch,
+    _policy_microbatches,
     _prompt_indices,
     _optimize_policy_epochs,
+    _oversized_prompt_indices,
+    _resume_records,
     _safety_audit,
     _run_output_paths,
     _transition_indices,
@@ -19,11 +26,12 @@ from scripts.cli.training.train_crystal_rl import (
 
 
 class _Prompt:
-    def __init__(self, value):
+    def __init__(self, value, num_atoms=1):
         self.value = value
+        self.num_atoms = torch.tensor(num_atoms)
 
     def clone(self):
-        return _Prompt(self.value)
+        return _Prompt(self.value, int(self.num_atoms))
 
 
 def test_transition_indices_cover_endpoints():
@@ -85,6 +93,31 @@ def test_prompt_schedule_can_cover_sixteen_unique_training_prompts():
     assert len(schedule) == 16
     assert len(set(schedule)) == 16
     assert schedule == _prompt_indices(100, 16, seed=42)
+
+
+def test_oversized_prompt_indices_enforces_inclusive_atom_limit():
+    prompts = [_Prompt("a", 60), _Prompt("b", 61), _Prompt("c", 20)]
+
+    assert _oversized_prompt_indices(prompts, 60) == [1]
+    assert _oversized_prompt_indices(prompts, None) == []
+
+
+def test_resume_records_uses_only_steps_before_checkpoint(tmp_path):
+    path = tmp_path / "metrics.jsonl"
+    path.write_text(
+        "\n".join(
+            json.dumps(
+                {"step": step, "reward": {"reward_mean": float(step)}}
+            )
+            for step in range(45)
+        )
+        + "\n"
+    )
+
+    records = _resume_records(path, start_step=40)
+
+    assert len(records) == 40
+    assert records[-1]["step"] == 39
 
 
 def test_blend_decoder_applies_decision_scale():
@@ -301,3 +334,131 @@ def test_accept_requires_probe_safety_and_holdout():
     assert action == "accept"
     assert verified
     assert reason is None
+
+
+def _microbatch_fixture():
+    batch = Batch.from_data_list(
+        [
+            Data(
+                num_nodes=1,
+                anchor_index=torch.tensor([0]),
+                spacegroup=torch.tensor([1]),
+                num_atoms=torch.tensor([1]),
+            )
+            for _ in range(4)
+        ]
+    )
+    state = CrystalState(
+        atom_types=torch.arange(4),
+        frac_coords=torch.arange(12, dtype=torch.float32).reshape(4, 3),
+        crys_fam=torch.arange(24, dtype=torch.float32).reshape(4, 6),
+    )
+    transition = RLTransition(
+        timestep=10,
+        state_t=state,
+        state_half=state,
+        state_next=state,
+        old_log_prob_by_channel={
+            "lattice": torch.arange(4, dtype=torch.float32),
+            "coord": torch.arange(4, dtype=torch.float32),
+            "atom": torch.arange(4, dtype=torch.float32),
+        },
+        actions_by_channel={
+            "lattice": torch.zeros(4, 6),
+            "coord": torch.zeros(4, 3),
+            "atom": torch.zeros(4, dtype=torch.long),
+        },
+        noise_by_channel={
+            "lattice": torch.zeros(4, 6),
+            "coord": torch.zeros(4, 3),
+        },
+        stochastic=True,
+    )
+    trajectory = RLTrajectory(
+        transitions=[transition],
+        final_state=state,
+        num_atoms=torch.ones(4, dtype=torch.long),
+        metadata={
+            "spacegroup": batch.spacegroup,
+            "anchor_index": batch.anchor_index,
+            "batch": batch.batch,
+        },
+    )
+    return batch, trajectory
+
+
+def test_policy_microbatches_preserve_prompt_groups_and_trajectory_alignment():
+    batch, trajectory = _microbatch_fixture()
+    rewards = torch.tensor([1.0, 2.0, 3.0, 4.0])
+    group_index = torch.tensor([0, 0, 1, 1])
+
+    microbatches = list(
+        _policy_microbatches(
+            batch=batch,
+            trajectory=trajectory,
+            rewards=rewards,
+            advantages=rewards,
+            group_index=group_index,
+            prompts_per_microbatch=1,
+        )
+    )
+
+    assert len(microbatches) == 2
+    assert [item[0].num_graphs for item in microbatches] == [2, 2]
+    assert torch.equal(microbatches[0][2], torch.tensor([1.0, 2.0]))
+    assert torch.equal(microbatches[1][2], torch.tensor([3.0, 4.0]))
+    assert torch.equal(
+        microbatches[1][1].transitions[0].old_log_prob_by_channel["lattice"],
+        torch.tensor([2.0, 3.0]),
+    )
+
+
+def test_prompt_microbatch_gradient_accumulation_matches_full_batch():
+    batch, trajectory = _microbatch_fixture()
+    rewards = torch.tensor([1.0, 2.0, 3.0, 4.0])
+    group_index = torch.tensor([0, 0, 1, 1])
+
+    def optimize(prompts_per_microbatch):
+        parameter = torch.nn.Parameter(torch.tensor(0.0))
+        optimizer = torch.optim.SGD([parameter], lr=0.1)
+
+        class FakeObjective:
+            algorithm = "ppo"
+
+            def __call__(self, **kwargs):
+                local_advantages = kwargs["advantages"]
+                mean = local_advantages.mean().detach()
+                return SimpleNamespace(
+                    loss=((parameter - local_advantages) ** 2).mean(),
+                    metrics={
+                        "approx_kl": mean,
+                        "clip_fraction": mean.new_zeros(()),
+                        "ratio_mean": mean,
+                    },
+                )
+
+        _, loss, gradient_norm, records = _optimize_policy_epochs(
+            objective=FakeObjective(),
+            model=SimpleNamespace(),
+            batch=batch,
+            trajectory=trajectory,
+            step_lr=1.0e-5,
+            rewards=rewards,
+            advantages=rewards,
+            group_index=group_index,
+            transition_indices=[0],
+            reference_weight=0.0,
+            optimizer=optimizer,
+            trainable_parameters=[parameter],
+            policy_epochs=1,
+            policy_microbatch_prompts=prompts_per_microbatch,
+        )
+        return parameter.detach(), loss.detach(), gradient_norm.detach(), records
+
+    full = optimize(0)
+    microbatched = optimize(1)
+
+    assert torch.allclose(microbatched[0], full[0])
+    assert torch.allclose(microbatched[1], full[1])
+    assert torch.allclose(microbatched[2], full[2])
+    assert microbatched[3][0]["microbatches"] == 2

@@ -56,7 +56,6 @@ else
     TARGET_LABEL="bg_2"
 fi
 
-TEMPLATE_LABEL="template_uncond_policy_${TARGET_LABEL}_n${TOTAL_SAMPLES}_seed42"
 ABINITIO_LABEL="abinitio_empirical_uncond_policy_${TARGET_LABEL}_n${TOTAL_SAMPLES}_seed42"
 
 cd "${PROJECT_ROOT}"
@@ -87,20 +86,13 @@ trap record_failure ERR
     echo "run_name=${RUN_NAME}"
     echo "property=${PROPERTY}"
     echo "target=${TARGET}"
-    echo "samples_per_generation_mode=${TOTAL_SAMPLES}"
+    echo "formal_generation_mode=abinitio_empirical"
+    echo "formal_samples=${TOTAL_SAMPLES}"
+    echo "template_generation=test_only_not_formal"
     echo "model_dir=${MODEL_DIR}"
     echo "start_time=$(date '+%Y-%m-%d %H:%M:%S %z')"
     sha256sum scripts/cli/generation/generate.py cgdit/generation/general.py cgdit/evaluation/generated_properties.py
 } > "${MANIFEST}"
-
-srun "${PYTHON}" -m scripts.cli.generation.generate \
-    --model_path "${MODEL_DIR}" \
-    --batch_size "${BATCH_SIZE}" \
-    --num_batches_to_samples "${NUM_BATCHES}" \
-    --seed 42 \
-    --label "${TEMPLATE_LABEL}" \
-    --evaluation_target "${TARGET}" \
-    --guidance_scale 1.0
 
 srun "${PYTHON}" -m scripts.cli.generation.generate \
     --model_path "${MODEL_DIR}" \
@@ -113,16 +105,14 @@ srun "${PYTHON}" -m scripts.cli.generation.generate \
     --ab_initio \
     --use_empirical_prior
 
-for label in "${TEMPLATE_LABEL}" "${ABINITIO_LABEL}"; do
-    srun "${PYTHON}" -m scripts.cli.evaluation.evaluate_metrics \
-        --root_path "${MODEL_DIR}" \
-        --tasks gen \
-        --label "${label}" \
-        --gt_file "${GT_FILE}" \
-        --num_workers 1 \
-        --seed 42 \
-        --calc_prop false
-done
+srun "${PYTHON}" -m scripts.cli.evaluation.evaluate_metrics \
+    --root_path "${MODEL_DIR}" \
+    --tasks gen \
+    --label "${ABINITIO_LABEL}" \
+    --gt_file "${GT_FILE}" \
+    --num_workers 1 \
+    --seed 42 \
+    --calc_prop false
 
 srun "${PYTHON}" -m scripts.cli.evaluation.evaluate_generated_properties \
     --root_path "${MODEL_DIR}" \
@@ -148,26 +138,25 @@ srun "${PYTHON}" -m scripts.cli.evaluation.evaluate_generated_properties \
     --fe_tolerance 0.30 \
     --bg_tolerance 0.45
 
-"${PYTHON}" - "${MODEL_DIR}" "${TEMPLATE_LABEL}" "${ABINITIO_LABEL}" <<'PY_VERIFY'
+"${PYTHON}" - "${MODEL_DIR}" "${ABINITIO_LABEL}" <<'PY_VERIFY'
 import json
 import sys
 from pathlib import Path
 
-model_dir, template_label, abinitio_label = Path(sys.argv[1]), sys.argv[2], sys.argv[3]
-for label in (template_label, abinitio_label):
-    files = list(model_dir.rglob(f"eval_gen_{label}.pt"))
-    if len(files) != 1:
-        raise RuntimeError(f"Expected one generated file for {label}, got {files}")
-    metrics = model_dir / "evaluations" / "structural_metrics" / f"eval_metrics_gen_{label}.json"
-    properties = model_dir / "evaluations" / "property_metrics" / f"eval_property_metrics_gen_{label}_predictor_seed123.json"
-    predictions = model_dir / "evaluations" / "property_predictions" / f"eval_properties_gen_{label}_predictor_seed123.csv"
-    reward_predictions = model_dir / "evaluations" / "property_predictions" / f"eval_properties_gen_{label}_predictor_seed42_reward.csv"
-    for path in (metrics, properties, predictions, reward_predictions):
-        if not path.is_file() or path.stat().st_size == 0:
-            raise RuntimeError(f"Missing evaluation artifact: {path}")
-    payload = json.loads(properties.read_text())
-    if payload["n_total"] != 4096:
-        raise RuntimeError(f"Unexpected sample count in {properties}")
+model_dir, label = Path(sys.argv[1]), sys.argv[2]
+files = list(model_dir.rglob(f"eval_gen_{label}.pt"))
+if len(files) != 1:
+    raise RuntimeError(f"Expected one generated file for {label}, got {files}")
+metrics = model_dir / "evaluations" / "structural_metrics" / f"eval_metrics_gen_{label}.json"
+properties = model_dir / "evaluations" / "property_metrics" / f"eval_property_metrics_gen_{label}_predictor_seed123.json"
+predictions = model_dir / "evaluations" / "property_predictions" / f"eval_properties_gen_{label}_predictor_seed123.csv"
+reward_predictions = model_dir / "evaluations" / "property_predictions" / f"eval_properties_gen_{label}_predictor_seed42_reward.csv"
+for path in (metrics, properties, predictions, reward_predictions):
+    if not path.is_file() or path.stat().st_size == 0:
+        raise RuntimeError(f"Missing evaluation artifact: {path}")
+payload = json.loads(properties.read_text())
+if payload["n_total"] != 4096:
+    raise RuntimeError(f"Unexpected sample count in {properties}")
 PY_VERIFY
 
 trap - ERR

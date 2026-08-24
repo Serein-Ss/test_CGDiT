@@ -7,6 +7,7 @@ from scripts.result_figures.crystalpirl_seed42.build_quality_source import (
 )
 from scripts.result_figures.crystalpirl_seed42.build_source_data import (
     _expected_contract,
+    _group_specs,
     _summary,
 )
 
@@ -18,7 +19,7 @@ def test_method_summary_keeps_failed_predictions_in_total_count():
             "method": ["Base", "Base"],
             "method_family": ["base", "base"],
             "algorithm": [None, None],
-            "generation_mode": ["template", "template"],
+            "generation_mode": ["abinitio", "abinitio"],
             "seed": [42, 42],
             "structure_id": ["a", "b"],
             "independent_prediction": [-1.5, np.nan],
@@ -39,11 +40,11 @@ def test_method_summary_keeps_failed_predictions_in_total_count():
 
 
 def test_quality_sampling_seed_is_group_deterministic():
-    assert _sample_seed("open_ppo_fe_template") == _sample_seed(
-        "open_ppo_fe_template"
-    )
-    assert _sample_seed("open_ppo_fe_template") != _sample_seed(
+    assert _sample_seed("open_ppo_fe_abinitio") == _sample_seed(
         "open_ppo_fe_abinitio"
+    )
+    assert _sample_seed("open_ppo_fe_abinitio") != _sample_seed(
+        "open_ppo_fe_abinitio_replicate"
     )
 
 
@@ -52,10 +53,20 @@ def test_audit_finite_check_rejects_missing_values():
     assert not _finite(pd.DataFrame({"value": [1.0, np.nan]}), ["value"])
 
 
+def test_formal_structure_groups_are_ab_initio_only(tmp_path):
+    specs = _group_specs(tmp_path, rl_samples=256)
+
+    assert {spec["generation_mode"] for spec in specs} == {"abinitio"}
+    assert len(specs) == 15
+
+
 def test_quick8h_source_contract_counts_are_explicit():
     contract = _expected_contract(updates_per_run=3, rl_samples=256)
 
     assert contract["fig1_rows"] == 12
     assert contract["fig2_rows"] == 36
-    assert contract["fig3_rows"] == 40960
+    assert contract["fig3_rows"] == 20480
+    assert contract["fig3_summary_rows"] == 18
+    assert contract["fig4_groups"] == 15
+    assert contract["rl_final_groups"] == 12
     assert contract["fig4_group_sizes"] == [256, 4096]

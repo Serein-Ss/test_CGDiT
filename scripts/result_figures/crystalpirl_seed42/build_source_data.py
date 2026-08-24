@@ -24,16 +24,13 @@ PROPERTY_COLUMNS = {
     "bg": "band_gap",
 }
 BASE_LABELS = {
-    "template": "template_uncond_n4096_seed42",
     "abinitio": "abinitio_empirical_uncond_n4096_seed42",
 }
 CFG_LABELS = {
     "fe": {
-        "template": "template_fe_m1p5_n4096_seed42",
         "abinitio": "abinitio_empirical_fe_m1p5_n4096_seed42",
     },
     "bg": {
-        "template": "template_bg_2_n4096_seed42",
         "abinitio": "abinitio_empirical_bg_2_n4096_seed42",
     },
 }
@@ -257,24 +254,18 @@ def _group_specs(train_root: Path, rl_samples: int = 4096) -> list[dict[str, Any
     for run_name in _run_names():
         info = _method_info(run_name)
         target_label = "fe_m1p5" if info["task"] == "fe" else "bg_2"
-        for mode in ("template", "abinitio"):
-            label = (
-                f"template_uncond_policy_{target_label}_n{rl_samples}_seed42"
-                if mode == "template"
-                else f"abinitio_empirical_uncond_policy_{target_label}_n{rl_samples}_seed42"
-            )
-            specs.append(
-                {
-                    "group_id": f"{run_name}_{mode}",
-                    "method": info["method"],
-                    "method_family": info["verifier"],
-                    "algorithm": info["algorithm"],
-                    "task": info["task"],
-                    "generation_mode": mode,
-                    "model_root": train_root / run_name / "model",
-                    "label": label,
-                }
-            )
+        specs.append(
+            {
+                "group_id": f"{run_name}_abinitio",
+                "method": info["method"],
+                "method_family": info["verifier"],
+                "algorithm": info["algorithm"],
+                "task": info["task"],
+                "generation_mode": "abinitio",
+                "model_root": train_root / run_name / "model",
+                "label": f"abinitio_empirical_uncond_policy_{target_label}_n{rl_samples}_seed42",
+            }
+        )
     return specs
 
 
@@ -467,14 +458,15 @@ def _expected_contract(updates_per_run: int, rl_samples: int) -> dict[str, Any]:
         "fig2_runs": 12,
         "updates_per_run": updates_per_run,
         "fig3_rows": 2
-        * (4 * baseline_samples + 12 * rl_samples + 2 * best_of_eight_samples),
-        "fig3_summary_rows": 36,
-        "fig4_groups": 30,
-        "rl_final_groups": 24,
+        * (2 * baseline_samples + 6 * rl_samples + best_of_eight_samples),
+        "fig3_summary_rows": 18,
+        "fig4_groups": 15,
+        "rl_final_groups": 12,
         "baseline_samples_per_group": baseline_samples,
         "rl_samples_per_group": rl_samples,
         "best_of_eight_samples_per_group": best_of_eight_samples,
         "fig4_group_sizes": sorted({baseline_samples, rl_samples}),
+        "formal_generation_modes": ["abinitio"],
         "seed": 42,
     }
 

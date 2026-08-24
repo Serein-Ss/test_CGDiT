@@ -174,7 +174,7 @@ def main() -> None:
         index=fig3_group_sizes.index,
     )
     expected_family_counts = {
-        f"{task}:{family}": 2 if family in {"base", "cfg", "best_of_n"} else 4
+        f"{task}:{family}": 1 if family in {"base", "cfg", "best_of_n"} else 2
         for task in ("fe", "bg")
         for family in ("base", "cfg", "best_of_n", "open", "pipo", "crystalpirl")
     }

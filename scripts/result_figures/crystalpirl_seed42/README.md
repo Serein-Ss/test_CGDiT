@@ -11,8 +11,8 @@ It does not authorize a multi-seed robustness claim.
 - RL matrix: `2 algorithms × 3 verifiers × 2 properties × 300 updates`.
 - Each update uses `5 prompts × 16 trajectories` for every method arm.
   Every trajectory executes all 999 denoising steps. Training retains only the two replayed transitions and omits the unused full state stack to fit 24 GB GPU memory.
-- Generation: 4,096 template and 4,096 empirical-prior ab initio structures
-  per final RL model.
+- Formal generation: 4,096 empirical-prior ab initio structures per final RL
+  model. Template generation is reserved for functional tests and excluded from figures.
 - Training reward predictor: M3GNet seed=42.
 - Independent endpoint evaluator: the separately trained M3GNet seed=123.
 - FE objective: minimize relative to the frozen threshold -1.5 eV/atom;

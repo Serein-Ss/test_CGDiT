@@ -37,3 +37,28 @@ def pipo_feedback(
         signal=signal,
         modulation=modulation,
     )
+
+
+def normalize_group_attributions(
+    advantages: torch.Tensor,
+    group_index: torch.Tensor,
+    eps: float = 1.0e-6,
+) -> torch.Tensor:
+    """Apply the group-relative PIPO attribution normalization."""
+    if advantages.ndim != 1 or group_index.shape != advantages.shape:
+        raise ValueError(
+            "advantages and group_index must be one-dimensional and aligned"
+        )
+    if eps <= 0:
+        raise ValueError("eps must be positive")
+
+    normalized = torch.zeros_like(advantages)
+    for group in torch.unique(group_index):
+        mask = group_index == group
+        group_advantages = advantages[mask]
+        denominator = group_advantages.abs().sum()
+        if denominator > eps:
+            normalized[mask] = (
+                group_advantages.numel() * group_advantages / denominator
+            )
+    return normalized

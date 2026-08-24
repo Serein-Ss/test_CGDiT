@@ -1,12 +1,13 @@
 """Render honest PNG-only blueprints for the CrystalPIRL main figures.
 
 Existing pilot and CFG results are plotted where they are available. Panels that
-need the formal 300-update experiment or independent evaluation are explicitly
+need the formal 200-update experiment or independent evaluation are explicitly
 marked as pending; the script never fabricates replacement measurements.
 """
 
 from __future__ import annotations
 
+import json
 import textwrap
 from pathlib import Path
 
@@ -14,20 +15,67 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from matplotlib.patches import Ellipse, FancyArrowPatch, FancyBboxPatch, Rectangle
+from matplotlib.patches import FancyArrowPatch, FancyBboxPatch, Patch, Rectangle
+from scipy.ndimage import gaussian_filter
+from scipy.stats import gaussian_kde
 
 
 ROOT = Path(__file__).resolve().parents[3]
-SOURCE = ROOT / "assets" / "model_results" / "source_data"
-PILOT = ROOT / "assets" / "tmp"
 OUTPUT = ROOT / "assets" / "crystalpirl_article_blueprint"
+FIG1_OVERVIEW = OUTPUT / "source" / "fig1_architecture_overview.png"
+TRAIN_MP20 = ROOT / "data" / "mp_20" / "train.csv"
+BASE_ABINITIO = (
+    ROOT / "output" / "singlerun" / "2026-06-27" / "00-32-50-mp20_base"
+    / "evaluations" / "property_predictions"
+    / "eval_properties_gen_abinitio_empirical_uncond_n4096_seed42_predictor_seed123.csv"
+)
+BASE_STRUCTURAL_METRICS = (
+    BASE_ABINITIO.parents[1]
+    / "structural_metrics"
+    / "eval_metrics_gen_abinitio_empirical_uncond_n4096_seed42.json"
+)
+CFG_ABINITIO = {
+    "formation_energy_per_atom": ROOT / "output" / "singlerun" / "2026-06-28"
+    / "16-46-08-mp20_fe" / "evaluations" / "property_predictions"
+    / "eval_properties_gen_abinitio_empirical_fe_m1p5_n4096_seed42_predictor_seed123.csv",
+    "band_gap": ROOT / "output" / "singlerun" / "2026-06-30" / "11-28-44-mp20_bg"
+    / "evaluations" / "property_predictions"
+    / "eval_properties_gen_abinitio_empirical_bg_2_n4096_seed42_predictor_seed123.csv",
+}
+JOINT_CFG_ABINITIO = (
+    ROOT / "output" / "singlerun" / "2026-08-07" / "07-54-15-mp20_fe_bg"
+    / "evaluations" / "property_predictions"
+    / "eval_properties_gen_abinitio_empirical_fe_m1p5_bg_2_n4096_seed42_predictor_seed42.csv"
+)
+JOINT_CFG_STRUCTURAL_METRICS = (
+    JOINT_CFG_ABINITIO.parents[1]
+    / "structural_metrics"
+    / "eval_metrics_gen_abinitio_empirical_fe_m1p5_bg_2_n4096_seed42.json"
+)
+FIG3_QUALITY_METRICS = OUTPUT / "source" / "fig3_quality_metrics.csv"
+FIG4_TRADEOFF = OUTPUT / "source" / "fig4a_target_yield_diversity.csv"
+FIG4_TSNE = OUTPUT / "source" / "fig4b_tsne.csv"
+FIG4_PROFILES = OUTPUT / "source" / "fig4c_structure_profiles.csv"
+FIG4_ELEMENTS = OUTPUT / "source" / "fig4c_element_frequencies.csv"
+RL_LOGS = {
+    "fe": ROOT / "output" / "rl_diagnostics" / "668001-seed42-grpo-pipo-probe32" / "task_0" / "training.log",
+    "bg": ROOT / "output" / "rl_diagnostics" / "668001-seed42-grpo-pipo-probe32" / "task_1" / "training.log",
+}
+INTERIM_PAIRED = {
+    task: ROOT / "output" / "rl_diagnostics"
+    / "668001-seed42-grpo-pipo-probe32" / "interim_paired_step39"
+    / f"{task}.json"
+    for task in ("fe", "bg")
+}
+BAND_GAP_MAX = 10.0
 
 COLORS = {
-    "base": "#6F6F6F",
-    "cfg": "#4C78A8",
+    "base": "#E69F00",
+    "cfg": "#0072B2",
+    "train": "#666666",
     "open": "#F28E2B",
     "pipo": "#8E6CBB",
-    "pirl": "#269C8C",
+    "pirl": "#CC79A7",
     "safe": "#269C8C",
     "warn": "#D9A441",
     "reject": "#C44E52",
@@ -184,32 +232,28 @@ def save(fig: plt.Figure, name: str) -> None:
     plt.close(fig)
 
 
+def cropped_image(path: Path, white_threshold: float = 0.985) -> np.ndarray:
+    image = plt.imread(path)
+    content = np.any(image[..., :3] < white_threshold, axis=2)
+    if not content.any():
+        return image
+    rows, columns = np.where(content)
+    return image[rows.min() : rows.max() + 1, columns.min() : columns.max() + 1]
+
+
 def fig1() -> None:
-    fig = plt.figure(figsize=(7.2047, 5.5906), constrained_layout=True)
-    grid = fig.add_gridspec(2, 3, width_ratios=[1.34, 1, 1], height_ratios=[1, 1])
+    fig = plt.figure(figsize=(7.2047, 6.6535), constrained_layout=True)
+    grid = fig.add_gridspec(3, 4, height_ratios=[3.5, 0.85, 0.85])
 
-    ax = fig.add_subplot(grid[:, 0])
+    ax = fig.add_subplot(grid[0, :])
     panel(ax, "a")
-    ax.set_xlim(0, 1)
-    ax.set_ylim(0, 1)
+    if not FIG1_OVERVIEW.is_file():
+        raise FileNotFoundError(f"Missing Fig. 1 overview placeholder: {FIG1_OVERVIEW}")
+    ax.imshow(cropped_image(FIG1_OVERVIEW))
     ax.axis("off")
-    box(ax, (0.07, 0.81), 0.34, 0.11, "Frozen base\nπ₀", COLORS["base"])
-    box(ax, (0.58, 0.81), 0.34, 0.11, "Verified policy\nπₖ", COLORS["pirl"])
-    box(ax, (0.58, 0.58), 0.34, 0.11, "OrbitPO update\n→ π′", COLORS["open"])
-    box(ax, (0.07, 0.57), 0.34, 0.13, "Full trajectories\n+ terminal reward", COLORS["cfg"])
-    box(ax, (0.07, 0.32), 0.34, 0.14, "Paired fixed +\nholdout probes", COLORS["pirl"])
-    box(ax, (0.58, 0.31), 0.34, 0.15, "Local + absolute\nLCB and safeguards", COLORS["pirl"])
-    box(ax, (0.32, 0.08), 0.38, 0.12, "accept / attenuate\n/ reject / rollback", COLORS["safe"])
-    arrow(ax, (0.75, 0.81), (0.75, 0.69))
-    arrow(ax, (0.58, 0.635), (0.41, 0.635))
-    arrow(ax, (0.24, 0.57), (0.24, 0.46))
-    arrow(ax, (0.41, 0.39), (0.58, 0.39))
-    arrow(ax, (0.75, 0.31), (0.62, 0.20))
-    arrow(ax, (0.32, 0.14), (0.13, 0.81), COLORS["base"])
-    arrow(ax, (0.70, 0.14), (0.88, 0.81), COLORS["pirl"])
-    data_tag(ax, "code-grounded schematic", COLORS["pirl"])
+    data_tag(ax, "uploaded architecture placeholder", COLORS["muted"])
 
-    ax = fig.add_subplot(grid[0, 1])
+    ax = fig.add_subplot(grid[1, :2])
     panel(ax, "b")
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
@@ -225,7 +269,7 @@ def fig1() -> None:
     ax.text(0.5, 0.13, "joint trajectory log probability", ha="center", fontsize=6.5)
     data_tag(ax, "schematic; trajectory audit pending", COLORS["muted"])
 
-    ax = fig.add_subplot(grid[0, 2])
+    ax = fig.add_subplot(grid[1, 2:])
     panel(ax, "c")
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
@@ -239,7 +283,7 @@ def fig1() -> None:
     ax.text(0.08, 0.10, "property gain subject to preregistered\nquality tolerances (not rigid equality)", fontsize=6.2)
     data_tag(ax, "reward contract", COLORS["cfg"])
 
-    ax = fig.add_subplot(grid[1, 1])
+    ax = fig.add_subplot(grid[2, :2])
     panel(ax, "d")
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
@@ -251,7 +295,7 @@ def fig1() -> None:
     ax.text(0.5, 0.18, "Δlocal = R(π′) − R(πₖ)    Δabsolute = R(π′) − R(π₀)", ha="center", fontsize=6.2)
     data_tag(ax, "paired-probe schematic", COLORS["pirl"])
 
-    ax = fig.add_subplot(grid[1, 2])
+    ax = fig.add_subplot(grid[2, 2:])
     panel(ax, "e")
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
@@ -265,289 +309,820 @@ def fig1() -> None:
     ax.text(0.5, 0.16, "holdout failure after acceptance → rollback", ha="center", fontsize=6.2)
     data_tag(ax, "real examples pending", COLORS["muted"])
 
-    footer(fig, "PNG blueprint • no quantitative claims")
+    footer(fig, "Panel a is an uploaded placeholder; quantitative method evidence remains pending")
     save(fig, "fig1_crystalpirl_method_blueprint.png")
 
 
-def _pilot_lines(ax: plt.Axes, task: str) -> None:
-    data = pd.read_csv(PILOT / "rl_fig2_seed42_updates.csv")
-    data = data[data["property"] == task]
-    styles = {"ppo": "-", "grpo": "--"}
-    colors = {"open": COLORS["open"], "pipo": COLORS["pipo"], "pirl": COLORS["pirl"]}
-    for (algorithm, mode), frame in data.groupby(["algorithm", "mode"]):
-        frame = frame.sort_values("step")
-        ax.plot(
-            frame["step"],
-            frame["holdout_reward_lcb"],
-            color=colors[mode],
-            linestyle=styles[algorithm],
-            linewidth=1.0,
-            marker="o",
-            markersize=2,
-            label=f"{mode.upper()}-{algorithm.upper()}",
-        )
-    ax.axhline(0, color=COLORS["ink"], linewidth=0.7)
-    ax.set_xlabel("Pilot update")
-    ax.set_ylabel("Holdout reward LCB")
-    ax.set_xticks(range(1, 9))
-    data_tag(ax, "real: old 8-step pilot, seed=42", COLORS["warn"])
+def _rl_records(task: str) -> list[dict]:
+    path = RL_LOGS[task]
+    if not path.is_file():
+        return []
+    records = []
+    for line in path.read_text(errors="replace").splitlines():
+        line = line.strip()
+        if not line.startswith("{"):
+            continue
+        try:
+            payload = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if "step" in payload and payload.get("algorithm") == "grpo":
+            records.append(payload)
+    return records
 
+
+def _rolling_stats(values: np.ndarray, max_window: int = 15) -> tuple[np.ndarray, np.ndarray]:
+    window = min(max_window, len(values))
+    if window > 1 and window % 2 == 0:
+        window -= 1
+    series = pd.Series(values, dtype=float)
+    minimum = max(1, window // 3)
+    mean = series.rolling(window, center=True, min_periods=minimum).mean()
+    std = series.rolling(window, center=True, min_periods=minimum).std(ddof=0).fillna(0)
+    return mean.to_numpy(), std.to_numpy()
+
+
+def _reward_trace(ax: plt.Axes) -> None:
+    maximum = 0
+    for task, label, color in [("fe", "FE", COLORS["open"]), ("bg", "BG", COLORS["cfg"])]:
+        records = _rl_records(task)
+        if not records:
+            continue
+        steps = np.asarray([record["step"] for record in records])
+        values = np.asarray([record["reward"]["reward_mean"] for record in records])
+        mean, std = _rolling_stats(values)
+        ax.plot(steps, values, color=color, alpha=0.22, linewidth=0.55)
+        ax.plot(steps, mean, color=color, linewidth=1.2, label=label)
+        ax.fill_between(steps, mean - std, mean + std, color=color, alpha=0.14, linewidth=0)
+        maximum = max(maximum, len(records))
+    if maximum == 0:
+        pending(ax, "Reward trajectory", "needs reward_mean for FE/BG across 200 updates")
+        return
+    ax.axhline(0, color="#B0B0B0", linewidth=0.6)
+    ax.set_xlabel("RL update")
+    ax.set_ylabel("Raw reward")
+    ax.legend(loc="best")
+
+
+def _gradient_trace(ax: plt.Axes) -> None:
+    maximum = 0
+    for task, label, color in [("fe", "FE", COLORS["open"]), ("bg", "BG", COLORS["cfg"])]:
+        records = _rl_records(task)
+        if not records:
+            continue
+        steps = np.asarray([record["step"] for record in records])
+        values = np.asarray([record["gradient_norm"] for record in records], dtype=float)
+        mean, std = _rolling_stats(values)
+        ax.plot(steps, values, color=color, alpha=0.22, linewidth=0.55)
+        ax.plot(steps, mean, color=color, linewidth=1.2, label=label)
+        ax.fill_between(steps, mean - std, mean + std, color=color, alpha=0.12, linewidth=0)
+        maximum = max(maximum, len(records))
+    if maximum == 0:
+        pending(ax, "Policy gradient norm", "needs gradient_norm across 200 updates")
+        return
+    ax.set_xlabel("RL update")
+    ax.set_ylabel("Policy gradient norm")
+    ax.set_ylim(bottom=0)
+    ax.legend(loc="best")
+
+
+def _pipo_trace(ax: plt.Axes) -> None:
+    found = False
+    for task, label, color in [("fe", "FE", COLORS["open"]), ("bg", "BG", COLORS["cfg"])]:
+        rows = []
+        for record in _rl_records(task):
+            feedback = record.get("pipo_feedback") or {}
+            if feedback.get("feedback") is not None:
+                rows.append((record["step"], feedback["feedback"]))
+        if not rows:
+            continue
+        found = True
+        steps = np.asarray([step for step, _ in rows])
+        signal = np.asarray([item["signal"] for _, item in rows])
+        modulation = np.asarray([item["modulation"] for _, item in rows])
+        ax.plot(steps, signal, color=color, linewidth=0.8, alpha=0.45, marker="o", markersize=2.5, label=f"{label} ξ")
+        ax.plot(steps, modulation, color=color, linewidth=1.2, marker="o", markersize=2.5, label=f"{label} φ(ξ)")
+    if not found:
+        pending(ax, "PIPO historical feedback", "starts after K=8 warm-up updates; needs ξ and φλ(ξ)")
+        return
+    ax.axhline(0, color=COLORS["ink"], linewidth=0.7)
+    ax.set_xlabel("RL update")
+    ax.set_ylabel("Historical feedback")
+    ax.legend(loc="best", ncol=2, fontsize=5.2)
+
+
+def _final_paired_evaluations() -> dict[str, dict]:
+    final = {}
+    for task, path in RL_LOGS.items():
+        if not path.is_file():
+            continue
+        for line in path.read_text(errors="replace").splitlines():
+            line = line.strip()
+            if not line.startswith("{"):
+                continue
+            try:
+                payload = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if "final_paired_evaluation" in payload:
+                final[task] = payload["final_paired_evaluation"]
+    return final
+
+
+def _interim_paired_evaluations() -> tuple[dict[str, dict], int | None]:
+    evaluations = {}
+    completed_updates = []
+    for task, path in INTERIM_PAIRED.items():
+        if not path.is_file():
+            continue
+        payload = json.loads(path.read_text())
+        if payload.get("status") != "interim_checkpoint_paired_evaluation":
+            continue
+        evaluations[task] = payload["evaluation"]
+        completed_updates.append(int(payload["completed_updates"]))
+    if len(evaluations) != len(INTERIM_PAIRED):
+        return {}, None
+    return evaluations, min(completed_updates)
+
+
+def _interim_reward_shift(
+    records: list[dict], window: int = 8, resamples: int = 20000
+) -> tuple[float, float, float] | None:
+    if len(records) < 2 * window:
+        return None
+    early = np.asarray(
+        [record["reward"]["reward_mean"] for record in records[:window]],
+        dtype=float,
+    )
+    late = np.asarray(
+        [record["reward"]["reward_mean"] for record in records[-window:]],
+        dtype=float,
+    )
+    rng = np.random.default_rng(42)
+    early_indices = rng.integers(0, window, size=(resamples, window))
+    late_indices = rng.integers(0, window, size=(resamples, window))
+    bootstrap = late[late_indices].mean(axis=1) - early[early_indices].mean(axis=1)
+    return (
+        float(late.mean() - early.mean()),
+        float(np.quantile(bootstrap, 0.025)),
+        float(np.quantile(bootstrap, 0.975)),
+    )
+
+
+def _interim_reward_panel(ax: plt.Axes) -> None:
+    rows = []
+    for y, task, label, color in [
+        (1, "fe", "FE", COLORS["open"]),
+        (0, "bg", "BG", COLORS["cfg"]),
+    ]:
+        records = _rl_records(task)
+        interval = _interim_reward_shift(records)
+        if interval is None:
+            pending(
+                ax,
+                "Interim training reward shift",
+                "needs at least 16 updates for an 8-update early/late comparison",
+            )
+            return
+        mean, lower, upper = interval
+        ax.plot([lower, upper], [y, y], color=color, linewidth=2)
+        ax.scatter([mean], [y], color=color, s=25, zorder=3, label=label)
+        rows.append(
+            {
+                "property": task,
+                "updates_available": len(records),
+                "early_window": "first_8_updates",
+                "late_window": "last_8_updates",
+                "mean_reward_shift": mean,
+                "bootstrap_95_lower": lower,
+                "bootstrap_95_upper": upper,
+                "paired": False,
+                "independent_evaluation": False,
+            }
+        )
+    pd.DataFrame(rows).to_csv(
+        OUTPUT / "source" / "fig2d_interim_reward_shift.csv", index=False
+    )
+    ax.axvline(0, color=COLORS["ink"], linewidth=0.7)
+    ax.set_yticks([1, 0], ["FE", "BG"])
+    ax.set_xlabel("Training reward shift\n(last 8 - first 8 updates)")
+    data_tag(
+        ax,
+        f"diagnostic only: 95% bootstrap interval, <= {max(row['updates_available'] for row in rows)} updates",
+        COLORS["warn"],
+    )
+
+
+def _final_lcb(ax: plt.Axes) -> None:
+    evaluations = _final_paired_evaluations()
+    stage = "final"
+    completed_updates = None
+    if len(evaluations) != 2:
+        evaluations, completed_updates = _interim_paired_evaluations()
+        stage = "interim"
+        if len(evaluations) != 2:
+            _interim_reward_panel(ax)
+            return
+    rows = []
+    for y, task, label, color in [
+        (1, "fe", "FE", COLORS["open"]),
+        (0, "bg", "BG", COLORS["cfg"]),
+    ]:
+        decision = evaluations[task]["decision"]
+        mean = float(decision["mean_delta"][0])
+        lcb = float(decision["lower_confidence_bound"][0])
+        ax.plot([lcb, mean], [y, y], color=color, linewidth=2)
+        ax.scatter([mean], [y], color=color, s=25, zorder=3, label=label)
+        ax.text(
+            mean,
+            y - 0.16 if y == 1 else y + 0.16,
+            decision["action"],
+            ha="center",
+            fontsize=5.5,
+            color=color,
+        )
+        rows.append(
+            {
+                "property": task,
+                "stage": stage,
+                "completed_updates": completed_updates,
+                "mean_reward_delta_vs_base": mean,
+                "bootstrap_lcb": lcb,
+                "decision": decision["action"],
+                "paired_prompts": 32,
+            }
+        )
+    pd.DataFrame(rows).to_csv(
+        OUTPUT / "source" / "fig2d_paired_policy_evaluation.csv", index=False
+    )
+    ax.axvline(0, color=COLORS["ink"], linewidth=0.7)
+    ax.set_yticks([1, 0], ["FE", "BG"])
+    ax.set_ylim(-0.35, 1.55)
+    ax.set_xlabel("Paired reward delta vs Base")
+    if stage == "final":
+        data_tag(ax, "real final: 32 paired prompts", COLORS["pipo"])
+    else:
+        data_tag(
+            ax,
+            f"real interim: {completed_updates} updates, 32 paired prompts",
+            COLORS["warn"],
+        )
 
 def fig2() -> None:
-    fig, axes = plt.subplots(2, 3, figsize=(7.2047, 5.0394), constrained_layout=True)
+    fig = plt.figure(figsize=(7.2047, 2.95), constrained_layout=True)
+    grid = fig.add_gridspec(1, 3)
 
-    ax = axes[0, 0]
+    ax = fig.add_subplot(grid[0, 0])
     panel(ax, "a")
-    ax.set_xlim(0, 3)
-    ax.set_ylim(0, 2)
-    ax.set_xticks([0.5, 1.5, 2.5], ["Open", "PIPO", "CrystalPIRL"])
-    ax.set_yticks([1.5, 0.5], ["PPO", "GRPO"])
-    matrix = [["P0", "P1", "P2"], ["G0", "G1", "G2"]]
-    matrix_colors = [COLORS["open"], COLORS["pipo"], COLORS["pirl"]]
-    for row in range(2):
-        for col in range(3):
-            ax.add_patch(Rectangle((col, 1 - row), 1, 1, facecolor=mpl.colors.to_rgba(matrix_colors[col], 0.15), edgecolor="white"))
-            ax.text(col + 0.5, 1.5 - row, matrix[row][col], ha="center", va="center", fontsize=8, fontweight="bold")
-    ax.tick_params(length=0)
-    data_tag(ax, "formal design: 12 arms incl. FE/BG", COLORS["pirl"])
+    ax.set_box_aspect(1)
+    _reward_trace(ax)
 
-    ax = axes[0, 1]
+    ax = fig.add_subplot(grid[0, 1])
     panel(ax, "b")
-    _pilot_lines(ax, "fe")
+    ax.set_box_aspect(1)
+    _gradient_trace(ax)
 
-    ax = axes[0, 2]
+    ax = fig.add_subplot(grid[0, 2])
     panel(ax, "c")
-    _pilot_lines(ax, "bg")
-    handles, labels = ax.get_legend_handles_labels()
-    ax.legend(handles, labels, ncol=2, loc="lower left", fontsize=5.2)
+    ax.set_box_aspect(1)
+    _pipo_trace(ax)
 
-    ax = axes[1, 0]
-    panel(ax, "d")
-    pending(ax, "Bad-update and false-accept rates", "needs per-update applied flag, local/absolute holdout deltas, action, seed")
-
-    ax = axes[1, 1]
-    panel(ax, "e")
-    pending(ax, "Cumulative absolute gain over 300 updates", "needs reward vs frozen base, 95% paired CI, accepted checkpoint history")
-
-    ax = axes[1, 2]
-    panel(ax, "f")
-    pending(ax, "Verified gain versus evaluation cost", "needs GPU-hours, NFE, oracle queries, accepted-update efficiency")
-
-    footer(fig, "Existing curves are diagnostic only; formal inference awaits 300-update paired evaluations")
     save(fig, "fig2_verified_policy_improvement_blueprint.png")
 
+def _plotting_values(values: np.ndarray, property_name: str) -> np.ndarray:
+    values = np.asarray(values, dtype=float)
+    keep = np.isfinite(values)
+    if property_name == "band_gap":
+        keep &= values <= BAND_GAP_MAX
+    return values[keep]
 
-def _conditioning_frame() -> pd.DataFrame:
-    return pd.read_csv(SOURCE / "conditioning_distribution_metrics.csv")
+
+def _property_series(property_name: str) -> list[tuple[str, np.ndarray, str]]:
+    train = pd.read_csv(TRAIN_MP20)
+    datasets = [("Training set", train[property_name].to_numpy(dtype=float), COLORS["train"])]
+    for label, path, color in [
+        ("Base", BASE_ABINITIO, COLORS["base"]),
+        ("CFG", CFG_ABINITIO[property_name], COLORS["cfg"]),
+    ]:
+        frame = pd.read_csv(path)
+        datasets.append((label, frame[f"predicted_{property_name}"].to_numpy(dtype=float), color))
+    return [
+        (label, _plotting_values(values, property_name), color)
+        for label, values, color in datasets
+    ]
+
+def _property_kde(ax: plt.Axes, property_name: str) -> None:
+    target, xlabel = {
+        "formation_energy_per_atom": (-1.5, "Formation energy (eV atom⁻¹)"),
+        "band_gap": (2.0, "Band gap (eV)"),
+    }[property_name]
+    datasets = _property_series(property_name)
+    lower = min(values.min() for _, values, _ in datasets)
+    upper = (
+        BAND_GAP_MAX
+        if property_name == "band_gap"
+        else max(values.max() for _, values, _ in datasets)
+    )
+    margin = 0.03 * (upper - lower)
+    grid = np.linspace(lower - margin, upper, 450)
+    for label, values, color in datasets:
+        density = gaussian_kde(values)(grid)
+        ax.plot(grid, density, color=color, linewidth=1.15, label=f"{label} (n={len(values):,})")
+        ax.fill_between(grid, 0, density, color=color, alpha=0.12, linewidth=0)
+    ax.axvline(target, color=COLORS["reject"], linestyle="--", linewidth=1.0)
+    ax.text(target, 0.78, "Target", transform=ax.get_xaxis_transform(), rotation=90, rotation_mode="anchor", va="top", ha="right", fontsize=5.5, color=COLORS["reject"])
+    ax.plot([], [], color=COLORS["pirl"], linewidth=1.2, label="CrystalPIRL (pending)")
+    ax.set_xlim(lower - margin, upper)
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel("Probability density")
+    legend_location = "upper left" if property_name == "formation_energy_per_atom" else "upper right"
+    ax.legend(loc=legend_location, fontsize=5.0)
+
+def _available_quality_metrics() -> pd.DataFrame:
+    evaluated = (
+        pd.read_csv(FIG3_QUALITY_METRICS)
+        if FIG3_QUALITY_METRICS.is_file()
+        else pd.DataFrame()
+    )
+    rows = []
+    for method, metrics_path in [
+        ("Base", BASE_STRUCTURAL_METRICS),
+        ("CFG", JOINT_CFG_STRUCTURAL_METRICS),
+    ]:
+        metrics = json.loads(metrics_path.read_text())
+        row = {
+            "method": method,
+            "compositional_validity": 100.0 * float(metrics["comp_valid"]),
+            "structural_validity": 100.0 * float(metrics["struct_valid"]),
+            "mp_hull_stability": np.nan,
+            "sun": np.nan,
+            "uniqueness": np.nan,
+            "novelty_among_unique": np.nan,
+            "novelty_reference": None,
+        }
+        if not evaluated.empty:
+            match = evaluated[evaluated["method"] == method]
+            if len(match) == 1:
+                for name in (
+                    "sun",
+                    "uniqueness",
+                    "novelty_among_unique",
+                    "mp_hull_stability",
+                ):
+                    row[name] = 100.0 * float(match.iloc[0][name])
+                row["novelty_reference"] = str(
+                    match.iloc[0]["novelty_reference"]
+                )
+        rows.append(row)
+    return pd.DataFrame(rows)
 
 
-def _summary_frame() -> pd.DataFrame:
-    return pd.read_csv(SOURCE / "generation_summary_plot_data.csv")
+def _quality_metrics_frame(ax: plt.Axes) -> None:
+    metrics = ["S.U.N.", "Uniqueness", "Novelty", "Stability", "Comp.\nvalidity", "Struct.\nvalidity"]
+    ax.set_xlim(-0.5, len(metrics) - 0.5)
+    ax.set_ylim(0, 110)
+    ax.set_xticks(np.arange(len(metrics)), metrics, rotation=18, ha="right", rotation_mode="anchor")
+    ax.set_ylabel("Rate (%)")
+    values = _available_quality_metrics()
+    positions = np.arange(len(metrics), dtype=float)
+    width = 0.32
+    for offset, row in zip((-width / 2, width / 2), values.itertuples()):
+        color = COLORS["base"] if row.method == "Base" else COLORS["cfg"]
+        bar_values = [
+            row.sun,
+            row.uniqueness,
+            row.novelty_among_unique,
+            row.mp_hull_stability,
+            row.compositional_validity,
+            row.structural_validity,
+        ]
+        ax.bar(positions + offset, bar_values, width=width, color=color, label=row.method)
+    ax.plot([], [], marker="s", linestyle="", color=COLORS["pirl"], label="CrystalPIRL (pending)")
+    handles, labels = ax.get_legend_handles_labels()
+    order = [labels.index(label) for label in ["Base", "CFG", "CrystalPIRL (pending)"]]
+    ax.legend(
+        [handles[index] for index in order],
+        [labels[index] for index in order],
+        loc="lower center",
+        bbox_to_anchor=(0.5, 1.01),
+        ncol=3,
+        fontsize=5.0,
+    )
 
+def _joint_property_data() -> list[tuple[str, np.ndarray, np.ndarray, str]]:
+    specifications = [
+        ("Training set", TRAIN_MP20, "formation_energy_per_atom", "band_gap", COLORS["train"]),
+        ("Base", BASE_ABINITIO, "predicted_formation_energy_per_atom", "predicted_band_gap", COLORS["base"]),
+        ("CFG", JOINT_CFG_ABINITIO, "predicted_formation_energy_per_atom", "predicted_band_gap", COLORS["cfg"]),
+    ]
+    datasets = []
+    for label, path, fe_column, bg_column, color in specifications:
+        frame = pd.read_csv(path)
+        fe = pd.to_numeric(frame[fe_column], errors="coerce").to_numpy(dtype=float)
+        bg = pd.to_numeric(frame[bg_column], errors="coerce").to_numpy(dtype=float)
+        valid = np.isfinite(fe) & np.isfinite(bg) & (bg <= BAND_GAP_MAX)
+        datasets.append((label, fe[valid], bg[valid], color))
+    return datasets
 
-def _property_summary(ax: plt.Axes, property_name: str) -> None:
-    data = _conditioning_frame()
-    data = data[data["property"] == property_name].copy()
-    order = ["unconditioned", "template_conditioned", "ab_initio_conditioned"]
-    data["group"] = pd.Categorical(data["group"], categories=order, ordered=True)
-    data = data.sort_values("group")
-    labels = ["Base", "CFG\ntemplate", "CFG\nab initio"]
-    colors = [COLORS["base"], COLORS["cfg"], COLORS["cfg"]]
-    x = np.arange(len(data))
-    ax.bar(x, data["mean_absolute_target_error"], color=colors, alpha=0.82, width=0.62)
-    ax.set_xticks(x, labels)
-    ax.set_ylabel("Mean absolute target error")
-    unit = "eV atom⁻¹" if property_name.startswith("formation") else "eV"
-    ax.text(0.02, 0.96, unit, transform=ax.transAxes, va="top", fontsize=5.5, color=COLORS["muted"])
-    data_tag(ax, "real: n≈4,096 per group", COLORS["cfg"])
-
+def _joint_property_density(ax: plt.Axes) -> None:
+    datasets = _joint_property_data()
+    x_min = min(values.min() for _, values, _, _ in datasets)
+    x_max = max(values.max() for _, values, _, _ in datasets)
+    y_min = min(values.min() for _, _, values, _ in datasets)
+    y_max = BAND_GAP_MAX
+    x_edges = np.linspace(x_min, x_max, 100)
+    y_edges = np.linspace(y_min, y_max, 100)
+    x_centers = (x_edges[:-1] + x_edges[1:]) / 2
+    y_centers = (y_edges[:-1] + y_edges[1:]) / 2
+    extent = (x_centers.min(), x_centers.max(), y_centers.min(), y_centers.max())
+    handles = []
+    for label, fe, bg, color in datasets:
+        density, _, _ = np.histogram2d(fe, bg, bins=(x_edges, y_edges), density=True)
+        density = gaussian_filter(density, sigma=1.5)
+        density = density / density.max()
+        density[density < 0.08] = 0.0
+        rgba = np.empty((*density.T.shape, 4), dtype=float)
+        rgba[..., :3] = mpl.colors.to_rgb(color)
+        rgba[..., 3] = 0.34 * np.sqrt(density.T)
+        ax.imshow(rgba, extent=extent, origin="lower", aspect="auto", interpolation="bilinear")
+        handles.append(
+            Patch(facecolor=mpl.colors.to_rgba(color, 0.28), edgecolor="none", label=f"{label} (n={len(fe):,})")
+        )
+    handles.append(
+        Patch(facecolor="none", edgecolor=COLORS["pirl"], linestyle="--", label="CrystalPIRL (pending)")
+    )
+    target = ax.scatter([-1.5], [2.0], marker="*", s=34, color=COLORS["reject"], edgecolor="white", linewidth=0.5, zorder=5, label="Target")
+    handles.append(target)
+    # Focus the joint-property view on the populated target region.  The
+    # underlying samples remain unchanged; values outside this window are
+    # simply outside the displayed plotting extent.
+    ax.set_xlim(-3.0, 0.0)
+    ax.set_ylim(0.0, 6.0)
+    ax.set_xlabel("Formation energy (eV atom⁻¹)")
+    ax.set_ylabel("Band gap (eV)")
+    ax.legend(handles=handles, loc="upper left", fontsize=5.0)
 
 def fig3() -> None:
-    fig, axes = plt.subplots(2, 3, figsize=(7.2047, 4.9606), constrained_layout=True)
+    fig = plt.figure(figsize=(7.2047, 5.5), constrained_layout=True)
+    grid = fig.add_gridspec(2, 2)
 
-    ax = axes[0, 0]
+    ax = fig.add_subplot(grid[0, 0])
     panel(ax, "a")
-    ax.set_xlim(0, 1)
-    ax.set_ylim(0, 1)
-    ax.axis("off")
-    paths = [
-        (0.70, "Frozen base", COLORS["base"], "unconditional"),
-        (0.44, "CFG", COLORS["cfg"], "condition at sampling"),
-        (0.18, "CrystalPIRL", COLORS["pirl"], "policy-weight update"),
-    ]
-    for y, name, color, detail in paths:
-        box(ax, (0.05, y), 0.31, 0.12, name, color, 6)
-        arrow(ax, (0.36, y + 0.06), (0.58, y + 0.06), color)
-        box(ax, (0.60, y), 0.34, 0.12, detail, color, 5.8)
-    data_tag(ax, "comparison logic", COLORS["muted"])
+    _quality_metrics_frame(ax)
 
-    ax = axes[0, 1]
+    ax = fig.add_subplot(grid[0, 1])
     panel(ax, "b")
-    _property_summary(ax, "formation_energy_per_atom")
+    _property_kde(ax, "formation_energy_per_atom")
 
-    ax = axes[0, 2]
+    ax = fig.add_subplot(grid[1, 0])
     panel(ax, "c")
-    _property_summary(ax, "band_gap")
+    _property_kde(ax, "band_gap")
 
-    ax = axes[1, 0]
+    ax = fig.add_subplot(grid[1, 1])
     panel(ax, "d")
-    data = _conditioning_frame()
-    groups = ["unconditioned", "template_conditioned", "ab_initio_conditioned"]
-    labels = ["Base", "CFG\ntemplate", "CFG\nab initio"]
-    width = 0.34
-    x = np.arange(3)
-    for offset, property_name, color, marker_label in [
-        (-width / 2, "formation_energy_per_atom", COLORS["open"], "FE target"),
-        (width / 2, "band_gap", COLORS["cfg"], "BG target"),
-    ]:
-        frame = data[data["property"] == property_name].set_index("group").loc[groups]
-        ax.bar(x + offset, frame["hit_rate"] * 100, width, color=color, alpha=0.82, label=marker_label)
-    ax.set_xticks(x, labels)
-    ax.set_ylabel("Target hit rate (%)")
-    ax.legend(loc="upper left")
-    data_tag(ax, "real: predictor-defined hits", COLORS["cfg"])
+    _joint_property_density(ax)
 
-    ax = axes[1, 1]
-    panel(ax, "e")
-    summary = _summary_frame().set_index("display_label")
-    points = [
-        ("FE | Template | uncond", 0.030029, COLORS["base"], "FE base"),
-        ("FE | Template | FE=-1.5", 0.100586, COLORS["open"], "FE CFG"),
-        ("BG | Template | uncond", 0.089600, COLORS["base"], "BG base"),
-        ("BG | Template | BG=2", 0.278320, COLORS["cfg"], "BG CFG"),
-    ]
-    for label, hit, color, text_label in points:
-        valid = float(summary.loc[label, "structural_metrics.valid"])
-        ax.scatter(hit * 100, valid * 100, s=26, color=color, edgecolor="white", linewidth=0.5)
-        ax.annotate(text_label, (hit * 100, valid * 100), xytext=(3, 3), textcoords="offset points", fontsize=5.5)
-    ax.set_xlabel("Target hit rate (%)")
-    ax.set_ylabel("Structural validity (%)")
-    ax.text(0.98, 0.06, "RL points pending", transform=ax.transAxes, ha="right", color=COLORS["muted"], fontsize=6)
-    data_tag(ax, "real baseline/CFG trade-off", COLORS["cfg"])
-
-    ax = axes[1, 2]
-    panel(ax, "f")
-    pending(ax, "Quality non-degradation forest plot", "needs paired Δ validity, stability, uniqueness, novelty, diversity vs base")
-
-    footer(fig, "Existing FE/BG results use seed=42 predictor summaries; RL and independent-evaluator results pending")
     save(fig, "fig3_fe_bg_control_blueprint.png")
+
+def _fig4_tradeoff(ax: plt.Axes) -> None:
+    data = pd.read_csv(FIG4_TRADEOFF)
+    colors = {
+        "Base": COLORS["base"],
+        "CFG-FE": "#009E73",
+        "CFG-BG": "#56B4E9",
+        "CFG-FE+BG": COLORS["cfg"],
+    }
+    offsets = {
+        "Base": (4, 4),
+        "CFG-FE": (4, -10),
+        "CFG-BG": (4, 4),
+        "CFG-FE+BG": (4, 4),
+    }
+    x = data["structure_diversity"].to_numpy(dtype=float)
+    y = 100.0 * data["valid_joint_target_yield"].to_numpy(dtype=float)
+    for row, x_value, y_value in zip(data.itertuples(), x, y):
+        color = colors[row.method]
+        ax.scatter(
+            x_value,
+            y_value,
+            s=38,
+            color=color,
+            edgecolor="white",
+            linewidth=0.6,
+            zorder=3,
+        )
+        ax.annotate(
+            row.method,
+            (x_value, y_value),
+            xytext=offsets[row.method],
+            textcoords="offset points",
+            fontsize=5.5,
+            color=color,
+        )
+    nondominated = [
+        index
+        for index in range(len(data))
+        if not any(
+            x[other] >= x[index]
+            and y[other] >= y[index]
+            and (x[other] > x[index] or y[other] > y[index])
+            for other in range(len(data))
+        )
+    ]
+    order = sorted(nondominated, key=lambda index: x[index])
+    if len(order) > 1:
+        ax.plot(
+            x[order],
+            y[order],
+            color=COLORS["ink"],
+            linestyle="--",
+            linewidth=0.7,
+            alpha=0.55,
+        )
+    ax.set_xlabel("Structural diversity (mean CrystalNN distance)")
+    ax.set_ylabel("Valid joint-target yield (%)")
+    data_tag(ax, "real: seed=42; n=1,000; no CI", COLORS["warn"])
+
+
+def _fig4_tsne(ax: plt.Axes) -> None:
+    data = pd.read_csv(FIG4_TSNE)
+    colors = {
+        "Base": COLORS["base"],
+        "CFG": COLORS["cfg"],
+    }
+    training = data[data["method"] == "Training set"]
+    x_min, x_max = data["tsne_1"].min(), data["tsne_1"].max()
+    y_min, y_max = data["tsne_2"].min(), data["tsne_2"].max()
+    density, x_edges, y_edges = np.histogram2d(
+        training["tsne_1"],
+        training["tsne_2"],
+        bins=160,
+        range=((x_min, x_max), (y_min, y_max)),
+    )
+    density = gaussian_filter(density.T, sigma=2.0)
+    density /= density.max()
+    alpha = np.where(density >= 0.01, 0.08 + 0.70 * density**0.65, 0.0)
+    training_cmap = mpl.colors.LinearSegmentedColormap.from_list(
+        "training_density", ["#F7F2FA", "#6A3D9A"]
+    )
+    ax.imshow(
+        density,
+        origin="lower",
+        extent=(x_edges[0], x_edges[-1], y_edges[0], y_edges[-1]),
+        aspect="auto",
+        cmap=training_cmap,
+        alpha=alpha,
+        interpolation="bilinear",
+        rasterized=True,
+        zorder=0,
+    )
+    handles = [
+        Patch(
+            facecolor="#6A3D9A",
+            edgecolor="none",
+            alpha=0.65,
+            label=f"Training set density (n={len(training):,})",
+        )
+    ]
+    for method in ["Base", "CFG"]:
+        frame = data[data["method"] == method]
+        handle = ax.scatter(
+            frame["tsne_1"],
+            frame["tsne_2"],
+            s=3.0,
+            alpha=0.34,
+            color=colors[method],
+            linewidth=0,
+            rasterized=True,
+            label=f"{method} (n={len(frame):,})",
+            zorder=2,
+        )
+        handles.append(handle)
+    ax.set_xlim(x_min, x_max)
+    ax.set_ylim(y_min, y_max)
+    ax.set_xlabel("t-SNE 1")
+    ax.set_ylabel("t-SNE 2")
+    ax.set_xticks([])
+    ax.set_yticks([])
+    ax.legend(
+        handles=handles,
+        loc="lower center",
+        bbox_to_anchor=(0.5, 1.01),
+        ncol=3,
+        markerscale=2.5,
+        fontsize=5.0,
+        borderaxespad=0,
+    )
+
+
+def _group_fraction(
+    data: pd.DataFrame, column: str, categories: list
+) -> pd.DataFrame:
+    grouped = (
+        data.assign(category=data[column])
+        .groupby(["method", "category"])
+        .size()
+        .rename("count")
+        .reset_index()
+    )
+    grouped["fraction"] = grouped["count"] / grouped.groupby("method")[
+        "count"
+    ].transform("sum")
+    return (
+        grouped.pivot(index="category", columns="method", values="fraction")
+        .reindex(categories)
+        .fillna(0.0)
+    )
+
+
+def _fig4_distributions(fig: plt.Figure, spec) -> None:
+    grid = spec.subgridspec(2, 3, wspace=0.45, hspace=0.60)
+    profiles = pd.read_csv(FIG4_PROFILES)
+    elements = pd.read_csv(FIG4_ELEMENTS)
+    methods = ["Training set", "Base", "CFG"]
+    colors = {
+        "Training set": COLORS["train"],
+        "Base": COLORS["base"],
+        "CFG": COLORS["cfg"],
+    }
+
+    ax = fig.add_subplot(grid[0, 0])
+    panel(ax, "c1")
+    element_order = (
+        elements.groupby("element")["atom_fraction"]
+        .sum()
+        .nlargest(12)
+        .index.tolist()
+    )
+    matrix = (
+        elements.pivot(index="method", columns="element", values="atom_fraction")
+        .reindex(index=methods, columns=element_order)
+        .fillna(0.0)
+    )
+    ax.imshow(matrix.to_numpy(), aspect="auto", cmap="Blues")
+    ax.set_xticks(
+        np.arange(len(element_order)),
+        element_order,
+        rotation=90,
+        rotation_mode="anchor",
+        ha="right",
+        fontsize=5,
+    )
+    ax.set_yticks(np.arange(len(methods)), methods, fontsize=5)
+    ax.set_xlabel("Element frequency")
+
+    ax = fig.add_subplot(grid[0, 1])
+    panel(ax, "c2")
+    nary = profiles.copy()
+    nary["nary_group"] = nary["n_elements"].clip(upper=5)
+    categories = [1, 2, 3, 4, 5]
+    fractions = _group_fraction(nary, "nary_group", categories)
+    positions = np.arange(len(categories), dtype=float)
+    width = 0.24
+    for index, method in enumerate(methods):
+        ax.bar(
+            positions + (index - 1) * width,
+            100.0 * fractions[method].to_numpy(),
+            width=width,
+            color=colors[method],
+        )
+    ax.set_xticks(positions, ["1", "2", "3", "4", "5+"])
+    ax.set_xlabel("Number of elements")
+    ax.set_ylabel("Fraction (%)")
+
+    ax = fig.add_subplot(grid[0, 2])
+    panel(ax, "c3")
+    space_fractions = _group_fraction(
+        profiles,
+        "space_group",
+        sorted(profiles["space_group"].unique()),
+    )
+    top_groups = (
+        space_fractions.sum(axis=1).nlargest(8).index.astype(int).tolist()
+    )
+    space_fractions = space_fractions.reindex(top_groups)
+    positions = np.arange(len(top_groups), dtype=float)
+    for index, method in enumerate(methods):
+        ax.bar(
+            positions + (index - 1) * width,
+            100.0 * space_fractions[method].to_numpy(),
+            width=width,
+            color=colors[method],
+        )
+    ax.set_xticks(
+        positions,
+        ["?" if group == 0 else str(group) for group in top_groups],
+        rotation=90,
+        rotation_mode="anchor",
+        ha="right",
+    )
+    ax.set_xlabel("Space group")
+    ax.set_ylabel("Fraction (%)")
+
+    ax = fig.add_subplot(grid[1, 0])
+    panel(ax, "c4")
+    maximum_atoms = int(profiles["num_atoms"].max())
+    bins = np.arange(0.5, maximum_atoms + 1.5, 1.0)
+    for method in methods:
+        values = profiles.loc[profiles["method"] == method, "num_atoms"]
+        ax.hist(
+            values,
+            bins=bins,
+            density=True,
+            histtype="step",
+            linewidth=1.0,
+            color=colors[method],
+        )
+    ax.set_xlabel("Atoms per cell")
+    ax.set_ylabel("Probability")
+
+    ax = fig.add_subplot(grid[1, 1:])
+    panel(ax, "c5")
+    finite_density = profiles[
+        np.isfinite(profiles["density_g_cm3"])
+        & (profiles["density_g_cm3"] > 0)
+    ]
+    upper = float(finite_density["density_g_cm3"].quantile(0.995))
+    density_grid = np.linspace(0, upper, 240)
+    for method in methods:
+        values = finite_density.loc[
+            finite_density["method"] == method, "density_g_cm3"
+        ].to_numpy(dtype=float)
+        density = gaussian_kde(values)(density_grid)
+        ax.plot(
+            density_grid,
+            density,
+            color=colors[method],
+            linewidth=1.0,
+            label=method,
+        )
+        ax.fill_between(
+            density_grid,
+            0,
+            density,
+            color=colors[method],
+            alpha=0.10,
+            linewidth=0,
+        )
+    ax.set_xlim(0, upper)
+    ax.set_xlabel("Density (g cm^-3)")
+    ax.set_ylabel("Probability density")
+    ax.legend(loc="best", fontsize=5.0)
+    ax.text(
+        0.98,
+        0.03,
+        "x-range: 99.5%\n(all rows retained)",
+        transform=ax.transAxes,
+        ha="right",
+        va="bottom",
+        fontsize=5.0,
+        color=COLORS["muted"],
+    )
 
 
 def fig4() -> None:
-    fig, axes = plt.subplots(2, 3, figsize=(7.2047, 4.9606), constrained_layout=True)
-    summary = _summary_frame().set_index("display_label")
-    rows = [
-        ("Base | Template | uncond", "Base\ntemplate", COLORS["base"]),
-        ("Base | Ab initio | uncond", "Base\nab initio", COLORS["base"]),
-        ("FE | Template | FE=-1.5", "FE-CFG\ntemplate", COLORS["open"]),
-        ("FE | Ab initio | FE=-1.5", "FE-CFG\nab initio", COLORS["open"]),
-        ("BG | Template | BG=2", "BG-CFG\ntemplate", COLORS["cfg"]),
-        ("BG | Ab initio | BG=2", "BG-CFG\nab initio", COLORS["cfg"]),
-    ]
-
-    ax = axes[0, 0]
-    panel(ax, "a")
-    values = [100 * float(summary.loc[key, "structural_metrics.valid"]) for key, _, _ in rows]
-    labels = [
-        "Base template",
-        "Base ab initio",
-        "FE-CFG template",
-        "FE-CFG ab initio",
-        "BG-CFG template",
-        "BG-CFG ab initio",
-    ]
-    colors = [color for _, _, color in rows]
-    y = np.arange(len(rows))[::-1]
-    ax.barh(y, values, color=colors, alpha=0.82)
-    ax.set_yticks(y, labels)
-    ax.set_xlim(0, 100)
-    ax.set_xlabel("Structural validity (%)")
-    data_tag(ax, "real: n=4,096 per set", COLORS["cfg"])
-
-    ax = axes[0, 1]
-    panel(ax, "b")
-    for key, label, color in rows:
-        precision = float(summary.loc[key, "structural_metrics.cov_precision"])
-        recall = float(summary.loc[key, "structural_metrics.cov_recall"])
-        marker = "o" if "template" in label else "s"
-        ax.scatter(100 * precision, 100 * recall, s=27, color=color, marker=marker, edgecolor="white", linewidth=0.5)
-        ax.annotate(label.replace("\n", " "), (100 * precision, 100 * recall), xytext=(3, 2), textcoords="offset points", fontsize=5.1)
-    ax.set_xlabel("Coverage precision (%)")
-    ax.set_ylabel("Coverage recall (%)")
-    data_tag(ax, "real baseline/CFG coverage", COLORS["cfg"])
-
-    ax = axes[0, 2]
-    panel(ax, "c")
-    pending(ax, "Target-yield–diversity Pareto front", "needs independent target yield, diversity metric, seed CI for every frozen policy")
-
-    ax = axes[1, 0]
-    panel(ax, "d")
-    ax.set_xlim(0, 1)
-    ax.set_ylim(0, 1)
-    ax.set_xticks([])
-    ax.set_yticks([])
-    regions = [
-        ((0.30, 0.62), 0.32, 0.22, COLORS["base"], "train/base"),
-        ((0.61, 0.61), 0.28, 0.20, COLORS["cfg"], "CFG"),
-        ((0.49, 0.31), 0.31, 0.23, COLORS["pirl"], "CrystalPIRL"),
-    ]
-    for center, width, height, color, label in regions:
-        ax.add_patch(
-            Ellipse(
-                center,
-                width,
-                height,
-                facecolor=mpl.colors.to_rgba(color, 0.14),
-                edgecolor=color,
-                linewidth=0.9,
-            )
-        )
-        ax.text(center[0], center[1], label, ha="center", va="center", fontsize=6, color=color)
-    ax.text(
-        0.02,
-        0.03,
-        "layout only — no measured coordinates shown",
-        fontsize=5.5,
-        color=COLORS["muted"],
+    fig = plt.figure(figsize=(7.2047, 6.35))
+    grid = fig.add_gridspec(
+        2,
+        10,
+        height_ratios=[1.05, 1.8],
+        left=0.08,
+        right=0.98,
+        bottom=0.07,
+        top=0.94,
+        hspace=0.46,
+        wspace=0.35,
     )
-    data_tag(ax, "schematic embedding", COLORS["muted"])
 
-    ax = axes[1, 1]
-    panel(ax, "e")
-    pending(ax, "Composition and symmetry shift", "needs element counts, n-ary composition, space group, atom count, density")
+    ax = fig.add_subplot(grid[0, :5])
+    panel(ax, "a")
+    _fig4_tradeoff(ax)
 
-    ax = axes[1, 2]
-    panel(ax, "f")
-    ax.set_xlim(0, 1)
-    ax.set_ylim(0, 1)
-    ax.axis("off")
-    cards = [
-        (0.04, 0.56, "high reward", COLORS["cfg"]),
-        (0.52, 0.56, "high novelty", COLORS["pirl"]),
-        (0.04, 0.10, "high stability", "#59A14F"),
-        (0.52, 0.10, "failure / hacking", COLORS["reject"]),
-    ]
-    for x0, y0, label, color in cards:
-        ax.add_patch(Rectangle((x0, y0), 0.42, 0.34, facecolor=mpl.colors.to_rgba(color, 0.07), edgecolor=color, linewidth=0.7))
-        for i in range(5):
-            angle = 2 * np.pi * i / 5
-            x = x0 + 0.21 + 0.095 * np.cos(angle)
-            y = y0 + 0.19 + 0.095 * np.sin(angle)
-            ax.plot([x0 + 0.21, x], [y0 + 0.19, y], color="#AAAAAA", linewidth=0.45)
-            ax.scatter(x, y, s=18, color=color, edgecolor="white", linewidth=0.4)
-        ax.scatter(x0 + 0.21, y0 + 0.19, s=22, color="#444444", edgecolor="white", linewidth=0.4)
-        ax.text(x0 + 0.21, y0 + 0.035, label, ha="center", fontsize=5.5)
-    data_tag(ax, "structure placeholders", COLORS["muted"])
+    ax = fig.add_subplot(grid[0, 5:])
+    panel(ax, "b")
+    _fig4_tsne(ax)
 
-    footer(fig, "Quantitative RL population, embedding, composition and representative structures pending")
+    _fig4_distributions(fig, grid[1, :])
+
+    footer(
+        fig,
+        "Panels a-c use seed=42 real data; CrystalPIRL, MLFF and DFT validation remain pending",
+    )
     save(fig, "fig4_quality_search_space_blueprint.png")
-
 
 def main() -> None:
     required = [
-        SOURCE / "conditioning_distribution_metrics.csv",
-        SOURCE / "generation_summary_plot_data.csv",
-        PILOT / "rl_fig2_seed42_updates.csv",
+        FIG1_OVERVIEW,
+        TRAIN_MP20,
+        BASE_ABINITIO,
+        BASE_STRUCTURAL_METRICS,
+        *CFG_ABINITIO.values(),
+        JOINT_CFG_ABINITIO,
+        JOINT_CFG_STRUCTURAL_METRICS,
+        FIG4_TRADEOFF,
+        FIG4_TSNE,
+        FIG4_PROFILES,
+        FIG4_ELEMENTS,
     ]
     missing = [str(path) for path in required if not path.exists()]
     if missing:

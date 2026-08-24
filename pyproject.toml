@@ -43,6 +43,8 @@ dependencies = [
 [project.optional-dependencies]
 stability = [
     "matgl>=2,<3",
+    "emmet-core==0.85.1",
+    "mp-api==0.45.12",
 ]
 legacy = [
     "chemparse>=0.3,<0.4",

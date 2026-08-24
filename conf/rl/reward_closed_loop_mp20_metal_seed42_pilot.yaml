@@ -1,0 +1,79 @@
+# Exploratory seed-42 metallicity contract. Not valid for DFT metallicity claims.
+name: closed_loop_metallicity_reward_seed42_pilot
+dataset: mp_20
+scope: exploratory_seed42_only
+initial_policy: mp20_base
+
+properties:
+  formation_energy_per_atom:
+    mode: minimize
+    target: -1.5
+    tolerance: 0.30
+    unit: eV/atom
+  band_gap:
+    # Smooth upper-threshold reward: a prediction of 0.10 eV scores 0.5.
+    mode: minimize
+    target: 0.10
+    tolerance: 0.05
+    unit: eV
+
+metallicity_proxy:
+  definition: predicted_band_gap_le_0.10_eV
+  predicted_threshold_eV: 0.10
+  true_test_label: reference_band_gap_eq_0_eV
+  predictor_seed: 42
+  test_samples: 9046
+  threshold_precision: 0.95062652
+  threshold_recall: 0.90589913
+  threshold_false_positive_rate: 0.07685590
+  limitation: surrogate_screening_only_requires_relaxed_DFT_DOS_validation
+
+joint_property:
+  primary:
+    mode: bottleneck
+  ablation:
+    mode: weighted_mean
+    weights:
+      formation_energy_per_atom: 1.0
+      band_gap: 1.0
+
+validity:
+  invalid_penalty: 1.0
+  required:
+    - finite_structure
+    - finite_prediction
+    - composition_valid
+    - geometry_valid
+    - orbit_consistent
+
+closed_loop:
+  common_random_numbers: true
+  confidence: 0.95
+  bootstrap_samples: 2000
+  safety_drop_tolerance: 0.03
+  safety_drop_tolerances:
+    validity: 0.03
+    stability: 0.03
+  pilot_probe_size: 64
+  attenuation_scale: 0.25
+  decision:
+    anchors:
+      local: candidate_vs_current_verified
+      absolute: candidate_vs_frozen_base
+    safety_anchor: candidate_vs_frozen_base_only
+    accept: both_target_LCBs_positive_and_base_anchored_pilot_safety_pass
+    attenuation_requires_new_rollout: true
+    incomplete_safety_metrics: reject
+  safety_metrics:
+    - validity
+    - stability
+
+pilot_limitations:
+  target: seed42_band_gap_surrogate_metallicity_proxy
+  stability: bounded_seed123_formation_energy_surrogate
+  posthoc_only:
+    - uniqueness
+    - novelty
+    - composition_diversity
+    - structure_diversity
+  final_claim_requires_relaxed_DFT_band_structure_and_DOS: true
