@@ -17,6 +17,7 @@ from scripts.cli.training.train_crystal_rl import (
     _prompt_indices,
     _optimize_policy_epochs,
     _oversized_prompt_indices,
+    _pirl_verification_due,
     _resume_records,
     _safety_audit,
     _run_output_paths,
@@ -37,6 +38,28 @@ class _Prompt:
 def test_transition_indices_cover_endpoints():
     assert _transition_indices(10, 3) == [0, 4, 9]
     assert _transition_indices(2, 5) == [0, 1]
+
+
+def test_pirl_verification_runs_at_block_end_and_final_partial_block():
+    due = [
+        step
+        for step in range(23)
+        if _pirl_verification_due(
+            step,
+            block_start_step=(step // 10) * 10,
+            interval=10,
+            final_step=22,
+        )
+    ]
+
+    assert due == [9, 19, 22]
+
+
+def test_pirl_verification_rejects_invalid_block_arguments():
+    with pytest.raises(ValueError, match="precede"):
+        _pirl_verification_due(4, block_start_step=5, interval=10, final_step=9)
+    with pytest.raises(ValueError, match="positive"):
+        _pirl_verification_due(0, block_start_step=0, interval=0, final_step=0)
 
 
 def test_grouped_batch_repeats_each_prompt(monkeypatch):

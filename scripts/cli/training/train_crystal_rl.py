@@ -71,6 +71,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--property", choices=PROPERTY_NAMES, default="fe")
     parser.add_argument("--algorithm", choices=("ppo", "grpo"), default="grpo")
     parser.add_argument("--pirl", action=argparse.BooleanOptionalAction, default=False)
+    parser.add_argument("--pirl-verification-interval", type=int, default=1)
     parser.add_argument("--pipo", action=argparse.BooleanOptionalAction, default=False)
     parser.add_argument("--pipo-history-window", type=int, default=8)
     parser.add_argument("--pipo-negative-scale", type=float, default=0.1)
@@ -149,6 +150,10 @@ def parse_args() -> argparse.Namespace:
         parser.error("max-prompt-atoms must be >= 1")
     if args.pipo_history_window < 2:
         parser.error("pipo-history-window must be >= 2")
+    if args.pirl_verification_interval < 1:
+        parser.error("pirl-verification-interval must be >= 1")
+    if not args.pirl and args.pirl_verification_interval != 1:
+        parser.error("pirl-verification-interval requires --pirl")
     if not 0.0 <= args.pipo_negative_scale <= 1.0:
         parser.error("pipo-negative-scale must be in [0, 1]")
     return args
@@ -370,6 +375,20 @@ def _stochastic_transition_indices(trajectory: Any, requested: int) -> list[int]
     ]
     selected = _transition_indices(len(available), requested)
     return [available[index] for index in selected]
+
+
+def _pirl_verification_due(
+    step: int,
+    block_start_step: int,
+    interval: int,
+    final_step: int,
+) -> bool:
+    """Return whether an accumulated PIRL candidate must be verified now."""
+    if step < block_start_step:
+        raise ValueError("step must not precede the PIRL block start")
+    if interval < 1:
+        raise ValueError("PIRL verification interval must be positive")
+    return step == final_step or step - block_start_step + 1 >= interval
 
 
 def _trainable_decoder(model: torch.nn.Module) -> list[torch.nn.Parameter]:
@@ -1207,6 +1226,15 @@ def main() -> None:
     ]
     previous_replay: dict[str, Any] | None = None
     final_step = start_step + args.updates - 1
+    if args.pirl and start_step % args.pirl_verification_interval != 0:
+        raise ValueError(
+            "PIRL resume must start at a completed verification-block boundary"
+        )
+    pirl_block_start_step: int | None = None
+    pirl_anchor_policy: torch.nn.Module | None = None
+    pirl_anchor_decoder_state: dict[str, torch.Tensor] | None = None
+    pirl_anchor_optimizer_state: dict[str, Any] | None = None
+    pirl_anchor_scheduler_state: dict[str, Any] | None = None
     for step in range(start_step, start_step + args.updates):
         prompt_start = (step - start_step) * args.num_prompts
         training_prompt_indices = training_prompt_schedule[
@@ -1222,17 +1250,28 @@ def main() -> None:
         group_index = group_index.to(device)
         old_policy = (
             copy.deepcopy(model).eval()
-            if args.pirl or args.audit_policy_updates
+            if args.audit_policy_updates and not args.pirl
             else None
         )
-        old_decoder_state = None
-        old_optimizer_state = None
-        if args.pirl:
-            old_decoder_state = {
+        if args.pirl and pirl_anchor_policy is None:
+            pirl_block_start_step = step
+            pirl_anchor_policy = copy.deepcopy(model).eval()
+            pirl_anchor_decoder_state = {
                 name: parameter.detach().clone()
                 for name, parameter in model.decoder.named_parameters()
             }
-            old_optimizer_state = copy.deepcopy(optimizer.state_dict())
+            pirl_anchor_optimizer_state = copy.deepcopy(optimizer.state_dict())
+            pirl_anchor_scheduler_state = copy.deepcopy(scheduler.state_dict())
+        assert pirl_block_start_step is not None or not args.pirl
+        pirl_verification_due = bool(
+            args.pirl
+            and _pirl_verification_due(
+                step,
+                pirl_block_start_step,
+                args.pirl_verification_interval,
+                final_step,
+            )
+        )
 
         _, _, trajectory = model.sample_rl(
             batch,
@@ -1366,10 +1405,38 @@ def main() -> None:
             )
             del old_policy
         verified_checkpoint_update = not args.pirl
-        if args.pirl and old_policy is not None:
+        if args.pirl and not pirl_verification_due:
+            assert pirl_block_start_step is not None
+            decision_record = {
+                "action": "pending",
+                "probe_action": None,
+                "scale": None,
+                "initial": None,
+                "recheck": None,
+                "base": None,
+                "current": None,
+                "candidate": None,
+                "recheck_candidate": None,
+                "safety_audit": None,
+                "holdout": None,
+                "rollback_reason": None,
+                "verified_checkpoint_update": False,
+                "block_start_step": pirl_block_start_step,
+                "block_end_step": None,
+                "updates_in_block": step - pirl_block_start_step + 1,
+                "verification_due": False,
+            }
+        if args.pirl and pirl_verification_due:
+            assert pirl_block_start_step is not None
             assert frozen_base_state is not None
-            assert old_decoder_state is not None
-            assert old_optimizer_state is not None
+            assert pirl_anchor_policy is not None
+            assert pirl_anchor_decoder_state is not None
+            assert pirl_anchor_optimizer_state is not None
+            assert pirl_anchor_scheduler_state is not None
+            old_policy = pirl_anchor_policy
+            old_decoder_state = pirl_anchor_decoder_state
+            old_optimizer_state = pirl_anchor_optimizer_state
+            old_scheduler_state = pirl_anchor_scheduler_state
             decision, base_eval, current_eval, candidate_eval = (
                 _evaluate_dual_baseline_candidate(
                     frozen_base_state=frozen_base_state,
@@ -1492,6 +1559,7 @@ def main() -> None:
             if not verified_checkpoint_update:
                 _blend_decoder(model, old_decoder_state, 0.0)
                 optimizer.load_state_dict(old_optimizer_state)
+                scheduler.load_state_dict(old_scheduler_state)
                 applied_scale = 0.0
 
             decision_record = {
@@ -1508,6 +1576,10 @@ def main() -> None:
                 "holdout": holdout_record,
                 "rollback_reason": rollback_reason,
                 "verified_checkpoint_update": verified_checkpoint_update,
+                "block_start_step": pirl_block_start_step,
+                "block_end_step": step,
+                "updates_in_block": step - pirl_block_start_step + 1,
+                "verification_due": True,
             }
             audit_record = {
                 "fixed": {
@@ -1520,6 +1592,11 @@ def main() -> None:
                 "holdout": holdout_record,
             }
             del old_policy
+            pirl_anchor_policy = None
+            pirl_anchor_decoder_state = None
+            pirl_anchor_optimizer_state = None
+            pirl_anchor_scheduler_state = None
+            pirl_block_start_step = None
 
         if args.pipo:
             assert pipo_attributions is not None
@@ -1534,7 +1611,7 @@ def main() -> None:
                 "transition_indices": selected,
             }
 
-        if verified_checkpoint_update:
+        if verified_checkpoint_update or (args.pirl and not pirl_verification_due):
             scheduler.step()
         record = {
             "step": step,
@@ -1568,6 +1645,7 @@ def main() -> None:
                 ),
                 "probe_prompts": args.probe_num_prompts,
                 "probe_trajectories_per_prompt": args.probe_group_size,
+                "pirl_verification_interval": args.pirl_verification_interval,
             },
             "probe_prompt_indices": probe_prompt_indices,
             "holdout_prompt_indices": holdout_prompt_indices,
@@ -1600,7 +1678,8 @@ def main() -> None:
             ),
         }
         checkpoint = None
-        if (step + 1) % args.checkpoint_every == 0 or step == final_step:
+        checkpoint_due = (step + 1) % args.checkpoint_every == 0 or step == final_step
+        if checkpoint_due and (not args.pirl or pirl_verification_due):
             checkpoint = _save_checkpoint(
                 model=model,
                 optimizer=optimizer,
