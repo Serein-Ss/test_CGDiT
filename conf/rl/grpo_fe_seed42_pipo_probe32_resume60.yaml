@@ -32,6 +32,6 @@ deterministic: true
 final_paired_evaluation: true
 final_probe_seed: 14242
 reference_weight: 0.0
-max_prompt_atoms: 60
+max_prompt_atoms: 52
 resume: output/rl_finetune/seed42_grpo_pipo_probe32/668001/grpo_fe_seed42_pipo/model/epoch=39-step=39.ckpt
 resume_metrics: output/rl_finetune/seed42_grpo_pipo_probe32/668001/grpo_fe_seed42_pipo/train_results/metrics.jsonl

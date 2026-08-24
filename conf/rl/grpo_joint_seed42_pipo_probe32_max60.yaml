@@ -32,4 +32,4 @@ deterministic: true
 final_paired_evaluation: true
 final_probe_seed: 14242
 reference_weight: 0.0
-max_prompt_atoms: 60
+max_prompt_atoms: 52
