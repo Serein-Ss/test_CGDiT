@@ -77,6 +77,18 @@ METHODS = (
         ROOT / "output/singlerun/2026-08-07/07-54-15-mp20_fe_bg/evaluations/property_predictions/eval_properties_gen_abinitio_empirical_fe_m1p5_bg_2_n4096_seed42_predictor_seed42.csv",
         ROOT / "output/singlerun/2026-08-07/07-54-15-mp20_fe_bg/evaluations/structural_metrics/eval_metrics_gen_abinitio_empirical_fe_m1p5_bg_2_n4096_seed42.json",
     ),
+    MethodFiles(
+        "GRPO+PIPO-FE (step 39)",
+        ROOT / "output/rl_generation/20260824-051136/fe/model/generated_structures/formal/abinitio_empirical/conditional/eval_gen_abinitio_empirical_rl_fe_m1p5_n4096_seed42.pt",
+        ROOT / "output/rl_generation/20260824-051136/fe/model/evaluations/property_predictions/eval_properties_gen_abinitio_empirical_rl_fe_m1p5_n4096_seed42_predictor_seed42.csv",
+        ROOT / "output/rl_generation/20260824-051136/fe/model/evaluations/structural_metrics/eval_metrics_gen_abinitio_empirical_rl_fe_m1p5_n4096_seed42.json",
+    ),
+    MethodFiles(
+        "GRPO+PIPO-BG (step 39)",
+        ROOT / "output/rl_generation/20260824-051136/bg/model/generated_structures/formal/abinitio_empirical/conditional/eval_gen_abinitio_empirical_rl_bg_2_n4096_seed42.pt",
+        ROOT / "output/rl_generation/20260824-051136/bg/model/evaluations/property_predictions/eval_properties_gen_abinitio_empirical_rl_bg_2_n4096_seed42_predictor_seed42.csv",
+        ROOT / "output/rl_generation/20260824-051136/bg/model/evaluations/structural_metrics/eval_metrics_gen_abinitio_empirical_rl_bg_2_n4096_seed42.json",
+    ),
 )
 
 
@@ -361,32 +373,42 @@ def main() -> None:
     tradeoff.to_csv(OUTPUT / "fig4a_target_yield_diversity.csv", index=False)
 
     training_profiles, training_features, training_elements = _training_profiles()
-    base = METHODS[0]
-    joint_cfg = METHODS[-1]
-    base_profiles, base_features, base_elements = _generated_profiles(
-        "Base", base.generation
-    )
-    cfg_profiles, cfg_features, cfg_elements = _generated_profiles(
-        "CFG", joint_cfg.generation
-    )
-
+    profile_methods = {
+        "Base": METHODS[0],
+        "CFG": METHODS[3],
+        "GRPO+PIPO-FE (step 39)": METHODS[4],
+        "GRPO+PIPO-BG (step 39)": METHODS[5],
+    }
+    generated = {
+        method: _generated_profiles(method, files.generation)
+        for method, files in profile_methods.items()
+    }
     profiles = pd.DataFrame(
-        training_profiles + base_profiles + cfg_profiles
+        training_profiles
+        + [
+            profile
+            for method in profile_methods
+            for profile in generated[method][0]
+        ]
     )
     profiles.to_csv(OUTPUT / "fig4c_structure_profiles.csv", index=False)
     _element_frequencies(
         {
             "Training set": training_elements,
-            "Base": base_elements,
-            "CFG": cfg_elements,
+            **{
+                method: generated[method][2]
+                for method in profile_methods
+            },
         }
     ).to_csv(OUTPUT / "fig4c_element_frequencies.csv", index=False)
 
     coordinates = _equal_tsne(
         {
             "Training set": training_features,
-            "Base": base_features,
-            "CFG": cfg_features,
+            **{
+                method: generated[method][1]
+                for method in profile_methods
+            },
         }
     )
     coordinates.to_csv(OUTPUT / "fig4b_tsne.csv", index=False)
@@ -394,7 +416,8 @@ def main() -> None:
     contract = {
         "seed": SEED,
         "generation_mode": "ab_initio_from_scratch",
-        "crystalpirl_status": "pending",
+        "policy_status": "GRPO+PIPO step-39 FE/BG checkpoints included; final CrystalPIRL pending",
+        "property_evaluator": "seed42 reward predictors for all generated methods",
         "fig4a": {
             "y": "valid joint target hits divided by all generated structures",
             "x": "mean pairwise Euclidean distance among CrystalNN structure fingerprints",
@@ -406,7 +429,7 @@ def main() -> None:
             "uncertainty": "none; seed=42 only",
         },
         "fig4b": {
-            "classes": ["Training set", "Base", "CFG-FE+BG"],
+            "classes": ["Training set", *profile_methods],
             "sampling": "equal-size random sample of valid structures per class",
             "sample_size_per_class": int(
                 coordinates["sample_size_per_method"].iloc[0]
@@ -417,11 +440,12 @@ def main() -> None:
             "claim_boundary": "visual embedding only; no quantitative coverage or divergence claim",
         },
         "fig4c": {
-            "classes": ["Training set", "Base", "CFG-FE+BG"],
+            "classes": ["Training set", *profile_methods],
             "sample_scope": "full available set for each class",
             "normalization": "element frequencies and categorical histograms normalized within each class; density curves normalized as probability density",
             "space_group": "training labels from MP-20; generated labels recomputed with pymatgen symprec=0.1 and angle_tolerance=5 degrees; 0 means unresolved",
             "panel_labels": ["c1 elements", "c2 n-ary composition", "c3 space group", "c4 atoms per cell", "c5 density"],
+            "num_atoms_result": "Base, CFG-FE+BG, GRPO+PIPO-FE step 39 and GRPO+PIPO-BG step 39 have exactly identical per-bin atom-count distributions",
         },
         "deferred": "representative structures will be shown with MLFF and DFT validation in a later figure",
     }

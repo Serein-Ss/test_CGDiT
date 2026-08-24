@@ -27,7 +27,7 @@ TRAIN_MP20 = ROOT / "data" / "mp_20" / "train.csv"
 BASE_ABINITIO = (
     ROOT / "output" / "singlerun" / "2026-06-27" / "00-32-50-mp20_base"
     / "evaluations" / "property_predictions"
-    / "eval_properties_gen_abinitio_empirical_uncond_n4096_seed42_predictor_seed123.csv"
+    / "eval_properties_gen_abinitio_empirical_uncond_n4096_seed42_predictor_seed42.csv"
 )
 BASE_STRUCTURAL_METRICS = (
     BASE_ABINITIO.parents[1]
@@ -37,10 +37,10 @@ BASE_STRUCTURAL_METRICS = (
 CFG_ABINITIO = {
     "formation_energy_per_atom": ROOT / "output" / "singlerun" / "2026-06-28"
     / "16-46-08-mp20_fe" / "evaluations" / "property_predictions"
-    / "eval_properties_gen_abinitio_empirical_fe_m1p5_n4096_seed42_predictor_seed123.csv",
+    / "eval_properties_gen_abinitio_empirical_fe_m1p5_n4096_seed42_predictor_seed42.csv",
     "band_gap": ROOT / "output" / "singlerun" / "2026-06-30" / "11-28-44-mp20_bg"
     / "evaluations" / "property_predictions"
-    / "eval_properties_gen_abinitio_empirical_bg_2_n4096_seed42_predictor_seed123.csv",
+    / "eval_properties_gen_abinitio_empirical_bg_2_n4096_seed42_predictor_seed42.csv",
 }
 JOINT_CFG_ABINITIO = (
     ROOT / "output" / "singlerun" / "2026-08-07" / "07-54-15-mp20_fe_bg"
@@ -52,6 +52,12 @@ JOINT_CFG_STRUCTURAL_METRICS = (
     / "structural_metrics"
     / "eval_metrics_gen_abinitio_empirical_fe_m1p5_bg_2_n4096_seed42.json"
 )
+PIPO_ABINITIO = {
+    "formation_energy_per_atom": ROOT
+    / "output/rl_generation/20260824-051136/fe/model/evaluations/property_predictions/eval_properties_gen_abinitio_empirical_rl_fe_m1p5_n4096_seed42_predictor_seed42.csv",
+    "band_gap": ROOT
+    / "output/rl_generation/20260824-051136/bg/model/evaluations/property_predictions/eval_properties_gen_abinitio_empirical_rl_bg_2_n4096_seed42_predictor_seed42.csv",
+}
 FIG3_QUALITY_METRICS = OUTPUT / "source" / "fig3_quality_metrics.csv"
 FIG4_TRADEOFF = OUTPUT / "source" / "fig4a_target_yield_diversity.csv"
 FIG4_TSNE = OUTPUT / "source" / "fig4b_tsne.csv"
@@ -75,13 +81,26 @@ COLORS = {
     "train": "#666666",
     "open": "#F28E2B",
     "pipo": "#8E6CBB",
-    "pirl": "#CC79A7",
+    "pipo_fe": "#D55E00",
+    "pipo_bg": "#CC79A7",
+    "pirl": "#7B61A8",
     "safe": "#269C8C",
     "warn": "#D9A441",
     "reject": "#C44E52",
     "ink": "#222222",
     "muted": "#767676",
     "pending": "#D9D9D9",
+}
+
+METHOD_COLORS = {
+    "Training set": COLORS["train"],
+    "Base": COLORS["base"],
+    "CFG": COLORS["cfg"],
+    "CFG-FE": "#009E73",
+    "CFG-BG": "#56B4E9",
+    "CFG-FE+BG": COLORS["cfg"],
+    "GRPO+PIPO-FE (step 39)": COLORS["pipo_fe"],
+    "GRPO+PIPO-BG (step 39)": COLORS["pipo_bg"],
 }
 
 mpl.rcParams.update(
@@ -591,10 +610,11 @@ def fig2() -> None:
 
 def _plotting_values(values: np.ndarray, property_name: str) -> np.ndarray:
     values = np.asarray(values, dtype=float)
-    keep = np.isfinite(values)
+    values = values[np.isfinite(values)]
     if property_name == "band_gap":
-        keep &= values <= BAND_GAP_MAX
-    return values[keep]
+        values = np.maximum(values, 0.0)
+        values = values[values <= BAND_GAP_MAX]
+    return values
 
 
 def _property_series(property_name: str) -> list[tuple[str, np.ndarray, str]]:
@@ -603,13 +623,41 @@ def _property_series(property_name: str) -> list[tuple[str, np.ndarray, str]]:
     for label, path, color in [
         ("Base", BASE_ABINITIO, COLORS["base"]),
         ("CFG", CFG_ABINITIO[property_name], COLORS["cfg"]),
+        (
+            "GRPO+PIPO (step 39)",
+            PIPO_ABINITIO[property_name],
+            COLORS["pipo_fe"]
+            if property_name == "formation_energy_per_atom"
+            else COLORS["pipo_bg"],
+        ),
     ]:
         frame = pd.read_csv(path)
         datasets.append((label, frame[f"predicted_{property_name}"].to_numpy(dtype=float), color))
-    return [
+    plotted = [
         (label, _plotting_values(values, property_name), color)
         for label, values, color in datasets
     ]
+    if property_name == "band_gap":
+        audit = []
+        for (label, raw_values, _), (_, plotted_values, _) in zip(datasets, plotted):
+            raw_values = np.asarray(raw_values, dtype=float)
+            finite = raw_values[np.isfinite(raw_values)]
+            audit.append(
+                {
+                    "method": label,
+                    "n_total": len(raw_values),
+                    "n_finite": len(finite),
+                    "n_clipped_below_zero_to_zero": int((finite < 0).sum()),
+                    "n_excluded_above_10_eV": int((finite > BAND_GAP_MAX).sum()),
+                    "n_plotted": len(plotted_values),
+                    "display_rule": "finite values; negative predictions clipped to 0 eV; values above 10 eV excluded",
+                }
+            )
+        pd.DataFrame(audit).to_csv(
+            OUTPUT / "source" / "fig3c_band_gap_plotting_audit.csv",
+            index=False,
+        )
+    return plotted
 
 def _property_kde(ax: plt.Axes, property_name: str) -> None:
     target, xlabel = {
@@ -644,6 +692,28 @@ def _available_quality_metrics() -> pd.DataFrame:
         if FIG3_QUALITY_METRICS.is_file()
         else pd.DataFrame()
     )
+    rate_columns = [
+        "compositional_validity",
+        "structural_validity",
+        "mp_hull_stability",
+        "sun",
+        "uniqueness",
+        "novelty_among_unique",
+    ]
+    if not evaluated.empty and set(rate_columns).issubset(evaluated.columns):
+        selected = evaluated[
+            evaluated["method"].isin(
+                [
+                    "Base",
+                    "CFG",
+                    "GRPO+PIPO-FE (step 39)",
+                    "GRPO+PIPO-BG (step 39)",
+                ]
+            )
+        ].copy()
+        selected[rate_columns] *= 100.0
+        return selected
+
     rows = []
     for method, metrics_path in [
         ("Base", BASE_STRUCTURAL_METRICS),
@@ -685,9 +755,10 @@ def _quality_metrics_frame(ax: plt.Axes) -> None:
     ax.set_ylabel("Rate (%)")
     values = _available_quality_metrics()
     positions = np.arange(len(metrics), dtype=float)
-    width = 0.32
-    for offset, row in zip((-width / 2, width / 2), values.itertuples()):
-        color = COLORS["base"] if row.method == "Base" else COLORS["cfg"]
+    width = min(0.18, 0.80 / len(values))
+    offsets = (np.arange(len(values)) - (len(values) - 1) / 2) * width
+    for offset, row in zip(offsets, values.itertuples()):
+        color = METHOD_COLORS[row.method]
         bar_values = [
             row.sun,
             row.uniqueness,
@@ -699,7 +770,8 @@ def _quality_metrics_frame(ax: plt.Axes) -> None:
         ax.bar(positions + offset, bar_values, width=width, color=color, label=row.method)
     ax.plot([], [], marker="s", linestyle="", color=COLORS["pirl"], label="CrystalPIRL (pending)")
     handles, labels = ax.get_legend_handles_labels()
-    order = [labels.index(label) for label in ["Base", "CFG", "CrystalPIRL (pending)"]]
+    order_labels = [*values["method"].tolist(), "CrystalPIRL (pending)"]
+    order = [labels.index(label) for label in order_labels]
     ax.legend(
         [handles[index] for index in order],
         [labels[index] for index in order],
@@ -714,6 +786,8 @@ def _joint_property_data() -> list[tuple[str, np.ndarray, np.ndarray, str]]:
         ("Training set", TRAIN_MP20, "formation_energy_per_atom", "band_gap", COLORS["train"]),
         ("Base", BASE_ABINITIO, "predicted_formation_energy_per_atom", "predicted_band_gap", COLORS["base"]),
         ("CFG", JOINT_CFG_ABINITIO, "predicted_formation_energy_per_atom", "predicted_band_gap", COLORS["cfg"]),
+        ("PIPO-FE step 39", PIPO_ABINITIO["formation_energy_per_atom"], "predicted_formation_energy_per_atom", "predicted_band_gap", COLORS["pipo_fe"]),
+        ("PIPO-BG step 39", PIPO_ABINITIO["band_gap"], "predicted_formation_energy_per_atom", "predicted_band_gap", COLORS["pipo_bg"]),
     ]
     datasets = []
     for label, path, fe_column, bg_column, color in specifications:
@@ -721,7 +795,7 @@ def _joint_property_data() -> list[tuple[str, np.ndarray, np.ndarray, str]]:
         fe = pd.to_numeric(frame[fe_column], errors="coerce").to_numpy(dtype=float)
         bg = pd.to_numeric(frame[bg_column], errors="coerce").to_numpy(dtype=float)
         valid = np.isfinite(fe) & np.isfinite(bg) & (bg <= BAND_GAP_MAX)
-        datasets.append((label, fe[valid], bg[valid], color))
+        datasets.append((label, fe[valid], np.maximum(bg[valid], 0.0), color))
     return datasets
 
 def _joint_property_density(ax: plt.Axes) -> None:
@@ -743,7 +817,7 @@ def _joint_property_density(ax: plt.Axes) -> None:
         density[density < 0.08] = 0.0
         rgba = np.empty((*density.T.shape, 4), dtype=float)
         rgba[..., :3] = mpl.colors.to_rgb(color)
-        rgba[..., 3] = 0.34 * np.sqrt(density.T)
+        rgba[..., 3] = 0.26 * np.sqrt(density.T)
         ax.imshow(rgba, extent=extent, origin="lower", aspect="auto", interpolation="bilinear")
         handles.append(
             Patch(facecolor=mpl.colors.to_rgba(color, 0.28), edgecolor="none", label=f"{label} (n={len(fe):,})")
@@ -786,22 +860,18 @@ def fig3() -> None:
 
 def _fig4_tradeoff(ax: plt.Axes) -> None:
     data = pd.read_csv(FIG4_TRADEOFF)
-    colors = {
-        "Base": COLORS["base"],
-        "CFG-FE": "#009E73",
-        "CFG-BG": "#56B4E9",
-        "CFG-FE+BG": COLORS["cfg"],
-    }
     offsets = {
         "Base": (4, 4),
         "CFG-FE": (4, -10),
         "CFG-BG": (4, 4),
         "CFG-FE+BG": (4, 4),
+        "GRPO+PIPO-FE (step 39)": (-4, -11),
+        "GRPO+PIPO-BG (step 39)": (-4, 4),
     }
     x = data["structure_diversity"].to_numpy(dtype=float)
     y = 100.0 * data["valid_joint_target_yield"].to_numpy(dtype=float)
     for row, x_value, y_value in zip(data.itertuples(), x, y):
-        color = colors[row.method]
+        color = METHOD_COLORS[row.method]
         ax.scatter(
             x_value,
             y_value,
@@ -811,13 +881,18 @@ def _fig4_tradeoff(ax: plt.Axes) -> None:
             linewidth=0.6,
             zorder=3,
         )
+        pipo = row.method.startswith("GRPO+PIPO")
+        display_label = row.method.replace("GRPO+", "").replace(
+            " (step 39)", " (s39)"
+        )
         ax.annotate(
-            row.method,
+            display_label,
             (x_value, y_value),
             xytext=offsets[row.method],
             textcoords="offset points",
             fontsize=5.5,
             color=color,
+            ha="right" if pipo else "left",
         )
     nondominated = [
         index
@@ -841,15 +916,12 @@ def _fig4_tradeoff(ax: plt.Axes) -> None:
         )
     ax.set_xlabel("Structural diversity (mean CrystalNN distance)")
     ax.set_ylabel("Valid joint-target yield (%)")
+    ax.margins(x=0.07, y=0.12)
     data_tag(ax, "real: seed=42; n=1,000; no CI", COLORS["warn"])
 
 
 def _fig4_tsne(ax: plt.Axes) -> None:
     data = pd.read_csv(FIG4_TSNE)
-    colors = {
-        "Base": COLORS["base"],
-        "CFG": COLORS["cfg"],
-    }
     training = data[data["method"] == "Training set"]
     x_min, x_max = data["tsne_1"].min(), data["tsne_1"].max()
     y_min, y_max = data["tsne_2"].min(), data["tsne_2"].max()
@@ -884,14 +956,20 @@ def _fig4_tsne(ax: plt.Axes) -> None:
             label=f"Training set density (n={len(training):,})",
         )
     ]
-    for method in ["Base", "CFG"]:
+    plotted_methods = [
+        "Base",
+        "CFG",
+        "GRPO+PIPO-FE (step 39)",
+        "GRPO+PIPO-BG (step 39)",
+    ]
+    for method in plotted_methods:
         frame = data[data["method"] == method]
         handle = ax.scatter(
             frame["tsne_1"],
             frame["tsne_2"],
             s=3.0,
             alpha=0.34,
-            color=colors[method],
+            color=METHOD_COLORS[method],
             linewidth=0,
             rasterized=True,
             label=f"{method} (n={len(frame):,})",
@@ -939,12 +1017,13 @@ def _fig4_distributions(fig: plt.Figure, spec) -> None:
     grid = spec.subgridspec(2, 3, wspace=0.45, hspace=0.60)
     profiles = pd.read_csv(FIG4_PROFILES)
     elements = pd.read_csv(FIG4_ELEMENTS)
-    methods = ["Training set", "Base", "CFG"]
-    colors = {
-        "Training set": COLORS["train"],
-        "Base": COLORS["base"],
-        "CFG": COLORS["cfg"],
-    }
+    methods = [
+        "Training set",
+        "Base",
+        "CFG",
+        "GRPO+PIPO-FE (step 39)",
+        "GRPO+PIPO-BG (step 39)",
+    ]
 
     ax = fig.add_subplot(grid[0, 0])
     panel(ax, "c1")
@@ -978,13 +1057,13 @@ def _fig4_distributions(fig: plt.Figure, spec) -> None:
     categories = [1, 2, 3, 4, 5]
     fractions = _group_fraction(nary, "nary_group", categories)
     positions = np.arange(len(categories), dtype=float)
-    width = 0.24
+    width = 0.15
     for index, method in enumerate(methods):
         ax.bar(
-            positions + (index - 1) * width,
+            positions + (index - (len(methods) - 1) / 2) * width,
             100.0 * fractions[method].to_numpy(),
             width=width,
-            color=colors[method],
+            color=METHOD_COLORS[method],
         )
     ax.set_xticks(positions, ["1", "2", "3", "4", "5+"])
     ax.set_xlabel("Number of elements")
@@ -1004,10 +1083,10 @@ def _fig4_distributions(fig: plt.Figure, spec) -> None:
     positions = np.arange(len(top_groups), dtype=float)
     for index, method in enumerate(methods):
         ax.bar(
-            positions + (index - 1) * width,
+            positions + (index - (len(methods) - 1) / 2) * width,
             100.0 * space_fractions[method].to_numpy(),
             width=width,
-            color=colors[method],
+            color=METHOD_COLORS[method],
         )
     ax.set_xticks(
         positions,
@@ -1023,18 +1102,61 @@ def _fig4_distributions(fig: plt.Figure, spec) -> None:
     panel(ax, "c4")
     maximum_atoms = int(profiles["num_atoms"].max())
     bins = np.arange(0.5, maximum_atoms + 1.5, 1.0)
-    for method in methods:
+    profile_order = [
+        "Training set",
+        "GRPO+PIPO-FE (step 39)",
+        "GRPO+PIPO-BG (step 39)",
+        "CFG",
+        "Base",
+    ]
+    line_styles = {
+        "Training set": "--",
+        "Base": "-",
+        "CFG": "-",
+        "GRPO+PIPO-FE (step 39)": ":",
+        "GRPO+PIPO-BG (step 39)": "-.",
+    }
+    generated_methods = [method for method in profile_order if method != "Training set"]
+    base_counts = profiles.loc[
+        profiles["method"] == "Base", "num_atoms"
+    ].value_counts().sort_index()
+    generated_counts_coincide = all(
+        base_counts.equals(
+            profiles.loc[
+                profiles["method"] == method, "num_atoms"
+            ].value_counts().sort_index()
+        )
+        for method in generated_methods
+    )
+    plotted_methods = (
+        ["Training set", "Base"]
+        if generated_counts_coincide
+        else profile_order
+    )
+    for method in plotted_methods:
         values = profiles.loc[profiles["method"] == method, "num_atoms"]
         ax.hist(
             values,
             bins=bins,
             density=True,
             histtype="step",
-            linewidth=1.0,
-            color=colors[method],
+            linewidth=1.15,
+            color=METHOD_COLORS[method],
+            linestyle=line_styles[method],
         )
     ax.set_xlabel("Atoms per cell")
     ax.set_ylabel("Probability")
+    if generated_counts_coincide:
+        ax.text(
+            0.98,
+            0.96,
+            "Base = CFG = PIPO-FE = PIPO-BG",
+            transform=ax.transAxes,
+            ha="right",
+            va="top",
+            fontsize=5.0,
+            color=COLORS["muted"],
+        )
 
     ax = fig.add_subplot(grid[1, 1:])
     panel(ax, "c5")
@@ -1052,7 +1174,7 @@ def _fig4_distributions(fig: plt.Figure, spec) -> None:
         ax.plot(
             density_grid,
             density,
-            color=colors[method],
+            color=METHOD_COLORS[method],
             linewidth=1.0,
             label=method,
         )
@@ -1060,14 +1182,14 @@ def _fig4_distributions(fig: plt.Figure, spec) -> None:
             density_grid,
             0,
             density,
-            color=colors[method],
+            color=METHOD_COLORS[method],
             alpha=0.10,
             linewidth=0,
         )
     ax.set_xlim(0, upper)
     ax.set_xlabel("Density (g cm^-3)")
     ax.set_ylabel("Probability density")
-    ax.legend(loc="best", fontsize=5.0)
+    ax.legend(loc="upper right", ncol=2, fontsize=5.0)
     ax.text(
         0.98,
         0.03,
@@ -1106,7 +1228,7 @@ def fig4() -> None:
 
     footer(
         fig,
-        "Panels a-c use seed=42 real data; CrystalPIRL, MLFF and DFT validation remain pending",
+        "Panels a-c include seed=42 GRPO+PIPO step-39 diagnostics; final CrystalPIRL, MLFF and DFT validation remain pending",
     )
     save(fig, "fig4_quality_search_space_blueprint.png")
 

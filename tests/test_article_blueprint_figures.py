@@ -74,6 +74,14 @@ def test_plotting_values_excludes_band_gaps_above_ten():
     np.testing.assert_allclose(result, [0.0, 2.0, 10.0])
 
 
+def test_plotting_values_clips_negative_band_gaps_to_zero():
+    values = np.asarray([-2.0, -0.1, 1.0])
+
+    result = plot_blueprints._plotting_values(values, "band_gap")
+
+    np.testing.assert_allclose(result, [0.0, 0.0, 1.0])
+
+
 def test_mp_hull_distance_compares_formation_energies_on_the_same_scale():
     structure = Structure(
         Lattice.cubic(4.0),
