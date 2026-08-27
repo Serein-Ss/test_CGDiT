@@ -1,0 +1,60 @@
+{
+  "dataset": "Magndata-Tc",
+  "target": "tc",
+  "target_unit": "K",
+  "source": "E:\\WORKSPACE\\CodePlace\\test_CGDiT\\pre_processing\\data\\magndata_tc.csv",
+  "source_sha256": "4902561b333aa1733713da55dfecbcb371f60c8e6b9b619c9f12f822f003767d",
+  "source_rows": 1297,
+  "standardization": "primitive cell followed by Niggli reduction",
+  "deduplication": "source already removes equivalent structures with identical Tc",
+  "max_primitive_atoms": 100,
+  "rejected_rows": 13,
+  "split_seed": 42,
+  "split_policy": "formula-grouped, group-median-Tc decile stratified, 8:1:1",
+  "formula_overlap": {
+    "train_val": 0,
+    "train_test": 0,
+    "val_test": 0
+  },
+  "target_stats_from_train_only": {
+    "mean": 99.35190615835778,
+    "std_ddof0": 147.49836824580123
+  },
+  "splits": {
+    "train": {
+      "rows": 1023,
+      "formula_groups": 830,
+      "tc_mean_k": 99.35190615835778,
+      "tc_std_k_ddof0": 147.49836824580123,
+      "tc_min_k": 0.0,
+      "tc_max_k": 1000.0,
+      "max_atoms": 100
+    },
+    "val": {
+      "rows": 122,
+      "formula_groups": 100,
+      "tc_mean_k": 89.98360655737704,
+      "tc_std_k_ddof0": 134.35382596311567,
+      "tc_min_k": 0.0,
+      "tc_max_k": 737.0,
+      "max_atoms": 96
+    },
+    "test": {
+      "rows": 139,
+      "formula_groups": 110,
+      "tc_mean_k": 108.25179856115108,
+      "tc_std_k_ddof0": 176.80669009467033,
+      "tc_min_k": 1.0,
+      "tc_max_k": 955.0,
+      "max_atoms": 80
+    }
+  },
+  "files": {
+    "all.csv": "8d060bb2321a84381e55fe3a67b224b04bc8b50eaa3f1666bdf943e1ac931d4b",
+    "rejected.csv": "217ad174ffbc2fa2ef22317f13ce6719e25d140260183d76ca7ccebd8ce81a2e",
+    "source_magndata_tc.csv": "4902561b333aa1733713da55dfecbcb371f60c8e6b9b619c9f12f822f003767d",
+    "test.csv": "1fc4bd9d1240db36f4eafa6a7cbb567804d725778284c0b9d68c75334a9bdecd",
+    "train.csv": "fa253579b031dd738d9efb85023d0774c6ad52f448d6ee3055a2420e5f8e0c1d",
+    "val.csv": "5ddcbb2714f2fd532db9c1bff5b22fd56507d2e5cf689133b4c2fd30f5467ff3"
+  }
+}

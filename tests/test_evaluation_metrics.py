@@ -17,14 +17,6 @@ def test_generation_metric_sampling_uses_explicit_seed():
     assert [crystal.identifier for crystal in evaluator.valid_samples] == expected.tolist()
 
 
-def test_generation_metric_sampling_clamps_to_small_valid_pool():
-    crystals = [SimpleNamespace(valid=True, identifier=index) for index in range(20)]
-
-    evaluator = GenEval(crystals, [], calc_prop=False, seed=7)
-
-    assert len(evaluator.valid_samples) == 20
-
-
 def test_load_data_accepts_path_objects(tmp_path):
     path = tmp_path / "generation.pt"
     torch.save({"value": torch.tensor([1.0])}, path)

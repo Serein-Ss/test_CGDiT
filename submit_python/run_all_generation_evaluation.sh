@@ -109,7 +109,11 @@ condition_args_for() {
 }
 
 generation_file_for() {
-    python -c 'import sys; from cgdit.common.output_paths import generation_output_path; print(generation_output_path(sys.argv[1], sys.argv[2]))' "$1" "$2"
+    python -c 'import sys; from cgdit.common.output_paths import resolve_generation_output_path; print(resolve_generation_output_path(sys.argv[1], sys.argv[2]))' "$1" "$2"
+}
+
+metrics_file_for() {
+    python -c 'import sys; from cgdit.common.output_paths import resolve_evaluation_output_path; print(resolve_evaluation_output_path(sys.argv[1], "structural_metrics", sys.argv[2]))' "$1" "$2"
 }
 
 run_generation() {
@@ -159,7 +163,8 @@ run_metrics() {
     local label="$3"
     local input_file
     input_file="$(generation_file_for "${model_path}" "${label}")"
-    local metrics_file="${model_path}/evaluations/structural_metrics/eval_metrics_gen_${label}.json"
+    local metrics_file
+    metrics_file="$(metrics_file_for "${input_file}" "eval_metrics_gen_${label}.json")"
 
     if [[ ! -s "${input_file}" ]]; then
         echo "[FAILED] Missing generation output for metrics: ${input_file}" \

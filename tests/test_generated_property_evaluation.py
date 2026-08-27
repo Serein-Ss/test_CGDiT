@@ -123,6 +123,25 @@ def test_generation_payload_uses_safe_tensor_loading(tmp_path):
     assert torch.equal(payload["atom_types"], torch.tensor([0, 13]))
 
 
+def test_generation_payload_supports_torch_without_safe_globals(
+    tmp_path, monkeypatch
+):
+    path = tmp_path / "legacy_generation.pt"
+    torch.save(
+        {
+            "eval_setting": argparse.Namespace(seed=123),
+            "atom_types": torch.tensor([7, 25]),
+        },
+        path,
+    )
+    monkeypatch.delattr(torch.serialization, "add_safe_globals", raising=False)
+
+    payload = load_generation_payload(path)
+
+    assert payload["eval_setting"].seed == 123
+    assert torch.equal(payload["atom_types"], torch.tensor([7, 25]))
+
+
 def test_graph_builder_canonicalizes_reordered_niggli_lattice():
     crystal = {
         "frac_coords": np.array([[0.0, 0.0, 0.0], [0.5, 0.5, 0.5]]),

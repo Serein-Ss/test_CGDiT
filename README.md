@@ -58,6 +58,15 @@ uv sync
 cp .env.template .env
 ```
 
+Alternatively, create the equivalent Conda environment from the fully pinned
+dependency list:
+
+```bash
+conda env create -f environment.yml
+conda activate cgdit
+cp .env.template .env
+```
+
 Set the paths in `.env`. The locked environment uses Python 3.10, PyTorch 2.4.1
 with CUDA 12.4, and matching PyG CUDA extensions. Run project commands through
 `uv run`:
@@ -97,3 +106,19 @@ uv run python -m scripts.cli.generation.generate_reconstruction --model_path <mo
 uv run python -m scripts.cli.evaluation.evaluate_metrics --root_path <model_path> --tasks gen --gt_file data/<dataset>/test.csv
 uv run --extra stability python -m scripts.cli.evaluation.evaluate_stability --input <eval_gen.pt> --train-csv data/<dataset>/train.csv
 ```
+
+Generated structures are stored under each model run in
+`generated_structures/<stage>/<method>/<conditioning>/`. Structural metrics,
+property predictions, and summaries are stored in the corresponding
+`evaluations/` tree. Legacy model-root outputs remain readable; to migrate an
+old `output/` tree, preview, apply, and verify the migration with:
+
+```bash
+uv run python -m scripts.cli.tools.migrate_output_layout
+uv run python -m scripts.cli.tools.migrate_output_layout --apply
+uv run python -m scripts.cli.tools.migrate_output_layout --verify
+```
+
+See [MAGNDATA_TC_AND_RL_GENERATION.md](MAGNDATA_TC_AND_RL_GENERATION.md) for
+the Magndata Tc benchmarks, high/low-Tc experts, gate classifier, and routed
+mixture-of-experts workflow.

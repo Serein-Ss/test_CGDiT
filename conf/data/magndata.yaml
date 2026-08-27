@@ -1,0 +1,82 @@
+root_path: ${oc.env:PROJECT_ROOT}/data/magndata
+
+prop: tc
+prop_list: [tc]
+num_targets: 1
+target_stats:
+  tc:
+    # Computed only from data/magndata/train.csv (split seed 42, ddof=0).
+    mean: 99.35190615835778
+    std: 147.49836824580123
+
+train_max_epochs: 200
+early_stopping_patience: 30
+
+# The packaged CSV files already contain primitive, Niggli-reduced structures.
+niggli: false
+primitive: false
+graph_method: crystalnn
+tolerance: 0.1
+max_atoms: 100
+use_space_group: false
+use_pos_index: false
+lattice_scale_method: scale_length
+preprocess_workers: 8
+eval_model_name: magndata_tc
+
+datamodule:
+  _target_: cgdit.pl_data.datamodule.CrystDataModule
+  datasets:
+    train:
+      _target_: cgdit.pl_data.dataset.CrystDataset
+      name: Magndata-Tc Train
+      path: ${data.root_path}/train.csv
+      save_path: ${data.root_path}/train_crystalnn.pt
+      prop: ${data.prop}
+      prop_list: ${data.prop_list}
+      niggli: ${data.niggli}
+      primitive: ${data.primitive}
+      graph_method: ${data.graph_method}
+      tolerance: ${data.tolerance}
+      use_space_group: ${data.use_space_group}
+      use_pos_index: ${data.use_pos_index}
+      lattice_scale_method: ${data.lattice_scale_method}
+      preprocess_workers: ${data.preprocess_workers}
+    val:
+      - _target_: cgdit.pl_data.dataset.CrystDataset
+        name: Magndata-Tc Validation
+        path: ${data.root_path}/val.csv
+        save_path: ${data.root_path}/val_crystalnn.pt
+        prop: ${data.prop}
+        prop_list: ${data.prop_list}
+        niggli: ${data.niggli}
+        primitive: ${data.primitive}
+        graph_method: ${data.graph_method}
+        tolerance: ${data.tolerance}
+        use_space_group: ${data.use_space_group}
+        use_pos_index: ${data.use_pos_index}
+        lattice_scale_method: ${data.lattice_scale_method}
+        preprocess_workers: ${data.preprocess_workers}
+    test:
+      - _target_: cgdit.pl_data.dataset.CrystDataset
+        name: Magndata-Tc Test
+        path: ${data.root_path}/test.csv
+        save_path: ${data.root_path}/test_crystalnn.pt
+        prop: ${data.prop}
+        prop_list: ${data.prop_list}
+        niggli: ${data.niggli}
+        primitive: ${data.primitive}
+        graph_method: ${data.graph_method}
+        tolerance: ${data.tolerance}
+        use_space_group: ${data.use_space_group}
+        use_pos_index: ${data.use_pos_index}
+        lattice_scale_method: ${data.lattice_scale_method}
+        preprocess_workers: ${data.preprocess_workers}
+  num_workers:
+    train: 0
+    val: 0
+    test: 0
+  batch_size:
+    train: 8
+    val: 8
+    test: 8

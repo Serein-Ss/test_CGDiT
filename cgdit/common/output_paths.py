@@ -43,11 +43,28 @@ def generation_output_path(model_root: str | Path, label: str) -> Path:
     )
 
 
+def resolve_generation_output_path(model_root: str | Path, label: str) -> Path:
+    """Return an existing generation result, preferring the organized layout.
+
+    Historical runs stored ``eval_gen_*.pt`` directly in the model directory.
+    This read-only fallback avoids recomputing completed experiments while all
+    newly written results continue to use ``generated_structures/``.
+    """
+    canonical = generation_output_path(model_root, label)
+    if canonical.exists():
+        return canonical
+    legacy_name = f"eval_gen_{label}.pt" if label else "eval_gen.pt"
+    legacy = Path(model_root) / legacy_name
+    return legacy if legacy.exists() else canonical
+
+
 def model_root_from_generation(generation_path: str | Path) -> Path:
     path = Path(generation_path)
     for parent in path.parents:
         if parent.name == "generated_structures":
             return parent.parent
+    if path.suffix == ".pt" and path.name.startswith("eval_gen"):
+        return path.parent
     raise ValueError(f"Generation file is outside generated_structures/: {path}")
 
 
@@ -58,6 +75,19 @@ def evaluation_output_path(
 ) -> Path:
     model_root = model_root_from_generation(generation_path)
     return model_root / "evaluations" / category / filename
+
+
+def resolve_evaluation_output_path(
+    generation_path: str | Path,
+    category: str,
+    filename: str,
+) -> Path:
+    """Return an existing evaluation result from either output layout."""
+    canonical = evaluation_output_path(generation_path, category, filename)
+    if canonical.exists():
+        return canonical
+    legacy = model_root_from_generation(generation_path) / filename
+    return legacy if legacy.exists() else canonical
 
 
 def provenance_path(path: str | Path) -> str:

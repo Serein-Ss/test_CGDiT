@@ -26,9 +26,9 @@ from cgdit.common.evaluation_utils import (
     load_config, load_data, get_crystals_list, prop_model_eval, compute_cov)
 from cgdit.common.output_paths import (
     evaluation_output_path,
-    generation_output_path,
     provenance_path,
     record_evaluation_metric,
+    resolve_generation_output_path,
 )
 
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
@@ -179,13 +179,14 @@ class GenEval(object):
         self.seed = seed
 
         valid_crys = [c for c in pred_crys if c.valid]
-        if not valid_crys:
-            raise Exception('no valid crystals in the predicted set')
-        n_samples = min(n_samples, len(valid_crys))
-        rng = np.random.default_rng(seed)
-        sampled_indices = rng.choice(
-            len(valid_crys), n_samples, replace=False)
-        self.valid_samples = [valid_crys[i] for i in sampled_indices]
+        if len(valid_crys) >= n_samples:
+            rng = np.random.default_rng(seed)
+            sampled_indices = rng.choice(
+                len(valid_crys), n_samples, replace=False)
+            self.valid_samples = [valid_crys[i] for i in sampled_indices]
+        else:
+            raise Exception(
+                f'not enough valid crystals in the predicted set: {len(valid_crys)}/{n_samples}')
 
     def get_validity(self):
         comp_valid = np.array([c.comp_valid for c in self.crys]).mean()
@@ -387,7 +388,7 @@ def main(args):
 
     if 'gen' in args.tasks:
 
-        gen_file_path = generation_output_path(args.root_path, args.label)
+        gen_file_path = resolve_generation_output_path(args.root_path, args.label)
         recon_file_path = get_file_paths(args.root_path, 'recon', args.label)
         crys_array_list, _ = get_crystal_array_list(gen_file_path, batch_idx=-2)
 

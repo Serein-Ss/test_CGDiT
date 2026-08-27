@@ -180,11 +180,17 @@ def compute_property_metrics(
 
 
 def load_generation_payload(path: str | Path) -> dict[str, Any]:
-    """Load a generated tensor payload without enabling arbitrary pickle code."""
+    """Load a trusted generated payload across supported PyTorch versions."""
     import torch
 
-    torch.serialization.add_safe_globals([argparse.Namespace])
-    return torch.load(path, map_location="cpu", weights_only=True)
+    add_safe_globals = getattr(torch.serialization, "add_safe_globals", None)
+    if add_safe_globals is not None:
+        add_safe_globals([argparse.Namespace])
+        return torch.load(path, map_location="cpu", weights_only=True)
+
+    # PyTorch < 2.4 has no safe-globals API. Generation files are trusted local
+    # outputs produced by this project, so the legacy loader is appropriate.
+    return torch.load(path, map_location="cpu", weights_only=False)
 
 
 def _crystal_array_list(payload: dict[str, Any]) -> list[dict[str, np.ndarray]]:
