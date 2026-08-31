@@ -4,7 +4,7 @@ set -Eeuo pipefail
 
 PROJECT_ROOT="${PROJECT_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
 RUN_ID="${1:?Usage: bash submit/pack_rl_fe_pilot_results.sh RUN_ID}"
-LOG_ROOT="${PROJECT_ROOT}/logs/remote_rl/${RUN_ID}"
+LOG_ROOT="${PROJECT_ROOT}/logs/reinforcement_learning/local_runs/${RUN_ID}"
 LAUNCH_MANIFEST="${LOG_ROOT}/launch_manifest.txt"
 
 if [[ ! -f "${LAUNCH_MANIFEST}" ]]; then

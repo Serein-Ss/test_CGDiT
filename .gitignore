@@ -1,5 +1,6 @@
 __pycache__/
-output/
+output/*
+!output/README.md
 wandb/
 assets/
 
@@ -13,7 +14,8 @@ assets/
 *.zip
 *.tar.gz
 *.log
-logs/
+logs/*
+!logs/README.md
 tmp/
 *.pt
 *.ckpt

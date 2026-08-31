@@ -13,6 +13,7 @@ import torch
 from omegaconf import OmegaConf
 
 from cgdit.common.evaluation_utils import load_model
+from cgdit.rl.config import load_rl_config
 from cgdit.rl.objectives import group_relative_advantages
 from cgdit.rl.policy_improvement import decide_reward_improvement
 from cgdit.rl.trainer import DiffusionPolicyObjective
@@ -104,7 +105,7 @@ def _required_config(config: Any) -> None:
 
 def main() -> None:
     cli = parse_args()
-    config = OmegaConf.load(cli.train_config)
+    config = load_rl_config(cli.train_config)
     _required_config(config)
     property_key = str(config.property)
     algorithm = str(config.algorithm)

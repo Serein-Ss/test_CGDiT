@@ -8,6 +8,7 @@ import json
 import os
 import random
 import shutil
+from datetime import datetime
 from pathlib import Path
 from types import SimpleNamespace
 from typing import Any
@@ -19,6 +20,7 @@ from torch_geometric.data import Batch
 
 from cgdit.common.evaluation_utils import load_model
 from cgdit.evaluation.generated_properties import resolve_checkpoint
+from cgdit.rl.config import load_rl_config
 from cgdit.rl.objectives import group_relative_advantages
 from cgdit.rl.pipo import normalize_group_attributions, pipo_feedback
 from cgdit.rl.paired_probe import paired_policy_rollout
@@ -43,7 +45,7 @@ PROPERTY_NAMES = {
 def _config_defaults(path: Path | None) -> dict[str, Any]:
     if path is None:
         return {}
-    config = OmegaConf.to_container(OmegaConf.load(path), resolve=True)
+    config = OmegaConf.to_container(load_rl_config(path), resolve=True)
     if not isinstance(config, dict):
         raise ValueError(f"Training config must contain a mapping: {path}")
     return config
@@ -61,12 +63,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--reward-contract",
         type=Path,
-        default=Path("conf/rl/reward_closed_loop_mp20.yaml"),
+        default=Path("conf/rl/components/rewards/contracts/mp20.yaml"),
     )
     parser.add_argument(
         "--reward-registry",
         type=Path,
-        default=Path("conf/rl/reward_models_mp20.yaml"),
+        default=Path("conf/rl/components/rewards/registries/mp20.yaml"),
     )
     parser.add_argument("--property", choices=PROPERTY_NAMES, default="fe")
     parser.add_argument("--algorithm", choices=("ppo", "grpo"), default="grpo")
@@ -80,7 +82,7 @@ def parse_args() -> argparse.Namespace:
         action=argparse.BooleanOptionalAction,
         default=False,
     )
-    parser.add_argument("--output-root", type=Path, default=Path("output/rl_finetune"))
+    parser.add_argument("--output-root", type=Path, default=Path("output/reinforcement_learning"))
     parser.add_argument("--run-kind", choices=("train", "test"), default="train")
     parser.add_argument("--num-prompts", type=int, default=1)
     parser.add_argument("--group-size", type=int, default=4)
@@ -1019,7 +1021,13 @@ def _append_jsonl(path: Path, record: dict[str, Any]) -> None:
 def _run_output_paths(
     output_root: Path, run_name: str, run_kind: str
 ) -> tuple[Path, Path]:
-    run_root = output_root / run_name
+    if output_root == Path("output/reinforcement_learning"):
+        if run_kind == "test":
+            output_root = Path("output/test/reinforcement_learning")
+        stamp = datetime.now().strftime("%Y-%m-%d/%H-%M-%S")
+        run_root = output_root / f"{stamp}-{run_name}"
+    else:
+        run_root = output_root / run_name
     return run_root / "model", run_root / f"{run_kind}_results"
 
 

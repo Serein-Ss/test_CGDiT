@@ -215,8 +215,8 @@ conda activate cgdit
 bash -n submit/run_rl_target_generation.sh
 bash -n submit_python/run_rl_target_generation.sh
 
-FE_RL_MODEL_PATH="output/rl_finetune/seed42_grpo_pipo_probe32/668001/grpo_fe_seed42_pipo/model" \
-BG_RL_MODEL_PATH="output/rl_finetune/seed42_grpo_pipo_probe32/668001/grpo_bg_seed42_pipo/model" \
+FE_RL_MODEL_PATH="output/reinforcement_learning/2026-08-23/21-47-35-grpo-pipo-probe32/grpo_fe_seed42_pipo/model" \
+BG_RL_MODEL_PATH="output/reinforcement_learning/2026-08-23/21-47-35-grpo-pipo-probe32/grpo_bg_seed42_pipo/model" \
 FE_TARGET_VALUE="-1.5" \
 BG_TARGET_VALUE="2.0" \
 GPU_ID=0 \
@@ -245,7 +245,7 @@ bash submit/check_rl_target_generation.sh
 结果位于：
 
 ```text
-output/rl_generation/<RUN_ID>/
+output/reinforcement_learning/<YYYY-MM-DD>/<HH-MM-SS-EXPERIMENT>/
 ├── fe/
 │   ├── model/generated_structures/ 和 evaluations/
 │   ├── property_summary_seed42/

@@ -209,12 +209,12 @@ Diffusion-DPO 等方法使用 winner–loser 样本对进行离线优化，不�
 
 相关配置：
 
-- `conf/model/diffusion.yaml`
-- `conf/model/exp_mp20_fe.yaml`
-- `conf/model/exp_mp20_bg.yaml`
-- `conf/model/exp_mp20_eh.yaml`
-- `conf/model/exp_mp20_fe_bg_eh.yaml`
-- `conf/model/exp_mp20_fe_bg_eh_multimodal.yaml`
+- `conf/model/experiments/diffusion.yaml`
+- `conf/model/experiments/exp_mp20_fe.yaml`
+- `conf/model/experiments/exp_mp20_bg.yaml`
+- `conf/model/experiments/exp_mp20_eh.yaml`
+- `conf/model/experiments/exp_mp20_fe_bg_eh.yaml`
+- `conf/model/experiments/exp_mp20_fe_bg_eh_multimodal.yaml`
 
 因此强化学习实验必须与当前条件生成和 CFG 进行公平比较，不能只与无条件模型比较。
 
@@ -223,7 +223,7 @@ Diffusion-DPO 等方法使用 winner–loser 样本对进行离线优化，不�
 仓库包含 M3GNet surrogate 和直接结构预测接口：
 
 - `cgdit/prop_models/gnn_models/m3gnet.py`
-- `conf/model/m3gnet.yaml`
+- `conf/model/property_predictors/m3gnet/regression.yaml`
 - `scripts/predict_property.py`
 
 当前脚本可以作为奖励模型接口原型，但在正式 RL 中不能直接把单个 surrogate 同时作为训练奖励和最终评价器。

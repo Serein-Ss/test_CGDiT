@@ -1,0 +1,8 @@
+defaults:
+- /model/property_predictors/backbone@_here_: diffusion_cspnet
+- _self_
+_target_: cgdit.prop_models.tc_classifier.DiffusionBackboneBinaryClassifier
+target_prop: ${data.prop}
+target_mean: 0.0
+target_std: 1.0
+pos_weight: 1.0

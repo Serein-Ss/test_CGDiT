@@ -1,0 +1,18 @@
+includes:
+- ../components/runtime/base.yaml
+- ../components/algorithms/grpo.yaml
+- ../components/methods/pipo.yaml
+- ../components/optimization/policy.yaml
+- ../components/validation/dual_baseline.yaml
+reward_contract: conf/rl/components/rewards/contracts/mp20_seed42_pilot.yaml
+property: joint
+run_kind: train
+num_prompts: 4
+group_size: 16
+probe_num_prompts: 32
+probe_group_size: 1
+updates: 200
+checkpoint_every: 20
+short_diff_ratio: 1.0
+predictor_batch_size: 8
+max_prompt_atoms: 52

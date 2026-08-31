@@ -104,17 +104,17 @@ run_arm() {
     )
 
     if [[ "${method}" == "m3gnet_scratch" ]]; then
-        python cgdit/run.py model=m3gnet "${common_args[@]}" > "${run_log}" 2>&1
+        python cgdit/run.py model=property_predictors/m3gnet/tc_regressor "${common_args[@]}" > "${run_log}" 2>&1
     elif [[ "${method}" == "diffusion_scratch" ]]; then
-        python cgdit/run.py model=prop_models/tc \
+        python cgdit/run.py model=property_predictors/diffusion_cspnet/tc_regressor \
             model.pretrained_model_path=null \
             "${common_args[@]}" > "${run_log}" 2>&1
     elif [[ "${method}" == "diffusion_base_pretrained" ]]; then
-        python cgdit/run.py model=prop_models/tc \
+        python cgdit/run.py model=property_predictors/diffusion_cspnet/tc_regressor \
             "model.pretrained_model_path=${BASE_PRETRAINED_DIFFUSION_MODEL}" \
             "${common_args[@]}" > "${run_log}" 2>&1
     elif [[ "${method}" == "diffusion_joint_pretrained" ]]; then
-        python cgdit/run.py model=prop_models/tc \
+        python cgdit/run.py model=property_predictors/diffusion_cspnet/tc_regressor \
             "model.pretrained_model_path=${JOINT_PRETRAINED_DIFFUSION_MODEL}" \
             "${common_args[@]}" > "${run_log}" 2>&1
     else

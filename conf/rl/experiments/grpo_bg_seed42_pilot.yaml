@@ -1,0 +1,17 @@
+includes:
+- ../components/runtime/base.yaml
+- ../components/algorithms/grpo.yaml
+- ../components/methods/plain.yaml
+- ../components/optimization/policy.yaml
+- ../components/validation/dual_baseline.yaml
+reward_contract: conf/rl/components/rewards/contracts/mp20_seed42_pilot.yaml
+property: bg
+audit_policy_updates: true
+run_kind: train
+num_prompts: 2
+group_size: 32
+probe_num_prompts: 64
+probe_group_size: 1
+updates: 8
+short_diff_ratio: 1.0
+predictor_batch_size: 8

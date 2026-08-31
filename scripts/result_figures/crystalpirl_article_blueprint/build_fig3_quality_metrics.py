@@ -70,16 +70,16 @@ METHODS = (
     MethodFiles(
         method="GRPO+PIPO-FE (step 39)",
         generation=ROOT
-        / "output/rl_generation/20260824-051136/fe/model/generated_structures/formal/abinitio_empirical/conditional/eval_gen_abinitio_empirical_rl_fe_m1p5_n4096_seed42.pt",
+        / "output/reinforcement_learning/2026-08-24/05-11-36-rl-target-generation/grpo_fe_seed42_pipo/model/generated_structures/formal/abinitio_empirical/conditional/eval_gen_abinitio_empirical_rl_fe_m1p5_n4096_seed42.pt",
         predictions=ROOT
-        / "output/rl_generation/20260824-051136/fe/model/evaluations/property_predictions/eval_properties_gen_abinitio_empirical_rl_fe_m1p5_n4096_seed42_predictor_seed42.csv",
+        / "output/reinforcement_learning/2026-08-24/05-11-36-rl-target-generation/grpo_fe_seed42_pipo/model/evaluations/property_predictions/eval_properties_gen_abinitio_empirical_rl_fe_m1p5_n4096_seed42_predictor_seed42.csv",
     ),
     MethodFiles(
         method="GRPO+PIPO-BG (step 39)",
         generation=ROOT
-        / "output/rl_generation/20260824-051136/bg/model/generated_structures/formal/abinitio_empirical/conditional/eval_gen_abinitio_empirical_rl_bg_2_n4096_seed42.pt",
+        / "output/reinforcement_learning/2026-08-24/05-11-36-rl-target-generation/grpo_bg_seed42_pipo/model/generated_structures/formal/abinitio_empirical/conditional/eval_gen_abinitio_empirical_rl_bg_2_n4096_seed42.pt",
         predictions=ROOT
-        / "output/rl_generation/20260824-051136/bg/model/evaluations/property_predictions/eval_properties_gen_abinitio_empirical_rl_bg_2_n4096_seed42_predictor_seed42.csv",
+        / "output/reinforcement_learning/2026-08-24/05-11-36-rl-target-generation/grpo_bg_seed42_pipo/model/evaluations/property_predictions/eval_properties_gen_abinitio_empirical_rl_bg_2_n4096_seed42_predictor_seed42.csv",
     ),
 )
 

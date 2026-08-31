@@ -9,16 +9,18 @@
 #SBATCH --mem=48G
 #SBATCH --time=03:00:00
 #SBATCH --array=0-11%8
-#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-quick8h-generate-%A_%a.out
-#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-quick8h-generate-%A_%a.err
+#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/structure_generation/reinforcement_learning/slurm/zrs-gen-rl-quick8h-generate-%A_%a.out
+#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/structure_generation/reinforcement_learning/slurm/zrs-gen-rl-quick8h-generate-%A_%a.err
 
 set -Eeuo pipefail
 : "${TRAIN_RUN_ID:?TRAIN_RUN_ID must identify the quick8h training array}"
 
 PROJECT_ROOT="/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT"
 PYTHON="${PROJECT_ROOT}/.venv/bin/python"
-TRAIN_ROOT="${PROJECT_ROOT}/output/rl_finetune/quick8h_seed42/${TRAIN_RUN_ID}"
-AUDIT_ROOT="${PROJECT_ROOT}/output/rl_diagnostics/${SLURM_ARRAY_JOB_ID}-quick8h-generate/task_${SLURM_ARRAY_TASK_ID}"
+source "${PROJECT_ROOT}/submit_python/rl_output_layout.sh"
+: "${RUN_ID:?RUN_ID must be exported by the launcher}"
+TRAIN_ROOT="$(rl_run_root "${PROJECT_ROOT}" test/reinforcement_learning quick8h-seed42 "${RUN_ID}")"
+AUDIT_ROOT="${TRAIN_ROOT}/diagnostics/generation/task_${SLURM_ARRAY_TASK_ID}"
 MANIFEST="${AUDIT_ROOT}/manifest.txt"
 FE_EVALUATOR="${PROJECT_ROOT}/output/singlerun/2026-08-20/20-24-50-mp20_predictor_fe_seed123"
 BG_EVALUATOR="${PROJECT_ROOT}/output/singlerun/2026-08-21/08-37-12-mp20_predictor_bg_seed123"
@@ -53,7 +55,7 @@ TEMPLATE_LABEL="template_uncond_policy_${TARGET_LABEL}_n${TOTAL_SAMPLES}_seed42"
 ABINITIO_LABEL="abinitio_empirical_uncond_policy_${TARGET_LABEL}_n${TOTAL_SAMPLES}_seed42"
 
 cd "${PROJECT_ROOT}"
-mkdir -p "${AUDIT_ROOT}" logs/rl
+mkdir -p "${AUDIT_ROOT}" logs/structure_generation/reinforcement_learning/slurm
 test -s "${MODEL_DIR}/hparams.yaml"
 
 record_failure() {

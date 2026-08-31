@@ -1,0 +1,16 @@
+defaults:
+- /model/diffusion@_here_: standard
+- /model/diffusion/decoder@decoder: cspnet
+- /model/diffusion/beta@beta_scheduler: cosine
+- /model/diffusion/sigma@sigma_scheduler: wrapped
+- /model/diffusion/d3pm@d3pm_scheduler: standard
+- _self_
+conditions:
+  formation_energy_per_atom:
+    type: scalar
+    scale: 1.029374
+    shift: -1.219803
+  band_gap:
+    type: scalar
+    scale: 1.417749
+    shift: 0.791848

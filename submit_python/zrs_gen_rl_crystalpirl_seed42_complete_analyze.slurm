@@ -8,8 +8,8 @@
 #SBATCH --gres=gpu:1
 #SBATCH --mem=96G
 #SBATCH --time=2-00:00:00
-#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-crystalpirl-seed42-complete-analysis-%j.out
-#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-crystalpirl-seed42-complete-analysis-%j.err
+#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/metric_evaluation/reinforcement_learning/slurm/zrs-gen-rl-crystalpirl-seed42-complete-analysis-%j.out
+#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/metric_evaluation/reinforcement_learning/slurm/zrs-gen-rl-crystalpirl-seed42-complete-analysis-%j.err
 
 set -Eeuo pipefail
 
@@ -21,10 +21,10 @@ set -Eeuo pipefail
 
 PROJECT_ROOT="/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT"
 PYTHON="${PROJECT_ROOT}/.venv/bin/python"
-PIPO_FE_BG_ROOT="${PROJECT_ROOT}/output/rl_finetune/seed42_grpo_pipo_probe32_resume60/${PIPO_FE_BG_JOB}"
-PIPO_JOINT_ROOT="${PROJECT_ROOT}/output/rl_finetune/seed42_grpo_pipo_joint_max60/${PIPO_JOINT_JOB}"
-CRYSTALPIRL_ROOT="${PROJECT_ROOT}/output/rl_finetune/seed42_crystalpirl_block10_200step/${CRYSTALPIRL_TRAIN_JOB}"
-ANALYSIS_ROOT="${PROJECT_ROOT}/output/rl_analysis/seed42_crystalpirl_complete/${SLURM_JOB_ID}"
+PIPO_FE_BG_ROOT="${PIPO_FE_BG_ROOT:-${PROJECT_ROOT}/output/reinforcement_learning/2026-08-24/20-57-12-grpo-pipo-probe32-resume60}"
+PIPO_JOINT_ROOT="${PIPO_JOINT_ROOT:-${PROJECT_ROOT}/output/reinforcement_learning/2026-08-24/20-57-12-grpo-pipo-joint-max60}"
+: "${CRYSTALPIRL_ROOT:?CRYSTALPIRL_ROOT must point to the completed CrystalPIRL run}"
+ANALYSIS_ROOT="${CRYSTALPIRL_ROOT}/analysis/complete"
 SOURCE_DIR="${ANALYSIS_ROOT}/source_data"
 ASSET_DIR="${PROJECT_ROOT}/assets/crystalpirl_seed42_complete"
 MANIFEST="${ANALYSIS_ROOT}/analysis_manifest.txt"
@@ -35,7 +35,7 @@ export PYTHONUNBUFFERED=1
 export MPLBACKEND=Agg
 
 cd "${PROJECT_ROOT}"
-mkdir -p "${ANALYSIS_ROOT}" logs/rl
+mkdir -p "${ANALYSIS_ROOT}" logs/metric_evaluation/reinforcement_learning/slurm
 test -x "${PYTHON}"
 test -f "${VALIDATOR}"
 test ! -e "${SOURCE_DIR}"

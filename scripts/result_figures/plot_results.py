@@ -237,7 +237,9 @@ def calibration_points(targets: np.ndarray, predictions: np.ndarray, bins: int =
 
 
 def load_predictor_runs(project_root: Path) -> dict[str, list[dict]]:
-    config_path = project_root / "conf/rl/reward_models_mp20.yaml"
+    config_path = (
+        project_root / "conf/rl/components/rewards/registries/mp20.yaml"
+    )
     config = yaml.safe_load(config_path.read_text())
     output = {}
     for prop in ("formation_energy_per_atom", "band_gap"):

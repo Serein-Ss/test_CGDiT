@@ -11,6 +11,7 @@ import torch
 from omegaconf import OmegaConf
 
 from cgdit.common.evaluation_utils import load_model
+from cgdit.rl.config import load_rl_config
 from scripts.cli.training.train_crystal_rl import (
     _adapter,
     _evaluate_final_policy,
@@ -33,7 +34,7 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     cli = parse_args()
     config = OmegaConf.to_container(
-        OmegaConf.load(cli.train_config), resolve=True
+        load_rl_config(cli.train_config), resolve=True
     )
     if not isinstance(config, dict):
         raise ValueError("Training configuration must be a mapping")

@@ -5,9 +5,11 @@ set -Eeuo pipefail
 PROJECT_ROOT="${PROJECT_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
 TRAIN_FE_BG_JOB="${1:-668028}"
 TRAIN_JOINT_JOB="${2:-668029}"
+FE_BG_ROOT="${FE_BG_ROOT:-${PROJECT_ROOT}/output/reinforcement_learning/2026-08-24/20-57-12-grpo-pipo-probe32-resume60}"
+JOINT_ROOT="${JOINT_ROOT:-${PROJECT_ROOT}/output/reinforcement_learning/2026-08-24/20-57-12-grpo-pipo-joint-max60}"
 
 cd "${PROJECT_ROOT}"
-mkdir -p logs/rl output/rl_diagnostics
+mkdir -p "${FE_BG_ROOT}/diagnostics" logs/structure_generation/reinforcement_learning/slurm logs/metric_evaluation/reinforcement_learning/slurm
 
 for job_id in "${TRAIN_FE_BG_JOB}" "${TRAIN_JOINT_JOB}"; do
     if ! scontrol show job "${job_id}" >/dev/null 2>&1; then
@@ -18,10 +20,10 @@ done
 
 generation_job="$(${SBATCH:-sbatch} --parsable \
     --dependency="afterok:${TRAIN_FE_BG_JOB}:${TRAIN_JOINT_JOB}" \
-    --export="ALL,TRAIN_FE_BG_JOB=${TRAIN_FE_BG_JOB},TRAIN_JOINT_JOB=${TRAIN_JOINT_JOB}" \
+    --export="ALL,TRAIN_FE_BG_JOB=${TRAIN_FE_BG_JOB},TRAIN_JOINT_JOB=${TRAIN_JOINT_JOB},FE_BG_ROOT=${FE_BG_ROOT},JOINT_ROOT=${JOINT_ROOT}" \
     submit_python/zrs_gen_rl_pipo_seed42_generate_array.slurm)"
 
-manifest="output/rl_diagnostics/seed42_pipo_postprocess_latest.txt"
+manifest="${FE_BG_ROOT}/diagnostics/postprocess_submission_manifest.txt"
 {
     echo "submitted_at=$(date '+%Y-%m-%d %H:%M:%S %z')"
     echo "scope=seed42_grpo_pipo_fe_bg_joint_generation_and_evaluation"
@@ -37,5 +39,5 @@ manifest="output/rl_diagnostics/seed42_pipo_postprocess_latest.txt"
 echo "Submitted seed=42 GRPO+PIPO post-processing."
 echo "Prerequisites: ${TRAIN_FE_BG_JOB}, ${TRAIN_JOINT_JOB}"
 echo "Generation/evaluation array: ${generation_job}"
-echo "Manifest: ${PROJECT_ROOT}/${manifest}"
+echo "Manifest: ${manifest}"
 echo "This produces PIPO comparator data; it is not labeled as CrystalPIRL."

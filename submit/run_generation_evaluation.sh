@@ -6,9 +6,9 @@ PROJECT_ROOT="/root/private_data/rszhong/workspace/test_CGDiT"
 cd "${PROJECT_ROOT}"
 
 WORKER="submit_python/run_all_generation_evaluation.sh"
-LOG_FILE="logs/all_generation_evaluation_main.log"
+LOG_FILE="logs/other/orchestration/generation_evaluation/main.log"
 
-mkdir -p logs
+mkdir -p "$(dirname "${LOG_FILE}")"
 bash -n "${WORKER}"
 
 nohup bash "${WORKER}" > "${LOG_FILE}" 2>&1 < /dev/null &

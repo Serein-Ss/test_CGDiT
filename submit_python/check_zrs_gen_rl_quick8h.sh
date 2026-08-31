@@ -3,7 +3,7 @@
 set -Eeuo pipefail
 
 PROJECT_ROOT="${PROJECT_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
-MANIFEST="${1:-${PROJECT_ROOT}/output/rl_diagnostics/quick8h_pipeline_latest.txt}"
+MANIFEST="${1:-${PROJECT_ROOT}/output/test/reinforcement_learning/2026-08-23/15-40-35-quick8h-seed42/submission_manifest.txt}"
 test -s "${MANIFEST}"
 
 job_ids=()

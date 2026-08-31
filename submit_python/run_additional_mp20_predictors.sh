@@ -19,13 +19,13 @@ SEEDS=(123 2026 3407)
 PROPERTIES=(formation_energy_per_atom band_gap e_above_hull)
 MODEL_NAMES=(fe bg eh)
 
-LOG_DIR="${PROJECT_ROOT}/logs/mp20_predictors_multiseed"
+LOG_DIR="${PROJECT_ROOT}/logs/property_predictor_training/mp20_multiseed"
 mkdir -p "${LOG_DIR}" "${WANDB_DIR}"
 
 # Share the lock with the original predictor-training script so two training
 # jobs cannot accidentally compete for the same GPU.
 if command -v flock >/dev/null 2>&1; then
-    exec 9>"${PROJECT_ROOT}/logs/mp20_predictors/run.lock"
+    exec 9>"${PROJECT_ROOT}/logs/property_predictor_training/mp20_seed42/run.lock"
     if ! flock -n 9; then
         echo "Another MP-20 predictor training run is already active." >&2
         exit 1
@@ -69,7 +69,7 @@ for seed in "${SEEDS[@]}"; do
 
         uv run --locked python cgdit/run.py \
             data=mp_20_surrogate \
-            model=m3gnet \
+            model=property_predictors/m3gnet/regression \
             "data.prop=${prop}" \
             "data.train_max_epochs=${MAX_EPOCHS}" \
             "data.datamodule.batch_size.train=${TRAIN_BATCH_SIZE}" \

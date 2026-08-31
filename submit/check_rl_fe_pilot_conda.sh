@@ -4,7 +4,7 @@ set -Eeuo pipefail
 
 PROJECT_ROOT="${PROJECT_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
 RUN_ID="${1:?Usage: bash submit/check_rl_fe_pilot_conda.sh RUN_ID}"
-LOG_ROOT="${PROJECT_ROOT}/logs/remote_rl/${RUN_ID}"
+LOG_ROOT="${PROJECT_ROOT}/logs/reinforcement_learning/local_runs/${RUN_ID}"
 MASTER_PID_FILE="${LOG_ROOT}/master.pid"
 LAUNCH_MANIFEST="${LOG_ROOT}/launch_manifest.txt"
 

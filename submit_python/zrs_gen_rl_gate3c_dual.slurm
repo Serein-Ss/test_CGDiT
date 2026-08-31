@@ -8,16 +8,18 @@
 #SBATCH --gres=gpu:1
 #SBATCH --mem=48G
 #SBATCH --time=02:00:00
-#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-%j.out
-#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-%j.err
+#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/reinforcement_learning/slurm/zrs-gen-rl-%j.out
+#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/reinforcement_learning/slurm/zrs-gen-rl-%j.err
 
 set -Eeuo pipefail
 
 PROJECT_ROOT="/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT"
 PYTHON="${PROJECT_ROOT}/.venv/bin/python"
-RUN_STAMP="$(date '+%Y-%m-%d/%H-%M-%S')"
-RUN_ROOT="${PROJECT_ROOT}/output/rl_finetune/${RUN_STAMP}-test-zrs-gen-rl-gate3c"
-AUDIT_ROOT="${PROJECT_ROOT}/output/rl_diagnostics/${SLURM_JOB_ID}-gate3c"
+source "${PROJECT_ROOT}/submit_python/rl_output_layout.sh"
+RUN_ID="$(rl_resolve_run_id)"
+RUN_ROOT="$(rl_run_root "${PROJECT_ROOT}" test/reinforcement_learning gate3c "${RUN_ID}")"
+AUDIT_ROOT="${RUN_ROOT}/diagnostics"
+LOG_ROOT="${PROJECT_ROOT}/logs/tests/reinforcement_learning/${RUN_ID}-gate3c"
 MANIFEST="${AUDIT_ROOT}/manifest.txt"
 export WANDB_MODE=offline
 export OMP_NUM_THREADS="${SLURM_CPUS_PER_TASK:-4}"
@@ -26,7 +28,7 @@ export PYTHONHASHSEED=0
 export CUBLAS_WORKSPACE_CONFIG=:4096:8
 
 cd "${PROJECT_ROOT}"
-mkdir -p "${RUN_ROOT}" "${AUDIT_ROOT}" logs/rl
+mkdir -p "${RUN_ROOT}" "${AUDIT_ROOT}" "${LOG_ROOT}" logs/tests/reinforcement_learning/slurm
 test -x "${PYTHON}"
 
 record_failure() {
@@ -53,25 +55,25 @@ trap record_failure ERR
     sha256sum \
         cgdit/rl/policy_improvement.py \
         scripts/cli/training/train_crystal_rl.py \
-        conf/rl/reward_closed_loop_mp20.yaml \
-        conf/rl/ppo_fe_pilot.yaml \
-        conf/rl/grpo_fe_pilot.yaml
+        conf/rl/components/rewards/contracts/mp20.yaml \
+        conf/rl/experiments/ppo_fe_pilot.yaml \
+        conf/rl/experiments/grpo_fe_pilot.yaml
 } > "${MANIFEST}"
 
 srun "${PYTHON}" -m pytest -q \
     tests/test_rl_objectives.py \
     tests/test_rl_training_cli.py \
-    > "${AUDIT_ROOT}/pytest.log" 2>&1
+    > "${LOG_ROOT}/pytest.log" 2>&1
 
 for algorithm in ppo grpo; do
     srun "${PYTHON}" -m scripts.cli.training.train_crystal_rl \
-        --train-config "conf/rl/${algorithm}_fe_pilot.yaml" \
+        --train-config "conf/rl/experiments/${algorithm}_fe_pilot.yaml" \
         --pirl \
         --updates 2 \
         --run-kind test \
         --output-root "${RUN_ROOT}" \
         --no-final-paired-evaluation \
-        > "${AUDIT_ROOT}/${algorithm}.log" 2>&1
+        > "${LOG_ROOT}/${algorithm}.log" 2>&1
 done
 
 "${PYTHON}" - "${RUN_ROOT}" "${AUDIT_ROOT}/gate3c_summary.json" <<'PY_VERIFY'

@@ -18,7 +18,7 @@ EVAL_BATCH_SIZE="${EVAL_BATCH_SIZE:-16}"
 FAST_DEV_RUN="${FAST_DEV_RUN:-0}"
 SKIP_EXISTING="${SKIP_EXISTING:-1}"
 
-LOG_DIR="${PROJECT_ROOT}/logs/mp20_predictors"
+LOG_DIR="${PROJECT_ROOT}/logs/property_predictor_training/mp20_seed42"
 mkdir -p "${LOG_DIR}" "${WABDB_DIR}"
 
 if command -v flock >/dev/null 2>&1; then
@@ -83,7 +83,7 @@ for i in "${!PROPERTIES[@]}"; do
     cmd=(
         python cgdit/run.py
         data=mp_20_surrogate
-        model=m3gnet
+        model=property_predictors/m3gnet/regression
         "data.prop=${prop}"
         "data.train_max_epochs=${MAX_EPOCHS}"
         "data.datamodule.batch_size.train=${TRAIN_BATCH_SIZE}"

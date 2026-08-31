@@ -9,20 +9,19 @@
 #SBATCH --mem=56G
 #SBATCH --time=2-00:00:00
 #SBATCH --array=0-2%1
-#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-crystalpirl-seed42-generate-%A_%a.out
-#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-crystalpirl-seed42-generate-%A_%a.err
+#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/structure_generation/reinforcement_learning/slurm/zrs-gen-rl-crystalpirl-seed42-generate-%A_%a.out
+#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/structure_generation/reinforcement_learning/slurm/zrs-gen-rl-crystalpirl-seed42-generate-%A_%a.err
 
 set -Eeuo pipefail
 
-: "${TRAIN_JOB:?TRAIN_JOB must identify the completed CrystalPIRL array}"
+: "${TRAIN_ROOT:?TRAIN_ROOT must point to the completed CrystalPIRL run}"
 
 PROJECT_ROOT="/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT"
 PYTHON="${PROJECT_ROOT}/.venv/bin/python"
-TRAIN_ROOT="${PROJECT_ROOT}/output/rl_finetune/seed42_crystalpirl_block10_200step/${TRAIN_JOB}"
 FE_EVALUATOR="${PROJECT_ROOT}/output/singlerun/2026-08-20/20-24-50-mp20_predictor_fe_seed123"
 BG_EVALUATOR="${PROJECT_ROOT}/output/singlerun/2026-08-21/08-37-12-mp20_predictor_bg_seed123"
 GT_FILE="${PROJECT_ROOT}/data/mp_20/test.csv"
-AUDIT_ROOT="${PROJECT_ROOT}/output/rl_diagnostics/${SLURM_ARRAY_JOB_ID}-seed42-crystalpirl-generation/task_${SLURM_ARRAY_TASK_ID}"
+AUDIT_ROOT="${TRAIN_ROOT}/diagnostics/generation/task_${SLURM_ARRAY_TASK_ID}"
 MANIFEST="${AUDIT_ROOT}/manifest.txt"
 TOTAL_SAMPLES=4096
 BATCH_SIZE=64
@@ -69,7 +68,7 @@ else
 fi
 
 cd "${PROJECT_ROOT}"
-mkdir -p "${AUDIT_ROOT}" logs/rl
+mkdir -p "${AUDIT_ROOT}" logs/structure_generation/reinforcement_learning/slurm
 test -x "${PYTHON}"
 test -s "${MODEL_DIR}/hparams.yaml"
 test -s "${RESULTS_DIR}/crystalpirl_block10_summary.json"

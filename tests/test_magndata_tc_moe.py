@@ -29,7 +29,7 @@ def test_finetune_checkpoint_override_accepts_lightning_equals_filename(
             config_name="default",
             overrides=[
                 "data=magndata",
-                "model=prop_models/tc",
+                "model=property_predictors/diffusion_cspnet/tc_regressor",
                 "optim=magndata_tc",
                 "train=magndata_tc",
                 "+train.finetune_from_ckpt=${oc.env:FINETUNE_CHECKPOINT}",

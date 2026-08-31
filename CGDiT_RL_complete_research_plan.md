@@ -216,7 +216,7 @@ PIPO 原文实验集中在语言模型数学、代码、工具调用和自蒸馏
 主要采样入口：
 
 - `cgdit/pl_modules/diffusion.py:218`：`sample()`；
-- `conf/model/exp_mp20_*.yaml`：模型配置，默认 1000 个扩散步；
+- `conf/model/experiments/exp_mp20_*.yaml`：模型配置，默认 1000 个扩散步；
 - `cgdit/generation/conditioning.py`：多目标条件解析；
 - `scripts/cli/generation/generate.py`：结构生成 CLI。
 

@@ -23,7 +23,7 @@ defaults:
   - _self_
   - data: test_data
   - logging: default
-  - model: diffusion
+  - model: experiments/diffusion
   - optim: default
   - train: default
 #    Decomment this parameter to get parallel job running

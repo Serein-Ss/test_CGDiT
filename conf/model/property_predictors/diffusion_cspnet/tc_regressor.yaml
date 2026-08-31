@@ -1,0 +1,9 @@
+defaults:
+- /model/property_predictors/backbone@_here_: diffusion_cspnet
+- _self_
+_target_: cgdit.prop_models.diffusion_backbone.DiffusionBackboneRegressor
+target_prop: ${data.prop}
+target_mean: ${data.target_stats.${data.prop}.mean}
+target_std: ${data.target_stats.${data.prop}.std}
+loss_type: mse
+huber_delta: 1.0

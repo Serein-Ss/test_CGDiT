@@ -8,8 +8,8 @@
 #SBATCH --gres=gpu:1
 #SBATCH --mem=96G
 #SBATCH --time=1-00:00:00
-#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-pipo-seed42-analysis-%j.out
-#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-pipo-seed42-analysis-%j.err
+#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/metric_evaluation/reinforcement_learning/slurm/zrs-gen-rl-pipo-seed42-analysis-%j.out
+#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/metric_evaluation/reinforcement_learning/slurm/zrs-gen-rl-pipo-seed42-analysis-%j.err
 
 set -Eeuo pipefail
 
@@ -19,9 +19,9 @@ set -Eeuo pipefail
 
 PROJECT_ROOT="/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT"
 PYTHON="${PROJECT_ROOT}/.venv/bin/python"
-FE_BG_ROOT="${PROJECT_ROOT}/output/rl_finetune/seed42_grpo_pipo_probe32_resume60/${TRAIN_FE_BG_JOB}"
-JOINT_ROOT="${PROJECT_ROOT}/output/rl_finetune/seed42_grpo_pipo_joint_max60/${TRAIN_JOINT_JOB}"
-ANALYSIS_ROOT="${PROJECT_ROOT}/output/rl_analysis/seed42_grpo_pipo_200step/${GENERATION_JOB}"
+FE_BG_ROOT="${FE_BG_ROOT:-${PROJECT_ROOT}/output/reinforcement_learning/2026-08-24/20-57-12-grpo-pipo-probe32-resume60}"
+JOINT_ROOT="${JOINT_ROOT:-${PROJECT_ROOT}/output/reinforcement_learning/2026-08-24/20-57-12-grpo-pipo-joint-max60}"
+ANALYSIS_ROOT="${FE_BG_ROOT}/analysis"
 SOURCE_DIR="${ANALYSIS_ROOT}/source_data"
 ASSET_DIR="${PROJECT_ROOT}/assets/crystalpirl_seed42_pipo_200step"
 MANIFEST="${ANALYSIS_ROOT}/analysis_manifest.txt"
@@ -30,7 +30,7 @@ export PYTHONUNBUFFERED=1
 export MPLBACKEND=Agg
 
 cd "${PROJECT_ROOT}"
-mkdir -p "${ANALYSIS_ROOT}" logs/rl
+mkdir -p "${ANALYSIS_ROOT}" logs/metric_evaluation/reinforcement_learning/slurm
 test -x "${PYTHON}"
 test ! -e "${SOURCE_DIR}"
 test ! -e "${ASSET_DIR}"

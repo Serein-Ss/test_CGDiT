@@ -8,16 +8,19 @@
 #SBATCH --gres=gpu:1
 #SBATCH --mem=56G
 #SBATCH --time=08:00:00
-#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-crystalpirl-block10-smoke-%j.out
-#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-crystalpirl-block10-smoke-%j.err
+#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/tests/reinforcement_learning/slurm/zrs-gen-rl-crystalpirl-block10-smoke-%j.out
+#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/tests/reinforcement_learning/slurm/zrs-gen-rl-crystalpirl-block10-smoke-%j.err
 
 set -Eeuo pipefail
 
 PROJECT_ROOT="/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT"
 PYTHON="${PROJECT_ROOT}/.venv/bin/python"
-CONFIG="conf/rl/grpo_fe_seed42_crystalpirl_block10.yaml"
-TRAIN_ROOT="${PROJECT_ROOT}/output/rl_finetune/seed42_crystalpirl_block10_smoke/${SLURM_JOB_ID}"
-AUDIT_ROOT="${PROJECT_ROOT}/output/rl_diagnostics/${SLURM_JOB_ID}-seed42-crystalpirl-block10-smoke"
+CONFIG="conf/rl/experiments/grpo_fe_seed42_crystalpirl_block10.yaml"
+source "${PROJECT_ROOT}/submit_python/rl_output_layout.sh"
+RUN_ID="$(rl_resolve_run_id)"
+TRAIN_ROOT="$(rl_run_root "${PROJECT_ROOT}" test/reinforcement_learning crystalpirl-block10-smoke "${RUN_ID}")"
+AUDIT_ROOT="${TRAIN_ROOT}/diagnostics"
+LOG_ROOT="${PROJECT_ROOT}/logs/tests/reinforcement_learning/${RUN_ID}-crystalpirl-block10-smoke"
 MANIFEST="${AUDIT_ROOT}/manifest.txt"
 export WANDB_MODE=offline
 export OMP_NUM_THREADS="${SLURM_CPUS_PER_TASK:-4}"
@@ -27,7 +30,7 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 export CUBLAS_WORKSPACE_CONFIG=:4096:8
 
 cd "${PROJECT_ROOT}"
-mkdir -p "${TRAIN_ROOT}" "${AUDIT_ROOT}" logs/rl
+mkdir -p "${TRAIN_ROOT}" "${AUDIT_ROOT}" "${LOG_ROOT}" logs/tests/reinforcement_learning/slurm
 test -x "${PYTHON}"
 
 record_failure() {
@@ -63,7 +66,7 @@ srun "${PYTHON}" -m scripts.cli.training.train_crystal_rl \
     --updates 10 \
     --checkpoint-every 10 \
     --output-root "${TRAIN_ROOT}" \
-    > "${AUDIT_ROOT}/training.log" 2>&1
+    > "${LOG_ROOT}/training.log" 2>&1
 
 "${PYTHON}" - "${TRAIN_ROOT}" <<'PY_VERIFY'
 import json

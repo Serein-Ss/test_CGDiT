@@ -45,7 +45,7 @@ python cgdit/run.py data=<data_config> model=<model_config> expname=<experiment_
 
 当前强化学习研究范围暂时只启用 FE 和 BG。训练奖励与固定 probe 均冻结为 seed=42：FE 使用 `mp20_predictor_fe`，BG 使用 `mp20_predictor_bg`。FE/BG 的 seed=123 虽然已有测试输出，但多 seed 预测器体系尚未完整冻结，因此当前不组成 ensemble，也不参与 reward 或 checkpoint 选择。Ehull predictor 和所有含 Ehull 的生成模型只作为历史资产保留，不进入当前研究主线。
 
-8 组生成模型仍完整保留以保证可追溯性；当前 FE/BG 主线实际使用 `mp20_base`、`mp20_fe`、`mp20_bg` 和 `mp20_fe_bg` 四个基线，对应 11 组正式 seed=42 生成/性质评估，每组 4096 个结构。完整 23 组结果不删除。具体状态见 `output/README.md` 和 `conf/rl/reward_models_mp20.yaml`。汇总文件中的 `/public/home/...` 是原服务器来源记录，本机执行必须使用当前项目相对路径。
+8 组生成模型仍完整保留以保证可追溯性；当前 FE/BG 主线实际使用 `mp20_base`、`mp20_fe`、`mp20_bg` 和 `mp20_fe_bg` 四个基线，对应 11 组正式 seed=42 生成/性质评估，每组 4096 个结构。完整 23 组结果不删除。具体状态见 `output/README.md` 和 `conf/rl/components/rewards/registries/mp20.yaml`。汇总文件中的 `/public/home/...` 是原服务器来源记录，本机执行必须使用当前项目相对路径。
 
 ### Core RL Research Objective
 
@@ -103,7 +103,13 @@ test_CGDiT/
 │   └── run.py                        # Hydra + Lightning 训练入口
 ├── conf/
 │   ├── data/                         # 数据集配置
-│   ├── model/                        # 模型与条件组合配置
+│   ├── model/
+│   │   ├── diffusion/                # 扩散模型、调度器与解码器组件
+│   │   ├── property_predictors/      # 回归器、分类器与共享预测骨干
+│   │   └── experiments/              # Hydra 模型实验组合
+│   ├── rl/
+│   │   ├── components/               # 算法、方法、奖励与验证组件
+│   │   └── experiments/              # 可直接运行的 RL 实验调度
 │   ├── optim/                        # 优化器配置
 │   ├── train/                        # 训练和微调配置
 │   ├── logging/                      # W&B 与日志配置
@@ -163,7 +169,7 @@ Predicted atom, coordinate and lattice denoising targets
 对应配置位于：
 
 ```text
-conf/model/decoder/cspnet.yaml
+conf/model/diffusion/decoder/cspnet.yaml
 ```
 
 ### Diffusion Model
@@ -301,7 +307,7 @@ MP_API_KEY=
 `uv run --locked`。例如：
 
 ```shell
-uv run --locked python -m cgdit.run data=mp_20 model=exp_mp20_base expname=mp20_base
+uv run --locked python -m cgdit.run data=mp_20 model=experiments/exp_mp20_base expname=mp20_base
 ```
 
 
@@ -350,18 +356,19 @@ CSV 至少需要与对应 `conf/data/*.yaml` 中引用的字段一致。结构�
 ### Basic Training Command
 
 ```shell
-python cgdit/run.py data=mp_20 model=exp_mp20_base expname=mp20_base
+python cgdit/run.py data=mp_20 model=experiments/exp_mp20_base expname=mp20_base
 ```
 
 - `data`：对应 `conf/data/<name>.yaml`；
-- `model`：对应 `conf/model/<name>.yaml`；
+- `model`：对应 `conf/model/` 下的配置组路径，例如
+  `experiments/exp_mp20_base` 或 `property_predictors/m3gnet/regression`；
 - `expname`：写入 Hydra 输出目录，也用于 W&B run/group 名称；
 - `train`：对应 `conf/train/<name>.yaml`，默认使用 `default`。
 
 ### Debug Before Full Training
 
 ```shell
-python cgdit/run.py data=test_data model=exp_mp20_base expname=debug train.pl_trainer.fast_dev_run=true logging.wandb.mode=offline
+python cgdit/run.py data=test_data model=experiments/exp_mp20_base expname=debug train.pl_trainer.fast_dev_run=true logging.wandb.mode=offline
 ```
 
 该命令用于检查配置、数据、模型前向传播和训练循环，不用于获得正式模型。
@@ -370,20 +377,20 @@ python cgdit/run.py data=test_data model=exp_mp20_base expname=debug train.pl_tr
 
 ```shell
 # 无性质条件
-python cgdit/run.py data=mp_20 model=exp_mp20_base expname=mp20_base
+python cgdit/run.py data=mp_20 model=experiments/exp_mp20_base expname=mp20_base
 
 # 单条件
-python cgdit/run.py data=mp_20 model=exp_mp20_fe expname=mp20_fe
-python cgdit/run.py data=mp_20 model=exp_mp20_bg expname=mp20_bg
-python cgdit/run.py data=mp_20 model=exp_mp20_eh expname=mp20_eh
+python cgdit/run.py data=mp_20 model=experiments/exp_mp20_fe expname=mp20_fe
+python cgdit/run.py data=mp_20 model=experiments/exp_mp20_bg expname=mp20_bg
+python cgdit/run.py data=mp_20 model=experiments/exp_mp20_eh expname=mp20_eh
 
 # 双条件
-python cgdit/run.py data=mp_20 model=exp_mp20_fe_bg expname=mp20_fe_bg
-python cgdit/run.py data=mp_20 model=exp_mp20_fe_eh expname=mp20_fe_eh
-python cgdit/run.py data=mp_20 model=exp_mp20_bg_eh expname=mp20_bg_eh
+python cgdit/run.py data=mp_20 model=experiments/exp_mp20_fe_bg expname=mp20_fe_bg
+python cgdit/run.py data=mp_20 model=experiments/exp_mp20_fe_eh expname=mp20_fe_eh
+python cgdit/run.py data=mp_20 model=experiments/exp_mp20_bg_eh expname=mp20_bg_eh
 
 # 三条件
-python cgdit/run.py data=mp_20 model=exp_mp20_fe_bg_eh expname=mp20_fe_bg_eh
+python cgdit/run.py data=mp_20 model=experiments/exp_mp20_fe_bg_eh expname=mp20_fe_bg_eh
 ```
 
 服务器批量运行脚本位于：
@@ -398,7 +405,7 @@ submit_python/run_remaining_mp20.sh
 ### Fine-tuning
 
 ```shell
-python cgdit/run.py data=mpts_52 model=diffusion_finetuned train=finetuned expname=mpts52_finetuned train.finetune_from_ckpt=<checkpoint_path>
+python cgdit/run.py data=mpts_52 model=experiments/diffusion_finetuned train=finetuned expname=mpts52_finetuned train.finetune_from_ckpt=<checkpoint_path>
 ```
 
 必须在命令行覆盖 `train.finetune_from_ckpt`。当前 `conf/train/finetuned.yaml` 中保存的是旧机器上的具体检查点路径，不应直接复用。

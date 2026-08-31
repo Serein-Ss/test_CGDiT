@@ -11,7 +11,7 @@ set -e  # 任意一个实验失败则立即停止
 export PROJECT_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 
 # ── 日志目录 ──────────────────────────────────────────────────────────────────
-LOG_DIR="${PROJECT_ROOT}/logs/mp20_runs"
+LOG_DIR="${PROJECT_ROOT}/logs/generative_model_training/mp20"
 mkdir -p "${LOG_DIR}"
 
 echo "========================================================"
@@ -34,14 +34,14 @@ declare -a EXPNAMES=(
 )
 
 declare -a MODELS=(
-    "exp_mp20_base"
-    "exp_mp20_fe"
-    "exp_mp20_bg"
-    "exp_mp20_eh"
-    "exp_mp20_fe_bg"
-    "exp_mp20_fe_eh"
-    "exp_mp20_bg_eh"
-    "exp_mp20_fe_bg_eh"
+    "experiments/exp_mp20_base"
+    "experiments/exp_mp20_fe"
+    "experiments/exp_mp20_bg"
+    "experiments/exp_mp20_eh"
+    "experiments/exp_mp20_fe_bg"
+    "experiments/exp_mp20_fe_eh"
+    "experiments/exp_mp20_bg_eh"
+    "experiments/exp_mp20_fe_bg_eh"
 )
 
 TOTAL=${#EXPNAMES[@]}

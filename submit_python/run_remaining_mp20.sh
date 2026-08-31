@@ -9,7 +9,7 @@ export WANDB_MODE=offline
 
 cd "${PROJECT_ROOT}"
 
-LOG_DIR="${PROJECT_ROOT}/logs/mp20_remaining"
+LOG_DIR="${PROJECT_ROOT}/logs/generative_model_training/mp20_remaining"
 mkdir -p "${LOG_DIR}" "${WABDB_DIR}"
 
 if pgrep -f "${PROJECT_ROOT}/cgdit/run.py" >/dev/null; then
@@ -26,10 +26,10 @@ EXPNAMES=(
 )
 
 MODELS=(
-    "exp_mp20_fe_bg_eh"
-    "exp_mp20_fe_bg"
-    "exp_mp20_fe_eh"
-    "exp_mp20_bg_eh"
+    "experiments/exp_mp20_fe_bg_eh"
+    "experiments/exp_mp20_fe_bg"
+    "experiments/exp_mp20_fe_eh"
+    "experiments/exp_mp20_bg_eh"
 )
 
 TOTAL=${#EXPNAMES[@]}

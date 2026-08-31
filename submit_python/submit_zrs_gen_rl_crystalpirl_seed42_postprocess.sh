@@ -3,10 +3,11 @@
 set -Eeuo pipefail
 
 PROJECT_ROOT="${PROJECT_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
+TRAIN_ROOT="${TRAIN_ROOT:?Set TRAIN_ROOT to the completed CrystalPIRL run}"
 TRAIN_JOB="${1:?Usage: $0 CRYSTALPIRL_TRAIN_JOB}"
 
 cd "${PROJECT_ROOT}"
-mkdir -p logs/rl output/rl_diagnostics
+mkdir -p logs/structure_generation/reinforcement_learning/slurm logs/metric_evaluation/reinforcement_learning/slurm
 
 if ! scontrol show job "${TRAIN_JOB}" >/dev/null 2>&1; then
     echo "Unknown prerequisite Slurm job: ${TRAIN_JOB}" >&2
@@ -15,10 +16,10 @@ fi
 
 generation_job="$(${SBATCH:-sbatch} --parsable \
     --dependency="afterok:${TRAIN_JOB}" \
-    --export="ALL,TRAIN_JOB=${TRAIN_JOB}" \
+    --export="ALL,TRAIN_JOB=${TRAIN_JOB},TRAIN_ROOT=${TRAIN_ROOT}" \
     submit_python/zrs_gen_rl_crystalpirl_seed42_generate_array.slurm)"
 
-manifest="output/rl_diagnostics/seed42_crystalpirl_postprocess_latest.txt"
+manifest="${TRAIN_ROOT}/postprocess_submission_manifest.txt"
 {
     echo "submitted_at=$(date '+%Y-%m-%d %H:%M:%S %z')"
     echo "scope=seed42_grpo_crystalpirl_fe_bg_joint_generation_and_evaluation"
@@ -32,4 +33,4 @@ manifest="output/rl_diagnostics/seed42_crystalpirl_postprocess_latest.txt"
 echo "Submitted seed=42 CrystalPIRL post-processing."
 echo "Training prerequisite: ${TRAIN_JOB}"
 echo "Generation/evaluation array: ${generation_job}"
-echo "Manifest: ${PROJECT_ROOT}/${manifest}"
+echo "Manifest: ${manifest}"

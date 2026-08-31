@@ -8,15 +8,18 @@
 #SBATCH --gres=gpu:1
 #SBATCH --mem=48G
 #SBATCH --time=08:00:00
-#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-seed42-preflight-%j.out
-#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-seed42-preflight-%j.err
+#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/tests/reinforcement_learning/slurm/zrs-gen-rl-seed42-preflight-%j.out
+#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/tests/reinforcement_learning/slurm/zrs-gen-rl-seed42-preflight-%j.err
 
 set -Eeuo pipefail
 
 PROJECT_ROOT="/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT"
 PYTHON="${PROJECT_ROOT}/.venv/bin/python"
-AUDIT_ROOT="${PROJECT_ROOT}/output/rl_diagnostics/${SLURM_JOB_ID}-seed42-preflight"
+source "${PROJECT_ROOT}/submit_python/rl_output_layout.sh"
+RUN_ID="$(rl_resolve_run_id)"
+AUDIT_ROOT="$(rl_run_root "${PROJECT_ROOT}" test/reinforcement_learning seed42-preflight "${RUN_ID}")"
 RUN_ROOT="${AUDIT_ROOT}/runs"
+LOG_ROOT="${PROJECT_ROOT}/logs/tests/reinforcement_learning/${RUN_ID}-seed42-preflight"
 MANIFEST="${AUDIT_ROOT}/manifest.txt"
 export WANDB_MODE=offline
 export OMP_NUM_THREADS="${SLURM_CPUS_PER_TASK:-4}"
@@ -26,7 +29,7 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 export CUBLAS_WORKSPACE_CONFIG=:4096:8
 
 cd "${PROJECT_ROOT}"
-mkdir -p "${AUDIT_ROOT}" "${RUN_ROOT}" logs/rl
+mkdir -p "${AUDIT_ROOT}" "${RUN_ROOT}" "${LOG_ROOT}" logs/tests/reinforcement_learning/slurm
 test -x "${PYTHON}"
 
 record_failure() {
@@ -56,11 +59,11 @@ trap record_failure ERR
         cgdit/rl/policy_improvement.py \
         cgdit/rl/property_reward.py \
         scripts/cli/training/train_crystal_rl.py \
-        conf/rl/reward_closed_loop_mp20_seed42_pilot.yaml
+        conf/rl/components/rewards/contracts/mp20_seed42_pilot.yaml
 } > "${MANIFEST}"
 
 srun "${PYTHON}" -c "import torch; print('gpu=' + torch.cuda.get_device_name(0)); print('torch=' + torch.__version__); print('cuda=' + str(torch.version.cuda))" \
-    > "${AUDIT_ROOT}/gpu.log" 2>&1
+    > "${LOG_ROOT}/gpu.log" 2>&1
 
 srun "${PYTHON}" -m pytest -q \
     tests/test_rl_pipo.py \
@@ -69,10 +72,10 @@ srun "${PYTHON}" -m pytest -q \
     tests/test_rl_property_reward.py \
     tests/test_generated_property_evaluation.py \
     tests/test_generation_conditioning.py \
-    > "${AUDIT_ROOT}/pytest.log" 2>&1
+    > "${LOG_ROOT}/pytest.log" 2>&1
 
 srun "${PYTHON}" -m scripts.cli.training.train_crystal_rl \
-    --train-config conf/rl/grpo_fe_seed42_300step.yaml \
+    --train-config conf/rl/experiments/grpo_fe_seed42_300step.yaml \
     --pirl \
     --no-pipo \
     --no-audit-policy-updates \
@@ -80,7 +83,7 @@ srun "${PYTHON}" -m scripts.cli.training.train_crystal_rl \
     --run-kind train \
     --output-root "${RUN_ROOT}" \
     --no-final-paired-evaluation \
-    > "${AUDIT_ROOT}/pirl_gpu_smoke.log" 2>&1
+    > "${LOG_ROOT}/pirl_gpu_smoke.log" 2>&1
 
 "${PYTHON}" - "${RUN_ROOT}" <<'PY_VERIFY'
 import json

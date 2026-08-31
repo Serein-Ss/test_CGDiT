@@ -82,6 +82,17 @@ def test_plotting_values_clips_negative_band_gaps_to_zero():
     np.testing.assert_allclose(result, [0.0, 0.0, 1.0])
 
 
+def test_highest_density_threshold_encloses_requested_mass():
+    density = np.asarray([[4.0, 3.0], [2.0, 1.0]])
+
+    threshold = plot_blueprints._highest_density_threshold(
+        density, mass_fraction=0.60
+    )
+
+    assert threshold == 3.0
+    assert density[density >= threshold].sum() / density.sum() >= 0.60
+
+
 def test_mp_hull_distance_compares_formation_energies_on_the_same_scale():
     structure = Structure(
         Lattice.cubic(4.0),
@@ -148,6 +159,29 @@ def test_interim_reward_shift_compares_first_and_last_eight_updates():
     result = plot_blueprints._interim_reward_shift(records, resamples=100)
 
     np.testing.assert_allclose(result, [1.0, 1.0, 1.0])
+
+
+def test_rl_records_uses_resume_record_for_duplicate_step(tmp_path, monkeypatch):
+    initial = tmp_path / "initial.log"
+    resume = tmp_path / "resume.log"
+    initial.write_text(
+        '\n'.join(
+            json.dumps({"step": step, "algorithm": "grpo", "source": "initial"})
+            for step in (0, 1)
+        )
+    )
+    resume.write_text(
+        '\n'.join(
+            json.dumps({"step": step, "algorithm": "grpo", "source": "resume"})
+            for step in (1, 2)
+        )
+    )
+    monkeypatch.setattr(plot_blueprints, "RL_LOGS", {"fe": (initial, resume)})
+
+    records = plot_blueprints._rl_records("fe")
+
+    assert [record["step"] for record in records] == [0, 1, 2]
+    assert records[1]["source"] == "resume"
 
 
 def test_interim_paired_evaluations_requires_both_properties(tmp_path, monkeypatch):

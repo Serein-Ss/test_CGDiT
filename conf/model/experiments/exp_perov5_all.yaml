@@ -1,0 +1,24 @@
+defaults:
+- /model/diffusion@_here_: standard
+- /model/diffusion/decoder@decoder: cspnet
+- /model/diffusion/beta@beta_scheduler: cosine
+- /model/diffusion/sigma@sigma_scheduler: wrapped
+- /model/diffusion/d3pm@d3pm_scheduler: standard
+- _self_
+conditions:
+  heat_all:
+    type: scalar
+    scale: 0.739079
+    shift: 1.48507
+  heat_ref:
+    type: scalar
+    scale: 0.680209
+    shift: 1.403221
+  dir_gap:
+    type: scalar
+    scale: 0.54706
+    shift: 0.09108
+  ind_gap:
+    type: scalar
+    scale: 0.467207
+    shift: 0.07227

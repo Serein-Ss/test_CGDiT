@@ -1,0 +1,6 @@
+defaults:
+- /model/diffusion@_here_: with_type
+- /model/diffusion/decoder@decoder: cspnet
+- /model/diffusion/beta@beta_scheduler: cosine
+- /model/diffusion/sigma@sigma_scheduler: wrapped
+- _self_

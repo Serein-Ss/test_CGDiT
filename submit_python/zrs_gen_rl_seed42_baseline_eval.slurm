@@ -8,8 +8,8 @@
 #SBATCH --gres=gpu:1
 #SBATCH --mem=48G
 #SBATCH --time=12:00:00
-#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-seed42-baselines-%j.out
-#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-seed42-baselines-%j.err
+#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/metric_evaluation/reinforcement_learning/slurm/zrs-gen-rl-seed42-baselines-%j.out
+#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/metric_evaluation/reinforcement_learning/slurm/zrs-gen-rl-seed42-baselines-%j.err
 
 set -Eeuo pipefail
 
@@ -19,7 +19,10 @@ FE_EVALUATOR="${PROJECT_ROOT}/output/singlerun/2026-08-20/20-24-50-mp20_predicto
 BG_EVALUATOR="${PROJECT_ROOT}/output/singlerun/2026-08-21/08-37-12-mp20_predictor_bg_seed123"
 FE_REWARD="${PROJECT_ROOT}/output/singlerun/2026-08-16/01-27-48-mp20_predictor_fe"
 BG_REWARD="${PROJECT_ROOT}/output/singlerun/2026-08-16/15-18-32-mp20_predictor_bg"
-AUDIT_ROOT="${PROJECT_ROOT}/output/rl_diagnostics/${SLURM_JOB_ID}-seed42-baseline-eval"
+source "${PROJECT_ROOT}/submit_python/rl_output_layout.sh"
+: "${RUN_ID:?RUN_ID must be exported by the launcher}"
+TRAIN_ROOT="$(rl_run_root "${PROJECT_ROOT}" reinforcement_learning seed42-300step-fig1-fig4 "${RUN_ID}")"
+AUDIT_ROOT="${TRAIN_ROOT}/diagnostics/baseline_evaluation"
 MANIFEST="${AUDIT_ROOT}/manifest.txt"
 export OMP_NUM_THREADS="${SLURM_CPUS_PER_TASK:-4}"
 export PYTHONUNBUFFERED=1
@@ -32,7 +35,7 @@ MODEL_ROOTS=(
 )
 
 cd "${PROJECT_ROOT}"
-mkdir -p "${AUDIT_ROOT}" logs/rl
+mkdir -p "${AUDIT_ROOT}" logs/metric_evaluation/reinforcement_learning/slurm
 test -x "${PYTHON}"
 
 record_failure() {

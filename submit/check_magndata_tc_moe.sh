@@ -5,7 +5,7 @@ set -Eeuo pipefail
 PROJECT_ROOT="${PROJECT_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
 RUN_ID="${1:-}"
 if [[ -z "${RUN_ID}" ]]; then
-    RUN_ID=$(find "${PROJECT_ROOT}/logs/magndata_tc_moe" -mindepth 1 -maxdepth 1 -type d \
+    RUN_ID=$(find "${PROJECT_ROOT}/logs/property_predictor_training/magndata_tc_moe" -mindepth 1 -maxdepth 1 -type d \
         -printf '%f\n' 2>/dev/null | sort | tail -n 1)
 fi
 if [[ -z "${RUN_ID}" ]]; then
@@ -14,7 +14,7 @@ if [[ -z "${RUN_ID}" ]]; then
 fi
 
 OUTPUT_ROOT="${PROJECT_ROOT}/output/magndata_tc_moe/${RUN_ID}"
-LOG_ROOT="${PROJECT_ROOT}/logs/magndata_tc_moe/${RUN_ID}"
+LOG_ROOT="${PROJECT_ROOT}/logs/property_predictor_training/magndata_tc_moe/${RUN_ID}"
 
 echo "========== Magndata-Tc gated MoE ${RUN_ID} =========="
 pgrep -af 'run_magndata_tc_moe|cgdit/run.py.*magndata_tc_.*expert|cgdit/run.py.*magndata_tc_gate|predict_tc_gate' \

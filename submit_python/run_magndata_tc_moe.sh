@@ -91,7 +91,7 @@ run_gate() {
         echo "[RUN] gate seed=${seed} at $(date '+%Y-%m-%d %H:%M:%S %z')"
         python cgdit/run.py \
             data=magndata \
-            model=prop_models/tc_classifier \
+            model=property_predictors/diffusion_cspnet/tc_classifier \
             optim=magndata_tc \
             train=magndata_tc_classifier \
             "data.root_path=${DATA_ROOT}/gate" \
@@ -145,7 +145,7 @@ run_expert() {
     echo "[RUN] ${branch}_expert seed=${seed} at $(date '+%Y-%m-%d %H:%M:%S %z')"
     FINETUNE_CHECKPOINT="${global_checkpoint}" python cgdit/run.py \
         data=magndata \
-        model=prop_models/tc \
+        model=property_predictors/diffusion_cspnet/tc_regressor \
         optim=magndata_tc \
         train=magndata_tc \
         "data.root_path=${DATA_ROOT}/${branch}" \

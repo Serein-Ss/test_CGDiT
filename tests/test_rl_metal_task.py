@@ -3,6 +3,7 @@ from types import SimpleNamespace
 import torch
 from omegaconf import OmegaConf
 
+from cgdit.rl.config import load_rl_config
 from scripts.cli.training.train_crystal_rl import (
     PROPERTY_NAMES,
     _metallicity_proxy_summary,
@@ -12,7 +13,7 @@ from scripts.cli.training.train_crystal_rl import (
 
 def test_metal_task_reuses_band_gap_predictor_with_calibrated_upper_threshold():
     contract = OmegaConf.load(
-        "conf/rl/reward_closed_loop_mp20_metal_seed42_pilot.yaml"
+        "conf/rl/components/rewards/contracts/mp20_metal_seed42_pilot.yaml"
     )
 
     assert PROPERTY_NAMES["metal"] == ("band_gap",)
@@ -23,7 +24,9 @@ def test_metal_task_reuses_band_gap_predictor_with_calibrated_upper_threshold():
 
 
 def test_metal_training_starts_from_the_frozen_base_policy():
-    config = OmegaConf.load("conf/rl/grpo_metal_seed42_pipo_probe32.yaml")
+    config = load_rl_config(
+        "conf/rl/experiments/grpo_metal_seed42_pipo_probe32.yaml"
+    )
 
     assert config.property == "metal"
     assert config.model_path.endswith("00-32-50-mp20_base")
@@ -34,7 +37,7 @@ def test_metal_training_starts_from_the_frozen_base_policy():
 
 def test_metallicity_summary_reports_valid_and_all_structure_yields():
     contract = OmegaConf.load(
-        "conf/rl/reward_closed_loop_mp20_metal_seed42_pilot.yaml"
+        "conf/rl/components/rewards/contracts/mp20_metal_seed42_pilot.yaml"
     )
     evaluation = SimpleNamespace(
         predictions={"band_gap": torch.tensor([0.0, 0.2, 0.1, float("nan")])},

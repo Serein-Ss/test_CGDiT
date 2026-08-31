@@ -6,7 +6,8 @@ PROJECT_ROOT="${PROJECT_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
 WORKER="submit_python/run_magndata_tc_moe.sh"
 RUN_ID="${RUN_ID:-$(date '+%Y%m%d-%H%M%S')}"
 OUTPUT_ROOT="${OUTPUT_ROOT:-${PROJECT_ROOT}/output/magndata_tc_moe/${RUN_ID}}"
-LOG_ROOT="${LOG_ROOT:-${PROJECT_ROOT}/logs/magndata_tc_moe/${RUN_ID}}"
+LOG_ROOT="${LOG_ROOT:-${PROJECT_ROOT}/logs/property_predictor_training/magndata_tc_moe/${RUN_ID}}"
+TEST_LOG_ROOT="${TEST_LOG_ROOT:-${PROJECT_ROOT}/logs/tests/property_predictors/magndata_tc_moe/${RUN_ID}}"
 SOURCE_DATA_ROOT="${SOURCE_DATA_ROOT:-${PROJECT_ROOT}/data/magndata}"
 SEEDS="${SEEDS:-42 123 3407}"
 GPU_ID="${GPU_ID:-0}"
@@ -21,7 +22,7 @@ if [[ -z "${CONDA_PREFIX:-}" ]]; then
 fi
 
 cd "${PROJECT_ROOT}"
-mkdir -p "${OUTPUT_ROOT}" "${LOG_ROOT}"
+mkdir -p "${OUTPUT_ROOT}" "${LOG_ROOT}" "${TEST_LOG_ROOT}"
 bash -n "${WORKER}"
 for split in train val test; do
     test -s "${SOURCE_DATA_ROOT}/${split}.csv"
@@ -37,7 +38,7 @@ for seed in ${SEEDS}; do
 done
 
 python -m pytest -q tests/test_magndata_tc_moe.py \
-    > "${LOG_ROOT}/pytest_preflight.log" 2>&1
+    > "${TEST_LOG_ROOT}/pytest_preflight.log" 2>&1
 
 CUDA_VISIBLE_DEVICES="${GPU_ID}" \
 PROJECT_ROOT="${PROJECT_ROOT}" \

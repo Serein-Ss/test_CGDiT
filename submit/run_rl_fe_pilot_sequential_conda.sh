@@ -9,8 +9,9 @@ RUN_ID="${RUN_ID:-$(date '+%Y%m%d-%H%M%S')}"
 RUN_DATE="${RUN_DATE:-${RUN_ID:0:4}-${RUN_ID:4:2}-${RUN_ID:6:2}}"
 RUN_TIME="${RUN_TIME:-${RUN_ID:9:2}-${RUN_ID:11:2}-${RUN_ID:13:2}}"
 RUN_NAME="${RUN_TIME}-pilot-zrs-gen-rl-fe"
-OUTPUT_ROOT="${PROJECT_ROOT}/output/rl_finetune/${RUN_DATE}/${RUN_NAME}"
-LOG_ROOT="${PROJECT_ROOT}/logs/remote_rl/${RUN_ID}"
+OUTPUT_ROOT="${PROJECT_ROOT}/output/reinforcement_learning/${RUN_DATE}/${RUN_NAME}"
+LOG_ROOT="${PROJECT_ROOT}/logs/reinforcement_learning/local_runs/${RUN_ID}"
+TEST_LOG_ROOT="${PROJECT_ROOT}/logs/tests/reinforcement_learning/${RUN_ID}"
 MASTER_PID_FILE="${LOG_ROOT}/master.pid"
 LAUNCH_MANIFEST="${LOG_ROOT}/launch_manifest.txt"
 UPDATES="${UPDATES:-8}"
@@ -26,7 +27,7 @@ if ! [[ "${UPDATES}" =~ ^[1-9][0-9]*$ ]]; then
 fi
 
 cd "${PROJECT_ROOT}"
-mkdir -p "${LOG_ROOT}" "${OUTPUT_ROOT}"
+mkdir -p "${LOG_ROOT}" "${TEST_LOG_ROOT}" "${OUTPUT_ROOT}"
 export CUBLAS_WORKSPACE_CONFIG="${CUBLAS_WORKSPACE_CONFIG:-:4096:8}"
 export PYTHONHASHSEED="${PYTHONHASHSEED:-0}"
 export WANDB_MODE=offline
@@ -49,30 +50,30 @@ python -m pytest -q \
     tests/test_rl_objectives.py \
     tests/test_rl_training_cli.py \
     tests/test_rl_reproducibility_cli.py \
-    > "${LOG_ROOT}/pytest_preflight.log" 2>&1
+    > "${TEST_LOG_ROOT}/pytest_preflight.log" 2>&1
 
 echo "Checking PPO and GRPO dependencies..."
 python -m scripts.cli.training.train_crystal_rl \
-    --train-config conf/rl/ppo_fe_pilot.yaml \
+    --train-config conf/rl/experiments/ppo_fe_pilot.yaml \
     --preflight-only \
-    > "${LOG_ROOT}/ppo_preflight.log" 2>&1
+    > "${TEST_LOG_ROOT}/ppo_preflight.log" 2>&1
 python -m scripts.cli.training.train_crystal_rl \
-    --train-config conf/rl/grpo_fe_pilot.yaml \
+    --train-config conf/rl/experiments/grpo_fe_pilot.yaml \
     --preflight-only \
-    > "${LOG_ROOT}/grpo_preflight.log" 2>&1
+    > "${TEST_LOG_ROOT}/grpo_preflight.log" 2>&1
 
 echo "Checking full-trajectory reproducibility in two fresh processes..."
 CUDA_VISIBLE_DEVICES="${GPU_ID}" python -m \
     scripts.cli.training.check_rl_reproducibility \
-    --train-config conf/rl/ppo_fe_pilot.yaml \
-    > "${LOG_ROOT}/reproducibility_1.json"
+    --train-config conf/rl/experiments/ppo_fe_pilot.yaml \
+    > "${TEST_LOG_ROOT}/reproducibility_1.json"
 CUDA_VISIBLE_DEVICES="${GPU_ID}" python -m \
     scripts.cli.training.check_rl_reproducibility \
-    --train-config conf/rl/ppo_fe_pilot.yaml \
-    > "${LOG_ROOT}/reproducibility_2.json"
-if ! cmp -s "${LOG_ROOT}/reproducibility_1.json" "${LOG_ROOT}/reproducibility_2.json"; then
+    --train-config conf/rl/experiments/ppo_fe_pilot.yaml \
+    > "${TEST_LOG_ROOT}/reproducibility_2.json"
+if ! cmp -s "${TEST_LOG_ROOT}/reproducibility_1.json" "${TEST_LOG_ROOT}/reproducibility_2.json"; then
     echo "Seeded full trajectories are not reproducible; training was not started." >&2
-    diff -u "${LOG_ROOT}/reproducibility_1.json" "${LOG_ROOT}/reproducibility_2.json" >&2 || true
+    diff -u "${TEST_LOG_ROOT}/reproducibility_1.json" "${TEST_LOG_ROOT}/reproducibility_2.json" >&2 || true
     exit 3
 fi
 echo "Reproducibility check passed."
@@ -85,6 +86,7 @@ echo "Reproducibility check passed."
     echo "project_root=${PROJECT_ROOT}"
     echo "output_root=${OUTPUT_ROOT}"
     echo "log_root=${LOG_ROOT}"
+    echo "test_log_root=${TEST_LOG_ROOT}"
     echo "conda_prefix=${CONDA_PREFIX}"
     echo "updates=${UPDATES}"
     echo "rollouts_per_arm=$((UPDATES * 16))"

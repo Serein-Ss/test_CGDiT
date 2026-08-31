@@ -5,12 +5,15 @@ set -Eeuo pipefail
 PROJECT_ROOT="${PROJECT_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
 WORKER="submit_python/run_rl_target_generation.sh"
 RUN_ID="${RUN_ID:-$(date '+%Y%m%d-%H%M%S')}"
-OUTPUT_ROOT="${OUTPUT_ROOT:-${PROJECT_ROOT}/output/rl_generation/${RUN_ID}}"
-LOG_ROOT="${LOG_ROOT:-${PROJECT_ROOT}/logs/rl_generation/${RUN_ID}}"
+RUN_DATE="${RUN_DATE:-${RUN_ID:0:4}-${RUN_ID:4:2}-${RUN_ID:6:2}}"
+RUN_TIME="${RUN_TIME:-${RUN_ID:9:2}-${RUN_ID:11:2}-${RUN_ID:13:2}}"
+OUTPUT_ROOT="${OUTPUT_ROOT:-${PROJECT_ROOT}/output/reinforcement_learning/${RUN_DATE}/${RUN_TIME}-rl-target-generation}"
+LOG_ROOT="${LOG_ROOT:-${PROJECT_ROOT}/logs/structure_generation/reinforcement_learning/${RUN_ID}}"
+TEST_LOG_ROOT="${TEST_LOG_ROOT:-${PROJECT_ROOT}/logs/tests/structure_generation/reinforcement_learning/${RUN_ID}}"
 GPU_ID="${GPU_ID:-0}"
 
-FE_RL_MODEL_PATH="${FE_RL_MODEL_PATH:-${PROJECT_ROOT}/output/rl_finetune/seed42_grpo_pipo_probe32/668001/grpo_fe_seed42_pipo/model}"
-BG_RL_MODEL_PATH="${BG_RL_MODEL_PATH:-${PROJECT_ROOT}/output/rl_finetune/seed42_grpo_pipo_probe32/668001/grpo_bg_seed42_pipo/model}"
+FE_RL_MODEL_PATH="${FE_RL_MODEL_PATH:-${PROJECT_ROOT}/output/reinforcement_learning/2026-08-23/21-47-35-grpo-pipo-probe32/grpo_fe_seed42_pipo/model}"
+BG_RL_MODEL_PATH="${BG_RL_MODEL_PATH:-${PROJECT_ROOT}/output/reinforcement_learning/2026-08-23/21-47-35-grpo-pipo-probe32/grpo_bg_seed42_pipo/model}"
 FE_TARGET_VALUE="${FE_TARGET_VALUE:--1.5}"
 BG_TARGET_VALUE="${BG_TARGET_VALUE:-2.0}"
 FE_TARGET_LABEL="${FE_TARGET_LABEL:-fe_m1p5}"
@@ -35,7 +38,7 @@ python -c "import sys; float(sys.argv[1]); float(sys.argv[2])" \
     "${FE_TARGET_VALUE}" "${BG_TARGET_VALUE}" >/dev/null
 
 cd "${PROJECT_ROOT}"
-mkdir -p "${OUTPUT_ROOT}" "${LOG_ROOT}"
+mkdir -p "${OUTPUT_ROOT}" "${LOG_ROOT}" "${TEST_LOG_ROOT}"
 bash -n "${WORKER}"
 for rl_model_path in "${FE_RL_MODEL_PATH}" "${BG_RL_MODEL_PATH}"; do
     test -s "${rl_model_path}/hparams.yaml"
@@ -49,7 +52,7 @@ test -s "${GT_FILE}"
 python -m pytest -q \
     tests/test_rl_target_generation.py \
     tests/test_generated_property_evaluation.py \
-    > "${LOG_ROOT}/pytest_preflight.log" 2>&1
+    > "${TEST_LOG_ROOT}/pytest_preflight.log" 2>&1
 
 CUDA_VISIBLE_DEVICES="${GPU_ID}" \
 PROJECT_ROOT="${PROJECT_ROOT}" \

@@ -6,7 +6,8 @@ PROJECT_ROOT="${PROJECT_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
 WORKER="submit_python/run_magndata_tc_benchmarks.sh"
 RUN_ID="${RUN_ID:-$(date '+%Y%m%d-%H%M%S')}"
 OUTPUT_ROOT="${OUTPUT_ROOT:-${PROJECT_ROOT}/output/magndata_tc_benchmark/${RUN_ID}}"
-LOG_ROOT="${LOG_ROOT:-${PROJECT_ROOT}/logs/magndata_tc/${RUN_ID}}"
+LOG_ROOT="${LOG_ROOT:-${PROJECT_ROOT}/logs/property_predictor_training/magndata_tc/${RUN_ID}}"
+TEST_LOG_ROOT="${TEST_LOG_ROOT:-${PROJECT_ROOT}/logs/tests/property_predictors/magndata_tc/${RUN_ID}}"
 SEEDS="${SEEDS:-42 123 3407}"
 GPU_ID="${GPU_ID:-0}"
 BASE_PRETRAINED_DIFFUSION_MODEL="${BASE_PRETRAINED_DIFFUSION_MODEL:-${PROJECT_ROOT}/output/singlerun/2026-06-27/00-32-50-mp20_base}"
@@ -19,7 +20,7 @@ if [[ -z "${CONDA_PREFIX:-}" ]]; then
 fi
 
 cd "${PROJECT_ROOT}"
-mkdir -p "${OUTPUT_ROOT}" "${LOG_ROOT}"
+mkdir -p "${OUTPUT_ROOT}" "${LOG_ROOT}" "${TEST_LOG_ROOT}"
 bash -n "${WORKER}"
 test -s data/magndata/train.csv
 test -s data/magndata/val.csv
@@ -36,7 +37,7 @@ if [[ -n "${REUSE_BENCHMARK_ROOT}" ]]; then
 fi
 
 python -m pytest -q tests/test_magndata_tc_pipeline.py \
-    > "${LOG_ROOT}/pytest_preflight.log" 2>&1
+    > "${TEST_LOG_ROOT}/pytest_preflight.log" 2>&1
 
 CUDA_VISIBLE_DEVICES="${GPU_ID}" \
 PROJECT_ROOT="${PROJECT_ROOT}" \

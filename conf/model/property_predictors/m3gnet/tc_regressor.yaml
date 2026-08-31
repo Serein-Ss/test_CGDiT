@@ -1,0 +1,11 @@
+defaults:
+- /model/property_predictors/backbone@_here_: m3gnet
+- _self_
+_target_: cgdit.prop_models.gnn_models.m3gnet.M3GNetSurrogate
+target_prop: tc
+target_mean: ${data.target_stats.tc.mean}
+target_std: ${data.target_stats.tc.std}
+loss:
+  name: mse
+metrics:
+- mae

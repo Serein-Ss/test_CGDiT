@@ -6,9 +6,9 @@ PROJECT_ROOT="${PROJECT_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
 cd "${PROJECT_ROOT}"
 
 WORKER="submit_python/run_seed42_property_evaluation.sh"
-LOG_FILE="logs/seed42_property_evaluation_main.log"
+LOG_FILE="logs/metric_evaluation/property_predictors/seed42_main.log"
 
-mkdir -p logs
+mkdir -p "$(dirname "${LOG_FILE}")"
 bash -n "${WORKER}"
 
 nohup bash "${WORKER}" > "${LOG_FILE}" 2>&1 < /dev/null &

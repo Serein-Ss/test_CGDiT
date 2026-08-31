@@ -22,11 +22,19 @@ RUN_PILOT="${RUN_PILOT:-1}"
 RUN_AB_INITIO="${RUN_AB_INITIO:-1}"
 
 GT_FILE="${PROJECT_ROOT}/data/mp_20/test.csv"
-LOG_DIR="${PROJECT_ROOT}/logs/all_generation_evaluation"
-mkdir -p "${LOG_DIR}" "${WABDB_DIR}"
+GENERATION_LOG_DIR="${PROJECT_ROOT}/logs/structure_generation/mp20"
+METRIC_LOG_DIR="${PROJECT_ROOT}/logs/metric_evaluation/mp20"
+TEST_LOG_DIR="${PROJECT_ROOT}/logs/tests/generation_evaluation"
+STATE_LOG_DIR="${PROJECT_ROOT}/logs/other/orchestration/generation_evaluation"
+mkdir -p \
+    "${GENERATION_LOG_DIR}" \
+    "${METRIC_LOG_DIR}" \
+    "${TEST_LOG_DIR}" \
+    "${STATE_LOG_DIR}" \
+    "${WABDB_DIR}"
 
 if command -v flock >/dev/null 2>&1; then
-    exec 9>"${LOG_DIR}/run.lock"
+    exec 9>"${STATE_LOG_DIR}/run.lock"
     if ! flock -n 9; then
         echo "Another all-model generation/evaluation run is already active." >&2
         exit 1
@@ -86,16 +94,17 @@ log_header() {
 }
 
 run_logged() {
-    local step_name="$1"
-    shift
-    local log_file="${LOG_DIR}/${step_name}.log"
+    local log_dir="$1"
+    local step_name="$2"
+    shift 2
+    local log_file="${log_dir}/${step_name}.log"
 
     echo "[RUN] ${step_name}"
     if "$@" 2>&1 | tee "${log_file}"; then
         echo "[OK] ${step_name}"
     else
         local status=$?
-        echo "[FAILED:${status}] ${step_name}" | tee -a "${LOG_DIR}/failures.log"
+        echo "[FAILED:${status}] ${step_name}" | tee -a "${STATE_LOG_DIR}/failures.log"
         FAILURES+=("${step_name}")
     fi
 }
@@ -154,7 +163,7 @@ run_generation() {
         cmd+=(--guidance_scale 1.0)
     fi
 
-    run_logged "generate_${model_name}_${label}" "${cmd[@]}"
+    run_logged "${GENERATION_LOG_DIR}" "generate_${model_name}_${label}" "${cmd[@]}"
 }
 
 run_metrics() {
@@ -168,7 +177,7 @@ run_metrics() {
 
     if [[ ! -s "${input_file}" ]]; then
         echo "[FAILED] Missing generation output for metrics: ${input_file}" \
-            | tee -a "${LOG_DIR}/failures.log"
+            | tee -a "${STATE_LOG_DIR}/failures.log"
         FAILURES+=("metrics_${model_name}_${label}_missing_input")
         return
     fi
@@ -178,7 +187,7 @@ run_metrics() {
         return
     fi
 
-    run_logged "metrics_${model_name}_${label}" \
+    run_logged "${METRIC_LOG_DIR}" "metrics_${model_name}_${label}" \
         python -m scripts.cli.evaluation.evaluate_metrics \
         --root_path "${model_path}" \
         --tasks gen \
@@ -213,7 +222,7 @@ for i in "${!MODEL_NAMES[@]}"; do
     compgen -G "${model_path}/*.ckpt" >/dev/null || { echo "Missing checkpoint: ${model_path}" >&2; exit 1; }
 done
 
-run_logged "preflight_pytest" python -m pytest tests -q
+run_logged "${TEST_LOG_DIR}" "preflight_pytest" python -m pytest tests -q
 
 if [[ ${#FAILURES[@]} -gt 0 ]]; then
     echo "Preflight failed; formal generation will not start." >&2
@@ -324,10 +333,13 @@ log_header "Run summary"
 if [[ ${#FAILURES[@]} -gt 0 ]]; then
     printf 'Failed steps (%d):\n' "${#FAILURES[@]}"
     printf '  - %s\n' "${FAILURES[@]}"
-    echo "See ${LOG_DIR}/failures.log and the per-step logs."
+    echo "See ${STATE_LOG_DIR}/failures.log and the per-step logs."
     exit 1
 fi
 
 echo "All executable tasks completed successfully."
 echo "Outputs: generated_structures/ and evaluations/ under each model directory."
-echo "Logs: ${LOG_DIR}"
+echo "Generation logs: ${GENERATION_LOG_DIR}"
+echo "Metric logs: ${METRIC_LOG_DIR}"
+echo "Test logs: ${TEST_LOG_DIR}"
+echo "Run state: ${STATE_LOG_DIR}"

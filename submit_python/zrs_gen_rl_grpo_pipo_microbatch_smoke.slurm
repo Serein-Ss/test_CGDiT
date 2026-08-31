@@ -8,25 +8,28 @@
 #SBATCH --gres=gpu:1
 #SBATCH --mem=32G
 #SBATCH --time=00:30:00
-#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-pipo-microbatch-smoke-%j.out
-#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-pipo-microbatch-smoke-%j.err
+#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/tests/reinforcement_learning/slurm/zrs-gen-rl-pipo-microbatch-smoke-%j.out
+#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/tests/reinforcement_learning/slurm/zrs-gen-rl-pipo-microbatch-smoke-%j.err
 
 set -Eeuo pipefail
 
 PROJECT_ROOT="/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT"
 PYTHON="${PROJECT_ROOT}/.venv/bin/python"
-OUTPUT_ROOT="${PROJECT_ROOT}/output/rl_finetune/test_grpo_pipo_microbatch/${SLURM_JOB_ID}"
-LOG_ROOT="${PROJECT_ROOT}/output/rl_diagnostics/${SLURM_JOB_ID}-pipo-microbatch-smoke"
+source "${PROJECT_ROOT}/submit_python/rl_output_layout.sh"
+RUN_ID="$(rl_resolve_run_id)"
+OUTPUT_ROOT="$(rl_run_root "${PROJECT_ROOT}" test/reinforcement_learning pipo-microbatch-smoke "${RUN_ID}")"
+DIAGNOSTICS_ROOT="${OUTPUT_ROOT}/diagnostics"
+LOG_ROOT="${PROJECT_ROOT}/logs/tests/reinforcement_learning/${RUN_ID}-pipo-microbatch-smoke"
 export PYTHONUNBUFFERED=1
 export PYTHONHASHSEED=0
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 export CUBLAS_WORKSPACE_CONFIG=:4096:8
 
 cd "${PROJECT_ROOT}"
-mkdir -p "${OUTPUT_ROOT}" "${LOG_ROOT}" logs/rl
+mkdir -p "${OUTPUT_ROOT}" "${DIAGNOSTICS_ROOT}" "${LOG_ROOT}" logs/tests/reinforcement_learning/slurm
 
 srun "${PYTHON}" -m scripts.cli.training.train_crystal_rl \
-    --train-config conf/rl/grpo_fe_seed42_pipo_probe32.yaml \
+    --train-config conf/rl/experiments/grpo_fe_seed42_pipo_probe32.yaml \
     --pipo \
     --no-pirl \
     --no-audit-policy-updates \

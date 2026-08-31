@@ -9,15 +9,18 @@
 #SBATCH --mem=56G
 #SBATCH --time=10-00:00:00
 #SBATCH --array=0-11%4
-#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-seed42-train-%A_%a.out
-#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-seed42-train-%A_%a.err
+#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/reinforcement_learning/slurm/zrs-gen-rl-seed42-train-%A_%a.out
+#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/reinforcement_learning/slurm/zrs-gen-rl-seed42-train-%A_%a.err
 
 set -Eeuo pipefail
 
 PROJECT_ROOT="/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT"
 PYTHON="${PROJECT_ROOT}/.venv/bin/python"
-TRAIN_ROOT="${PROJECT_ROOT}/output/rl_finetune/seed42_300step_fig1_fig4/${SLURM_ARRAY_JOB_ID}"
-AUDIT_ROOT="${PROJECT_ROOT}/output/rl_diagnostics/${SLURM_ARRAY_JOB_ID}-seed42-train/task_${SLURM_ARRAY_TASK_ID}"
+source "${PROJECT_ROOT}/submit_python/rl_output_layout.sh"
+RUN_ID="$(rl_resolve_run_id)"
+TRAIN_ROOT="$(rl_run_root "${PROJECT_ROOT}" reinforcement_learning seed42-300step-fig1-fig4 "${RUN_ID}")"
+AUDIT_ROOT="${TRAIN_ROOT}/diagnostics/task_${SLURM_ARRAY_TASK_ID}"
+LOG_ROOT="${PROJECT_ROOT}/logs/reinforcement_learning/slurm/${RUN_ID}-seed42-300step-fig1-fig4/task_${SLURM_ARRAY_TASK_ID}"
 MANIFEST="${AUDIT_ROOT}/manifest.txt"
 export WANDB_MODE=offline
 export OMP_NUM_THREADS="${SLURM_CPUS_PER_TASK:-4}"
@@ -27,18 +30,18 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 export CUBLAS_WORKSPACE_CONFIG=:4096:8
 
 CONFIGS=(
-    conf/rl/ppo_fe_seed42_300step.yaml
-    conf/rl/ppo_fe_seed42_300step.yaml
-    conf/rl/ppo_fe_seed42_300step.yaml
-    conf/rl/grpo_fe_seed42_300step.yaml
-    conf/rl/grpo_fe_seed42_300step.yaml
-    conf/rl/grpo_fe_seed42_300step.yaml
-    conf/rl/ppo_bg_seed42_300step.yaml
-    conf/rl/ppo_bg_seed42_300step.yaml
-    conf/rl/ppo_bg_seed42_300step.yaml
-    conf/rl/grpo_bg_seed42_300step.yaml
-    conf/rl/grpo_bg_seed42_300step.yaml
-    conf/rl/grpo_bg_seed42_300step.yaml
+    conf/rl/experiments/ppo_fe_seed42_300step.yaml
+    conf/rl/experiments/ppo_fe_seed42_300step.yaml
+    conf/rl/experiments/ppo_fe_seed42_300step.yaml
+    conf/rl/experiments/grpo_fe_seed42_300step.yaml
+    conf/rl/experiments/grpo_fe_seed42_300step.yaml
+    conf/rl/experiments/grpo_fe_seed42_300step.yaml
+    conf/rl/experiments/ppo_bg_seed42_300step.yaml
+    conf/rl/experiments/ppo_bg_seed42_300step.yaml
+    conf/rl/experiments/ppo_bg_seed42_300step.yaml
+    conf/rl/experiments/grpo_bg_seed42_300step.yaml
+    conf/rl/experiments/grpo_bg_seed42_300step.yaml
+    conf/rl/experiments/grpo_bg_seed42_300step.yaml
 )
 RUN_NAMES=(
     ppo_fe_seed42
@@ -69,7 +72,7 @@ case "${MODE}" in
 esac
 
 cd "${PROJECT_ROOT}"
-mkdir -p "${TRAIN_ROOT}" "${AUDIT_ROOT}" logs/rl
+mkdir -p "${TRAIN_ROOT}" "${AUDIT_ROOT}" "${LOG_ROOT}" logs/reinforcement_learning/slurm
 test -x "${PYTHON}"
 
 record_failure() {
@@ -106,7 +109,7 @@ srun "${PYTHON}" -m scripts.cli.training.train_crystal_rl \
     --train-config "${CONFIG}" \
     "${MODE_ARGS[@]}" \
     --output-root "${TRAIN_ROOT}" \
-    > "${AUDIT_ROOT}/training.log" 2>&1
+    > "${LOG_ROOT}/training.log" 2>&1
 
 "${PYTHON}" - "${TRAIN_ROOT}" "${RUN_NAME}" "${MODE}" <<'PY_VERIFY'
 import json

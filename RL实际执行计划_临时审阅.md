@@ -39,7 +39,7 @@ reward_framework: closed-loop general material generation reward
     → accept / attenuate / reject
     → verified policy or rollback
 
-Chemeleon2 的创造性、稳定性和 leave-one-out MMD 多样性用于组件与消融设计；其批次 min–max 不用于主方法的原始奖励，因为跨批次变化的标度不能支持 candidate 与 current/frozen-base 的跨策略比较。当前冻结契约见 conf/rl/reward_closed_loop_mp20.yaml。
+Chemeleon2 的创造性、稳定性和 leave-one-out MMD 多样性用于组件与消融设计；其批次 min–max 不用于主方法的原始奖励，因为跨批次变化的标度不能支持 candidate 与 current/frozen-base 的跨策略比较。当前冻结契约见 conf/rl/components/rewards/contracts/mp20.yaml。
 
 闭环永久维护三种策略：frozen base \(\pi_0\)、current verified policy \(\pi_k\) 和 candidate \(\pi'\)。任何候选都必须同时通过：
 
@@ -266,7 +266,7 @@ MMD 边际贡献必须使用 pilot 前冻结的尺度映射到 [0,1]，不得在
 
 产物：
 
-- conf/rl/experiment_contract.yaml；
+- conf/rl/components/rewards/contracts/mp20.yaml；
 - checkpoint/evaluator manifest；
 - baseline manifest。
 
@@ -334,8 +334,8 @@ Gate 1：
 
     scripts/cli/training/train_crystal_rl.py
     scripts/cli/training/diagnose_rl_update_scale.py
-    conf/rl/ppo_fe.yaml
-    conf/rl/grpo_fe.yaml
+    conf/rl/experiments/ppo_fe.yaml
+    conf/rl/experiments/grpo_fe.yaml
 
 Gate 2：**已通过。**
 

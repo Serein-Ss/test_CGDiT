@@ -8,16 +8,19 @@
 #SBATCH --gres=gpu:1
 #SBATCH --mem=48G
 #SBATCH --time=3-00:00:00
-#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-metal-%j.out
-#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-metal-%j.err
+#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/reinforcement_learning/slurm/zrs-gen-rl-metal-%j.out
+#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/reinforcement_learning/slurm/zrs-gen-rl-metal-%j.err
 
 set -Eeuo pipefail
 
 PROJECT_ROOT="/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT"
 PYTHON="${PROJECT_ROOT}/.venv/bin/python"
-CONFIG="conf/rl/grpo_metal_seed42_pipo_probe32.yaml"
-TRAIN_ROOT="${PROJECT_ROOT}/output/rl_finetune/seed42_grpo_pipo_metal/${SLURM_JOB_ID}"
-AUDIT_ROOT="${PROJECT_ROOT}/output/rl_diagnostics/${SLURM_JOB_ID}-seed42-grpo-pipo-metal"
+source "${PROJECT_ROOT}/submit_python/rl_output_layout.sh"
+RUN_ID="$(rl_resolve_run_id)"
+CONFIG="conf/rl/experiments/grpo_metal_seed42_pipo_probe32.yaml"
+TRAIN_ROOT="$(rl_run_root "${PROJECT_ROOT}" reinforcement_learning grpo-pipo-metal "${RUN_ID}")"
+AUDIT_ROOT="${TRAIN_ROOT}/diagnostics"
+LOG_ROOT="${PROJECT_ROOT}/logs/reinforcement_learning/slurm/${RUN_ID}-grpo-pipo-metal"
 MANIFEST="${AUDIT_ROOT}/manifest.txt"
 RUN_NAME="grpo_metal_seed42_pipo"
 export WANDB_MODE=offline
@@ -28,7 +31,7 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 export CUBLAS_WORKSPACE_CONFIG=:4096:8
 
 cd "${PROJECT_ROOT}"
-mkdir -p "${TRAIN_ROOT}" "${AUDIT_ROOT}" logs/rl
+mkdir -p "${TRAIN_ROOT}" "${AUDIT_ROOT}" "${LOG_ROOT}" logs/reinforcement_learning/slurm
 test -x "${PYTHON}"
 
 record_failure() {
@@ -59,7 +62,7 @@ trap record_failure ERR
     echo "start_time=$(date '+%Y-%m-%d %H:%M:%S %z')"
     echo "git_commit=$(git rev-parse HEAD 2>/dev/null || echo unavailable)"
     sha256sum "${CONFIG}" \
-        conf/rl/reward_closed_loop_mp20_metal_seed42_pilot.yaml \
+        conf/rl/components/rewards/contracts/mp20_metal_seed42_pilot.yaml \
         scripts/cli/training/train_crystal_rl.py \
         cgdit/rl/rewards.py \
         cgdit/rl/pipo.py
@@ -68,12 +71,12 @@ trap record_failure ERR
 "${PYTHON}" -m scripts.cli.training.train_crystal_rl \
     --train-config "${CONFIG}" \
     --preflight-only \
-    > "${AUDIT_ROOT}/preflight.log" 2>&1
+    > "${LOG_ROOT}/preflight.log" 2>&1
 
 srun "${PYTHON}" -m scripts.cli.training.train_crystal_rl \
     --train-config "${CONFIG}" \
     --output-root "${TRAIN_ROOT}" \
-    > "${AUDIT_ROOT}/training.log" 2>&1
+    > "${LOG_ROOT}/training.log" 2>&1
 
 "${PYTHON}" - "${TRAIN_ROOT}" "${RUN_NAME}" <<'PY_VERIFY'
 import json

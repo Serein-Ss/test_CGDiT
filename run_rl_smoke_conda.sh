@@ -5,7 +5,7 @@ set -Eeuo pipefail
 PROJECT_ROOT="${PROJECT_ROOT:-$(cd "$(dirname "$0")" && pwd)}"
 WORKER="submit_python/run_rl_smoke_conda.sh"
 RUN_ID="${RUN_ID:-$(date '+%Y%m%d-%H%M%S')}"
-LOG_DIR="${PROJECT_ROOT}/logs/remote_rl/${RUN_ID}"
+LOG_DIR="${PROJECT_ROOT}/logs/reinforcement_learning/local_runs/${RUN_ID}"
 LOG_FILE="${LOG_DIR}/zrs-gen-rl.log"
 
 if [[ -z "${CONDA_PREFIX:-}" ]]; then

@@ -8,14 +8,18 @@
 #SBATCH --gres=gpu:1
 #SBATCH --mem=48G
 #SBATCH --time=02:00:00
-#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-%j.out
-#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-%j.err
+#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/reinforcement_learning/slurm/zrs-gen-rl-%j.out
+#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/reinforcement_learning/slurm/zrs-gen-rl-%j.err
 
 set -Eeuo pipefail
 
 PROJECT_ROOT="/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT"
-RUN_ROOT="${PROJECT_ROOT}/output/rl_diagnostics/${SLURM_JOB_ID}-gate3b-scale"
-MANIFEST="${RUN_ROOT}/manifest.txt"
+source "${PROJECT_ROOT}/submit_python/rl_output_layout.sh"
+RUN_ID="$(rl_resolve_run_id)"
+RUN_ROOT="$(rl_run_root "${PROJECT_ROOT}" test/reinforcement_learning gate3b-scale "${RUN_ID}")"
+DIAGNOSTICS_ROOT="${RUN_ROOT}/diagnostics"
+LOG_ROOT="${PROJECT_ROOT}/logs/tests/reinforcement_learning/${RUN_ID}-gate3b-scale"
+MANIFEST="${DIAGNOSTICS_ROOT}/manifest.txt"
 PYTHON="${PROJECT_ROOT}/.venv/bin/python"
 export PROJECT_ROOT
 export WANDB_MODE=offline
@@ -25,7 +29,7 @@ export PYTHONHASHSEED=0
 export CUBLAS_WORKSPACE_CONFIG=:4096:8
 
 cd "${PROJECT_ROOT}"
-mkdir -p "${RUN_ROOT}" logs/rl
+mkdir -p "${DIAGNOSTICS_ROOT}" "${LOG_ROOT}" logs/tests/reinforcement_learning/slurm
 test -x "${PYTHON}"
 
 record_failure() {
@@ -53,10 +57,10 @@ trap record_failure ERR
         scripts/cli/training/train_crystal_rl.py \
         scripts/cli/training/check_rl_reproducibility.py \
         scripts/cli/training/diagnose_rl_update_scale.py \
-        conf/rl/ppo_fe_pilot.yaml \
-        conf/rl/grpo_fe_pilot.yaml \
-        conf/rl/reward_closed_loop_mp20.yaml \
-        conf/rl/reward_models_mp20.yaml
+        conf/rl/experiments/ppo_fe_pilot.yaml \
+        conf/rl/experiments/grpo_fe_pilot.yaml \
+        conf/rl/components/rewards/contracts/mp20.yaml \
+        conf/rl/components/rewards/registries/mp20.yaml
 } > "${MANIFEST}"
 
 srun "${PYTHON}" -m pytest -q \
@@ -64,19 +68,19 @@ srun "${PYTHON}" -m pytest -q \
     tests/test_rl_training_cli.py \
     tests/test_rl_reproducibility_cli.py \
     tests/test_rl_update_scale_diagnostic.py \
-    > "${RUN_ROOT}/pytest.log" 2>&1
+    > "${LOG_ROOT}/pytest.log" 2>&1
 
 srun "${PYTHON}" -m \
     scripts.cli.training.check_rl_reproducibility \
-    --train-config conf/rl/ppo_fe_pilot.yaml \
-    > "${RUN_ROOT}/reproducibility_1.json"
+    --train-config conf/rl/experiments/ppo_fe_pilot.yaml \
+    > "${DIAGNOSTICS_ROOT}/reproducibility_1.json"
 srun "${PYTHON}" -m \
     scripts.cli.training.check_rl_reproducibility \
-    --train-config conf/rl/ppo_fe_pilot.yaml \
-    > "${RUN_ROOT}/reproducibility_2.json"
+    --train-config conf/rl/experiments/ppo_fe_pilot.yaml \
+    > "${DIAGNOSTICS_ROOT}/reproducibility_2.json"
 if ! cmp -s \
-    "${RUN_ROOT}/reproducibility_1.json" \
-    "${RUN_ROOT}/reproducibility_2.json"
+    "${DIAGNOSTICS_ROOT}/reproducibility_1.json" \
+    "${DIAGNOSTICS_ROOT}/reproducibility_2.json"
 then
     echo "Seeded full trajectories differ across fresh processes." >&2
     exit 3
@@ -84,17 +88,17 @@ fi
 
 srun "${PYTHON}" -m \
     scripts.cli.training.diagnose_rl_update_scale \
-    --train-config conf/rl/ppo_fe_pilot.yaml \
-    --output "${RUN_ROOT}/ppo_scale_scan.json"
+    --train-config conf/rl/experiments/ppo_fe_pilot.yaml \
+    --output "${DIAGNOSTICS_ROOT}/ppo_scale_scan.json"
 
 srun "${PYTHON}" -m \
     scripts.cli.training.diagnose_rl_update_scale \
-    --train-config conf/rl/grpo_fe_pilot.yaml \
-    --output "${RUN_ROOT}/grpo_scale_scan.json"
+    --train-config conf/rl/experiments/grpo_fe_pilot.yaml \
+    --output "${DIAGNOSTICS_ROOT}/grpo_scale_scan.json"
 
 "${PYTHON}" - \
-    "${RUN_ROOT}/ppo_scale_scan.json" \
-    "${RUN_ROOT}/grpo_scale_scan.json" <<'PY_VERIFY'
+    "${DIAGNOSTICS_ROOT}/ppo_scale_scan.json" \
+    "${DIAGNOSTICS_ROOT}/grpo_scale_scan.json" <<'PY_VERIFY'
 import json
 import sys
 from pathlib import Path

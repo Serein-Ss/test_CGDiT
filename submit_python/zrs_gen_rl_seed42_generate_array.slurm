@@ -9,8 +9,8 @@
 #SBATCH --mem=56G
 #SBATCH --time=48:00:00
 #SBATCH --array=0-11%4
-#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-seed42-generate-%A_%a.out
-#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-seed42-generate-%A_%a.err
+#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/structure_generation/reinforcement_learning/slurm/zrs-gen-rl-seed42-generate-%A_%a.out
+#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/structure_generation/reinforcement_learning/slurm/zrs-gen-rl-seed42-generate-%A_%a.err
 
 set -Eeuo pipefail
 
@@ -18,8 +18,10 @@ set -Eeuo pipefail
 
 PROJECT_ROOT="/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT"
 PYTHON="${PROJECT_ROOT}/.venv/bin/python"
-TRAIN_ROOT="${PROJECT_ROOT}/output/rl_finetune/seed42_300step_fig1_fig4/${TRAIN_RUN_ID}"
-AUDIT_ROOT="${PROJECT_ROOT}/output/rl_diagnostics/${SLURM_ARRAY_JOB_ID}-seed42-generate/task_${SLURM_ARRAY_TASK_ID}"
+source "${PROJECT_ROOT}/submit_python/rl_output_layout.sh"
+: "${RUN_ID:?RUN_ID must be exported by the launcher}"
+TRAIN_ROOT="$(rl_run_root "${PROJECT_ROOT}" reinforcement_learning seed42-300step-fig1-fig4 "${RUN_ID}")"
+AUDIT_ROOT="${TRAIN_ROOT}/diagnostics/generation/task_${SLURM_ARRAY_TASK_ID}"
 MANIFEST="${AUDIT_ROOT}/manifest.txt"
 FE_EVALUATOR="${PROJECT_ROOT}/output/singlerun/2026-08-20/20-24-50-mp20_predictor_fe_seed123"
 BG_EVALUATOR="${PROJECT_ROOT}/output/singlerun/2026-08-21/08-37-12-mp20_predictor_bg_seed123"
@@ -59,7 +61,7 @@ fi
 ABINITIO_LABEL="abinitio_empirical_uncond_policy_${TARGET_LABEL}_n${TOTAL_SAMPLES}_seed42"
 
 cd "${PROJECT_ROOT}"
-mkdir -p "${AUDIT_ROOT}" logs/rl
+mkdir -p "${AUDIT_ROOT}" logs/structure_generation/reinforcement_learning/slurm
 test -x "${PYTHON}"
 test -s "${MODEL_DIR}/hparams.yaml"
 compgen -G "${MODEL_DIR}/*.ckpt" >/dev/null

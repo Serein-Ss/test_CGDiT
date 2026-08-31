@@ -11,22 +11,22 @@ ASSIGNED_GPU="${ASSIGNED_GPU:-unknown}"
 
 case "${ARM}" in
     P0)
-        CONFIG="conf/rl/ppo_fe_pilot.yaml"
+        CONFIG="conf/rl/experiments/ppo_fe_pilot.yaml"
         RUN_NAME="ppo_fe_seed42"
         PIRL_ARGS=(--no-pirl)
         ;;
     P2)
-        CONFIG="conf/rl/ppo_fe_pilot.yaml"
+        CONFIG="conf/rl/experiments/ppo_fe_pilot.yaml"
         RUN_NAME="ppo_fe_seed42_pirl"
         PIRL_ARGS=(--pirl)
         ;;
     G0)
-        CONFIG="conf/rl/grpo_fe_pilot.yaml"
+        CONFIG="conf/rl/experiments/grpo_fe_pilot.yaml"
         RUN_NAME="grpo_fe_seed42"
         PIRL_ARGS=(--no-pirl)
         ;;
     G2)
-        CONFIG="conf/rl/grpo_fe_pilot.yaml"
+        CONFIG="conf/rl/experiments/grpo_fe_pilot.yaml"
         RUN_NAME="grpo_fe_seed42_pirl"
         PIRL_ARGS=(--pirl)
         ;;
@@ -90,8 +90,8 @@ trap record_failure ERR
         scripts/cli/training/train_crystal_rl.py \
         scripts/cli/training/check_rl_reproducibility.py \
         "${CONFIG}" \
-        conf/rl/reward_closed_loop_mp20.yaml \
-        conf/rl/reward_models_mp20.yaml
+        conf/rl/components/rewards/contracts/mp20.yaml \
+        conf/rl/components/rewards/registries/mp20.yaml
 } > "${MANIFEST}"
 
 python -m scripts.cli.training.train_crystal_rl     --train-config "${CONFIG}"     "${PIRL_ARGS[@]}"     --updates "${UPDATES}"     --run-kind train     --output-root "${OUTPUT_ROOT}"

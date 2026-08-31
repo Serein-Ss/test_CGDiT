@@ -9,9 +9,9 @@ from pathlib import Path
 from typing import Any
 
 import torch
-from omegaconf import OmegaConf
 
 from cgdit.common.evaluation_utils import load_model
+from cgdit.rl.config import load_rl_config
 from scripts.cli.training.train_crystal_rl import _grouped_batch, _set_seed
 
 
@@ -48,7 +48,7 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
-    config = OmegaConf.load(args.train_config)
+    config = load_rl_config(args.train_config)
     required = (
         "model_path",
         "num_prompts",

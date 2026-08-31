@@ -86,11 +86,13 @@ property_metrics_complete() {
 }
 
 run_policy() {
-    local policy_name=$1
+    local task_name=$1
     local rl_model_path=$2
     local target_name=$3
     local target_value=$4
     local target_label=$5
+    local policy_name
+    policy_name="$(basename "$(dirname "${rl_model_path}")")"
     local policy_root="${OUTPUT_ROOT}/${policy_name}"
     local model_dir="${policy_root}/model"
     local policy_manifest="${policy_root}/policy_manifest.txt"
@@ -114,6 +116,7 @@ run_policy() {
     else
         {
             echo "policy=${policy_name}"
+            echo "task=${task_name}"
             echo "status=running"
             echo "start_time=$(date '+%Y-%m-%d %H:%M:%S %z')"
             echo "source_rl_model=${rl_model_path}"

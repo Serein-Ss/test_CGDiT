@@ -247,8 +247,8 @@ No explicit author-acknowledged limitation was found in the supplied source.
 ### 15.3 与 CGDiT 当前代码的连接
 
 - `[Analysis: local project audit]` CGDiT 已有三个异构生成通道：D3PM 元素、周期分数坐标、受空间群投影的晶格；现有轨迹保存结构状态，但没有动作 log-prob、old/reference policy 或 RL buffer。证据：`cgdit/pl_modules/diffusion.py:91-105,146-184,293-299,446-481`。
-- `[Analysis: local project audit]` 当前 C2DB 配置只训练 `gap/ehull/hform`，本地 CSV 也只有这些性质与 `magmoms`，没有 \(T_C\) 或迁移率标签。证据：`conf/data/c2db_51.yaml:3-6`、`conf/model/exp_c2db_all.yaml:18-30`。
-- `[Analysis: local project audit]` `conf/data/magndata.yaml`、`conf/model/prop_models/tc.yaml` 和 `data/magndata/` 当前均为空占位，不能据此训练 \(T_C\) 模型。
+- `[Analysis: local project audit]` 当前 C2DB 配置只训练 `gap/ehull/hform`，本地 CSV 也只有这些性质与 `magmoms`，没有 \(T_C\) 或迁移率标签。证据：`conf/data/c2db_51.yaml:3-6`、`conf/model/experiments/exp_c2db_all.yaml:18-30`。
+- `[Analysis: local project audit]` `conf/data/magndata.yaml`、`conf/model/property_predictors/diffusion_cspnet/tc_regressor.yaml` 和 `data/magndata/` 当前均为空占位，不能据此训练 \(T_C\) 模型。
 - `[Analysis]` 因此论文最适合接在 CGDiT 的 RL 基线之后：先建立三通道可复算策略和独立物理评估，再加入 PIPO 式迭代验收。跳过这两步直接套公式 9–11，importance ratio 没有严格定义。
 
 ## 16 研究创意

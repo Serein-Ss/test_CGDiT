@@ -3,16 +3,21 @@
 set -Eeuo pipefail
 
 PROJECT_ROOT="${PROJECT_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
+source "${PROJECT_ROOT}/submit_python/rl_output_layout.sh"
+RUN_ID="${RUN_ID:-$(date '+%Y%m%d-%H%M%S')}"
+TRAIN_ROOT="$(rl_run_root "${PROJECT_ROOT}" reinforcement_learning crystalpirl-block10-200step "${RUN_ID}")"
+TEST_ROOT="$(rl_run_root "${PROJECT_ROOT}" test/reinforcement_learning crystalpirl-block10-smoke "${RUN_ID}")"
 
 cd "${PROJECT_ROOT}"
-mkdir -p logs/rl output/rl_diagnostics
+mkdir -p "${TRAIN_ROOT}" "${TEST_ROOT}" logs/reinforcement_learning/slurm logs/tests/reinforcement_learning/slurm
 
-smoke_job="$(${SBATCH:-sbatch} --parsable submit_python/zrs_gen_rl_crystalpirl_block10_smoke.slurm)"
+smoke_job="$(${SBATCH:-sbatch} --parsable --export="ALL,RUN_ID=${RUN_ID}" submit_python/zrs_gen_rl_crystalpirl_block10_smoke.slurm)"
 training_job="$(${SBATCH:-sbatch} --parsable \
     --dependency="afterok:${smoke_job}" \
+    --export="ALL,RUN_ID=${RUN_ID}" \
     submit_python/zrs_gen_rl_crystalpirl_block10_200step_array.slurm)"
 
-manifest="output/rl_diagnostics/seed42_crystalpirl_block10_submission.txt"
+manifest="${TRAIN_ROOT}/submission_manifest.txt"
 {
     echo "submitted_at=$(date '+%Y-%m-%d %H:%M:%S %z')"
     echo "scope=seed42_grpo_crystalpirl_block10_fe_bg_joint"
@@ -31,4 +36,4 @@ manifest="output/rl_diagnostics/seed42_crystalpirl_block10_submission.txt"
 echo "Submitted blockwise CrystalPIRL seed=42 task chain."
 echo "GPU smoke: ${smoke_job}"
 echo "Formal FE/BG/FE+BG array: ${training_job}"
-echo "Manifest: ${PROJECT_ROOT}/${manifest}"
+echo "Manifest: ${manifest}"

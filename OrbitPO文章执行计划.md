@@ -155,7 +155,7 @@ R_{raw}\rightarrow A_{PPO/GRPO}\rightarrow\pi_{candidate}
 | 显式无效结构惩罚 | cgdit/rl/rewards.py | 已实现 | validity 判据需在实验契约冻结 |
 | 创造性、稳定性、leave-one-out MMD | cgdit/rl/rewards.py | 已实现张量接口 | AMD/特征计算需接真实结构 |
 | raw reward 配对验收 | cgdit/rl/policy_improvement.py | 已实现 | 真实固定 probe 待 GPU 验证 |
-| MP20 奖励契约 | conf/rl/reward_closed_loop_mp20.yaml | 已建立 | 正式 target/scale 在 WP0 冻结 |
+| MP20 奖励契约 | conf/rl/components/rewards/contracts/mp20.yaml | 已建立 | 正式 target/scale 在 WP0 冻结 |
 
 ---
 
@@ -165,7 +165,7 @@ R_{raw}\rightarrow A_{PPO/GRPO}\rightarrow\pi_{candidate}
 
 状态：**FE/BG 的 seed=42 训练奖励模型和四个当前生成基线已冻结；多 seed predictor 暂不启用，FE/BG 最终独立评价器仍缺失。**
 
-当前训练奖励模型统一登记在 `conf/rl/reward_models_mp20.yaml`。这些 checkpoint 可用于 RL reward 与固定 probe 验证，但不得同时作为文章最终独立评价器。
+当前训练奖励模型统一登记在 `conf/rl/components/rewards/registries/mp20.yaml`。这些 checkpoint 可用于 RL reward 与固定 probe 验证，但不得同时作为文章最终独立评价器。
 
 ### 需要上传的生成基线
 

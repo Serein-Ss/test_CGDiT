@@ -40,13 +40,13 @@ record by design; all Open/PIPO updates and every applied CrystalPIRL update
 must have complete holdout evidence.
 
 The output directory is supplied explicitly and should remain under the
-corresponding `output/rl_finetune/seed42_300step_fig1_fig4/<job-id>/analysis/` tree until
+corresponding `output/reinforcement_learning/<YYYY-MM-DD>/<HH-MM-SS-seed42-300step-fig1-fig4>/analysis/` tree until
 the conclusion audit passes.
 
 Example after every upstream job is complete:
 
 ```bash
-TRAIN_ROOT=output/rl_finetune/seed42_300step_fig1_fig4/<training-job-id>
+TRAIN_ROOT=output/reinforcement_learning/<YYYY-MM-DD>/<HH-MM-SS-seed42-300step-fig1-fig4>
 SOURCE_DIR="${TRAIN_ROOT}/analysis/source_data"
 
 python scripts/result_figures/crystalpirl_seed42/build_source_data.py \

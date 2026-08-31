@@ -54,9 +54,9 @@ JOINT_CFG_STRUCTURAL_METRICS = (
 )
 PIPO_ABINITIO = {
     "formation_energy_per_atom": ROOT
-    / "output/rl_generation/20260824-051136/fe/model/evaluations/property_predictions/eval_properties_gen_abinitio_empirical_rl_fe_m1p5_n4096_seed42_predictor_seed42.csv",
+    / "output/reinforcement_learning/2026-08-24/05-11-36-rl-target-generation/grpo_fe_seed42_pipo/model/evaluations/property_predictions/eval_properties_gen_abinitio_empirical_rl_fe_m1p5_n4096_seed42_predictor_seed42.csv",
     "band_gap": ROOT
-    / "output/rl_generation/20260824-051136/bg/model/evaluations/property_predictions/eval_properties_gen_abinitio_empirical_rl_bg_2_n4096_seed42_predictor_seed42.csv",
+    / "output/reinforcement_learning/2026-08-24/05-11-36-rl-target-generation/grpo_bg_seed42_pipo/model/evaluations/property_predictions/eval_properties_gen_abinitio_empirical_rl_bg_2_n4096_seed42_predictor_seed42.csv",
 }
 FIG3_QUALITY_METRICS = OUTPUT / "source" / "fig3_quality_metrics.csv"
 FIG4_TRADEOFF = OUTPUT / "source" / "fig4a_target_yield_diversity.csv"
@@ -64,8 +64,17 @@ FIG4_TSNE = OUTPUT / "source" / "fig4b_tsne.csv"
 FIG4_PROFILES = OUTPUT / "source" / "fig4c_structure_profiles.csv"
 FIG4_ELEMENTS = OUTPUT / "source" / "fig4c_element_frequencies.csv"
 RL_LOGS = {
-    "fe": ROOT / "output" / "rl_diagnostics" / "668001-seed42-grpo-pipo-probe32" / "task_0" / "training.log",
-    "bg": ROOT / "output" / "rl_diagnostics" / "668001-seed42-grpo-pipo-probe32" / "task_1" / "training.log",
+    "fe": (
+        ROOT / "output" / "rl_diagnostics" / "668001-seed42-grpo-pipo-probe32" / "task_0" / "training.log",
+        ROOT / "output" / "rl_diagnostics" / "668084-seed42-grpo-pipo-probe32-resume60" / "task_0" / "training.log",
+    ),
+    "bg": (
+        ROOT / "output" / "rl_diagnostics" / "668001-seed42-grpo-pipo-probe32" / "task_1" / "training.log",
+        ROOT / "output" / "rl_diagnostics" / "668084-seed42-grpo-pipo-probe32-resume60" / "task_1" / "training.log",
+    ),
+    "joint": (
+        ROOT / "output" / "rl_diagnostics" / "668085-seed42-grpo-pipo-joint-max60" / "training.log",
+    ),
 }
 INTERIM_PAIRED = {
     task: ROOT / "output" / "rl_diagnostics"
@@ -102,6 +111,11 @@ METHOD_COLORS = {
     "GRPO+PIPO-FE (step 39)": COLORS["pipo_fe"],
     "GRPO+PIPO-BG (step 39)": COLORS["pipo_bg"],
 }
+
+RL_TASKS = (
+    ("fe", "FE", COLORS["open"]),
+    ("bg", "BG", COLORS["cfg"]),
+)
 
 mpl.rcParams.update(
     {
@@ -333,21 +347,21 @@ def fig1() -> None:
 
 
 def _rl_records(task: str) -> list[dict]:
-    path = RL_LOGS[task]
-    if not path.is_file():
-        return []
-    records = []
-    for line in path.read_text(errors="replace").splitlines():
-        line = line.strip()
-        if not line.startswith("{"):
+    by_step = {}
+    for path in RL_LOGS[task]:
+        if not path.is_file():
             continue
-        try:
-            payload = json.loads(line)
-        except json.JSONDecodeError:
-            continue
-        if "step" in payload and payload.get("algorithm") == "grpo":
-            records.append(payload)
-    return records
+        for line in path.read_text(errors="replace").splitlines():
+            line = line.strip()
+            if not line.startswith("{"):
+                continue
+            try:
+                payload = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if "step" in payload and payload.get("algorithm") == "grpo":
+                by_step[int(payload["step"])] = payload
+    return [by_step[step] for step in sorted(by_step)]
 
 
 def _rolling_stats(values: np.ndarray, max_window: int = 15) -> tuple[np.ndarray, np.ndarray]:
@@ -363,7 +377,7 @@ def _rolling_stats(values: np.ndarray, max_window: int = 15) -> tuple[np.ndarray
 
 def _reward_trace(ax: plt.Axes) -> None:
     maximum = 0
-    for task, label, color in [("fe", "FE", COLORS["open"]), ("bg", "BG", COLORS["cfg"])]:
+    for task, label, color in RL_TASKS:
         records = _rl_records(task)
         if not records:
             continue
@@ -385,7 +399,7 @@ def _reward_trace(ax: plt.Axes) -> None:
 
 def _gradient_trace(ax: plt.Axes) -> None:
     maximum = 0
-    for task, label, color in [("fe", "FE", COLORS["open"]), ("bg", "BG", COLORS["cfg"])]:
+    for task, label, color in RL_TASKS:
         records = _rl_records(task)
         if not records:
             continue
@@ -407,7 +421,7 @@ def _gradient_trace(ax: plt.Axes) -> None:
 
 def _pipo_trace(ax: plt.Axes) -> None:
     found = False
-    for task, label, color in [("fe", "FE", COLORS["open"]), ("bg", "BG", COLORS["cfg"])]:
+    for task, label, color in RL_TASKS:
         rows = []
         for record in _rl_records(task):
             feedback = record.get("pipo_feedback") or {}
@@ -419,33 +433,99 @@ def _pipo_trace(ax: plt.Axes) -> None:
         steps = np.asarray([step for step, _ in rows])
         signal = np.asarray([item["signal"] for _, item in rows])
         modulation = np.asarray([item["modulation"] for _, item in rows])
-        ax.plot(steps, signal, color=color, linewidth=0.8, alpha=0.45, marker="o", markersize=2.5, label=f"{label} ξ")
-        ax.plot(steps, modulation, color=color, linewidth=1.2, marker="o", markersize=2.5, label=f"{label} φ(ξ)")
+        ax.plot(
+            steps,
+            signal,
+            color=color,
+            linewidth=0.55,
+            alpha=0.35,
+            label=f"{label} ξ",
+        )
+        ax.plot(
+            steps,
+            modulation,
+            color=color,
+            linewidth=1.1,
+            label=f"{label} φ(ξ)",
+        )
     if not found:
         pending(ax, "PIPO historical feedback", "starts after K=8 warm-up updates; needs ξ and φλ(ξ)")
         return
     ax.axhline(0, color=COLORS["ink"], linewidth=0.7)
     ax.set_xlabel("RL update")
     ax.set_ylabel("Historical feedback")
-    ax.legend(loc="best", ncol=2, fontsize=5.2)
+    ax.legend(loc="best", ncol=2, fontsize=5.0)
 
 
 def _final_paired_evaluations() -> dict[str, dict]:
     final = {}
-    for task, path in RL_LOGS.items():
-        if not path.is_file():
-            continue
-        for line in path.read_text(errors="replace").splitlines():
-            line = line.strip()
-            if not line.startswith("{"):
+    for task in ("fe", "bg"):
+        for path in RL_LOGS[task]:
+            if not path.is_file():
                 continue
-            try:
-                payload = json.loads(line)
-            except json.JSONDecodeError:
-                continue
-            if "final_paired_evaluation" in payload:
-                final[task] = payload["final_paired_evaluation"]
+            for line in path.read_text(errors="replace").splitlines():
+                line = line.strip()
+                if not line.startswith("{"):
+                    continue
+                try:
+                    payload = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                if "final_paired_evaluation" in payload:
+                    final[task] = payload["final_paired_evaluation"]
     return final
+
+
+def _write_fig2_source_data() -> None:
+    rows = []
+    for task, label, _ in RL_TASKS:
+        records = _rl_records(task)
+        complete = (
+            len(records) == 200
+            and records[0]["step"] == 0
+            and records[-1]["step"] == 199
+        )
+        for record in records:
+            feedback = (record.get("pipo_feedback") or {}).get("feedback") or {}
+            rows.append(
+                {
+                    "task": label,
+                    "step": int(record["step"]),
+                    "reward_mean": float(record["reward"]["reward_mean"]),
+                    "gradient_norm": float(record["gradient_norm"]),
+                    "pipo_signal": feedback.get("signal"),
+                    "pipo_modulation": feedback.get("modulation"),
+                    "status": "complete" if complete else "ongoing",
+                    "seed": 42,
+                }
+            )
+    pd.DataFrame(rows).to_csv(
+        OUTPUT / "source" / "fig2_training_dynamics.csv", index=False
+    )
+
+
+def _write_fig2_paired_source_data() -> None:
+    evaluations = _final_paired_evaluations()
+    rows = []
+    for task, label, _ in RL_TASKS:
+        evaluation = evaluations.get(task)
+        if evaluation is None:
+            continue
+        decision = evaluation["decision"]
+        rows.append(
+            {
+                "property": task,
+                "stage": "final",
+                "completed_updates": 200,
+                "mean_reward_delta_vs_base": float(decision["mean_delta"][0]),
+                "bootstrap_lcb": float(decision["lower_confidence_bound"][0]),
+                "decision": decision["action"],
+                "paired_prompts": 32,
+            }
+        )
+    pd.DataFrame(rows).to_csv(
+        OUTPUT / "source" / "fig2d_paired_policy_evaluation.csv", index=False
+    )
 
 
 def _interim_paired_evaluations() -> tuple[dict[str, dict], int | None]:
@@ -588,6 +668,8 @@ def _final_lcb(ax: plt.Axes) -> None:
         )
 
 def fig2() -> None:
+    _write_fig2_source_data()
+    _write_fig2_paired_source_data()
     fig = plt.figure(figsize=(7.2047, 2.95), constrained_layout=True)
     grid = fig.add_gridspec(1, 3)
 
@@ -605,6 +687,28 @@ def fig2() -> None:
     panel(ax, "c")
     ax.set_box_aspect(1)
     _pipo_trace(ax)
+
+    for ax in fig.axes:
+        ax.axvline(39.5, color=COLORS["muted"], linestyle=":", linewidth=0.65)
+        ax.set_xlim(0, 199)
+
+    completed = {
+        label: max(record["step"] for record in _rl_records(task))
+        for task, label, _ in RL_TASKS
+        if _rl_records(task)
+    }
+    paired = _final_paired_evaluations()
+    paired_summary = ", ".join(
+        f"{label} {paired[task]['decision']['action']}"
+        for task, label, _ in RL_TASKS
+        if task in paired
+    )
+    footer(
+        fig,
+        "Real seed=42 completed logs; "
+        + ", ".join(f"{label} through step {step}" for label, step in completed.items())
+        + f"; dotted line marks resume boundary; final paired probe: {paired_summary}",
+    )
 
     save(fig, "fig2_verified_policy_improvement_blueprint.png")
 
@@ -798,29 +902,57 @@ def _joint_property_data() -> list[tuple[str, np.ndarray, np.ndarray, str]]:
         datasets.append((label, fe[valid], np.maximum(bg[valid], 0.0), color))
     return datasets
 
+
+def _highest_density_threshold(
+    density: np.ndarray, mass_fraction: float = 0.60
+) -> float:
+    """Return the density cutoff enclosing the requested probability mass."""
+    values = np.asarray(density, dtype=float)
+    total = values.sum()
+    if total <= 0:
+        raise ValueError("density must contain positive mass")
+    ordered = np.sort(values.ravel())[::-1]
+    cumulative = np.cumsum(ordered) / total
+    index = min(int(np.searchsorted(cumulative, mass_fraction)), len(ordered) - 1)
+    return float(ordered[index])
+
+
 def _joint_property_density(ax: plt.Axes) -> None:
     datasets = _joint_property_data()
-    x_min = min(values.min() for _, values, _, _ in datasets)
-    x_max = max(values.max() for _, values, _, _ in datasets)
-    y_min = min(values.min() for _, _, values, _ in datasets)
-    y_max = BAND_GAP_MAX
-    x_edges = np.linspace(x_min, x_max, 100)
-    y_edges = np.linspace(y_min, y_max, 100)
+    x_edges = np.linspace(-3.0, 0.0, 121)
+    y_edges = np.linspace(0.0, 6.0, 121)
     x_centers = (x_edges[:-1] + x_edges[1:]) / 2
     y_centers = (y_edges[:-1] + y_edges[1:]) / 2
-    extent = (x_centers.min(), x_centers.max(), y_centers.min(), y_centers.max())
     handles = []
     for label, fe, bg, color in datasets:
-        density, _, _ = np.histogram2d(fe, bg, bins=(x_edges, y_edges), density=True)
-        density = gaussian_filter(density, sigma=1.5)
-        density = density / density.max()
-        density[density < 0.08] = 0.0
-        rgba = np.empty((*density.T.shape, 4), dtype=float)
-        rgba[..., :3] = mpl.colors.to_rgb(color)
-        rgba[..., 3] = 0.26 * np.sqrt(density.T)
-        ax.imshow(rgba, extent=extent, origin="lower", aspect="auto", interpolation="bilinear")
+        density, _, _ = np.histogram2d(fe, bg, bins=(x_edges, y_edges))
+        density = gaussian_filter(density, sigma=3.0)
+        threshold = _highest_density_threshold(density)
+        upper = float(density.max()) + np.finfo(float).eps
+        ax.contourf(
+            x_centers,
+            y_centers,
+            density.T,
+            levels=[threshold, upper],
+            colors=[color],
+            alpha=0.14 if label == "Training set" else 0.18,
+            antialiased=True,
+        )
+        ax.contour(
+            x_centers,
+            y_centers,
+            density.T,
+            levels=[threshold],
+            colors=[color],
+            linewidths=0.85,
+        )
         handles.append(
-            Patch(facecolor=mpl.colors.to_rgba(color, 0.28), edgecolor="none", label=f"{label} (n={len(fe):,})")
+            Patch(
+                facecolor=mpl.colors.to_rgba(color, 0.18),
+                edgecolor=color,
+                linewidth=0.8,
+                label=f"{label} (n={len(fe):,})",
+            )
         )
     handles.append(
         Patch(facecolor="none", edgecolor=COLORS["pirl"], linestyle="--", label="CrystalPIRL (pending)")
@@ -920,7 +1052,7 @@ def _fig4_tradeoff(ax: plt.Axes) -> None:
     data_tag(ax, "real: seed=42; n=1,000; no CI", COLORS["warn"])
 
 
-def _fig4_tsne(ax: plt.Axes) -> None:
+def _fig4_tsne(ax: plt.Axes, legend_ax: plt.Axes | None = None) -> None:
     data = pd.read_csv(FIG4_TSNE)
     training = data[data["method"] == "Training set"]
     x_min, x_max = data["tsne_1"].min(), data["tsne_1"].max()
@@ -982,15 +1114,27 @@ def _fig4_tsne(ax: plt.Axes) -> None:
     ax.set_ylabel("t-SNE 2")
     ax.set_xticks([])
     ax.set_yticks([])
-    ax.legend(
-        handles=handles,
-        loc="lower center",
-        bbox_to_anchor=(0.5, 1.01),
-        ncol=3,
-        markerscale=2.5,
-        fontsize=5.0,
-        borderaxespad=0,
-    )
+    if legend_ax is None:
+        ax.legend(
+            handles=handles,
+            loc="lower center",
+            bbox_to_anchor=(0.5, 1.01),
+            ncol=3,
+            markerscale=2.5,
+            fontsize=5.0,
+            borderaxespad=0,
+        )
+    else:
+        legend_ax.legend(
+            handles=handles,
+            loc="center",
+            ncol=3,
+            markerscale=2.5,
+            fontsize=5.0,
+            columnspacing=0.9,
+            handletextpad=0.35,
+            borderaxespad=0,
+        )
 
 
 def _group_fraction(
@@ -1203,28 +1347,38 @@ def _fig4_distributions(fig: plt.Figure, spec) -> None:
 
 
 def fig4() -> None:
-    fig = plt.figure(figsize=(7.2047, 6.35))
+    fig = plt.figure(figsize=(7.2047, 6.75))
     grid = fig.add_gridspec(
         2,
-        10,
-        height_ratios=[1.05, 1.8],
+        1,
+        height_ratios=[1.45, 1.8],
         left=0.08,
         right=0.98,
         bottom=0.07,
-        top=0.94,
-        hspace=0.46,
-        wspace=0.35,
+        top=0.96,
+        hspace=0.38,
+    )
+    top = grid[0, 0].subgridspec(
+        2,
+        2,
+        height_ratios=[0.18, 1.0],
+        hspace=0.04,
+        wspace=0.30,
     )
 
-    ax = fig.add_subplot(grid[0, :5])
+    ax = fig.add_subplot(top[1, 0])
     panel(ax, "a")
+    ax.set_box_aspect(1)
     _fig4_tradeoff(ax)
 
-    ax = fig.add_subplot(grid[0, 5:])
+    legend_ax = fig.add_subplot(top[0, 1])
+    legend_ax.axis("off")
+    ax = fig.add_subplot(top[1, 1])
     panel(ax, "b")
-    _fig4_tsne(ax)
+    ax.set_box_aspect(1)
+    _fig4_tsne(ax, legend_ax)
 
-    _fig4_distributions(fig, grid[1, :])
+    _fig4_distributions(fig, grid[1, 0])
 
     footer(
         fig,

@@ -1,0 +1,12 @@
+includes:
+- ../components/runtime/base.yaml
+- ../components/algorithms/grpo.yaml
+- ../components/methods/plain.yaml
+reward_contract: conf/rl/components/rewards/contracts/mp20.yaml
+property: fe
+run_kind: test
+num_prompts: 2
+group_size: 8
+updates: 1
+short_diff_ratio: 0.02
+predictor_batch_size: 32

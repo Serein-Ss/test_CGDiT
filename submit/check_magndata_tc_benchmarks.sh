@@ -5,7 +5,7 @@ set -Eeuo pipefail
 PROJECT_ROOT="${PROJECT_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
 RUN_ID="${1:-}"
 if [[ -z "${RUN_ID}" ]]; then
-    RUN_ID=$(find "${PROJECT_ROOT}/logs/magndata_tc" -mindepth 1 -maxdepth 1 -type d \
+    RUN_ID=$(find "${PROJECT_ROOT}/logs/property_predictor_training/magndata_tc" -mindepth 1 -maxdepth 1 -type d \
         -printf '%f\n' 2>/dev/null | sort | tail -n 1)
 fi
 if [[ -z "${RUN_ID}" ]]; then
@@ -14,7 +14,7 @@ if [[ -z "${RUN_ID}" ]]; then
 fi
 
 OUTPUT_ROOT="${PROJECT_ROOT}/output/magndata_tc_benchmark/${RUN_ID}"
-LOG_ROOT="${PROJECT_ROOT}/logs/magndata_tc/${RUN_ID}"
+LOG_ROOT="${PROJECT_ROOT}/logs/property_predictor_training/magndata_tc/${RUN_ID}"
 
 echo "========== Magndata-Tc ${RUN_ID} =========="
 pgrep -af 'run_magndata_tc_benchmarks|cgdit/run.py.*magndata' || echo "No active benchmark process"

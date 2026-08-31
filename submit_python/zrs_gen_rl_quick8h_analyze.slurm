@@ -7,15 +7,17 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=64G
 #SBATCH --time=02:00:00
-#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-quick8h-analysis-%j.out
-#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/rl/zrs-gen-rl-quick8h-analysis-%j.err
+#SBATCH --output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/metric_evaluation/reinforcement_learning/slurm/zrs-gen-rl-quick8h-analysis-%j.out
+#SBATCH --error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/logs/metric_evaluation/reinforcement_learning/slurm/zrs-gen-rl-quick8h-analysis-%j.err
 
 set -Eeuo pipefail
 : "${TRAIN_RUN_ID:?TRAIN_RUN_ID must identify the quick8h training array}"
 
 PROJECT_ROOT="/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT"
 PYTHON="${PROJECT_ROOT}/.venv/bin/python"
-TRAIN_ROOT="${PROJECT_ROOT}/output/rl_finetune/quick8h_seed42/${TRAIN_RUN_ID}"
+source "${PROJECT_ROOT}/submit_python/rl_output_layout.sh"
+: "${RUN_ID:?RUN_ID must be exported by the launcher}"
+TRAIN_ROOT="$(rl_run_root "${PROJECT_ROOT}" test/reinforcement_learning quick8h-seed42 "${RUN_ID}")"
 ANALYSIS_ROOT="${TRAIN_ROOT}/analysis"
 SOURCE_DIR="${ANALYSIS_ROOT}/source_data"
 ASSET_DIR="${PROJECT_ROOT}/assets/crystalpirl_quick8h_seed42"
@@ -24,7 +26,7 @@ export OMP_NUM_THREADS="${SLURM_CPUS_PER_TASK:-8}"
 export PYTHONUNBUFFERED=1
 
 cd "${PROJECT_ROOT}"
-mkdir -p "${SOURCE_DIR}" logs/rl
+mkdir -p "${SOURCE_DIR}" logs/metric_evaluation/reinforcement_learning/slurm
 
 record_failure() {
     local status=$?

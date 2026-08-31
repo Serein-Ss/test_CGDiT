@@ -1,0 +1,23 @@
+defaults:
+- /model/diffusion@_here_: multimodal
+- /model/diffusion/decoder@decoder: cspnet
+- /model/diffusion/beta@beta_scheduler: cosine
+- /model/diffusion/sigma@sigma_scheduler: wrapped
+- /model/diffusion/d3pm@d3pm_scheduler: standard
+- _self_
+cond_dropout_prob: 0.15
+curriculum:
+  warmup_dropout: 0.4
+conditions:
+  formation_energy_per_atom:
+    type: scalar
+    scale: 1.029374
+    shift: -1.219803
+  band_gap:
+    type: scalar
+    scale: 1.417749
+    shift: 0.791848
+  e_above_hull:
+    type: scalar
+    scale: 0.023265
+    shift: 0.017478
