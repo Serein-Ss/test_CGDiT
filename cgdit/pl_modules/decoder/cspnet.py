@@ -175,10 +175,15 @@ class CSPNet(nn.Module):
         fc_edges, _ = dense_to_sparse(fc_graph)
         return fc_edges, (frac_coords[fc_edges[1]] - frac_coords[fc_edges[0]]) % 1.
 
-    def forward(self, t, atom_types, frac_coords, lattices, num_atoms, node2graph):
+    def forward(self, t, atom_types, frac_coords, lattices, num_atoms, node2graph,
+                edge_cache=None):
 
-        edges, frac_diff = self.gen_edges(num_atoms, frac_coords)
-        edge2graph = node2graph[edges[0]]
+        if edge_cache is None:
+            edges, frac_diff = self.gen_edges(num_atoms, frac_coords)
+            edge2graph = node2graph[edges[0]]
+        else:
+            edges, edge2graph = edge_cache
+            frac_diff = (frac_coords[edges[1]] - frac_coords[edges[0]]) % 1.
         if self.smooth:
             # (已在 __init__ 中禁止)
             node_features = self.node_embedding(atom_types)

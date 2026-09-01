@@ -365,6 +365,27 @@ class Diffusion(BaseModule):
 
         x_T = (batch.ops @ x_T_all).squeeze(-1)[:, :3] % 1.  # N * 3
 
+        sampling_model_output_kwargs = {}
+        if hasattr(self, 'decoder') and hasattr(self.decoder, 'gen_edges'):
+            edge_index, _ = self.decoder.gen_edges(batch.num_atoms, x_T)
+            sampling_model_output_kwargs['edge_cache'] = (
+                edge_index,
+                batch.batch[edge_index[0]],
+            )
+        if not getattr(self, 'training', False) and hasattr(self, 'conditioner'):
+            condition_embeddings = {}
+            if guidance_scale != 1.0:
+                condition_embeddings['unconditional'] = self.conditioner(
+                    batch, force_mask=True
+                )
+            if guidance_scale != 0.0:
+                condition_embeddings['conditional'] = self.conditioner(
+                    batch, force_mask=False
+                )
+            sampling_model_output_kwargs['condition_embeddings'] = (
+                condition_embeddings
+            )
+
         traj = {time_start: {
             'num_atoms': batch.num_atoms,
             'atom_types': atom_types_T, # batch.atom_types,
@@ -428,7 +449,8 @@ class Diffusion(BaseModule):
                 batch.num_atoms,
                 batch.batch,
                 batch_obj=batch, # 传入 batch 对象以提取条件
-                guidance_scale=guidance_scale
+                guidance_scale=guidance_scale,
+                **sampling_model_output_kwargs,
             )
 
             pred_x = pred_x * torch.sqrt(sigma_norm)
@@ -486,7 +508,8 @@ class Diffusion(BaseModule):
                 batch.num_atoms,
                 batch.batch,
                 batch_obj=batch,
-                guidance_scale=guidance_scale
+                guidance_scale=guidance_scale,
+                **sampling_model_output_kwargs,
             )
 
             pred_x = pred_x * torch.sqrt(sigma_norm)
@@ -716,34 +739,65 @@ class Diffusion(BaseModule):
     def _get_model_output(self,
                           time_emb_base,
                           atom_types, frac_coords, crys_fam,
-                          num_atoms, batch_idx, batch_obj, guidance_scale=1.0
+                          num_atoms, batch_idx, batch_obj, guidance_scale=1.0,
+                          condition_embeddings=None, edge_cache=None,
                           ):
         """
         辅助函数：处理 Classifier-Free Guidance 的一次模型前向传播
         """
+        decoder_kwargs = (
+            {'edge_cache': edge_cache} if edge_cache is not None else {}
+        )
+
+        # 0. 纯无条件推理，无需计算不会参与结果的条件分支
+        if guidance_scale == 0.0 and not getattr(self, 'training', False):
+            if condition_embeddings is None:
+                cond_emb = self.conditioner(batch_obj, force_mask=True)
+            else:
+                cond_emb = condition_embeddings['unconditional']
+            final_time_emb = time_emb_base + cond_emb
+            return self.decoder(
+                final_time_emb, atom_types, frac_coords, crys_fam,
+                num_atoms, batch_idx, **decoder_kwargs
+            )
+
         # 1. 正常/有条件推理 (guidance_scale=1.0)
         if guidance_scale == 1.0:
             # force_mask=False 表示使用真实条件（如果有），或者在 dropout 模式下由 Conditioner 内部决定
-            cond_emb = self.conditioner(batch_obj, force_mask=False)
+            if condition_embeddings is None:
+                cond_emb = self.conditioner(batch_obj, force_mask=False)
+            else:
+                cond_emb = condition_embeddings['conditional']
             final_time_emb = time_emb_base + cond_emb
-            return self.decoder(final_time_emb, atom_types, frac_coords, crys_fam, num_atoms, batch_idx)
+            return self.decoder(
+                final_time_emb, atom_types, frac_coords, crys_fam,
+                num_atoms, batch_idx, **decoder_kwargs
+            )
 
         # 2. CFG 推理 (guidance_scale != 1.0)
         # A. 无条件分支 (Unconditional) -> force_mask=True，强制将所有条件替换为 Null Embedding
-        cond_emb_uncond = self.conditioner(batch_obj, force_mask=True)
+        if condition_embeddings is None:
+            cond_emb_uncond = self.conditioner(batch_obj, force_mask=True)
+        else:
+            cond_emb_uncond = condition_embeddings['unconditional']
         time_emb_uncond = time_emb_base + cond_emb_uncond
 
         out_uncond = self.decoder(
-            time_emb_uncond, atom_types, frac_coords, crys_fam, num_atoms, batch_idx
+            time_emb_uncond, atom_types, frac_coords, crys_fam, num_atoms,
+            batch_idx, **decoder_kwargs
         )
         pred_crys_uncond, pred_x_uncond, pred_logits_uncond = out_uncond
 
         # B. 有条件分支 (Conditional) -> force_mask=False
-        cond_emb_cond = self.conditioner(batch_obj, force_mask=False)
+        if condition_embeddings is None:
+            cond_emb_cond = self.conditioner(batch_obj, force_mask=False)
+        else:
+            cond_emb_cond = condition_embeddings['conditional']
         time_emb_cond = time_emb_base + cond_emb_cond
 
         out_cond = self.decoder(
-            time_emb_cond, atom_types, frac_coords, crys_fam, num_atoms, batch_idx
+            time_emb_cond, atom_types, frac_coords, crys_fam, num_atoms,
+            batch_idx, **decoder_kwargs
         )
         pred_crys_cond, pred_x_cond, pred_logits_cond = out_cond
 
@@ -841,4 +895,3 @@ class Diffusion(BaseModule):
         }
 
         return log_dict, loss
-

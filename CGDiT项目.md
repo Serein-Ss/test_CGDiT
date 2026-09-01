@@ -68,7 +68,7 @@ python cgdit/run.py data=<data_config> model=<model_config> expname=<experiment_
 
 当前 Gate 2、Gate 3b 和 Gate 3c 已验证真实 GPU 轨迹、梯度、PPO/GRPO 更新、精确复现、更新尺度敏感性、双锚点 LCB 与 attenuate 复验。作业 667914 中 PPO 两步均被拒绝；GRPO 第一步通过奖励门控，第二步因相对 current 退化而被拒绝。由于在线安全审计仍只有 validity，所有 Gate 3c checkpoint 均为 `diagnostic_only` 且未更新 verified checkpoint；完整安全指标、holdout rollback、多种子正式实验和最终独立 evaluator 尚未完成，因此当前不能声称已实现完整闭环或真实材料性质提升。
 
-研究论证以 `CGDiT_RL_complete_research_plan.md` 为总览，以 `CrystalPIRL文章执行计划.md` 为文章预注册计划，以 `RL实际执行计划_临时审阅.md` 为当前实际执行清单。
+研究论证以 `CGDiT_RL_complete_research_plan.md` 为总览；`CrystalPIRL文章执行计划.md` 是文章预注册、实验执行和当前进展的唯一事实来源。
 
 
 ## Project Structure

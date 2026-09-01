@@ -32,9 +32,8 @@ positive under both comparisons and pre-registered stability, validity,
 uniqueness, and diversity constraints do not regress. Attenuated updates are
 re-generated and re-evaluated rather than accepted automatically.
 
-See [CGDiT_RL_complete_research_plan.md](CGDiT_RL_complete_research_plan.md),
-[CrystalPIRL文章执行计划.md](CrystalPIRL文章执行计划.md), and
-[RL实际执行计划_临时审阅.md](RL实际执行计划_临时审阅.md).
+See [CGDiT_RL_complete_research_plan.md](CGDiT_RL_complete_research_plan.md) and
+[CrystalPIRL文章执行计划.md](CrystalPIRL文章执行计划.md).
 
 ---
 

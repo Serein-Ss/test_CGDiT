@@ -5,9 +5,9 @@
 > 中文题目：**面向晶体结构生成的可验证强化学习**
 > 方法命名：`CrystalPIRL` 为文章主方法；`OrbitPO` 为其对称约化概率基础模块
 > 项目分支：`newton`
-> 更新日期：2026-08-23
-> 文档性质：预注册式执行计划；所有结果位置均为待实验占位，不得提前填写结论
-> 当前状态：Gate 2、四组 FE pilot、Gate 3b 单步尺度诊断和 Gate 3c 双锚点 GPU 诊断均已完成。作业 667914 验证了 candidate-vs-current、candidate-vs-base、LCB、attenuate 重新验收和拒绝路径；GRPO 第 2 步证明仅通过绝对基线但未通过局部基线的候选会被拒绝。当前在线安全门仍只有 validity，尚缺 stability、uniqueness、novelty、diversity、holdout rollback、多 seed、原始 PIPO 和最终独立 evaluator，因此所有 Gate 3c checkpoint 仍只能标记为 diagnostic-only。
+> 更新日期：2026-09-01
+> 文档性质：CrystalPIRL 文章预注册、实验执行和项目进展的唯一事实来源；预注册问题不得根据结果事后改变
+> 当前状态：OrbitPO 轨迹概率、PPO/GRPO、PIPO、双锚点 LCB 和候选拒绝路径已经过真实 GPU 工程验证；seed=42 的 FE、BG 和 FE+BG 三个 GRPO+PIPO 任务均已完成 200 次更新，Fig. 1–Fig. 4 已建立现有数据与缺失证据占位。正式 CrystalPIRL 仍缺完整安全门、holdout rollback、2×3 公平比较、多 seed 和独立 evaluator，因此当前结果不能表述为已验证的闭环材料性质提升。最新可审计状态统一维护在第 14 节。
 
 ---
 
@@ -175,7 +175,7 @@ $$
 | PPO/GRPO | `cgdit/rl/objectives.py` | 已实现 | 真实 rollout smoke training |
 | 统一训练目标入口 | `cgdit/rl/trainer.py` | 已实现 | 接入上传后的 reward evaluator |
 | Paired-PIRL 配对验收 | `cgdit/rl/policy_improvement.py` | 已实现 | 固定 probe 的真实更新验收 |
-| 原始 PIPO 对照 | 尚无对应实现 | 待实现 | 滑动历史 anchor 与 retrospective modulation |
+| 原始 PIPO 对照 | `cgdit/rl/pipo.py` | 已实现并完成 FE、BG、FE+BG 的 seed=42 训练 | 补齐 2×3 公平比较 |
 | 共同随机数采样 | `cgdit/rl/paired_probe.py` | 已实现 | 新旧真实 checkpoint 配对 |
 | H2 信用分配 | `cgdit/rl/channel_time_credit.py` | 已实现 | 中间状态与反事实 reward 生成 |
 | 通用性质奖励 | `cgdit/rl/rewards.py` | 已实现 | 用 evaluator 标定 target/tolerance |
@@ -187,7 +187,7 @@ $$
 
 | 功能 | 文件 | 状态 | 边界 |
 |---|---|---|---|
-| 固定标度性质与联合奖励 | cgdit/rl/rewards.py | 已实现 | 真实 predictor adapter 待接入 |
+| 固定标度性质与联合奖励 | cgdit/rl/rewards.py、cgdit/rl/property_reward.py | 已接入 M3GNet FE/BG reward predictor | 最终独立 evaluator 仍需隔离冻结 |
 | 显式无效结构惩罚 | cgdit/rl/rewards.py | 已实现 | validity 判据需在实验契约冻结 |
 | 创造性、稳定性、leave-one-out MMD | cgdit/rl/rewards.py | 已实现张量接口 | AMD/特征计算需接真实结构 |
 | raw reward 配对验收 | cgdit/rl/policy_improvement.py | 已实现 | 真实固定 probe 待 GPU 验证 |
@@ -1093,3 +1093,118 @@ output/rl_internal/
 - 最终可支持的期刊级创新强度。
 
 本计划的作用是提前固定这些问题的检验方式，避免根据结果事后改变指标、阈值或文章主线。
+
+---
+
+## 14. 当前项目进展与实际执行台账
+
+> 状态核对日期：2026-09-01
+> 本节统一维护任务完成度、证据边界和下一步顺序；第 1–13 节继续负责预注册方法、文章结构和实验契约。
+
+### 14.1 当前固定范围
+
+- 所有 RL 方法均从同一个永久冻结的 MP-20 无条件 Base checkpoint 开始；FE、BG 和 FE+BG 目标只通过奖励进入，不使用 CFG 条件嵌入解释 RL 效果。
+- mp20_fe、mp20_bg 和 mp20_fe_bg 只作为外部 CFG 性能参考，不能作为 RL 初始策略。
+- 当前正式研究性质只包括形成能和带隙；Ehull 及含 Ehull 的模型只保留为历史资产。
+- 当前结果探索固定为 seed=42；seed=123 和 seed=2026 在单种子结论确认后再补充。
+- Template 生成只用于工程测试和兼容性诊断，不进入文章主要结果；论文中的生成分布与质量比较使用从头生成的 Ab initio empirical 结构。
+- reward predictor 用于训练奖励和在线 probe；最终独立 evaluator 不得参与训练、候选选择、门控或超参数调整。
+
+固定性质目标为：
+
+| 性质 | 目标 | 容差 |
+|---|---:|---:|
+| FE | -1.5 eV atom⁻¹ | ±0.06 eV atom⁻¹ |
+| BG | 2.0 eV | ±0.45 eV |
+
+### 14.2 已完成的工程与实验
+
+| 模块 | 当前状态 | 可审计证据 |
+|---|---|---|
+| 环境与测试 | uv GPU 环境可用；当前完整测试 169 项通过 | pyproject.toml、uv.lock、tests/ |
+| OrbitPO 轨迹接口 | 轨道代表点、三通道 action/noise/log-prob、概率重放和有限非零梯度已验证 | cgdit/rl/、cgdit/pl_modules/diffusion.py |
+| PPO/GRPO | 真实 decoder 的采样、更新、checkpoint 和 resume 已接通 | scripts/cli/training/train_crystal_rl.py |
+| Gate 2 | 20、200 和完整 999 步轨迹、重放、ratio、KL、轨道一致性和 resume 验收已通过 | output/test/reinforcement_learning/ |
+| Gate 3b/3c 诊断 | 已验证更新尺度、candidate-vs-current、candidate-vs-base、LCB、attenuate 复验和拒绝路径 | 历史诊断任务与对应日志 |
+| 原始 PIPO 长程实验 | FE、BG、FE+BG 的 seed=42 GRPO+PIPO 均完成 200 次更新 | 下列三个正式运行目录 |
+| 文章图数据 | Fig. 1–Fig. 4 已建立蓝图和 Source Data；已有 Base、CFG 与 PIPO 结构/训练数据已填入，CrystalPIRL 缺失结果保持空缺 | assets/crystalpirl_article_blueprint/ |
+| 采样等价优化 | 零引导单分支、静态边缓存和条件嵌入缓存已实现；未改变扩散监督训练，完整测试通过 | cgdit/pl_modules/diffusion.py、cgdit/pl_modules/decoder/cspnet.py |
+
+三个已完成的 200 更新 PIPO 运行是：
+
+    output/reinforcement_learning/2026-08-24/20-57-12-grpo-pipo-probe32-resume60/
+    ├── grpo_fe_seed42_pipo/
+    └── grpo_bg_seed42_pipo/
+
+    output/reinforcement_learning/2026-08-24/20-57-12-grpo-pipo-joint-max60/
+    └── grpo_joint_seed42_pipo/
+
+这些任务的 metrics.jsonl 均包含 step 0–199。此前名称包含 300step 的四个运行只保存了 step 0，不能视为 300 次更新结果。
+
+### 14.3 当前证据能够和不能够说明什么
+
+当前能够说明：
+
+1. OrbitPO 所需的轨道级混合概率可以记录、重放并产生真实策略梯度；
+2. PPO、GRPO、原始 PIPO和成对策略比较链路在真实 GPU 上可以执行；
+3. PIPO 的 FE、BG 和 FE+BG 单种子长程训练数据已经具备，可用于训练动力学和候选策略诊断；
+4. Base、CFG和当前 PIPO 生成结果可以用于完善 Fig. 2–Fig. 4 的单种子初步证据。
+
+当前不能说明：
+
+1. 训练 reward 上升等同于独立材料性质真实提高；
+2. PIPO 的 200 次更新结果等同于 CrystalPIRL 的双锚点闭环结果；
+3. 单 seed 结果具有统计稳健性；
+4. 当前策略已经同时保持 stability、validity、uniqueness、novelty 和 diversity；
+5. reward predictor 上的改善能够通过独立 evaluator、MLFF 或 DFT 验证；
+6. CrystalPIRL 已经相对无验证和原始 PIPO 显著降低坏更新率。
+
+### 14.4 工作包状态
+
+| 工作包 | 状态 | 下一验收条件 |
+|---|---|---|
+| WP0 正式实验契约 | 暂缓 | 新 Base 或最终采用的 Base、predictor、evaluator、seed和预算全部冻结 |
+| WP1 匹配基线 | 部分完成 | 用最终 Base 和同一 Ab initio 协议重建正式匹配基线 |
+| WP2 最小 RL 闭环 | 工程完成 | 保持完整测试与真实 GPU smoke 通过 |
+| WP3 FE 核心 pilot | PIPO 200步完成；CrystalPIRL未完成 | 独立配对评价显示目标改善且质量不越过容忍界 |
+| WP4 PIPO/CrystalPIRL机制判定 | PIPO完成；CrystalPIRL待正式运行 | 完成 PPO/GRPO × 无验证/PIPO/CrystalPIRL 的2×3公平比较 |
+| WP5 BG与FE+BG | PIPO 200步完成 | 补齐CrystalPIRL与同预算对照 |
+| WP6 Ab initio泛化 | 已有部分生成结构 | 只使用从头生成结果完成Base/CFG/RL同协议比较 |
+| WP7 多seed与OrbitPO消融 | 未完成 | seeds 42、123、2026方向一致并报告失败运行 |
+| WP8 H2与多保真内部诊断 | 暂缓 | 主方法通过后独立执行，不写入当前文章主结论 |
+| WP9 新轨道Base正式切换 | 待决定 | 新checkpoint上传后做兼容性、基线和正式三seed复跑 |
+
+### 14.5 下一步执行顺序
+
+1. 在相同 checkpoint、prompt、随机流和GPU上基准测试零引导单分支、静态边缓存和条件嵌入缓存，记录每条 rollout 时间、峰值显存和数值一致性；
+2. 冻结现有 PIPO 200步末端 checkpoint 的独立配对生成和评估结果，确认训练信号是否转化为策略级性质改善；
+3. 把 validity、stability、uniqueness、novelty 和 diversity 接入 CrystalPIRL 的预注册非退化门，并建立不参与选择的 holdout rollback；
+4. 先用 seed=42 完成 FE 的 PPO/GRPO × 无验证/PIPO/CrystalPIRL 2×3 比较；
+5. FE 结论成立后，以相同预算扩展 BG 和 FE+BG；
+6. 单种子结论冻结后再补 seeds 123、2026；
+7. 最终冻结策略交给独立 evaluator；MLFF/DFT 只作为终点复核，不回流到策略选择。
+
+### 14.6 结果与日志位置
+
+当前统一目录规范以 output/README.md 为准：
+
+    output/reinforcement_learning/<date>/<run>/
+    ├── submission_manifest.txt
+    ├── <algorithm_property_seed_method>/
+    │   ├── model/
+    │   ├── train_results/
+    │   └── test_results/
+    ├── analysis/
+    └── diagnostics/
+
+正式标准输出和错误日志位于 logs/reinforcement_learning/。文章图、Source Data和绘图审计位于 assets/crystalpirl_article_blueprint/。
+
+每次导入或完成新实验后，只更新本节中的：
+
+1. 状态核对日期；
+2. 已完成证据；
+3. 工作包状态；
+4. 下一步执行顺序；
+5. 能够和不能够支持的主张。
+
+不再创建新的根目录临时进展计划。
