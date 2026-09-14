@@ -1,0 +1,38 @@
+# generated using pymatgen
+data_LiO5
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.484252691269
+_cell_length_b   3.484252691269
+_cell_length_c   11.609931945801
+_cell_angle_alpha   90.000000000000
+_cell_angle_beta   90.000000000000
+_cell_angle_gamma   90.000000000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   LiO5
+_chemical_formula_sum   'Li2 O10'
+_cell_volume   140.944769061774
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  O  O0  1  0.750753223896  0.247069671750  0.948512434959  1
+  O  O1  1  0.752930343151  0.750753223896  0.448512434959  1
+  O  O2  1  0.249071165919  0.751836001873  0.675136089325  1
+  O  O3  1  0.750928819180  0.248163998127  0.675136089325  1
+  O  O4  1  0.248163998127  0.249071165919  0.175136089325  1
+  O  O5  1  0.751836001873  0.750928819180  0.175136089325  1
+  O  O6  1  0.750928819180  0.751836001873  0.324863910675  1
+  O  O7  1  0.249071165919  0.248163998127  0.324863910675  1
+  O  O8  1  0.751836001873  0.249071165919  0.824863910675  1
+  O  O9  1  0.248163998127  0.750928819180  0.824863910675  1
+  Li  Li10  1  0.255019277334  0.737580955029  0.030864389613  1
+  Li  Li11  1  0.262419044971  0.255019277334  0.530864417553  1

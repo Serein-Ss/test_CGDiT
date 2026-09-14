@@ -1,0 +1,242 @@
+[
+  {
+    "record_id": "0.639_Mn2Au",
+    "target_formula": "Mn2Au",
+    "retrieval_scope": "targeted_not_exhaustive",
+    "query_strategy": "formula with original temperature and magnetic/neutron terms; exact MAGNDATA URL where useful",
+    "magndata_url": "https://www.cryst.ehu.es/magndata/index.php?this_label=0.639",
+    "date": "2026-09-14",
+    "status": "attempted",
+    "note": "This is a per-record search ledger, not raw search-engine response replay."
+  },
+  {
+    "record_id": "0.108_Mn3Ir",
+    "target_formula": "Mn3Ir",
+    "retrieval_scope": "targeted_not_exhaustive",
+    "query_strategy": "formula with original temperature and magnetic/neutron terms; exact MAGNDATA URL where useful",
+    "magndata_url": "https://www.cryst.ehu.es/magndata/index.php?this_label=0.108",
+    "date": "2026-09-14",
+    "status": "attempted",
+    "note": "This is a per-record search ledger, not raw search-engine response replay."
+  },
+  {
+    "record_id": "2.51_EuMnBi2",
+    "target_formula": "EuMnBi2",
+    "retrieval_scope": "targeted_not_exhaustive",
+    "query_strategy": "formula with original temperature and magnetic/neutron terms; exact MAGNDATA URL where useful",
+    "magndata_url": "https://www.cryst.ehu.es/magndata/index.php?this_label=2.51",
+    "date": "2026-09-14",
+    "status": "attempted",
+    "note": "This is a per-record search ledger, not raw search-engine response replay."
+  },
+  {
+    "record_id": "0.65_Fe2O3-alpha",
+    "target_formula": "Fe2O3-alpha",
+    "retrieval_scope": "targeted_not_exhaustive",
+    "query_strategy": "formula with original temperature and magnetic/neutron terms; exact MAGNDATA URL where useful",
+    "magndata_url": "https://www.cryst.ehu.es/magndata/index.php?this_label=0.65",
+    "date": "2026-09-14",
+    "status": "attempted",
+    "note": "This is a per-record search ledger, not raw search-engine response replay."
+  },
+  {
+    "record_id": "1.495_YMn2Si2",
+    "target_formula": "YMn2Si2",
+    "retrieval_scope": "targeted_not_exhaustive",
+    "query_strategy": "formula with original temperature and magnetic/neutron terms; exact MAGNDATA URL where useful",
+    "magndata_url": "https://www.cryst.ehu.es/magndata/index.php?this_label=1.495",
+    "date": "2026-09-14",
+    "status": "attempted",
+    "note": "This is a per-record search ledger, not raw search-engine response replay."
+  },
+  {
+    "record_id": "1.689_LuMn2Ge2",
+    "target_formula": "LuMn2Ge2",
+    "retrieval_scope": "targeted_not_exhaustive",
+    "query_strategy": "formula with original temperature and magnetic/neutron terms; exact MAGNDATA URL where useful",
+    "magndata_url": "https://www.cryst.ehu.es/magndata/index.php?this_label=1.689",
+    "date": "2026-09-14",
+    "status": "attempted",
+    "note": "This is a per-record search ledger, not raw search-engine response replay."
+  },
+  {
+    "record_id": "1.253_CeCo2P2",
+    "target_formula": "CeCo2P2",
+    "retrieval_scope": "targeted_not_exhaustive",
+    "query_strategy": "formula with original temperature and magnetic/neutron terms; exact MAGNDATA URL where useful",
+    "magndata_url": "https://www.cryst.ehu.es/magndata/index.php?this_label=1.253",
+    "date": "2026-09-14",
+    "status": "attempted",
+    "note": "This is a per-record search ledger, not raw search-engine response replay."
+  },
+  {
+    "record_id": "0.1024_BaFe2Se4",
+    "target_formula": "BaFe2Se4",
+    "retrieval_scope": "targeted_not_exhaustive",
+    "query_strategy": "formula with original temperature and magnetic/neutron terms; exact MAGNDATA URL where useful",
+    "magndata_url": "https://www.cryst.ehu.es/magndata/index.php?this_label=0.1024",
+    "date": "2026-09-14",
+    "status": "attempted",
+    "note": "This is a per-record search ledger, not raw search-engine response replay."
+  },
+  {
+    "record_id": "1.281_YBaCuFeO5",
+    "target_formula": "YBaCuFeO5",
+    "retrieval_scope": "targeted_not_exhaustive",
+    "query_strategy": "formula with original temperature and magnetic/neutron terms; exact MAGNDATA URL where useful",
+    "magndata_url": "https://www.cryst.ehu.es/magndata/index.php?this_label=1.281",
+    "date": "2026-09-14",
+    "status": "attempted",
+    "note": "This is a per-record search ledger, not raw search-engine response replay."
+  },
+  {
+    "record_id": "0.836_DyFeO3",
+    "target_formula": "DyFeO3",
+    "retrieval_scope": "targeted_not_exhaustive",
+    "query_strategy": "formula with original temperature and magnetic/neutron terms; exact MAGNDATA URL where useful",
+    "magndata_url": "https://www.cryst.ehu.es/magndata/index.php?this_label=0.836",
+    "date": "2026-09-14",
+    "status": "attempted",
+    "note": "This is a per-record search ledger, not raw search-engine response replay."
+  },
+  {
+    "record_id": "0.619_LaMnAsO",
+    "target_formula": "LaMnAsO",
+    "retrieval_scope": "targeted_not_exhaustive",
+    "query_strategy": "formula with original temperature and magnetic/neutron terms; exact MAGNDATA URL where useful",
+    "magndata_url": "https://www.cryst.ehu.es/magndata/index.php?this_label=0.619",
+    "date": "2026-09-14",
+    "status": "attempted",
+    "note": "This is a per-record search ledger, not raw search-engine response replay."
+  },
+  {
+    "record_id": "0.802_CuFeS2",
+    "target_formula": "CuFeS2",
+    "retrieval_scope": "targeted_not_exhaustive",
+    "query_strategy": "formula with original temperature and magnetic/neutron terms; exact MAGNDATA URL where useful",
+    "magndata_url": "https://www.cryst.ehu.es/magndata/index.php?this_label=0.802",
+    "date": "2026-09-14",
+    "status": "attempted",
+    "note": "This is a per-record search ledger, not raw search-engine response replay."
+  },
+  {
+    "record_id": "0.279_Mn3As",
+    "target_formula": "Mn3As",
+    "retrieval_scope": "targeted_not_exhaustive",
+    "query_strategy": "formula with original temperature and magnetic/neutron terms; exact MAGNDATA URL where useful",
+    "magndata_url": "https://www.cryst.ehu.es/magndata/index.php?this_label=0.279",
+    "date": "2026-09-14",
+    "status": "attempted",
+    "note": "This is a per-record search ledger, not raw search-engine response replay."
+  },
+  {
+    "record_id": "1.420_YBa2Cu3O6",
+    "target_formula": "YBa2Cu3O6",
+    "retrieval_scope": "targeted_not_exhaustive",
+    "query_strategy": "formula with original temperature and magnetic/neutron terms; exact MAGNDATA URL where useful",
+    "magndata_url": "https://www.cryst.ehu.es/magndata/index.php?this_label=1.420",
+    "date": "2026-09-14",
+    "status": "attempted",
+    "note": "This is a per-record search ledger, not raw search-engine response replay."
+  },
+  {
+    "record_id": "0.617_KMnSb",
+    "target_formula": "KMnSb",
+    "retrieval_scope": "targeted_not_exhaustive",
+    "query_strategy": "formula with original temperature and magnetic/neutron terms; exact MAGNDATA URL where useful",
+    "magndata_url": "https://www.cryst.ehu.es/magndata/index.php?this_label=0.617",
+    "date": "2026-09-14",
+    "status": "attempted",
+    "note": "This is a per-record search ledger, not raw search-engine response replay."
+  },
+  {
+    "record_id": "1.292_HoNi2B2C",
+    "target_formula": "HoNi2B2C",
+    "retrieval_scope": "targeted_not_exhaustive",
+    "query_strategy": "formula with original temperature and magnetic/neutron terms; exact MAGNDATA URL where useful",
+    "magndata_url": "https://www.cryst.ehu.es/magndata/index.php?this_label=1.292",
+    "date": "2026-09-14",
+    "status": "attempted",
+    "note": "This is a per-record search ledger, not raw search-engine response replay."
+  },
+  {
+    "record_id": "0.909_Er2PtGe6",
+    "target_formula": "Er2PtGe6",
+    "retrieval_scope": "targeted_not_exhaustive",
+    "query_strategy": "formula with original temperature and magnetic/neutron terms; exact MAGNDATA URL where useful",
+    "magndata_url": "https://www.cryst.ehu.es/magndata/index.php?this_label=0.909",
+    "date": "2026-09-14",
+    "status": "attempted",
+    "note": "This is a per-record search ledger, not raw search-engine response replay."
+  },
+  {
+    "record_id": "0.36_NiF2",
+    "target_formula": "NiF2",
+    "retrieval_scope": "targeted_not_exhaustive",
+    "query_strategy": "formula with original temperature and magnetic/neutron terms; exact MAGNDATA URL where useful",
+    "magndata_url": "https://www.cryst.ehu.es/magndata/index.php?this_label=0.36",
+    "date": "2026-09-14",
+    "status": "attempted",
+    "note": "This is a per-record search ledger, not raw search-engine response replay."
+  },
+  {
+    "record_id": "0.327_CsMnF4",
+    "target_formula": "CsMnF4",
+    "retrieval_scope": "targeted_not_exhaustive",
+    "query_strategy": "formula with original temperature and magnetic/neutron terms; exact MAGNDATA URL where useful",
+    "magndata_url": "https://www.cryst.ehu.es/magndata/index.php?this_label=0.327",
+    "date": "2026-09-14",
+    "status": "attempted",
+    "note": "This is a per-record search ledger, not raw search-engine response replay."
+  },
+  {
+    "record_id": "2.11_TbMg",
+    "target_formula": "TbMg",
+    "retrieval_scope": "targeted_not_exhaustive",
+    "query_strategy": "formula with original temperature and magnetic/neutron terms; exact MAGNDATA URL where useful",
+    "magndata_url": "https://www.cryst.ehu.es/magndata/index.php?this_label=2.11",
+    "date": "2026-09-14",
+    "status": "attempted",
+    "note": "This is a per-record search ledger, not raw search-engine response replay."
+  },
+  {
+    "record_id": "1.314_NaFeSi2O6",
+    "target_formula": "NaFeSi2O6",
+    "retrieval_scope": "targeted_not_exhaustive",
+    "query_strategy": "formula with original temperature and magnetic/neutron terms; exact MAGNDATA URL where useful",
+    "magndata_url": "https://www.cryst.ehu.es/magndata/index.php?this_label=1.314",
+    "date": "2026-09-14",
+    "status": "attempted",
+    "note": "This is a per-record search ledger, not raw search-engine response replay."
+  },
+  {
+    "record_id": "1.0.59_Na2MnTeO6",
+    "target_formula": "Na2MnTeO6",
+    "retrieval_scope": "targeted_not_exhaustive",
+    "query_strategy": "formula with original temperature and magnetic/neutron terms; exact MAGNDATA URL where useful",
+    "magndata_url": "https://www.cryst.ehu.es/magndata/index.php?this_label=1.0.59",
+    "date": "2026-09-14",
+    "status": "attempted",
+    "note": "This is a per-record search ledger, not raw search-engine response replay."
+  },
+  {
+    "record_id": "1.775_CaCu3Ti4O12",
+    "target_formula": "CaCu3Ti4O12",
+    "retrieval_scope": "targeted_not_exhaustive",
+    "query_strategy": "formula with original temperature and magnetic/neutron terms; exact MAGNDATA URL where useful",
+    "magndata_url": "https://www.cryst.ehu.es/magndata/index.php?this_label=1.775",
+    "date": "2026-09-14",
+    "status": "attempted",
+    "note": "This is a per-record search ledger, not raw search-engine response replay."
+  },
+  {
+    "record_id": "1.68_NaNdFeWO6",
+    "target_formula": "NaNdFeWO6",
+    "retrieval_scope": "targeted_not_exhaustive",
+    "query_strategy": "formula with original temperature and magnetic/neutron terms; exact MAGNDATA URL where useful",
+    "magndata_url": "https://www.cryst.ehu.es/magndata/index.php?this_label=1.68",
+    "date": "2026-09-14",
+    "status": "attempted",
+    "note": "This is a per-record search ledger, not raw search-engine response replay."
+  }
+]

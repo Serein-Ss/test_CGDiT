@@ -1,0 +1,29 @@
+{
+  "id": "cwD0aJR9SBn5l7Ap8VSlgIpPQh1Z89ONciSGUKmgFFA=",
+  "object": "chat.completion",
+  "model": "Intern-S1",
+  "created": 1789366639,
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"records\": [\n    {\n      \"formula\": \"EuO\",\n      \"tc_k\": 69.15,\n      \"uncertainty_k\": 0.05,\n      \"quote\": \"EuO and EuS are europium chalcogenide magnetic insulators with fcc Eu sublattices. Enriched 153Eu polycrystalline samples. Critical scattering peaks identify the Curie temperatures. Body text: EuO TC=69.15 +/- 0.05 K; EuS TC=16.57 +/- 0.02 K. Abstract gives EuS +/-0.01 K; retain the larger body uncertainty and flag the disagreement. Neutron and X-ray powder patterns show no evidence of other europium compounds.\",\n      \"caveats\": null\n    },\n    {\n      \"formula\": \"EuS\",\n      \"tc_k\": 16.57,\n      \"uncertainty_k\": 0.02,\n      \"quote\": \"EuO and EuS are europium chalcogenide magnetic insulators with fcc Eu sublattices. Enriched 153Eu polycrystalline samples. Critical scattering peaks identify the Curie temperatures. Body text: EuO TC=69.15 +/- 0.05 K; EuS TC=16.57 +/- 0.02 K. Abstract gives EuS +/-0.01 K; retain the larger body uncertainty and flag the disagreement. Neutron and X-ray powder patterns show no evidence of other europium compounds.\",\n      \"caveats\": \"Disagreement with abstract uncertainty; using larger body uncertainty.\"\n    }\n  ]\n}\n```"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "moderation": {
+    "sensitive": false,
+    "category": ""
+  },
+  "usage": {
+    "prompt_tokens": 306,
+    "completion_tokens": 368,
+    "total_tokens": 674
+  },
+  "metadata": {
+    "search_used": false,
+    "reasoning_used": false
+  }
+}

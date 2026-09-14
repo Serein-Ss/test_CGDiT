@@ -1,0 +1,12 @@
+{
+  "original_data_files_unchanged": 8,
+  "model_sources_unchanged": 4,
+  "artifact_hashes": {
+    "agentic/scripts/pair_denoising.py": "b25c5cefbdbd34e5d1d3e464ba1e793dead7bd083f7cf1ea07ba5438b93729d1",
+    "agentic/scripts/stage6_scoring_acceptance.py": "a4c7990e7ebf6d2d47b355db1764959729ba7cd0a7605b0b68057333013361ef",
+    "agentic/tests/test_pair_denoising.py": "2721b3b0334c28f9c852bc9f85c95ed663da50516fa4a0ed3238c6c81c3a35c8",
+    "agentic/docs/STAGE6_SCORING_REPORT.md": "768c6f685583586debd71124e2f72c09965f047f23a08aff455820a0b90910c7",
+    "agentic/STATUS.md": "8b7827f07df5ee1732ac4193d5f65e3235dbbbcb1689cc909d28ef4832f6518d",
+    "agentic/results/stage6/training_interface_contract.json": "f2959f988f1446d5234cf8428ed62b62793ec111f0a59ef0253b1b179515d596"
+  }
+}

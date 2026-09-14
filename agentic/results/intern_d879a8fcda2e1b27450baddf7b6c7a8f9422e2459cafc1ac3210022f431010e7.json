@@ -1,0 +1,29 @@
+{
+  "id": "JjBHmZHyhRF4W7f85FH6fopPQh1Z89ONciSGUKmgFFA=",
+  "object": "chat.completion",
+  "model": "Intern-S1",
+  "created": 1789325204,
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"events\": [{\"type\": \"curie\", \"temperature_k\": 0.953, \"qualifier\": \"exact\", \"quote\": \"below its phase transition (Tc = 0.953 K)\"}], \"abstained\": false}"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "moderation": {
+    "sensitive": false,
+    "category": ""
+  },
+  "usage": {
+    "prompt_tokens": 189,
+    "completion_tokens": 57,
+    "total_tokens": 246
+  },
+  "metadata": {
+    "search_used": false,
+    "reasoning_used": false
+  }
+}

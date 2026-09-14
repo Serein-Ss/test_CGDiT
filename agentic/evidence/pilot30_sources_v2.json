@@ -1,0 +1,641 @@
+[
+  {
+    "case_id": "nd_unit",
+    "formula": "NdScO3",
+    "record_ids": [
+      "0.782_NdScO3"
+    ],
+    "url": "https://www.sciencedirect.com/science/article/pii/S0921452696010678",
+    "doi": "10.1016/S0921-4526(96)01067-8",
+    "source_role": "primary_abstract_search_excerpt",
+    "locator": "Abstract",
+    "excerpts": [
+      "below its phase transition (Tc = 0.953 K)"
+    ],
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "reviewer": "assistant_source_review_not_independent_gold",
+    "normalization": "Plain-text math and subscripts normalized; excerpts intentionally short, possible context loss.",
+    "assistant_event_assessment": "unknown",
+    "assistant_note": "0.953 K conflicts with 953 K. Symbol Tc does not establish a Curie event.",
+    "candidate_family": null,
+    "training_eligible": false
+  },
+  {
+    "case_id": "ce_events",
+    "formula": "CeMnAsO",
+    "record_ids": [
+      "0.186_CeMnAsO",
+      "0.187_CeMnAsO",
+      "0.188_CeMnAsO"
+    ],
+    "url": "https://impact.ornl.gov/en/publications/spin-reorientation-and-ce-mn-coupling-in-antiferromagnetic-oxypni/",
+    "doi": "10.1103/PhysRevB.91.064418",
+    "source_role": "primary_author_institution_abstract",
+    "locator": "Abstract, paragraphs 1–2; short non-contiguous excerpts",
+    "excerpts": [
+      "Néel temperature of TN=347(1) K.",
+      "Below TSR=35 K",
+      "Mn moments reorient",
+      "Another transition to a noncollinear magnetic structure occurs below 7 K."
+    ],
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "reviewer": "assistant_source_review_not_independent_gold",
+    "normalization": "Plain-text math and subscripts normalized; excerpts intentionally short, possible context loss.",
+    "assistant_event_assessment": "multiple_non_curie",
+    "assistant_note": "Previously sourced diagnostic; requires independent review and structure matching.",
+    "candidate_family": "1111_oxypnictide_candidate",
+    "training_eligible": false
+  },
+  {
+    "case_id": "eu_mn",
+    "formula": "EuMnBi2",
+    "record_ids": [
+      "0.426_EuMnBi2"
+    ],
+    "url": "https://link.aps.org/accepted/10.1103/PhysRevLett.122.127207",
+    "doi": "10.1103/PhysRevLett.122.127207",
+    "source_role": "accepted_manuscript_search_excerpt",
+    "locator": "Main text, discussion of Fig. 1(c)",
+    "excerpts": [
+      "the antiferromagnetic transition temperature of Mn ions in EuMnBi2 is determined to be 315 K"
+    ],
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "reviewer": "assistant_source_review_not_independent_gold",
+    "normalization": "Plain-text math and subscripts normalized; excerpts intentionally short, possible context loss.",
+    "assistant_event_assessment": "neel",
+    "assistant_note": "Previously sourced diagnostic; requires independent review and structure matching.",
+    "candidate_family": "AMnBi2_candidate",
+    "training_eligible": false
+  },
+  {
+    "case_id": "mn4n_curie",
+    "formula": "Mn4N",
+    "record_ids": [
+      "0.274_Mn4N"
+    ],
+    "url": "https://tsukuba.repo.nii.ac.jp/record/47579/file_preview/JCG_489.pdf",
+    "doi": null,
+    "source_role": "cited_background_not_original_measurement",
+    "locator": "Introduction, prior-work citation [3]; two short excerpts",
+    "excerpts": [
+      "the Mn4N bulk is a ferrimagnetic metal",
+      "with a high Curie temperature of 745 K [3]."
+    ],
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "reviewer": "assistant_source_review_not_independent_gold",
+    "normalization": "Plain-text math and subscripts normalized; excerpts intentionally short, possible context loss.",
+    "assistant_event_assessment": "curie_candidate",
+    "assistant_note": "Previously sourced diagnostic; requires independent review and structure matching.",
+    "candidate_family": "antiperovskite_nitride_candidate",
+    "training_eligible": false
+  },
+  {
+    "case_id": "0.639",
+    "formula": "Mn2Au",
+    "record_ids": [
+      "0.639_Mn2Au"
+    ],
+    "url": "https://www.nature.com/articles/s41467-023-41569-z",
+    "doi": "10.1038/s41467-023-41569-z",
+    "excerpts": [
+      "Mn2Au is a metallic collinear antiferromagnet with a high Néel temperature above 1000 K."
+    ],
+    "source_role": "cited_background",
+    "locator": "Abstract or explicitly identified introductory passage; short excerpts",
+    "assistant_event_assessment": "neel",
+    "assistant_note": "1000 is a lower bound in this background statement, not an exact Curie value. Original measurement/extrapolation must be traced.",
+    "candidate_family": null,
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "normalization": "Subscripts, math and whitespace normalized; snippets are not full-text verification.",
+    "reviewer": "assistant_source_review_not_independent_gold",
+    "training_eligible": false
+  },
+  {
+    "case_id": "0.108",
+    "formula": "Mn3Ir",
+    "record_ids": [
+      "0.108_Mn3Ir"
+    ],
+    "url": "https://www.nature.com/articles/ncomms3892",
+    "doi": "10.1038/ncomms3892",
+    "excerpts": [
+      "AFM Mn compounds with Néel temperatures well above room temperature, namely Mn3Ir (TN=960 K)"
+    ],
+    "source_role": "cited_background",
+    "locator": "Abstract or explicitly identified introductory passage; short excerpts",
+    "assistant_event_assessment": "neel",
+    "assistant_note": "Cited comparison compound, not the material measured in this paper; trace reference 14.",
+    "candidate_family": "Cu3Au_type_candidate",
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "normalization": "Subscripts, math and whitespace normalized; snippets are not full-text verification.",
+    "reviewer": "assistant_source_review_not_independent_gold",
+    "training_eligible": false
+  },
+  {
+    "case_id": "2.51",
+    "formula": "EuMnBi2",
+    "record_ids": [
+      "2.51_EuMnBi2"
+    ],
+    "url": "https://arxiv.org/abs/1407.6203",
+    "doi": "10.1103/PhysRevB.90.075109",
+    "excerpts": [
+      "Magnetic susceptibility measurements suggest antiferromagnetic (AFM) ordering of moments on divalent Eu ions near T_N=22K."
+    ],
+    "source_role": "primary_paper_excerpt",
+    "locator": "Abstract or explicitly identified introductory passage; short excerpts",
+    "assistant_event_assessment": "neel",
+    "assistant_note": "Source reports near 22 K, not local 19 K. Cross-sample discrepancy, not an automatic correction.",
+    "candidate_family": "AMnBi2_candidate",
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "normalization": "Subscripts, math and whitespace normalized; snippets are not full-text verification.",
+    "reviewer": "assistant_source_review_not_independent_gold",
+    "training_eligible": false
+  },
+  {
+    "case_id": "0.65",
+    "formula": "Fe2O3-alpha",
+    "record_ids": [
+      "0.65_Fe2O3-alpha"
+    ],
+    "url": "https://www.sciencedirect.com/science/article/abs/pii/S0304885321007666",
+    "doi": null,
+    "excerpts": [
+      "It is perhaps the best-known antiferromagnet, with a Néel temperature TN of 955 K"
+    ],
+    "source_role": "cited_background",
+    "locator": "Abstract or explicitly identified introductory passage; short excerpts",
+    "assistant_event_assessment": "neel",
+    "assistant_note": "Hematite has canted AFM order and a weak net moment; do not equate weak ferromagnetism with the target FM/FiM class.",
+    "candidate_family": "corundum_candidate",
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "normalization": "Subscripts, math and whitespace normalized; snippets are not full-text verification.",
+    "reviewer": "assistant_source_review_not_independent_gold",
+    "training_eligible": false
+  },
+  {
+    "case_id": "1.495",
+    "formula": "YMn2Si2",
+    "record_ids": [
+      "1.495_YMn2Si2"
+    ],
+    "url": "https://www.sciencedirect.com/science/article/pii/0038109881905329",
+    "doi": "10.1016/0038-1098(81)90532-9",
+    "excerpts": [
+      "PrMn2Si2, NdMn2Si2, YMn2Si2 and YMn2Ge2",
+      "All were found to be antiferromagnetic with Néel points at 368, 380, 460 and 395 K respectively."
+    ],
+    "source_role": "primary_paper_excerpt",
+    "locator": "Abstract or explicitly identified introductory passage; short excerpts",
+    "assistant_event_assessment": "neel",
+    "assistant_note": "Temperature must be linked by respective order; 460 belongs to YMn2Si2.",
+    "candidate_family": "ThCr2Si2_candidate",
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "normalization": "Subscripts, math and whitespace normalized; snippets are not full-text verification.",
+    "reviewer": "assistant_source_review_not_independent_gold",
+    "training_eligible": false
+  },
+  {
+    "case_id": "1.253",
+    "formula": "CeCo2P2",
+    "record_ids": [
+      "1.253_CeCo2P2"
+    ],
+    "url": "https://www.sciencedirect.com/science/article/pii/S0925838897004866",
+    "doi": "10.1016/S0925-8388(97)00486-6",
+    "excerpts": [
+      "CaCo2P2 and CeCo2P2 order antiferromagnetically below the Néel temperatures TN=113(2) K and TN=440(5) K, respectively."
+    ],
+    "source_role": "primary_paper_excerpt",
+    "locator": "Abstract or explicitly identified introductory passage; short excerpts",
+    "assistant_event_assessment": "neel",
+    "assistant_note": "Preserve 440(5) K, assign Co sublattice only where source context supports it.",
+    "candidate_family": "ThCr2Si2_candidate",
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "normalization": "Subscripts, math and whitespace normalized; snippets are not full-text verification.",
+    "reviewer": "assistant_source_review_not_independent_gold",
+    "training_eligible": false
+  },
+  {
+    "case_id": "0.1024",
+    "formula": "BaFe2Se4",
+    "record_ids": [
+      "0.1024_BaFe2Se4"
+    ],
+    "url": "https://www.osti.gov/servlets/purl/1772614",
+    "doi": "10.1103/PhysRevB.102.180403",
+    "excerpts": [
+      "unique magnetic transition at ~ 310 K caused by canted antiferromagnetic interactions between the neighboring Fe-Fe atoms"
+    ],
+    "source_role": "primary_paper_excerpt",
+    "locator": "Abstract or explicitly identified introductory passage; short excerpts",
+    "assistant_event_assessment": "neel",
+    "assistant_note": "Canted AFM, approximate 310 K; spontaneous moment does not establish a conventional ferromagnet.",
+    "candidate_family": "BaFe2X4_chain_candidate",
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "normalization": "Subscripts, math and whitespace normalized; snippets are not full-text verification.",
+    "reviewer": "assistant_source_review_not_independent_gold",
+    "training_eligible": false
+  },
+  {
+    "case_id": "1.281",
+    "formula": "YBaCuFeO5",
+    "record_ids": [
+      "1.281_YBaCuFeO5"
+    ],
+    "url": "https://www.sciencedirect.com/science/article/abs/pii/003810989090535J",
+    "doi": "10.1016/0038-1098(90)90535-J",
+    "excerpts": [
+      "YBaCuFeO5+δ",
+      "Below the antiferromagnetic ordering temperature TN = 446 K"
+    ],
+    "source_role": "primary_paper_excerpt",
+    "locator": "Abstract or explicitly identified introductory passage; short excerpts",
+    "assistant_event_assessment": "neel",
+    "assistant_note": "Paper concerns oxygen-nonstoichiometric phase; delta and Fe/Cu occupancy must match before using local structure.",
+    "candidate_family": "layered_YBaCuFeO5_candidate",
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "normalization": "Subscripts, math and whitespace normalized; snippets are not full-text verification.",
+    "reviewer": "assistant_source_review_not_independent_gold",
+    "training_eligible": false
+  },
+  {
+    "case_id": "0.836",
+    "formula": "DyFeO3",
+    "record_ids": [
+      "0.836_DyFeO3"
+    ],
+    "url": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/admi.202400938",
+    "doi": "10.1002/admi.202400938",
+    "excerpts": [
+      "DyFeO3, a canted bulk antiferromagnet with a high Néel temperature (645 K)"
+    ],
+    "source_role": "cited_background",
+    "locator": "Abstract or explicitly identified introductory passage; short excerpts",
+    "assistant_event_assessment": "neel",
+    "assistant_note": "Bulk background 645 K differs from local 650 K; article also fixes 650 K as a fit parameter. Do not treat a fixed parameter as a fresh measurement.",
+    "candidate_family": "orthoferrite_candidate",
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "normalization": "Subscripts, math and whitespace normalized; snippets are not full-text verification.",
+    "reviewer": "assistant_source_review_not_independent_gold",
+    "training_eligible": false
+  },
+  {
+    "case_id": "0.619",
+    "formula": "LaMnAsO",
+    "record_ids": [
+      "0.619_LaMnAsO"
+    ],
+    "url": "https://link.springer.com/article/10.1186/s40679-016-0019-9",
+    "doi": "10.1186/s40679-016-0019-9",
+    "excerpts": [
+      "previous reports of TN via magnetization measurements have been masked by the presence of a ferromagnetic MnAs impurity with a Curie temperature of 317 K"
+    ],
+    "source_role": "primary_paper_excerpt",
+    "locator": "Abstract or explicitly identified introductory passage; short excerpts",
+    "assistant_event_assessment": "unknown",
+    "assistant_note": "317 K is explicitly linked to MnAs impurity, NOT LaMnAsO. Quarantine target value, do not produce a negative Tc label.",
+    "candidate_family": "1111_oxypnictide_candidate",
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "normalization": "Subscripts, math and whitespace normalized; snippets are not full-text verification.",
+    "reviewer": "assistant_source_review_not_independent_gold",
+    "training_eligible": false
+  },
+  {
+    "case_id": "0.802",
+    "formula": "CuFeS2",
+    "record_ids": [
+      "0.802_CuFeS2"
+    ],
+    "url": "https://www.researchgate.net/publication/345127292_Low-temperature_synthesis_of_micro-_and_nano-crystalline_CuFeS2_polymorphs",
+    "doi": "10.1007/s42452-020-03729-4",
+    "excerpts": [
+      "antiferromagnetic ordering below its Néel temperature, TN = 823 K"
+    ],
+    "source_role": "cited_background_author_uploaded",
+    "locator": "Abstract or explicitly identified introductory passage; short excerpts",
+    "assistant_event_assessment": "neel",
+    "assistant_note": "Original paper background on chalcopyrite phase, surfaced through indexed paper text; bulk/phase correspondence not verified.",
+    "candidate_family": "chalcopyrite_candidate",
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "normalization": "Subscripts, math and whitespace normalized; snippets are not full-text verification.",
+    "reviewer": "assistant_source_review_not_independent_gold",
+    "training_eligible": false
+  },
+  {
+    "case_id": "1.420",
+    "formula": "YBa2Cu3O6",
+    "record_ids": [
+      "1.420_YBa2Cu3O6"
+    ],
+    "url": "https://www.ncnr.nist.gov/staff/jeff/NCCOprb68%20144503%202003.pdf",
+    "doi": "10.1103/PhysRevB.68.144503",
+    "excerpts": [
+      "La2CuO4 and YBa2Cu3O6",
+      "420 K, respectively",
+      "antiferromagnetic"
+    ],
+    "source_role": "cited_background",
+    "locator": "Abstract or explicitly identified introductory passage; short excerpts",
+    "assistant_event_assessment": "neel",
+    "assistant_note": "Short background excerpts lack full value-order context. Use as retrieval lead; original YBa2Cu3O6 measurement needed.",
+    "candidate_family": "123_cuprate_candidate",
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "normalization": "Subscripts, math and whitespace normalized; snippets are not full-text verification.",
+    "reviewer": "assistant_source_review_not_independent_gold",
+    "training_eligible": false
+  },
+  {
+    "case_id": "0.617",
+    "formula": "KMnSb",
+    "record_ids": [
+      "0.617_KMnSb"
+    ],
+    "url": "https://www.cryst.ehu.es/magndata/index.php?this_label=0.617",
+    "doi": "10.1002/(SICI)1521-3749(199901)625:1<31::AID-ZAAC31>3.0.CO;2-S",
+    "excerpts": [
+      "Transition Temperature: <295 K",
+      "Experiment Temperature: 11 K"
+    ],
+    "source_role": "database_record",
+    "locator": "Abstract or explicitly identified introductory passage; short excerpts",
+    "assistant_event_assessment": "unknown",
+    "assistant_note": "Exact MAGNDATA record ID matched. Transition upper bound lost in CSV. Experiment temperature is NOT an event. Magnetic type not explicit in excerpt.",
+    "candidate_family": null,
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "normalization": "Subscripts, math and whitespace normalized; snippets are not full-text verification.",
+    "reviewer": "assistant_source_review_not_independent_gold",
+    "training_eligible": false
+  },
+  {
+    "case_id": "1.292",
+    "formula": "HoNi2B2C",
+    "record_ids": [
+      "1.292_HoNi2B2C"
+    ],
+    "url": "https://www.sciencedirect.com/science/article/abs/pii/S0304885300009756",
+    "doi": null,
+    "excerpts": [
+      "superconductivity (TC≈8 K) and magnetism (TN≈6 K)",
+      "below 5 K it coexists with a commensurate antiferromagnetic AFM ground structure."
+    ],
+    "source_role": "primary_paper_excerpt",
+    "locator": "Abstract or explicitly identified introductory passage; short excerpts",
+    "assistant_event_assessment": "unknown",
+    "assistant_note": "Local 2 K not established as a transition; possible measurement/context mismatch. Do not replace it by 5 or 6 K without original record.",
+    "candidate_family": "borocarbide_candidate",
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "normalization": "Subscripts, math and whitespace normalized; snippets are not full-text verification.",
+    "reviewer": "assistant_source_review_not_independent_gold",
+    "training_eligible": false
+  },
+  {
+    "case_id": "0.909",
+    "formula": "Er2PtGe6",
+    "record_ids": [
+      "0.909_Er2PtGe6"
+    ],
+    "url": "https://ruj.uj.edu.pl/server/api/core/bitstreams/dda3ca05-1a5e-4955-a8dd-f3859cee9c2b/content",
+    "doi": "10.1016/j.jmmm.2020.167152",
+    "excerpts": [
+      "antiferromagnetic with the Néel temperatures ranging from 4.9 K for Er2PtGe6 up to 48 K for Tb2PdGe6."
+    ],
+    "source_role": "primary_paper_excerpt",
+    "locator": "Abstract or explicitly identified introductory passage; short excerpts",
+    "assistant_event_assessment": "neel",
+    "assistant_note": "Original paper reports 4.9 K for Er2PtGe6; local 9 K is a conflict requiring original record correspondence.",
+    "candidate_family": "Yb2PdGe6_candidate",
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "normalization": "Subscripts, math and whitespace normalized; snippets are not full-text verification.",
+    "reviewer": "assistant_source_review_not_independent_gold",
+    "training_eligible": false
+  },
+  {
+    "case_id": "0.36",
+    "formula": "NiF2",
+    "record_ids": [
+      "0.36_NiF2"
+    ],
+    "url": "https://www.sciencedirect.com/science/article/pii/S0304885306018324",
+    "doi": "10.1016/j.jmmm.2006.10.607",
+    "excerpts": [
+      "rutile structure antiferromagnet NiF2 (S=1, TN=73 K)"
+    ],
+    "source_role": "primary_paper_excerpt",
+    "locator": "Abstract or explicitly identified introductory passage; short excerpts",
+    "assistant_event_assessment": "neel",
+    "assistant_note": "Canted rutile antiferromagnet; target event is not Curie.",
+    "candidate_family": "rutile_candidate",
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "normalization": "Subscripts, math and whitespace normalized; snippets are not full-text verification.",
+    "reviewer": "assistant_source_review_not_independent_gold",
+    "training_eligible": false
+  },
+  {
+    "case_id": "0.327",
+    "formula": "CsMnF4",
+    "record_ids": [
+      "0.327_CsMnF4"
+    ],
+    "url": "https://www.sciencedirect.com/science/article/abs/pii/0022459680905599",
+    "doi": "10.1016/0022-4596(80)90559-9",
+    "excerpts": [
+      "The magnetic Bragg peaks which appeared yield a ferromagnetic structure with the magnetic moments perpendicular to the tetragonal axis."
+    ],
+    "source_role": "primary_paper_excerpt",
+    "locator": "Abstract or explicitly identified introductory passage; short excerpts",
+    "assistant_event_assessment": "unknown",
+    "assistant_note": "Ferromagnetic structure supported; this excerpt does not establish 9 K or the transition itself. Curie candidate pending temperature evidence.",
+    "candidate_family": "CsFeF4_layer_candidate",
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "normalization": "Subscripts, math and whitespace normalized; snippets are not full-text verification.",
+    "reviewer": "assistant_source_review_not_independent_gold",
+    "training_eligible": false
+  },
+  {
+    "case_id": "1.314",
+    "formula": "NaFeSi2O6",
+    "record_ids": [
+      "1.314_NaFeSi2O6"
+    ],
+    "url": "https://kups.ub.uni-koeln.de/5258/",
+    "doi": null,
+    "excerpts": [
+      "Unterhalb von 8 K setzt eine transversale Spindichtewelle",
+      "unterhalb von 6 K in eine helikale Struktur"
+    ],
+    "source_role": "primary_thesis_abstract",
+    "locator": "Abstract or explicitly identified introductory passage; short excerpts",
+    "assistant_event_assessment": "other",
+    "assistant_note": "Primary experimental thesis abstract: 8 K spin-density wave onset, 6 K helix; natural versus synthetic samples differ.",
+    "candidate_family": "pyroxene_candidate",
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "normalization": "Subscripts, math and whitespace normalized; snippets are not full-text verification.",
+    "reviewer": "assistant_source_review_not_independent_gold",
+    "training_eligible": false
+  },
+  {
+    "case_id": "1.0.59",
+    "formula": "Na2MnTeO6",
+    "record_ids": [
+      "1.0.59_Na2MnTeO6"
+    ],
+    "url": "https://oiks.pnpi.spb.ru/articles/953",
+    "doi": "10.1103/PhysRevB.105.064416",
+    "excerpts": [
+      "Na2MnTeO6 experiences an antiferromagnetic order at TN = 5.5 K."
+    ],
+    "source_role": "primary_paper_excerpt",
+    "locator": "Abstract or explicitly identified introductory passage; short excerpts",
+    "assistant_event_assessment": "neel",
+    "assistant_note": "P-31c (163) phase in source consistent with local SG, but coordinates not matched. 3R R-3 polytype is distinct; do not transfer its absence of order.",
+    "candidate_family": "2H_Na2MnTeO6_candidate",
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "normalization": "Subscripts, math and whitespace normalized; snippets are not full-text verification.",
+    "reviewer": "assistant_source_review_not_independent_gold",
+    "training_eligible": false
+  },
+  {
+    "case_id": "1.775",
+    "formula": "CaCu3Ti4O12",
+    "record_ids": [
+      "1.775_CaCu3Ti4O12"
+    ],
+    "url": "https://www.sciencedirect.com/science/article/abs/pii/S0038109802000613",
+    "doi": "10.1016/S0038-1098(02)00061-3",
+    "excerpts": [
+      "antiferromagnetic phase transition at TN=24.1(1) K."
+    ],
+    "source_role": "primary_paper_excerpt",
+    "locator": "Abstract or explicitly identified introductory passage; short excerpts",
+    "assistant_event_assessment": "neel",
+    "assistant_note": "Single crystal source gives 24.1(1) K, while older powder work may give 27 K. Preserve sample-dependent discrepancy.",
+    "candidate_family": "quadruple_perovskite_candidate",
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "normalization": "Subscripts, math and whitespace normalized; snippets are not full-text verification.",
+    "reviewer": "assistant_source_review_not_independent_gold",
+    "training_eligible": false
+  },
+  {
+    "case_id": "1.68",
+    "formula": "NaNdFeWO6",
+    "record_ids": [
+      "1.68_NaNdFeWO6"
+    ],
+    "url": "https://www.ornl.gov/publication/polar-and-magnetic-layered-site-and-rock-salt-b-site-ordered-nalnfewo6-ln-la-nd",
+    "doi": null,
+    "excerpts": [
+      "ordered antiferromagnetically below TN ≈ 25 K for NaLaFeWO6 and at ∼21 K for NaNdFeWO6."
+    ],
+    "source_role": "primary_paper_excerpt",
+    "locator": "Abstract or explicitly identified introductory passage; short excerpts",
+    "assistant_event_assessment": "neel",
+    "assistant_note": "25 K belongs to La compound in this paper, ~21 K to Nd. Potential cross-compound attribution error; retain local value pending record match.",
+    "candidate_family": "AAprimeFeWO6_candidate",
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "normalization": "Subscripts, math and whitespace normalized; snippets are not full-text verification.",
+    "reviewer": "assistant_source_review_not_independent_gold",
+    "training_eligible": false
+  },
+  {
+    "case_id": "1.689",
+    "formula": "LuMn2Ge2",
+    "record_ids": [
+      "1.689_LuMn2Ge2"
+    ],
+    "url": null,
+    "doi": null,
+    "excerpts": [],
+    "source_role": "unresolved_primary_evidence",
+    "assistant_event_assessment": "unknown",
+    "assistant_note": "Bounded searches performed; only indirect/related-compound leads found. Original MAGNDATA page unavailable. No label inferred.",
+    "candidate_family": null,
+    "structure_match_verified": false,
+    "training_eligible": false,
+    "reviewer": "assistant_source_review_not_independent_gold"
+  },
+  {
+    "case_id": "0.279",
+    "formula": "Mn3As",
+    "record_ids": [
+      "0.279_Mn3As"
+    ],
+    "url": null,
+    "doi": null,
+    "excerpts": [],
+    "source_role": "unresolved_primary_evidence",
+    "assistant_event_assessment": "unknown",
+    "assistant_note": "Bounded searches performed; only indirect/related-compound leads found. Original MAGNDATA page unavailable. No label inferred.",
+    "candidate_family": null,
+    "structure_match_verified": false,
+    "training_eligible": false,
+    "reviewer": "assistant_source_review_not_independent_gold"
+  },
+  {
+    "case_id": "2.11",
+    "formula": "TbMg",
+    "record_ids": [
+      "2.11_TbMg"
+    ],
+    "url": null,
+    "doi": null,
+    "excerpts": [],
+    "source_role": "unresolved_primary_evidence",
+    "assistant_event_assessment": "unknown",
+    "assistant_note": "Bounded searches performed; only indirect/related-compound leads found. Original MAGNDATA page unavailable. No label inferred.",
+    "candidate_family": null,
+    "structure_match_verified": false,
+    "training_eligible": false,
+    "reviewer": "assistant_source_review_not_independent_gold"
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "id": "xj_4zY28PJnfDRySV_kNy4pPQh1Z89ONciSGUKmgFFA=",
+  "object": "chat.completion",
+  "model": "Intern-S1",
+  "created": 1789366500,
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"records\": [\n    {\n      \"formula\": \"SmAl2\",\n      \"tc_k\": 64,\n      \"uncertainty_k\": null,\n      \"quote\": \"Curie temperature TC=64 K\",\n      \"caveats\": \"Uncertainty on TC is not reported.\"\n    }\n  ]\n}\n```"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "moderation": {
+    "sensitive": false,
+    "category": ""
+  },
+  "usage": {
+    "prompt_tokens": 260,
+    "completion_tokens": 72,
+    "total_tokens": 332
+  },
+  "metadata": {
+    "search_used": false,
+    "reasoning_used": false
+  }
+}

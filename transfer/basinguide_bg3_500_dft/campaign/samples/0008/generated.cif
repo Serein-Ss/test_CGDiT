@@ -1,0 +1,35 @@
+# generated using pymatgen
+data_AgBH2C2O3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.284788131714
+_cell_length_b   4.284788131714
+_cell_length_c   5.430904865265
+_cell_angle_alpha   90.000000000000
+_cell_angle_beta   90.000000000000
+_cell_angle_gamma   90.000000000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   AgBH2C2O3
+_chemical_formula_sum   'Ag1 B1 H2 C2 O3'
+_cell_volume   99.708205473651
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  H  H0  1  0.186250776052  0.503466784954  0.936077356339  1
+  H  H1  1  0.496533215046  0.186250776052  0.936077356339  1
+  Ag  Ag2  1  0.445319682360  0.611568272114  0.452232539654  1
+  O  O3  1  0.938617229462  0.384356766939  0.413099378347  1
+  O  O4  1  0.159222900867  0.998185157776  0.309179067612  1
+  O  O5  1  0.840777099133  0.001814842224  0.690820932388  1
+  C  C6  1  0.597681879997  0.004651015159  0.830193459988  1
+  C  C7  1  0.995348989964  0.597681879997  0.830193459988  1
+  B  B8  1  0.966743469238  0.106150403619  0.450317919254  1

@@ -1,0 +1,52 @@
+{
+  "pilot_records": 30,
+  "evidence_available_records": 27,
+  "unresolved_record_ids": [
+    "1.689_LuMn2Ge2",
+    "0.279_Mn3As",
+    "2.11_TbMg"
+  ],
+  "assessment_counts": {
+    "unknown": 8,
+    "neel": 18,
+    "spin_reorientation_and_neel": 1,
+    "other": 2,
+    "curie_candidate": 1
+  },
+  "issue_counts": {
+    "unit_conflict_1000_fold": 1,
+    "event_type_unknown": 2,
+    "lower_bound_lost": 1,
+    "neel_not_curie": 11,
+    "original_measurement_pending": 3,
+    "multiple_events_same_cif": 5,
+    "spin_reorientation_and_sublattice_order": 1,
+    "below_not_exact": 1,
+    "cross_source_value_discrepancy": 3,
+    "canted_afm_not_conventional_fm": 4,
+    "primary_evidence_unresolved": 3,
+    "reported_uncertainty": 1,
+    "approximate_value": 1,
+    "oxygen_occupancy_match_pending": 1,
+    "fit_parameter_vs_measurement": 1,
+    "impurity_attribution_conflict": 1,
+    "phase_match_pending": 1,
+    "insufficient_context": 1,
+    "upper_bound_lost": 1,
+    "transition_vs_measurement_unresolved": 1,
+    "superconducting_tc_ambiguity": 1,
+    "fm_order_supported_temperature_unverified": 1,
+    "multiple_events": 1,
+    "natural_vs_synthetic": 1,
+    "polytype_match_pending": 1,
+    "cross_sample_value_discrepancy": 1,
+    "possible_cross_compound_attribution": 1
+  },
+  "candidate_families": 19,
+  "validated_families": 0,
+  "training_eligible_records": 0,
+  "verified_preference_pairs": 0,
+  "decision": "Do not start diffusion preference training: event/structure/sample evidence insufficient.",
+  "bias_note": "Diagnostic selection, not a random population survey. No global contamination estimate.",
+  "source_link_note": "Same formula and space group are not coordinate/sample matching."
+}

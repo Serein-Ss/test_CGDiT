@@ -1,0 +1,4502 @@
+[
+  {
+    "sample_id": 0,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "B2PS5",
+    "volume_A3": 380.7620276960049,
+    "predicted_bg_raw_eV": 2.5057129859924316,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 1,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "NdCO2",
+    "volume_A3": 238.2078152172956,
+    "predicted_bg_raw_eV": 2.37929368019104,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 2,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "SiP2H10N3",
+    "volume_A3": 191.47519799940156,
+    "predicted_bg_raw_eV": 2.7729828357696533,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 3,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "NbS2",
+    "volume_A3": 259.8649414498981,
+    "predicted_bg_raw_eV": 0.103687584400177,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 4,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "AlH7",
+    "volume_A3": 144.39035692444634,
+    "predicted_bg_raw_eV": 3.337620496749878,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 5,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "P3S2",
+    "volume_A3": 593.6796873296472,
+    "predicted_bg_raw_eV": 2.167417287826538,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 6,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "WO3",
+    "volume_A3": 124.09139287959512,
+    "predicted_bg_raw_eV": 2.6734488010406494,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 7,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "WO4",
+    "volume_A3": 347.84656293925184,
+    "predicted_bg_raw_eV": 2.0222182273864746,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 8,
+    "num_atoms": 9,
+    "status": "generated",
+    "formula": "AgBH2C2O3",
+    "volume_A3": 99.70820547365074,
+    "predicted_bg_raw_eV": 2.103039264678955,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 9,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "CrS2",
+    "volume_A3": 263.7414534143192,
+    "predicted_bg_raw_eV": 0.6005746126174927,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 10,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "O2",
+    "volume_A3": 235.51446560748988,
+    "predicted_bg_raw_eV": 0.9379345178604126,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 11,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "HgCl3",
+    "volume_A3": 557.629486277106,
+    "predicted_bg_raw_eV": 2.4047234058380127,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 12,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "AlCl2",
+    "volume_A3": 348.5830548991572,
+    "predicted_bg_raw_eV": 4.993378162384033,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 13,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "LiS2",
+    "volume_A3": 275.3703468806901,
+    "predicted_bg_raw_eV": 0.612982988357544,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 14,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Zn",
+    "volume_A3": 249.51953825787928,
+    "predicted_bg_raw_eV": -0.01065683364868164,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 15,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "VF5",
+    "volume_A3": 200.11476297841168,
+    "predicted_bg_raw_eV": 3.666872501373291,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 16,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "LiS2F7",
+    "volume_A3": 339.33300443897934,
+    "predicted_bg_raw_eV": 3.4692842960357666,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 17,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "ClO",
+    "volume_A3": 356.4240431774712,
+    "predicted_bg_raw_eV": 2.0761775970458984,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 18,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Rb2YH(PbO2)4",
+    "volume_A3": 339.82998160775475,
+    "predicted_bg_raw_eV": 1.8226325511932373,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 19,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "NO3",
+    "volume_A3": 197.52000763038592,
+    "predicted_bg_raw_eV": 1.3041725158691406,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 20,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "S",
+    "volume_A3": 236.5200477251288,
+    "predicted_bg_raw_eV": 0.15488994121551514,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 21,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "O2",
+    "volume_A3": 104.29546113627755,
+    "predicted_bg_raw_eV": 2.043954849243164,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 22,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "HoZrCl6",
+    "volume_A3": 514.2474903427336,
+    "predicted_bg_raw_eV": 2.073791742324829,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 23,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "TcN",
+    "volume_A3": 88.81137752092036,
+    "predicted_bg_raw_eV": 1.0110770463943481,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 24,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "SeIO2",
+    "volume_A3": 192.11567950291303,
+    "predicted_bg_raw_eV": 2.6554811000823975,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 25,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "GaAg2F6",
+    "volume_A3": 301.48451348059547,
+    "predicted_bg_raw_eV": 1.2233108282089233,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 26,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "AlSb2O7",
+    "volume_A3": 331.1485130566719,
+    "predicted_bg_raw_eV": 2.1348798274993896,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 27,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "Ca(PO2)3",
+    "volume_A3": 371.03089530797877,
+    "predicted_bg_raw_eV": 5.381415367126465,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 28,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "TiSe4",
+    "volume_A3": 525.6232136815973,
+    "predicted_bg_raw_eV": 1.4242256879806519,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 29,
+    "num_atoms": 14,
+    "status": "generated",
+    "formula": "H6O",
+    "volume_A3": 132.48013424395563,
+    "predicted_bg_raw_eV": 5.989053249359131,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 30,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "AsO4",
+    "volume_A3": 164.1346045038461,
+    "predicted_bg_raw_eV": 2.7756714820861816,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 31,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "NbCl3",
+    "volume_A3": 566.9948979866634,
+    "predicted_bg_raw_eV": 1.4235427379608154,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 32,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "YbSb4O13",
+    "volume_A3": 288.78861848067015,
+    "predicted_bg_raw_eV": 0.39456239342689514,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 33,
+    "num_atoms": 14,
+    "status": "generated",
+    "formula": "KS6",
+    "volume_A3": 428.7114015722449,
+    "predicted_bg_raw_eV": 1.4094310998916626,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 34,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "PbBr2",
+    "volume_A3": 543.3037343819126,
+    "predicted_bg_raw_eV": 2.623265266418457,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 35,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "Br",
+    "volume_A3": 339.39130734723176,
+    "predicted_bg_raw_eV": 0.625609278678894,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 36,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Rb2MnF5",
+    "volume_A3": 354.6368714971488,
+    "predicted_bg_raw_eV": 3.1879327297210693,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 37,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Cs",
+    "volume_A3": 1540.7250731796507,
+    "predicted_bg_raw_eV": 0.23139429092407227,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 38,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "MgAl2As2H5",
+    "volume_A3": 292.12428136821984,
+    "predicted_bg_raw_eV": 1.7666404247283936,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 39,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "H4C",
+    "volume_A3": 302.5596373309429,
+    "predicted_bg_raw_eV": 4.468020439147949,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 40,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "O2",
+    "volume_A3": 242.64801039589784,
+    "predicted_bg_raw_eV": 2.1577680110931396,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 41,
+    "num_atoms": 5,
+    "status": "generated",
+    "formula": "LiI3Br",
+    "volume_A3": 177.15178030458185,
+    "predicted_bg_raw_eV": 1.1022989749908447,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 42,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "ZnCO2",
+    "volume_A3": 194.49126173789267,
+    "predicted_bg_raw_eV": 3.0515236854553223,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 43,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "NO2",
+    "volume_A3": 163.6059955895507,
+    "predicted_bg_raw_eV": 1.1770951747894287,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 44,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "ReO4",
+    "volume_A3": 433.7037950906326,
+    "predicted_bg_raw_eV": 3.134460926055908,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 45,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "B2PS",
+    "volume_A3": 304.5561068437858,
+    "predicted_bg_raw_eV": 3.012573719024658,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 46,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "Se",
+    "volume_A3": 272.46383107726035,
+    "predicted_bg_raw_eV": 0.27416861057281494,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 47,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Li3O",
+    "volume_A3": 162.98929309534094,
+    "predicted_bg_raw_eV": 0.6570580005645752,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 48,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "O2",
+    "volume_A3": 174.01820785236276,
+    "predicted_bg_raw_eV": 1.361253261566162,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 49,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "SO",
+    "volume_A3": 334.743001881362,
+    "predicted_bg_raw_eV": 3.179326295852661,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 50,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "Ba2S3",
+    "volume_A3": 655.0366850049102,
+    "predicted_bg_raw_eV": 1.8869287967681885,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 51,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Si3N2O3",
+    "volume_A3": 190.28906660928956,
+    "predicted_bg_raw_eV": 4.383495807647705,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 52,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "Ga4P",
+    "volume_A3": 396.6799653742386,
+    "predicted_bg_raw_eV": -0.007022440433502197,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 53,
+    "num_atoms": 6,
+    "status": "generated",
+    "formula": "F2",
+    "volume_A3": 81.4877277192953,
+    "predicted_bg_raw_eV": 1.2141865491867065,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 54,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "LiV2O5",
+    "volume_A3": 247.5993004870626,
+    "predicted_bg_raw_eV": 1.304640769958496,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 55,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "ZrO2",
+    "volume_A3": 159.708841778802,
+    "predicted_bg_raw_eV": 1.4935708045959473,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 56,
+    "num_atoms": 14,
+    "status": "generated",
+    "formula": "TcCl6",
+    "volume_A3": 465.3952402567588,
+    "predicted_bg_raw_eV": 1.3180311918258667,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 57,
+    "num_atoms": 6,
+    "status": "generated",
+    "formula": "NO2",
+    "volume_A3": 90.21245183595376,
+    "predicted_bg_raw_eV": 1.8282954692840576,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 58,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "HgCl",
+    "volume_A3": 532.6665396987954,
+    "predicted_bg_raw_eV": 2.0737192630767822,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 59,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "K4O5",
+    "volume_A3": 360.2224194951422,
+    "predicted_bg_raw_eV": 0.7631625533103943,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 60,
+    "num_atoms": 2,
+    "status": "generated",
+    "formula": "Sn",
+    "volume_A3": 61.9293162931378,
+    "predicted_bg_raw_eV": 0.008078455924987793,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 61,
+    "num_atoms": 13,
+    "status": "generated",
+    "formula": "N6O7",
+    "volume_A3": 266.3700947085376,
+    "predicted_bg_raw_eV": 0.9010787010192871,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 62,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "KCl",
+    "volume_A3": 314.2864724737334,
+    "predicted_bg_raw_eV": 3.270966053009033,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 63,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "FeOF2",
+    "volume_A3": 131.0228945744849,
+    "predicted_bg_raw_eV": 2.353238105773926,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 64,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "MoO",
+    "volume_A3": 137.7298425566804,
+    "predicted_bg_raw_eV": 1.5916080474853516,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 65,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Cl2",
+    "volume_A3": 704.3110049674372,
+    "predicted_bg_raw_eV": 2.243718147277832,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 66,
+    "num_atoms": 4,
+    "status": "generated",
+    "formula": "CsS",
+    "volume_A3": 154.77096665394697,
+    "predicted_bg_raw_eV": 2.1886367797851562,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 67,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "Mo3O7",
+    "volume_A3": 382.28417115426356,
+    "predicted_bg_raw_eV": -0.0006107091903686523,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 68,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "SiS2",
+    "volume_A3": 430.8380131119567,
+    "predicted_bg_raw_eV": 2.935739278793335,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 69,
+    "num_atoms": 6,
+    "status": "generated",
+    "formula": "Te2As",
+    "volume_A3": 187.1056247670776,
+    "predicted_bg_raw_eV": 0.4024471938610077,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 70,
+    "num_atoms": 4,
+    "status": "generated",
+    "formula": "S",
+    "volume_A3": 102.36251398604576,
+    "predicted_bg_raw_eV": 2.2764980792999268,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 71,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "BaB4O5",
+    "volume_A3": 282.01194581883703,
+    "predicted_bg_raw_eV": 5.114772319793701,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 72,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "NbO4",
+    "volume_A3": 130.36066763104927,
+    "predicted_bg_raw_eV": 0.0006071925163269043,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 73,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "NaMgO2",
+    "volume_A3": 118.59321005029463,
+    "predicted_bg_raw_eV": 2.4485411643981934,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 74,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "C2O3",
+    "volume_A3": 404.28691461126715,
+    "predicted_bg_raw_eV": 2.971370220184326,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 75,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "LiH3",
+    "volume_A3": 147.5747189359052,
+    "predicted_bg_raw_eV": 3.961179733276367,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 76,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "Al2S5I",
+    "volume_A3": 249.1802882413987,
+    "predicted_bg_raw_eV": 2.0971546173095703,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 77,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "TiO4",
+    "volume_A3": 141.63374192630076,
+    "predicted_bg_raw_eV": 1.571370244026184,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 78,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "CsRb5Tb4",
+    "volume_A3": 1053.6181550280032,
+    "predicted_bg_raw_eV": 0.18485933542251587,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 79,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "TiMnFeO3",
+    "volume_A3": 262.67811082025923,
+    "predicted_bg_raw_eV": 1.0497417449951172,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 80,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "MoOF",
+    "volume_A3": 196.041492651929,
+    "predicted_bg_raw_eV": 2.8245601654052734,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 81,
+    "num_atoms": 4,
+    "status": "generated",
+    "formula": "Zn",
+    "volume_A3": 70.68427214820504,
+    "predicted_bg_raw_eV": 0.03110891580581665,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 82,
+    "num_atoms": 2,
+    "status": "generated",
+    "formula": "Sn",
+    "volume_A3": 60.54065577996779,
+    "predicted_bg_raw_eV": 0.010725259780883789,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 83,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Rb3Bi6PbCl6",
+    "volume_A3": 699.9203220989222,
+    "predicted_bg_raw_eV": 2.139601230621338,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 84,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "PO4",
+    "volume_A3": 336.7878682515353,
+    "predicted_bg_raw_eV": 2.771958351135254,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 85,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "AlI3",
+    "volume_A3": 371.28701149655205,
+    "predicted_bg_raw_eV": 0.7710797190666199,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 86,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "Li4FeN4",
+    "volume_A3": 194.23613394415668,
+    "predicted_bg_raw_eV": 0.021782636642456055,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 87,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "TlBH2C",
+    "volume_A3": 165.4806280244847,
+    "predicted_bg_raw_eV": 1.8509628772735596,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 88,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "I",
+    "volume_A3": 397.0124252306755,
+    "predicted_bg_raw_eV": 2.854769468307495,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 89,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "ScBr",
+    "volume_A3": 207.1685819801252,
+    "predicted_bg_raw_eV": 0.012610197067260742,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 90,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "BiPbO4",
+    "volume_A3": 308.6339052714925,
+    "predicted_bg_raw_eV": 0.5991067886352539,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 91,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "Cl2",
+    "volume_A3": 234.37039501357776,
+    "predicted_bg_raw_eV": 0.8912444114685059,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 92,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Ca3PSe4",
+    "volume_A3": 433.1091965148202,
+    "predicted_bg_raw_eV": 1.9235529899597168,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 93,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "K(CdBr)4",
+    "volume_A3": 726.6637815583354,
+    "predicted_bg_raw_eV": 2.903998374938965,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 94,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "GaBr",
+    "volume_A3": 545.79264043886,
+    "predicted_bg_raw_eV": 2.1706316471099854,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 95,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "SbP2O3",
+    "volume_A3": 350.41835193273204,
+    "predicted_bg_raw_eV": 2.8159501552581787,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 96,
+    "num_atoms": 6,
+    "status": "generated",
+    "formula": "AuCl2",
+    "volume_A3": 196.78353330861154,
+    "predicted_bg_raw_eV": 0.9571520686149597,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 97,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "P3S5",
+    "volume_A3": 451.20454834695573,
+    "predicted_bg_raw_eV": 2.3498775959014893,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 98,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "BeFeC",
+    "volume_A3": 106.49277336442798,
+    "predicted_bg_raw_eV": 0.2710912227630615,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 99,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "KI3",
+    "volume_A3": 349.55645712037676,
+    "predicted_bg_raw_eV": 1.521204948425293,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 100,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "V(HO)4",
+    "volume_A3": 204.25804823151873,
+    "predicted_bg_raw_eV": 2.6536731719970703,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 101,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "WO3",
+    "volume_A3": 304.1976263779124,
+    "predicted_bg_raw_eV": 1.9237985610961914,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 102,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "Cl2",
+    "volume_A3": 318.6614687117632,
+    "predicted_bg_raw_eV": 0.8815568685531616,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 103,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "Si2PHO6",
+    "volume_A3": 318.1368757974754,
+    "predicted_bg_raw_eV": 5.146487712860107,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 104,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "B(HO2)3",
+    "volume_A3": 244.9106459418163,
+    "predicted_bg_raw_eV": 4.139240264892578,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 105,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "HO2",
+    "volume_A3": 149.35683803933918,
+    "predicted_bg_raw_eV": 2.73677396774292,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 106,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "RbOsS4",
+    "volume_A3": 377.46532352172864,
+    "predicted_bg_raw_eV": 0.6454391479492188,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 107,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "NaLiO2",
+    "volume_A3": 238.00850048616314,
+    "predicted_bg_raw_eV": 1.8215720653533936,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 108,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "Cl2",
+    "volume_A3": 266.36073777256934,
+    "predicted_bg_raw_eV": 1.8540329933166504,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 109,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "FeO2",
+    "volume_A3": 120.2797348266295,
+    "predicted_bg_raw_eV": 0.6808422803878784,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 110,
+    "num_atoms": 4,
+    "status": "generated",
+    "formula": "Cs",
+    "volume_A3": 268.55717642664683,
+    "predicted_bg_raw_eV": 0.15035831928253174,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 111,
+    "num_atoms": 9,
+    "status": "generated",
+    "formula": "S",
+    "volume_A3": 313.7372031561319,
+    "predicted_bg_raw_eV": 1.4773030281066895,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 112,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "KPH3O5",
+    "volume_A3": 153.61822674252807,
+    "predicted_bg_raw_eV": 4.577584743499756,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 113,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "Li3N2",
+    "volume_A3": 189.6727761179154,
+    "predicted_bg_raw_eV": 1.412023663520813,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 114,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "H2CNO",
+    "volume_A3": 347.85097878365394,
+    "predicted_bg_raw_eV": 3.025555372238159,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 115,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "KBe2PH16",
+    "volume_A3": 203.1868314747485,
+    "predicted_bg_raw_eV": 3.3588945865631104,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 116,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "S",
+    "volume_A3": 302.0697244132285,
+    "predicted_bg_raw_eV": 2.020172119140625,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 117,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "VF4",
+    "volume_A3": 132.96539784659078,
+    "predicted_bg_raw_eV": 1.6393064260482788,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 118,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "O2",
+    "volume_A3": 301.9029551656803,
+    "predicted_bg_raw_eV": 0.24068057537078857,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 119,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "HN",
+    "volume_A3": 84.20454235616856,
+    "predicted_bg_raw_eV": 2.550933837890625,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 120,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "Gd4Te3O13",
+    "volume_A3": 338.5224916003259,
+    "predicted_bg_raw_eV": 3.0677874088287354,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 121,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "WS3",
+    "volume_A3": 209.78764001301548,
+    "predicted_bg_raw_eV": 2.2624945640563965,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 122,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "H2",
+    "volume_A3": 166.62342458546857,
+    "predicted_bg_raw_eV": 5.965447902679443,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 123,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Cl2",
+    "volume_A3": 690.1156867249568,
+    "predicted_bg_raw_eV": 2.3502020835876465,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 124,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "SiSbO6",
+    "volume_A3": 306.8623126137356,
+    "predicted_bg_raw_eV": 2.6173577308654785,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 125,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "SrI2",
+    "volume_A3": 608.4616779869942,
+    "predicted_bg_raw_eV": 3.5312554836273193,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 126,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "CN",
+    "volume_A3": 362.30911724082824,
+    "predicted_bg_raw_eV": 3.797722101211548,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 127,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "PbS3",
+    "volume_A3": 463.5277870072461,
+    "predicted_bg_raw_eV": 1.6697182655334473,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 128,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "VF4",
+    "volume_A3": 161.7930331128155,
+    "predicted_bg_raw_eV": 1.3821496963500977,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 129,
+    "num_atoms": 14,
+    "status": "generated",
+    "formula": "H3(WO)2",
+    "volume_A3": 178.10049739514,
+    "predicted_bg_raw_eV": 1.1103206872940063,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 130,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "HO4",
+    "volume_A3": 160.74085638957092,
+    "predicted_bg_raw_eV": 0.93799889087677,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 131,
+    "num_atoms": 14,
+    "status": "generated",
+    "formula": "HfBr6",
+    "volume_A3": 746.8149386277007,
+    "predicted_bg_raw_eV": 1.7103502750396729,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 132,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "B4O5",
+    "volume_A3": 203.84373731965357,
+    "predicted_bg_raw_eV": 6.853782653808594,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 133,
+    "num_atoms": 4,
+    "status": "generated",
+    "formula": "Li",
+    "volume_A3": 65.35624771593614,
+    "predicted_bg_raw_eV": 0.3998567759990692,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 134,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "F2",
+    "volume_A3": 149.45519683312358,
+    "predicted_bg_raw_eV": 1.303431749343872,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 135,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Li3SiO4",
+    "volume_A3": 213.28691504533376,
+    "predicted_bg_raw_eV": 4.5367512702941895,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 136,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "GdMoS2",
+    "volume_A3": 415.6319458419996,
+    "predicted_bg_raw_eV": 0.6422221064567566,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 137,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "AsP2H3O10",
+    "volume_A3": 232.10161133363647,
+    "predicted_bg_raw_eV": 4.288175106048584,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 138,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "VAsF6",
+    "volume_A3": 283.64111272674137,
+    "predicted_bg_raw_eV": 2.761359453201294,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 139,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "CaMo2O7",
+    "volume_A3": 327.28873852061565,
+    "predicted_bg_raw_eV": 3.084359884262085,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 140,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "VSeN2",
+    "volume_A3": 199.06784534230502,
+    "predicted_bg_raw_eV": 0.05692446231842041,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 141,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "CdAsPb",
+    "volume_A3": 333.6206555248359,
+    "predicted_bg_raw_eV": 0.09353363513946533,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 142,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "S",
+    "volume_A3": 197.26208583031283,
+    "predicted_bg_raw_eV": 0.22283565998077393,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 143,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "N3O7",
+    "volume_A3": 324.11624632018396,
+    "predicted_bg_raw_eV": 1.2446563243865967,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 144,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "GdCl2",
+    "volume_A3": 453.5955035940214,
+    "predicted_bg_raw_eV": 0.40185415744781494,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 145,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "F2",
+    "volume_A3": 173.06747198645505,
+    "predicted_bg_raw_eV": 1.234932541847229,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 146,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "Br3Cl2",
+    "volume_A3": 977.6516482975945,
+    "predicted_bg_raw_eV": 1.554661750793457,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 147,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "BaSrBr2",
+    "volume_A3": 361.22316359598545,
+    "predicted_bg_raw_eV": 4.274860858917236,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 148,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "SeO2F5",
+    "volume_A3": 279.6291332510847,
+    "predicted_bg_raw_eV": 3.4982850551605225,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 149,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Ag3MoO4",
+    "volume_A3": 259.97350454765206,
+    "predicted_bg_raw_eV": 0.8587154150009155,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 150,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Ga2Co3Ge2H2O7",
+    "volume_A3": 197.83368268868853,
+    "predicted_bg_raw_eV": 0.39260631799697876,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 151,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "HSO10",
+    "volume_A3": 163.35484463061712,
+    "predicted_bg_raw_eV": 2.9913790225982666,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 152,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "H2",
+    "volume_A3": 205.6134332063156,
+    "predicted_bg_raw_eV": 8.927451133728027,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 153,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "Cl2",
+    "volume_A3": 348.4090033931159,
+    "predicted_bg_raw_eV": 1.7388131618499756,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 154,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "Ga2Ni2SnPt4",
+    "volume_A3": 290.71174103773393,
+    "predicted_bg_raw_eV": -0.01399075984954834,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 155,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "Te",
+    "volume_A3": 500.5399515637847,
+    "predicted_bg_raw_eV": 0.44207531213760376,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 156,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "SmC3N4",
+    "volume_A3": 209.8662578601292,
+    "predicted_bg_raw_eV": 2.883291244506836,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 157,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "F2",
+    "volume_A3": 164.23677479988982,
+    "predicted_bg_raw_eV": 0.7539753317832947,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 158,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "BaHO",
+    "volume_A3": 241.77488724867484,
+    "predicted_bg_raw_eV": 2.5363810062408447,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 159,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "V2F",
+    "volume_A3": 153.00196310989998,
+    "predicted_bg_raw_eV": 0.4798787236213684,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 160,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "LiCaB2CO5",
+    "volume_A3": 239.38243408750947,
+    "predicted_bg_raw_eV": 5.023322105407715,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 161,
+    "num_atoms": 4,
+    "status": "generated",
+    "formula": "O2",
+    "volume_A3": 56.1853887453787,
+    "predicted_bg_raw_eV": 1.150712251663208,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 162,
+    "num_atoms": 2,
+    "status": "generated",
+    "formula": "Hg",
+    "volume_A3": 59.22264651822251,
+    "predicted_bg_raw_eV": 0.07518267631530762,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 163,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "BO2",
+    "volume_A3": 132.77921464282952,
+    "predicted_bg_raw_eV": 4.993196964263916,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 164,
+    "num_atoms": 14,
+    "status": "generated",
+    "formula": "Li2CaCu2BPO7",
+    "volume_A3": 173.59961686014628,
+    "predicted_bg_raw_eV": 1.4504897594451904,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 165,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "KRbCClO4",
+    "volume_A3": 296.9069429043905,
+    "predicted_bg_raw_eV": 3.0947482585906982,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 166,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "I",
+    "volume_A3": 59.8391092089305,
+    "predicted_bg_raw_eV": 4.421064376831055,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 167,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Cl2",
+    "volume_A3": 567.8427944414024,
+    "predicted_bg_raw_eV": 2.4158854484558105,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 168,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "Li2N",
+    "volume_A3": 118.16838252390514,
+    "predicted_bg_raw_eV": 1.3736650943756104,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 169,
+    "num_atoms": 6,
+    "status": "generated",
+    "formula": "Pm2Te",
+    "volume_A3": 206.01463343085354,
+    "predicted_bg_raw_eV": -0.002486109733581543,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 170,
+    "num_atoms": 14,
+    "status": "generated",
+    "formula": "Li3ScF10",
+    "volume_A3": 163.5127843495041,
+    "predicted_bg_raw_eV": 1.2079952955245972,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 171,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "AsO3",
+    "volume_A3": 279.4858380121224,
+    "predicted_bg_raw_eV": 2.8839097023010254,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 172,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "Ag4O",
+    "volume_A3": 386.5944121665127,
+    "predicted_bg_raw_eV": 0.4020288288593292,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 173,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "O2",
+    "volume_A3": 119.5640284913237,
+    "predicted_bg_raw_eV": 1.502767562866211,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 174,
+    "num_atoms": 4,
+    "status": "generated",
+    "formula": "Si",
+    "volume_A3": 68.24691879152334,
+    "predicted_bg_raw_eV": 0.014454424381256104,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 175,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "ZrF4",
+    "volume_A3": 228.6158058059876,
+    "predicted_bg_raw_eV": 3.674104928970337,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 176,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "LiNiO3",
+    "volume_A3": 107.6559094000906,
+    "predicted_bg_raw_eV": 1.4436781406402588,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 177,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "FeWO6",
+    "volume_A3": 124.58649306844845,
+    "predicted_bg_raw_eV": 3.022515058517456,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 178,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "LiCu2SCl4",
+    "volume_A3": 372.878284170776,
+    "predicted_bg_raw_eV": 0.7004233598709106,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 179,
+    "num_atoms": 4,
+    "status": "generated",
+    "formula": "H2CBr",
+    "volume_A3": 74.48156584967143,
+    "predicted_bg_raw_eV": 4.375735282897949,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 180,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Al4V3Bi",
+    "volume_A3": 277.28701341827883,
+    "predicted_bg_raw_eV": 0.006227970123291016,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 181,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "SO3",
+    "volume_A3": 145.62128681732966,
+    "predicted_bg_raw_eV": 2.902637481689453,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 182,
+    "num_atoms": 14,
+    "status": "generated",
+    "formula": "La6O",
+    "volume_A3": 511.7697793878739,
+    "predicted_bg_raw_eV": 0.26102226972579956,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 183,
+    "num_atoms": 14,
+    "status": "generated",
+    "formula": "Rb",
+    "volume_A3": 1168.7291301700766,
+    "predicted_bg_raw_eV": 0.08040285110473633,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 184,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "Zr2BS3",
+    "volume_A3": 259.9963408947152,
+    "predicted_bg_raw_eV": 0.08348196744918823,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 185,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "H3OF4",
+    "volume_A3": 167.35143924263951,
+    "predicted_bg_raw_eV": 7.533566951751709,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 186,
+    "num_atoms": 6,
+    "status": "generated",
+    "formula": "ZrBe2",
+    "volume_A3": 89.97503149960127,
+    "predicted_bg_raw_eV": 0.014496684074401855,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 187,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "Fe(ReO)4",
+    "volume_A3": 293.69961786867026,
+    "predicted_bg_raw_eV": 0.069244384765625,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 188,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "NaPO",
+    "volume_A3": 205.6995109143589,
+    "predicted_bg_raw_eV": 1.1031901836395264,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 189,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "ZnP4",
+    "volume_A3": 392.26935317393514,
+    "predicted_bg_raw_eV": 0.8205870985984802,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 190,
+    "num_atoms": 5,
+    "status": "generated",
+    "formula": "Cr3I2",
+    "volume_A3": 129.7245667735573,
+    "predicted_bg_raw_eV": 0.018021702766418457,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 191,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "H2",
+    "volume_A3": 215.06095159575565,
+    "predicted_bg_raw_eV": 5.085482120513916,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 192,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "C2N3",
+    "volume_A3": 282.5429015190923,
+    "predicted_bg_raw_eV": 3.758756399154663,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 193,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "HfZr2NbO8",
+    "volume_A3": 147.8731555390186,
+    "predicted_bg_raw_eV": 1.8980152606964111,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 194,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "CaAuF2",
+    "volume_A3": 245.43017359589726,
+    "predicted_bg_raw_eV": 0.8806819915771484,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 195,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "P(H2O)5",
+    "volume_A3": 148.96355723182143,
+    "predicted_bg_raw_eV": 6.162644863128662,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 196,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "Ca2AlC2",
+    "volume_A3": 362.84788899886644,
+    "predicted_bg_raw_eV": 0.02334725856781006,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 197,
+    "num_atoms": 4,
+    "status": "generated",
+    "formula": "Br",
+    "volume_A3": 179.77606651042257,
+    "predicted_bg_raw_eV": 2.516605854034424,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 198,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "In3S2",
+    "volume_A3": 554.0228357412238,
+    "predicted_bg_raw_eV": -0.015109777450561523,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 199,
+    "num_atoms": 6,
+    "status": "generated",
+    "formula": "H2O",
+    "volume_A3": 55.05378398403409,
+    "predicted_bg_raw_eV": 5.507039546966553,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 200,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "FeBO2",
+    "volume_A3": 169.1233784464575,
+    "predicted_bg_raw_eV": 2.1735312938690186,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 201,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Li3PO4",
+    "volume_A3": 171.32610095640842,
+    "predicted_bg_raw_eV": 4.475245952606201,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 202,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "F2",
+    "volume_A3": 159.45157998204238,
+    "predicted_bg_raw_eV": 0.6754117608070374,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 203,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "IO8",
+    "volume_A3": 281.28665614791845,
+    "predicted_bg_raw_eV": 2.380042552947998,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 204,
+    "num_atoms": 15,
+    "status": "generated",
+    "formula": "CaF14",
+    "volume_A3": 206.42837548082278,
+    "predicted_bg_raw_eV": 1.2346875667572021,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 205,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "H2O2",
+    "volume_A3": 131.22023475439414,
+    "predicted_bg_raw_eV": 3.7532522678375244,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 206,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "H2",
+    "volume_A3": 163.67798941565073,
+    "predicted_bg_raw_eV": 8.473692893981934,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 207,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "H3O",
+    "volume_A3": 69.24104854583736,
+    "predicted_bg_raw_eV": 6.614811897277832,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 208,
+    "num_atoms": 6,
+    "status": "generated",
+    "formula": "S",
+    "volume_A3": 134.14265428528788,
+    "predicted_bg_raw_eV": 2.045104503631592,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 209,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "O2",
+    "volume_A3": 101.99842177775444,
+    "predicted_bg_raw_eV": -0.06060898303985596,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 210,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "B4NO7",
+    "volume_A3": 137.7538739730871,
+    "predicted_bg_raw_eV": 2.522200345993042,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 211,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "V2FeS3",
+    "volume_A3": 276.17609209758797,
+    "predicted_bg_raw_eV": -0.017962515354156494,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 212,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "CO3",
+    "volume_A3": 163.37556424359434,
+    "predicted_bg_raw_eV": 6.401354789733887,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 213,
+    "num_atoms": 2,
+    "status": "generated",
+    "formula": "Rb",
+    "volume_A3": 137.48939500364358,
+    "predicted_bg_raw_eV": 0.039887189865112305,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 214,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "LiMg(HO)4",
+    "volume_A3": 179.83618182527627,
+    "predicted_bg_raw_eV": 3.4799888134002686,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 215,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "H2",
+    "volume_A3": 226.2881064305312,
+    "predicted_bg_raw_eV": 7.826873779296875,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 216,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "H2",
+    "volume_A3": 63.63699524838419,
+    "predicted_bg_raw_eV": 0.17910164594650269,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 217,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "V3InTeF15",
+    "volume_A3": 370.91028041625447,
+    "predicted_bg_raw_eV": 3.0825181007385254,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 218,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "SnBi2O5",
+    "volume_A3": 289.19924313941226,
+    "predicted_bg_raw_eV": 0.2735140919685364,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 219,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "Ag3PCl3O2F",
+    "volume_A3": 460.59221639890393,
+    "predicted_bg_raw_eV": 1.9850151538848877,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 220,
+    "num_atoms": 4,
+    "status": "generated",
+    "formula": "Cs",
+    "volume_A3": 366.60790964158144,
+    "predicted_bg_raw_eV": 0.007869243621826172,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 221,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "CaCl2",
+    "volume_A3": 328.6287714421623,
+    "predicted_bg_raw_eV": 4.958516597747803,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 222,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "Sb(H2O)3",
+    "volume_A3": 82.2075108843848,
+    "predicted_bg_raw_eV": 2.4131038188934326,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 223,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "Se",
+    "volume_A3": 192.4601930264954,
+    "predicted_bg_raw_eV": 1.0086208581924438,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 224,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "LaWO4",
+    "volume_A3": 183.6228263628322,
+    "predicted_bg_raw_eV": 3.1318483352661133,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 225,
+    "num_atoms": 13,
+    "status": "generated",
+    "formula": "AlGe2AsO9",
+    "volume_A3": 196.17392202961358,
+    "predicted_bg_raw_eV": 3.2476515769958496,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 226,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "C",
+    "volume_A3": 275.00731119409323,
+    "predicted_bg_raw_eV": 0.8096178770065308,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 227,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "TiO",
+    "volume_A3": 207.15830914644062,
+    "predicted_bg_raw_eV": -0.02161264419555664,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 228,
+    "num_atoms": 6,
+    "status": "generated",
+    "formula": "NiSO4",
+    "volume_A3": 89.10629737426521,
+    "predicted_bg_raw_eV": 1.6366455554962158,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 229,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "Si2GeO6",
+    "volume_A3": 243.94666274761835,
+    "predicted_bg_raw_eV": 3.426114559173584,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 230,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "AlS2",
+    "volume_A3": 291.16189976067324,
+    "predicted_bg_raw_eV": 2.961139440536499,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 231,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Tl3CoS4",
+    "volume_A3": 462.38749086347707,
+    "predicted_bg_raw_eV": 0.1556636095046997,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 232,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "H2I2N2O3",
+    "volume_A3": 386.52773573394705,
+    "predicted_bg_raw_eV": 3.614208698272705,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 233,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "LaGeO2",
+    "volume_A3": 267.5970764269244,
+    "predicted_bg_raw_eV": 3.559750556945801,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 234,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "H2O3",
+    "volume_A3": 110.10433400443974,
+    "predicted_bg_raw_eV": 3.377005100250244,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 235,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "Li2P",
+    "volume_A3": 293.5760476028477,
+    "predicted_bg_raw_eV": 0.3974120020866394,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 236,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "V3Ge(SO6)2",
+    "volume_A3": 281.5911187140232,
+    "predicted_bg_raw_eV": 2.245327949523926,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 237,
+    "num_atoms": 4,
+    "status": "generated",
+    "formula": "F2",
+    "volume_A3": 62.11900126480247,
+    "predicted_bg_raw_eV": 5.84260368347168,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 238,
+    "num_atoms": 2,
+    "status": "generated",
+    "formula": "Cs",
+    "volume_A3": 219.10740874090325,
+    "predicted_bg_raw_eV": 0.011960446834564209,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 239,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "Be5V4",
+    "volume_A3": 222.89333156610365,
+    "predicted_bg_raw_eV": -0.011300504207611084,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 240,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "H3O2",
+    "volume_A3": 234.09950118455652,
+    "predicted_bg_raw_eV": 4.052587509155273,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 241,
+    "num_atoms": 15,
+    "status": "generated",
+    "formula": "O4F",
+    "volume_A3": 227.61404929997923,
+    "predicted_bg_raw_eV": 1.2317172288894653,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 242,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "CsTl4Se5",
+    "volume_A3": 789.806398031475,
+    "predicted_bg_raw_eV": 1.0769160985946655,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 243,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "VF2",
+    "volume_A3": 187.13918480456388,
+    "predicted_bg_raw_eV": 0.9034109711647034,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 244,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "S",
+    "volume_A3": 177.11667479759421,
+    "predicted_bg_raw_eV": 0.8285340070724487,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 245,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "TbTlGaBr5",
+    "volume_A3": 583.1420088444188,
+    "predicted_bg_raw_eV": 3.1110024452209473,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 246,
+    "num_atoms": 4,
+    "status": "generated",
+    "formula": "Cs",
+    "volume_A3": 289.5818664222661,
+    "predicted_bg_raw_eV": 0.11185657978057861,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 247,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "H2O2",
+    "volume_A3": 136.66552154492726,
+    "predicted_bg_raw_eV": 3.318361520767212,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 248,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "SbCl5O2",
+    "volume_A3": 459.0615757880189,
+    "predicted_bg_raw_eV": 1.4140567779541016,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 249,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "ZnH8Pb",
+    "volume_A3": 129.33513818165116,
+    "predicted_bg_raw_eV": 1.9397203922271729,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 250,
+    "num_atoms": 14,
+    "status": "generated",
+    "formula": "Nb2O5",
+    "volume_A3": 219.40281289284687,
+    "predicted_bg_raw_eV": 2.2373709678649902,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 251,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "SrH(N4O)2",
+    "volume_A3": 214.9533715622156,
+    "predicted_bg_raw_eV": 4.09226131439209,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 252,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "P",
+    "volume_A3": 335.2924910310985,
+    "predicted_bg_raw_eV": 0.6331505179405212,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 253,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "H2",
+    "volume_A3": 196.42435640745285,
+    "predicted_bg_raw_eV": 7.58556604385376,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 254,
+    "num_atoms": 6,
+    "status": "generated",
+    "formula": "BaS2",
+    "volume_A3": 234.09915331742752,
+    "predicted_bg_raw_eV": 2.1740291118621826,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 255,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Br",
+    "volume_A3": 762.3135646922792,
+    "predicted_bg_raw_eV": 0.3910106420516968,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 256,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "Na2S",
+    "volume_A3": 320.4054088774358,
+    "predicted_bg_raw_eV": 2.865741014480591,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 257,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "P(SO4)3",
+    "volume_A3": 280.21075443265,
+    "predicted_bg_raw_eV": 3.803863525390625,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 258,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "SiSe3",
+    "volume_A3": 335.6727586204476,
+    "predicted_bg_raw_eV": 1.379375696182251,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 259,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "ReBrCl4",
+    "volume_A3": 388.9619301029997,
+    "predicted_bg_raw_eV": 0.8934170603752136,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 260,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Co",
+    "volume_A3": 201.23060667014184,
+    "predicted_bg_raw_eV": -0.012097477912902832,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 261,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "PO4",
+    "volume_A3": 323.3230823190475,
+    "predicted_bg_raw_eV": 4.556661605834961,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 262,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "O2",
+    "volume_A3": 266.12485936358394,
+    "predicted_bg_raw_eV": 1.4726283550262451,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 263,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "TcO5",
+    "volume_A3": 197.0812614932193,
+    "predicted_bg_raw_eV": 2.856050968170166,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 264,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "AlBr3",
+    "volume_A3": 686.5137009167289,
+    "predicted_bg_raw_eV": 3.811387538909912,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 265,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "AsCl4",
+    "volume_A3": 370.19258701870456,
+    "predicted_bg_raw_eV": 2.5495898723602295,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 266,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "Cl2",
+    "volume_A3": 314.3998279809693,
+    "predicted_bg_raw_eV": 0.8348156809806824,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 267,
+    "num_atoms": 14,
+    "status": "generated",
+    "formula": "Li4CrCO8",
+    "volume_A3": 141.10663796350815,
+    "predicted_bg_raw_eV": 1.5205330848693848,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 268,
+    "num_atoms": 6,
+    "status": "generated",
+    "formula": "O2",
+    "volume_A3": 79.7821331505685,
+    "predicted_bg_raw_eV": 0.5173661708831787,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 269,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "CuSe2",
+    "volume_A3": 285.74703566610583,
+    "predicted_bg_raw_eV": 0.43030163645744324,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 270,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "SrCl",
+    "volume_A3": 591.6680073329701,
+    "predicted_bg_raw_eV": 4.781013488769531,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 271,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "Al2B2P3SNO11",
+    "volume_A3": 280.89793200492653,
+    "predicted_bg_raw_eV": 4.532974720001221,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 272,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "C3OF8",
+    "volume_A3": 176.81983546194112,
+    "predicted_bg_raw_eV": 3.6910150051116943,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 273,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "H2",
+    "volume_A3": 133.63742944397143,
+    "predicted_bg_raw_eV": 8.973138809204102,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 274,
+    "num_atoms": 13,
+    "status": "generated",
+    "formula": "Sr2FePSNO7",
+    "volume_A3": 178.10954690527484,
+    "predicted_bg_raw_eV": 3.41774845123291,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 275,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "GaF3",
+    "volume_A3": 123.11808902026272,
+    "predicted_bg_raw_eV": 3.007521390914917,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 276,
+    "num_atoms": 6,
+    "status": "generated",
+    "formula": "OsO2",
+    "volume_A3": 85.73537564120998,
+    "predicted_bg_raw_eV": -0.011136293411254883,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 277,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "CsH",
+    "volume_A3": 593.0903895973993,
+    "predicted_bg_raw_eV": 1.6110386848449707,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 278,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "CuCl",
+    "volume_A3": 396.58895851632377,
+    "predicted_bg_raw_eV": 1.5093929767608643,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 279,
+    "num_atoms": 9,
+    "status": "generated",
+    "formula": "LiTa2Cl6",
+    "volume_A3": 265.17922693441363,
+    "predicted_bg_raw_eV": 1.9396882057189941,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 280,
+    "num_atoms": 5,
+    "status": "generated",
+    "formula": "ZrS4",
+    "volume_A3": 131.65000633110452,
+    "predicted_bg_raw_eV": 1.0749051570892334,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 281,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "ZnCu2Br5",
+    "volume_A3": 200.59567676469348,
+    "predicted_bg_raw_eV": 0.22760438919067383,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 282,
+    "num_atoms": 14,
+    "status": "generated",
+    "formula": "TaGe12P",
+    "volume_A3": 271.0477821373357,
+    "predicted_bg_raw_eV": 0.02629333734512329,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 283,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "NbCl2",
+    "volume_A3": 361.9072523938876,
+    "predicted_bg_raw_eV": 1.119572401046753,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 284,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Na2O2",
+    "volume_A3": 248.12439233787524,
+    "predicted_bg_raw_eV": 1.7424973249435425,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 285,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "Rb2Cl",
+    "volume_A3": 523.6237577132251,
+    "predicted_bg_raw_eV": 0.8355085849761963,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 286,
+    "num_atoms": 4,
+    "status": "generated",
+    "formula": "Cl2",
+    "volume_A3": 135.17454720193547,
+    "predicted_bg_raw_eV": 2.1476964950561523,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 287,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "OF7",
+    "volume_A3": 143.62597039390988,
+    "predicted_bg_raw_eV": 1.5875921249389648,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 288,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "NaCaTiAlS3Cl",
+    "volume_A3": 366.6748247675271,
+    "predicted_bg_raw_eV": 1.1475017070770264,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 289,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "ThO",
+    "volume_A3": 236.33313373614416,
+    "predicted_bg_raw_eV": 0.46119874715805054,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 290,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "BH5",
+    "volume_A3": 140.87400787417513,
+    "predicted_bg_raw_eV": 5.708682060241699,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 291,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "Li",
+    "volume_A3": 137.79329325505898,
+    "predicted_bg_raw_eV": 0.05499643087387085,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 292,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "H2",
+    "volume_A3": 82.00755929815237,
+    "predicted_bg_raw_eV": 2.039809465408325,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 293,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "PbO4",
+    "volume_A3": 159.27916679435376,
+    "predicted_bg_raw_eV": 1.588271141052246,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 294,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "AlSeS2",
+    "volume_A3": 244.84799397092172,
+    "predicted_bg_raw_eV": 2.2854323387145996,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 295,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Fe3O5",
+    "volume_A3": 222.20666062668025,
+    "predicted_bg_raw_eV": 0.9403949975967407,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 296,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "HgCl2",
+    "volume_A3": 393.51708985889326,
+    "predicted_bg_raw_eV": 2.2560198307037354,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 297,
+    "num_atoms": 14,
+    "status": "generated",
+    "formula": "Al(H2N)2",
+    "volume_A3": 98.00386765648507,
+    "predicted_bg_raw_eV": 4.234281539916992,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 298,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "H7Pb2O3",
+    "volume_A3": 141.05734596942042,
+    "predicted_bg_raw_eV": 2.627704620361328,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 299,
+    "num_atoms": 11,
+    "status": "generated",
+    "formula": "Nb2HgO8",
+    "volume_A3": 174.23118239781928,
+    "predicted_bg_raw_eV": 0.8869844675064087,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 300,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "NaS4",
+    "volume_A3": 286.4788871291697,
+    "predicted_bg_raw_eV": 1.4552853107452393,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 301,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "LiSb(HO2)2",
+    "volume_A3": 184.7713899426796,
+    "predicted_bg_raw_eV": 3.4002394676208496,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 302,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "CsKRhC5S2",
+    "volume_A3": 229.60265891180075,
+    "predicted_bg_raw_eV": 1.8207309246063232,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 303,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "H2",
+    "volume_A3": 121.0330852871173,
+    "predicted_bg_raw_eV": 2.0299365520477295,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 304,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "LiYbF6",
+    "volume_A3": 123.35585653637736,
+    "predicted_bg_raw_eV": 0.30968141555786133,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 305,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "S",
+    "volume_A3": 211.04045042225576,
+    "predicted_bg_raw_eV": 0.3220524787902832,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 306,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "H2SNO5",
+    "volume_A3": 234.0684033656204,
+    "predicted_bg_raw_eV": 2.732151508331299,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 307,
+    "num_atoms": 4,
+    "status": "generated",
+    "formula": "Os",
+    "volume_A3": 115.16345479507528,
+    "predicted_bg_raw_eV": 0.025663256645202637,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 308,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "FeO",
+    "volume_A3": 151.8348773352712,
+    "predicted_bg_raw_eV": 0.19601595401763916,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 309,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "Ag2F3",
+    "volume_A3": 334.4661832774093,
+    "predicted_bg_raw_eV": -0.008070051670074463,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 310,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "SiH3(O3F)2",
+    "volume_A3": 172.58939525446513,
+    "predicted_bg_raw_eV": 3.7653536796569824,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 311,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "H4PbO4",
+    "volume_A3": 217.61392611696493,
+    "predicted_bg_raw_eV": 3.6380274295806885,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 312,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "PtI5",
+    "volume_A3": 503.4989851524764,
+    "predicted_bg_raw_eV": 1.1864384412765503,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 313,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "S",
+    "volume_A3": 315.52776266268836,
+    "predicted_bg_raw_eV": 0.6656174659729004,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 314,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "CO7",
+    "volume_A3": 286.59404810859763,
+    "predicted_bg_raw_eV": 1.3850340843200684,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 315,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "AgH2",
+    "volume_A3": 231.78691372995215,
+    "predicted_bg_raw_eV": 0.008880436420440674,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 316,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "O2",
+    "volume_A3": 107.96729921461575,
+    "predicted_bg_raw_eV": 1.3541340827941895,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 317,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "CaSn(BiO2)2",
+    "volume_A3": 320.49524756474716,
+    "predicted_bg_raw_eV": 2.1792328357696533,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 318,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "H2",
+    "volume_A3": 230.23069651429518,
+    "predicted_bg_raw_eV": 2.9617340564727783,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 319,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "BaPrNdSiSn2SO9",
+    "volume_A3": 277.56303555088704,
+    "predicted_bg_raw_eV": 3.3697283267974854,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 320,
+    "num_atoms": 6,
+    "status": "generated",
+    "formula": "S",
+    "volume_A3": 184.89404307838893,
+    "predicted_bg_raw_eV": 0.7525795698165894,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 321,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "RbF4",
+    "volume_A3": 199.0161610748061,
+    "predicted_bg_raw_eV": 3.5462429523468018,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 322,
+    "num_atoms": 4,
+    "status": "generated",
+    "formula": "CuTe",
+    "volume_A3": 93.05366510504273,
+    "predicted_bg_raw_eV": 0.021176397800445557,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 323,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "S",
+    "volume_A3": 534.609908512313,
+    "predicted_bg_raw_eV": 1.5895979404449463,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 324,
+    "num_atoms": 4,
+    "status": "generated",
+    "formula": "I",
+    "volume_A3": 208.07774514920857,
+    "predicted_bg_raw_eV": 2.1802773475646973,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 325,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "WF15",
+    "volume_A3": 265.7541523910147,
+    "predicted_bg_raw_eV": 0.9723726511001587,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 326,
+    "num_atoms": 6,
+    "status": "generated",
+    "formula": "TeO2",
+    "volume_A3": 118.53629081806551,
+    "predicted_bg_raw_eV": 0.39924001693725586,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 327,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Al",
+    "volume_A3": 269.8336210224025,
+    "predicted_bg_raw_eV": -0.0166015625,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 328,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "MnF2",
+    "volume_A3": 167.296258534938,
+    "predicted_bg_raw_eV": 1.6660361289978027,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 329,
+    "num_atoms": 6,
+    "status": "generated",
+    "formula": "Y2Se",
+    "volume_A3": 196.96979435993651,
+    "predicted_bg_raw_eV": 0.27496659755706787,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 330,
+    "num_atoms": 6,
+    "status": "generated",
+    "formula": "Cl2",
+    "volume_A3": 188.43338956544986,
+    "predicted_bg_raw_eV": 1.569068431854248,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 331,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "Mg4Co",
+    "volume_A3": 422.1384706555314,
+    "predicted_bg_raw_eV": 0.04846155643463135,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 332,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "HO3",
+    "volume_A3": 107.13278812181237,
+    "predicted_bg_raw_eV": 2.9672367572784424,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 333,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "SnF4",
+    "volume_A3": 390.84764887090773,
+    "predicted_bg_raw_eV": 3.322892189025879,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 334,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "GeS",
+    "volume_A3": 428.43819858886883,
+    "predicted_bg_raw_eV": 1.300368309020996,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 335,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "ZnAsSeO5",
+    "volume_A3": 260.94431428251653,
+    "predicted_bg_raw_eV": 3.369460344314575,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 336,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "K3Pb",
+    "volume_A3": 809.9893084844958,
+    "predicted_bg_raw_eV": 0.23920047283172607,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 337,
+    "num_atoms": 6,
+    "status": "generated",
+    "formula": "S",
+    "volume_A3": 144.56198250474856,
+    "predicted_bg_raw_eV": 0.010363638401031494,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 338,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "CsS",
+    "volume_A3": 367.9285812265924,
+    "predicted_bg_raw_eV": 2.3053176403045654,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 339,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "AlO2",
+    "volume_A3": 168.42651908694026,
+    "predicted_bg_raw_eV": 3.8150269985198975,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 340,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "GePO3",
+    "volume_A3": 154.8966693262362,
+    "predicted_bg_raw_eV": 3.536099910736084,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 341,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "CaH2",
+    "volume_A3": 149.89495037062207,
+    "predicted_bg_raw_eV": 2.638529062271118,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 342,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "H2N",
+    "volume_A3": 107.24963035433377,
+    "predicted_bg_raw_eV": 3.2869176864624023,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 343,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "VCl4",
+    "volume_A3": 424.5954225536919,
+    "predicted_bg_raw_eV": 0.8088059425354004,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 344,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "KAsO2",
+    "volume_A3": 324.6138993936965,
+    "predicted_bg_raw_eV": 2.8327653408050537,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 345,
+    "num_atoms": 14,
+    "status": "generated",
+    "formula": "Na3SrGaS9",
+    "volume_A3": 401.0463531630998,
+    "predicted_bg_raw_eV": 1.943187952041626,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 346,
+    "num_atoms": 14,
+    "status": "generated",
+    "formula": "H2",
+    "volume_A3": 142.83878281557324,
+    "predicted_bg_raw_eV": 8.645990371704102,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 347,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "AsO3",
+    "volume_A3": 135.42992438357112,
+    "predicted_bg_raw_eV": 4.13564920425415,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 348,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "SrSe4",
+    "volume_A3": 329.8675779355236,
+    "predicted_bg_raw_eV": 1.1965399980545044,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 349,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "AlH14O",
+    "volume_A3": 134.510458963133,
+    "predicted_bg_raw_eV": 4.768653392791748,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 350,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "O2",
+    "volume_A3": 367.29632446372955,
+    "predicted_bg_raw_eV": 1.3470473289489746,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 351,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "Rb3AsF6",
+    "volume_A3": 448.8337602251483,
+    "predicted_bg_raw_eV": 4.347870349884033,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 352,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "H2",
+    "volume_A3": 106.55414910113885,
+    "predicted_bg_raw_eV": 5.136477947235107,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 353,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "H2",
+    "volume_A3": 176.82181835655797,
+    "predicted_bg_raw_eV": 8.249139785766602,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 354,
+    "num_atoms": 4,
+    "status": "generated",
+    "formula": "Si",
+    "volume_A3": 68.53065530884456,
+    "predicted_bg_raw_eV": 0.0123215913772583,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 355,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "SiPS6",
+    "volume_A3": 397.55475599765134,
+    "predicted_bg_raw_eV": 2.2895195484161377,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 356,
+    "num_atoms": 6,
+    "status": "generated",
+    "formula": "H2N",
+    "volume_A3": 78.28291519757289,
+    "predicted_bg_raw_eV": 3.1843502521514893,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 357,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "SeS3",
+    "volume_A3": 394.6249066643411,
+    "predicted_bg_raw_eV": 0.4885791540145874,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 358,
+    "num_atoms": 14,
+    "status": "generated",
+    "formula": "Li2Nb3Si2NO6",
+    "volume_A3": 213.98122520103198,
+    "predicted_bg_raw_eV": 2.609647512435913,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 359,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "MoF7",
+    "volume_A3": 154.46077101126744,
+    "predicted_bg_raw_eV": 2.9386894702911377,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 360,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "SiHO2",
+    "volume_A3": 211.57399277148357,
+    "predicted_bg_raw_eV": 5.465688228607178,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 361,
+    "num_atoms": 14,
+    "status": "generated",
+    "formula": "V5F9",
+    "volume_A3": 196.64130831155097,
+    "predicted_bg_raw_eV": 2.2852272987365723,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 362,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Br",
+    "volume_A3": 707.1853647595282,
+    "predicted_bg_raw_eV": 0.12601059675216675,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 363,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "ZnH5",
+    "volume_A3": 131.21541643255227,
+    "predicted_bg_raw_eV": 6.236990928649902,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 364,
+    "num_atoms": 9,
+    "status": "generated",
+    "formula": "P4S5",
+    "volume_A3": 265.9725612311901,
+    "predicted_bg_raw_eV": 2.5422728061676025,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 365,
+    "num_atoms": 6,
+    "status": "generated",
+    "formula": "SBr2",
+    "volume_A3": 249.02959885027713,
+    "predicted_bg_raw_eV": 1.9222586154937744,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 366,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Tc",
+    "volume_A3": 276.40295277614007,
+    "predicted_bg_raw_eV": 0.012276709079742432,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 367,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "V3SO12",
+    "volume_A3": 232.82567804864289,
+    "predicted_bg_raw_eV": 2.4452733993530273,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 368,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "LiGePIO6",
+    "volume_A3": 343.4731601937632,
+    "predicted_bg_raw_eV": 3.9534435272216797,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 369,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "CuS4",
+    "volume_A3": 496.694349197877,
+    "predicted_bg_raw_eV": 1.2548704147338867,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 370,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "TaS2Cl",
+    "volume_A3": 309.6941734515793,
+    "predicted_bg_raw_eV": 0.21009939908981323,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 371,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "Li2O",
+    "volume_A3": 111.90623672408294,
+    "predicted_bg_raw_eV": 3.0481345653533936,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 372,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "RbBrCl3",
+    "volume_A3": 772.4409432628912,
+    "predicted_bg_raw_eV": 1.1549270153045654,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 373,
+    "num_atoms": 6,
+    "status": "generated",
+    "formula": "SnSe",
+    "volume_A3": 188.35243095970048,
+    "predicted_bg_raw_eV": 1.6146986484527588,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 374,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "H2PbO2",
+    "volume_A3": 261.4495371878828,
+    "predicted_bg_raw_eV": 3.056088447570801,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 375,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "H2",
+    "volume_A3": 93.5912955098688,
+    "predicted_bg_raw_eV": 9.074678421020508,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 376,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "NiH13O6",
+    "volume_A3": 191.88983956505717,
+    "predicted_bg_raw_eV": 3.2904560565948486,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 377,
+    "num_atoms": 15,
+    "status": "generated",
+    "formula": "CsAg8SBr5",
+    "volume_A3": 463.0865973361749,
+    "predicted_bg_raw_eV": 0.6509555578231812,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 378,
+    "num_atoms": 11,
+    "status": "generated",
+    "formula": "ErAlH6N2O",
+    "volume_A3": 90.88995981791471,
+    "predicted_bg_raw_eV": 2.8202645778656006,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 379,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "CsRb2CdGa",
+    "volume_A3": 419.3724049440286,
+    "predicted_bg_raw_eV": 0.684781551361084,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 380,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "HfCl2",
+    "volume_A3": 341.2120760572065,
+    "predicted_bg_raw_eV": 3.6281521320343018,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 381,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "Ge4As4PS",
+    "volume_A3": 426.030792675915,
+    "predicted_bg_raw_eV": 0.073569655418396,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 382,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "P",
+    "volume_A3": 259.47880165989574,
+    "predicted_bg_raw_eV": 1.8515920639038086,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 383,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Cl2",
+    "volume_A3": 656.3329070102733,
+    "predicted_bg_raw_eV": 2.1187007427215576,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 384,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "H2",
+    "volume_A3": 76.86098846323216,
+    "predicted_bg_raw_eV": 1.2488136291503906,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 385,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "AlBiF10",
+    "volume_A3": 214.75221848882975,
+    "predicted_bg_raw_eV": 3.9013547897338867,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 386,
+    "num_atoms": 4,
+    "status": "generated",
+    "formula": "Cs",
+    "volume_A3": 419.82130178923,
+    "predicted_bg_raw_eV": -0.0005547404289245605,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 387,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "O2",
+    "volume_A3": 219.64560201116234,
+    "predicted_bg_raw_eV": 0.44670945405960083,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 388,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "BaTb(Mo2O7)2",
+    "volume_A3": 325.6199859210374,
+    "predicted_bg_raw_eV": 3.1890439987182617,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 389,
+    "num_atoms": 14,
+    "status": "generated",
+    "formula": "FeO6",
+    "volume_A3": 209.00793936014483,
+    "predicted_bg_raw_eV": 0.8826771378517151,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 390,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "Pr2Pb2OF3",
+    "volume_A3": 187.26106037043994,
+    "predicted_bg_raw_eV": 2.037395477294922,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 391,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "H2",
+    "volume_A3": 299.7915741715843,
+    "predicted_bg_raw_eV": 8.130454063415527,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 392,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "Na2Se",
+    "volume_A3": 335.2343933205654,
+    "predicted_bg_raw_eV": 2.7206294536590576,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 393,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "H2",
+    "volume_A3": 111.60107382908913,
+    "predicted_bg_raw_eV": 3.41581130027771,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 394,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "BS3",
+    "volume_A3": 189.46217565912957,
+    "predicted_bg_raw_eV": 2.686978816986084,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 395,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "GaSnI3",
+    "volume_A3": 480.22053064954247,
+    "predicted_bg_raw_eV": 1.8641879558563232,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 396,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "TeO5",
+    "volume_A3": 207.68455885072467,
+    "predicted_bg_raw_eV": 3.0933194160461426,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 397,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "BHO4",
+    "volume_A3": 166.25720325796084,
+    "predicted_bg_raw_eV": 4.013880252838135,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 398,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "IBr",
+    "volume_A3": 454.5683620950911,
+    "predicted_bg_raw_eV": 1.570902943611145,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 399,
+    "num_atoms": 5,
+    "status": "generated",
+    "formula": "H3RuS",
+    "volume_A3": 63.13093336009011,
+    "predicted_bg_raw_eV": 0.726799726486206,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 400,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "YGaO3",
+    "volume_A3": 143.04117973155414,
+    "predicted_bg_raw_eV": 3.1051957607269287,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 401,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "Cl2",
+    "volume_A3": 349.36937815251537,
+    "predicted_bg_raw_eV": 1.482057809829712,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 402,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "CO4",
+    "volume_A3": 278.0450215957145,
+    "predicted_bg_raw_eV": 1.0019407272338867,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 403,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "RbSe2BrF4",
+    "volume_A3": 380.3616340508735,
+    "predicted_bg_raw_eV": 1.9542853832244873,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 404,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "LiO5",
+    "volume_A3": 140.9447690617739,
+    "predicted_bg_raw_eV": 0.945929229259491,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 405,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "O2",
+    "volume_A3": 160.9601287359324,
+    "predicted_bg_raw_eV": 1.3661859035491943,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 406,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "Li",
+    "volume_A3": 127.53801230795986,
+    "predicted_bg_raw_eV": 0.7417939901351929,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 407,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "H2",
+    "volume_A3": 79.90405175619165,
+    "predicted_bg_raw_eV": 1.9446988105773926,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 408,
+    "num_atoms": 14,
+    "status": "generated",
+    "formula": "Sr2GaN4",
+    "volume_A3": 236.40888335766434,
+    "predicted_bg_raw_eV": 1.9694204330444336,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 409,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "H3OF",
+    "volume_A3": 154.76453303209655,
+    "predicted_bg_raw_eV": 6.579577922821045,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 410,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "V3B5N",
+    "volume_A3": 154.25322285791268,
+    "predicted_bg_raw_eV": 0.13676655292510986,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 411,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "CdHO2",
+    "volume_A3": 144.2911814441106,
+    "predicted_bg_raw_eV": 1.2824358940124512,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 412,
+    "num_atoms": 6,
+    "status": "generated",
+    "formula": "CdS2",
+    "volume_A3": 160.4861187127548,
+    "predicted_bg_raw_eV": 0.5787457823753357,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 413,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "HN2O3",
+    "volume_A3": 264.46413279841266,
+    "predicted_bg_raw_eV": 3.555600881576538,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 414,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "LiFeS2",
+    "volume_A3": 147.50838852442024,
+    "predicted_bg_raw_eV": 0.5548484921455383,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 415,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "TmCoO2",
+    "volume_A3": 230.08222482604984,
+    "predicted_bg_raw_eV": 0.24804383516311646,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 416,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "NdMgSe8",
+    "volume_A3": 589.2344430869631,
+    "predicted_bg_raw_eV": 1.9035670757293701,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 417,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "H2O2",
+    "volume_A3": 258.3036688546439,
+    "predicted_bg_raw_eV": 3.6789321899414062,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 418,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "TaF3",
+    "volume_A3": 136.63141193821568,
+    "predicted_bg_raw_eV": 0.03209507465362549,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 419,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "Cl2",
+    "volume_A3": 358.8484695386343,
+    "predicted_bg_raw_eV": 2.2501964569091797,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 420,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "HgS4",
+    "volume_A3": 282.95457136709257,
+    "predicted_bg_raw_eV": 1.6126127243041992,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 421,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "BaF4",
+    "volume_A3": 191.13707776262692,
+    "predicted_bg_raw_eV": 4.659544944763184,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 422,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "TiClO2",
+    "volume_A3": 256.5140389936242,
+    "predicted_bg_raw_eV": 1.9000270366668701,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 423,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "SiP4O13",
+    "volume_A3": 281.027022429027,
+    "predicted_bg_raw_eV": 5.606046199798584,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 424,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "SrPO3",
+    "volume_A3": 324.44610880279765,
+    "predicted_bg_raw_eV": 4.459195137023926,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 425,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Ni",
+    "volume_A3": 199.51442882718777,
+    "predicted_bg_raw_eV": -0.007553577423095703,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 426,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "NpF2",
+    "volume_A3": 222.67925985203033,
+    "predicted_bg_raw_eV": -0.001251518726348877,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 427,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "H2",
+    "volume_A3": 61.36170708256256,
+    "predicted_bg_raw_eV": 0.16470348834991455,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 428,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "H2ClO",
+    "volume_A3": 248.60994212612394,
+    "predicted_bg_raw_eV": 5.519489765167236,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 429,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "ZnS2O5",
+    "volume_A3": 127.85095510754176,
+    "predicted_bg_raw_eV": 4.21028470993042,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 430,
+    "num_atoms": 6,
+    "status": "generated",
+    "formula": "GeS2",
+    "volume_A3": 167.7703952360336,
+    "predicted_bg_raw_eV": 1.7750165462493896,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 431,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "B3O",
+    "volume_A3": 141.5998068371578,
+    "predicted_bg_raw_eV": 2.4894344806671143,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 432,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "Al2BrN2O",
+    "volume_A3": 252.11660466152924,
+    "predicted_bg_raw_eV": 3.5018866062164307,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 433,
+    "num_atoms": 6,
+    "status": "generated",
+    "formula": "TiO2",
+    "volume_A3": 89.0672734220398,
+    "predicted_bg_raw_eV": 1.8513474464416504,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 434,
+    "num_atoms": 6,
+    "status": "generated",
+    "formula": "ICl2",
+    "volume_A3": 266.18945226957453,
+    "predicted_bg_raw_eV": 2.0282928943634033,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 435,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "HgSe",
+    "volume_A3": 295.99566023408113,
+    "predicted_bg_raw_eV": 1.0812108516693115,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 436,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Zr",
+    "volume_A3": 358.21221009580773,
+    "predicted_bg_raw_eV": -0.019294023513793945,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 437,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "KCaAgF5",
+    "volume_A3": 289.97049824312,
+    "predicted_bg_raw_eV": 0.07873070240020752,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 438,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "H2",
+    "volume_A3": 82.17879456470436,
+    "predicted_bg_raw_eV": 0.9949626922607422,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 439,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "Fe3PO5",
+    "volume_A3": 219.35147617702515,
+    "predicted_bg_raw_eV": 1.699216365814209,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 440,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "O2",
+    "volume_A3": 254.42163471890547,
+    "predicted_bg_raw_eV": 0.41321322321891785,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 441,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "AlO2",
+    "volume_A3": 188.52163540764028,
+    "predicted_bg_raw_eV": 4.012439727783203,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 442,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "PCl3",
+    "volume_A3": 323.74486969235386,
+    "predicted_bg_raw_eV": 3.67734956741333,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 443,
+    "num_atoms": 4,
+    "status": "generated",
+    "formula": "LiI",
+    "volume_A3": 119.45493577612412,
+    "predicted_bg_raw_eV": 3.459319591522217,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 444,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Ti3O5",
+    "volume_A3": 212.5121096233649,
+    "predicted_bg_raw_eV": 3.629580020904541,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 445,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "CO3",
+    "volume_A3": 250.09102112625362,
+    "predicted_bg_raw_eV": 6.337113857269287,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 446,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "VS2",
+    "volume_A3": 236.24178514238895,
+    "predicted_bg_raw_eV": -0.008792579174041748,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 447,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "P(CO)2",
+    "volume_A3": 459.9902623752845,
+    "predicted_bg_raw_eV": 3.380427598953247,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 448,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Nb9S7",
+    "volume_A3": 351.95201430500595,
+    "predicted_bg_raw_eV": 0.09075921773910522,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 449,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "Bi",
+    "volume_A3": 35.93134309220636,
+    "predicted_bg_raw_eV": 0.003985583782196045,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 450,
+    "num_atoms": 6,
+    "status": "generated",
+    "formula": "I",
+    "volume_A3": 262.27492053315757,
+    "predicted_bg_raw_eV": 1.2781375646591187,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 451,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "MgCdFeSBr8",
+    "volume_A3": 441.94980591317625,
+    "predicted_bg_raw_eV": 0.5410165786743164,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 452,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Sc",
+    "volume_A3": 369.4887044398773,
+    "predicted_bg_raw_eV": 0.015658080577850342,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 453,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "PrBr4Cl",
+    "volume_A3": 464.539324488958,
+    "predicted_bg_raw_eV": 2.1172821521759033,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 454,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "CaH2O",
+    "volume_A3": 169.35169557204827,
+    "predicted_bg_raw_eV": 3.3762288093566895,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 455,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "AuBr2",
+    "volume_A3": 175.10918493263998,
+    "predicted_bg_raw_eV": 0.5821748971939087,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 456,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "ZrFeF7",
+    "volume_A3": 326.6585383362996,
+    "predicted_bg_raw_eV": 3.8615832328796387,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 457,
+    "num_atoms": 2,
+    "status": "generated",
+    "formula": "Rb",
+    "volume_A3": 140.51578911609687,
+    "predicted_bg_raw_eV": 0.08002513647079468,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 458,
+    "num_atoms": 6,
+    "status": "generated",
+    "formula": "CdIO",
+    "volume_A3": 163.50297228501637,
+    "predicted_bg_raw_eV": 0.6400609016418457,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 459,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "BS3",
+    "volume_A3": 368.4220998985144,
+    "predicted_bg_raw_eV": 2.4546430110931396,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 460,
+    "num_atoms": 5,
+    "status": "generated",
+    "formula": "S2BrCl2",
+    "volume_A3": 132.26436124965272,
+    "predicted_bg_raw_eV": 0.10095793008804321,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 461,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "CsCdBrO",
+    "volume_A3": 549.0515689545101,
+    "predicted_bg_raw_eV": 2.0442497730255127,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 462,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "FeTe5(BrCl4)2",
+    "volume_A3": 546.2758228005994,
+    "predicted_bg_raw_eV": 1.04313325881958,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 463,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "H2O2",
+    "volume_A3": 149.1136288200748,
+    "predicted_bg_raw_eV": 5.02008056640625,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 464,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "VO7",
+    "volume_A3": 109.84080541814293,
+    "predicted_bg_raw_eV": 2.926283121109009,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 465,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Fe4Sb2HO9",
+    "volume_A3": 234.55157571086087,
+    "predicted_bg_raw_eV": 1.2807385921478271,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 466,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "Pb2F3",
+    "volume_A3": 426.876868740244,
+    "predicted_bg_raw_eV": 3.5702128410339355,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 467,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "ZnSbS2",
+    "volume_A3": 374.26991217442543,
+    "predicted_bg_raw_eV": 0.5843664407730103,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 468,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "TeSCl2",
+    "volume_A3": 488.885894502905,
+    "predicted_bg_raw_eV": 1.1135709285736084,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 469,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "Te",
+    "volume_A3": 852.9854998772747,
+    "predicted_bg_raw_eV": 0.9691497087478638,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 470,
+    "num_atoms": 14,
+    "status": "generated",
+    "formula": "Na(SbO2)2",
+    "volume_A3": 235.73255561109013,
+    "predicted_bg_raw_eV": 4.040553569793701,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 471,
+    "num_atoms": 4,
+    "status": "generated",
+    "formula": "H2",
+    "volume_A3": 38.17229101227619,
+    "predicted_bg_raw_eV": 3.9077036380767822,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 472,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "C2ClO",
+    "volume_A3": 359.1916699850378,
+    "predicted_bg_raw_eV": 3.4377145767211914,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 473,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "Li9MnO10",
+    "volume_A3": 220.57671635970055,
+    "predicted_bg_raw_eV": 2.2441303730010986,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 474,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "Rb2AlPbF6",
+    "volume_A3": 386.56654359151275,
+    "predicted_bg_raw_eV": 5.971090316772461,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 475,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "ReO7",
+    "volume_A3": 243.8724485781593,
+    "predicted_bg_raw_eV": 2.4824836254119873,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 476,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "Te(SeI3)2",
+    "volume_A3": 222.3776137517026,
+    "predicted_bg_raw_eV": 1.0223863124847412,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 477,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "Mg3I",
+    "volume_A3": 367.05699990787235,
+    "predicted_bg_raw_eV": 0.04239898920059204,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 478,
+    "num_atoms": 4,
+    "status": "generated",
+    "formula": "S",
+    "volume_A3": 38.154753875797454,
+    "predicted_bg_raw_eV": 0.004126369953155518,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 479,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "CoH4",
+    "volume_A3": 114.89370244982192,
+    "predicted_bg_raw_eV": 0.21655762195587158,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 480,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "TbSe4",
+    "volume_A3": 665.7712376794811,
+    "predicted_bg_raw_eV": 1.8786532878875732,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 481,
+    "num_atoms": 12,
+    "status": "generated",
+    "formula": "LiS",
+    "volume_A3": 215.23056128372784,
+    "predicted_bg_raw_eV": 1.0806143283843994,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 482,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "MnZnH2F4",
+    "volume_A3": 205.8376920864786,
+    "predicted_bg_raw_eV": 2.6015148162841797,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 483,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "PF4",
+    "volume_A3": 430.13295132976117,
+    "predicted_bg_raw_eV": 6.625234127044678,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 484,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "SrSiN2",
+    "volume_A3": 229.4050222896458,
+    "predicted_bg_raw_eV": 2.5810887813568115,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 485,
+    "num_atoms": 4,
+    "status": "generated",
+    "formula": "PH3",
+    "volume_A3": 50.88445106932357,
+    "predicted_bg_raw_eV": 0.4177275598049164,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 486,
+    "num_atoms": 14,
+    "status": "generated",
+    "formula": "Li6O",
+    "volume_A3": 183.6974726019986,
+    "predicted_bg_raw_eV": 2.140350341796875,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 487,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "H2",
+    "volume_A3": 177.92421347594444,
+    "predicted_bg_raw_eV": 8.262670516967773,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 488,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "MoO3",
+    "volume_A3": 330.6282576375143,
+    "predicted_bg_raw_eV": 3.917236804962158,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 489,
+    "num_atoms": 2,
+    "status": "generated",
+    "formula": "Rb",
+    "volume_A3": 138.42374220148997,
+    "predicted_bg_raw_eV": 0.0769205093383789,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 490,
+    "num_atoms": 10,
+    "status": "generated",
+    "formula": "NCl4",
+    "volume_A3": 337.1033693788602,
+    "predicted_bg_raw_eV": 1.6463212966918945,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 491,
+    "num_atoms": 18,
+    "status": "generated",
+    "formula": "NaSbO7",
+    "volume_A3": 276.9739980600094,
+    "predicted_bg_raw_eV": 2.650209665298462,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 492,
+    "num_atoms": 9,
+    "status": "generated",
+    "formula": "MoS2",
+    "volume_A3": 216.48728145980908,
+    "predicted_bg_raw_eV": 0.7114230394363403,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 493,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "FeReO6",
+    "volume_A3": 114.23387382437089,
+    "predicted_bg_raw_eV": 1.8495473861694336,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 494,
+    "num_atoms": 20,
+    "status": "generated",
+    "formula": "CoPO3",
+    "volume_A3": 238.73555317749674,
+    "predicted_bg_raw_eV": 2.900773286819458,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 495,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "SiO3",
+    "volume_A3": 259.1059606096297,
+    "predicted_bg_raw_eV": 4.999233245849609,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 496,
+    "num_atoms": 15,
+    "status": "generated",
+    "formula": "Na2LiCl2",
+    "volume_A3": 380.8595912845362,
+    "predicted_bg_raw_eV": 4.536366939544678,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 497,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "RbS",
+    "volume_A3": 751.6930254739714,
+    "predicted_bg_raw_eV": 1.9953413009643555,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 498,
+    "num_atoms": 16,
+    "status": "generated",
+    "formula": "Rb3Sn",
+    "volume_A3": 955.5267303079606,
+    "predicted_bg_raw_eV": 0.19059699773788452,
+    "prediction_error": null
+  },
+  {
+    "sample_id": 499,
+    "num_atoms": 8,
+    "status": "generated",
+    "formula": "TaO3",
+    "volume_A3": 127.40224214288902,
+    "predicted_bg_raw_eV": 2.7328460216522217,
+    "prediction_error": null
+  }
+]

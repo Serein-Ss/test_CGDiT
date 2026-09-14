@@ -1,0 +1,212 @@
+[
+  {
+    "formula": "LuFe2",
+    "dataset": "mp_20",
+    "split": "train",
+    "id": "mp-2463"
+  },
+  {
+    "formula": "HoCo2",
+    "dataset": "mp_20",
+    "split": "train",
+    "id": "mp-2396"
+  },
+  {
+    "formula": "Co2MnGa",
+    "dataset": "mp_20",
+    "split": "train",
+    "id": "mp-21171"
+  },
+  {
+    "formula": "DyFe2",
+    "dataset": "mp_20",
+    "split": "train",
+    "id": "mp-1757"
+  },
+  {
+    "formula": "ErFe2",
+    "dataset": "mp_20",
+    "split": "train",
+    "id": "mp-474"
+  },
+  {
+    "formula": "TbAl2",
+    "dataset": "mp_20",
+    "split": "train",
+    "id": "mp-756"
+  },
+  {
+    "formula": "Co2TiSi",
+    "dataset": "mp_20",
+    "split": "train",
+    "id": "mp-3657"
+  },
+  {
+    "formula": "DyNi2",
+    "dataset": "mp_20",
+    "split": "train",
+    "id": "mp-421"
+  },
+  {
+    "formula": "Co2TiSn",
+    "dataset": "mp_20",
+    "split": "train",
+    "id": "mp-21467"
+  },
+  {
+    "formula": "DyAl2",
+    "dataset": "mp_20",
+    "split": "train",
+    "id": "mp-803"
+  },
+  {
+    "formula": "SmAl2",
+    "dataset": "mp_20",
+    "split": "train",
+    "id": "mp-2358"
+  },
+  {
+    "formula": "Co2TiGe",
+    "dataset": "mp_20",
+    "split": "train",
+    "id": "mp-4612"
+  },
+  {
+    "formula": "HoFe2",
+    "dataset": "mp_20",
+    "split": "train",
+    "id": "mp-1102099"
+  },
+  {
+    "formula": "ErFe2",
+    "dataset": "mp_20",
+    "split": "train",
+    "id": "mp-1102680"
+  },
+  {
+    "formula": "GdFe2",
+    "dataset": "mp_20",
+    "split": "train",
+    "id": "mp-20089"
+  },
+  {
+    "formula": "DyCo2",
+    "dataset": "mp_20",
+    "split": "train",
+    "id": "mp-2628"
+  },
+  {
+    "formula": "YFe2",
+    "dataset": "mp_20",
+    "split": "train",
+    "id": "mp-1570"
+  },
+  {
+    "formula": "TbFe2",
+    "dataset": "mp_20",
+    "split": "train",
+    "id": "mp-589"
+  },
+  {
+    "formula": "TbCo2",
+    "dataset": "mp_20",
+    "split": "train",
+    "id": "mp-2265"
+  },
+  {
+    "formula": "Co2FeSi",
+    "dataset": "mp_20",
+    "split": "train",
+    "id": "mp-5436"
+  },
+  {
+    "formula": "TbNi2",
+    "dataset": "mp_20",
+    "split": "train",
+    "id": "mp-276"
+  },
+  {
+    "formula": "TbFe2",
+    "dataset": "mp_20",
+    "split": "train",
+    "id": "mp-1102431"
+  },
+  {
+    "formula": "HoFe2",
+    "dataset": "mp_20",
+    "split": "train",
+    "id": "mp-1926"
+  },
+  {
+    "formula": "ErNi2",
+    "dataset": "mp_20",
+    "split": "train",
+    "id": "mp-1939"
+  },
+  {
+    "formula": "ErCo2",
+    "dataset": "mp_20",
+    "split": "val",
+    "id": "mp-537"
+  },
+  {
+    "formula": "GdAl2",
+    "dataset": "mp_20",
+    "split": "val",
+    "id": "mp-19923"
+  },
+  {
+    "formula": "LuFe2",
+    "dataset": "mp_20",
+    "split": "val",
+    "id": "mp-1101907"
+  },
+  {
+    "formula": "HoNi2",
+    "dataset": "mp_20",
+    "split": "val",
+    "id": "mp-673"
+  },
+  {
+    "formula": "HoAl2",
+    "dataset": "mp_20",
+    "split": "val",
+    "id": "mp-391"
+  },
+  {
+    "formula": "PrAl2",
+    "dataset": "mp_20",
+    "split": "val",
+    "id": "mp-1189"
+  },
+  {
+    "formula": "ErAl2",
+    "dataset": "mp_20",
+    "split": "val",
+    "id": "mp-1208"
+  },
+  {
+    "formula": "NdAl2",
+    "dataset": "mp_20",
+    "split": "test",
+    "id": "mp-400"
+  },
+  {
+    "formula": "GdNi2",
+    "dataset": "mp_20",
+    "split": "test",
+    "id": "mp-543019"
+  },
+  {
+    "formula": "Co2MnSi",
+    "dataset": "mp_20",
+    "split": "test",
+    "id": "mp-4492"
+  },
+  {
+    "formula": "TbCo2",
+    "dataset": "magndata",
+    "split": "train",
+    "id": "0.228_TbCo2"
+  }
+]

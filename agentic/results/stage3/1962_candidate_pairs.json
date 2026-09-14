@@ -1,0 +1,101 @@
+[
+  {
+    "pair_id": "Mn4N0.75C0.25_1962_gt_Mn4N_1962",
+    "winner": "Mn4N0.75C0.25",
+    "loser": "Mn4N",
+    "winner_event": "curie",
+    "loser_event": "curie",
+    "winner_temperature_k": 850,
+    "loser_temperature_k": 745,
+    "same_paper": true,
+    "evidence_kind": "experimental_report",
+    "comparison_margin_k": 50,
+    "configured_max_atoms": 100,
+    "minimum_ordered_atoms": 20,
+    "local_structure_mapping_verified": false,
+    "winner_split": "external_unassigned",
+    "loser_split": "external_unassigned",
+    "source": "https://doi.org/10.1103/PhysRev.125.1893",
+    "training_eligible": false,
+    "literature_comparison_supported": true,
+    "reasons": [
+      "structure_mapping_unverified",
+      "both_not_in_training_split"
+    ]
+  },
+  {
+    "pair_id": "Mn4N_1962_gt_Mn3AlC_1962",
+    "winner": "Mn4N",
+    "loser": "Mn3AlC",
+    "winner_event": "curie",
+    "loser_event": "curie",
+    "winner_temperature_k": 745,
+    "loser_temperature_k": 272,
+    "same_paper": true,
+    "evidence_kind": "experimental_report",
+    "comparison_margin_k": 50,
+    "configured_max_atoms": 100,
+    "minimum_ordered_atoms": 5,
+    "local_structure_mapping_verified": false,
+    "winner_split": "external_unassigned",
+    "loser_split": "external_unassigned",
+    "source": "https://doi.org/10.1103/PhysRev.125.1893",
+    "training_eligible": false,
+    "literature_comparison_supported": true,
+    "reasons": [
+      "structure_mapping_unverified",
+      "both_not_in_training_split"
+    ]
+  },
+  {
+    "pair_id": "Mn4N0.8_1962_gt_Mn4N_1962",
+    "winner": "Mn4N0.8",
+    "loser": "Mn4N",
+    "winner_event": "curie",
+    "loser_event": "curie",
+    "winner_temperature_k": 778,
+    "loser_temperature_k": 745,
+    "same_paper": true,
+    "evidence_kind": "experimental_report",
+    "comparison_margin_k": 50,
+    "configured_max_atoms": 100,
+    "minimum_ordered_atoms": 24,
+    "local_structure_mapping_verified": false,
+    "winner_split": "external_unassigned",
+    "loser_split": "external_unassigned",
+    "source": "https://doi.org/10.1103/PhysRev.125.1893",
+    "training_eligible": false,
+    "literature_comparison_supported": false,
+    "reasons": [
+      "insufficient_temperature_separation",
+      "structure_mapping_unverified",
+      "both_not_in_training_split"
+    ]
+  },
+  {
+    "pair_id": "Mn4N0.92_1962_gt_Mn4N_1962",
+    "winner": "Mn4N0.92",
+    "loser": "Mn4N",
+    "winner_event": "curie",
+    "loser_event": "curie",
+    "winner_temperature_k": 750,
+    "loser_temperature_k": 745,
+    "same_paper": true,
+    "evidence_kind": "experimental_report",
+    "comparison_margin_k": 50,
+    "configured_max_atoms": 100,
+    "minimum_ordered_atoms": 123,
+    "local_structure_mapping_verified": false,
+    "winner_split": "external_unassigned",
+    "loser_split": "external_unassigned",
+    "source": "https://doi.org/10.1103/PhysRev.125.1893",
+    "training_eligible": false,
+    "literature_comparison_supported": false,
+    "reasons": [
+      "insufficient_temperature_separation",
+      "structure_mapping_unverified",
+      "both_not_in_training_split",
+      "nominal_ordered_representation_exceeds_atom_limit"
+    ]
+  }
+]

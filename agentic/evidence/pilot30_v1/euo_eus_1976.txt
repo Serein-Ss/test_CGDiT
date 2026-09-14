@@ -1,0 +1,878 @@
+PHYSICAL REVIE% 8                              VOLUME        14, NUMBER 11                               1   DECEMBER 1976
+
+          Neutron      scattering      from the Heisenberg ferromagnets                          Euo   and   EuS.   I.
+                                           The exchange interactions*
+                                                         L. Passell
+                                  arookhaven   National Laboratory,    Upton, New York   11973
+
+                                          O.   %. Dietrich     and    J. Als-Nielsen~
+                                    Research Establishment Risg, 4000 Roskilde, Denmark
+                                                   (Received 13 May 1976)
+           Inelastic-neutron-scattering methods have been used to measure the spin-wave spectrum in EuO and EuS over
+         the entire Brillouin zone. The samples were polycrystalline powders enriched in "'Eu. Defining the interaction
+         between pairs of spins to be —        J„S„S,
+                                               2            we obtained for EuO, J, / k~ = 0.606 ~ 0.008'K and
+         J,/ka = 0. 119 ~ 0.015'K; for EuS, J,/k~ = 0.236+ 0.009'K and J,/k~ = —0. 118 ~ 0.011'K. The measured
+         Curie temperatures for EuO, 69. 15 + 0.05'K, and for EuS, 16.57 ~ 0.01'K, are in excellent agreement with
+         calculated values obtained from series expansions relating Tc to the exchange constants. In EuO, the neutron
+         scattering measurements determine J, and J, separately. Although separate values for the exchange constants
+         were reported in earlier experiments, we show that in fact only the spin-wave stiAness constant of EuO, which
+         is proportional to J, + J„was actually determined. In EuS, our values of J, and J, agree with a reanalysis of
+         the specific-heat data.
+
+
+                                                                       dynamic properties are relatively well documen-
+                   I. PITRODUCTION
+                                                                       ted. ' "   But until recently, aside from what could
+   Qne of the more remarkable achievements of                          be inferred from macroscopic results, little was
+contemporary solid-state physics has been the re-                      known about their microscopic properties, although
+placement of the classical thermodynamic approach                      these are actually of more basic concern to the
+to magnetism in solids by microscopic theories                         theory. This unusual state of affairs resulted pri-
+in which magnetic behavior is related to the under-                    marily from the fact that europium is a strong
+lying interactions between atoms. Current theories                     neutron absorber. Thus inelastic-neutron- scat-
+are capable of describing the properties of some                       tering data, normally the best source of micro-
+of the simpler magnetic systems in considerable                        scopic information for magnetic systems, have
+detail. Among such systems, the most completely                        not been available for europium compounds.
+explored theoretically is probably the isotropic                           Although absorption makes neutron scattering
+exchange-coupled magnet with localized moments,                         experiments difficult, it does not necessarily rule
+i. e. , the simple isotropic Heisenberg magnet.                         them out altogether. %'e therefore began some
+   It is foxtunate that there exist in nature materials                 years ago to consider the feasibility of making in-
+which are very good representations of such sys-                        elastic scattering studies of EuQ and EuS, Ulti-
+tems. Prominent among these are the divalent                            mately, we concluded that the best approach was
+europium chalcogenides, a series of magnetic in-                        the direct and obvious one: a thin-slab sample
+sulators in which the magnetic Eu" ions (in spher-                      geometry withthe absorption reduced as much as
+ically symmetric 'S„, spin states) form simple                          possible by using materials prepared with sepa-
+fec lattices. Two of the compounds in this series,                      rated "'Eu (which has the smaller absorption cross
+EuQ and EuS, are ferromagnets"; a third, EuSe,                          section of the two naturally occurring isotopes).
+exhibits both an antiferromagnetically     ordered                      %hit. e not without its limitations, this technique
+phase and a two-component ferrimagnetie and anti-                       proved to be surprisingly successful in practice.
+ferromagnetic pha. se, ' while the la, st, EuTe, is an                  U'sing it we were able to study the microscopic
+                  '
+antiferromagnet. . All members of the series are                         magnetic propexties of both EuO and EuS in con-
+of interest, but EuQ and EuS are of particular im-                       siderable detail. This included investigations of
+portance because they are the only known examples                       the static critical properties of both compounds, of
+of simple Heisenberg ferromagnets                                        the behavior of their spin waves at low tempera, -
+   Since the theory of these particular systems has                      tures, and, in EuQ, of spin waves at tempera-
+been developed to a relatively advanced state,                           tures approaching the Curie temperature T~.
+there are many quantitative comparisons which can
+be made with experiments. Thus it is not surpris-                        in the litexature.  ""
+                                                                         These experiments have all been briefly described
+
+ing that both EuQ and EuS have been widely studied                         It is our intention in this and the two following
+by all of the traditional methods used for magnetic                      papers to present a comprehensive account of all
+investigations and that their macroscopic thermo-                        of our mea, surements, and where relevant, to
+4898                    L. PASSF. LL, O. %. Dll.'TRICH, AND 3. ALS-NIELSEN                                 14
+
+
+make detailed comparisons with other experiments        to a nnn4f state. This    then forms a pair of ions,
+and with theory.  Also included will be the results     Eu" and Eu'. Of itself,    the Kra. mers-Anderson
+of further neutron scattering studies of EuQ whi. eh    mechanism does not contribute significantly
+have not as yet been reported. These are of two         to the nnn exchange in the europium chalco-
+kinds. First, we have extended our investigations       genides. However, the cross term between this
+of spin dynamics to cover the region f rom low          process and the d- f exchange does appear to eon-
+temperatures to about 2T~ and second, we have           '. ribute and because it is of. opposite sign to the
+made measurements of the scattered intensity be-        d fe-xchange, has an important influence on mag
+low T~ at very small values of the wave-vector          netic behavior.
+transfer w.                                                Both nn and nnn exchange mechanisms are very
+   This paper (hereafter referred to a, s I) will be    sensitive to the interionic distance. As the dis-
+concerned with the determination of the exchange        tance decreases, the nn ferromagnetic exchange
+interactions in EuO and EuS by direct measure-          increases rapidly. This is also the case with the
+ment of the spin-wave spectra. Paper II will con-       cross term betv een the Kramers-Anderson mech-
+tain the details of our observations of static criti-                f
+                                                        anism and d- exchange. Superexchange via anion
+cal phenomena in both compounds. In paper III we        p electrons, which dominates the nnn exchange at
+will review our investigations of spin dynamics in      large distances, is apparently less sensitive to
+Euo. Each paper is intended to be reasonably            interionic distance. Hence, as the distance be-
+self-contained so that the basic results of one can        een ions decreases, the cross term becomes
+be understood without the need for excessive ref-       re'atively more important. Ultimately, at small
+erence to the others.                                   interionic distances Kasuya suggests that the cross
+                                                        term becomes dominant and the nnn exchange then
+                                                        becomes ferromagnetic. As we will show, this
+   Il. EXCHANGE INTERACTIONS IN THE EUROPIUM            behavior is consistent with the experimental evi-
+  CHALCOGENIDES AND METHODS OF DETERMINING              dence.
+            THE EXCHANGE CONSTANTS                        In this brief outline we have only mentioned what
+   Although a considerable effort has been devoted      are thought to be the most important exchange
+to identifying exchange mechanisms in nonmetallic       mechanisms.      We suggest that those interested in
+ 3d compounds, relatively little has been done as       more detail consult Kasuya's paper, which also
+yet with the equivalent rare-earth 4f insulators.       contains references to related work in this field.
+Kasuya" ha, s made the most complete analysis of           Let us now review, also briefly, the methods by
+possible exchange mechanisms in the europium            which exchange interactions are investigated ex-
+chalcogenides. Briefly, his picture of exchange         perimentally.    In the system we are considering,
+in these compounds is as follows:                       the interaction between two localized spins S„and
+   Since the 4f electrons are highly localized, the     S at lattice points R„and B is assumed to be of
+exchange coupling between Eu" ions occurs not           the Heisenberg type, i. e. , the interaction energy
+via direct overlap of 4f states but by indirect and     is expressed in terms of an exchange constant
+superexchange mechanisms.       The main point, ac-     J„,   and is of the form
+cording to Kasuya, is that the 5d wave functions            -2 J„S„'S                                     (I)
+are more extended than the 4f and overlap suffi-
+ciently to form an unoccupied conduction band.          The values of the exchange constants can be de-
+Exchange between nearest-neighbor (nn) Eu" ca-          termined in a variety of ways, including nuelear-
+tions therefore proceeds mainly by means of an                                       "
+                                                        magnetic-resonance (NMR), ' ferromagnetic- (and
+                                                                                              "
+indirect process in which a 4f electron is trans-
+ferred to a vacant 5d state, couples ferromagneti-
+cally via d fexchange to the-4f spin at the nn Eu
+                                                        heat, ""
+                                                        antiferromagnetic-) spin-resonance,
+
+                                                        rnents.
+                                                                 and inelastic-neutron-scattering
+                                                                                                   specific-
+                                                                                                     measure-
+                                                                   NMR and spin resonance measure, re-
+site, and then returns to its initial 4f state.         spectively, the local field at the nucleus and the
+   The next-nearest-neighbor   (nnn) interaction is     average field experienced by the 4f spine. In both
+thought to involve several mechanisms.      One is a    cases the field is assumed to be proportional to
+superexchange process in which the P states of the      the magnetization which is related to the thermally
+anion connect nnn cations. In this case Kasuya          populated pa. rt of the spin-wave spectrum. In turn,
+suggests that anion p electrons are transferred to      the spin-wave population is determined by the
+5d states of neighboring Eu" cations forming 180'       values of the exchange constants. The magnetic
+bonds and thus coupling the 4f spins antiferromag-      contribution to the specific heat is related to the
+netically through d fechange interactio-ns. There       exchange constants in a similar way.
+is also a competing process, the Kramers-Ander-           NMH, spin-resonance,       and specific-heat mea-
+son mechanism, involving transfer of a 4f electron      surernents at low temperatures are primarily sen-
+                             NEUTRON             SCATTERINtr FROM THE. HEISEIItBERG.                          . .   I. .
+sitive to the low-energy part of the spin-wave                                 the origin. Around v(0, 0, 0), Tc = q. For small scat-
+spectrum, which is considerably influenced by di-                              tering angles, i. e. , for small va. lues of q, the
+polar forces. Reasonable estimates of the dipolar                              spin-wave excha, nge energies depend only on the
+contribution to the spin-wave energies can be                                  modulus of q through the relation her(q) =Dq' In.
+made; nevertheless, integra. l measurements such                               high-symmetry lattices when both nn and Qnn ex-
+as these often only accurately determine the spin-                             change are ferromagnetic, the spin wave energies
+wRve stiffQess constant D, a pa1ticulRI' llQeRx'                               Rt larger values of q within the first Brillouin zone
+combination of the exchange constants. By con-                                 continue to depend only on the modulus of q, i. e. ,
+trast, when inelastic neutron scattering is used to                            the dispersion remains isotropic. In such cases
+measure the entire spin-wave spectrum, not only                                the energy distribution of neutrons scattered
+the value of D but also the values of the nn and nnn                           around the forward direction in R powder will be
+exchange constants, J, and J„can be separately                                 identical to that observed in a single crystal Rt the
+determined. All of these points will be discussed                              same q. More commonly, however, the spin-wave
+in more detail in Sec. VI.                                                     energy at larger values of q varies markedly with
+                                                                               the direction of propagation in a way determined by
+               III. EXPERIMENTAL METHOD                                        both the signs and magnitudes of J, and J, a,nd the
+                                                                               structure of the lattice.
+        A. Spin-wave measurements        with powder samples
+                                                                                  Fortunately, because the fcc lattice is highly
+   As was noted above, difficulties with neutron                               symmetric      spin-wRve dlsperslon ln Eu3 ls fRlx'ly
+absorption made it necessary to employ thin-slab                               isotropic; in EuO the combination of a fcc lattice
+samples. This in effect limited us to polycrystal-                             Rnd favorable values of J, and J, produce a re-
+line powders because thin single-cx"ystal slabs of                             markably isotropic dispersion. Powder broadening
+'"EuO and '"EuS of the required size were Qot                                  within the first Brillouin zone is consequently al-
+available. With most magnetic matexials, the di-                               most absent in EuO; in Eu3 it is more evident, but
+rect measurement of spin-wave energies using                                   the spin-v ave lines can still be identified without
+powder samples would be impossible. Fortunately,                               dif f1culty.
+isotropic ferromagnets are an exception to this                                   Obviously, powder broadening severely limits the
+rule. I.et us consider why this is so.                                         possibilities for linewidth measurements.        In addi-
+   As shown in Fig. 1, when neutrons of wave vec-                              tion, it makes identification of the energies of in-
+tor k,. are scattered to wave vector kf, energy and                            dividual spin waves more difficult, but, a, s will be
+momentum conservation in the scattering process                                explained ln Sec. IV, the exchaQge constants cRQ
+require that                                                                   still be detex'mined from &he data by appropriate
+                                                                               analysis.
+    h~ = (h-/2m)(A-', . —k~2)
+                                                                                  Aside from powder broadening, there are also
+                                                                               several minor problems with small-angle-scatter-
+    K
+        =       -
+        —k,. —kf —q+ w   .                                                     ing measux'ements which ought to be mentioned.
+                                                                               One is that the range of energy transfers available
+In ferromagnets,    spin-wave scattering occurs                                is much moxe restricted, as is evident in Fig„1.
+around all reciprocal-lattice vectors. This in-                                This is not a problem in either EuO or EuS, where
+cludes r(0, 0, 0), the only reciprocal lattice vector                          the spin-wave energies are small, but it can be-
+which is well defined in a powder, the others being                            come important in other materials in which the
+distxibuted uniformly over spheres surrounding                                 energies are larger. A second difficulty is that
+                                                                               the background at small angles contains an angu-
+                                                                               larly dependent contribution from the primary
+                                                                               beam. This can always be kept small by ca.reful
+                                                                               collimation and only becomes a serious problem
+                    %~ = (5 /2m) (k., —k&          )                           at angles less than roughly 2 .
+
+                    kf
+                         -   kt   -2k~   ~   ~stn (u)
+                                                                                           8.   Neutron scattering measurements
+
+                     sin(u)       &1   ~      %co &
+                                                           2
+                                                        2(% l2m)   k,. ~   ~      All measurements were made near the forward
+                                                                               direction in the constant- q mode with a triple-
+                                                                               axis spectrometer using pyrolytic graphite mono-
+  FIG. 1. Scattering diagram for inelastic scattering                          chromating and analyzing crystals. 13.5-meV neu-
+around the forward direction. Only 0 excitations at ener-                      trons were used for most measurements; however,
+gies (in meV) of less than 4.14k;f~: (A2) are accessible in                    for some of the smallest spin-wave energies 4. 8-
+inelas tic scattering s tudies.                                                meV neutrons were employed. In every case filters
+4900                                    L. PASSE LL, O. O'. DIETRICH, AND                           J. ALS-NIELSEN
+were pla. ced in the beam incident on the sample to
+remove higher order contamination.                                                  6     J ('K)
+                                                                                        — O, I30                                                                                                       ,   (IOO)
+
+                 C. Samp/es and thermometry                                         5 — I25 O.
+
+
+   The samples were prepared" as fine polycrystal                                          0.120
+line powders of '"EuQ and '"EuS and sealed in
+thin-walled aluminum holders in a helium atmo-
+                                                                            ) 4—
+                                                                            E
+                                                                                            O. II5
+
+
+                                                                                            O. IIO
+sphere. The EuQ sample weighed 0. 745 g, was
+24. 1 mm high, 11.5 mm wide, and 0.50 mm thick;                             ~
+                                                                            UJ
+                                                                               3 —0105
+the EuS sample weighed 0. 965 g, wa. s 51.6 mm                              IJJ
+                                                                                                    O
+
+
+high, 12.0 mm wide, and 0. 50 mm thick.
+   In each sample, the Curie temperature T~ was
+identified by finding the temperature corresponding
+                                                                                                                                                                                                               0
+to the peak of the critical scattering at the smallest
+possible wave vector, typically q =0.05 A '. In
+                                                                                                                                                                                         IN
+EuQ we determined T~ = 69. 15 + 0. 05 K using a cal-
+                                                                                                                                            I                I                     I                ll
+ibrated Pt resistance thermometer.
+                                                                                                                                                                    I    i               l   i
+                                        In EuS we                                                       0.2             0.4                0.6                     0.8             I.O             1.2
+found T~ =16.57 +0. 02 K using a Ge cryoresistor                                                                                  WAVE          NUMBER (A )
+calibrated aga. inst a H, -vapor thermometer.   The                           FIG. 2. Spin-wave dispersion in Euo powder at 5.5 K.
+observed values of T~ fall within the range reported                       The remarkable isotropy of the spin-wave dispersion is
+in the literature for samples of good purity and                           evident in the similarity of dispersion curves for spin
+stoichiometry. Neutron and x-ray powder diffrac-                           waves propagating in the (110), (100), and (111) di-
+tion patterns also showed no evidence of inclusions                        rections. The solid line represents the powder-averaged
+                                                                           dispersion computed using the best-fitting values of J~
+of other europium compounds in either sample.
+                                                                           and J2, i.e. , the central values of the covariance ellipse
+During the spin-wave measurements the samples                              shown in the inset. The statistical probability that the
+were maintained at 5. 5 K.                                                 true values of JI and J2 are within the covariance ellipse
+                                                                           is 1 —e '5=0.39 and the probability that they are within
+                                                                           the outer rectangle is 0.68.
+                 IV. ANALYSIS OF THE DATA
+
+   In Figs. 2 and 3 the open circles represent the
+peak positions of the powder-broadened     spin-wave
+                                                                                    2.0
+lines as observed in EuQ and EuS at various values                                                                                                                                                             I   IO&
+of lql. To obtain from these observations the val-                                              tff (oK)
+                                                                                                2
+ues of the exchange constants, we assumed that
+                                                                                        I.s I
+the spin-wave energies in the absence of an applied                                                 !!
+                                                                                                 0. 0
+magnetic field are determined simply by exchange                                     1.4
+and dipolar interactions.   Then, following Keffer"                                 1.2»
+Eq. (14. 9), we can use for the spin-wave energy,                                                   120
+                                                                                                                                                         /
+A&;, the expression                                                                  1.0                                                             /
+                                                                                                                                                 /
+                                                                              LLI
+                                                                                                           0.225                 0, 235
+                     I
+                         &. ! 2)   ~&   2
+                                                                     (4)                                            J
+                                                                                                                        ef'f
+                                                                                                                               (oK j        /
+
+
+where,     in our notation,                                                                                                                                                                                          ~
+
+
+
+
+   A;=-2S[J(0) —8(q)]+AS(gps)'[B"(0) +                     ~2   "(q)],              0.4
+
+    &; = S&'(a'u         )'[&""(q)          - &"(q) —2&&"'(q)],                     0.2                                                                                                                    ,   N
+
+
+                                                                                                              0.2                 0.4                        0.6             0.8                 I.Q
+
+       '   (q) = —   ~'(3r'r -r'5' )r               'e   "'.                 FIG. 3. Spin-wave dispersion in EuS powder at 5.5 K.
+                                                                                                                                   WAVE         NUMBER (A )
+
+
+
+                                                                           Because J2 is negative, spin-wave energies are quite
+The component indices I and                     J
+                                  refer to a coordi-                       different at larger values of q for different directions of
+                                                                           propagation. The solid line represents the powder-
+nate system with the z axis along the preferred
+                                                                           averaged dispersion computed using the best-fitting
+spin direction. In EuO and EuS this is the (111)
+crystallographic direction. (See the discussion at
+                                                                           values of J ~ and                            J2,
+                                                                                                     i.e. , the central values of the
+                                                                           covariance ellipse shown in the inset. The exchange con-
+the end of this section. )                                                 stants at O'K were deduced using Dyson's renormaliza-
+   If we include only nn and nnn exchange interac-                         tion theory: they are J --- 0.236 + 0.009 K, J2 = —0.118    ~
+
+tions, Z(q), which is by definition                                        + 0.011 K.
+                         NEUTRON         SCATTF RING FROM THI.:          HF.   ISENBERG. . . I . .                       490I
+
+
+          d(r)e"'",                                            data.  In this regard, it should be noted that in
+   Qr                                                          zero magnetic field a finite value of    will cause
+                                                                                                              ¹
+
+
+
+
+                                                               A- to become negative for small q and the spin-
+reduces to
+                                                               wave theory would not be valid.
+   d    P   e""~+f,P        e~~'"2.                             BI~(q) ca.n be expanded in q in the following way:
+                                                                                     I J
+                                                                     &"(q) =   —5" — —.
+                                                                                      , -+0(q')+
+                                                                                          2
+The first term in A;, the exchange part, then
+takes the form                                                 Retaining only the first two terms,
+                                                               energy for zero external field and
+                                                                                                              the
+                                                                                                             ¹=0spin-wave
+                                                                                                                 takes   the
+   E,„(q) =2S(128, +6d, —d,           g cos(q   r, )           form
+                                                                     ttv(q) = E„(q)[1+ p (q) sin'-'0-j't',                  (5)
+                  —d,
+                        g   cos(q r, )                         where
+
+                                                                     y (q) = 4vN(gp s)'-S/E, „(q) = 4ng p s.lf/E, „(q)
+For small q, E,„(q) becomes isotropic and assumes              and   6-q is the angle between q and the direction of
+the form Dq'. The "stiffness constant" D is de-
+                                                               magnetization M. We have compared this approxi-
+fined as 2Sa'(J, + J, ) with a being the cube edge.
+                                                               mate expression with the results obtained by com-
+   The other terms in A; together with 8; are the
+                                                               puting the full lattice sums (using the Ewald sum-
+dipolar contributions expressed as lattice sums.               mation technique for rapid convergence) and have
+These q-dependent sums can be evaluated easily in
+                                                               found that they agree to within two parts in 10'
+the region of q space where our neutron scattering
+                                                               over the entire Brillouin zone. Hence, Eq. (5) wa. s
+data were obtained since the phase factors in the
+                                                               used to analyze our data.
+summations assure rapid convergence. But X) "(0),
+                                                                  All directions of q are equally probable in a
+which appears in A;, constitutes a. nontrivial prob-
+                                                               powder. Therefore, as we have said, what we ob
+lem because the convergence is so slow that the
+                                                               serve at a given q~ is a distribution of spin-wave
+result depends on the summation boundary. It is                                      ~
+
+
+
+
+                                                               energies, i. e. , a "line shape" which can be com-
+customary to perform the summation over a sphere
+                                                               puted by averaging Eq. (5) over all directions of q
+of arbitrary radius around the origin and replace
+                                                               for assumed values of the exchange constants. To
+the summation outside this sphere by an integral.
+                                                               obtain the exchange constants the peak positions
+In our case the summation over the inner sphere
+                                                               of the computed lines are least-squares fitted to
+vanishes because of cubic symmetry. As for the
+                                                               the observed positions using J, and J, as variables
+
+
+
+
+                                                       ¹.
+volume integral outside the sphere, it can be
+                                                               of the fit. In Figs. 2 and 3 the solid lines repre-
+transformed into a sum of two surface integrals,               sent the best-fitting "powder-averaged" dispersion
+i. e. , a surface integral over the sphere, conven-            curves using for J, and            J.
+                                                                                               the central values of the
+tionally called the Lorentz 4m factor, and a sur-
+                                                               covariance ellipses in the insets to the figures.
+face integral over the outer domain boundary,                     It should be noted that the spin-wave energies in
+which is called the demagnetization factor
+                                                               the figures are those measured at a finite tempera-
+Hence, in our case
+                                                               ture, 5. 5 K. In EuS this temperature is not negli-
+   X)   "(0) = 4v —N'.                                         gible in comparison with T~ and the spin-wave en-
+                                                               ergies are lower than their 0-K values. We used
+If the domain happens       to be spherical,   N'= 'm and      the spin-wave renormalization theory of Dyson'"
+B"(0) vanishes.       A spherical domain    isvery unlikely,   and of Keffer and Loudon" to extrapolate from the
+however, since it means that a large amount of                 spin-wave energies observed at a. finite tempera-
+energy is stored in the magnetic field of the sur-             ture to the corresponding values at 'T =0 K. In
+face poles. This magnetic energy can be almost                 FuS the renormalization correction was 2. 7/q for
+completely eliminated in zero external field if the            Jy 4 0% f or J.„and         f or the magnetization en-
+                                                                                          7%%u&
+
+
+system forms needle-shaped domains with adjacent               tering d&(q) in Eq. (5). The correction was negligi
+domains oppositely oriented. In this case, N'=0.               ble in EuO. Since the theory agreed well with both our
+But the surface field energy is minimized in this              studies of spin-wave renormalization in EuQ below T~
+configuration by breaking ferromagnetic exchange                (discussed in paper III of this series) and with the
+bonds. Qbviously, the true domain shape must be                observed decrease in magnetization with increasing
+something between a needle and a sphere, but we                temperature (discussed in paper II) we believe that
+have no direct way of determining what it is in our            the corrections to J, and J, are reliable and do not
+powder samples. We assumed N'=0, an assump-                    contribute to the uncertainty of these quantities.
+tion that we will later show is consistent with our               We have used some of our spin-wave data at 30
+4902                               L. PASSELL, O.            W.   DIETRICH,          AND      J. ALS-NIELSEN                              14
+
+
+K in EuO (paper III) to test the validity of Eq. (6).
+These data were obtained with high resolution (in-
+                                                                                                                     q    =   I.OA
+coming neutron energy 4. 6 meV) in the small-q                                           IOO—
+region where E,„(q), the exchange part of the spin-
+wave energy, is well approximated by Dq'. E,„(q)
+is therefore isotropic and Eq. (6) can be averaged
+analytically over all q directions to give                                      I-
+                                                                                         60
+        (h.              l.
+                     Dq' —~      1+/ R„ta.
+                 )
+                         2       2~fII)
+                                          ~g),                       (6)
+                                                                                         40—
+where ft) is defined by assuming in Eq. (5) that
+E,„(q) =Dq' Our . calculations of renormalization
+in EuO have shown that at 30 K the magnetization                                         20—
+is reduced by 10.8/o, J, by 6. 1%, and J, by &. 4%.
+Using for 4v3I at T =0 the value 24 k0e, ' we obtain
+                                                o
+for D and P in the above equations 10.8 meVA' and
+0. 0248 q ' A ', respectively, at 30 K. In Fig.                                                            ENERGY (meV)
+4 the calculated and measured        spin-wave en-                              FIG. 5. Neutron line shape0 from scattering of spin
+ergies are plotted versus q'. The dipolar con-                             waves of wave number 1.0 A in EuO powder. The solid
+                                                                           line is the folding of the experimental resolution (width
+tribution appears as an almost constant amount
+                                                                           0.6 meV) with the powder-broadened cross section (width
+added to the exchange energy Dq' which is shown                            0.15 meV) for J&/k~=0. 606 K and J2/k~ =0.119 K. The
+as a dashed line in the figure. There is excellent                         dashed-dotted curve represents the same folding but us ing
+agreement between calculated and measured ener-                                                        J
+                                                                           the values from Ref. 8, &4& =-0.75 K, JpA~= —0.098 K
+gies indicating that the assumption of vanishing                           (width 1.3 meV). The observed line profile clearly
+demagnetization factor N' is consistent with the                           shows that the latter values for J& and J2 cannot be
+data. It is also an indication of the over-all relia-                      correct.
+bility of the renorrnalization computation.
+   Referring again to Figs. 2 and 3, we have plotted                          Figure 5 shows the measured line profile in EuO
+the dispersion curves calculated along a few repre-                        close to the zone boundary.     The solid curve repre-
+sentative directions using the best-fitting exchange                       sents the powder-broadened      cross section folded
+constants. It is evident that when J, and J, are of                        with the experimental resolution.     Since the reso
+the same sign, as is the case in EuO, spin-wave                            lution width (0. 6 meV) is almost the same as the
+dispersion is very isotropic and powder broadening                         observed width of the neutron group, it is obvious
+is small. On the other hand, when the exchange                             that powder broadening cannot be larger than about
+constants are of opposite sign, as occurs in EuS,                          0. 3 meV. Using the values of J, and J, from Fig. 2
+powder broadening increases.                                               we calculate the powder-broadened      width to be
+                                                                           0. 15 meV, consistent with the above. On the other
+        0.7                                                                hand, if we use the values for J, and J, reported
+                                                                           in the specific-heat and NMR measurements" we
+        06'—                                                               obtain a powder broadened width of 1.3 meV —com-
+        0.5                                                                pletely incompatible with our observations.
+                                                                              It is perhaps also appropriate to comment in
+  E     04                                                                 passing on several terms which we did not include
+                                                                           in our data analysis. One is the effect of the spin-
+        0.3
+  LLI
+  Z'.                                                                      wave gap produced by crystalline electric fields.
+        0. 2
+
+        O.   I
+                                                                           This can be estimated for both EuO and EuS by
+                                                                           using the measured magnetic anisotropies.           The   ""
+                                                                           anisotropy energy E, for a cubic crystal is given
+                       0.0   I    0.02   0.03       0.04      0.05
+                                                                     J     by
+                        SQUARED WAVE NUMBER     q   (A   j
+
+
+   FIG. 4. Spin-wave energy vs q at 30 K. The dashed                       where the n,. are direction cosines of the magneti-
+line represents the exchange part Dq2, with the stiffness
+                                                                           zation with respect to the cube edges. In both EuO
+constant: D renormalized according to our calculations of
+dynamical interactions.   The solid curve, which fits the                  and EuS the anisotropy constant K, is negative and
+measured energies exceedingly well, was calculated by                      I&,       I
+                                                                                         »
+                                                                                   IK, I, hence the easy direction of magneti
+including the dipolar contribution, assuming that the                      zation is along any (111) axis. In EuO, K, = —4. 36
+demagnetization factor N' = 0.                                             x 10' erg/cm'= —0. 00927 meV per Eu ion. This
+                       NEUTRON         SCATTERING FROM THE HEISENBERG. . . I. .                                             4903
+
+                                                            acceptable agreement with the measured value,
+                                                    Eu Te   0. 61 K, considering the highly approximate nature
+                                                            of the theory.
+
+                                                                           B. Relation of exchange constants to Tc
+     0. 5-                                                    The critical temperature T~ is determined by the
+                                                            exchange constants and the dipolar forces. In the
+                                                            mean field -approximation one finds in fcc lattices"
+
+                                                                   T,"'=-', S(S+1)   P d(r)(1+ g"').
+                                                            The second term represents the relative contribu-
+                                                            tion to T~, in the mean-field approximation, of the
+                                                            dipolar forces. In EuO, g ~=0.017. in EuS, g ~
+                                                            =0.049.   "
+                                                              More sophisticated theories employing series-
+                                                            expansion techniques have established that the
+                                                            mean-field approximation generally overestimates
+                                                            the critical temperature of the Heisenberg model.
+                     2, T5                         25       For nn interactions only, one finds that Tcs/[ —,'S(S
+                                                            + 1)(12',)] =0. 790 for the fcc Heisenberg model
+               A~iov-CATION SEPARATIOX (A}                  with S = -'. '6 Wood and Da.lton" ha, ve included nnn
+  FIG. 6. Exchange constants in Eu chalcogenides            interactions and they find
+                                                                   T,"= T," (Z, =0)[1+0.619(d,/d, )],
+versus anion-cation separation. The solid lines are
+simply smooth lines joining the points and have no the-
+oretical significance.                                      again for the fcc Heisenberg model with S = —, In
+                                                                                             ' fcc lattice we set
+                                                                                                                       '.
+                                                            generalizing Eq. (7) for the S = —
+number immediately indicates that the crystalline
+field hardly affects the spin-wave spectrum. Anal-                 Tc = 0. 190[-,'S(S+ 1)(12J,)]
+ysis of the corresponding gap in the spin-wave
+dispersion gave a, gap energy of -(~4K, /S) =0.00353
+                                                                       &   [1+0. 619(Z,/J, )] (1+g),                         (6)
+meV. The anisotropy constant E, of EuS is an or-            with g representing the contribution from dipola, r
+der of magnitude smaller than that of EuQ, hence            forces. At the moment there are no better esti-
+the effect of the crystalline field on the spin-wave        mates of g than that obtained from the mean-field
+dispersion of EuS can also be neglected.                    approximation.    According to Fisher" g could vary
+   Finally, we have not made allowances for zero-           from possibly sg™    to 5gMF a,nd might even have the
+point motion nor have we included any Zeeman                opposite sign to gMF.
+term in the Hamiltonian, such as for example that             In Fig. 7 we show the relation between J', and J,
+due to interdomaln fields 1n magnetic powders.              imposed by Eq. (8) with g=0 for Tc —16.57 K and
+Qur analysis indicated that such effects could not          Tc =69. 15 K. Our neutron scattering results are
+significantly influence the results.                        also included as covariance ellipses taken from
+                                                            Figs. 2 and 3. The agreement between experiment
+      V. RESULTS: COMPARISONS WITH THEORY                   and theory, which has also been remarked by
+                                                            Collins, 9 is most satisfactory and gives additional
+    A. Comparison of exchange constants in the europium
+                       chalcogenides
+                                                            support to the view that EuQ and EuS a,re indeed
+
+                                       "
+   Following Mcouire and Shafer, we have plotted
+                                                            simple Heisenberg ferromagnets.
+
+in Fig. 6 our measured values for the exchange                         VI. RESULTS: COM4'ARISON WITH OTHER
+constants of EuQ and EuS as a function of anion-ca-                                   MEASUREMENTS
+tion separation together with the available values
+                                                                           A. NMR, specific heat, and spin resonance
+for other divalent chalcogenides. The regular
+variation with interionic distance is similar to that         %e mentioned briefly in Sec. II that information
+observed in the divalent samarium chalcogenides'~           about exchange constants in EuO and EuS has also
+and is consistent with Kasuya's'6 interpretation of         been obtained from low-temperature specific-
+                                                            heat" and NMB" measurements and from rf ex-
+the underlying exchange mechanisms.
+   Kasuya attempted to make a rough estima. te of           citation of standing spin waves in thin films. The         "
+the value of J, for EuQ. The result, , 0.41 K, is in        results of these measurements are summarized
+4904                             L. PASSELL, O.                         W.   DIETRICH,         AND       J. ALS-NIELSEN                                         14
+
+
+                                                                                               iy   '-Q    hur(q)(n;)      .
+        + 0.2—
+                                                Tc =6m                                   It is customary to replace the summation over all
+        +P. I—                                                                           q vectors in the Brillouin zone by an integration
+                                                                                         over Iq I, thus obtaining the approximate expres-
+                                                                                         sions
+
+        —0   I—                   Tc    I   6        K                                                      q'(n;)    dq
+                                                                                                    0
+
+                      I     I      I             I       I          I        I           and
+                  O. I      0.3 0.4 0.5 0.6 0.7
+                           0.2
+                             J, ('K)
+   FIG. 7. Critical temperature Tz depends on the ex-
+                                                                                               C    ~     q'h~(q)     —(n;) dq.
+change constants J& and J2. The solid lines represent
+the correlation between J1 and J2 with, respectively,                                      In Fig. 8 the integrands of the above expressions
+Tg = 16.57 K and Tc = 69.15 K required by series ex-                                     are plotted for EuO at 2 and 4 K, temperatures ap-
+pansions for the Heisenberg model (Ref. 27). The neutron                                 propriate to the NMR and specific-heat experi-
+scattering results for (J&, J2) are taken from Figs. 2                                   ments.  To ca.lculate ~/Mo and C we performed
+and    3.                                                                                an exact summation over the Brillouin zone using
+                                                                                         the same approximations for the dipolar energy as
+in Table I. For EuS there is a fair degree of con-
+                                                                                         were used to the analyses of the NMR and specific-
+sistency except for the spin-wave resonance mea-
+                                                                                         heat measurements [Eq. (14) of Ref. 7, which is
+surements, but f or EuO ther e are obvious disc re-
+                                                                                         identical to our Eq. (6)]. It is evident from the
+pancies. Let us therefore examine each method
+                                                                                         figure that in EuO these experiments sample the
+in more detail to see if we can understand how ex-
+                                                                                         low-energy part of the spin-wave spectrum where
+periments, which agree reasonably well in one
+                                                                                         the exchange energy is only dependent on the stiff
+case can disagree in what is apparently an almost
+identical situation. '
+                                                                                         ness constant D. In this case the individual values
+                                                                                         of J, and J, cannot be determined by either tech-
+   NMR measurements      are, in effect, a determina-
+                                                                                         nique. This is very evident in Fig. 9 which shows
+tion of the variation of the magnetization with tem-
+                                                                                         the covariance ellipse for J, and J, for EuO re-
+perature. Each time a spin wave is thermally ex-
+                                                                                         sulting from our reanalysis of the specific-heat
+cited the magnetization drops by gp. ~, hence, the
+                                                                                         data of Ref. 6 (following Ref. 6 the demagnetiza-
+relative change in the magnetization ~/M, for a
+                                                                                         tion field 8 in our analysis was set equal to zero).
+system of N spins is
+                                                                                         It is seen that the covariance ellipse simply de-
+                                                                                         generates into a parallel band of slope -1, indi-
+                                                                                         cating that only the sum J, + J, is determined.   For
+                                                                                         reference, the neutron scattering results are also
+where (n;) is the Bose distribution function                                             shown as the covariance ellipse taken from Fig. 2.
+(exp[ha(q)/haT] —ij '. The specific heat per mag-                                        It is clear that the specific-heat and neutron scat-
+netic ion C is the temperature derivative of the                                         tering measurements yield essentially the same
+magnetic energy per ion, i. e. , the derivative of                                       value of the spin-wave stiffness constant D. We
+
+
+                                                             TABLE I. Exchange constants in K.
+
+                                                             EL10                                                                    EuS
+                                                               J2                   J, +J,                                          J2              J, +J,
+  This expt.              0.606 &0.008                0.119 +0.015               0.725 +0.006           0.236 +0.009           -0.118 + 0.011   0.118 +0.006
+  Specific heat           0.76 +0.02                 —0.084 +0.015               0.68 +0.03             0.20                   -0.06            0.14 %0.02
+      quoted values
+  Specific heat                        undeter mined                             0.714 ~ 0.007          0.228 +0.003           -0.102 + 0.005   0.126 2 0.004
+   reanalyzed
+  NMR                     0.75 +0.0025               -0.0975 +0.004              0.653 +0.005           0.20 + 0.01            -0.08 +0.02      0.12 -0.02
+  Spin resonance                                                                                                                                0.088 +0.010
+
+      Exchange constants as defined in Eq. (1).                                                Reference 11.
+  b
+      Reference 6.                                                                             Reference 8.
+      Reference 5.                                                                             Reference 7.
+                      NEUTRON          SCATTERING             F ROM THE    HElSENBERG.      ..   I. .               4905
+
+
+
+                                                                      O.   20—
+                                                     6
+                                                         E
+                                                     5
+                                                         C9
+                                                         LL
+
+                                                     4
+                                                         QJ
+
+
+
+
+                                                    —2 z
+                                                         Q
+                                                         CA
+
+
+
+                                                                      0.00—
+                                                                                 I
+
+
+
+             0.2    0.4    0.6
+                                   I
+
+                                 0.8
+                                          I
+
+                                         I.O
+                                                I
+
+                                               l.2
+                                                                             0.50                0.60            0.70
+
+                   wAvE   xuMBER (w      ~)
+                                                                     FIG. 9. Covariance "ellipse" for J ~ and 42 in EuO
+  FIG. 8. Sensitivity of NMR and specific-heat measure-           from our reanalysis of the specific-heat measux'ements
+ments to 4& and &2. The dash-dotted curve represents              of Henderson, Brown, Reed, and Meyer (Ref. 6}. The
+spin-wave dispersion in the (llQ) direction for EuO using         covariance ellipse has degenerated into a paralled band
+our best values of Z~ and J'2 and including dipolar contri-       of slope —1 showing that only 4~+ J2 is determined. The
+butions. The dotted curve has the same stiffness con-             corresponding ellipse from neutron scattering (taken
+stant D but J2=Q. It is evident that the individual values        from Fig. 2) is shown for reference.
+of J'& and J2 are important only within the second half
+of the Brillouin zone. The solid curves represent the
+calculated contribution from different q shells in the            butes about 3 of the specific heat in contrast to
+Brillouin zone to the decrease in magnetization at 2 and          EuQ where this contribution is negligibly small.
+4 K as measured by NMR. Likewise, the dashed curves               Thus in EuS the specific heat C between 1 and 4 K
+are the differential contributions to the specific heat.          depends on the entire dispersion curve, although
+Both techniques applied below 4 K only sample the first           the NMR measurements' in the same temperature
+half of the Brillouin zone and therefoxe only determine
+                                                                  region are still confined to the low-q region of the
+J'&+ J2. In addition, the NMR measurements    are particu-
+larly dependent on a good estimate of the dipolar energy.         Brillouin zone.
+                                                                     We have reanalyzed the specific-heat data of
+                                                                  Passenheim et al. ' and found that we could obtain
+cannot explain, however, why the authors of Ref.                  an excellent fit to their measurements both for
+6 obtained 2, /ke = 0. 76'K and Z, /ke = 0. 084'K,                zero intex'nal field and for H,.„=5.82 and 10. 8 kQe.
+values significantly outside the covariance band we               Their data are reproduced in Fig. 10 along with
+ealeulated using the same method of analysis.                     our best fits for J, = 0. 228 and J2 = -0. 102 K. The
+   The NMR measurements are extremely depend-                     inset shows the covariance ellipses for both speci-
+ent on good estimates of the dipolar energy and                   fic-heat and neutron scattering measurements
+are therefore less accurate than either the speci-                (taken from Fig. 8). To calculate the covariance
+fic-heat or neutron scattering measurements.       Re-            ellipse for the specific-heat data we assumed an
+analysis of the NMR data for EuQ shows that in or-                uncertainty in C of the size of the solid cix'cles in
+der to obtain a satisfactory fit, whatever the val-                Fig. 10. Since we believe this is a conservative
+ues of J, + J„  it is necessary to introduce an ener-             estimate, the covariance ellipse for C might
+gy gap [through the field If in Eq. (14) of Ref. 7].              actually be smaller than that shown in the figure.
+The observed magnetization is well xepresented by                 Keeping in mind that covariance ellipses repre-
+using our value of the stiffness constant and an in-               sent 39% probability limits, it is evident that the
+texnal field of 2. 4 kQe, corresponding to an energy              agreement between neutron scattering and speci-
+gap of 0. 03 meV. Whether this small gap is real                  fic-heat results is satisfactory. In fact, the speci-
+is difficult to say. While it has no effect on the                fic-heat measurements appear in this case to pro-
+neutxon scattering results, it cannot easily be                   vide a b tter determination of J, and J, than the
+reconciled with the specific-heat analysis.                       neutron scattering measurements because the ani-
+   In EuS the situation is different, because the                  sotx'opy' ln the spin-wave dispersion reduces the
+spin-wave energies are smaller than in EuQ. At                     sensitivity of the latter.
+4. 2'K, the outer half of the Brillouin zone contri-                 We believe that our reanalysis of the measure-
+4906                                   L. PASSELL, O.                         W.   DIETRICH,   AND    J. ALS-NIELSEN                                      14
+
+
+       400    I   I
+                        [
+                              t   I     I
+                                             [
+                                                  I   I    I
+                                                                 ]
+                                                                      I   I    I          d(lnTc)/d(lnV). The expected relationship between
+                                                                                          the two quantities is easily derived by differentiat-
+       3.6                                                                                ing Eq. (7) which yields
+
+       3.2
+                                                                                                r Tc d j,/da+     —,(d   j,/da)    6a,
+                                                                                                 &c         Ji+ ~1 J.
+  w~   28                                                                                 from which it follows that
+ 0X
+       2.4
+                                                                                                d(lnTc)   n. Tc/Tc        a d     j,/da+    (d
+                                                                                                                                           —,
+                                                                                                                                                 j,/da)
+ O
+                                                                                                d(lnV)    3~/a            3            j, + j,
+       2.0                                                                                From the solid lines drawn through the points of
+                                                                                                             j,
+                                                                                          Fig. 6 we find d /da = —1.08 K/A and d /da                j,
+       I.6                                                                                                                        j,
+                                                                                          = —0. 68 K/A for EuO and d /da = —0. 66 K/A and
+ 0
+ U
+                                                                                           j,
+                                                                                          d /da = —0. 45 K/A for EuS, i. e. , at a = 2. 57 and
+ o
+ ILI
+       l. 2                                                                               2. 98 A, respectively. Substituting these values in
+ CL
+ CO                                                                                       Eq. (8) yields for d(lnTc)/d(lnV) the value -2 for
+       0.8                                                                                EuO and -5 for EuS. By comparison, from direct
+                                                                                          measurements of the pressure dependence of Tc
+       0.4
+                                                                                                 "
+                                                                                          EuO, "and —9 for EuS.               "
+                                                                                          one obtains for d(lnTc)/d(lnV) the value —6 a2 for
+
+                       1.0                  2.0                 3.0                4.0       Obviously the two sets of measurements are not
+                                                                                          consistent in either case. McWhan, Souers, and
+                                      TEMPERATURE              {4K)
+                                                                                                 "
+                                                                                          Jura, noting essentially the same discrepancy,
+   FIG. 10. Magnetic specific heat of EuS. The points are                                 have suggested that it reflects changes in covalency
+measurements by Passenheim, McCollum, and Callaway
+                                                                                          in going from one anion to another. Possibly
+(Ref. 5) for three internal magnetic fields. The curves
+are our calculations using exact Brillouin-zone sums.                                     changes in covalency with pressure may also be
+The covariance ellipse for J~ and J2 from the best fit                                    involved.
+at H~, =0 is shown in the inset together with the cor-
+responding covariance ellipse from our neutron scatter-
+                                                                                                                  VII. SUMMARY
+ing measurements             {taken from Fig.             3).
+                                                                                             We have shown that the exchange constants of
+ments of Passenheim et al. ' gives better values                                          EuO and EuS can be accurately determined by
+for J, and J, in EuS than those originally quoted.                                        small-angle neutron scattering measurements on
+The reason is that while the same approximation                                           polycrystalline powders enriched in '"Eu. Com-
+for the dipolar energy [Eq. (14) of Ref. 7], was                                          bining our data with results for EuTe we find that
+used, we also took into account the renormaliza-                                          the exchange couplings of the Eu" ions vary in a
+tion of the spin-wave energies. Although this had                                         smooth and regular way as the interionic distance
+a significant effect, we should mention that it does                                      changes. nn exchange is ferromagnetic at the
+not entirely account for the differences between                                          largest distances (EuTe) and increases as the in-
+our values of the exchange constants and those ob-                                        terionic distance decreases. nnn exchange is anti-
+tained in the original analysis. Therefore, we                                            ferromagnetic at the largest distances; it de-
+also suspect that there is a computational error in                                       creases as the interionic distance decreases and
+Ref. 5, possibly in the Brillouin-zone sums.                                              finally, according to our measurements (and in
+                                                                                          contradiction to earlier results), becomes ferro-
+                      B. Pressure dependence of Tc                                        magnetic at small distances (EuO). This behavior
+                                                                                          is in accord with Kasuya's description of the un-
+  According to Fig. 6, both J, and J, vary in a                                           derlying exchange mechanisms.
+smooth and regular way as the interionic distance                                            We find that series-expansion calculations of the
+changes. We mentioned earlier that this also oc-                                          ordering temperatures of EuO and EuS are consis-
+curs in the Sm chalcogenides, '4 and it is tempting                                       tent with the signs and magnitudes of the exchange
+to interpret it as indicating that replacing one anion                                    constants as presently determined. Also the tran-
+by another is simply equivalent to expanding or                                           sition from antiferromagnetism     in EuTe to two
+contracting the lattice. The concept can be tested                                        component antiferromagnetism      and ferrimagnetism
+                                  j,
+by taking values of d /da and d /da from Fig. 6           j,                              in EuSe and thence to ferromagnetism      in EuS and
+and checking to see if these values are consistent                                        EuO correlates well with the known behavior of the
+with the measured variation of T~ with atomic                                             exchange interactions.
+volume, i. e. , with the measured variation of                                               Finally, we note that our results are not consis-
+                      NEUTRON        SCATTERING FROM THE HEISENBERG.                       ..   I. .
+tent with the idea that replacing one anion by                                  ACKNOWLEDGMENT
+another in the chalcogenide sexies is equivalent
+to simply expanding or contracting the lattice. The           e  w18h to express oui" Rppx'eclRtlon to Dx'.
+reasons for this are obscure but probably reflect           Kunnmann for preparing the samples of i5~EuO Rnd
+the influence of anion covalency on the exchange            "'EuS.
+interactions ln these QlRte1" 1als.
+
+
+
+
+"Research sponsored by the U. S. Enex gy Research            amount   of ~ the weight of the Eu2O3 in that section. The
+ and Development Administration,                              crucible was mounted in an argon-filled tube in an in-
+)Part of the work done while Guest Scientists at Brook-       duction furnace in mhich the top section was heated to
+ haven National Laboratory.                                   1200'C and the bottom section to 1800'C. The yttrium
+ B. T. Matthias, R. M. Bozorth,   andJ. H. Van Vleek,         metal in the hotter bottom section reacted with the
+ Phys. Rev. Lett. 7, 160 (1961).                              Eu203 to form Eu vapor, which diffused into the top
+2T. R. McGuire, B. E. Argyle, M. W. Shafer, and J, S.         chamber and reacted to form a mixture of EuO and Eu
+ Smart, Appl. Phys. Lett. 1, 17 (1962).                       metal. Excess metal was removed in a separate oper-
+3H. W. White, D. C. McCollum, and J. Callaway, Phys.          ation by vacuum sublimation at 800-1000'C. Chemical
+ Lett. A 25, 388 (1967). H. W. White, Ph. D. thesis           analysis indicated a stoichiometrie compound. Fluor-
+  (University of California, Riverside, 1969) (unpub-         escence tests for yttrium contamination were negative.
+                                                            ' F. Keffer, in Encyclopedia
+ lished) .                                                                                 of I'kysics (Springer-Verlag,
+4G. Will, S. J. Pickart, H. A. Alperin, and R. Nathans,       Berlin, 1966), Vol. XVIII/2, p. l.
+ J. Phys.  Chem. Solids 24, 1679 (1963).                    «~F. J. Dyson„Phys. Rev. 102, 1217 (1956); 102, 1230
+~B. C. Passenheim, D. C. McCollum, and J. Callamay,           (1956); F. Keffer and R. Loudon, J. App. Phys. Suppl.
+  Phys. Lett. 23, 634 (1966).                                32, 25 (1961).
+"A. J. Henderson, Jr. , G. R. Brown, T, B. Reed, and
+                                                  .
+                                                            2%. Miyata aad B. E. Argyle, Phys. Rev. 157, 448
+ H. Meyex', J. Appl. Phys. 41, 946 (1970).                    (1967).
+7S. H. Charap and E. L. Boyd, Phys. Rev. 133, A811          2«M. C. Franzblau, G. E. Everett, and A. W. Laws,
+  (1964).                                                     Phys. Rev. 164, 716 (1967).
+8E. L. Boyd, Phys. Rev. 145, 174 (1966).                     We are grateful to P. A. Lindgard for deriving the re-
+~P. Heller and G. Benedek, Phys. Rev, Lett. 14, 71            lation between the gap energy and the macroscopic
+  (1965).                                                     anisotropy parameter E «.
+«N. Menyuk, K. Dwight, and T. B. Reed, Phys. Rev.           2~T. R. MeGuire and M. W. Shafer,           J.
+                                                                                                   Appl. Phys. 35,
+  B 3, 1689 (1971),                                           984 (1964).
+«'P. K. Schwob and G. E. Everett, J. Phys. (Paris) Suppl.   24R. J. Bjrgeneau, E. Bucher, L. %. Rupp, Jx. , and
+  32, 1066 (1971).                                            %. M. Walsh, Jr. , Phys. Rev. B 5, 3412 (1972).
+«~J. Hog and T. Johansson, Int. J. Magn. 4, 11 (1973).       5M. E. Fisher and A. Aharony, Phys. Rev. Lett. 30,
+  J. Als-Nielsen, O. %'. Dietrich, W. Kunnmann, and           559 (1973).
+  L. Passell, Phys. Rev. Lett. 27, 741 (1971).               6D. S. Ritchie and M. E. Fisher, Phys. Rev. B 5, 2668
+ 4L. Passell, O. W. Dietrich, and J. Als-¹ielsen, AIP        (1972) .
+  Conf. Proc. 5, 1251 (1971).                                VD. %'. Wood and N. %. Dalton, Phys. Rev. 159, 384
+'~L. Passe11, J. Als-Nielsen, and O. W. Dietrich,            (1967}.
+  Neutron Inelastic Scattering (International Atomic En-    28M. E. Fishex (private communication). %'e are grateful
+  cl gy Agency„Vienna, 1972), p. 619.                        to Professox' Fisher for discussing the influence of
+«6T. Kasuya, IBM J. Res. Dev. 14, 214 (1970).                dlpolar fox'ees on Tc.
+'~The samples used for these measurements were pre-           M. F. Collins,  J. Phys. C 7, 573 (1974).
+ pared by Dr. %. Kunnmann. For EuS he employed                As a result of our neutron scattering studies the heat-
+ Archer and Mitchell's method [R. D. Archer and W. N.         capacity measurements of Refs. 5 and 6 and the NMR
+ Mitchell, Inorg. Synth. X, 77 (1967)). To remove the         magnetization measurements of Refs. 7 and 8 have re-
+ last traces of excess sulfur, the sample was heated          cently been reexamined. The results are reported by
+ to 1200'C under a high rate of flow of oxygen and water-                          J.
+                                                              O. W. Dietrich, A. Henderson, Jr. , and H. Meyer
+ free hydrogen. Chemical analysis of the final product        [Phys. Rev. B 12, 2844 (1975)].
+ indicated the molar sulfur to europium ratio was           ~«G. K. Sokolova, K. M, Demchuek, K, P, Rodionov, and
+ 1.001 + 0.001. EuO was prepared fx'om Eu203 in powder        A. A. Samokhvalov, Zh. Eksp. Teor. Fiz. 49, 452
+ form. Equal amounts were placed in the top and bottom        (1965) [Sov. Phys. -JETP 22, 317 (1966)j.
+ sections of a tungsten crucible 0.5 cm in diameter and     32D. B. McWhan, P. C. Souers, and G. Jura, Phys. Rev.
+ 7.5 em long. A length of tungsten foil was inserted as      143, 385 (1966).
+ a baffle separating the two sections. In the bottom        33K. Lee andJ. C. Suits,    J. Appl.       Phys. 41, 954 (1970).
+ section yttx'ium metal was added to the charge in the       Y. Hldaka,    J. Sci. Hiroshima     Univ. A    35, 93 (1971).
+

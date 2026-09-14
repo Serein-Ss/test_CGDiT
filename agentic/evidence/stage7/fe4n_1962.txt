@@ -1,0 +1,355 @@
+                                      SPECI F        IC    HEATS OF Sn ALLOYS
+   within the framework of Eq. (1), we seem to have                    path becomes less than the range of coherence. To
+to conclude that alloying appreciably affects the mean                 determine this residual effect on V one must subtract
+                                      "
+electron-electron interaction V. It is interesting to                  small quantities of comparable magnitude. Unfortu-
+note the effect of algebraically subtracting the dashed                nately, the accuracy of our present data does not
+lines in Fig. 4 from the appropriate solid curves. The                 permit us to determine whether V depends only on
+curve of AT, vs (residual resistance ratio) for the                    electronic mean free path, or whether there is a residual
+(InSb) alloys remains unchanged, and the shape of the                  dependence on valence.
+curve for the Bi alloys is little altered, being pushed                   In conclusion, it may be useful to emphasize that the
+toward increasing values of T, at the higher concen-                   solute concentrations used and the resulting changes
+trations. The form of the curve for the In alloys is
+changed, however, and closely resembles that for
+                                                                       in T, are much smaller than those considered in various
+                                                                       recent surveys of binary and ternary compounds.             ""
+bismuth, with a minimum and a subsequent upward                         Consequently our conclusions concerning small changes
+trend. Thus our specific heat results lead to very                      in V do not directly affect the question of the relative
+similar curves for the alloying effect on T, of tin, once               insensitivity of U to large-scale variations in compo-
+the effect of changes in y and        has been taken into
+                                      O~                                sition.
+account. This conclusion is already implicit in the work
+                                                                                             ACKNOWLEDGMENTS
+of Seraphim et ul. 7 It would appear, therefore, that in
+tin alloys (and by inference in indium and aluminum                       A. Siemons constructed the apparatus, and Miss S.
+alloys as well) the effect of alloying on V is such as to               Goldis made the drawings.
+result in an increasing T, once the electronic mean free                  It is also a pleasure to acknowledge many helpful
+                                                                        conversations with Dr. P. I.indenfeld and Dr. J. de
+  44
+     According to P. Morel, J. Phys. Chem. Solids 10, 277 (1959),
+a change in V is expected to arise from variations in lattice           Nobel.
+spacing. However, the changes in lattice parameters for these
+alloys are so smalP3 that even the largest resulting change in V           32B. B. Goodman, J. Hillairet, J. J. Veyssid, and L. Weil,
+is about an order of magnitude smaller than the total alloying          reference 3, p. 350.
+eGect which we observe.                                                   "J.  K. Hulm and R. D. Blaugher, Phys. Rev. 123, 1569 (1961).
+
+
+
+
+PHYSICAL REVIEW                                       VOLUME          126,   NUM B ER         1                   A P   R   IL 1, 1962
+
+      Mossbauer Study of Hyperfine Fields and Isomer Shifts in Fe4N and (Fe,Ni), N
+                            G. SHIRANE, W. J. TAxEr, Axe S. L. Rvsv
+                                      Westinghouse   Central Laboratories, Pittsburgh,   Pennsylvania
+                                                      (Received October 27, 1961)
+
+                Mossbauer measurements of Fes~ were made on ferromagnetic Fe4N, which has a face-centered cubic
+             arrangement of iron atoms with nitrogen at the body-center position. The hyperfine fields are 345 koe for
+             the corner Fe and 215 koe for the three face-center Fe, approximately proportional to their magnetic mo-
+             ments, 344a and 244s. The isomer shifts, measured against a stainless steel source, are 0.30 mm/sec for the
+             corner Fe and 0.45 mm/sec for the face-center Fe. These values are in line with their proposed electronic
+             configurations of 3d 4s and 3d'4s, which are derived on the assumption that the nitrogen at the body-center
+             position acts as an electron "donor" to the face-center Fe. The Mossbauer spectra of (Fe4, 4, Ni4, 4)N and
+              (Fe4Ni)N are consistent with their ordered structures in which Ni replaces the corner Fe preferentially.
+
+
+                        INTRODUCTION                                    neighbors. The body-center nitrogen is surrounded by
+      HE magnetic properties of Fe4N have been the                      an Fe II octahedron.
+                                                                           Guillaud and Creveaux' have reported a saturation
+       subject of several investigations in recent years,
+since its simple structure offers an ideal case for the                 moment of 2.2 Bohr magneton per Fe atom for Fe4N
+study of the effects of local environment on electronic                 approximately 9p~ for the formula unit. Wiener and
+                                                                        Berger' have proposed a magnetic structure, in which
+configuration and magnetic moments. The crystal struc-
+ture may best be visualized as a face-center p iron lattice             3p& and 2p& are assigned to Fe I and Fe II, respectively.
+with nitrogen at the body-center position' (see Table I).               This model was based on the assumption that nitrogen
+The corner Fe atom, Fe I, is surrounded by 12 Fe                        acts as a "donor" of electrons, giving one electron to
+nearest neighbors at 2.96 A, while the face-center Fe                   each of the three nearest Fe II atoms. This gives elec-
+                                                                        tronic configurations of 3d~4s for FeI and 3d84s for
+atom, Fe II, has two nitrogens at 1.90 A as the nearest
+                                                                          ~ C. Guillaud and H. Creveaux, Compt. rend. 222, 1170 (1946).
+  ' K. H. Jack,   Proc. Roy. Soc. (London) A195, 34 (1948).               ' G. W. Wiener and J. A. Berger, J. Metals 7, 360 (1955).
+50                                               SH I RANE,            TAKEI,     AN D       RUB Y
+                  TABLE  I. Magnetic structure of Fe4N.                     absorption. In addition to Fe4X, measurements were
+                     Nitrogen is located at (»»p).
+                                                                            made on (Fep „Ni,)N with x=0.4 and 1.0. In this solid
+                                                                            solution system, Ni substitutes preferentially for Fe I
+                          Position           Outer electrons     Moment
+                                                                            at the corner, as was shown by the x-ray studies of
+          FeI              (0,0, 0)               3d74s           3pg       Wiener and Berger' and Arnott and Wold. ' In FeaxiX,
+        3 Fe II            (p, p, o) etc.         3d'4s           2p jp
+                                                                            therefore, all Fe atoms are equivalent, namely, Fe II.
+                                                                            These compounds were selected not only to study the
+ Fe II (see Table I). In this way, it was possible to                       possible effect of Ni substitution on the Fe moment, but
+account for the observed moments of Fe4N, (FesNi)N,                         to eliminate any ambiguity which might possibly exist
+and (FesPt)N. Frazer' has confirmed this magnetic
+                                                                            in an interpretation    of the Mossbauer data of pure
+                                                                            Fe4N, where the spectra were expected to be a super-
+structure of Fe4N by neutron diffraction measurements.
+                                                                            position of two "6 fingers.      "
+I-ater, Goodenough et a/. ' proposed a further splitting
+of d bands due to the crystalline fields in (Fe,Ni) pN.
+    Recently, the recoil-free absorption of 14.4-kev                                               EXPERIMENTAL
+gamma rays of Fe', first discovered by Mossbauer, '                            The nitride samples were prepared following the pro-
+became available as an important tool for the study of                      cedure of Arnott and Wold. ' Iron and nickel oxides were
+the magnetic properties of solids. This method can yield,                   obtained by coprecipitation of the oxalates which were
+among others, two important quantities: the hyperfine                       then ignited. These oxides were reduced to the metals
+field, II,, and the isomer shift, AE. Experimentally, the                   in a finely divided state by heating in hydrogen. Heating
+absorption spectra of Fe" in a ferromagnetic spin
+arrangement shows six symmetrical peaks as a function
+of the relative velocity of source and absorber. The                           TABLE III. Mossbauer absorption       of (Fe, Ni)4N at room tem-
+                                                                            perature (mm/sec). Fe was used as        a standard to calibrate the
+spreading of these peaks is proportional to the hyperfine                   velocity scale, by using JI; =333 koe.   Errors of line positions were
+field and the shift of the center of this group from zero                   estimated from the results of several    runs.
+velocity is defined as the isomer shift. ~
+   Although the proportionality of the hyperfine fields                                  Fe4N        (Fep pNip 4}N      (FepNi)N           Fe
+of Fe metal to its magnetic moment was established by                                   (+0.08)        (+0.14)           (+0.14)         (+0.06)
+changing the temperature, ' the relation between B, and                                  —5, 20          —5.5
+the electronic structure of Fe atoms in different environ-
+                                                                                         —3.00           —3.1                —2.8        —5.20
+                                                                                         —1.65           —1,5                —1.5        —2.95
+ments is not yet well understood. The isomer shift is                                    —0.30           —0.2                 0.0        —0, 70
+caused by the difference in the s-electron densities at the                                1.05            1.0                1.1          0.96
+nuclei of the source and the absorber. The theoretical                                     2.30            2.3                2.2          3.22
+                                                                                           3.90            3.9                3.7          5,47
+consideration of this problem by Walker, Wertheim, and                                     5.80            6.1
+j'accarinor has shed considerable light on the interpreta-
+tion of the isomer shift. Utilizing calculated wave func-
+tions, they have calibrated the observed isomer shifts as
+                                                                            this metal powder in an ammonia and hydrogen stream
+a function of the number of 3d and 4s electrons.
+                                                                            produced the nitrides. The x-ray examination of the
+   Fe4N offers an interesting problem for Mossbauer
+                                                                            samples has shown that they are single phase and no
+study since Fe I and Fe II are considered to be in the
+                                                                            trace of free Fe was observed. The chemical analysis
+3d 4s and 3d'4s states, respectively, and the latter con-
+                                                                            indicated a slight deficiency of nitrogen content of S%%uq
+figuration has never been investigated by Mossbauer
+                                                                            in the Ni-containing samples and less than 3'Po in Fe4N.
+   TABLE II. Magnetic data for (Fe, Ni)pN. o and o p are the                The lattice parameters and the magnetic properties of
+saturation moments in Bohr magnetons per formula unit at                    these compositions are in reasonably good agreement
+300'K and O'K, respectively.                                                with the previous work' ' ' (see Table II).
+                                                                               Mossbauer data were obtained by using a multi-
+                                      Fe4N       (Fep pNip 4}N   (FepNi)N   channel analyzer coupled with an instantaneous velocity
+ Cp           (+0.002A)               3.797           3.788        3.786    measurement of the stainless steel source. ' The thick-
+ ~C           (+10'K)             767              695           640        ness of the samples was adjusted to give 20 mg/cm'
+ Op           (~0.2»)                 91              8.0          6.9
+                                                                            of natural Fe. The data presented in this paper give the
+ o/op         (+0.01)                 0.92            0.88         0.86
+                                                                            Mossbauer absorption as a percentage of the nonreso-
+                                                                            nant absorption. The background due to 120-kev
+      B. C. Frazer, Phys. Rev. 112, 75'1 (1958).                            gamma rays was determined with a —,', -in. Al sheet and
+  5
+      J. B. Goodenough, A. Wold, and R. J. Arnott, J. Appl.         Phys.
+                                                                            was subtracted from the data. The velocity scale was
+31, 342S (1960).
+  6   R. L. Mossbauer, Z. Physik lSl, 124 (1958).
+  7   L. R. Walker, G. K. Wertheim, and V. Jaccarino, Phys. Rev.
+Letters 6, 98 (1961).                                                        'R. J. Arnott    and A, Wold,    J. Phys.       Chem. Solids 15, 152
+  8D. E. Nagle, H. Frauenfelder, R. D. Taylor, D. R. F. Cochran,            {1960).
+and B. T. Matthias, Phys. Rev. Letters 5, 364 (1960).                         ' S. L. Ruby and D. E. Bolef, Phys. Rev. Letters 5, 5 (1960).
+                                 MOSSBAUER STU                    DY      OF     H    YPERF I NE                                       FI             ELDS
+   TABLE IV. Hyperfine 6eld, H; (koe), and isomer shift, IiF
+(mm/sec), of (Fe, Ni)4N at 300'K. IiF. referred to the stainless
+steel source.                                                                                                                                                                                Fe4   N
+
+                                                                                                3 Fex(Z+, )
+                     Fe4N        (Fee. sNiq. 4)N   (FesNi)N                     o 20—                                                      I
+                                                                                                                                                          '              '       I
+
+
+
+
+Fe   I     H;      345~10         363+15                        333+8
+                                                                                                             z   (res
+                                                                                O                                         I            2              3       4         5    6       7
+           AE'     0.30+0.08      0.30~0.14                     0.10&0.05       CA
+                                                                                JD
+
+
+Fe II      H; '    215+10          220+15          205+15                       QP
+                                                                                      IO—
+           AL,     0.45~0.06      0.40&0.10        0.45&0.10                     O
+                                                                                 V)
+                                                                                 (h
+                                                                                =O
+                                                                                                 0 APDo
+calibrated by using              Fe metal as a standard"             (see             0         oo
+
+Table III).
+                                    Fe4N                                              -   IO     -8
+                                                                                                     I            I
+
+                                                                                                                 -6
+                                                                                                                               I
+
+                                                                                                                              -4
+                                                                                                                                                 I
+                                                                                                                                                -2
+                                                                                                                                                              I
+
+
+                                                                                                                                                              0            2
+                                                                                                                                                                             I       I
+
+                                                                                                                                                                                     4
+                                                                                                                                                                                                       I
+
+                                                                                                                                                                                                       8   IO
+                                                                                                                                               Velocity               (mm/sec)
+   The Mossbauer absorption data on this compound                               FIG. 1. Mossbauer absorption of Fe4N. The positive velocities
+are shown in Fig. 1 and Table III. The observed curve                                    indicate a motion of source toward absorber.
+should be a composite of two "6 fingers" with relative
+intensities of 3:1, corresponding to 3 Fe II:1 Fe I.
+                                                                                  The ratio of the observed hyperfine fields, 345 koe for
+Individual    6 fingers must approximate the 3:2: 1                            Fe I and 215 koe for Fe II, is 1.6&0.1, in good agree-
+branches of an ideal thin absorber. An inspection of the
+                                                                               ment with the ratio of their magnetic moments, 1.5.
+eight resolved peaks immediately gives the following                           These internal fields are compared with the value in
+assignment: lines 2 to 7 form six fingers due to 3 Fe II                       Fe metal in Table V. The room temperature hyperfine
+and the lines 1 and 8 correspond to the outer two peaks                        fields were extrapolated to O'K by using o/o. s. The last
+of Fe I. The inner four peaks of Fe I are more or less                         column indicates that the ratio between the hyperfine
+hidden by lines 2 to 7, resulting in a slight modification                     field and saturation moment in Fe is somewhat diferent
+of line shape and intensities of these lines.                                  from the corresponding ratios in Fe4N.
+     The insert in Fig. 1 shows the line position and                             It is interesting to note that the observed isomer shift
+relative intensities of the 12 components. For this calcu-                     is definitely larger for Fe II (0,45 mm/sec) than for
+lation, the pairs 1—g and 2—7 were matched to the ob-                          Fe I (0.30 mm/sec). This difference is in accordance
+served lines. There appears to be little doubt that our                        with the expectation from their electronic structures
+line indexing is a unique one. To further confirm this
+                                                                               since the isomer shift increases with increasing number of
+point, the composite absorption curve was calculated by                        3d electrons if the number of 4s electrons remains the
+superposing    12 lines with the theoretical intensity                         same. This is the first measurement of the isomer shift
+ratios. Each line was assumed to have a line shape,                            of Fe in the 3d'4s configuration.
+y= (1+x/I') ', where I', the half-width at half-maxi-                             Walker et al. 7 assigned a 3d~4s configuration for Fe
+mum, was assumed to be 0.27 mm/sec for all the lines.                          metal, which shows an isomer shift of 0.10—0.15
+The calculated curve duplicates the observed one quite                         mm/sec.         r"
+                                                                                              The observed isomer shift for Fe I, which
+closely in both line shape and position, except for some                       is assumed to have the same configuration, approxi-
+deviations in relative intensities attributable to the
+                                                                               mately, is somewhat larger than in Fe. This difference
+finite sample thickness.
+   The hyperfine field, B;, and the isomer shifts derived
+from these lines are listed in Table IV. The values for
+Fe I had to be derived from only two peaks, 1 and 8.                            o~O
+                                                                                                 (Fe3.6NI0. 4)
+For this reason, the measurements were repeated several
+times and the stability of the velocity scale was checked                       .o    20
+                                                                                 CL
+repeatedly against an iron standard.                                             L
+                                                                                 O
+                                                                                 CA
+
+
+
+
+   TABLE V. Comparison of hyperfine zelda (koe) in Fe metal and
+                                                                                      IO—
+Fe4N. gp is the atomic moment extrapolated to O'K. H; and Hp
+are the hyper6ne 6elds at 300'K and O'K, respectively.                           O
+                                                                                 CA
+                                                                                 Vl
+                                                                                =O
+
+                         ps           EF/0   p     K     Ho       Ho/pp
+
+Fe metal             2.22+0.02       0.982       333   340&10     155~5
+                                                                                                         I                                        I               I          I       I   I             I
+                                                                                                                              -4
+                                                                                                                      I            I
+
+
+
+           Fe I      3.0 &0.1        0.92        345   375&15    125 w10
+                                                                                      —IO        —8              -6                             -2            0              2       4   6         8       IO
+
+           Fe II     2.0 &O. i       0.92        215   234+15    117~10                                                                        Velocity               (mm/sec)
+                                                                                               Fio. 2. Mossbauer absorption of (Fe3,Nip 4)N.
+  "S.   S. Hanna, J. Heberle, C. Littlejohn, G. J. Perlow, R. S.                 "0.  C. Kistner and A. W. Sunyar, Phys. Rev. Letters 4, 412
+Preston, and D. H. Vincent, Phys. Rev. Letters 4, 177 (1960).                  (1960).
+                                                               SH I RANE,             TAKE       I,   AN D      RUB Y
+
+                                                                                                hyperfine   field   at the Fe II nuclei remains almost con-
+                                                                                                stant. The slight decrease observed with increasing
+               -(Fe & Ni)     N
+                                                                                                concentration of Ni is not more than the amount
+ cO 20—                                                                                         attributable to the decrease of the Neel temperature
+ CL
+ L
+                                                                                                (see Table I). The hyperfine field at Fe I, on the other
+ O
+ V7                                                                                             hand, increases by 5% from Fe4N to (Fes. sN&o. 4)N. A
+                                                                                                similar increase in H; was observed in Fe-Ni alloys by
+      IO-
+ CD                                                                                             Johnson et at. r4 It is not certain, at present, whether
+ O
+ X7
+ lQ
+                                                                                                this change is directly related to a corresponding in-
+ V)
+ =O                                                                                             crease of the Fe I moment.
+               oo d'                                                                 o„o
+      0—        o~ oBoo
+                     o        d   o
+                                                                           Qq,
+                                                                             q o 0 'll v
+                                                                                                   The observed isomer shifts of Ni-substituted com-
+                                                                                                pounds show little change from the corresponding values
+                                       I                               I
+                                                                                                of Fe4N. This implies that the electronic structures of
+                 I        I                           I
+
+                         -6
+                                              I
+
+
+               -8
+                                                               I   I             I
+
+       l   0                          -4     -2       0        2   4   6         8         10
+                                           Velocity   (mm/sec)                                  the Fe's are not appreciably affected by Ni additions.
+               Fio. 3. Mossbauer absorption of (Fe3Ni)N.                                           One peculiar anomaly was observed in the (FesNi)N
+                                                                                                sample. In Fig. 3, line 2 (using the same line numbering
+may be attributed to subtle differences of the electronic                                       as in Fig. 1) exhibits considerably more line broadening
+configurations of the two Fe atoms under comparison,                                            than other lines, although the integrated intensity of
+as one may expect from the difference of their magnetic                                         this line appear to be normal. This anomaly is evident
+moments and the crystal structures. It should be                                                if compared with line 7 which is supposedly equivalent
+pointed out that if we use the chart of Walker et al. ,                                         to line 2. This anomaly cannot be explained by a simple
+the observed isomer shift of Fe I corresponds to 3d'4s'                                    ",   inhomogeneity of isomer shift or a fluctuation of the
+only a 5%%u~ difference in s-electron density.                                                  hyperfine field. The former should give a uniform
+   During the course of our investigation, we were in-                                          broadening for all the lines and the latter should result
+formed that Kocher, Mozer, and Nathans" of Brook-                                               in the greatest line broadening at the outermost peaks.      "
+haven National Laboratory had carried out a Mossbauer                                           It is conceivable, of course, that an inhomogeneous
+measurement of a Fe4N sample, containing some free                                              isomer shift, caused by a slight deficiency of nitrogen,
+Fe, which was previously used for the neutron diffrac-                                          is correlated to a hyperfine 6eld fluctuation in such a
+tion study. 4 Their results are in reasonably good agree-                                       way as to result in the observed effect.
+ment with ours.                                                                                    The more likely source of this anomaly may be the
+                                           (Fe,   ¹i)     4N
+                                                                                                quadrupole interaction. The local symmetry of the
+                                                                                                corner Fe I is cubic and no quadrupole effect is expected.
+   Mossbauer spectra of the (Fe, Ni)4N compounds are                                            The FeII atoms at the face center position, on the
+shown in Figs. 2 and 3. The outer two peaks of Fe4N,                                            other hand, may exhibit a quadrupole shift because the
+namely 1 and 8 of Fig. 1, have decreased in intensity in                                        local symmetry is uniaxial, with the principal axis of
+ (Fes. sNis. 4)N and they have disappeared almost com-                                          the electrical held gradient tensor along the N-Fe II-N
+pletely in (FesNi)N, while the inner six lines remain                                           direction. The observed effect could be explained quali-
+essentially unchanged. This is in accordance with our                                           tatively by assuming a small negative e'gQ and the spin
+line indexing of Fe4N and an ordered structure of                                               direction along 110$. This speculation is by no means
+                                                                                                                    l
+
+ (Fe, Ni)4N, in which Ni replaces Fe I preferentially.                                          well founded and, moreover, there is no a priori reason
+The relative intensities of lines 1 and 8 in Fig. 2 are                                         why the quadrupole effect should be larger in (FesNi) N
+somewhat larger than the expected values for complete                                           than in the other nitrides.
+Ni ordering in (Fez. sNis. 4)N and there appears to be
+some absorption remaining in (FesNi)N at the positions                                                                  ACKNOWLEDGMENTS
+corresponding to the lines 1 and 8. This may be a result                                          Ke    are very grateful to P. Flinn, K. J. Carr, and
+of some Ni at the face-center positions. Though an                                              R. R. Heikes for     many helpful discussions. We would
+accurate estimate of the order parameter from Moss-                                             also like to acknowledge illuminating discussions with
+bauer data is dificult, it may be safe to conclude that                                         R. Nathans of Brookhaven National Laboratory and
+at least 80%%u~ of the Ni atoms are located at the corner                                       his communication      of unpublished results. J. Hicks,
+position.                                                                                       M. Janocko, and %. Hooke assisted in various phases
+  The hyperfine fields and the isomer shifts obtained                                           of the investigation.
+for these two compositions are listed in Table IV. The
+                                                                                                 '4 C. E. Johnson, M. S. Ridout, T. E. Cranshaw, and P.      E.
+  » C. W. Kocher, B. Mozer, and R. Nathans                             (private com-            Madsen, Phys. Rev. Letters 6, 450 (1961).
+munication, June, 1961).                                                                          "P.  A. Flinn and S. L. Ruby, Phys. Rev. 124, 34 (1961).
+

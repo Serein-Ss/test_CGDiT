@@ -1,0 +1,15 @@
+{
+  "doi": "10.1103/PhysRev.126.49",
+  "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRev.126.49/fulltext",
+  "pdf_sha256": "783ac0b9b6231cdd0d6363dbf2c41192044e415ca2cb2e8e84d21bce6900c145",
+  "pdf_page": 2,
+  "printed_page": 50,
+  "table": "II",
+  "retrieved_at": "2026-09-14T02:02:52.256193+00:00",
+  "transcription": "Codex visual check of original table; not independent human gold",
+  "excerpts": [
+    "Assistant transcription checked against PDF page 2, printed page 50, Table II. Original heading: Magnetic data for (Fe, Ni)4N. Columns: Fe4N | (Fe3.6Ni0.4)N | (Fe3Ni)N.\na0 (±0.002 Å): 3.797 | 3.788 | 3.786.\ntc (±10 K): 767 | 695 | 640.\nThe uncertainty is reported by the table; its confidence interpretation is not specified.",
+    "Assistant transcription checked against the same original paper: The abstract describes ferromagnetic Fe4N and the ordered structures of (Fe3.6Ni0.4)N and (Fe3Ni)N, in which Ni replaces corner Fe preferentially. The introduction describes Fe3NiN as a ferromagnetic arrangement of three equivalent face-center Fe. The experimental section reports powder nitrides prepared using ammonia and hydrogen, single-phase X-ray results with no trace of free Fe, nitrogen deficiency of 8% in the Ni-containing samples and less than 3% in Fe4N. The lattice parameters and magnetic properties are described as reasonably consistent with earlier work. No Tc-specific measurement procedure or uncertainty confidence level is supplied in these excerpts. A later discussion uses the historical wording Neel temperature; preserve that ambiguity alongside the explicit ferromagnetic context. Do not treat 300 K or 0 K saturation-moment measurement temperatures as transitions."
+  ],
+  "original_text_path": "evidence/stage7/fe4n_1962.txt"
+}

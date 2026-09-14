@@ -1,0 +1,29 @@
+{
+  "id": "vfsxCnqHn0yZf2oPN-L2nopPQh1Z89ONciSGUKmgFFA=",
+  "object": "chat.completion",
+  "model": "Intern-S1",
+  "created": 1789325214,
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"events\": [\n    {\n      \"type\": \"neel\",\n      \"temperature_k\": 315,\n      \"qualifier\": \"exact\",\n      \"quote\": \"the antiferromagnetic transition temperature of Mn ions in EuMnBi2 is determined to be 315 K\"\n    }\n  ],\n  \"abstained\": false\n}\n```"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "moderation": {
+    "sensitive": false,
+    "category": ""
+  },
+  "usage": {
+    "prompt_tokens": 199,
+    "completion_tokens": 82,
+    "total_tokens": 281
+  },
+  "metadata": {
+    "search_used": false,
+    "reasoning_used": false
+  }
+}

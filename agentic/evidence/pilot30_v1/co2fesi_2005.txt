@@ -1,0 +1,893 @@
+                                                                                                                                                            Wurmehl et al, Co2 FeSi, PRB
+
+                                                             Geometric, electronic, and magnetic structure of Co2 FeSi: Curie temperature and
+                                                                            magnetic moment measurements and calculations.
+                                                                Sabine Wurmehl, Gerhard H. Fecher, Hem Chandra Kandpal, Vadim Ksenofontov, and Claudia Felser∗
+                                                                                               Institut f¨
+                                                                                                         ur Anorganische und Analytische Chemie,
+                                                                                          Johannes Gutenberg - Universit¨at, D-55099 Mainz, Germany.
+arXiv:cond-mat/0506729v4 [cond-mat.mtrl-sci] 5 Dec 2005
+
+
+
+
+                                                                                                                   Hong-Ji Lin
+                                                                                National Synchrotron Radiation Research Center - NSRRC, Hsinchu, 30076, Taiwan
+
+                                                                                                                  Jonder Morais
+                                                                        Instituto de Fisica, Universidade Federal do Rio Grande do Sul, Porto Alegre, 91501-970, Brazil
+                                                                                                           (Dated: October 12, 2018)
+                                                                          In this work a simple concept was used for a systematic search for new materials with high
+                                                                       spin polarization. It is based on two semi-empirical models. Firstly, the Slater-Pauling rule was
+                                                                       used for estimation of the magnetic moment. This model is well supported by electronic structure
+                                                                       calculations. The second model was found particularly for Co2 based Heusler compounds when
+                                                                       comparing their magnetic properties. It turned out that these compounds exhibit seemingly a
+                                                                       linear dependence of the Curie temperature as function of the magnetic moment.
+                                                                          Stimulated by these models, Co2 FeSi was revisited. The compound was investigated in detail
+                                                                       concerning its geometrical and magnetic structure by means of X-ray diffraction, X-ray absorption
+                                                                       and M¨ oßbauer spectroscopies as well as high and low temperature magnetometry. The measurements
+                                                                       revealed that it is, currently, the material with the highest magnetic moment (6µB ) and Curie-
+                                                                       temperature (1100K) in the classes of Heusler compounds as well as half-metallic ferromagnets.
+                                                                       The experimental findings are supported by detailed electronic structure calculations.
+
+                                                                       PACS numbers: 75.30.-m, 71.20.Be, 61.18.Fs
+                                                                       Keywords: half-metallic ferromagnets, magnetic properties, Heusler compounds, Curie temperature
+
+
+                                                                           I.    INTRODUCTION                               and the highest magnetic moment (5.54µB per unit cell,
+                                                                                                                            Co2 FeGe5 ) being reported up to now. The HMF charac-
+                                                                                                                            ter of Co2 MnZ compounds was first reported by Ishida
+                                                             Materials that exhibit half-metallic ferromagnetism are
+                                                                                                                            et al6 . Recently, Co2 MnSi7 and Co2 MnGe8 were used
+                                                          seen to be potential candidates for the field of applica-
+                                                                                                                            to built first thin film devices. The present work reports
+                                                          tion being called spintronics1,2 , that is electronics making
+                                                                                                                            about Co2 FeSi. It will be shown that this compound may
+                                                          use of the electron spin instead of its charge. The con-
+                                                                                                                            be one of the most promising candidates for spintronic
+                                                          cept of half-metallic ferromagnetism was first presented
+                                                                                                                            applications.
+                                                          by de Groot3 , predicting it to appear in half Heusler com-
+                                                          pounds. The model suggests that the density of states ex-
+                                                          hibits, around the Fermi energy (ǫF ), a gap for minority
+                                                          electrons. Thus, these materials are supposed to be 100%                       II.   THEORETICAL MODELS
+                                                          spin polarized at ǫF . Most of the predicted half-metallic
+                                                          ferromagnets (HMF) belong to the Heusler4 compounds.                 There exist several rules counting the number of va-
+                                                          In general, these are ternary X2 Y Z-compounds crystal-           lence electrons that are used to predict the magnetic mo-
+                                                          lizing in the L21 structure. X and Y are usually transi-          ments in Heusler and other magnetic compounds from
+                                                          tion metals and Z is a main group element.                        the number of valence electrons. These rules are based
+                                                             Beside Heusler compounds, there are only few other             on particular numbers of valence elctrons starting with
+                                                          materials being predicted to be HMFs, like some ox-               the semi-conducting compounds where one has 18 va-
+                                                          ides. Most of the predicted compounds with Zincblende             lence electrons in half Heusler compounds9 , or 24 in full
+                                                          structure are chemically uncharacterizable, at least up           Heusler compounds. Rules that are not general but de-
+                                                          to now. Therefore, our research concentrates on Heusler           pend on the composition of the sample are, somehow, not
+                                                          compounds.                                                        satisfactory. Therefore, it may be helpful to start more
+                                                             High Curie temperatures, magnetic moments, and                 basically. Pauling10 pointed already on the Heusler al-
+                                                          large minority gaps are desirable for applications. For           loys in his basic work on the dependence of the magnetic
+                                                          room temperature devices, in particular, one needs to             moments in alloys on the number of valence electrons per
+                                                          prevent a reduction of the spin polarization and other            atom.
+                                                          magnetic properties by thermal effects. In this context it           Slater11 and Pauling10 found that the magnetic mo-
+                                                          should be noted that the Co2 based Heusler compounds              ments (m) of 3d elements and their binary alloys can be
+                                                          exhibit the highest Curie temperature (985K, Co2 MnSi5 )          described by the mean number of valence electrons per
+                                                                                                                           2
+
+atom (nV ). The rule distinguishes the dependence of            be explained by details of the electronic structure (for
+m(nV ) into two regions (see: Fig.1). In the second part        examples see14,15 and references there).
+(nV ≥ 8), one has closed packed structures (fcc, hcp)
+and m decreases with increasing nV . This is called the           Self consistent field calculations were performed in
+region of itinerant magnetism. According to Hund’s rule,        order to investigate the Slater-Pauling like behavior
+it is often favorable that the majority d states are fully      of Heusler compounds in more detail (for details see
+occupied (nd↑ = 5). The magnetic valence is defined by          Sec.III). The electronic structure of most known Heusler
+nM = 2nd↑ − nV , such that the magnetic moment per              compounds was calculated in order to find their magnetic
+atom is given by m = nM + 2nsp↑ . A plot of m ver-              moments and magnetic type. The calculations were per-
+sus magnetic valence (m(nM )) is called the generalized         formed for overall 107 reported Heusler compounds from
+Slater-Pauling curve (see Refs.12,13 ). In the first region     which 59 are based on X and Y being 3d metals, 17 with
+(nV ≤ 8), m increases with increasing nV . This part            only X and 28 with only Y being a 3d metal. The remain-
+is attributed to localized moments, where Fe (bcc) is a         ing ones contain 4d and 4f metals on the X and Y sites,
+borderline case. Here, the Fermi energy is pinned in a          respectively. In addition calculations were performed for
+deep valley of the minority electron density. This con-         50 reported Half-Heusler compounds.
+strains the number of minority d-electrons nd↓ resulting
+in m = nV − 2n↓ . For Fe and its binary alloys (Fe-Mn,            It turned out that nearly all (if not simple metals) Co2
+Fe-Cr, and partially Fe-Co) one has an average of ap-           based compounds should exhibit half-metallic ferromag-
+proximately three minority electrons occupied with the          netism. It is also found that the calculated magnetic
+result m ≈ nV − 6. Many Heusler compounds exhibit               moments of the Co2 based compounds follow the Slater-
+an increase of m with increasing nV , and thus they may         Pauling curve as described above (see Fig.1a). Some
+belong to the first region of the Slater-Pauling curve.         small deviations are possibly caused by inaccuracies of
+   Half-metallic ferromagnets (HMF) are supposed to ex-         the numerical integration.
+hibit a real gap in the minority density of states and the
+Fermi energy is pinned inside of the gap. From this point         Inspecting the other transition metal based com-
+of view, the Slater-Pauling rule is strictly fulfilled with     pounds, one finds that compounds with magnetic mo-
+                                                                ments above the expected Slater-Pauling value are X=Fe
+                     mHMF = nV − 6                       (1)    based. Those with lower values are either X=Cu or X=Ni
+                                                                based, with the Ni based compounds exhibiting higher
+for the magnetic moment per atom, as the number of              moments compared to the Cu based compounds at the
+occupied minority states n↓ has to be integer. The dis-         same number of valence electrons. Moreover, some of
+tribution of the minority electrons on different bands,         the Cu or Ni based compounds are not ferromagnetic in-
+however, has to be found from electronic structure cal-         dependent of the number of valence electrons. Besides
+culations.                                                      Mn2 VAl, only compounds containing both, Fe and Mn,
+   For ordered compounds with different kind of atoms it        were found to exhibit HMF character with magnetic mo-
+is, indeed, more convenient to work with all atoms of the       ments according to the Slater-Pauling rule. No attempts
+unit cell. In the case of 4 atoms per unit cell, as in full     have been made to perform calculations for compounds
+Heusler (FH) compounds, one has to subtract 24 (6 mul-          that turn out to be chemically uncharacterizable.
+tiplied by the number of atoms) from the accumulated
+number of valence electrons in the unit cell NV (s, d elec-        Inspecting the magnetic data of the known Heusler
+trons for the transition metals and s, p electrons for the      compounds in more detail (see data and references
+main group element) to find the magnetic moment per             in16,17 ), one finds a very interesting aspect. Seemingly,
+unit cell:                                                      a linear dependence is obtained for Co2 based Heusler
+                                                                compounds when plotting the Curie temperature (TC ) of
+                     mF H = NV − 24.                     (2)    the known, 3d metal based Heusler compounds as func-
+                                                                tion of their magnetic moment (see Fig.1b). According to
+   This valence electron rule45 is strictly fulfilled for HMF   this plot, TC is highest for those half-metallic compounds
+only, as was first noted in13 for half Heusler (HH) com-        that exhibit a large magnetic moment, or equivalent for
+pounds with 3 atoms per unit cell (mHH = NV − 18).              those with a high valence electron concentration as de-
+In both cases the magnetic moment per unit cell be-             rived from the Slater-Pauling rule. TC is estimated to be
+comes strictly integer (in multiples of Bohr magnetons)         above 1000K for compounds with 6µB by an extrapola-
+for HMF, what may be seen as an advantage of the                tion from the linear dependence.
+valence electron rule compared to the original Slater-
+Pauling law (Eq.1) even so it suggests the existence of           Co2 FeSi was revisited as a practical test for the findings
+different laws.                                                 above. This compound was previously reported to have a
+   The Slater-Pauling rule relates the magnetic moment          magnetic moment of only 5.18µB per unit cell and a Curie
+with the number of valence electrons per atom10,11 , but        temperature of above 980K 18,19 . One expects, however,
+does not, per se, predict a half-metallic behavior. The         m = 6µB and TC to be above 1000K, from the estimates
+gap in the minority states of Heusler compounds has to          given above.
+                                                                                                                                                                           3
+
+
+                                                                                                                  TABLE I: Magnetic moments of Co2 FeSi calculated for spher-
+                                                 valence electrons per atom                  n   V
+                                                                                                                  ical potentials.
+                                           5        6      7         8          9        10          11
+         )                                                                                                        The calculations were carried out by means of KKR in muf-
+                              B
+                                                                                                                  fin tin (MT) and atomic sphere (ASA) approximations for
+      m(
+                                     2.5
+                                               a)                        Fe                                       a = 5.64˚A. All values are given in µB . Total moments are
+         magnetic moment per atom
+
+
+
+
+                                     2.0
+                                                                                                                  given per unit cell and site resolved values are per atom.
+                                                                                    Co
+                                     1.5
+                                                                                                                  KKR                 MT                        ASA
+                                     1.0
+                                                                                                                              mtot    mCo    mF e       mtot    mCo     mF e
+                                                                                             Ni
+                                     0.5                                                                          MJW         5.03    1.19   2.69       5.17    1.27    2.68
+                                     0.0                                                                     Cu
+                                                                                                                  vBH         4.88    1.15   2.64       5.03    1.22    2.62
+                                                                                                                  VWN         4.99    1.18   2.68       5.15    1.26    2.67
+                                    -0.5
+                                                                                                                  GGA         5.22    1.22   2.85       5.18    1.27    2.69
+                                           5        4      3         2          1        0               -1
+
+                                                 magnetic valence per atom                   n   M
+                                                                                                                  EV          5.19    1.24   2.77       5.15    1.26    2.68
+                                                                                                                  PYVWN       5.03    1.19   2.72       5.67    1.25    3.23
+                                    1400                                            Co
+        (K)
+
+
+
+
+                                               b)
+                                    1200
+                            C
+      T
+
+
+
+
+                                    1000
+                                                                                                 Fe
+                                                                                                                  of disorder on the magnetic structure.
+        Curie temperature
+
+
+
+
+                                    800                                                                              The calculations were started with the most common
+                                    600                   Ni                                                      parameterizations of the exchange-correlation functional
+                                                                                                                  as given by Moruzzi, Janak, and Williams22 (MJW),
+                                    400
+                                                                                                                  von Barth and Hedin23 (vBH), and Vosco, Wilk, and
+                                    200
+                                                                                                                  Nussair24,25 (VWN). The generalized gradient approxi-
+                                      0                                                                           mation (GGA) was used in the form given by Perdew et
+                                           0.0      0.5        1.0        1.5        2.0             2.5          al26 . To include non-local effects, the VWN parametriza-
+                                            magnetic moment per atom                     m    (
+                                                                                                     B
+                                                                                                         )        tion with additions by Perdew et al27,28,29 was used
+                                                                                                                  (PYVWN). The so-called exact exchange is supposed to
+                                                                                                                  give the correct values for the gap in semi-conductors us-
+FIG. 1: Magnetic moments (a) and Curie temperature (b) of                                                         ing local density approximation. Here it was used in the
+Heusler compounds.                                                                                                form given by Engel and Vosko30 (EV).
+The heavy 3d transition metals are given for comparison. Full                                                        The results of the calculations using different approx-
+dots assign Co2 based and open circles assign other Heusler                                                       imations for the potential as well as the parameteriza-
+compounds. The lines in a) assign the Slater-Pauling curve.                                                       tion of the exchange-correlation part are summarized in
+The line in b) is found from a linear fit for Co2 based com-                                                      Tab.I. The calculated total magnetic moments range
+pounds. The cross in b) assigns Co2 FeSi as measured in this
+                                                                                                                  from ≈ 4.9µB to ≈ 5.7µB , thus they are throughout too
+work.
+                                                                                                                  low compared to the experiment. They include, however,
+                                                                                                                  the value of 5.27µB found in Ref.15 by means of the full
+                                                                                                                  potential KKR method.
+                              III.         CALCULATIONAL DETAILS
+                                                                                                                     In the next step, the full potential linear augmented
+                                                                                                                  plane wave (FLAPW) method as provided by Wien2k31
+   As starting point, self consistent first principle calcu-                                                      was used to exclude that the observed deviations are due
+lations were performed using the linearized muffin tin                                                            to the spherical approximation for the potential (MT or
+orbital (LMTO) method20 , as this method is very fast.                                                            ASA) as used in the above methods.
+Using the experimental lattice parameter (aexp =5.64˚     A,                                                         First, the exchange-correlation energy functional be-
+see Sec.V A), the results predicted Co2 FeSi to be a regu-                                                        ing parameterized within the generalized gradient ap-
+lar ferromagnet with a magnetic moment of 5.08µB per                                                              proximation was used. The energy convergence criterion
+formula unit. The latter value is much too small com-                                                             was set to 10−5 . Simultaneously, the charge convergence
+pared to the experimental one of 6µB (see Sec.V B).                                                               was monitored and the calculation was restarted if it was
+   More detailed calculations were performed to check                                                             larger than 10−3 . For k-space integration, a 20 × 20 × 20
+if the too low value is the result of a particular                                                                mesh was used resulting in 256 k-points in the irreducible
+method or the parameterization of the energy functional.                                                          part of the Brillouin zone. In cases of doubt about con-
+The Korringa-Kohn-Rostocker method as provided by                                                                 vergence or quality of the integration, the number of ir-
+H. Akai21 was chosen as this program allows calculations                                                          reducible k-points was doubled.
+in the muffin tin (MT) and the atomic sphere (ASA)                                                                   The calculated magnetic moments for most known
+approximations. Additionally, it provides the coherent                                                            Heusler compounds are summarized in Fig.1 and dis-
+potential approximation (CPA) to be used for disordered                                                           cussed in Sec.II. It turned out, however, that the mag-
+systems. This method was used to estimate the influence                                                           netic moment of Co2 FeSi is still too small compared to
+                                                                                                                               4
+
+
+TABLE II: Magnetic moments of Co2 FeSi calculated for full        TABLE III: Distribution of the valence states in Co2 FeSi.
+symmetry potentials.                                              The number of occupied states was calculated by means of
+The calculations were carried out by means of FLAPW for           FLAPW using LDA+U for a = 5.64˚        A. The muffin tin radii
+a = 5.64˚ A. All values are given in µB . Total moments are       were set for all sites to rM T = 1.22˚
+                                                                                                       A. This results in a space
+given per unit cell and site resolved values are per atom. mint   filling of 67% by the atomic spheres, the remainder is taken
+is the part of the magnetic moment that cannot be attributed      as interstitial (int).
+to a particular site.
+                                                                                          majority                     minority
+                  mtot      mCo      mF e       mSi      mint     Co                       4.887                        3.343
+LDA (VWN)         5.59      1.40     2.87      -0.01     -0.07    Fe                       5.063                        1.766
+LDA (EV)          5.72      1.45     2.94     -0.003     -0.11    Si                       1.247                        1.373
+LDA+U               6       1.54     3.30      -0.13     -0.25    int                      1.915                        2.176
+                                                                  sum Co2 FeSi               18                           12
+
+the experimental value.
+   Comparing the result for Co2 FeSi, the magnetic mo-
+                                                                  relation may play an important rule. The LDA+U
+ments found by the different calculational schemes are
+                                                                  scheme32 was used for calculation of the electronic struc-
+very similar (compare Tabs.I and II), implying that Co
+                                                                  ture to find out whether the inclusion of correlation
+and Fe atoms are aligned parallely independent of the
+                                                                  resolves the discrepancy between the theoretical and
+method used. The small, induced moment at the Si atom
+                                                                  measured magnetic moment. In Wien2k, the effective
+(not given in Tab.I) is aligned anti-parallely to that at the
+                                                                  Coulomb-exchange interaction (Uef f = U − J, where U
+transition metal sites. As for KKR, the use of the EV pa-
+                                                                  and J are the Coulomb and exchange parameter) is used
+rameterization of the energy functional did not improve
+                                                                  to account for double-counting corrections. It turned out
+the magnetic moment, the result was only 5.72µB .
+                                                                  that values of Uef f from 2.5eV to 5.0eV for Co and si-
+   Other than the LMTO or KKR methods (spherical po-              multaneously 2.4eV to 4.8eV for Fe result in a magnetic
+tentials), the FLAPW (full symmetry potential) calcula-           moment of 6µB and a gap in the minority states.
+tions revealed a very small gap in the minority states, but
+                                                                     Figure 4 shows the band structure and density of states
+being located below the Fermi energy. Figure 2 shows
+                                                                  calculated using the LDA+U method. The effective
+the band structure and density of states calculated by
+                                                                  Coulomb-exchange parameter were set to Uef f,Co =4.8eV
+FLAPW for the experimental lattice parameter.
+                                                                  and Uef f,F e =4.5eV at the Co and Fe sites, respectively.
+   The electronic structure shown in Fig.2 reveals a very
+                                                                  These values are comparable to those found in Ref.33 for
+small indirect gap in the minority states at about 2eV
+                                                                  bcc Fe (4.5eV) and fcc Ni (5eV).
+below ǫF . The fact that the Fermi energy cuts the mi-
+                                                                     The minority DOS (Fig.4) exhibits a clear gap around
+nority bands above the gap has finally the result that the
+                                                                  ǫF , confirming the half-metallic character of the material.
+magnetic moment is too low and not integer, as would be
+                                                                  The high density below ǫF is dominated by d-states being
+expected for a half-metallic ferromagnet.
+                                                                  located at Co and Fe sites. Inspecting the majority DOS
+   A structural refinement was performed to check if the
+                                                                  one finds a small density of states near ǫF . This density
+experimental lattice parameter minimizes the total en-
+                                                                  is mainly derived from states located at Co and Si sites.
+ergy. The dependence of the energy with lattice param-
+                                                                     The distribution of the charge density on the atoms
+eter a revealed that the minimum occurs at the experi-
+                                                                  and states with different orbital momentum is given in
+mentally observed lattice parameter aexp . From the lat-
+                                                                  Tab.III (Note that two Co atoms count for the sum of
+tice parameter dependent calculations it showed up that
+                                                                  the charge in the unit cell.).
+the experimentally found magnetic moment appears at
+larger values of a. At the same time the size of the gap             From Tab.III it is found that in average three minority
+increased. Inspecting the band structure, one finds that          states per atom are occupied (2n↓ = 6) as required by the
+the Fermi energy is inside of the gap for lattice param-          Slater-Pauling rule for the range of increasing magnetic
+eters being enlarged by about 7.5% to 12.5%. Figure               moments with an increasing number of valence electrons
+3 shows the dependence of the extremal energies of the            (see Sec.II). It is worthwhile to note that the same is true
+lower (valence) band and the upper (conduction) band of           for the other Heusler compounds shown in Fig.1 exhibit-
+the minority states enveloping the gap.                           ing half-metallic ferromagnetism. However, the electrons
+                                                                  are distributed in a different way across the X, Y, and Z
+   The magnetic moment is integer (6µB ) in the region
+                                                                  sites.
+were ǫF falls into the gap (grey shaded area in Fig.3),
+that is the region of half-metallic ferromagnetism. The
+reason for the integer value is clear: the number of filled
+minority states is integer and thus the magnetic moment,                    IV.    EXPERIMENTAL DETAILS
+too.
+   Usually, Heusler compounds are attributed to exhibit             Co2 FeSi samples were prepared by arc-melting of sto-
+localized moments. In that case, electron-electron cor-           chiometric quantities of the constituents in an argon at-
+                                                                                                                                                              5
+
+
+
+                                                   (a) minority                                      (b)                     (c) majority
+
+                                      6
+
+                                      4
+
+                            ( eV )    2
+
+                                      0
+
+                                      -2
+                                 F
+                        E
+
+
+                                      -4
+                            energy
+
+
+
+
+                                      -6
+
+                                      -8
+
+                                     -10
+
+                                     -12
+
+                                       W         L                         X   W K         10   5     0     5       10   W   L              X   W K
+
+                                                  momentum             k                        density of states                momentum   k
+
+
+FIG. 2: LDA band structure and DOS of Co2 FeSi.
+The calculation was performed by Wien2k using the experimental lattice parameter.
+
+
+               0.6                                                                                   hand using a mortar. It should be noted that pulverizing
+               0.4
+                                                                                                     in a steel ball mill results in strong perturbation of the
+                                                                                                     crystalline structure.
+               0.2
+
+
+                                                                                                       X-ray photo emission (ESCA) was used to verify the
+    E (eV)
+
+
+
+
+                  F
+                                                                                                     composition and to check the cleanliness of the samples.
+                                                                                                     No impurities were detected by means of ESCA after
+      energy
+
+
+
+
+               -0.2
+
+
+
+
+               -0.4
+                                                                                                     removal of the native oxide from the polished surfaces by
+                                                                                                     Ar+ ion bombardment.
+               -0.6
+
+                                                           upper band minimum
+
+                                                           lower band maximum
+                                                                                                        The geometrical structure was investigated by X-ray
+               -0.8
+
+                                                                                                     diffraction (XRD) using excitation by Cu-Kα or Mo-
+               -1.0
+                      -4%     -2%      0    2%    4%     6%     8%    10%      12%   14%
+                                                                                                     Kα radiation. Extended X-ray absorption fine struc-
+                                      change of lattice parameter    a/a
+                                                                       exp
+                                                                                                     ture (EXAFS) measurements were performed at the XAS
+                                                                                                     beamline of LNLS (Campinas, Brazil) for additional
+FIG. 3: Minority gap in Co2 FeSi.                                                                    structural investigation, in particular to explain the site
+Shown are the positions of the extremal energies of the upper                                        specific short range order. Powder samples were investi-
+and lower bands depending on the lattice parameter (aexp =                                           gated in transmission mode using two ion chambers, bulk
+5.64˚A). Energies are given with respect to the Fermi energy.                                        samples were investigated by the total yield technique.
+The grey shaded area marks the domain of HMF character                                                  Magneto-structural investigations were carried out by
+(lines are drawn to guide the eye).
+                                                                                                     means of M¨  oßbauer spectroscopy in transmission ge-
+                                                                                                     ometry using a constant acceleration spectrometer. A
+                                                                                                     57
+                                                                                                        Co(Rh) source with a line width of 0.105mm/s was
+mosphere (10−4 mBar). Care was taken to avoid oxy-                                                   used for excitation.
+gen contamination. This was established by evaporation                                                 The magnetic properties were investigated at low tem-
+of Ti inside of the vacuum chamber before melting the                                                peratures using a super conducting quantum interference
+compound as well as additional purification of the pro-                                              device (SQUID, Quantum Design MPMS-XL-5). The
+cess gas. Afterwards, the polycrystalline ingots were an-                                            high temperature magnetic properties were investigated
+nealed in an evacuated quartz tube at 1300K for 20 days.                                             by means of a vibrating sample magnetometer (Lake
+This procedure resulted in samples exhibiting the correct                                            Shore Cryotronics, Inc., VSM Model 7300) equipped
+Heusler type L21 structure.                                                                          with a high temperature stage. For site specific mag-
+  Flat disks were cut from the ingots and polished for                                               netometry, X-ray Magnetic Circular Dichroism (XMCD)
+spectroscopic investigations at bulk samples. For pow-                                               in photo absorption (XAS) was performed at the First
+der investigations, the remaining part was crushed by                                                Dragon beamline of NSRRC (Hsinchu, Taiwan).
+                                                                                                                               6
+
+
+
+                                 (a) minority                       (b)                         (c) majority
+
+                         6
+
+                         4
+
+               ( eV )    2
+
+                         0
+
+                         -2
+                    F
+             E
+
+
+                         -4
+               energy
+
+
+
+
+                         -6
+
+                         -8
+
+                        -10
+
+                        -12
+
+                          W    L                X   W K   10   5     0     5       10   W   L                  X   W K
+
+                                momentum        k              density of states                momentum       k
+
+
+FIG. 4: LDA+U band structure and DOS of Co2 FeSi.
+The calculation was performed by Wien2k using the experimental lattice parameter.
+
+
+                         V.   RESULTS                               tected by means of EXAFS as the distances in the first
+                                                                    co-ordination shell of Co and Fe are the same as in L21 .
+              A.         Structural Properties                         The radial distribution function χ(R) (FT magnitude)
+                                                                    is produced by forward Fourier transform of the EXAFS
+                                                                    spectra after background subtraction. It is given as func-
+   The correct L21 structure of the Co2 FeSi compound               tion of the effective distance R. Note that R includes not
+was verified by XRD. The lattice constant was deter-                only the interatomic distances kRj but also the scatter-
+mined to be 5.64˚   A. The lattice parameter is obviously           ing phase shifts δj (kRj + δj ). The high intensity of χ(R)
+smaller than the one reported before (compare Ref.34 )              in the first co-ordination shell of Fe points on the cubic
+and a lower degree of disorder is observed in the present           environment consisting of eight Co atoms, as expected for
+work.                                                               a well ordered Heusler compound. The peak of χ(R) for
+   A disorder between Co and Fe atoms (DO3 type disor-              the first co-ordination shell of Co exhibits a clear split-
+der) can be excluded from the Rietveld refinement of the            ting being due to the different scattering phases of Fe
+XRD data, as well as from neutron scattering data (not              and Si, although the distance between these atoms and
+shown here). A small (< 10%) disorder between Fe and                the Co is the same. The Fe induced intensity of χ(R)
+Si atoms (B2 type disorder) can not be excluded by either           is about half of that observed in the Fe K-edge spec-
+of these methods, particularly due to the low intensities           tra. This confirms the tetragonal environment at the Co
+of the (111) and (200) diffraction peaks in XRD.                    sites with respect to Fe sites, as the scattering factors for
+   For further site specific structural information, EXAFS          both types of atoms is nearly the same. Thus, the EX-
+measurements were carried out. A powder sample, as                  AFS measurements corroborate the XRD results even at
+used for XRD, was investigated in transmission mode.                the short range order for both Co and Fe.
+   The absorption spectra collected at the Fe and Co                   For additional magneto-structural investigation,
+K-edges are shown in Fig.5 after removal of a constant              M¨ oßbauer spectroscopy was performed. The measure-
+background. The ATOMS35 program was used to gen-                    ments were carried out at 85K using powder samples.
+erate the structural input for the EXAFS data analysis.             The observed 6-line pattern of the spectrum (see Fig.6) is
+The scattering parameter for all possible scattering paths          typical for a magnetically ordered system. The observed
+                                                                    57
+were calculated using FEFF636 . The analysis of the EX-                Fe M¨oßbauer line width of 0.15mm/s is characteristic
+AFS data was finally performed using the IFEFFIT37,38               for a well-ordered system. The value is comparable to
+program package. The best fitting of the Fourier trans-             0.136mm/s observed from α-Fe at 4.2K.
+form modulus considering the L21 structure are also dis-               In detail, the M¨ oßbauer spectrum shown in Fig.6 ex-
+played in Fig.5. It was not possible to fit the exper-              hibits a sextet with an isomer shift of 0.23mm/s and a
+imental data to a structural model including DO3 type               hyperfine magnetic field of 26.3 × 106A/m. No paramag-
+disorder, as expected. B2 type disorder can hardly be de-           netic line was observed. Further, no quadrupole splitting
+                                                                                                                                                                                                                                           7
+
+
+                                         1.4
+                                                                                                                                                                        6
+
+
+
+
+                                                                                                                                        )
+                                                                                                                                                                 B
+                                                                                                                                                                                   5K
+                                                                                                                            1.0
+
+
+
+
+                                                                                                                                        (
+                                         1.2                                                                                                                                       300K
+
+
+
+
+                                                                                                                                       m
+                                                                                                                                                                        4
+                                                                                                                                                                                   775K
+
+
+
+
+                                                                                                                                        magnetic moment per unit cell
+                                         1.0                                                                                0.8
+                (E)
+
+
+
+                                                                                                                                                                        2
+
+
+                                         0.8
+                                                                                                                            0.6
+                absorption
+
+
+
+
+                                                                                                                                                                        0
+
+                                         0.6
+                                                         Fe K-edge                                    Co K-edge             0.4
+                                                                                                                                                                        -2
+
+                                         0.4
+
+                                                                                                                            0.2                                         -4
+                                         0.2
+
+
+                                                                                                                                                                        -6
+                                         0.0                                                                                0.0
+                                                   7.1     7.2    7.3        7.4         7.7           7.8   7.9   8.0
+                                                                                                                                                                             -3        -2       -1        0                 1      2   3
+                                                                 photon energy                 h       (keV)                                                                                 magnetic field   H   (10
+                                                                                                                                                                                                                        6
+                                                                                                                                                                                                                            A/m)
+
+                                         2.5
+                                                                                                                            1.2
+                                                           Fe-Co
+                                                                                                      Co-Fe
+
+                                                                                             Co-Si
+                                         2.0                                                                                1.0
+                                                                                                                                  FIG. 7: Magnetic properties of Co2 FeSi.
+                          (Å )
+           -3
+
+
+
+
+                                                                                                                            0.8
+                                                                                                                                  The field dependence of the magnetic moments was measured
+                                         1.5                                                                                      by SQUID magnetometry at different temperatures.
+                          FT-magnitude
+
+
+
+
+                                                                                                                            0.6
+                                                                                                                 Co-Co
+                                         1.0
+
+                                                                       Fe-Fe                                                0.4
+                                                                                                                                                                                  B.        Magnetic Properties
+                                         0.5
+                                                                                                                            0.2
+
+
+
+                                         0.0                                                                                0.0      Low temperature magnetometry was performed by
+                                               0     1      2      3     4           0       1          2    3     4
+                                                                                                                                  means of SQUID to proof the estimated saturation mo-
+                                                                 effective distance                    R (Å)                      ment. The results are shown in Fig.7. The measured
+                                                                                                                                  magnetic moment in saturation is (5.97 ± 0.05)µB at 5K
+                                                                                                                                  corresponding to 1.49µB per atom. An extrapolation to
+FIG. 5: EXAFS results for Co2 FeSi.                                                                                               6µB per unit cell at 0K fits perfectly to the one esti-
+The X-ray absorption spectra (with constant background re-                                                                        mated from the Slater-Pauling rule. The measurement
+moved) were taken at the K-edges of Co and Fe. The radial                                                                         of the magnetic moment reveals, as expected for a HMF,
+distribution functions derived from the spectra (symbols) are
+                                                                                                                                  an integer within the experimental uncertainty. Regard-
+compared to the ones calculated (lines) using the best fit data.
+                                                                                                                                  ing the result of the measurement (an integer) and the
+                                                                                                                                  valence electron rule, it all sums up to an evidence for
+                                                                                                                                  half-metallic ferromagnetism in Co2 FeSi. In more detail,
+                                                                                                                                  Co2 FeSi turns out to be soft magnetic with a small rema-
+                                 100%
+
+                                                                                                                                  nence of ≈ 0.3% of the saturation moment and a small
+                                                                                                                                  coercive field of ≈ 750A/m, under the experimental con-
+                                                                                                                                  ditions used here. The magnetic moment for Co2 FeSi was
+       relative transmission
+
+
+
+
+                                                                                                                                  previously reported to be 5.90µB 18 at 10.24K, but with
+                                         99%                                                                                      a rather high degree of disorder (11% B2 and 16% DO3 ).
+                                                                                                                                  The same group reported later34 a smaller magnetic mo-
+                                                                                                                                  ment (≈ 5.6µB interpolated to 0K) at a lattice parameter
+                                                                                                                                  of 5.657˚A, but still with a high degree of disorder.
+                                                                                                                                     The experimental magnetic moment is supported by
+                                         98%
+                                                                                                                                  the band structure calculations, as was shown above, re-
+                                               -12   -10    -8   -6     -4     -2        0        2      4   6     8   10    12
+                                                                                                                                  vealing a HMF character with a magnetic moment of
+                                                                                    v (mms
+                                                                                             -1
+                                                                                                  )
+                                                                                                                                  6µB , if using appropriate parameters in the self consis-
+                                                                                                                                  tent field calculations.
+FIG. 6: M¨oßbauer-spectrum of Co2 FeSi.                                                                                              XMCD in photo absorption was measured to investi-
+The spectrum was excited by 57 Co and measured from a pow-                                                                        gate the site specific magnetic properties. The XAS and
+der sample in transmission geometry at T = 85K.                                                                                   XMCD spectra taken at the L2,3 absorption edges of Fe
+                                                                                                                                  and Co are shown in Fig.8. The feature seen at 3eV be-
+                                                                                                                                  low the L3 absorption edge of Co is related to the L21
+                                                                                                                                  structure and points on the high structural order of the
+was detected in accordance with the cubic symmetry of                                                                             sample (it vanishes for B2 like disorder). The magnetic
+the local Fe environment. A DO3 like disorder can be def-                                                                         moments per atom derived from a sum rule analysis39,40
+initely excluded by comparing measured and calculated                                                                             are (2.6 ± 0.1)µB for Fe and (1.2 ± 0.1)µB for Co, at
+hyperfine fields in ordered and disordered structures.                                                                            T = 300K and µ0 H = 0.4T. The error arises mainly
+                                                                                                                                                                                                                                                 8
+
+
+                                 2.5                                                                                                                   60
+
+
+
+
+         normalized intensity
+                                               (a) Fe                                         (b) Co
+                                 2.0                                                                                                                                                                              800
+
+
+
+
+                                                                                                                              (Am kg )
+                                                                                                                                                       50
+
+                                                                                                                                                                               T)                          T)
+
+
+
+
+                                                                                                                             -1
+                                                                                                                                                                           (                        1/ (
+                                 1.5                 I      = (I   + I ) / 2
+
+
+
+
+                                                                                                                             2
+                                                        0
+
+
+
+                                                                                                                                                       40                                                         600
+                                 1.0
+
+
+
+
+                                                                                                                                                                                                                        inverse susceptibility
+                                                                                                                              specific magnetization
+                                 0.5
+                                                                                                                                                       30
+
+                                                                                                                                                                                                                  400
+
+                                 0.0
+       normalized MCD
+
+
+
+
+                                0.05                                                                                                                   20
+
+
+                                0.00
+                                                                                                                                                                                                                  200
+
+                                                                                                                                                       10
+                                -0.05
+                                                     I        = I    - I
+                                                        MCD
+
+
+                                -0.10
+                                                                                                                                                       0                                                          0
+                                        705   710   715        720         725   775   780   785   790     795   800                                    700    800   900            1000     1100    1200       1300
+
+                                          photon energy       h     (eV)           photon energy       h    (eV)
+                                                                                                                                                                      temperature          T (K)
+
+
+
+FIG. 8: Site resolved magnetic properties of Co2 FeSi.                                                                 FIG. 9: Measurement of the specific magnetization as a func-
+Shown are the XAS (I0 ) and XMCD (IM CD ) spectra taken at                                                             tion of temperature for Co2 FeSi. (Lines are drawn to guide
+the L2,3 absorption edges of Fe (a) and Co (b) after subtract-                                                         the eye.
+ing a constant background.
+
+
+                                                                                                                       Θ ≥ (1150±50)K from the plot of the inverse susceptibil-
+from the unknown number of holes in the 3d shell and                                                                   ity χ−1 as a function of temperature T by interpolating
+the disregard of the magnetic dipole term in the sum                                                                   the curve. The non-linearity in the χ−1 (T ) dependence
+rule analysis. A pronounced enhancement of the orbital                                                                 close to TC indicates deviations from molecular field the-
+magnetic moments (ml ) as in Co2 Cr1−x Fex Al41 or a field                                                             ory. A linear dependence, however, is only expected at
+dependence of ml 42 was not observed for Co2 FeSi.                                                                     temperatures much higher than TC that are not accessi-
+   The orbital moments were calculated using the                                                                       ble here.
+LDA+U scheme with spin-orbit interaction (SO) and                                                                         The highest known Curie temperature is reported for
+by LSDA calculations including the Brooks orbital po-                                                                  elemental Co to be 1388K44. Only few materials exhibit
+larization term (OP)43 . The LDA+U calculations with                                                                   a TC above 1000K, for example the Fe-Co binary alloys.
+SO revealed r = ml /ms values of 0.05 and 0.02 for Co                                                                  With a value of ≈ 1100K, Co2 FeSi has a higher Curie
+and Fe, respectively. These values are about a factor of                                                               temperature than Fe and the highest of all HMF and
+two higher than those found from LSDA + SO calcu-                                                                      Heusler compounds being measured up to now.
+lations without U . The total magnetic moment stayed                                                                      The present work leaves, however, some important
+6µB in this calculation as in LDA+U without SO. The                                                                    questions open. There is still no convincing theory that
+OP calculations revealed slightly higher r values. The                                                                 explains why the dependence of TC on the magnetic mo-
+orbital to spin magnetic moment ratios determined from                                                                 ment should be linear over such a wide range of com-
+the XMCD measurements are about 0.05 for Fe and 0.1                                                                    pounds with different magnetic moments. For some al-
+for Co. All values (ratio of Co and Fe moments, as                                                                     loys a linear dependence is indeed found, but never over
+well as values extrapolated to 0K) are in good agreement                                                               such a wide range of different composition like for the
+to the electronic structure calculations, keeping in mind                                                              Co2 based HMF Heusler compounds. An experimental
+that calculated site resolved values depend always on the                                                              challenge will be to find compounds with magnetic mo-
+RMT-settings for the integration of the charge density                                                                 ments of above 6µB to prove whether it is possible to find
+around a particular atom.                                                                                              even higher Curie temperatures in this class of materials.
+   The high temperature magnetization of Co2 FeSi was                                                                  Co3 Si, which should exhibit 7µB , if following the valence
+measured by means of VSM. The specific magnetization                                                                   electron rule, crystallizes in a hexagonal but not in the
+as function of the temperature is shown in Fig.9. The                                                                  required Heusler structure, unfortunately.
+measurements were performed in a constant induction
+field of µ0 H = 0.1T. For this induction field, the spe-
+cific magnetization at 300K is 37% of the value measured                                                                      VI.                             SUMMARY AND CONCLUSION
+in saturation. The ferromagnetic Curie temperature is
+found to be TC = (1100 ± 20)K. This value fits very well                                                                 In summary, it was shown how simple rules may be
+the linear behavior shown in Fig.1 for Co2 based Heusler                                                               used to estimate the properties of magnetic materials, in
+compounds.                                                                                                             particular for those Heusler compounds exhibiting half-
+   The Curie temperature is well below the melting                                                                     metallic ferromagnetism.
+point being obtained by means of differential scanning                                                                   As practical application of these simple rules, it was
+calorimetry to be Tm = (1520 ± 5)K. The param-                                                                         found that the Heusler compound Co2 FeSi is a half-
+agnetic Curie-Weiss temperature was identified to be                                                                   metallic ferromagnet exhibiting the highest Curie tem-
+                                                                                                                                  9
+
+perature and magnetic moment. In particular, a mag-                 H. Seyler, F. Casper (Mainz), and the staff of NSRRC
+netic moment of 6µB and a Curie temperature of 1100K                (Hsinchu, Taiwan) and NLNS (Campinas, Brazil) for
+were found in L21 ordered samples with a lattice param-             help with the experiments. We acknowledge assistance of
+eter of 5.64˚
+            A.                                                      Lake Shore Cryotronics, Inc. with the high temperature
+   The experimental findings are well supported by elec-            magnetic measurements. Further, we thank G. Frisch
+tronic structure calculations. The comparison between               (Ludwig Alberts - University, Freiburg) for performing
+experiment and calculations gives clear advise that                 Mo-Kα X-Ray diffraction.
+electron-electron correlation plays an important role in
+Heusler compounds.
+
+
+                      Acknowledgments                                 This work is financially supported by DFG (research
+                                                                    project FG 559), DAAD (03/314973 and 03/23562),
+  We thank Y. Hwu (Academia Sinica, Taipei, Tai-                    PROBRAL (167/04), and LNLS (XAFS1-2372, XAFS1-
+wan), M. C. M. Alves (UFRGS, Porto Alegre, Brazil),                 3304).
+
+
+
+                                                                    19
+∗
+     Electronic address: felser@uni-mainz.de                             K. H. J. Buschow, in Handbook of Magnetic Materials,
+1
+     J. M. D. Coey, M. Venkatesan, and M. A. Bari, in Lecture            edited by E. P. Wolfarth and K. H. J. Buschow (North-
+     Notes in Physics, edited by C. Berthier, L. P. Levy, and            Holland, Amsterdam, London, New York, Tokyo, 1988),
+     G. Martinez (Springer-Verlag, Heidelberg, 2002), vol. 595,          vol. 4, p. 493.
+                                                                    20
+     pp. 377 – 396.                                                      O. Jepsen and O. K. Andersen, The Stuttgart TB-LMTO-
+2
+     I. Zutic, J. Fabian, and S. D. Sarma, Rev. Mod. Phys. 76,           ASA Program version 47 (MPI f¨     ur Festk¨
+                                                                                                                    orperforschung,
+     323 (2004).                                                         Stuttgart, Germany, 2000).
+3                                                                   21
+     R. A. d. Groot, F. M. M¨ uller, P. G. v. Engen, and K. H. J.        H. Akai and P. P. Dederichs, J. Phys. C 18, 2455 (1985).
+                                                                    22
+     Buschow, Phys. Rev. Lett. 50, 2024 (1983).                          V. L. Moruzzi, J. F. Janak, and A. R. Williams, Calculated
+4
+     F. Heusler, Verh. Dtsch. Phys. Ges. 12, 219 (1903).                 Properties of Metals (Pergamon Press, New York, 1978).
+5                                                                   23
+     K. H. J. Bushow, P. G. v. Engen, and R. Jongebreur, J.              U. v. Barth and L. Hedin, J. Phys. C: Solid State Phys. 5,
+     Magn. Magn. Mater. 38, 1 (1983).                                    1629 (1972).
+6                                                                   24
+     S. Ishida, S. Fujii, S. Kashiwagi, and S. Asano, J. Phys.           S. H. Vosko, L. Wilk, and M. Nussair, Can. J. Phys 58,
+     Soc. Jap. 64, 2152 (1995).                                          1200 (1980).
+7                                                                   25
+     S. K¨ammerer, A. Thomas, A. H¨    utten, and G. Reiss, Appl.        S. H. Vosko and L. Wilk, Phys. Rev. B 22, 3812 (1980).
+                                                                    26
+     Phys. Lett. 85, 79 (2004).                                          J. P. Perdew, J. A. Chevary, S. H. Vosko, K. A. Jackson,
+8
+     X. Y. Dong, C. Adelmann, J. Q. Xie, C. J. Palmstrom,                M. R. Pederson, D. J. Singh, and C. Fiolhais, Phys. Rev.
+     X. Lou, J. Strand, P. A. Crowell, J.-P. Barnes, and A. K.           B 46, 6671 (1992).
+                                                                    27
+     Petford-Long, Appl. Phys. Lett. 86, 102107 (2005).                  J. P. Perdev, Phys. Rev. B 33, 8822 (1986).
+9                                                                   28
+     J. Pierre, R. V. Skolozdra, J. Tobola, S. Kaprzyk, C. Hord-         J. P. Perdev and W. Yue, Phys. Rev. B 33, 8800 (1986).
+                                                                    29
+     equin, M. A. Kouacou, I. Karla, R. Currat, and E. Lelievre-         P. Mlynarski and D. R. Salahub, Phys. Rev. B 43, 1399
+     Berna, J. All. Comp. 262-263, 101 (1997).                           (1991).
+10                                                                  30
+     L. Pauling, Phys. Rev. 54, 899 (1938).                              E. Engel and S. H. Vosko, Phys. Rev. B 47, 13164 (1993).
+11                                                                  31
+     J. C. Slater, Phys. Rev. 49, 931 (1936).                            P. Blaha, K. Schwarz, G. K. H. Madsen, D. Kvasnicka,
+12
+     A. P. Malozemoff, A. R. Williams, and V. L. Moruzzi,                and J. Luitz, WIEN2k, An Augmented Plane Wave + Local
+     Phys. Rev. B 29, 1620 (1984).                                       Orbitals Program for Calculating Crystal Properties (Karl-
+13
+     J. K¨ubler, Physica 127B, 257 (1984).                               heinz Schwarz, Techn. Universitaet Wien, Wien, Austria,
+14
+     J. K¨ubler, A. R. Williams, and C. B. Sommers, Phys. Rev.           2001).
+                                                                    32
+     B 28, 1745 (1983).                                                  V. I. Anisimov, F. Aryasetiawan, and A. I. Lichtenstein, J.
+15
+     I. Galanakis, P. H. Dederichs, and N. Papanikolaou, Phys.           Phys. Condens. Matter 9, 767 (1997).
+                                                                    33
+     Rev. B 66, 174429 (2002).                                           I. V. Solovyev and M. Imada, Phys. Rev. B 71, 045103
+16
+     P. J. Webster and K. R. A. Ziebeck, in Alloys and Com-              (2005).
+                                                                    34
+     pounds of d-Elements with Main Group Elements. Part                 V. Niculescu, J. I. Budnick, W. A. Hines, K. Rajt,
+     2, edited by H. P. J. Wijn (Springer-Verlag, Heidelberg,            S. Pickart, and S. Skalski, Phys. Rev. B 19, 452 (1979).
+                                                                    35
+     1988), vol. 19C of Landolt-B¨   ornstein - Group III Con-           J. Ravel, J. Synchrotron Rad. 8, 314 (2001).
+                                                                    36
+     densed Matter, pp. 104 – 185.                                       S. I. Zabinsky, J. J. Rehr, A. Ankudinov, R. C. Albers,
+17
+     K. R. A. Ziebeck and K.-U. Neumann, in Alloys and Com-              and M. J. Eller, Phys. Rev. B 52, 2995 (1995).
+                                                                    37
+     pounds of d-Elements with Main Group Elements. Part                 M. Newville, B. Ravel, D. Haskel, J. J. Rehr, E. A. Stern,
+     2, edited by H. P. J. Wijn (Springer-Verlag, Heidelberg,            and Y. Yacoby, Physica B 208-209, 154 (1995).
+                                                                    38
+     2001), vol. 32C of Landolt-B¨   ornstein - Group III Con-           M. Newville, J. Synchrotron Rad. 8, 322 (2001).
+                                                                    39
+     densed Matter, pp. 64 – 314.                                        B. T. Thole, P. Carra, F. Sette, and G. v. d. Laan, Phys.
+18
+     V. Niculescu, T. J. Burch, K. Rai, and J. I. Budnick, J.            Rev. Lett. 68, 1943 (1992).
+                                                                    40
+     Magn. Magn. Mater. 5, 60 (1977).                                    P. Carra, B. T. Thole, M. Altarelli, and X. Wang, Phys.
+                                                                                                                                 10
+
+     Rev. Lett. 70, 694 (1993).                                          Condens. Matter 1, 4005 (1989).
+41                                                                  44
+     H.-J. Elmers, G. H. Fecher, D. Valdaitsev, S. A. Nepi-              D. R. Lid, ed., CRC Handbook of Chemistry and Pysics
+     jko, A. Gloskovskii, G. Jakob, G. Sch¨ onhense, S. Wurmehl,         (CRC Press, Inc, Boca Raton, Florida, 2001), 82nd ed.
+                                                                    45
+     T. Block, C. Felser, et al., Phys. Rev. B 67, 104412 (2003).        This term is used in the following to distinguish the rule
+42
+     H. J. Elmers, S. Wurmehl, G. H. Fecher, G. Jakob,                   derived from the overall number of valence electrons in the
+     C. Felser, and G. Sch¨   onhense, Appl. Phys. A 79, 557             unit cell from the more general Slater Pauling.
+     (2004).
+43
+     O. Eriksson, B. Johansson, and M. S. S. Brooks, J. Phys.:
+

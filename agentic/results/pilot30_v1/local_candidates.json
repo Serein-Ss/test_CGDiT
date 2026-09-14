@@ -1,0 +1,326 @@
+[
+  {
+    "id": "mp-2463",
+    "formula": "LuFe2",
+    "split": "train",
+    "sg": 227,
+    "a": 7.14620199444374,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_LuFe2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.05312789\n_cell_length_b   5.05312789\n_cell_length_c   5.05312789\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   LuFe2\n_chemical_formula_sum   'Lu2 Fe4'\n_cell_volume   91.23592365\n_cell_formula_units_Z   2\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Lu  Lu0  1  0.50000000  0.50000000  0.50000000  1\n  Lu  Lu1  1  0.75000000  0.75000000  0.75000000  1\n  Fe  Fe2  1  0.12500000  0.12500000  0.12500000  1\n  Fe  Fe3  1  0.62500000  0.12500000  0.12500000  1\n  Fe  Fe4  1  0.12500000  0.62500000  0.12500000  1\n  Fe  Fe5  1  0.12500000  0.12500000  0.62500000  1\n"
+  },
+  {
+    "id": "mp-2396",
+    "formula": "HoCo2",
+    "split": "train",
+    "sg": 227,
+    "a": 7.162747996138658,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_HoCo2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.06482768\n_cell_length_b   5.06482768\n_cell_length_c   5.06482768\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   HoCo2\n_chemical_formula_sum   'Ho2 Co4'\n_cell_volume   91.87112296\n_cell_formula_units_Z   2\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Ho  Ho0  1  0.25000000  0.25000000  0.25000000  1\n  Ho  Ho1  1  0.00000000  0.00000000  0.00000000  1\n  Co  Co2  1  0.62500000  0.62500000  0.12500000  1\n  Co  Co3  1  0.62500000  0.12500000  0.62500000  1\n  Co  Co4  1  0.12500000  0.62500000  0.62500000  1\n  Co  Co5  1  0.62500000  0.62500000  0.62500000  1\n"
+  },
+  {
+    "id": "mp-21171",
+    "formula": "MnGaCo2",
+    "split": "train",
+    "sg": 225,
+    "a": 5.725767999574412,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_MnGaCo2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   4.04872938\n_cell_length_b   4.04872938\n_cell_length_c   4.04872938\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   MnGaCo2\n_chemical_formula_sum   'Mn1 Ga1 Co2'\n_cell_volume   46.92899457\n_cell_formula_units_Z   1\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Mn  Mn0  1  0.00000000  0.00000000  0.00000000  1\n  Ga  Ga1  1  0.50000000  0.50000000  0.50000000  1\n  Co  Co2  1  0.25000000  0.25000000  0.25000000  1\n  Co  Co3  1  0.75000000  0.75000000  0.75000000  1\n"
+  },
+  {
+    "id": "mp-1757",
+    "formula": "DyFe2",
+    "split": "train",
+    "sg": 227,
+    "a": 7.264440006331713,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_DyFe2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.13673479\n_cell_length_b   5.13673479\n_cell_length_c   5.13673479\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   DyFe2\n_chemical_formula_sum   'Dy2 Fe4'\n_cell_volume   95.83991767\n_cell_formula_units_Z   2\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Dy  Dy0  1  0.00000000  0.00000000  0.00000000  1\n  Dy  Dy1  1  0.25000000  0.25000000  0.25000000  1\n  Fe  Fe2  1  0.62500000  0.62500000  0.62500000  1\n  Fe  Fe3  1  0.12500000  0.62500000  0.62500000  1\n  Fe  Fe4  1  0.62500000  0.12500000  0.62500000  1\n  Fe  Fe5  1  0.62500000  0.62500000  0.12500000  1\n"
+  },
+  {
+    "id": "mp-474",
+    "formula": "ErFe2",
+    "split": "train",
+    "sg": 227,
+    "a": 7.216928002637412,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_ErFe2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.10313873\n_cell_length_b   5.10313873\n_cell_length_c   5.10313873\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   ErFe2\n_chemical_formula_sum   'Er2 Fe4'\n_cell_volume   93.97170926\n_cell_formula_units_Z   2\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Er  Er0  1  0.50000000  0.50000000  0.50000000  1\n  Er  Er1  1  0.75000000  0.75000000  0.75000000  1\n  Fe  Fe2  1  0.62500000  0.12500000  0.12500000  1\n  Fe  Fe3  1  0.12500000  0.12500000  0.62500000  1\n  Fe  Fe4  1  0.12500000  0.62500000  0.12500000  1\n  Fe  Fe5  1  0.12500000  0.12500000  0.12500000  1\n"
+  },
+  {
+    "id": "mp-756",
+    "formula": "TbAl2",
+    "split": "train",
+    "sg": 227,
+    "a": 7.891146002923037,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_TbAl2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.57988285\n_cell_length_b   5.57988285\n_cell_length_c   5.57988285\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   TbAl2\n_chemical_formula_sum   'Tb2 Al4'\n_cell_volume   122.84578070\n_cell_formula_units_Z   2\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Tb  Tb0  1  0.50000000  0.50000000  0.50000000  1\n  Tb  Tb1  1  0.75000000  0.75000000  0.75000000  1\n  Al  Al2  1  0.12500000  0.12500000  0.12500000  1\n  Al  Al3  1  0.62500000  0.12500000  0.12500000  1\n  Al  Al4  1  0.12500000  0.62500000  0.12500000  1\n  Al  Al5  1  0.12500000  0.12500000  0.62500000  1\n"
+  },
+  {
+    "id": "mp-3657",
+    "formula": "TiCo2Si",
+    "split": "train",
+    "sg": 225,
+    "a": 5.752595998548156,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_TiCo2Si\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   4.06769964\n_cell_length_b   4.06769964\n_cell_length_c   4.06769964\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   TiCo2Si\n_chemical_formula_sum   'Ti1 Co2 Si1'\n_cell_volume   47.59174550\n_cell_formula_units_Z   1\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Ti  Ti0  1  0.50000000  0.50000000  0.50000000  1\n  Co  Co1  1  0.25000000  0.25000000  0.25000000  1\n  Co  Co2  1  0.75000000  0.75000000  0.75000000  1\n  Si  Si3  1  0.00000000  0.00000000  0.00000000  1\n"
+  },
+  {
+    "id": "mp-421",
+    "formula": "DyNi2",
+    "split": "train",
+    "sg": 227,
+    "a": 7.170461993720249,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_DyNi2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.07028230\n_cell_length_b   5.07028230\n_cell_length_c   5.07028230\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   DyNi2\n_chemical_formula_sum   'Dy2 Ni4'\n_cell_volume   92.16826758\n_cell_formula_units_Z   2\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Dy  Dy0  1  0.25000000  0.25000000  0.25000000  1\n  Dy  Dy1  1  0.00000000  0.00000000  0.00000000  1\n  Ni  Ni2  1  0.62500000  0.62500000  0.12500000  1\n  Ni  Ni3  1  0.62500000  0.12500000  0.62500000  1\n  Ni  Ni4  1  0.12500000  0.62500000  0.62500000  1\n  Ni  Ni5  1  0.62500000  0.62500000  0.62500000  1\n"
+  },
+  {
+    "id": "mp-21467",
+    "formula": "TiCo2Sn",
+    "split": "train",
+    "sg": 225,
+    "a": 6.087405996555433,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_TiCo2Sn\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   4.30444606\n_cell_length_b   4.30444606\n_cell_length_c   4.30444606\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   TiCo2Sn\n_chemical_formula_sum   'Ti1 Co2 Sn1'\n_cell_volume   56.39450808\n_cell_formula_units_Z   1\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Ti  Ti0  1  0.50000000  0.50000000  0.50000000  1\n  Co  Co1  1  0.75000000  0.75000000  0.75000000  1\n  Co  Co2  1  0.25000000  0.25000000  0.25000000  1\n  Sn  Sn3  1  0.00000000  0.00000000  0.00000000  1\n"
+  },
+  {
+    "id": "mp-803",
+    "formula": "DyAl2",
+    "split": "train",
+    "sg": 227,
+    "a": 7.866026006237115,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_DyAl2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.56212033\n_cell_length_b   5.56212033\n_cell_length_c   5.56212033\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   DyAl2\n_chemical_formula_sum   'Dy2 Al4'\n_cell_volume   121.67634102\n_cell_formula_units_Z   2\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Dy  Dy0  1  0.00000000  0.00000000  0.00000000  1\n  Dy  Dy1  1  0.25000000  0.25000000  0.25000000  1\n  Al  Al2  1  0.62500000  0.62500000  0.62500000  1\n  Al  Al3  1  0.12500000  0.62500000  0.62500000  1\n  Al  Al4  1  0.62500000  0.12500000  0.62500000  1\n  Al  Al5  1  0.62500000  0.62500000  0.12500000  1\n"
+  },
+  {
+    "id": "mp-2358",
+    "formula": "SmAl2",
+    "split": "train",
+    "sg": 227,
+    "a": 7.978115993363247,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_SmAl2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.64137992\n_cell_length_b   5.64137992\n_cell_length_c   5.64137992\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   SmAl2\n_chemical_formula_sum   'Sm2 Al4'\n_cell_volume   126.95243884\n_cell_formula_units_Z   2\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Sm  Sm0  1  0.75000000  0.75000000  0.75000000  1\n  Sm  Sm1  1  0.50000000  0.50000000  0.50000000  1\n  Al  Al2  1  0.12500000  0.62500000  0.12500000  1\n  Al  Al3  1  0.12500000  0.12500000  0.62500000  1\n  Al  Al4  1  0.62500000  0.12500000  0.12500000  1\n  Al  Al5  1  0.12500000  0.12500000  0.12500000  1\n"
+  },
+  {
+    "id": "mp-4612",
+    "formula": "TiCo2Ge",
+    "split": "train",
+    "sg": 225,
+    "a": 5.845566002158765,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_TiCo2Ge\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   4.13343936\n_cell_length_b   4.13343936\n_cell_length_c   4.13343936\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   TiCo2Ge\n_chemical_formula_sum   'Ti1 Co2 Ge1'\n_cell_volume   49.93668556\n_cell_formula_units_Z   1\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Ti  Ti0  1  0.50000000  0.50000000  0.50000000  1\n  Co  Co1  1  0.75000000  0.75000000  0.75000000  1\n  Co  Co2  1  0.25000000  0.25000000  0.25000000  1\n  Ge  Ge3  1  0.00000000  0.00000000  0.00000000  1\n"
+  },
+  {
+    "id": "mp-1102099",
+    "formula": "HoFe2",
+    "split": "train",
+    "sg": 194,
+    "a": 5.155224165,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_HoFe2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.15291500\n_cell_length_b   5.15753333\n_cell_length_c   8.30362400\n_cell_angle_alpha   90.00000000\n_cell_angle_beta   90.00000000\n_cell_angle_gamma   119.97038946\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   HoFe2\n_chemical_formula_sum   'Ho4 Fe8'\n_cell_volume   191.17136216\n_cell_formula_units_Z   4\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Ho  Ho0  1  0.33368500  0.66737000  0.43809100  1\n  Ho  Ho1  1  0.66631500  0.33263000  0.56190900  1\n  Ho  Ho2  1  0.66631500  0.33263000  0.93809100  1\n  Ho  Ho3  1  0.33368500  0.66737000  0.06190900  1\n  Fe  Fe4  1  0.00000000  0.00000000  0.50000000  1\n  Fe  Fe5  1  0.00000000  0.00000000  0.00000000  1\n  Fe  Fe6  1  0.83409300  0.16551200  0.25000000  1\n  Fe  Fe7  1  0.83439400  0.66878900  0.25000000  1\n  Fe  Fe8  1  0.33141900  0.16551200  0.25000000  1\n  Fe  Fe9  1  0.16590700  0.83448800  0.75000000  1\n  Fe  Fe10  1  0.16560600  0.33121100  0.75000000  1\n  Fe  Fe11  1  0.66858100  0.83448800  0.75000000  1\n"
+  },
+  {
+    "id": "mp-21394",
+    "formula": "EuO",
+    "split": "train",
+    "sg": 225,
+    "a": 5.08313399847279,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_EuO\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   3.59431852\n_cell_length_b   3.59431852\n_cell_length_c   3.59431852\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   EuO\n_chemical_formula_sum   'Eu1 O1'\n_cell_volume   32.83482337\n_cell_formula_units_Z   1\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Eu  Eu0  1  0.00000000  0.00000000  0.00000000  1\n  O  O1  1  0.50000000  0.50000000  0.50000000  1\n"
+  },
+  {
+    "id": "mp-1102680",
+    "formula": "ErFe2",
+    "split": "train",
+    "sg": 194,
+    "a": 5.1303256799999994,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_ErFe2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.13032568\n_cell_length_b   5.13032568\n_cell_length_c   8.30292400\n_cell_angle_alpha   90.00000000\n_cell_angle_beta   90.00000000\n_cell_angle_gamma   120.03617805\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   ErFe2\n_chemical_formula_sum   'Er4 Fe8'\n_cell_volume   189.18779948\n_cell_formula_units_Z   4\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Er  Er0  1  0.66668000  0.33332000  0.56214100  1\n  Er  Er1  1  0.33332000  0.66668000  0.43785900  1\n  Er  Er2  1  0.33332000  0.66668000  0.06214100  1\n  Er  Er3  1  0.66668000  0.33332000  0.93785900  1\n  Fe  Fe4  1  0.00000000  0.00000000  0.50000000  1\n  Fe  Fe5  1  0.00000000  0.00000000  0.00000000  1\n  Fe  Fe6  1  0.16565200  0.33113000  0.75000000  1\n  Fe  Fe7  1  0.16560300  0.83439700  0.75000000  1\n  Fe  Fe8  1  0.66887000  0.83434800  0.75000000  1\n  Fe  Fe9  1  0.83434800  0.66887000  0.25000000  1\n  Fe  Fe10  1  0.83439700  0.16560300  0.25000000  1\n  Fe  Fe11  1  0.33113000  0.16565200  0.25000000  1\n"
+  },
+  {
+    "id": "mp-20089",
+    "formula": "GdFe2",
+    "split": "train",
+    "sg": 227,
+    "a": 7.32192600573309,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_GdFe2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.17738353\n_cell_length_b   5.17738353\n_cell_length_c   5.17738353\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   GdFe2\n_chemical_formula_sum   'Gd2 Fe4'\n_cell_volume   98.13321214\n_cell_formula_units_Z   2\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Gd  Gd0  1  0.00000000  0.00000000  0.00000000  1\n  Gd  Gd1  1  0.25000000  0.25000000  0.25000000  1\n  Fe  Fe2  1  0.62500000  0.62500000  0.62500000  1\n  Fe  Fe3  1  0.12500000  0.62500000  0.62500000  1\n  Fe  Fe4  1  0.62500000  0.12500000  0.62500000  1\n  Fe  Fe5  1  0.62500000  0.62500000  0.12500000  1\n"
+  },
+  {
+    "id": "mp-2628",
+    "formula": "DyCo2",
+    "split": "train",
+    "sg": 227,
+    "a": 7.1668740066332886,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_DyCo2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.06774521\n_cell_length_b   5.06774521\n_cell_length_c   5.06774521\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   DyCo2\n_chemical_formula_sum   'Dy2 Co4'\n_cell_volume   92.02997762\n_cell_formula_units_Z   2\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Dy  Dy0  1  0.25000000  0.25000000  0.25000000  1\n  Dy  Dy1  1  0.00000000  0.00000000  0.00000000  1\n  Co  Co2  1  0.62500000  0.62500000  0.12500000  1\n  Co  Co3  1  0.62500000  0.12500000  0.62500000  1\n  Co  Co4  1  0.12500000  0.62500000  0.62500000  1\n  Co  Co5  1  0.62500000  0.62500000  0.62500000  1\n"
+  },
+  {
+    "id": "mp-1570",
+    "formula": "YFe2",
+    "split": "train",
+    "sg": 227,
+    "a": 7.291862003285924,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_YFe2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.15612507\n_cell_length_b   5.15612507\n_cell_length_c   5.15612507\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   YFe2\n_chemical_formula_sum   'Y2 Fe4'\n_cell_volume   96.92935694\n_cell_formula_units_Z   2\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Y  Y0  1  0.25000000  0.25000000  0.25000000  1\n  Y  Y1  1  0.00000000  0.00000000  0.00000000  1\n  Fe  Fe2  1  0.62500000  0.62500000  0.12500000  1\n  Fe  Fe3  1  0.62500000  0.12500000  0.62500000  1\n  Fe  Fe4  1  0.12500000  0.62500000  0.62500000  1\n  Fe  Fe5  1  0.62500000  0.62500000  0.62500000  1\n"
+  },
+  {
+    "id": "mp-589",
+    "formula": "TbFe2",
+    "split": "train",
+    "sg": 227,
+    "a": 7.300451993032321,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_TbFe2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.16219911\n_cell_length_b   5.16219911\n_cell_length_c   5.16219911\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   TbFe2\n_chemical_formula_sum   'Tb2 Fe4'\n_cell_volume   97.27231643\n_cell_formula_units_Z   2\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Tb  Tb0  1  0.00000000  0.00000000  0.00000000  1\n  Tb  Tb1  1  0.25000000  0.25000000  0.25000000  1\n  Fe  Fe2  1  0.12500000  0.62500000  0.62500000  1\n  Fe  Fe3  1  0.62500000  0.62500000  0.12500000  1\n  Fe  Fe4  1  0.62500000  0.12500000  0.62500000  1\n  Fe  Fe5  1  0.62500000  0.62500000  0.62500000  1\n"
+  },
+  {
+    "id": "mp-2265",
+    "formula": "TbCo2",
+    "split": "train",
+    "sg": 227,
+    "a": 7.185756006290533,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_TbCo2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.08109680\n_cell_length_b   5.08109680\n_cell_length_c   5.08109680\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   TbCo2\n_chemical_formula_sum   'Tb2 Co4'\n_cell_volume   92.75928817\n_cell_formula_units_Z   2\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Tb  Tb0  1  0.25000000  0.25000000  0.25000000  1\n  Tb  Tb1  1  0.00000000  0.00000000  0.00000000  1\n  Co  Co2  1  0.62500000  0.62500000  0.12500000  1\n  Co  Co3  1  0.62500000  0.12500000  0.62500000  1\n  Co  Co4  1  0.12500000  0.62500000  0.62500000  1\n  Co  Co5  1  0.62500000  0.62500000  0.62500000  1\n"
+  },
+  {
+    "id": "mp-5436",
+    "formula": "FeCo2Si",
+    "split": "train",
+    "sg": 225,
+    "a": 5.624256004625711,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_FeCo2Si\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   3.97694956\n_cell_length_b   3.97694956\n_cell_length_c   3.97694956\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   FeCo2Si\n_chemical_formula_sum   'Fe1 Co2 Si1'\n_cell_volume   44.47697577\n_cell_formula_units_Z   1\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Fe  Fe0  1  0.00000000  0.00000000  0.00000000  1\n  Co  Co1  1  0.75000000  0.75000000  0.75000000  1\n  Co  Co2  1  0.25000000  0.25000000  0.25000000  1\n  Si  Si3  1  0.50000000  0.50000000  0.50000000  1\n"
+  },
+  {
+    "id": "mp-276",
+    "formula": "TbNi2",
+    "split": "train",
+    "sg": 227,
+    "a": 7.168332004247552,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_TbNi2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.06877617\n_cell_length_b   5.06877617\n_cell_length_c   5.06877617\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   TbNi2\n_chemical_formula_sum   'Tb2 Ni4'\n_cell_volume   92.08615568\n_cell_formula_units_Z   2\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Tb  Tb0  1  0.25000000  0.25000000  0.25000000  1\n  Tb  Tb1  1  0.00000000  0.00000000  0.00000000  1\n  Ni  Ni2  1  0.62500000  0.62500000  0.12500000  1\n  Ni  Ni3  1  0.62500000  0.12500000  0.62500000  1\n  Ni  Ni4  1  0.12500000  0.62500000  0.62500000  1\n  Ni  Ni5  1  0.62500000  0.62500000  0.62500000  1\n"
+  },
+  {
+    "id": "mp-1102431",
+    "formula": "TbFe2",
+    "split": "train",
+    "sg": 194,
+    "a": 5.194444985,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_TbFe2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.19444500\n_cell_length_b   5.19444497\n_cell_length_c   8.40955800\n_cell_angle_alpha   90.00000000\n_cell_angle_beta   90.00000000\n_cell_angle_gamma   120.00000659\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   TbFe2\n_chemical_formula_sum   'Tb4 Fe8'\n_cell_volume   196.50883214\n_cell_formula_units_Z   4\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Tb  Tb0  1  0.33333300  0.66666700  0.43686800  1\n  Tb  Tb1  1  0.66666700  0.33333300  0.56313200  1\n  Tb  Tb2  1  0.66666700  0.33333300  0.93686800  1\n  Tb  Tb3  1  0.33333300  0.66666700  0.06313200  1\n  Fe  Fe4  1  0.00000000  0.00000000  0.50000000  1\n  Fe  Fe5  1  0.00000000  0.00000000  0.00000000  1\n  Fe  Fe6  1  0.83525400  0.16474600  0.25000000  1\n  Fe  Fe7  1  0.83525400  0.67050800  0.25000000  1\n  Fe  Fe8  1  0.32949200  0.16474600  0.25000000  1\n  Fe  Fe9  1  0.16474600  0.83525400  0.75000000  1\n  Fe  Fe10  1  0.16474600  0.32949200  0.75000000  1\n  Fe  Fe11  1  0.67050800  0.83525400  0.75000000  1\n"
+  },
+  {
+    "id": "mp-1926",
+    "formula": "HoFe2",
+    "split": "train",
+    "sg": 227,
+    "a": 7.237752000358508,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_HoFe2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.11786352\n_cell_length_b   5.11786352\n_cell_length_c   5.11786352\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   HoFe2\n_chemical_formula_sum   'Ho2 Fe4'\n_cell_volume   94.78750736\n_cell_formula_units_Z   2\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Ho  Ho0  1  0.75000000  0.75000000  0.75000000  1\n  Ho  Ho1  1  0.50000000  0.50000000  0.50000000  1\n  Fe  Fe2  1  0.12500000  0.62500000  0.12500000  1\n  Fe  Fe3  1  0.12500000  0.12500000  0.62500000  1\n  Fe  Fe4  1  0.62500000  0.12500000  0.12500000  1\n  Fe  Fe5  1  0.12500000  0.12500000  0.12500000  1\n"
+  },
+  {
+    "id": "mp-1939",
+    "formula": "ErNi2",
+    "split": "train",
+    "sg": 227,
+    "a": 7.113842002135926,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_ErNi2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.03024592\n_cell_length_b   5.03024592\n_cell_length_c   5.03024592\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   ErNi2\n_chemical_formula_sum   'Er2 Ni4'\n_cell_volume   90.00210235\n_cell_formula_units_Z   2\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Er  Er0  1  0.25000000  0.25000000  0.25000000  1\n  Er  Er1  1  0.00000000  0.00000000  0.00000000  1\n  Ni  Ni2  1  0.62500000  0.62500000  0.12500000  1\n  Ni  Ni3  1  0.62500000  0.12500000  0.62500000  1\n  Ni  Ni4  1  0.12500000  0.62500000  0.62500000  1\n  Ni  Ni5  1  0.62500000  0.62500000  0.62500000  1\n"
+  },
+  {
+    "id": "mp-537",
+    "formula": "ErCo2",
+    "split": "val",
+    "sg": 227,
+    "a": 7.1231220008215415,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_ErCo2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.03680787\n_cell_length_b   5.03680787\n_cell_length_c   5.03680787\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   ErCo2\n_chemical_formula_sum   'Er2 Co4'\n_cell_volume   90.35478499\n_cell_formula_units_Z   2\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Er  Er0  1  0.25000000  0.25000000  0.25000000  1\n  Er  Er1  1  0.00000000  0.00000000  0.00000000  1\n  Co  Co2  1  0.62500000  0.62500000  0.12500000  1\n  Co  Co3  1  0.62500000  0.12500000  0.62500000  1\n  Co  Co4  1  0.12500000  0.62500000  0.62500000  1\n  Co  Co5  1  0.62500000  0.62500000  0.62500000  1\n"
+  },
+  {
+    "id": "mp-19923",
+    "formula": "GdAl2",
+    "split": "val",
+    "sg": 227,
+    "a": 7.914182000361312,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_GdAl2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.59617176\n_cell_length_b   5.59617176\n_cell_length_c   5.59617176\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   GdAl2\n_chemical_formula_sum   'Gd2 Al4'\n_cell_volume   123.92476637\n_cell_formula_units_Z   2\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Gd  Gd0  1  0.00000000  0.00000000  0.00000000  1\n  Gd  Gd1  1  0.25000000  0.25000000  0.25000000  1\n  Al  Al2  1  0.62500000  0.62500000  0.62500000  1\n  Al  Al3  1  0.12500000  0.62500000  0.62500000  1\n  Al  Al4  1  0.62500000  0.12500000  0.62500000  1\n  Al  Al5  1  0.62500000  0.62500000  0.12500000  1\n"
+  },
+  {
+    "id": "mp-1101907",
+    "formula": "LuFe2",
+    "split": "val",
+    "sg": 194,
+    "a": 5.064000029999999,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_LuFe2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.06400003\n_cell_length_b   5.06400003\n_cell_length_c   8.24055300\n_cell_angle_alpha   90.00000000\n_cell_angle_beta   90.00000000\n_cell_angle_gamma   119.98829415\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   LuFe2\n_chemical_formula_sum   'Lu4 Fe8'\n_cell_volume   183.03140096\n_cell_formula_units_Z   4\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Lu  Lu0  1  0.66669800  0.33330200  0.56228500  1\n  Lu  Lu1  1  0.33330200  0.66669800  0.43771500  1\n  Lu  Lu2  1  0.33330200  0.66669800  0.06228500  1\n  Lu  Lu3  1  0.66669800  0.33330200  0.93771500  1\n  Fe  Fe4  1  0.00000000  0.00000000  0.50000000  1\n  Fe  Fe5  1  0.00000000  0.00000000  0.00000000  1\n  Fe  Fe6  1  0.16691400  0.33380100  0.75000000  1\n  Fe  Fe7  1  0.16689300  0.83310700  0.75000000  1\n  Fe  Fe8  1  0.66619900  0.83308600  0.75000000  1\n  Fe  Fe9  1  0.83308600  0.66619900  0.25000000  1\n  Fe  Fe10  1  0.83310700  0.16689300  0.25000000  1\n  Fe  Fe11  1  0.33380100  0.16691400  0.25000000  1\n"
+  },
+  {
+    "id": "mp-673",
+    "formula": "HoNi2",
+    "split": "val",
+    "sg": 227,
+    "a": 7.130257995178056,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_HoNi2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.04185378\n_cell_length_b   5.04185378\n_cell_length_c   5.04185378\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   HoNi2\n_chemical_formula_sum   'Ho2 Ni4'\n_cell_volume   90.62661155\n_cell_formula_units_Z   2\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Ho  Ho0  1  0.75000000  0.75000000  0.75000000  1\n  Ho  Ho1  1  0.50000000  0.50000000  0.50000000  1\n  Ni  Ni2  1  0.12500000  0.12500000  0.62500000  1\n  Ni  Ni3  1  0.12500000  0.62500000  0.12500000  1\n  Ni  Ni4  1  0.12500000  0.12500000  0.12500000  1\n  Ni  Ni5  1  0.62500000  0.12500000  0.12500000  1\n"
+  },
+  {
+    "id": "mp-391",
+    "formula": "HoAl2",
+    "split": "val",
+    "sg": 227,
+    "a": 7.843429998922365,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_HoAl2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.54614254\n_cell_length_b   5.54614254\n_cell_length_c   5.54614254\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   HoAl2\n_chemical_formula_sum   'Ho2 Al4'\n_cell_volume   120.63076544\n_cell_formula_units_Z   2\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Ho  Ho0  1  0.25000000  0.25000000  0.25000000  1\n  Ho  Ho1  1  0.00000000  0.00000000  0.00000000  1\n  Al  Al2  1  0.62500000  0.12500000  0.62500000  1\n  Al  Al3  1  0.62500000  0.62500000  0.12500000  1\n  Al  Al4  1  0.12500000  0.62500000  0.62500000  1\n  Al  Al5  1  0.62500000  0.62500000  0.62500000  1\n"
+  },
+  {
+    "id": "mp-1189",
+    "formula": "PrAl2",
+    "split": "val",
+    "sg": 227,
+    "a": 8.090274004161726,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_PrAl2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.72068761\n_cell_length_b   5.72068761\n_cell_length_c   5.72068761\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   PrAl2\n_chemical_formula_sum   'Pr2 Al4'\n_cell_volume   132.38223229\n_cell_formula_units_Z   2\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Pr  Pr0  1  0.75000000  0.75000000  0.75000000  1\n  Pr  Pr1  1  0.50000000  0.50000000  0.50000000  1\n  Al  Al2  1  0.12500000  0.12500000  0.62500000  1\n  Al  Al3  1  0.12500000  0.62500000  0.12500000  1\n  Al  Al4  1  0.12500000  0.12500000  0.12500000  1\n  Al  Al5  1  0.62500000  0.12500000  0.12500000  1\n"
+  },
+  {
+    "id": "mp-1208",
+    "formula": "ErAl2",
+    "split": "val",
+    "sg": 227,
+    "a": 7.821956000363731,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_ErAl2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.53095813\n_cell_length_b   5.53095813\n_cell_length_c   5.53095813\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   ErAl2\n_chemical_formula_sum   'Er2 Al4'\n_cell_volume   119.64267501\n_cell_formula_units_Z   2\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Er  Er0  1  0.50000000  0.50000000  0.50000000  1\n  Er  Er1  1  0.75000000  0.75000000  0.75000000  1\n  Al  Al2  1  0.12500000  0.12500000  0.12500000  1\n  Al  Al3  1  0.62500000  0.12500000  0.12500000  1\n  Al  Al4  1  0.12500000  0.62500000  0.12500000  1\n  Al  Al5  1  0.12500000  0.12500000  0.62500000  1\n"
+  },
+  {
+    "id": "mp-400",
+    "formula": "NdAl2",
+    "split": "test",
+    "sg": 227,
+    "a": 8.04408000508115,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_NdAl2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.68802352\n_cell_length_b   5.68802352\n_cell_length_c   5.68802352\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   NdAl2\n_chemical_formula_sum   'Nd2 Al4'\n_cell_volume   130.12751969\n_cell_formula_units_Z   2\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Nd  Nd0  1  0.00000000  0.00000000  0.00000000  1\n  Nd  Nd1  1  0.25000000  0.25000000  0.25000000  1\n  Al  Al2  1  0.62500000  0.62500000  0.62500000  1\n  Al  Al3  1  0.12500000  0.62500000  0.62500000  1\n  Al  Al4  1  0.62500000  0.12500000  0.62500000  1\n  Al  Al5  1  0.62500000  0.62500000  0.12500000  1\n"
+  },
+  {
+    "id": "mp-20587",
+    "formula": "EuS",
+    "split": "test",
+    "sg": 225,
+    "a": 5.84484599774989,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_EuS\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   4.13293024\n_cell_length_b   4.13293024\n_cell_length_c   4.13293024\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   EuS\n_chemical_formula_sum   'Eu1 S1'\n_cell_volume   49.91823569\n_cell_formula_units_Z   1\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Eu  Eu0  1  0.00000000  0.00000000  0.00000000  1\n  S  S1  1  0.50000000  0.50000000  0.50000000  1\n"
+  },
+  {
+    "id": "mp-543019",
+    "formula": "GdNi2",
+    "split": "test",
+    "sg": 227,
+    "a": 7.199712003125185,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_GdNi2\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   5.09096518\n_cell_length_b   5.09096518\n_cell_length_c   5.09096518\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   GdNi2\n_chemical_formula_sum   'Gd2 Ni4'\n_cell_volume   93.30080301\n_cell_formula_units_Z   2\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Gd  Gd0  1  0.75000000  0.75000000  0.75000000  1\n  Gd  Gd1  1  0.50000000  0.50000000  0.50000000  1\n  Ni  Ni2  1  0.12500000  0.62500000  0.12500000  1\n  Ni  Ni3  1  0.12500000  0.12500000  0.62500000  1\n  Ni  Ni4  1  0.62500000  0.12500000  0.12500000  1\n  Ni  Ni5  1  0.12500000  0.12500000  0.12500000  1\n"
+  },
+  {
+    "id": "mp-4492",
+    "formula": "MnCo2Si",
+    "split": "test",
+    "sg": 225,
+    "a": 5.629444004652872,
+    "band_gap": 0.0,
+    "cif": "# generated using pymatgen\ndata_MnCo2Si\n_symmetry_space_group_name_H-M   'P 1'\n_cell_length_a   3.98061803\n_cell_length_b   3.98061803\n_cell_length_c   3.98061803\n_cell_angle_alpha   60.00000000\n_cell_angle_beta   60.00000000\n_cell_angle_gamma   60.00000000\n_symmetry_Int_Tables_number   1\n_chemical_formula_structural   MnCo2Si\n_chemical_formula_sum   'Mn1 Co2 Si1'\n_cell_volume   44.60017045\n_cell_formula_units_Z   1\nloop_\n _symmetry_equiv_pos_site_id\n _symmetry_equiv_pos_as_xyz\n  1  'x, y, z'\nloop_\n _atom_site_type_symbol\n _atom_site_label\n _atom_site_symmetry_multiplicity\n _atom_site_fract_x\n _atom_site_fract_y\n _atom_site_fract_z\n _atom_site_occupancy\n  Mn  Mn0  1  0.00000000  0.00000000  0.00000000  1\n  Co  Co1  1  0.25000000  0.25000000  0.25000000  1\n  Co  Co2  1  0.75000000  0.75000000  0.75000000  1\n  Si  Si3  1  0.50000000  0.50000000  0.50000000  1\n"
+  }
+]

@@ -1,0 +1,14 @@
+material_id,reason,source_natoms,primitive_natoms
+0.244_Li2Co(SO4)2,primitive_natoms_exceeds_limit,104,104.0
+0.175_Ca2CoSi2O7,primitive_natoms_exceeds_limit,216,216.0
+0.182_KCrF4,primitive_natoms_exceeds_limit,144,144.0
+0.243_Li2Fe(SO4)2,primitive_natoms_exceeds_limit,104,104.0
+0.530_SrCuTe2O6,primitive_natoms_exceeds_limit,120,120.0
+0.658_BaCuTe2O6,primitive_natoms_exceeds_limit,120,120.0
+0.69_Co4(OH)2(C10H16O4)3,primitive_natoms_exceeds_limit,196,196.0
+0.71_Li2Ni(SO4)2,primitive_natoms_exceeds_limit,104,104.0
+0.851_C7H14NFeCl4,primitive_natoms_exceeds_limit,216,216.0
+0.955_Na2Mn(H2C3O4)2(H2O)2,primitive_natoms_exceeds_limit,108,108.0
+1.201_Cr2ReO6,parse_error:SymmetryUndeterminedError,88,
+1.298_BaCdVO(PO4)2,primitive_natoms_exceeds_limit,224,112.0
+1.83_BaFeO2.5,primitive_natoms_exceeds_limit,252,126.0

@@ -1,0 +1,464 @@
+{
+  "scope": "Chemistry screening via element/pretty_formula/CIF-formula metadata, then full CIF parsing and structure matching of candidates; not exhaustive all-CIF parsing",
+  "target_chemical_systems": [
+    [
+      "Fe",
+      "N"
+    ],
+    [
+      "Fe",
+      "N",
+      "Ni"
+    ],
+    [
+      "Mn",
+      "N"
+    ],
+    [
+      "Al",
+      "C",
+      "Mn"
+    ]
+  ],
+  "files": [
+    {
+      "path": "/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/data/mp_20/train.csv",
+      "sha256": "133bab58dba02d316f9f91174839f17802dce648be4e8659d1a42b32b97fa01d",
+      "rows": 27136,
+      "cif_parsed_after_screen": 8,
+      "unchanged": true
+    },
+    {
+      "path": "/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/data/mp_20/val.csv",
+      "sha256": "7b5f4085464b3eac9fd2123acee97ec372214004ce7e983b535b33395abc3e29",
+      "rows": 9047,
+      "cif_parsed_after_screen": 1,
+      "unchanged": true
+    },
+    {
+      "path": "/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/data/mp_20/test.csv",
+      "sha256": "dd605c7543cf95a13e150aed630d0915e74edc8dea17e85301ee6fbfeb7f500a",
+      "rows": 9046,
+      "cif_parsed_after_screen": 4,
+      "unchanged": true
+    },
+    {
+      "path": "/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/data/magndata/train.csv",
+      "sha256": "fa253579b031dd738d9efb85023d0774c6ad52f448d6ee3055a2420e5f8e0c1d",
+      "rows": 1023,
+      "cif_parsed_after_screen": 1,
+      "unchanged": true
+    },
+    {
+      "path": "/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/data/magndata/val.csv",
+      "sha256": "5ddcbb2714f2fd532db9c1bff5b22fd56507d2e5cf689133b4c2fd30f5467ff3",
+      "rows": 122,
+      "cif_parsed_after_screen": 0,
+      "unchanged": true
+    },
+    {
+      "path": "/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/data/magndata/test.csv",
+      "sha256": "1fc4bd9d1240db36f4eafa6a7cbb567804d725778284c0b9d68c75334a9bdecd",
+      "rows": 139,
+      "cif_parsed_after_screen": 0,
+      "unchanged": true
+    }
+  ],
+  "metadata_failures": [],
+  "parse_failures": [],
+  "records": [
+    {
+      "dataset": "mp_20",
+      "split": "train",
+      "material_id": "mp-21476",
+      "metadata_formula": "Fe2N",
+      "actual_composition": {
+        "Fe": 8.0,
+        "N": 4.0
+      },
+      "ordered": true,
+      "natoms": 12,
+      "parser_warnings": [],
+      "cif_sha256": "8054197c03ad45fca2d4b821452330f2126c1ea65012ec31111232e665c9b2d4",
+      "experimental_tc_transferred": false
+    },
+    {
+      "dataset": "mp_20",
+      "split": "train",
+      "material_id": "mp-1009130",
+      "metadata_formula": "MnN",
+      "actual_composition": {
+        "Mn": 1.0,
+        "N": 1.0
+      },
+      "ordered": true,
+      "natoms": 2,
+      "parser_warnings": [],
+      "cif_sha256": "dfcb8d80ff396fc8f7b2250b67c7e64b194887ccdedb788dea327037db131d29",
+      "experimental_tc_transferred": false
+    },
+    {
+      "dataset": "mp_20",
+      "split": "train",
+      "material_id": "mp-505622",
+      "metadata_formula": "Mn4N",
+      "actual_composition": {
+        "Mn": 4.0,
+        "N": 1.0
+      },
+      "ordered": true,
+      "natoms": 5,
+      "parser_warnings": [],
+      "cif_sha256": "d39d24a0eb2f51f3d938c4f56910c6f5ba8e8c04d8fb34a0d4fd8d5c5413d065",
+      "experimental_tc_transferred": false
+    },
+    {
+      "dataset": "mp_20",
+      "split": "train",
+      "material_id": "mp-6988",
+      "metadata_formula": "FeN",
+      "actual_composition": {
+        "Fe": 1.0,
+        "N": 1.0
+      },
+      "ordered": true,
+      "natoms": 2,
+      "parser_warnings": [],
+      "cif_sha256": "948b747207d08c817bc9dba2066e5a5baa521f9d04dc0139ef5eeb12f53d0f94",
+      "experimental_tc_transferred": false
+    },
+    {
+      "dataset": "mp_20",
+      "split": "train",
+      "material_id": "mp-248",
+      "metadata_formula": "Fe2N",
+      "actual_composition": {
+        "Fe": 6.0,
+        "N": 3.0
+      },
+      "ordered": true,
+      "natoms": 9,
+      "parser_warnings": [
+        "4 fractional coordinates rounded to ideal values to avoid issues with finite precision."
+      ],
+      "cif_sha256": "14dc61d85454e4378c7c6c86d2a1a06966f30c8cb4b1fb6c1a4b0343c252f269",
+      "experimental_tc_transferred": false
+    },
+    {
+      "dataset": "mp_20",
+      "split": "train",
+      "material_id": "mp-1804",
+      "metadata_formula": "Fe3N",
+      "actual_composition": {
+        "Fe": 6.0,
+        "N": 2.0
+      },
+      "ordered": true,
+      "natoms": 8,
+      "parser_warnings": [
+        "4 fractional coordinates rounded to ideal values to avoid issues with finite precision."
+      ],
+      "cif_sha256": "4d31e2fc0eb8b872fa476e0dacc0f28554a8cd986fdd6baad465594781549773",
+      "experimental_tc_transferred": false
+    },
+    {
+      "dataset": "mp_20",
+      "split": "train",
+      "material_id": "mp-4593",
+      "metadata_formula": "Mn3AlC",
+      "actual_composition": {
+        "Mn": 3.0,
+        "Al": 1.0,
+        "C": 1.0
+      },
+      "ordered": true,
+      "natoms": 5,
+      "parser_warnings": [],
+      "cif_sha256": "6b9815d25fd4bdc8223c6069125f71c7274796463f7c432942991142ce968536",
+      "experimental_tc_transferred": false
+    },
+    {
+      "dataset": "mp_20",
+      "split": "train",
+      "material_id": "mp-535",
+      "metadata_formula": "Fe4N",
+      "actual_composition": {
+        "Fe": 4.0,
+        "N": 1.0
+      },
+      "ordered": true,
+      "natoms": 5,
+      "parser_warnings": [],
+      "cif_sha256": "1b4ea9f65c80b82322ec12c4113010e3e6fe40a9c48b458a33b6ee9bcd5c696b",
+      "experimental_tc_transferred": false
+    },
+    {
+      "dataset": "mp_20",
+      "split": "val",
+      "material_id": "mp-567703",
+      "metadata_formula": "Fe3NiN",
+      "actual_composition": {
+        "Fe": 3.0,
+        "Ni": 1.0,
+        "N": 1.0
+      },
+      "ordered": true,
+      "natoms": 5,
+      "parser_warnings": [],
+      "cif_sha256": "262fcece6b5afdab033a58a3122985fb6ea5a390e314aaee4e2df00e3b489af2",
+      "experimental_tc_transferred": false
+    },
+    {
+      "dataset": "mp_20",
+      "split": "test",
+      "material_id": "mp-555",
+      "metadata_formula": "Fe8N",
+      "actual_composition": {
+        "Fe": 8.0,
+        "N": 1.0
+      },
+      "ordered": true,
+      "natoms": 9,
+      "parser_warnings": [],
+      "cif_sha256": "a13d555220b413804c75d57dd077dd6d1493db1518a6ff8f9df778a0d352ddaa",
+      "experimental_tc_transferred": false
+    },
+    {
+      "dataset": "mp_20",
+      "split": "test",
+      "material_id": "mp-684744",
+      "metadata_formula": "Fe2N",
+      "actual_composition": {
+        "Fe": 12.0,
+        "N": 6.0
+      },
+      "ordered": true,
+      "natoms": 18,
+      "parser_warnings": [],
+      "cif_sha256": "7e88ad41b670c0598dab1fd2f8dd37da146207e41b415fe96b713351770e472d",
+      "experimental_tc_transferred": false
+    },
+    {
+      "dataset": "mp_20",
+      "split": "test",
+      "material_id": "mp-1221793",
+      "metadata_formula": "Mn2N",
+      "actual_composition": {
+        "Mn": 2.0,
+        "N": 1.0
+      },
+      "ordered": true,
+      "natoms": 3,
+      "parser_warnings": [
+        "4 fractional coordinates rounded to ideal values to avoid issues with finite precision."
+      ],
+      "cif_sha256": "1650e0b40b3ea85adf743705e3947b54b6fdd5169afcff389724d8225428931a",
+      "experimental_tc_transferred": false
+    },
+    {
+      "dataset": "mp_20",
+      "split": "test",
+      "material_id": "mp-9981",
+      "metadata_formula": "Mn2N",
+      "actual_composition": {
+        "Mn": 8.0,
+        "N": 4.0
+      },
+      "ordered": true,
+      "natoms": 12,
+      "parser_warnings": [],
+      "cif_sha256": "071f01665990896efac88bbbd6680c01e00885bb842fcbf781f922fea03c92c3",
+      "experimental_tc_transferred": false
+    },
+    {
+      "dataset": "magndata",
+      "split": "train",
+      "material_id": "0.274_Mn4N",
+      "metadata_formula": "Mn4N",
+      "actual_composition": {
+        "Mn": 4.0,
+        "N": 1.0
+      },
+      "ordered": true,
+      "natoms": 5,
+      "parser_warnings": [],
+      "cif_sha256": "cffcd0d62aae5c876fd95853384f18079e4524c944556f871095a62d67667ca2",
+      "experimental_tc_transferred": false
+    }
+  ],
+  "reference_composition_hits": [
+    {
+      "dataset": "mp_20",
+      "split": "train",
+      "material_id": "mp-505622",
+      "metadata_formula": "Mn4N",
+      "actual_composition": {
+        "Mn": 4.0,
+        "N": 1.0
+      },
+      "ordered": true,
+      "natoms": 5,
+      "parser_warnings": [],
+      "cif_sha256": "d39d24a0eb2f51f3d938c4f56910c6f5ba8e8c04d8fb34a0d4fd8d5c5413d065",
+      "experimental_tc_transferred": false,
+      "reference": "Mn4N",
+      "matches": {
+        "strict": false,
+        "relaxed": true
+      }
+    },
+    {
+      "dataset": "mp_20",
+      "split": "train",
+      "material_id": "mp-4593",
+      "metadata_formula": "Mn3AlC",
+      "actual_composition": {
+        "Mn": 3.0,
+        "Al": 1.0,
+        "C": 1.0
+      },
+      "ordered": true,
+      "natoms": 5,
+      "parser_warnings": [],
+      "cif_sha256": "6b9815d25fd4bdc8223c6069125f71c7274796463f7c432942991142ce968536",
+      "experimental_tc_transferred": false,
+      "reference": "Mn3AlC",
+      "matches": {
+        "strict": false,
+        "relaxed": true
+      }
+    },
+    {
+      "dataset": "mp_20",
+      "split": "train",
+      "material_id": "mp-535",
+      "metadata_formula": "Fe4N",
+      "actual_composition": {
+        "Fe": 4.0,
+        "N": 1.0
+      },
+      "ordered": true,
+      "natoms": 5,
+      "parser_warnings": [],
+      "cif_sha256": "1b4ea9f65c80b82322ec12c4113010e3e6fe40a9c48b458a33b6ee9bcd5c696b",
+      "experimental_tc_transferred": false,
+      "reference": "Fe4N",
+      "matches": {
+        "strict": false,
+        "relaxed": true
+      }
+    },
+    {
+      "dataset": "mp_20",
+      "split": "val",
+      "material_id": "mp-567703",
+      "metadata_formula": "Fe3NiN",
+      "actual_composition": {
+        "Fe": 3.0,
+        "Ni": 1.0,
+        "N": 1.0
+      },
+      "ordered": true,
+      "natoms": 5,
+      "parser_warnings": [],
+      "cif_sha256": "262fcece6b5afdab033a58a3122985fb6ea5a390e314aaee4e2df00e3b489af2",
+      "experimental_tc_transferred": false,
+      "reference": "Fe3NiN",
+      "matches": {
+        "strict": true,
+        "relaxed": true
+      }
+    },
+    {
+      "dataset": "magndata",
+      "split": "train",
+      "material_id": "0.274_Mn4N",
+      "metadata_formula": "Mn4N",
+      "actual_composition": {
+        "Mn": 4.0,
+        "N": 1.0
+      },
+      "ordered": true,
+      "natoms": 5,
+      "parser_warnings": [],
+      "cif_sha256": "cffcd0d62aae5c876fd95853384f18079e4524c944556f871095a62d67667ca2",
+      "experimental_tc_transferred": false,
+      "reference": "Mn4N",
+      "matches": {
+        "strict": true,
+        "relaxed": true
+      }
+    }
+  ],
+  "feasibility": [
+    {
+      "formula": "Fe3.6Ni0.4N",
+      "ideal_counts": [
+        3.6,
+        0.4,
+        1
+      ],
+      "ideal_minimum": {
+        "formula_units": 5,
+        "atoms": 25
+      },
+      "nitrogen_occupancy_scenario": 0.92,
+      "deficient_counts": [
+        3.6,
+        0.4,
+        0.92
+      ],
+      "deficient_minimum": {
+        "formula_units": 25,
+        "atoms": 123
+      },
+      "scenario_caveat": "8% report treated as exactly 0.92 ONLY for an arithmetic feasibility scenario; not an exact measured stoichiometry",
+      "ordered_realization_known": false,
+      "training_eligible": false
+    },
+    {
+      "formula": "Fe3NiN",
+      "ideal_counts": [
+        3,
+        1,
+        1
+      ],
+      "ideal_minimum": {
+        "formula_units": 1,
+        "atoms": 5
+      },
+      "nitrogen_occupancy_scenario": 0.92,
+      "deficient_counts": [
+        3,
+        1,
+        0.92
+      ],
+      "deficient_minimum": {
+        "formula_units": 25,
+        "atoms": 123
+      },
+      "scenario_caveat": "8% report treated as exactly 0.92 ONLY for an arithmetic feasibility scenario; not an exact measured stoichiometry",
+      "ordered_realization_known": false,
+      "training_eligible": false
+    }
+  ],
+  "tolerances": {
+    "strict": {
+      "ltol": 0.01,
+      "stol": 0.05,
+      "angle_tol": 1,
+      "scale": false
+    },
+    "relaxed": {
+      "ltol": 0.2,
+      "stol": 0.3,
+      "angle_tol": 5,
+      "scale": true
+    }
+  },
+  "normalization": "fractional composition; primitive_cell=True, attempt_supercell=False, ElementComparator",
+  "reference_caveat": "Fe4N/Fe3NiN templates are ideal nominal full-occupancy cells for matching, not the deficient experimental samples; no Tc transfer",
+  "version": "2025.10.7",
+  "api_calls": 0,
+  "training_run": false
+}

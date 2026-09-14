@@ -1,0 +1,51 @@
+pair_id,winner,loser,split,source_groups,source_ids,prototype,delta_tc_k,sensitivity_gap_k,margin_k,unreported_uncertainty_buffer_k,buffer_is_not_measurement_uncertainty,high_tc_anchor,independent_experiment,causal_structure_claim
+DyFe2__over__DyAl2,DyFe2,DyAl2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,570,520,50,25,True,True,False,False
+ErFe2__over__DyCo2,ErFe2,DyCo2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,432,382,50,25,True,True,False,False
+GdFe2__over__ErAl2,GdFe2,ErAl2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,780,730,50,25,True,True,False,False
+HoFe2__over__ErCo2,HoFe2,ErCo2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,574,524,50,25,True,True,False,False
+LuFe2__over__GdAl2,LuFe2,GdAl2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,418,368,50,25,True,True,False,False
+TbFe2__over__GdCo2,TbFe2,GdCo2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,253,203,50,25,True,True,False,False
+YFe2__over__HoAl2,YFe2,HoAl2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,513,463,50,25,True,True,False,False
+DyFe2__over__HoCo2,DyFe2,HoCo2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,550,500,50,25,True,True,False,False
+ErFe2__over__SmAl2,ErFe2,SmAl2,train,['Zaragoza_Laguna_Chaboy'],"['laves_2008', 'ral2_2009']",C15,518,468,50,25,True,True,False,False
+GdFe2__over__TbAl2,GdFe2,TbAl2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,684,634,50,25,True,True,False,False
+HoFe2__over__TbCo2,HoFe2,TbCo2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,371,321,50,25,True,True,False,False
+LuFe2__over__DyAl2,LuFe2,DyAl2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,524,474,50,25,True,True,False,False
+TbFe2__over__DyCo2,TbFe2,DyCo2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,503,453,50,25,True,True,False,False
+YFe2__over__ErAl2,YFe2,ErAl2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,528,478,50,25,True,True,False,False
+DyFe2__over__ErCo2,DyFe2,ErCo2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,596,546,50,25,True,True,False,False
+ErFe2__over__GdAl2,ErFe2,GdAl2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,418,368,50,25,True,True,False,False
+GdFe2__over__GdCo2,GdFe2,GdCo2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,393,343,50,25,True,True,False,False
+HoFe2__over__HoAl2,HoFe2,HoAl2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,578,528,50,25,True,True,False,False
+LuFe2__over__HoCo2,LuFe2,HoCo2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,504,454,50,25,True,True,False,False
+TbFe2__over__SmAl2,TbFe2,SmAl2,train,['Zaragoza_Laguna_Chaboy'],"['laves_2008', 'ral2_2009']",C15,589,539,50,25,True,True,False,False
+YFe2__over__TbAl2,YFe2,TbAl2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,432,382,50,25,True,True,False,False
+DyFe2__over__TbCo2,DyFe2,TbCo2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,393,343,50,25,True,True,False,False
+ErFe2__over__DyAl2,ErFe2,DyAl2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,524,474,50,25,True,True,False,False
+GdFe2__over__DyCo2,GdFe2,DyCo2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,643,593,50,25,True,True,False,False
+HoFe2__over__ErAl2,HoFe2,ErAl2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,593,543,50,25,True,True,False,False
+LuFe2__over__ErCo2,LuFe2,ErCo2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,550,500,50,25,True,True,False,False
+TbFe2__over__GdAl2,TbFe2,GdAl2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,489,439,50,25,True,True,False,False
+YFe2__over__GdCo2,YFe2,GdCo2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,141,91,50,25,True,True,False,False
+DyFe2__over__HoAl2,DyFe2,HoAl2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,600,550,50,25,True,True,False,False
+ErFe2__over__HoCo2,ErFe2,HoCo2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,504,454,50,25,True,True,False,False
+GdFe2__over__SmAl2,GdFe2,SmAl2,train,['Zaragoza_Laguna_Chaboy'],"['laves_2008', 'ral2_2009']",C15,729,679,50,25,True,True,False,False
+HoFe2__over__TbAl2,HoFe2,TbAl2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,497,447,50,25,True,True,False,False
+LuFe2__over__TbCo2,LuFe2,TbCo2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,347,297,50,25,True,True,False,False
+TbFe2__over__DyAl2,TbFe2,DyAl2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,595,545,50,25,True,True,False,False
+YFe2__over__DyCo2,YFe2,DyCo2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,391,341,50,25,True,True,False,False
+DyFe2__over__ErAl2,DyFe2,ErAl2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,615,565,50,25,True,True,False,False
+ErFe2__over__ErCo2,ErFe2,ErCo2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,550,500,50,25,True,True,False,False
+GdFe2__over__GdAl2,GdFe2,GdAl2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,629,579,50,25,True,True,False,False
+HoFe2__over__GdCo2,HoFe2,GdCo2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,206,156,50,25,True,True,False,False
+LuFe2__over__HoAl2,LuFe2,HoAl2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,554,504,50,25,True,True,False,False
+TbFe2__over__HoCo2,TbFe2,HoCo2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,575,525,50,25,True,True,False,False
+YFe2__over__SmAl2,YFe2,SmAl2,train,['Zaragoza_Laguna_Chaboy'],"['laves_2008', 'ral2_2009']",C15,477,427,50,25,True,True,False,False
+DyFe2__over__TbAl2,DyFe2,TbAl2,train,['Zaragoza_Laguna_Chaboy'],['laves_2008'],C15,519,469,50,25,True,True,False,False
+Mn4N__over__Mn3AlC,Mn4N,Mn3AlC,train,['Westinghouse_1962'],['mn4n_1962'],antiperovskite,473,423,50,25,True,True,False,False
+Co2FeSi__over__Co2TiSi,Co2FeSi,Co2TiSi,train,['Mainz_Felser'],"['co2fesi_2005', 'co2ti_2009']",L21,720,675,50,25,True,True,False,False
+Co2FeSi__over__Co2TiGe,Co2FeSi,Co2TiGe,train,['Mainz_Felser'],"['co2fesi_2005', 'co2ti_2009']",L21,720,675,50,25,True,True,False,False
+Co2FeSi__over__Co2TiSn,Co2FeSi,Co2TiSn,train,['Mainz_Felser'],"['co2fesi_2005', 'co2ti_2009']",L21,745,700,50,25,True,True,False,False
+NdAl2__over__PrAl2,NdAl2,PrAl2,validation,['UNICAMP_Carvalho_Campoy'],['prnd_2005'],C15,44.5,24.5,10,10,True,False,False,False
+Co2MnSi__over__Co2MnGa,Co2MnSi,Co2MnGa,test,['Japan_Saito_NishioHamane'],['comn_2021'],L21,315,265,50,25,True,True,False,False
+EuO__over__EuS,EuO,EuS,electrical_control,['Brookhaven_Riso_Passell'],['euo_eus_1976'],rocksalt,52.580000000000005,52.510000000000005,50,0,True,False,False,False

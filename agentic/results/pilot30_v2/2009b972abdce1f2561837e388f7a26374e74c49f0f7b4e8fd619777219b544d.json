@@ -1,0 +1,29 @@
+{
+  "id": "2lRS7NlQu9KH0chpwhFqRIpPQh1Z89ONciSGUKmgFFA=",
+  "object": "chat.completion",
+  "model": "Intern-S1",
+  "created": 1789326104,
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"events\": [\n    {\n      \"material_formula\": \"HoNi2B2C\",\n      \"type\": \"superconducting\",\n      \"temperature_k\": 8,\n      \"uncertainty_k\": null,\n      \"qualifier\": \"approximate\",\n      \"sublattice\": null,\n      \"sample_conditions\": null,\n      \"quote\": \"superconductivity (TC≈8 K)\"\n    },\n    {\n      \"material_formula\": \"HoNi2B2C\",\n      \"type\": \"neel\",\n      \"temperature_k\": 6,\n      \"uncertainty_k\": null,\n      \"qualifier\": \"approximate\",\n      \"sublattice\": null,\n      \"sample_conditions\": null,\n      \"quote\": \"magnetism (TN≈6 K)\"\n    }\n  ],\n  \"abstained\": false\n}\n```"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "moderation": {
+    "sensitive": false,
+    "category": ""
+  },
+  "usage": {
+    "prompt_tokens": 421,
+    "completion_tokens": 180,
+    "total_tokens": 601
+  },
+  "metadata": {
+    "search_used": false,
+    "reasoning_used": false
+  }
+}

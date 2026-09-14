@@ -1,0 +1,95 @@
+{
+  "created_at": "2026-09-13T18:40:19.064495+00:00",
+  "records": [
+    {
+      "action": "move",
+      "source": "docs/tc_research",
+      "destination": "agentic/docs/tc_research",
+      "files": [
+        [
+          "PROPOSAL.md",
+          "0e4f857ba31e92eeb9e208814016d7a33e1912d188cbc402d23b94435ad3f09f"
+        ]
+      ]
+    },
+    {
+      "action": "move",
+      "source": "docs/tc_audit_20260914",
+      "destination": "agentic/docs/tc_audit_20260914",
+      "files": [
+        [
+          "identical_cif_label_conflicts.csv",
+          "b7d1cfedea4726d0261142902363a73c2a4f9d24d1cdb61891ffda93fd2e0397"
+        ],
+        [
+          "dataset_counts.json",
+          "d708a4e6462a99e815c9ac6460c3a600a7df5b6943658d1a55533adbea09515c"
+        ],
+        [
+          "REPORT.md",
+          "25ba8bc4e3b84472ba06cf9a46828e53fa44ea7b008c9aaa438868e1841dff55"
+        ]
+      ]
+    },
+    {
+      "action": "snapshot",
+      "source": "data/magndata/all.csv",
+      "destination": "agentic/data/raw/magndata/all.csv",
+      "sha256": "8d060bb2321a84381e55fe3a67b224b04bc8b50eaa3f1666bdf943e1ac931d4b"
+    },
+    {
+      "action": "snapshot",
+      "source": "data/magndata/train.csv",
+      "destination": "agentic/data/raw/magndata/train.csv",
+      "sha256": "fa253579b031dd738d9efb85023d0774c6ad52f448d6ee3055a2420e5f8e0c1d"
+    },
+    {
+      "action": "snapshot",
+      "source": "data/magndata/val.csv",
+      "destination": "agentic/data/raw/magndata/val.csv",
+      "sha256": "5ddcbb2714f2fd532db9c1bff5b22fd56507d2e5cf689133b4c2fd30f5467ff3"
+    },
+    {
+      "action": "snapshot",
+      "source": "data/magndata/test.csv",
+      "destination": "agentic/data/raw/magndata/test.csv",
+      "sha256": "1fc4bd9d1240db36f4eafa6a7cbb567804d725778284c0b9d68c75334a9bdecd"
+    },
+    {
+      "action": "snapshot",
+      "source": "data/magndata/source_magndata_tc.csv",
+      "destination": "agentic/data/raw/magndata/source_magndata_tc.csv",
+      "sha256": "4902561b333aa1733713da55dfecbcb371f60c8e6b9b619c9f12f822f003767d"
+    },
+    {
+      "action": "snapshot",
+      "source": "data/magndata/rejected.csv",
+      "destination": "agentic/data/raw/magndata/rejected.csv",
+      "sha256": "217ad174ffbc2fa2ef22317f13ce6719e25d140260183d76ca7ccebd8ce81a2e"
+    },
+    {
+      "action": "snapshot",
+      "source": "data/magndata/split_manifest.json",
+      "destination": "agentic/data/raw/magndata/split_manifest.json",
+      "sha256": "8daaf8c4bdb155f0e0bb7e69a5b13aaa6603c69ee14848720a0c365797896410"
+    },
+    {
+      "action": "snapshot",
+      "source": "data/magndata/README.md",
+      "destination": "agentic/data/raw/magndata/README.md",
+      "sha256": "adbe468ec57abb14a41745f58bd72c29ac288c1e3f9435e69c74b4f8625b9255"
+    },
+    {
+      "action": "snapshot",
+      "source": "logs/property_predictor_training/magndata_tc/20260824-113321/benchmark_summary.log",
+      "destination": "agentic/logs/benchmark_summary.log",
+      "sha256": "3a53b38157ef2d05e21272517a7202da10e991c6a214c6f3f13015011990107e"
+    },
+    {
+      "action": "snapshot",
+      "source": "logs/property_predictor_training/magndata_tc_moe/20260824-220546/moe_summary.log",
+      "destination": "agentic/logs/moe_summary.log",
+      "sha256": "4588a4e936cca4882c7062af00e501e0e85883a60135d99323d21ff88eee4cf8"
+    }
+  ]
+}

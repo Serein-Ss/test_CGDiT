@@ -1,0 +1,34 @@
+# generated using pymatgen
+data_LiYbF6
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.200415136856
+_cell_length_b   5.200415136856
+_cell_length_c   5.266876220703
+_cell_angle_alpha   90.000000000000
+_cell_angle_beta   90.000000000000
+_cell_angle_gamma   119.999999508688
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   LiYbF6
+_chemical_formula_sum   'Li1 Yb1 F6'
+_cell_volume   123.355856536377
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  F  F0  1  0.954547047615  0.292076081038  0.240772873163  1
+  F  F1  1  0.707923889160  0.662470936775  0.240772873163  1
+  F  F2  1  0.337529063225  0.045452952385  0.240772873163  1
+  F  F3  1  0.292076081038  0.954547047615  0.759227156639  1
+  F  F4  1  0.662470936775  0.707923889160  0.759227156639  1
+  F  F5  1  0.045452952385  0.337529063225  0.759227156639  1
+  Yb  Yb6  1  0.993212699890  0.997863590717  0.999586701393  1
+  Li  Li7  1  0.710792243481  0.302405387163  0.459343254566  1

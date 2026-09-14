@@ -1,0 +1,29 @@
+{
+  "id": "ZJaNIeC9rfVfi5eSwPe5UIpPQh1Z89ONciSGUKmgFFA=",
+  "object": "chat.completion",
+  "model": "Intern-S1",
+  "created": 1789366480,
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"records\": [\n    {\n      \"formula\": \"YFe2\",\n      \"tc_k\": 541,\n      \"uncertainty_k\": null,\n      \"quote\": \"YFe2 | 541\",\n      \"caveats\": \"\"\n    },\n    {\n      \"formula\": \"GdFe2\",\n      \"tc_k\": 793,\n      \"uncertainty_k\": null,\n      \"quote\": \"GdFe2 | 793\",\n      \"caveats\": \"\"\n    },\n    {\n      \"formula\": \"GdCo2\",\n      \"tc_k\": 400,\n      \"uncertainty_k\": null,\n      \"quote\": \"GdCo2 | 400\",\n      \"caveats\": \"\"\n    },\n    {\n      \"formula\": \"GdAl2\",\n      \"tc_k\": 164,\n      \"uncertainty_k\": null,\n      \"quote\": \"GdAl2 | 164\",\n      \"caveats\": \"\"\n    },\n    {\n      \"formula\": \"TbFe2\",\n      \"tc_k\": 653,\n      \"uncertainty_k\": null,\n      \"quote\": \"TbFe2 | 653\",\n      \"caveats\": \"\"\n    },\n    {\n      \"formula\": \"TbCo2\",\n      \"tc_k\": 235,\n      \"uncertainty_k\": null,\n      \"quote\": \"TbCo2 | 235\",\n      \"caveats\": \"\"\n    },\n    {\n      \"formula\": \"TbAl2\",\n      \"tc_k\": 109,\n      \"uncertainty_k\": null,\n      \"quote\": \"TbAl2 | 109\",\n      \"caveats\": \"\"\n    },\n    {\n      \"formula\": \"DyFe2\",\n      \"tc_k\": 628,\n      \"uncertainty_k\": null,\n      \"quote\": \"DyFe2 | 628\",\n      \"caveats\": \"\"\n    },\n    {\n      \"formula\": \"DyCo2\",\n      \"tc_k\": 150,\n      \"uncertainty_k\": null,\n      \"quote\": \"DyCo2 | 150\",\n      \"caveats\": \"\"\n    },\n    {\n      \"formula\": \"DyAl2\",\n      \"tc_k\": 58,\n      \"uncertainty_k\": null,\n      \"quote\": \"DyAl2 | 58\",\n      \"caveats\": \"\"\n    },\n    {\n      \"formula\": \"HoFe2\",\n      \"tc_k\": 606,\n      \"uncertainty_k\": null,\n      \"quote\": \"HoFe2 | 606\",\n      \"caveats\": \"\"\n    },\n    {\n      \"formula\": \"HoCo2\",\n      \"tc_k\": 78,\n      \"uncertainty_k\": null,\n      \"quote\": \"HoCo2 | 78\",\n      \"caveats\": \"\"\n    },\n    {\n      \"formula\": \"HoAl2\",\n      \"tc_k\": 28,\n      \"uncertainty_k\": null,\n      \"quote\": \"HoAl2 | 28\",\n      \"caveats\": \"\"\n    },\n    {\n      \"formula\": \"ErFe2\",\n      \"tc_k\": 582,\n      \"uncertainty_k\": null,\n      \"quote\": \"ErFe2 | 582\",\n      \"caveats\": \"\"\n    },\n    {\n      \"formula\": \"ErCo2\",\n      \"tc_k\": 32,\n      \"uncertainty_k\": null,\n      \"quote\": \"ErCo2 | 32\",\n      \"caveats\": \"\"\n    },\n    {\n      \"formula\": \"ErAl2\",\n      \"tc_k\": 13,\n      \"uncertainty_k\": null,\n      \"quote\": \"ErAl2 | 13\",\n      \"caveats\": \"\"\n    },\n    {\n      \"formula\": \"LuFe2\",\n      \"tc_k\": 582,\n      \"uncertainty_k\": null,\n      \"quote\": \"LuFe2 | 582\",\n      \"caveats\": \"\"\n    }\n  ]\n}\n```"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "moderation": {
+    "sensitive": false,
+    "category": ""
+  },
+  "usage": {
+    "prompt_tokens": 513,
+    "completion_tokens": 905,
+    "total_tokens": 1418
+  },
+  "metadata": {
+    "search_used": false,
+    "reasoning_used": false
+  }
+}

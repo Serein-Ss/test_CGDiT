@@ -1,0 +1,40 @@
+# generated using pymatgen
+data_Li2CaCu2BPO7
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.993052053127
+_cell_length_b   5.587744211535
+_cell_length_c   6.556207140697
+_cell_angle_alpha   98.884863077267
+_cell_angle_beta   105.321884962807
+_cell_angle_gamma   92.548895560898
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Li2CaCu2BPO7
+_chemical_formula_sum   'Li2 Ca1 Cu2 B1 P1 O7'
+_cell_volume   173.599616860146
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ca  Ca0  1  0.034263659269  0.393504649401  0.285968244076  1
+  Cu  Cu1  1  0.403401672840  0.685790598392  0.738622009754  1
+  B  B2  1  0.462778896093  0.155069574714  0.892032086849  1
+  Cu  Cu3  1  0.919416785240  0.882921278477  0.992337524891  1
+  O  O4  1  0.342379778624  0.996587753296  0.020274776965  1
+  Li  Li5  1  0.036202941090  0.947639465332  0.549051463604  1
+  O  O6  1  0.327459275723  0.268082708120  0.696417331696  1
+  Li  Li7  1  0.730356216431  0.365805864334  0.652348697186  1
+  P  P8  1  0.514773249626  0.873736381531  0.259580999613  1
+  O  O9  1  0.826278269291  0.703313112259  0.722075819969  1
+  O  O10  1  0.766745090485  0.077679753304  0.386623144150  1
+  O  O11  1  0.322692960501  0.767588675022  0.412179052830  1
+  O  O12  1  0.652442097664  0.653242230415  0.172718450427  1
+  O  O13  1  0.760184109211  0.210865750909  0.920680165291  1

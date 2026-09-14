@@ -1,0 +1,25 @@
+{
+  "winner_to_loser_site": [
+    3,
+    0,
+    1,
+    2,
+    4
+  ],
+  "basis": "fractional framework position, intentionally species-independent",
+  "use": "Noise/position alignment only; NEVER a chemical duplicate match",
+  "winner_atomic_numbers": [
+    25,
+    25,
+    25,
+    25,
+    7
+  ],
+  "aligned_loser_atomic_numbers": [
+    13,
+    25,
+    25,
+    25,
+    6
+  ]
+}

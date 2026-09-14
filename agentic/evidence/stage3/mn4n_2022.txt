@@ -1,0 +1,529 @@
+  Rare-earth-free noncollinear metallic ferrimagnets Mn4-xZxN with
+
+                           compensation at room temperature
+
+
+             Rui Zhang1, Yangkun He1,*, Daniel Fruchart2, J.M.D. Coey1, Zsolt Gercsi1
+
+1. School of Physics and CRANN, Trinity College, Dublin 2, Ireland
+2. Institut Néel, CNRS & UGA, Dept QUEST, 38042, Grenoble Cedex 9, France
+
+
+E-mail: heya@tcd.ie (Dr. Yangkun He)
+
+
+Abstract:
+     Compensated ferrimagnets, like antiferromagnets, show no net magnetization but their
+transport and magneto-optic properties resemble those of ferromagnets, thereby creating
+opportunities for applications in high-frequency spintronics and low-energy loss communications.
+Here we study the modification the noncollinear ferrimagnetic spin structure of Mn4N by a variety
+of metallic substitutions Z (Z = Cu — Ge and Ag — Sn) to achieve compensation at room
+temperature. The noncollinear frustrated 2.35µB moments of Mn on 3c sites of the (111) kagome
+planes tilt about 20° out-of-plane in Mn4N and are easily influenced by the substitutions on 1a sites,
+leading to different efficiency of compensation in Mn4-xZxN that increases gradually from group 11
+(Cu, Ag) to group 14 (Ge, Sn) with increasing number of valance electrons. Elements from the 5th
+period are more efficient to for compensation than those from the 4th period due to lattice expansion.
+The manganese site moments are determined by Z, orbital hybridization, charge transfer and the tilt
+angle, analyzed by constrained density functional theory. The Ga compound with compensation at
+room temperature for x ≈ 0.26 is recommended for high-frequency spintronic applications.
+
+Keywords: Metallic perovskites, Noncollinear magnetic structure, Kagome lattice, Ferrimagnetism,
+Compensation temperature, Mn4N,
+
+
+1. Introduction
+      Low energy loss communications and high-frequency spintronic applications could benefit
+from magnetic materials with a very low net magnetic moment at room temperature [1]. Although
+antiferromagnetic (AFM) materials have no net moment, apart from some exceptions with special
+symmetry [2,3], they usually lack net spin polarization and transport properties such as anomalous
+Hall effect. Ferrimagnetic (FiM) metals exhibit transport properties just like ferromagnets, while
+their magnetization can also fall to zero if the net moments of the antiparallel sublattices compensate,
+leading to the current interest in developing new compensated ferrimagnets for spintronics [4,5].
+      Ferrimagnets usually consist of two sublattices with different magnetic moments where AFM
+exchange may coexist with ferromagnetic (FM) interactions. The most common type, collinear
+ferrimagnetism, is shown in Fig. 1a; well-studied examples are Fe3O4, Y3Fe5O12, amorphous Gd-
+Co [6] and Mn2Sb [6,7]. In these materials, the moments within each sub-lattice are aligned parallel
+while the two sublattices are coupled antiferromagnetically. A less common non-collinear
+
+                                                      1
+ferrimagnetic (ncFIM) magnetic structure can manifest, where the coupling is between a non-
+collinear antiferromagnetic sublattice, and a ferromagnetic sublattice as shown in Fig. 1b. The
+significant difference in the second type is that the ferrimagnetism is non-collinear. Examples
+include Ni(NO3)2 [8], MnCr2O4 [9] and Ho2Fe14B [10] at low temperature. Unlike oxides, which are
+usually insulating, metallic ferrimagnets are often R-T-based, where R is a heavy rare-earth and T
+is Fe or Co, or else Mn-based. The latter category avoids the use of rare-earth metals and often
+exhibits a high Curie temperature thus it is well suited for applications.
+      The metallic perovskite Mn4N crystallizes in face-centred cubic (fcc) structure (space group
+Pm-3m) where N atoms occupying the body-centered interstitial site are coordinated by an
+octahedron six Mn atoms in the 3c face-center positions, as shown in Fig. 2a. The Mn in the 1a
+corner positions is not in direct contact with the nitrogen. The magnetic order has been investigated
+both experimentally and theoretically. Initially, it was thought to have a collinear ferrimagnetic
+structure along [111] [11,12] with a large 1a – site magnetic moment m1a = 3.8 μB and a 3c site
+moment m3c = 0.9 µB that was much-reduced by p-d hybridization with the neighboring nitrogen
+[12]. Subsequent neutron diffraction with polarization analysis revealed that triangles of 3c atoms
+in (111) planes, where they from a kagome lattice shown in Fig. 2b, add a triangular
+antiferromagnetic component to the 3c sublattice spin structure, where the spins are either in the
+(111) plane where the spin axes either meet at the centre of the triangle (Γ4g mode) or else lie along
+the sides (Γ5g mode). Only a small anisotropy energy separates them, and the modes may coexist at
+finite temperature [13]. Calculations by Uhl et al. [14] confirmed a noncollinear ‘umbrella’ structure
+with the net sublattice moments aligned antiparallel along the [111] axis, producing a net moment
+close to the value of 1.1 μB that is found experimentally [12]. The Γ4g mode has a topological
+character that accounts for the large anomalous Hall effect in many Mn4-xZxN materials [15]. The
+assumption that Mn4N is a collinear ferrimagnet is therefore unwarranted and may lead to
+misleading conclusions [16].
+      In the Weiss mean-field model the temperature-dependent magnetization (M-T) curves for
+ferrimagnets can be categorised into three types depending on the moment and main molecular field
+coefficients within and between sublattices (n1a1a, n1a3c and n3c3c) [17]; curves are shown in Figs.
+1c-1f. The M-T curve of binary Mn4N [18 , 19 ] is Q-type, without compensation, where the
+magnetization of the 1a sublattice is always larger than that of the 3c sublattice and n1a3c is the main
+molecular field coefficient. An N-type M-T curve with compensation may be achieved by
+substitution Z for Mn on 1a sites in Mn4-xZxN (Z = Co, Ni, Cu, Zn, Ga, Ge, As, Rh, Pd, Ag, Cd, In,
+Sn, Sb, Pt, Au and Hg with x < 1) [20,21]. All of them are expected to produce compensation and
+some have been identified experimentally [22,23,24,25]. Though most dopants are nonmagnetic, it
+is found that compensation is achieved at quite different values of x for different elements [26].
+Therefore, it is necessary to analyze the doping efficiency in order to clarify the governing physical
+mechanisms that allow us to productively design novel Mn4N-based compensated ferrimagnets for
+room temperature applications.
+     In this study, we first reveal the origin of the noncollinear ferrimagnetism of Mn4N. We then
+demonstrate compensation at room temperature with various non-magnetic alloying elements and
+compare their efficiency. We discuss the findings in relation to valance electron count, magnetic
+moment, tilt angle and lattice constant, based on the experimental data and constrained density
+functional theory calculations.
+
+
+                                                   2
+Fig. 1. Ferrimagnetic prototypes. (a) Collinear ferrimagnetic (FiM) spin structure is a combination of
+ferromagnetic (FM) and antiferromagnetic (AFM) spin structures. (b) Noncollinear ferrimagnetic (ncFiM) structure
+combines non-collinear antiferromagnetic (ncAFM) and FM structures. Three types of temperature-dependent
+magnetization curves (schematically) for a ferrimagnet with two sublattices (1a and 3c for Mn4N) with (c) m1a >
+3m3c with n1a3c as the main molecular field coefficient, (d) m1a < 3m3c with n1a3c as the main molecular field coefficient,
+(e) m1a > 3m3c with n1a1a as the main molecular field coefficient and (f) m1a > 3m3c and n3c3c as the main molecular
+field coefficient. The collinear model is used here. In a noncollinear model the chief difference in the shape of the
+curve is the non-zero slope at low temperatures (see Fig. 2c).
+
+
+2. Methods
+     The high purity (> 99.99%) elements of Mn and Z = Cu, Ga, Ge, In, Sn were arc-melted
+together five times to prepare homogeneous polycrystalline ingots. Additional Mn (2%) was added
+to compensate the loss due to its high vapor pressure. The ingots were then ground into powder and
+reacted with N2 (> 99.99%) at 750 – 800 ℃ at a pressure of 50 kPa for 1 day. We found that if the
+N2 pressure is too large (100 kPa) a Mn2N impurity phase will form in some samples with small
+values of x. Nitrogen deficiency can lead nitrogen vacancies or formation of γ- or β-Mn type
+impurities. Additional heat treatment (annealing at 660 ℃ in vacuum for one day was needed for
+Mn-Cu and Mn-Ge ingots before grinding them into powder to transform γ-Mn into β-Mn, owing
+to the ductile mechanical properties of γ-Mn which makes it difficult to grind.
+     The composition of the polycrystalline sample was checked by energy-dispersive X-ray
+
+                                                            3
+spectroscopy. The crystal structure was characterized by powder X-ray diffraction (XRD) that
+showed a single-phase cubic structure. Magnetization measurements were conducted using a
+superconducting quantum interference device magnetometer (SQUID, Quantum Design).
+      Ab-initio calculations based on density functional theory were carried out using norm-
+conserving pseudopotentials and pseudo-atomic localized basis functions implemented in the
+OpenMX software package [27]. Calculations were based on a minimal 5 atom basis cell of the
+cubic structure using 13 × 13 × 13 k-points to evaluate the total energies. Pre-generated fully
+relativistic pseudopotentials and the pseudo-atomic orbitals with a typical cut-off radius of 6 atomic
+units (a.u.) were used with s3p3d3 for the metal and s3p3d2 for the metalloid elements, respectively.
+A energy cut-off of 300 Ry was used for the numerical integrations. The convergence criterion for
+the energy minimization procedure was set to 10−8 Hartree. In the case of the non-collinear
+calculations, we show results without spin-orbit interaction (SOI), whose influence on the total
+energy is negligible compared with the exchange interaction
+
+
+3. Results
+3.1 Non-collinear ferrimagnetism in Mn4N
+     The origin of non-collinear ferrimagnetism can be deduced from the magnetic interactions and
+the crystal structure, identified by X-ray diffraction in Fig. 2a. The lattice parameter a0 = 3.865 Å is
+also the nearest-neighbour distance between two Mn1a atoms d1a1a. The nearest distances between
+Mn3c and Mn1a or Mn3c d1a3c and d3c3c are both equal to a0/√2 = 2.733 Å. Generally, Mn atoms
+separated by 2.5-2.8 Å have delocalized electrons and couple antiferromagnetically while Mn atoms
+with longer separations (> 2.9 Å) couple ferromagnetically. Therefore, the Mn1a moments lie parallel
+to each other, whereas the small d1a3c distance favors antiparallel coupling between the sublattices.
+The separation of nearest-neighbor Mn3c atoms d3c3c is responsible for the non-collinear triangular
+antiferromagnetism of the 3c sublattice. Together, these interactions lead to the umbrella-like spin
+structure, and the overall non-collinear ferrimagnetism.
+     Mn4N has a high Curie temperature TC (780 K) and a small saturation moment mtot = 1.1 μB/f.u.
+along a [111] direction, as shown in Fig. 2c. The measured moment mtot is the difference of the m1a
+and three times the ferrimagnetic component of Mn3c mcFiM, which are 3.8 μB and -0.9 μB per Mn,
+respectively [13]. It should be noted that the net moment in Fig. 2c remains a constant below 50 K
+and then drops with increasing temperature. By 160 K (T/TC = 0.2), the moment has fallen by 13%
+of the 4 K value, in agreement with literature [18]. This is quite unusual, because according to the
+collinear mean-field model, the decrease at T/TC = 0.2 should be smaller than 1% (see Fig. 1). The
+inability to fit the P-type curve to a collinear mean-field model for Mn4N [19] is a strong indication
+of the noncollinear nature of the magnetic order.
+
+
+
+
+                                                   4
+Fig. 2. Noncollinear magnetic structure of Mn4N. (a) Crystal and magnetic structure showing the Γ4g triangular
+ferrimagnetism. Grey, blue and red atoms represent N, Mn1a and Mn3c, respectively. (b) Kagome lattice of Mn3c in a
+(111) plane showing Γ4g-like magnetic structure. The out-of-plane magnetic component is not shown.
+(c) Temperature-dependent magnetization M(T) for Mn4N. The magnetization remains constant up to 50 K (green
+arrow) but drops significantly above. At 160 K (purple arrow) the moment has already fallen to 87% of the base
+temperature value. (d) Energy difference in the calculated magnetic structure as a function of tilt angle θ between
+m3c and (111) plane. (e) Magnetic moments with varied tilt angle θ. (f) Comparison of calculated total energies as a
+function of lattice constant for the collinear and noncollinear ferrimagnetic structures.
+
+
+
+                                                           5
+      The noncollinear spin structure is analysed further using a constrained DFT approach, where
+the directions of the individual spins are pinned to a selected angle but the magnitudes of the
+moments are allowed to vary freely in the total energy minimization process. The direction of Mn1a
+is pinned to the body diagonal [111] and the tilt angle θ of the spins the Mn3c atoms is varied (also
+see inset of Fig. 5b). As the angle is rotated from the collinear ferrimagnetic configuration (θ = 90°)
+into the (111) plane (θ = 0°, Γ4g spin structure) and then towards a ferromagnetic configuration at θ
+= -90° the energy and magnetic moments vary as shown in Fig. 2d and 2e One can visualize this
+angle change like a closed umbrella (FiM) that opens out to close to 0° in regular usage and well
+beyond it on a windy day (FM, θ = -90°). The relative total energy change of the constrained angle
+approach is shown Fig. 2d. Following the total energy minimum curve from the right to left, we
+witness a decrease in total energy Etot with the Mn3c moments canting away from the antiparallel
+spin arrangement into the (111) plane. The minimum of Etot is found at around θ = 20°. The Etot
+difference between the collinear ferrimagnetic and noncollinear ferrimagnetic ground state is
+significant, about 4.5 meV/atom. The calculations also confirm that the FM arrangement (θ = -90°)
+of the spins on Mn is very unfavourable with energy difference ~32 meV/atom. Our results suggest
+that the Mn3c sublattice moments make an angle close to 70° with the Mn1a moments, very far from
+the simplified picture of collinear ferrimagnetism often assumed. For further analysis, Fig. 2e shows
+the calculated site-specific magnetic moments together with the total magnetic moment per formula
+unit in our range of interest (θ = 0 to 90°). A strong dependence of magnetization for both magnetic
+sites as a function of θ is revealed; the Mn1a moment remains ~4 μB down to about θ = 45° and then
+a significant reduction to ~3.2 μB occurs on closing towards the (111) plane (θ = 0°). In contrast, the
+Mn3c site moment increases from about 1.1 μB up to 2.4 μB when the angle closes from FiM towards
+the Γ4g-like configuration. The Etot minimum suggest magnetic values of m1a=3.65 μB, m3c=2.35 μB
+with mtot=1.24 μB/f.u. Indeed, the collinear ferrimagnetic spin configuration also yields a value of
+mtot that is close to the experimental one, but we have relaxed both spin configuration for the
+equilibrium lattice parameters from DFT and find a value a0 = 3.75 Å for the collinear ferrimagnetic
+state that is smaller than that for the non-collinear ferrimagnetic state a0 = 3.82 Å, in Fig. 2f, which
+is closer to the experimental value of 3.865 Å at 300K. The earlier calculation [14] found a greater
+tilt angle and a smaller 3c moment, fixing the lattice parameter and exploring a smaller range
+of . The energy difference can be ascribed to the electronic pressure caused by the altered magnetic
+spin configuration. This exchange striction, like that in FeRh [28 ], explains the significantly
+expanded lattice constant for Mn4N (3.86 Å) compared to its ferromagnetic cousins such as Fe4N
+(3.79 Å), Co4N (3.75 Å) and Ni4N (3.72 Å) on the one hand and on the other hand it is also manifest
+throughout the rotation of the spins that alters exchange-split band energies by Coulomb repulsion.
+This non-Heisenberg like behaviour relates to the spin split d-bands crossing the Fermi level that
+influences the band filling and calculated magnetic moments.
+
+3.2 Doping for compensation
+     In order to achieve compensation, namely to change the temperature-dependent magnetization
+from Q-type to N-type, the main exchange should change from n1a3c to n3c3c, meanwhile the 1a site
+moment m1a should be larger than three times the axial component of the 3c site moments 3m3cFiM.
+This means that Mn on the 1a site should be substituted at the appropriate level x in Mn4-xZxN (Z=
+Co, Ni, Cu, Zn, Ga, Ge, As, Rh, Pd, Ag, Cd, In, Sn, Sb, Pt, Au and Hg with x < 1). Fig. 3a shows
+the X-ray diffraction (XRD) pattern of Mn3.76Ga0.24N, and the low-angle data are expanded in Fig.
+
+                                                   6
+3b. The larger intensity of the (110) superlattice peak indicates that Mn3.76Ga0.24N crystallizes in a
+well-ordered structure with Ga atoms occupying the 1a site. Nonmagnetic Ga weakens the magnetic
+exchange leading to a decreased TC = 610 K. The net moment of 0.17 μB/f.u. at 4 K indicates that
+each Ga decreases the moment by of ~3.8 μB, matching both the moment of m1a from neutron
+diffraction [13] and our calculation. The compensation temperature is then Tcomp = 408 K. In this
+case, the 1a sublattice dominates the magnetization at low temperatures, while the 3c sublattice is
+dominant above compensation. The M-H curves shown in Fig. 3 exhibit very little hysteresis,
+indicating weak cubic magnetocrystalline anisotropy. Note the magnetization at 4 K is not saturated
+even in 5 T, further supporting the non-collinear ferrimagnetic structure where the tilt angle θ
+changes with magnetic field.
+      The doping efficiency of different elements from Cu to Sn is shown in Figs. 3e-3i. Unlike Ga,
+that changes the net moment at the rate of ~3.8 μB/atom, the rates for the other elements are
+significantly different. For Sn with x = 0.26, the magnetization is reduced to 0.26 μB/f.u., much more
+than 0.12 μB/f.u. for Ga with the same x. The magnetization curve shows a large hysteresis at 4 K in
+Fig. 3e, attributed to the Γ5g antiferromagnetic configuration that co-exist all the way down from the
+Néel temperature of Mn3SnN [29]. There is a difference in the M-T curves measured after field-
+cooling (FC) and zero-field-cooling (ZFC) shown in Fig. 3f, which is also observed in the In-doped
+sample (x = 0.26). The compensation temperature is around 400 K for Sn substitution for x = 0.26.
+The magnetization is less sensitive to x for Sn than for Ga, and this trend towards low doping
+efficiency is more significant for Ge than Sn, as shown in Fig. 3g. Compensation was not observed
+below 400 K for Ge with x = 0.35. On the other hand, Mn4-xCuxN is very sensitive to the
+compositional changes. The M-T curve gradually changes from Q-type to N-type and finally to P-
+type within a narrow range of x, as illustrated in Fig. 3h. The M-T curves for Cu, Ga, Ge, In and Sn
+with x = 0.26 are all compared in Fig. 3i). The Cu-doped sample has the highest doping efficiency
+with a P-type M-T curve without compensation (Tcomp < 0 K). Ge, Ga and Sn doped samples exhibit
+Tcomp of 70 K, 291 K and ~ 400 K respectively with N-type M-T curves. Ge leads either to a much
+higher Tcomp or else to a complete disappearance of compensation (Q-type M-T curve).
+
+
+
+
+                                                  7
+Fig. 3. (a) XRD pattern of Mn3.76Ga0.24N. (b) Expanded low-angle data with simulations showing
+the superlattice peak for Mn3.76Ga0.24N. The experimental data confirm that Ga atoms occupy the
+1a site. (c) Magnetization curves for Mn3.76Ga0.24N at different temperatures. (d) Thermomagnetic
+scans Mn4-xGaxN (x = 0.24 and 0.26). (e) Magnetization curve for Mn3.74Sn0.26N at 4 K and 300 K.
+(f) Zero-field-cooled (ZFC) and field-cooled (FC) thermomagnetic scans for Mn4-xSnxN. (g)
+Thermomagnetic scans for Mn4-xGexN (x = 0.26 and 0.35). (h) Thermomagnetic scans for Mn4-
+xCuxN (x = 0.16 to 0.34). (i) Thermomagnetic scans for Mn3.74Z0.26N (Z = Cu, Ga, Ge, In and Sn).
+
+
+
+      We plot data for different compositions of Mn4-xZxN at 4 K in Fig. 4a) including both our own
+data and previous reports [26,30,31,32]. The slope changes significantly from Ni (-6.20 μB/atom),
+Cu (-5.01 μB/atom), Zn (-4.35 μB/atom), Ga (-3.70 μB/atom) to Ge (-2.52 μB/atom) with increasing
+valence electron for dopants in the fourth period. A similar trend is also found for dopants in the
+fifth period: Ag (-7.70 μB/atom), In (-4.35 μB/atom) and Sn (-3.08 μB/atom). Based on this trend, the
+magnetic diagrams for different types of M-T curve are visualized in the maps of Figs. 4c and 4d.
+With a small concentrations of dopants, the interaction between 1a and 3c sites dominates and there
+is no compensation below the Curie temperature leading to a Q-type M-T curve. With suitable x, the
+moment if the 1a sublattice is still larger than that of the 3c sublattice at low temperature, while at
+high temperature the 3c sublattice wins above compensation. Therefore, an N-type M-T curve is
+found. When heavily-doped, the 3c sublattice dominates throughout whole temperature range, and
+there is a P-type M-T curve with no compensation. Elements from the fifth period have a greater
+ability to compensate than those from the fourth period, and the magnetization is very sensitive to
+
+                                                  8
+x. Therefore, the boundary for different M-T curves are shifted to the left (lower x) and the useful
+N-type region is narrower.
+
+
+
+
+Fig. 4. (a) Summary of the net moment as a function of composition x in Mn4-xZxN. We include our
+own data (solid points) and previous reports (open points). (b) The slope in (a) showing different
+efficiencies. Magnetic diagram for Q, N and P type M-T curves, depending both on x and Z for
+elements from the fourth (c) and fifth (d) periods.
+
+
+4. Discussion
+      The efficiency of the dopants to compensate is analyzed from the view of magnetic moment,
+non-collinear angle and lattice constant, from both experimental and theoretical points of view.
+4.1 Lattice constant
+      Compounds with the same x but different Z from the same group have the same valance
+electron number, and the main difference in their effects on the magnetic structure is related to the
+lattice parameter. Fig. 5a shows a0 for Mn4-xZxN (Z = Cu, Ga, Ge, Ag, Sn In). It is clear that Ag [33],
+In and Sn [26] lead to a greater increase in lattice parameter than Cu, Ga and Ge for the same x,
+because of their larger atomic radii. The increased lattice parameter translates to a larger atomic
+separation in the cubic crystal, leading to reduced p-d hybridisation of Mn3c and increased Mn-Mn
+exchange that produce a relative increase of magnetism of the 3c sublattice. The Mn3c moment is
+larger and more localized, leading to improved doping efficiency for dopants from the 5th period.
+
+
+
+
+                                                  9
+Fig. 5. (a) Lattice parameters for Mn4-xZxN (Z = Cu, Ga, Ge, Ag, Sn In), comparing our data (solid
+points) and previous reports (open points) [26,33]. (b) Calculated tilt angle θ versus x by Eq. 6. (c)
+Calculated magnetic moment for Mn3c in Mn3ZN (x = 1). (d) Tilt angle θ for different m1a and m3c
+deduced from DFT.
+
+4.2 Magnetic moment
+      Since the nearest-neighbor for Mn1a is always Mn3c, the magnetic coupling between Mn1a
+atoms is weak. As a result, the moment for the remaining Mn1a is not influenced significantly, as
+also indicated from neutron diffraction [34]. Therefore the effect of doping on the net magnetization
+comes mainly from Mn3c. We built our DFT model to capture trends in the electronic and magnetic
+structures and used the simplest 5-atom unit cell model to model our experimental observation with
+different compositions. This model allows us to compare trends for x = 1, when the 3c site is fully
+occupied by Mn and the symmetry is cubic.
+      The calculated Mn3c moment as a function of valence electron count in Mn3ZN from Mn to Ge
+in the 4th period and from Tc to Sn in 5th period is plotted in Fig. 5c. The magnetic behaviour shows
+the same trend; an initial increase saturates around Ni and Pd, and drops monotonically afterwards.
+In order to separate the electronic effects from the impact of chemical pressure on the lattice
+parameter, we first fixed a0 of all members of the series to that of Mn4N (3.82 Å). This is shown by
+the solid red and black lines for the 4th and 5th periods in Fig. 5c. The peak at Ni, which has three
+electrons more than Mn, resembles a localized moment picture with striking similarities with the
+
+                                                 10
+Slater-Pauling rule. These three extra electrons are shared by the three nearby Mn3c atoms, and hence
+each of the Mn3c atoms get one more electron becoming like iron, which shows the largest average
+moment in 3d alloys. The influence of the lattice constant on the moment expected on Mn3c without
+constraint is also drawn in green and blue lines for comparison. The same trend is maintained, with
+peaks at Z = Ni and Pd. The main difference is found on the right hand side of the curves, especially
+for elements from 5th period, as it relates to the expanded lattice parameters with additional valence
+electrons compared to the Z = Mn reference. The significant change in the amplitude of m3c is one
+of the main reasons for the different doping efficiencies. In addition, the orientation of m3c also
+depends on its amplitude that further impacts the efficiency of compensation as we discuss it in the
+following section.
+
+4.3 Tilt angle
+     Two questions concerning the tilt angle θ between m3c and the (111) plane are: How does θ
+change with x, and with the different dopings?
+     The 3c moment has two components, one component m3cFi along the ferrimagnetic [111] axis
+and the other m3cAFM in triangular antiferromagnetic (111) plane. The molecular field acting on 3c
+site also has two components, parallel and perpendicular to the [111] axis HFi and HAFM,
+corresponding to the ferrimagnetism and in-plane antiferromagnetism. They satisfy the relationships
+                                   HAFM = -2 n3c3c m3c cosθ cos120°                             (1)
+                                    FiM
+                                  H = n1a3c m1a(1 - x) - 2n3c3c m3c sinθ                        (2)
+                                      m3cFi = m3c sinθ                                           (3)
+                                          AFM
+                                      m3c      = m3c cosθ                                        (4)
+                                                FiM    AFM
+                                      tanθ = H / H                                              (5)
+where n3c3c and n1a3c are the Weiss coefficients for interactions between 3c-3c Mn and 1a-3c Mn, as
+shown from the inset of Fig. 5b. In Eqs. 1 and 2, the in-plane antiferromagnetism considers the
+interaction from the other two nearest neighbor Mn3c with 120° triangular spin structure; the
+negative sign of m3c is already considered. Taking Eqs. 1 and 2 into Eq. 5, we get
+                                       sinθ = n1a3c m1a(1 - x)/(3n3c3c m3c)                         (6)
+       Previously θ was estimated from neutron diffraction to be about 70° (nearly collinear), with
+m3c = 0.9 μB, m3cAFM = 0.36 μB, m3c= 0.97 μB, m1a= 3.8 μB but with large error bars [13]. This means
+    Fi
+
+the doping efficiency should be weaker than –(3.8+0.36) = -4.16 μB/atom, if we assume that the
+magnetic structure becomes collinear ferrimagnetic after doping. But from both our and previous
+experiments, dopants of Ni, Ag, Cu are much more effective, indicating that m3cAFM was
+underestimated. This is also found in our DFT calculations, where θ = 19.5° for binary Mn4N.Thus
+if we plot the relationship between x and θ in Eq. 6 (Fig. 5b), we find that θ decreases with x almost
+linearly. The umbrella-like triangular spin structure of Mn3c rotates away from the [111] direction
+and becomes in-plane and therefore the net moment changes at a slower rate, as confirmed by
+comparative neutron study of Mn3.2Ga0.8N and Mn4N [34]. Finally, when x = 1, Mn1a is completely
+replaced by the nonmagnetic dopant, Mn3ZN is a triangular topological antiferromagnet in the (111)
+plane if the crystal remains cubic.
+       When doped with different elements from Cu to Ge, or from Ag to Sn, the decrease of m3c with
+increase of valance electrons leads to a rise of θ according to Eq. 6. This can weaken the effect of
+decreasing m3cFi according to Eq. 3. Similarly, considering the increased lattice constant for dopants
+from 5th period, the enhanced m3c can also lead to a drop of θ, weakening the influence on m3cFi. We
+
+                                                 11
+further estimate θ by DFT calculation based on different m1a and m3c manganese site moments, as
+shown in Fig. 5d. We use a fixed spin moment (FSM) approach, where the amplitude of the magnetic
+moments on both sites is fixed. In Fig 5d, we plot the angles for minimum total energy Etot(m1a ,
+m3c ). The general trend is that the larger m3c for a given m1a, the smaller θ. The larger m3c moment
+tends to stay in the (111) plane, and only the increasing moment on the 1a site could compensate
+for this rotation. This is in qualitative agreement with Eq. 6 and the vanishing moment on m1a with
+increasing x, from experiment.
+
+4.4 Best dopants for compensated ferrimagnetism
+     Mn4-xZxN thin films are already attracting increasing attention for spintronics [35,36]. Most
+studies have been done with Ni or Co [22,23,24,25], but they are not ideal for achieving
+compensation. Beside the demand for compensation, additional requirements must be considered
+when choosing the best dopants. Based on our analysis, Ga appears to be a suitable dopant in Mn4-
+                                                                                     th
+xZxN films for spintronics for the following reasons: First, earlier elements from 4 period like Ni
+
+compensate the moment with small values of x. As the total moment is very sensitive to the
+composition, it is difficult to control the composition precisely and homogeneously. Second, for
+elements that have many additional valance electrons like Ge, a large value of x is needed due to the
+low doping efficiency. As a result, the Curie temperature drops substantially, which is not beneficial
+for room temperature applications. Third, Ga does not significantly increase the lattice constant
+compared to elements from 5th period so that a series of thin films can be grown with different
+compositions x and a similar tetragonal distortion is expected on the same substrate. The slight
+tetragonal distortion (c/a ~ 0.99) due to biaxial strain imposed at the interface of the film and
+substrate is the origin of perpendicular [001] anisotropy. A smaller lattice constant of the film than
+common substrates, such as SrTiO3 with a001 = 3.91 Å, is the key for the in-plane tensile strain and
+perpendicular anisotropy [37,38], which can be easily realized in Ga-doped samples. Finally, the
+doping efficiency of Ga, -3.70 μB/atom coincides with m1a. This is a consequence of a combination
+of an increased m3c and a decreased θ rather than simply the nonmagnetic nature of the dopant.
+
+5. Conclusion
+      From our experimental and theoretical study of the rare-earth-free noncollinear ferrimagnetic
+metals Mn4-xZxN, we conclude that the noncollinear ferrimagnetism originates from the structure of
+the Mn3c (111) kagome planes with a small Mn-Mn interatomic separation that leads to frustration
+of the antiferromagnetic nearest-neighbor interactions. The tilt angle of the moments from the (111)
+planes, θ = 20°, is smaller than previously thought. There is a choice of substitutions to achieve
+magnetic compensation at room temperature. The efficiency of different elements in this respect
+rises gradually with increasing valance electrons from group 11 (Cu, Ag) to group 14 (Ge, Sn). The
+Mn1a moment is not sensitive to the dopants, while the Mn3c moment peaks at Ni and Pd then drops
+with further valance electron addition. The higher efficiency of elements from 5th period is due to
+the larger lattice constant, which weakens the hybridization of Mn3c and N and leads to an increase
+of m3c. In addition, the tilt angle decreases with increasing m3c and composition x. Based on the
+above results, Ga is the recommended dopant for Mn4-xZxN for thin film spintronics with
+perpendicular anisotropy.
+
+
+
+
+                                                 12
+Acknowledgement
+Yangkun He and Rui Zhang contribute equally to the work. We thank Yu Kang for high-temperature
+measurements. This work was supported by Science Foundation Ireland, under the MANIAC, SFI-
+NSF China project (17/NSFC/5294) and ZEMS project 16/IA/4534.
+
+References
+
+[1] T. Jungwirth, X. Marti, P. Wadley, J. Wunderlich, Antiferromagnetic spintronics, Nat. Nanotech.
+11 (2016) 231–241.
+[ 2 ] S. Nakatsuji, N. Kiyohara, T. Higo, Large anomalous Hall effect in a non-collinear
+antiferromagnet at room temperature. Nature 527 (2015) 212–215.
+[3] A. K. Nayak, J. E. Fischer, Y. Sun, B. Yan, J. Karel, A. C. Komarek, C. Shekhar, N. Kumar, W.
+Schnelle, J. Kübler, C. Felser, S. S. P. Parkin, Large anomalous Hall effect driven by a nonvanishing
+Berry curvature in the noncolinear antiferromagnet Mn3Ge, Sci. Adv. 2 (2016) e1501870.
+[4] S. K. Kim, G. S. D. Beach, K.J. Lee, T. Ono, T. Rasing, H. Yang, Ferrimagnetic spintronics, Nat.
+Mater. 21 (2022) 24-34.
+[5] H. A. Zhou, T. Xu, H. Bai, W. Jiang, Efficient Spintronics with Fully Compensated
+Ferrimagnets, J. Phys. Soc. Japan 90 (2021) 081006.
+[6] J. M. D. Coey, Magnetism and Magnetic Materials (Cambridge Univ. Press, Cambridge, 2010).
+[7] M. K. Wilkinson, N. S. Gingrich, C. G. Shull, The magnetic structure of Mn2Sb, J. Phys. Chem.
+Solids 2 (1957) 289-300.
+[8] O. S. Volkova, V. V. Mazurenko, I. V. Solovyev, E. B. Deeva, I. V. Morozov, J.-Y. Lin, C. K.
+Wen, J. M. Chen, M. Abdel-Hafiez, A. N. Vasiliev, Noncollinear ferrimagnetic ground state in
+Ni(NO3)2, Phys. Rev. B 90 (2014) 134407.
+[9] R. N. Bhowmik, R. Ranganathan, R. Nagarajan, Lattice expansion and noncollinear to collinear
+ferrimagnetic order in a MnCr2O4 nanoparticle, Phys. Rev. B 73 (2006), 144413.
+[10] P. Wolfers, S. Miraglia, D. Fruchart, S. Hirosawa, M. Sagawa, J. Bartolome, J. Pannetier, Low
+temperature crystal and magnetic structures of Ho2Fe14B, J. Less-common Met. 162 (1990) 237-
+249.
+[11] W. J. Takei, G. Shirane, B. C. Frazer, Magnetic Structure of Mn4N, Phys. Rev. 119 (1960) 122.
+[12] W. J. Takei, R. R. Heikes, G. Shirane, Magnetic Structure of Mn4N-Type Compounds, Phys.
+Rev. 125 (1962) 1893.
+[13] D. Fruchart, D. Givord, P. Convert, P. l'Heritier, J. P. Senateur, The non-collinear component
+in the magnetic structure of Mn4N, J. Phys. F: Metal Phys. 9 (1979) 2431.
+[14 ] M. Uhl, S. F. Matar, P. Mohn, Ab initio analysis of magnetic properties in noncollinearly
+ordered Mn4N, Phys. Rev. B 55 (1997) 2995.
+[15] V. T. N. Huyen, M-T. Suzuki, K. Yamauchi, T. Oguchi, Topology analysis for anomalous Hall
+effect in the noncollinear antiferromagnetic states of Mn3AN (A = Ni, Cu, Zn, Ga, Ge, Pd, In, Sn,
+Ir, Pt), Phys. Rev. B 100 (2019) 094426.
+
+                                                 13
+[ 16 ] T. Bayaraa, C. Xu, and L. Bellaiche, Magnetization Compensation Temperature and
+Frustration-Induced Topological Defects in Ferrimagnetic Antiperovskite Mn4N, Phys. Rev. Lett.
+127 (2021) 217204.
+[17] S. Chikazumi, Physics of ferromagnetism, (Oxford University Press, 1997).
+[18] C. Li, Y. Yang, L. Lv, H. Huang, Z. Wang, S. Yang, Fabrication and magnetic characteristic of
+ferrimagnetic bulk Mn4N, J. Alloys and Compd. 457 (2008) 57–60.
+[19] M. Mekata, J. Haruna, H. Takaki, Localized Magnetic Moments in Mn4N, J. Phys. Soc. Jpn.
+21 (1966) 2267-2273.
+[20] R. Niewa, Metal-Rich Ternary Perovskite Nitrides, Eur. J. Inorg. Chem. 2019 (2019) 3647–
+3660.
+[21] J. C. Lin, P. Tong, W. Tong, Y. M. Zouc, C. Yang, F. Zhu, X. K. Zhang, L. F. Li, M. Wang, Y.
+Wu, S. Lin, W. H. Song, X. B. Zhu, Y. P. Sun, Large and constant coefficient of negative thermal
+expansion covering a wide temperature range in Zn1−xMnxNMn3 (0 ≤ x ≤ 0.3), Scr. Mater. 152 (2018)
+6-10.
+[22] S. Ghosh, T. Komori, A. Hallal, J. P. Garcia, T. Gushi, T. Hirose, H. Mitarai, H. Okuno, J. Vogel,
+M. Chshiev, J. Attané, L. Vila, T. Suemasu, S. Pizzini, Current-Driven Domain Wall Dynamics in
+Ferrimagnetic Nickel-Doped Mn4N Films: Very Large Domain Wall Velocities and Reversal of
+Motion Direction across the Magnetic Compensation Point, Nano Lett. 21 (2021) 2580–2587.
+[23] T. Komori, T. Gushi, A. Anzai, L. Vila, J. Attané, S. Pizzini, J. Vogel, S. Isogami, K. Toko, T.
+Suemasu, Magnetic and magneto-transport properties of Mn4N thin films by Ni substitution and
+their possibility of magnetic compensation, J. Appl. Phys. 125 (2019) 213902.
+[24] K. Ito, Y. Yasutomi, S. Zhu, M. Nurmamat, M. Tahara, K. Toko, R. Akiyama, Y. Takeda, Y.
+Saitoh, T. Oguchi, A. Kimura, T. Suemasu, Manipulation of saturation magnetization and
+perpendicular magnetic anisotropy in epitaxial CoxMn4−xN films with ferrimagnetic compensation,
+Phys. Rev. B 101 (2020) 104401.
+[25] H. Mitarai, T. Komori, T. Hirose, K. Ito, S. Ghosh, S. Honda, K. Toko, L. Vila, J. Attané, K.
+Amemiya, T. Suemasu, Magnetic compensation at two different composition ratios in rare-earth-
+free Mn4−xCoxN ferrimagnetic films, Phys. Rev. Materials 4 (2020) 094401.
+[26] M. Mekata, Magnetic study on Mn4N and its related compounds, J. Phys. Soc. Japan 17 (1962)
+796-803.
+[27] See http://www.openmx-square.org.
+[28] U. Aschauer, R. Braddell, S. A. Brechbuh, P. M. Derlet, N. A. Spaldin, Strain-induced structural
+instability in FeRh, Phys. Rev. B 94 (2016) 014109.
+[29] D. Boldrin, L.F. Cohen The role of competing magnetic interactions on the abnormal expansion
+properties in manganese antiperovskites, Mn3+xA1-xN (A = Ni, Sn), J. Alloys and Compd. 699 (2017)
+887-891.
+[30] M. R. Fruchart, J. P. Bouchaud, M. E. Fruchart, M. G. Lorthioir, R. Madar, A. Rouault, Sur les
+transitions magnetiques du premier ordre dans les perowskites metalliques du manganese, Mat. Res.
+                                                  14
+Bull. 2 (1967) 1009-1020.
+[31] W. J. Feng, D. Li, Q. Zhang, Y. F. Deng, S. Ma, Z. D. Zhang, Structure, magnetic and
+electrical transport properties of Mn4–xAgxN compounds, Mater. Sci. (Poland) 27 (2009) 33.
+[32] R. Madar, Thesis, University of Paris, N° 686, Centre de Documentation du CNRS, Paris
+(1970).
+[33] N. P. Lu, T. Xu, Z. X. Cao, A. L. Ji, Ternary Mn3NMn1−xAgx compound films of nearly constant
+electrical resistivity and their magnetic transport behaviour, J. Phys. D: Appl. Phys. 49 (2016)
+045308.
+[34] D. Fruchart, Ph.L'Héritier, R. Fruchart, Transformations de phases dans les nitrures et carbures
+du manganese de structure-type perovskite, Mat. Res. Bull. 15 (1980) 415-420.
+[35] T. Suemasu, L. Vila, J. P. Attané, Present Status of Rare-earth Free Ferrimagnet Mn4N and
+Future Prospects of Mn4N-based Compensated Ferrimagnets, J. Phys. Soc. Japan 90 (2021) 081010.
+[36] Z. Zhang and W. Mi, Progress in ferrimagnetic Mn4N films and its heterostructures for
+spintronics applications, J. Phys. D: Appl. Phys. 55 (2022) 013001.
+[37] Y. Yasutomi, K. Ito, T. Sanai, K. Toko, and T. Suemasu, Perpendicular magnetic anisotropy of
+Mn4N films on MgO(001) and SrTiO3(001) substrates, J. Appl. Phys. 115 (2014) 17A935.
+[38] T. Hirose, T. Komori, T. Gushi, A. Anzai, K. Toko, and T. Suemasu, Strong correlation between
+uniaxial magnetic anisotropic constant and in-plane tensile strain in Mn4N epitaxial films, AIP Adv.
+10 (2020) 025117.
+
+
+
+
+                                                 15
+

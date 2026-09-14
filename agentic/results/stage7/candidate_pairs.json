@@ -1,0 +1,38 @@
+[
+  {
+    "winner": "Fe4N",
+    "loser": "Fe3.6Ni0.4N",
+    "nominal_delta_k": 72,
+    "interval_gap_k": 52,
+    "margin_k": 50,
+    "passes_margin": true,
+    "training_eligible": false,
+    "source_group": "Westinghouse_FeNiN_1962_TableII",
+    "split": "unassigned_source_group",
+    "reason": "Nominal formulas; nitrogen deficiency; no structure or pretraining-overlap audit"
+  },
+  {
+    "winner": "Fe4N",
+    "loser": "Fe3NiN",
+    "nominal_delta_k": 127,
+    "interval_gap_k": 107,
+    "margin_k": 50,
+    "passes_margin": true,
+    "training_eligible": false,
+    "source_group": "Westinghouse_FeNiN_1962_TableII",
+    "split": "unassigned_source_group",
+    "reason": "Nominal formulas; nitrogen deficiency; no structure or pretraining-overlap audit"
+  },
+  {
+    "winner": "Fe3.6Ni0.4N",
+    "loser": "Fe3NiN",
+    "nominal_delta_k": 55,
+    "interval_gap_k": 35,
+    "margin_k": 50,
+    "passes_margin": false,
+    "training_eligible": false,
+    "source_group": "Westinghouse_FeNiN_1962_TableII",
+    "split": "unassigned_source_group",
+    "reason": "Nominal formulas; nitrogen deficiency; no structure or pretraining-overlap audit"
+  }
+]

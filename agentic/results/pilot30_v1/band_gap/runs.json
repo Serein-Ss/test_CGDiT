@@ -1,0 +1,247 @@
+[
+  {
+    "seed": 17,
+    "control": "true_labels",
+    "steps": 40,
+    "training_pairs": 47,
+    "training_groups": 3,
+    "adapter": "results/pilot30_v1/band_gap/true_labels_seed17/adapter.pt",
+    "adapter_sha256": "d8ff381b9fe20cd9b91c84c092f0478210ad801a0f4121e7df75da9880dc0a9e",
+    "parameter_change_norms": {
+      "weight": 0.2790911793708801,
+      "bias": 0.013209057971835136
+    },
+    "frozen_parameters_unchanged": true,
+    "cached_scores_equal_full_network": true,
+    "summary": {
+      "train": {
+        "pairs": 47,
+        "absolute_order_accuracy": 0.723404255319149,
+        "reference_absolute_order_accuracy": 0.723404255319149,
+        "fraction_moving_toward_label": 1.0,
+        "mean_relative_margin_beta": 0.014656303710127858,
+        "mean_kl": 3.2228859398545814e-05
+      },
+      "validation": {
+        "pairs": 1,
+        "absolute_order_accuracy": 0.0,
+        "reference_absolute_order_accuracy": 0.0,
+        "fraction_moving_toward_label": 0.0,
+        "mean_relative_margin_beta": -0.005182603619383978,
+        "mean_kl": 3.747911182124438e-05
+      },
+      "test": {
+        "pairs": 1,
+        "absolute_order_accuracy": 0.0,
+        "reference_absolute_order_accuracy": 0.0,
+        "fraction_moving_toward_label": 1.0,
+        "mean_relative_margin_beta": 0.005530751392749759,
+        "mean_kl": 1.5878893064869004e-05
+      },
+      "electrical_control": {
+        "pairs": 1,
+        "absolute_order_accuracy": 0.0,
+        "reference_absolute_order_accuracy": 0.0,
+        "fraction_moving_toward_label": 0.0,
+        "mean_relative_margin_beta": -0.002751378148483733,
+        "mean_kl": 1.7192359622460646e-05
+      }
+    }
+  },
+  {
+    "seed": 42,
+    "control": "true_labels",
+    "steps": 40,
+    "training_pairs": 47,
+    "training_groups": 3,
+    "adapter": "results/pilot30_v1/band_gap/true_labels_seed42/adapter.pt",
+    "adapter_sha256": "8ed4d0eb075dea75e5ec2a40f478e5f270df5829979697eb500b4595a6319999",
+    "parameter_change_norms": {
+      "weight": 0.21158580482006073,
+      "bias": 0.010093058459460735
+    },
+    "frozen_parameters_unchanged": true,
+    "cached_scores_equal_full_network": true,
+    "summary": {
+      "train": {
+        "pairs": 47,
+        "absolute_order_accuracy": 0.723404255319149,
+        "reference_absolute_order_accuracy": 0.723404255319149,
+        "fraction_moving_toward_label": 1.0,
+        "mean_relative_margin_beta": 0.016374753347329365,
+        "mean_kl": 2.8382885300462733e-05
+      },
+      "validation": {
+        "pairs": 1,
+        "absolute_order_accuracy": 0.0,
+        "reference_absolute_order_accuracy": 0.0,
+        "fraction_moving_toward_label": 0.0,
+        "mean_relative_margin_beta": -0.0006539886101109005,
+        "mean_kl": 3.281266821201593e-05
+      },
+      "test": {
+        "pairs": 1,
+        "absolute_order_accuracy": 0.0,
+        "reference_absolute_order_accuracy": 0.0,
+        "fraction_moving_toward_label": 1.0,
+        "mean_relative_margin_beta": 0.004237834461188565,
+        "mean_kl": 1.3360599335913529e-05
+      },
+      "electrical_control": {
+        "pairs": 1,
+        "absolute_order_accuracy": 0.0,
+        "reference_absolute_order_accuracy": 0.0,
+        "fraction_moving_toward_label": 0.0,
+        "mean_relative_margin_beta": -0.0017595986719243228,
+        "mean_kl": 1.193236846397383e-05
+      }
+    }
+  },
+  {
+    "seed": 123,
+    "control": "true_labels",
+    "steps": 40,
+    "training_pairs": 47,
+    "training_groups": 3,
+    "adapter": "results/pilot30_v1/band_gap/true_labels_seed123/adapter.pt",
+    "adapter_sha256": "731cc58f273fec65c922ee16467fdef6552baca09fc8cdeda8c7dd18fd661d83",
+    "parameter_change_norms": {
+      "weight": 0.2757781744003296,
+      "bias": 0.01321453507989645
+    },
+    "frozen_parameters_unchanged": true,
+    "cached_scores_equal_full_network": true,
+    "summary": {
+      "train": {
+        "pairs": 47,
+        "absolute_order_accuracy": 0.723404255319149,
+        "reference_absolute_order_accuracy": 0.723404255319149,
+        "fraction_moving_toward_label": 1.0,
+        "mean_relative_margin_beta": 0.014878851349973563,
+        "mean_kl": 3.59844924978787e-05
+      },
+      "validation": {
+        "pairs": 1,
+        "absolute_order_accuracy": 0.0,
+        "reference_absolute_order_accuracy": 0.0,
+        "fraction_moving_toward_label": 0.0,
+        "mean_relative_margin_beta": -0.0010493266927369405,
+        "mean_kl": 4.11753078846111e-05
+      },
+      "test": {
+        "pairs": 1,
+        "absolute_order_accuracy": 0.0,
+        "reference_absolute_order_accuracy": 0.0,
+        "fraction_moving_toward_label": 1.0,
+        "mean_relative_margin_beta": 0.00434418010020939,
+        "mean_kl": 1.601354383140574e-05
+      },
+      "electrical_control": {
+        "pairs": 1,
+        "absolute_order_accuracy": 0.0,
+        "reference_absolute_order_accuracy": 0.0,
+        "fraction_moving_toward_label": 0.0,
+        "mean_relative_margin_beta": -0.0023395230527967215,
+        "mean_kl": 1.713803471758979e-05
+      }
+    }
+  },
+  {
+    "seed": 42,
+    "control": "shuffled_labels",
+    "steps": 40,
+    "training_pairs": 47,
+    "training_groups": 3,
+    "adapter": "results/pilot30_v1/band_gap/shuffled_labels_seed42/adapter.pt",
+    "adapter_sha256": "1312cd2be1c6250ce458bdad62ced782ebd9f3924e7ac3961d1ee3e31265f820",
+    "parameter_change_norms": {
+      "weight": 0.19213388860225677,
+      "bias": 0.008943866938352585
+    },
+    "frozen_parameters_unchanged": true,
+    "cached_scores_equal_full_network": true,
+    "summary": {
+      "train": {
+        "pairs": 47,
+        "absolute_order_accuracy": 0.723404255319149,
+        "reference_absolute_order_accuracy": 0.723404255319149,
+        "fraction_moving_toward_label": 0.0,
+        "mean_relative_margin_beta": -0.007246244488466333,
+        "mean_kl": 1.0997698195532005e-05
+      },
+      "validation": {
+        "pairs": 1,
+        "absolute_order_accuracy": 0.0,
+        "reference_absolute_order_accuracy": 0.0,
+        "fraction_moving_toward_label": 1.0,
+        "mean_relative_margin_beta": 0.001961412782710189,
+        "mean_kl": 1.0956476253746553e-05
+      },
+      "test": {
+        "pairs": 1,
+        "absolute_order_accuracy": 0.0,
+        "reference_absolute_order_accuracy": 0.0,
+        "fraction_moving_toward_label": 0.0,
+        "mean_relative_margin_beta": -0.0038194758720540753,
+        "mean_kl": 9.976244469633855e-06
+      },
+      "electrical_control": {
+        "pairs": 1,
+        "absolute_order_accuracy": 0.0,
+        "reference_absolute_order_accuracy": 0.0,
+        "fraction_moving_toward_label": 1.0,
+        "mean_relative_margin_beta": 0.002409488176150868,
+        "mean_kl": 1.0340555633092663e-05
+      }
+    }
+  },
+  {
+    "seed": 42,
+    "control": "exclude_Co2FeSi",
+    "steps": 40,
+    "training_pairs": 44,
+    "training_groups": 2,
+    "adapter": "results/pilot30_v1/band_gap/exclude_Co2FeSi_seed42/adapter.pt",
+    "adapter_sha256": "a85f5906c69115c908615a24f1e19cfcdabe81d8494ae8b7203b613c0faedb2d",
+    "parameter_change_norms": {
+      "weight": 0.23172155022621155,
+      "bias": 0.011117232032120228
+    },
+    "frozen_parameters_unchanged": true,
+    "cached_scores_equal_full_network": true,
+    "summary": {
+      "train": {
+        "pairs": 47,
+        "absolute_order_accuracy": 0.723404255319149,
+        "reference_absolute_order_accuracy": 0.723404255319149,
+        "fraction_moving_toward_label": 1.0,
+        "mean_relative_margin_beta": 0.01477627500204268,
+        "mean_kl": 2.9508013779267718e-05
+      },
+      "validation": {
+        "pairs": 1,
+        "absolute_order_accuracy": 0.0,
+        "reference_absolute_order_accuracy": 0.0,
+        "fraction_moving_toward_label": 1.0,
+        "mean_relative_margin_beta": 2.713833756236757e-05,
+        "mean_kl": 3.581628492995333e-05
+      },
+      "test": {
+        "pairs": 1,
+        "absolute_order_accuracy": 0.0,
+        "reference_absolute_order_accuracy": 0.0,
+        "fraction_moving_toward_label": 1.0,
+        "mean_relative_margin_beta": 0.001042827473914561,
+        "mean_kl": 6.7824163878515975e-06
+      },
+      "electrical_control": {
+        "pairs": 1,
+        "absolute_order_accuracy": 0.0,
+        "reference_absolute_order_accuracy": 0.0,
+        "fraction_moving_toward_label": 0.0,
+        "mean_relative_margin_beta": -0.002238170418422669,
+        "mean_kl": 1.4921774559676729e-05
+      }
+    }
+  }
+]

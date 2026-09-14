@@ -1,0 +1,405 @@
+P   8 YSECAL REVIEW                                     VOLUME         119, NUMBER              1                              JULY 1, 1960
+
+                                             Magnetic Structure of Mn, Nt
+                                                      W. J. TAKEI AND G. SHIRANE
+                                     IVestznghouse   Research Laboratories, Pittsburgh,    E'ennsyleania
+
+                                                                    AND
+
+                                                                 B. C. FRAzER
+                                          Brookhaeen Eational Laboratory,      Upton,     Sex Fork
+                                                      (Received February 15, 1960)
+
+                The magnetic structure of Mn4N has been determined by neutron diffraction from powders. The cubic
+             unit cell has Mn at the corner and face centers and N at the body center. Standard diffraction techniques
+             led to four possible models and it was necessary to perform polarized neutron beam experiments to resolve
+             this ambiguity. The structure is ferrimagnetic with a corner moment of 3.5p& antiparallel to the three face
+             center moments of 0.77@~.
+
+
+
+                     I.   INTRODUCTION                                    36 hr over approximately 15 g of Mn powder heated to
+      EVERAL studies have been made on the prepara-                       1000'C. X-ray examination of the inner and outer
+S     tion, structure, and magnetic properties of the                     portions of the resultant slugs did not reveal any dif-
+transition metal nitrides. ' ' The nitrides with com-                   ferences, both showing the presence of the f phase,
+position T4N have a simple structure composed of                        Mn2N. A pure sample of Mn4N was not obtained
+metal atoms at the points of a face centered cubic                      although one run showed only faint traces of Mn2N.
+lattice with nitrogen at the body-center position of the                All runs showed a lattice constant for Mn4N of
+unit cell. Such compounds have been prepared with T                     3.865~0.002 A. Since the quantity of the best product
+equal to Mn, Ni, and Fe and with partial substitution                   was not sufficient for the diffraction analysis, several
+of these metals by Ni, Zn, Cu, and Pt. Several models                   of the better preparations were combined and ground
+have been proposed for the magnetic structure of these                  to 300 mesh to give the Gnal sample. Chemical analysis
+compounds. Frazer' showed that the neutron dif&action                   of this sample gave a Mn/N ratio of 4/1. 06. Since the
+data for I'e4N could be explained by a model proposed                   diffraction lines of Mn2N are visible on the x-ray photo-
+by gener and Berger' in which nitrogen was assumed                      graphs, it seems probable that at least a large part of
+to be an electron donor to the 3-d shell of the face-center             the excess nitrogen is due to the presence of this phase.
+atoms. The Fe moments (of 3pn and 2p~ for the corner                    The magnetic measurements of the "pure" sample gave
+and face-centered atoms, respectively) are aligned ferro-               a moment per unit cell of 0.85@~ at 298'K and 1.17p, ~
+magnetically    to give the total moment of 9 Bohr                      at 77'K. However, the values from the diGraction
+magnetons per unit cell. However, Mn4X has a total                      sample were lower, 0.72 and 0.98p& respectively
+moment of 1.2@~ per unit cell. ' To explain this low                     (minimum     values uncorrected for impurities). The
+value, various models, shown in Table I, have been                      measurements were made with an applied Geld of 12 000
+proposed, all of which assume a ferrimagnetic arrange-                  oersteds. An extrapolation of these moments to inGnite
+ment of the individual moments. A neutron diGraction                    field and O'K would increase them so that the 1.20@~
+study was made in an attempt to determine the mag-                      value of Iuza and Puff' would fall between them.
+netic structure of this compound directly.                              Although the saturation moment was used in the
+                                                                        calculation of the individual atomic moments during
+                II. SAMPLE     PREPARATION                              the course of the structure determination, the results
+  The Mn4N powder was prepared by following the                         were not very sensitive to the value used. Since a 10%
+                      "
+procedure of Mah. Nitrogen gas was passed for 24 to                     variation produced a change of less than 0.03@~ in the
+                                                                        individual moments, the values for the pure sample
+  t This work was carried out in part at the Brookhaven National        were used in the final calculations.
+Laboratory under the auspices of the U. S. Atomic Energy Com-
+mission.
+  ~ Diffraction experiments conducted while a Guest Scientist at
+                                                                           The blocks used for the polarized neutron experi-
+Brookhaven National Laboratory.
+                                                                        ments were made by treating pressed powder, 1 in.
+  ' C. Guillaud and J. Wyart, Compt. rend. 222, 71 (1946).
+       P. Guillaud, Revs. Modern Phys. 25, 119 (1953).
+  ' C.                                                                  TA&I.E I, Models proposed for Mn4N. Atomic moments in Bohr
+  ~
+
+    G. W. Wiener and J. A. Berger, J. Metals 7, 360 (1955).             magnetons for the atoms with coordinates as given in the table.
+  4 V. Zwicker, Z. Metallkund
+                               42, 274 (1951).
+    R. Juza, H. Puff, and F, Wagenknecht, Z. Electrochem. 61,
+804 (i957).                                                                                                Mn1      Mn2         Mna         Mn4
+    R. Juza and H. Puff, Z. Electrochem. 61, 810 (1957).                                                   (000)   (2, 4, o)   (2, 0, —:) (0, 2, 2)
+  7 N. Terao and A.
+                     Bughezan, J. Phys. Soc. Japan 14, 139 (1959).
+  8
+    J. B. Goodenough, A. Wold, and A. Arnott, J. Appl. Phys.            Wiener and Berger'             +4                        —3         —3
+S1, (i96O).                                                             Guillaudl                      —5                        +2         +2
+  9 B. C. Frazer,
+                   Phys. Rev. 112, 751 (1958).                          Juza and Puff6                 +32                       —2         —2
+  '0 A. D. Mah,
+                  J. Am. Chem. Soc. 80, 2954 (1958).
+                                                                         MAGNETIC                    STRUCTURE OF                    Mn4N                                                123
+
+&(1 in. &(~ in, for 48 hr with N2. The product was a                                                          TABLE II. Intensity data for Mn4N. Observed intensities cor-
+                                                                                                           rected for the appropriate Lorentz factors. Scaled to (111) with
+solid block which could be cut with a diamond saw                                                          an average scale factor used for the 77'K data. P =1.05 A.
+to obtain the desired sample size.
+                                                                                                                                            77'K               77'K
+           III. DETERMINATION OF THE STRUCTURE                                                                                                 No            Magnetic
+                                                                                                                            300'K              field            field             In«(calc)
+             A. Unpolarized                        Neutron Experiments
+                                                                                                           100                7.66             8.27             4.82                5.28
+   Powder diffraction patterns were obtained at room                                                       110              13.9            14.7                9.9                10,6
+                                                                                                           111              45.5            46.1               44.7                45.3
+and liquid nitrogen temperatures. For the former, the                                                      200               1.7                                                    1,5
+powder was encased in a —     ', -in. diameter, thin-walled                                                210              20.9            20.7                                   21.1
+silica cylinder. The low-temperature patterns were taken                                                   211              20.3            18.8                                   21.1
+                                                                                                           221
+with the powder in a fiat, 4-in, thin walled Al sample                                                     300              21.8                                                   26.4
+holder. The first three peaks were also scanned at 77'K                                                    301              16.3
+with a magnetic field of 6200 oersteds applied parallel                                                    311              122                                                    141
+to the scattering vector. The low-temperature runs are
+shown in Fig. 1. The observed intensities are given in
+                                                                                                           peaks, which are the only ones with large magnetic
+Table II after correction for the appropriate Lorentz
+                                                                                                           intensities, were used to derive the magnetic moments.
+factors. Xo absorption corrections were made. The                                                          There are other peaks with the same structure factors,
+(111) peak, which consists primarily (99.6%) of nuclear                                                    but the rapid angular fall off of the magnetic form factor
+scattering, was used to scale the room temperature                                                         almost eliminates their magnetic intensity components.
+measurements. An average scale factor was used for
+                                                                                                              Examination of the possible models showed two
+                                  '   '                                           '
+                                                                                                           types of configurational     symmetry     (as defined by
+                                               '            '        '
+                         l(IOO)           I
+                                                   (IIOI         I       (III)'       I
+                                                                                           (20I)   (2ll)   Shirane"): cubic with the three face-center moments
+      7    I600—                                                                             i
+
+      K l400—                                                                                              antiparallel to the corner moment, and tetragonal with
+      O
+                                                                         ()'i
+                                                                                                           the two face-center moments at s= ~ antiparallel to the
+      c I200-
+      O                                                                                                    one at a=0. The magnetic structure amplitudes for the
+      E
+      & IOOO—                                                                                              two types of symmetry are shown in Table III. The
+      o+   800
+                                                                         i)
+                                                                                                           nuclear scattering factor is the same for both. The
+           6oo                                                                                             numbering scheme is given in Table I. The P, are the
+      c 400                                                                                                atomic magnetic scattering factors which are related
+                                                                                                           to the magnetic moment p, by a constant and a rnag-
+           200
+                                                                                                                                     "
+                                                                                                           netic form factor. The Mn+' form factor curve was
+             IQ                           20                     25                   50              40
+                                                    2   6       (degrees)
+                                                                                                           used in the calculations. The structure-dependent
+                                                                                                           portion of the intensity is given by:
+       FIG. 1. Neutron diffraction pattern of Mn4 N powder at
+                           77'K. 'A= 1.05 A.                                                                                  I= 2 ji(&inuc            +(q ) i~imag )    y
+
+
+
+
+the 77'K data. The calculated nuclear scattering inten-                                                    where      i refers to
+                                                                                                                              the nonequivalent refiection at a given
+sity is also given in the table. The nuclear scattering                                                    angle; j;=multiplicity; (q'); the average value of sin'n
+lengths of —                                  "
+              0.36&(10 cm for bM„and 0.94)&10 for                                                      "   for the ith reflection where o. is the angle between the
+bN were taken from the compilation        of Shull and                                                     scattering and magnetic vectors; and           =structure     J,
+Wollan       "                                                                                             factor for the ith refiection.
+   Two assumptions were made in deriving the magnetic                                                         In the case of cubic models, (q') is equal to $, inde-
+structure. These were:                                                                                     pendent of the magnetic axis, and all (100) reflections
+                                                                                                           are equivalent, as are all (110). Therefore, the only
+     (1) Only one magnetic axial direction is present, i. e. ,
+         Yafet-Kittel angles were not considered.                                                          TABLE III. Structure factors for Mn4N. Derived with assumptions
+                                                                                                              mentioned in text. Summations to be made over all Mn.
+     (2) The moments of the three face-centered Mn
+         atoms are equal in magnitude. This assumption
+         will be examined later.
+                                                                                                                                                                             F   „Tetra-
+                                                                                                                  Indices                   Fnuc                Cubic               gonal
+   From the data, it is immediately obvious that the                                                       All even                      4bM    +bw              Zp;                 Zp;
+magnetic moments must be aligned ferrimagneticaiiy                                                         All odd                       4bM    —bw              Zp;                 Zp;
+                                                                                                           Mixed h+k                            ~bN
+since a ferromagnetic arrangement cannot result in a                                                                 even                                       Pl      P2         pl+3p2
+                                                                                                                 0+k odd                        ~bN             Pl      P2           Zp;
+large magnetic contribution to the (100) and (110)
+maxima if the total moment is kept small. These two
+                                                                                                             '2 G. Shirane, Acta Cryst. 12, 282 (1959).
+     "C. G. Shull       and   E. O.   Wollan in SoHd State Physics, edited                                   "For   convenience, the algebraic sign of p; and p; is assumed
+by    F. Seitz    and   D.    Turnbull (Academic Press, Inc. , New York,                                   to be positive if the spin direction is parallel to the net moment of
+ 956), Vol, 2,
+1.                                                                                                         the unit cell, and negative if antiparg, llel.
+124                                 TAKE I, SH I RANE,                AN D           FRAZER
+   TABLE IV. Models from powder diffraction data. Magnetic        agreement  with models which have been proposed
+moments given in Bohr magnetons. Positive direction dehned as
+direction of net moment.                                          previously.Tetragonal I is similar to that of Juza and
+                                                                  Puff' but the moments are lower: 2.7 and 1.5@~ as
+                          300'K                      77oK         compared to their 3.2 and 2p, ~.
+   Model
+Cubic I                2.9     —o.6s           3.5      —0.77                  B. Polarized          Neutron Experiments
+Cubic II             —2.6       1.1           —2.9       1.4
+Tetragonal   I        2. 1     —1.3            2.7      —1.5         It was possible to choose between the four models by
+Tetragonal   II      —0.8s        1.7         —091          2.1   the use of polarized neutrons. This technique has been
+                                                                  described previously"" and only the pertinent rela-
+                                                                  tionships will be given here.
+parameter, p& —    p&, or equivalently,  p, —  p2, can be
+                                                                     The magnetic and nuclear scattering amplitudes
+calculated directly from both the (100) and (110)
+                                                                  interact coherently in the diftraction of polarized
+magnetic scattering. This gave 4.29@~ (an average of
+                                                                  neutrons. With a magnetic field applied perpendicular
+4.33 and 4.2~p~) at 77'K for the absolute sum of the
+                                                                  to the scattering vector to align the atomic moments,
+corner and one face-center moment. In order to cal-
+                                                                  the neutron polarization directions parallel or anti-
+culate the value of the individual moments, the value
+                                                                  parallel to the field give a total structure factor of
+of P   ju, (or some other function of the p, 's) is needed.
+While this is available from the reQections with h, k,                                                   ~nuc~ ~mag               p
+
+and 1 all even or all odd, the magnetic contribution to
+                                                                  where the negative sign applies to the antiparallel                                        case.
+these rejections is very small and dificult to determine
+accurately. Therefore, the measured saturation moment
+(1.17ps at 77'K) was combined with the foregoing result                                                               l                   I
+                                                                                               i              i                       I                  I
+                                                                                                   g j                       I                   I
+
+
+
+to solve for the atomic moments. However, defining the                                        (OOI) 4
+                                                                                                                                              300    K
+
+direction of the net Inoment as positive, p, ~ —                                l2—                                                            77    K
+                                                  p2, which
+has the same sign as the (100) structure factor, can be                         II
+either negative or positive. These possibilities lead to                  c-    IQ
+
+the two solutions shown in Table IV. The moments
+                                                                          D
+obtained by assuming a positive sign are numbered I,                             s
+and those from a negative sign, II. The results of a
+                                                                          ke
+
+                                                                          o      7
+                                                                          Kl
+similar analysis of the room temperature data are also
+                                                                           oJ    6
+shown.
+    In the case of the tetragonal model, the determination                +
+ of the moments is not as direct as for the cubic sym-                           4
+
+ metry. All of the rejections at a given angle are not
+ equivalent, and not only the magnetic structure factor
+ but also the (q'), values are different. However, for the                       &
+                                                                                     —[ool]                       [Ilo]   [Ill]                [loo]
+ 8+k odd reflections, the magnetic structure factor can                          0      I
+
+                                                                                                    30
+                                                                                                                             I
+
+                                                                                                                            60
+                                                                                                                                  .   ~   i      I
+
+                                                                                                                                                90
+ be calculated from the saturation magnetization and is                                                   $       (degrees }
+ very small. Although (g'), is a function of the orien-
+                                                                     FiG. 2. The value of @1+3@2as a function of the angle p between
+ tation of the magnetic axis, by assuming a median (q')           the c axis and magnetic axis if a tetragonal model is assumed.
+ (values range from 2 to 1), approximations can be made
+ for the magnetic scattering by (100) and (101) tetra-
+                                                                  Thus from qualitative considerations of the change in
+ gonal planes. The relatively small intensities so obtained
+                                                                  intensity with change of polarization direction, the
+ can be subtracted from the total magnetic intensities
+                                                                  direction of net magnetization relative to the direction
+ to give reliable values for the large (001) and (110)
+                                                                  of the corner moment can be determined, i.e., a choice
+ magnetic scattering. One can then calculate p~+3p2
+                                                                  can be made between Type I and Type II models. The
+ as a function of the angle P between the magnetic axis
+                                                                  difference between a cubic and tetragonal model can
+ and the c axis. This dependence is shown in Fig. 2. It is        be distinguished only by a quantitative study. The
+ evident from the figure that the magnetic axis must              observed intensity is affected by the initial degree of
+ make about the same angle with the tetragonal c axis             polarization, by depolarization in the sample, and by
+ as L111j. At 300'K p~+3p2 is equal to 6.05, and 7.23             the "Gipping efficiency" of the rf Geld in reversing the
+ at 77'K. As before, this leads to two sets of possible           direction of polarization. For antiparallel polarization
+'atomic moments. These are shown in Table IV. Tetra-              the structure dependent part of the intensity is given by:
+ gonal model I was derived assuming a positive structure
+ factor for (001).                                                  ' R. Nathans, C. G. Shull, G. Shirane, and A. Andresen, J.
+    Thus, there are four models which satisfy the neutron         Phys. Chem. Solids 10, 138 (1959).
+                                                                    "C.  G. Shull, E. O. Wollan, and W. C. Koehler, Phys. Rev.
+ powder diffraction data. Xone of them are in good                84, 912 (1951).
+                                         MAGNETIC              STRUCTURE OF               Mn4N                                 125
+
+I (antiparallel)   =                                                     in' error su%ciently to enable it to Rt the tetragonal
+                                                                         model. To obtain agreement, the values used for the
+                ]D+1 y                                                   initial polarization, the depolarization factor, and the
+p&, 0.95'~                                                               Ripping efficiency would have to be increased. However,
+                                                                         since all these factors are very close to their maximum
+                               (D+1~-
+                    + 1 —0.95~
+                                 2
+                                      y'„„,'+P' .,
+                                                ~                   j,   value of one, it is not possible to obtain a significant
+                                                                         change. Another potential source of error is in the
+                                                                         measurement of the background. The smaller of each
+where   0.95=initial polarization, &= Ripping eKciency,                  intensity pair is very close to background which is
+and a=depolarization factor, For parallel orientation,                   approximately 100 in each case. If the true background
+                                                                         was smaller, it could cause the required decrease in the
+p is dropped and the difference in F's is replaced by
+their sum. The second term is small and is significant                   intensity ratio. However, the background, measured
+                                                                         without a sample, was 70. Even with this minimum
+only for the smaller of each intensity pair.
+   In order to minimize depolarization of the beam, a                    value, the intensity would not increase sufficiently to
+                       ')(~x 4 in. ', was used as a sample.              give agreement with the tetragonal model.
+small sintered block, —    ,                                                 There is one process by which the tetragonal model
+The depolarization factor and Ripping efficiency were
+determined as 0.96 and 0.99 respectively by analyzing                    could give the observed high ratio. A large change in
+the transmitted beam with a Co single crystal. Because                   intensity with change in polarization direction requires
+of the small sample, the diGracted intensity was very                    all the reRections at a given angle to have a large mag-
+low, particularly for the smaller of each pair of inten-
+                                                                         netic contribution. However, in a powder composed of
+sities. Therefore, it was necessary to determine the                     randomly oriented tetragonal crystallites, two-thirds
+intensities by setting the counter at the peak maximum                   of the reRections of the form (100) or (110) have 8+k
+instead of scanning. Background was measured by                          odd. These have a small magnetic component and thus
+                                                                          limit the intensity ratio. Since the sample used was
+   TABLE V. Polarized neutron diffraction intensities for Mn4N.          sintered and composed of crystals which are crystallo-
+Measured on sintered block at room temperature. The starred              graphically cubic, preferred orientation in the usual
+observed intensities are to be compared with the calculated small        sense should have no eGect. However, it is conceivable
+intensities.
+                                                                         that upon application of a magnetic field perpendicular
+      Observed intensity                               Calculated
+                                                                         to the scattering vector a rearrangement of the mag-
+                 Anti           Calculated ratio      small intensity    netic spin alignment occurred such that all of the re-
+       Parallel parallel       Cubic Tetragonal     Cubic Tetragonal     flections were converted to the form 4+k even. This
+                                                                         possibility was tested by use of a perpendicular mag-
+100       16*      417         0.045     0.20         19       83
+110      355        17*    14            4.5         25        79
+                                                                         netic field with unpolarized neutrons. In this experi-
+111      257*      310         0.82      0.82       254       254        ment, the tetragonal model predicted large increases in
+                                                                         intensity upon application of the magnetic field, whereas
+                                                                          the only change expected for the cubic model was that
+moving the counter 1.5 to 2.0' off peak. The experiments                                            '
+                                                                          (q') would increase from —, to 1. The intensity changes
+were conducted at room temperature with results as                       calculated for the (100) reflection for the tetragonal and
+shown in Table V.                                                         cubic models were increases of 62% and 15.5% respec-
+   The observed intensity for (100) is small for parallel
+and large for antiparallel     polarization.          "
+                                               Since the
+                                                                          tively. The experimentally observed change was 15.2
+                                                                          &1.8%, leading to the conclusion that the cubic model
+nuclear structure factor is always negative for this                     was correct.
+reflection, the magnetic structure factor must be                            As mentioned initially, in deriving the structure, it
+positive. Therefore, the Type II models are eliminated                    was assumed that the three face-centered Mn atoms
+leaving two possible models, one cubic and one tetra-                     had equal moments. This seemed reasonable in view
+gonal. A similar analysis for the (110) reflection pro-                   of the chemical similarity of the environments of these
+duces the same conclusion. The ratio of intensities to                    atoms. However, with a tetragonal model, there is at
+be expected for each model is shown in Table V. Since                     least a formal difference in environment between the
+the lower of each pair of observed intensities is so                                                           '.
+                                                                          Mn at s=0 and the two at s=-, Therefore, this
+small, their ratio is extremely sensitive to errors. The                  assumption was examined.
+calculated ratios have been used with the observed                           A calculation was made assuming that only two of
+large intensity to obtain the calculated small intensity                  the face-centered moments were equal. Since the result-
+given in Table V. Only the cubic model is seen to agree                   ing symmetry       is tetragonal, the equations were a
+with the observed (starred) values.                                       function of the orientation of the magnetic axis. Solu-
+   The question arises as to whether the data could be                    tions were obtained by assuming various orientations.
+                                                                          In each case the results were similar, one solution being
+  "Here, as in Table V, the designation (100l is meant to include         close to the cubic model while the others were in dis-
+both the (100) and (001) type reflections when tetragonal sym-
+metry is considered.                                                      agreement with the polarized neutron experiments. The
+                                  TAKE I, SH I RANE,             AN D      I    RAZER
+
+largest deviations from cubic symmetry that were still       figuration. While this is a somewhat unexpected result,
+compatible with the polarized beam data occurred at          since Hund's rule does seem to be applicable in the
+the two extreme cases of magnetic axis orientation, the      case of the closely related Fe4X structure, ' it is perhaps
+magnetic axis making a 0' or 90' angle with the c axis.      explicable in terms of the anomalous behavior observed
+For the 90' orientation the moments were 3.6, —    0.83,     for Mn in its various metallic phases and in certain
+—0.83, and —0.6&p& while for 0' they were 3.5, —0.74,        compounds. '       "
+                                                                                As will be shown below, Hund's rule
+—0.74, and —0.85yri. Since a change of less than 5%          appears to be applicable in the case of the corner
+in either the (100) or (110) magnetic intensity would        moment of 3.5pg.
+re-establish the cubic symmetry, these deviations were          In a neutron diffraction study of the Cu-Mn alloy
+not considered significant.                                                            "
+                                                             system Bacon ef al. found a moment of 2.4p& for Mn
+                                                             in the antiferromagnetic face centered tetragonal y-Mn
+                    IV. DISCUSSION                           structure. Using the band structure concept, this
+   On the basis of the foregoing analysis, it is concluded   moment was accounted for by assuming a 3d'4s con-
+that the magnetic structure of Mn4N is cubic with            figuration with 4.2&d and 1.8.&d electrons. A similar
+moments of about 0.8p~ for each of the face-center Mn        approach can be used to account for the observed
+atoms, and a moment of about 3.5p, ~ for the corner Mn.      moments in Mn4N if reasonable outer electron con-
+The face-center moments are all antiparallel to the          figurations can be assumed for the two different Mn
+corner moment. The nearest neighbors of the corner           atoms in the structure. The corner Mn probably is in
+Mn are twelve antiparallel face center Mn at 2.72 A,         very nearly the same state as metallic Mn, as was
+eight N at 3.33 A, and six parallel Mn at 3.86 A. The        assumed by Juza and Puff. Taking this to be 3d"4s"
+nearest neighbors of the face center Mn are two N at          (after Bozorth"), one obtains 5.0fd and 1.5&d electrons.
+1.93 A, eight parallel face center Mn at 2.72 A, and         Thus, in this case, it appears that Hund's rule can be
+four antiparallel corner Mn at 2.72 A.                       used. The face-center Mn atoms are assumed to "gain"
+   This magnetic structure does not agree with any of        an electron by bonding with nitrogen. This assumption,
+the previously proposed models. The cubic antiparallel       which also was made by Juza and Puff, is supported by
+spin configuration is the same as that of Guillaud, ' but    the Fe4N results, ' and by the magnetic measurements
+the moment magnitudes are significantly smaller than         of Wiener and Berger' on Fe3PtX and Fe3NiN. The
+those of his model. The corner Mn moment of 3.5@~            assumed electronic configuration is then 3d"4s", which
+agrees fairly well with the moment of 3.2p& proposed         leads to 4. 1&d and 3.3)d electrons.
+for this site by Juza and Puff, ' but their face-center
+                                                                                V. ACKNOWLEDGMENTS
+moments are too large, and their spin configuration is
+tetragonal. Juza and Puff assumed that the corner Mn,          The authors wish to thank Dr. S. J. Pickart, Dr. M.
+not being bonded with the body center N, would be in         Kay, and R. Williams of the Brookhaven National
+the same state as in manganese metal, for which they         Laboratory for assistance during the diffraction experi-
+assumed an electronic assignment of 3d"4s". The              ments and Dr. R. R. Heikes, Dr. W. J. Carr, and Dr.
+corner moment of 3.2p& was derived from this by              G. Wiener of the Westinghouse Research Laboratories
+applying Hund's rule of maximum multiplicity. The            and Dr. J. B. Goodenough of the Lincoln Laboratory,
+face-center moment of 2p& was derived, in effect, by         Massachusetts Institute of Technology for helpful dis-
+applying Hund's rule to a 3d' configuration. The extra       cussions.
+electron came from nitrogen 2p in bonding.                     ' J. S. Kasper   and   B. W.Roberts, Phys. Rev. 101, 537 (1956).
+   It is clear that the small moment of 0.8p, ~ obtained       "G. E. Bacon, I. W.       Dunmur, J. H. Smith, and R. Street,
+                                                             Proc. Roy. Soc. (London) 241A, 223 (1957).
+for the face-center Mn atoms in the present Study              "I.    Pauling, Nature of Chemica/ Bond (Cornell University
+                                                             Press, Ithaca, New York, 1958), pp. 186, 415.
+cannot be interpreted by a straightforward application         20 R. M,
+                                                                          Bozorth, Ferromagnetism (D. Van Nostrand Company,
+of Hund's rule to some reasonable electronic con-            Inc. , Princeton, New Jersey, 1951), p. 436.
+

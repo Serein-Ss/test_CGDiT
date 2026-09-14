@@ -1,0 +1,14 @@
+[
+  {
+    "margin_k": 25,
+    "accepted": 3
+  },
+  {
+    "margin_k": 50,
+    "accepted": 2
+  },
+  {
+    "margin_k": 100,
+    "accepted": 2
+  }
+]

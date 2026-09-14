@@ -1,0 +1,515 @@
+                                                      Journal of Magnetism and Magnetic Materials 528 (2021) 167772
+
+
+                                                                   Contents lists available at ScienceDirect
+
+
+                                         Journal of Magnetism and Magnetic Materials
+                                                         journal homepage: www.elsevier.com/locate/jmmm
+
+
+Research articles
+
+Multi-domain ferromagnetic resonance in magnetic van der Waals crystals
+CrI3 and CrBr3
+Xi Shen a, b, Haoran Chen a, b, Yi Li c, 1, Hong Xia a, b, Fanlong Zeng a, b, Jia Xu a, b,
+Hee Young Kwon d, Yi Ji e, Changyeon Won f, Wei Zhang c, *, Yizheng Wu a, b, *
+a
+  Department of Physics and State Key Laboratory of Surface Physics, Fudan University, Shanghai 200433, China
+b
+  Shanghai Research Center for Quantum Sciences, Shanghai 201315, China
+c
+  Department of Physics, Oakland University, Rochester, MI 48309, USA
+d
+  Center for Spintronics, Korea Institute of Science and Technology, Seoul 02792, South Korea
+e
+  Department of Physics and Astronomy, University of Delaware, Newark, DE 19716, USA
+f
+  Department of Physics, Kyung Hee University, Seoul 130-701, Republic of Korea
+
+
+
+
+A R T I C L E I N F O                                     A B S T R A C T
+
+Keywords:                                                 Two-dimensional (2D) magnetic van der Waals crystals have received great attentions recently owing to their
+Ferromagnetic resonance                                   novel electronic and magnetic properties and rich potentials for low-dimensional and high-density spintronic
+van der Waals crystal                                     devices. We investigated the magnetization dynamics of CrI3 and CrBr3 bulk single crystals by utilizing broad­
+Magnetic domain
+                                                          band ferromagnetic resonance (FMR) in a frequency range of 1 – 40 GHz and over a wide temperature range of
+                                                          10 – 300 K. Complex features observed in the FMR spectra are quantitatively described by the multi-domain FMR
+                                                          theory. The minimum resonance frequency fmin in FMR spectra was recognized and analyzed as characteristics of
+                                                          the transition of the domain structure. Micromagnetic simulation on the domain structure and spin dynamics
+                                                          explains that the multi-domain structure exists under strong in-plane magnetic field for CrI3 and CrBr3 and
+                                                          significantly influences the magnetic dynamics properties. Our results also suggest that the linewidths of FMR
+                                                          spectra in CrI3 and CrBr3 are dominated by the magnetic inhomogeneous broadening.
+
+
+
+
+1. Introduction                                                                                candidate to construct future spintronics devices.
+                                                                                                   Understanding the bulk properties of these layered CrX3 crystals is an
+    Recent interests in two-dimensional (2D) magnetic van der Waals                            essential step toward creating and comprehending their 2D counter­
+crystals are driven by their rich electronic and optical properties as well                    parts. CrBr3 was first confirmed as a magnetic semiconductor in 1960 s
+as their potential application in future electronics, spintronics, and opto-                   [21,22], with a Curie temperature (TC) of 37 K and the easy axis ori­
+electronics [1–8]. 2D magnetic layers can be created when an atomic                            enting along the hexagonal c-axis. The magnetism in CrI3 was later
+monolayer is exfoliated from a bulk layered magnetic crystal and                               found with a strong anisotropy along the c-axis with TC of 68 K [23,24].
+maintains its magnetic ordering [9–12]. Such attractive magnetic ma­                           Magnetic domains in single crystal CrBr3 and CrI3 foils have been
+terial systems promote studies of new physics in low-dimensional                               investigated by Lorentz microscope [25], electron microscope [26] and
+magnetism and enable constructions of novel spintronic hetero­                                 magneto-optic Faraday effect [27,28], and those studies showed the
+structures. In the new family of 2D magnetic layers, chromium trihalides                       meander, strip, and honeycomb domains could be produced by applying
+CrX3 (X = Br or I) is one of the first members that have been found to                         suitable fields during the cooling of the specimen. To cultivate the full
+exhibit magnetism in a single atomic layer [1,13]. A wealth of exotic                          potential of the layered magnets for device applications, their magnetic
+properties on CrX3, such as giant tunneling magnetoresistance [14,15],                         dynamic properties such as spin wave excitations should be investigated
+gate- and pressure- tuned interlayer magnetism [16–18], topological-                           in details. It is also crucial to understand their magnetic anisotropy and
+magnetic proximity effect in topologic insulator/CrX3 heterostructures                         damping mechanism to provide essential information for applications
+[19,20], have been reported recently, suggesting CrX3 as a good                                such as magnetic switching, magnon excitation and quantum
+
+
+    * Corresponding authors.
+      E-mail addresses: weizhang@oakland.edu (W. Zhang), wuyizheng@fudan.edu.cn (Y. Wu).
+    1
+      Present address: Materials Science Division, Argonne National Laboratory, Lemont, IL 60439, United States.
+
+https://doi.org/10.1016/j.jmmm.2021.167772
+Received 26 October 2020; Received in revised form 23 December 2020; Accepted 17 January 2021
+Available online 23 January 2021
+0304-8853/© 2021 Elsevier B.V. All rights reserved.
+X. Shen et al.                                                                                          Journal of Magnetism and Magnetic Materials 528 (2021) 167772
+
+
+processing.                                                                      the size of 2 × 2 × 0.4 μm3 for CrI3 and 2.4 × 2.4 × 0.48 μm3 with in-
+    Ferromagnetic resonance (FMR) measurement is crucial to charac­              plane periodic boundary condition. The long-range dipolar interaction
+terizing dynamical properties of magnetic materials. There were several          is considered in the simulation. The calculated domain wall width is
+reports on the FMR measurements of CrX3 crystals [22,23,29,30], but              about 10 nm, and the wall width in CrI3 is smaller due to the stronger
+the previous studies were limited to narrow-band microwave fre­                  anisotropy, so the unit cell in the simulation is 2 nm for CrI3 and 3 nm for
+quencies without concerning about domain structures inside the sam­              CrBr3.
+ples. Comprehensive studies and theoretical analysis on the frequency-               We first simulated the static domain structures of CrI3 and CrBr3 with
+dependent dynamic properties of CrX3 crystals are still lacking, though          the magnetic parameters determined at different temperatures. Then,
+they would provide a deeper understanding on the magnetic properties             the field-dependent domain evolutions were simulated while applying
+and accurate determination of magnetic parameters of these magnetic              an in-plane field. In order to obtain the dynamic properties in the multi-
+van der Waals crystals.                                                          domain systems, we applied an in-plane time-dependent field with a
+    In this work, we performed broadband FMR measurements on high-               cardinal sine function sinc(πf c t)/πf c t with a cutoff frequency off c = 80
+quality CrI3 and CrBr3 single-crystal flakes with microwave frequency up         GHz [33], and the amplitude of the excitation field was 0.1 mT. The
+to 40 GHz and magnetic field in the flake plane. From strong FMR signals         transient dynamics was computed over 20 ns, with the data taken every
+at various temperatures, we characterized the frequency dependence of            10 ps. We obtained the time-dependent perpendicular component of the
+resonance. Our results clearly demonstrate the influence of multi-               averaged magnetization, and further calculated the power spectrum
+domain structure on the magnetic dynamics properties, and the multi-             density (PSD) through the Fourier transformation, then the resonance
+domain FMR model with the field below the anisotropic field can be               peak at each field could be obtained.
+applied to quantitatively analyze the experimental data. Utilizing the
+magnetic parameters obtained from the experimental data, we per­                 3. Results and discussions
+formed micromagnetic simulation and demonstrated the existence of
+multi-domain structures under strong in-plane field. The simulated                   Fig. 1(a) and 1(b) show the typical hysteresis loops measured by
+resonance spectra quantitatively agree with experimental results.                SQUID for CrI3 and CrBr3 under the field applied either parallel (H‖) or
+Moreover, our measurements indicate that the linewidth of the uniform            perpendicular (H⊥) to the crystal flake. The remanence is nearly zero for
+FMR mode is mainly attributed to the magnetic inhomogeneous                      both CrI3 and CrBr3, which can be attributed to the multi-domain states
+broadening.                                                                      [34–36]. At 2 K, the saturation field of CrI3 is ~ 2.6 T for the H‖ scan and
+                                                                                 only ~ 0.2 T for the H⊥ scan, in consistent with the strong uniaxial
+2. Experimental and simulation methods                                           anisotropy in CrI3 with easy axis along the c-axis perpendicular to the
+                                                                                 flake plane [23,37,38]. At 80 K (above TC), the hysteresis loops scanned
+    Our studies were performed on high quality CrI3 and CrBr3 single             with H‖ and H⊥ show the identical shape, indicating isotropic magnetic
+crystals with (0001) orientation purchased from HQ Graphene com­                 properties above TC. The measured hysteresis loops of CrBr3 in Fig. 1(b)
+pany. The bulk crystal samples in FMR measurements usually have the              are very similar to those of CrI3; the saturation field at 2 K is ~ 0.6 T for
+flake shape with the typical lateral size of ~ 0.7 mm and the thickness of       the H‖ scan and ~ 0.2 T for the H⊥ scan, thus CrBr3 also contains the
+~ 0.1 mm. The magnetic behaviors of the materials are first character­           magnetic anisotropy perpendicular to the flake with the anisotropy field
+ized using a superconducting quantum interference device (SQUID,                 weaker than that of CrI3.
+Quantum Design MPMS 3). Hysteresis loops with magnetic field along                   Fig. 2(a) shows the typical field-dependent absorption spectra of CrI3
+the in-plane and out-of-plane direction were measured respectively at            at 10 K with various microwave frequencies, and the FMR measurement
+various temperatures. From the magnetization measurement, we                     geometry is plotted as an inset. The sample flakes were placed on top of
+determine the TCs of our CrI3 and CrBr3 samples are 68 K and 37 K,               the signal line with a width of 0.36 mm, and the magnetic field H was
+respectively.                                                                    applied along the signal line parallel to the flake plane, which is in the
+    The FMR measurements were performed through a broadband                      same geometry for hysteresis loops scan with H‖. There is no resonance
+coplanar waveguide (CPW) placed into a Physical Property Measure­                signal for the microwave frequency f less than 22 GHz, and the FMR
+ment System (PPMS, Quantum Design) system. The samples were                      resonance absorption starts to be observed at ~ 22 GHz. The FMR ab­
+positioned on the signal line of the CPW waveguide. The magnetic field           sorption develops into two peaks for f > 22 GHz, and the separation of
+in the PPMS was applied along the signal line in the CPW plane, thus, it         these two peaks increases with f. In order to better present the evolution
+was applied in the flake plane perpendicular to the c-axis of CrI3 and           of the FMR resonance, we present the measured frequency-dependent
+CrBr3 during the FMR measurements. The transmission parameter S21
+was measured using a vector network analyzer (R&S ZVA40) with the
+microwave power fixed at −10 dbm. The microwave frequency f was
+varied between 1 GHz and 40 GHz, the sample temperature varied from
+10 K to above TC in this study. The samples were loaded into the PPMS
+system within a few minutes after being mounted onto the microwave
+holder in a glove box, thus the possible surface decomposition is ex­
+pected have very limited influence on the magnetic properties of the
+bulk crystals in our measurements.
+    In order to understand the origin of resonance modes in details, we
+performed the micromagnetic simulation to calculate spin structure and
+the dynamics excitation as a function of the in-plane field. The compu­
+tational simulation was performed with the modified code package
+MuMax3 [31]. Since the exchange coupling energy between neighbor Cr
+spins is 2.7 meV for CrI3 and 2.4 meV for CrBr3 [32], we used the ex­
+change stiffness constant Aex of 1.2 pJ/m. During the simulation, we             Fig. 1. The typical hysteresis loops at various temperatures for (a) CrI3 and (b)
+chose the experimental values of the perpendicular anisotropy Kz and             CrBr3. The magnetization is measured with the field applied either parallel (H‖,
+saturation magnetization M at different temperatures. The damping                solid circles) or perpendicular to the flake (H⊥, open circles). The inset in (a)
+constant α used in the simulation is 0.01. In order to compare with the          shows the sketch of the sample with hexagonal c-axis perpendicular to the
+experimental bulk system, very thick film systems were simulated with            flack plane.
+
+                                                                             2
+X. Shen et al.                                                                                                    Journal of Magnetism and Magnetic Materials 528 (2021) 167772
+
+
+                                                                                          TC, there is only one adsorption peak for a fixed microwave frequency,
+                                                                                          and the resonance frequency linearly increases with the field. At the
+                                                                                          lower temperature below TC, the resonance frequency first decreases
+                                                                                          with the field, then increases at higher field above Htr. Both Htr and fmin
+                                                                                          increase while the temperature decreases.
+                                                                                              The f-Hr dispersion in typical uniform magnetic systems with uni­
+                                                                                          axial anisotropy has been well investigated [42–44]. For magnetic field
+                                                                                          along the hard axis, the resonance frequency of the uniform magneti­
+                                                                                          zation procession mode first decreases with the field, and then increases
+                                                                                          again after reaching the zero value [42,43], as indicated by the red dash
+                                                                                          line in Fig. 2(e), thus the experimental f-Hr dispersion for CrI3 and CrBr3
+                                                                                          cannot be explained using the uniform precession mode. Note that the
+                                                                                          stripe domains exist in CrI3 and CrBr3 at the low field state [25–28], such
+                                                                                          stripe domains can significantly influence the magnetic resonance.
+                                                                                              We quantitatively analyzed our FMR results with the multi-domain
+                                                                                          FMR theory [45] and it well describes our results. As shown in Fig. 3
+                                                                                          (a), our analysis is based on the periodic stripe domain structure. The
+                                                                                          sample consists of two sets of domains with equal volume, and the
+                                                                                          magnetization in the neighboring domain should have the opposite
+                                                                                          magnetization component along z-direction, thus there is no net Mz
+                                                                                          under the in-plane magnetic field. The static field H is applied with the
+                                                                                          angle φH respected to the stripe, and the applied microwave field is
+                                                                                          perpendicular to H in the plane. The magnetization can be canted by H,
+                                                                                          and the in-plane projection of magnetization in each domain should be
+                                                                                          parallel to H. The free energy density is written as [46,47]:
+                                                                                              HM                                Kz ( 2              )
+                                                                                          E= −   (sinθ1 sinφ1 + sinθ2 sinφ2 ) +    sin θ1 + sin2 θ2
+                                                                                               2                                2
+
+                                                                                              N x M2                                Ny M2
+                                                                                          +          (sinθ1 cosφ1 −sinθ2 cosφ2 )2 +       (sinθ1 sinφ1 −sinθ2 sinφ2 )2
+                                                                                              2 4                                   2 4
+
+                                                                                              N z M2                    4π M2
+                                                                                          +          (cosθ1 −cosθ2 )2 +       (cosθ1 + cosθ2 )2                            (2)
+                                                                                              2 4                        2 4
+Fig. 2. Typical curves of FMR absorption spectra at 10 K for (a) CrI3 and (b)                 Here, M represents the saturation magnetization of material,θ1 and
+CrBr3, the inset in (a) shows the schematic of FMR measurement, the dash line             θ2 represent the out-of-plane angles of domain magnetization, φ1 and φ2
+in (a) is the fitting results using Eq. (1) at 40 GHz. The color map of FMR spectra       represent the in-plane projection angles of magnetization in each
+at 10 K for (c) CrI3 and (d) CrBr3. The dash lines are fitting curves of the uni­         domain, Kz is the perpendicular magnetic anisotropy energy density, Ni
+form mode and the calculated curves using multi-domain FMR theory. The f-Hr
+dispersions at various temperatures for (e) CrI3 and (f) CrBr3. The solid lines are
+fitting curves of the uniform mode above HK and the calculated curves using the
+multi-domain theory with the field perpendicular to the stripes. The red dash
+line in (e) is the calculated curve in whole field range using the single domain
+model with the parameters of CrI3 at 30 K.
+
+
+FMR spectra into the color map in Fig. 2(c), which clearly shows that the
+resonance frequency first decreases with H below a critic field Htr of
+2.66 T, then increases with H at higher field, the minimum resonance
+frequency fmin at Htr is ~ 22 GHz. The similar FMR measurement is also
+performed on CrBr3. As shown in Fig. 2(b), the FMR spectra of CrBr3 at
+10 K show similar behavior as those of CrI3. The color map of measured
+FMR spectra in Fig. 2(d) shows the critic field Htr of ~ 0.56 T with fmin of
+12 GHz. For f > 20 GHz, there is only a single resonance peak at higher
+field.
+    The measured absorption spectra can be well fitted by a Lorentzian
+function [39–41]
+
+                  ΔH2                   ΔH(H −Hr )
+ΔS21 = AL                      + AD                                            (1)
+             (H −Hr )2 + ΔH2          (H −Hr )2 + ΔH2
+   which is a superposition of the symmetric and anti-symmetric Lor­
+entz line shapes. AL and AD are the amplitudes of symmetric and anti-
+symmetric Lorentz line shape, respectively. The measured FMR
+spectra in Fig. 2(a) and 2(b) are dominated by the symmetric shape, thus                  Fig. 3. (a) The illustration of magnetization structures for the stripe domain
+the fitted AL is always one order larger than AD . From the fitting, we                   phase with the in-plane field for the multi-domain FMR calculation. (b) The
+obtained the resonance field Hr and the linewidth ΔH of the resonance                     anisotropic field HK and (c) the magnetization of CrI3 and CrBr3 obtained from
+peak. Fig. 2(e) and 2(f) show the fitted f-Hr dispersions at different                    the FMR and SQUID measurements. (d) The correlation between the experi­
+                                                                                                                       √̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+temperatures for CrI3 and CrBr3 respectively. At high temperature above                   mental values of fmin and 2γπ HK ∙4πM. The solid line is calculated by Eq. (6).
+
+                                                                                      3
+X. Shen et al.                                                                                        Journal of Magnetism and Magnetic Materials 528 (2021) 167772
+
+
+(Nx, Ny, Nz) are the demagnetization parameters of each domain with                  Using Eqs. (4) and (5), the multi-domain resonance modes were
+the relation of Nx + Ny + Nz = 4π. The first term in Eq. (2) is the Zeeman       quantitatively calculated with the fitting parameters γ, HK and 4πM. In
+energy, the second term is the perpendicular anisotropy energy, and the          Fig. 2(c) , the two multi-domain modes with φH = 0◦ and 90◦ are very
+other terms include all of the demagnetizing energies. Eq. (2) ignores the       similar for CrI3. In Fig. 2(d), the calculated two multi-domain modes are
+energy contribution from the domain wall energy. Usually, the domain             well separated for CrBr3, and the experimental FMR spectra are closer to
+                                 √̅̅̅̅̅̅̅̅̅̅̅̅
+wall width is on the order of π A/Kz where A is the exchange stiffness           the φH = 0◦ mode than the φH = 90◦ mode, indicating that most stripes
+constant, and can be calculated as ~ 10 nm for CrI3 and CrBr3, which is          in CrBr3 are perpendicular to the field. For CrI3, we also find that the
+much smaller than the domain size in the order of 1 µm [25–28].                  φH = 0◦ mode at higher temperature with lower anisotropy is closer to
+Therefore, the domain wall energy has the negligible contribution to the         the experimental data. In Fig. 2(e) and 2(f), we also plot the calculated f-
+total energy, and the effect of domain wall to the multi-domain reso­            Hr dispersion of the φH = 0◦ mode, which are in good agreement with
+nance can be neglected.                                                          the experimental f-Hr dispersions at different temperatures.
+     Fig. 3(a) also shows that the domain system follows the conditions of           Eq. (6) indicates that the lowest resonance frequency fmin in FMR
+                                                                                               √̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+θ1 +θ2 = π and φ1 = φ2 = φH , thus at the static equilibrium state, the          spectra is 2γπ HK ∙4π M. Thus, fmin can be calculated by Eq. (6) with
+magnetization angle θ1 can be determined by the equation sinθ1 =                 experimentally determined γ, HK and 4πM. Fig. 3(d) demonstrates the
+                      2Kz                                                        calculated fmins by Eq. (6) are nearly same as the experimental values.
+ HK −Nz M, with HK = M as the anisotropy field. For H ≥ HK −Nz M, all the
+    H
+
+magnetization is aligned in the film plane to form a uniform magneti­            Magnetic dynamic studies on the layered ferromagnetic crystals such as
+zation state, then the magnetic resonance frequency can be determined            Cr2Ge2Te6 have been reported recently [48,49] and FMR spectra with a
+by                                                                               fmin were also observed by applying the magnetic field parallel to the ab-
+                                                                                 plane, though those studies generally focused on the single-domain
+     γ √̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+f =      H(H −HK + 4πM)                                            (3)           resonance mode without examining the multi-domain resonance
+    2π
+                                                                                 mode. Our measurements and analysis convince that the multi-domain
+    The FMR frequency at the uniform procession mode increases with              FMR theory is valid to describe the FMR spectra in layered 2D mag­
+H. By fitting the experimental f-Hr dispersion at strong field, we can           netic van der Waals crystals.
+obtain the values of HK −4π M and the gyromagnetic ratio γ.                          Micromagnetic simulation further demonstrates that the multi-
+    For H < HK −Nz M, the FMR frequency depends on the in-plane field            domain FMR theory quantitatively describes the experimental results.
+angle φH and the demagnetization parameters Ni (Nx, Ny, Nz). The                 Fig. 4(a) shows the typical domain structure calculated with the mag­
+demagnetization parameters Ni should depend on the aspect ratio in               netic parameters Kz = 0.287 MJ/m3 and M = 0.216 MA/m, which are
+each domain. Our sample usually has the thickness d in the order of 100          experimentally determined from CrI3 at 10 K. We simulated the mag­
+µm, and the stripe domain width L has the order of 1 µm, thus the aspect         netic domains by gradually cooling the film from the temperature above
+ratio L/d is on the order of 0.01. In this case, the demagnetization pa­         TC. The static domain at zero temperature shows the labyrinth structure,
+rameters can be simplified as Ny ~ Nz ~ 0 and Nx ~ 4π [46,47]. Then the          and the width of the domain is ~ 300 nm with the domain wall width of
+resonance frequency f in the multi-domain state depends on φH . For              ~ 10 nm. Then, we gradually apply the in-plane field along the × axis,
+φH = 0◦ with H⊥stripe, the FMR frequency can be described by                     and Fig. 4(b-d) show the field-dependent evolution of domain structures.
+     γ √̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅                              Fig. 4(e) shows the representative line profiles at different fields
+f =      HK 2 + 4πM∙HK −H2                                           (4)         demonstrating the canting of magnetization. Our simulation shows that
+    2π
+                                                                                 the multi-domain structure persists in the in-plane field up to HK, which
+      and for φH = 90◦ with H‖stripe, the FMR frequency can be described
+                                                                                 is 2.66 T for CrI3 at 10 K. Fig. 4(f-i) present the calculated domain
+by
+                                                                                 structures at different fields with Kz = 0.072 MJ/m3 and M = 0.256 MA/
+           √̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+       γ                                                                         m measured in CrBr3 at 10 K, and the typical width is ~ 250 nm for
+f =         HK 2 + 4πM∙H2 /HK −H2                                     (5)
+      2π                                                                         domains and ~ 15 nm for domain walls. The simulated domain size in
+                                                                                 CrBr3 is also in the same order of the experimental domain images
+     The relative angle φH between stripe domain and the applied field
+                                                                                 measured by scanning magnetometry using a single-electron spin of a
+could vary between 0◦ and 0◦ , then the corresponding FMR frequency
+                                                                                 nitrogen vacancy center in a diamond probe [50]. We also calculated the
+should vary between the values calculated by Eq. (4) and Eq. (5). Note
+                                                                                 field-dependent magnetization angle θ1 of two systems, as plotted in
+that the FMR frequency decreases with the field in the multi-domain
+                                                                                 Fig. 4(j). The simulated field dependent θ1 agrees very well with the
+modes, but increases in the uniform procession mode, and all the
+                                                                                 theoretical relation of θ1 = arcsin(H/HK ) from the multi-domain theory.
+multi-domain modes and the uniform procession mode cross at the field
+                                                                                     Usually, it is expected that the external field can align the stripe
+Htr equal to HK . As a result, the minimum FMR frequency fmin is deter­
+                                                                                 domains with the Bloch-type wall to reduce the total energy [51]. Fig. 4
+mined by
+                                                                                 (a) and 4(f) show that the domain walls at zero field are also Bloch-type.
+        γ √̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅                                                    After applying an in-plane field above 0.1 T, the magnetization inside
+fmin =      HK ∙4π M                                                (6)
+       2π                                                                        the domain walls is aligned along the field direction, but the domain
+    Since we can determine HK −4πM by fitting the f-Hr dispersion in the         orientation does not. This may be attributed to that the Zeeman energy
+uniform procession mode and HK from Htr in the f-Hr spectra, 4πM can             in the narrow domain walls is not strong enough to rotate the stripe
+also be quantified through the resonance measurement. Fig. 3(b) and 3            orientation. If the system is cooled under a field from the paramagnetic
+(c) show the determined HK and 4πM at different temperatures. The                state above TC, the perfect alignment of stripes along the field can be
+values of HK and 4πM also can be quantified from the SQUID data. Our             achieved.
+analysis indicates that the magnetization is saturated at HK while                   The magnetic dynamic properties of the CrI3 and CrBr3 system were
+applying the in-plane field H‖, thus HK can be quantified by the satu­           further calculated. Fig. 5(a) presents the typical simulated PSD spectra
+ration field in the hysteresis loops, as indicated by the red arrows in          using the parameters of CrI3 measured at 10 K. Fig. 5(b) shows the color
+Fig. 1. As shown in Fig. 3(b) and 3(c), the values of HK and 4πM                 map of PSD of excitations as a function of H, which is very similar to the
+determined from FMR experiments agree precisely with the results from            experimental results in Fig. 2(c), and the calculated f-Hr dispersions for
+the SQUID measurements. The determined values of HK and 4πM for                  the multi-domain mode and the uniform procession mode agree well
+CrI3 at 10 K are ~ 2.66 T and ~ 0.27 T respectively, and those values for        with the simulation results.
+CrBr3 at 10 K are HK ~ 0.56 T and 4πM ~ 0.32 T, in consistent with the               The similar simulation was also performed with the parameters of
+literatures [23,37].                                                             CrBr3 measured at 10 K as shown in Fig. 5(c). Different with the
+
+
+                                                                             4
+X. Shen et al.                                                                                                Journal of Magnetism and Magnetic Materials 528 (2021) 167772
+
+
+
+
+Fig. 4. The simulated domain structures under different in-plane fields using the extracted parameters of (a)-(d) CrI3 and (f)-(i) CrBr3 at 10 K. The color bar of MZ is
+displayed in (i). (e) Line profiles across the lines shown in (a)-(d). (j) The field dependent magnetization orientation angle θ1 obtained from the simulated domain
+patterns (open circles) and from the analytical relation (solid lines).
+
+
+                                                                                       22 GHz for CrI3 and of ~ 12 GHz for CrBr3. We performed the simula­
+                                                                                       tions with the magnetic parameters measured at different temperatures,
+                                                                                       and all the simulated f-Hr dispersions agree well with the experimental
+                                                                                       data. From the simulated FMR spectra, fmin was determined, which was
+                                                                                                                                   √̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+                                                                                       almost same as the value calculated by 2γπ HK ∙4πM as shown in Fig. 5
+                                                                                       (d). We found that the simulated spectra change with the film thickness,
+                                                                                       but they are gradually stabilized for the thickness above 300 nm, thus in
+                                                                                       order to compare with the experimental system more precisely, the
+                                                                                       simulated film system in this study would be thicker than 400 nm.
+                                                                                           Besides the f-Hr dispersions, the linewidth ΔH of the FMR adsorption
+                                                                                       peaks was analyzed. Fig. 6(a) presents the evolution of the FMR ab­
+                                                                                       sorption curves of the uniform procession mode for CrI3 at 30 K, showing
+                                                                                       that the linewidth decreases with the increasing f. The typical FMR
+                                                                                       absorption curves for CrBr3 at 20 K, shown in Fig. 6(b), indicates that the
+                                                                                       linewidth is nearly independent of f. All the presented absorption curves
+
+
+
+
+Fig. 5. (a) The simulated PSD curves as a function of field with different fre­
+quencies using the magnetic parameters for CrI3 at 10 K. The color map of
+simulated FMR spectra utilizing the magnetic parameters for (b) CrI3 and (c)
+CrBr3 at 10 K. The dashed lines are the calculated results of the multi-domain
+FMR modes and the uniform mode. The dashed circle in (c) highlights the
+domain wall resonance mode. (d) The correlation between fmin in the simula­
+             √̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+tions and 2γπ HK ∙4πM. The solid line is calculated by Eq. (6).
+
+
+experimental FMR spectra in Fig. 2(d), the simulated spectra in the
+multi-domain mode is closer to the theoretical model with the stripe
+parallel to H, in consistent with the domain pattern shown in Fig. 4(f).
+The stripe domains are not fully aligned with H, thus some intermediate
+resonance modes could also be involved. Beside the resonance mode in
+the domain region, we found an additional resonance mode located in
+the domain wall region, as highlighted by the dashed circle in Fig. 5(c).
+Our simulations show that the domain size increases while increasing
+the film thickness, and the relative intensity of domain wall resonance
+                                                                                       Fig. 6. The FMR absorption curves in the uniform mode at various f for (a) CrI3
+mode decreases accordingly. Therefore, it is reasonable that such
+                                                                                       and (b) CrBr3. The open circles are experimental data and the solid lines are the
+domain wall resonance mode could not be observed experimentally,                       fitting curves using the Lorentzian function Eq. (1). The dash lines are guide for
+because the thickness of the film used in the experiment is in the order               the change of the linewidth. The f-dependent linewidth ΔH of the uniform
+of ~ 100 µm.                                                                           procession mode for (c) CrI3 and (d) CrBr3 measured at different temperatures.
+   Fig. 5(b) and 5(c) show the minimum resonance frequency fmin of ~                   The solid line in (d) is from a linear fitting.
+
+                                                                                   5
+X. Shen et al.                                                                                             Journal of Magnetism and Magnetic Materials 528 (2021) 167772
+
+
+are from the uniform mode, so the applied field is strong enough to align         the work reported in this paper.
+the magnetization in the film plane. Fig. 6(c) and 6(d) show the
+measured f-dependent ΔH at different temperatures for CrI3 and CrBr3.             Acknowledgements
+ΔH of CrI3 decreases with f at all the temperatures, but ΔH of CrBr3 has
+little dependence on f and slightly increases with f at 30 K.                        We acknowledge helpful discussions with Prof. Jiang Xiao and Prof.
+     It is well known that the total linewidth at the saturation state has        Bret Heinrich. The work at Fudan University was supported by National
+three major contributions [52–54]: intrinsic Gilbert damping, magnetic            Key Research and Development Program of China (Grant No.
+inhomogeneous and two-magnon scattering. The intrinsic Gilbert                    2016YFA0300703), National Natural Science Foundation of China
+damping is an important magnetic dynamic property, and the linewidth              (Grants No. 11734006, No. 11974079), and Project supported by
+induced by the intrinsic Gilbert damping has a linear dependence on f             Shanghai Municipal Science and Technology Major Project (Grant No.
+from which the damping constant α can be extracted. In the magnetic               2019SHZDZX01). Work at Oakland University was supported by the U.S.
+system with strong uniaxial anisotropy, two-magnon scattering process             National Science Foundation under Grants No. ECCS-1941426. Work at
+does not exist for the field along the hard axis [54,55]. Then, the               Khung Hee University was supported by the NRF funded by the Korean
+decreasing behavior of the ΔH- f relation should be attributed to the             Government (NRF-2018R1D1A1B07047114). Work at Korea Institute of
+magnetic inhomogeneous broadening, which can be suppressed by the                 Science and Technology was supported by the Basic Science Research
+strong field. Although the applied field is stronger than HK and aligns the       Program through the National Research Foundation of Korea (NRF)
+magnetization in the film plane, there are still strong magnetic frustra­         funded by the Ministry of Education (NRF-2019R1A6A3A01091209).
+tion existing in 2D magnetic materials. As shown in Fig. 1, the total
+magnetization still gradually increases with the field above HK due to the        References
+field suppression on magnetic frustration. The strong effect on the
+linewidth due to the magnetic inhomogeneous prohibits the determi­                 [1] B. Huang, G. Clark, E. Navarro-Moratalla, D.R. Klein, R. Cheng, K.L. Seyler,
+                                                                                       D. Zhong, E. Schmidgall, M.A. McGuire, D.H. Cobden, W. Yao, D. Xiao, P. Jarillo-
+nation of intrinsic damping constant. The linewidth of CrBr3 at 30 K                   Herrero, X. Xu, Layer-dependent ferromagnetism in a van der Waals crystal down
+shows a linear dependency with f in Fig. 6(d), indicating a Gilbert-type               to the monolayer limit, Nature 546 (2017) 270.
+damping mechanism with a weaker anisotropy in CrBr3. From the linear               [2] C. Gong, L. Li, Z. Li, H. Ji, A. Stern, Y. Xia, T. Cao, W. Bao, C. Wang, Y. Wang, Z.
+                                                                                       Q. Qiu, R.J. Cava, S.G. Louie, J. Xia, X. Zhang, Discovery of intrinsic
+fitting, we obtained the damping constant of 0.009 ± 0.002. This value                 ferromagnetism in two-dimensional van der Waals crystals, Nature 546 (2017)
+only provides the lower limit of the intrinsic damping constant, since the             265.
+effect on the linewidth from magnetic inhomogeneous still exists at this           [3] Z. Fei, B. Huang, P. Malinowski, W. Wang, T. Song, J. Sanchez, W. Yao, D. Xiao,
+                                                                                       X. Zhu, A.F. May, W. Wu, D.H. Cobden, J.-H. Chu, X. Xu, Two-dimensional
+condition. Our results suggest that the magnetic frustration in 2D                     itinerant ferromagnetism in atomically thin Fe3GeTe2, Nat. Mater. 17 (2018) 778.
+magnetic materials would be suppressed under stronger field, and mi­               [4] K.S. Burch, D. Mandrus, J.-G. Park, Magnetism in two-dimensional van der Waals
+crowave with much higher frequency is required to obtain the correct                   materials, Nature 563 (2018) 47.
+                                                                                   [5] C. Gong, X. Zhang, Two-dimensional magnetic crystals and emergent
+intrinsic Gilbert damping constant.
+                                                                                       heterostructure devices, Science 363, 706 (2019) eaav4450.
+                                                                                   [6] M. Gibertini, M. Koperski, A.F. Morpurgo, K.S. Novoselov, Magnetic 2D materials
+4. Conclusion                                                                          and heterostructures, Nat. Nanotech. 14 (2019) 408.
+                                                                                   [7] J. Sklenar and W. Zhang, Self-hybridization and tunable magnon-magnon coupling
+                                                                                       in van der Waals synthetic magnets, arXiv:2008.01298 (2020).
+    In summary, magnetic dynamic properties of single crystal CrI3 and             [8] J.-F. Dayen, S.J. Ray, O. Karis, I.J. Vera-Marun, M.V. Kamalakar, Two-dimensional
+CrBr3 have been characterized systematically using the broadband FMR                   van der Waals spinterfaces and magnetic-interfaces, Applied Physics Reviews 7
+measurements and micromagnetic simulation. The experiment data are                     (2020), 011303.
+                                                                                   [9] A.K. Geim, I.V. Grigorieva, Van der Waals heterostructures, Nature 499 (2013)
+well described by the multi-domain FMR theory. The magnetic param­                     419.
+eters such as magnetic moment and magnetic anisotropy are fitted from             [10] H.J. Conley, B. Wang, J.I. Ziegler, R.F. Haglund Jr., S.T. Pantelides, K.I. Bolotin,
+the theory, and they have a good agreement with SQUID results. Mag­                    Bandgap Engineering of Strained Monolayer and Bilayer MoS2, Nano Lett. 13
+                                                                                       (2013) 3626.
+netic domain structures and FMR spectra for CrI3 and CrBr3 with in-               [11] M. Bonilla, S. Kolekar, Y. Ma, H.C. Diaz, V. Kalappattil, R. Das, T. Eggers, H.
+plane magnetic field were simulated, and the multi-domain FMR                          R. Gutierrez, P. Manh-Huong, M. Batzill, Strong room-temperature ferromagnetism
+model is validated by the detailed comparison between simulations and                  in VSe2 monolayers on van der Waals substrates, Nat. Nanotech. 13 (2018) 289.
+                                                                                  [12] X. Zhang, A. Chen, Z. Zhou, High-throughput computational screening of layered
+experiments. Our results also suggest that the linewidth of FMR spectra                and two-dimensional materials, Wires. Comput. Mol. Sci. 9 (2019), e1385.
+are dominated by the magnetic inhomogeneous broadening, and the                   [13] Z. Zhang, J. Shang, C. Jiang, A. Rasmita, W. Gao, T. Yu, Direct Photoluminescence
+stronger field is required to correctly extract the intrinsic damping                  Probing of Ferromagnetism in Monolayer Two-Dimensional CrBr 3, Nano Lett. 19
+                                                                                       (2019) 3138.
+constant. The rich information and comprehensive analysis on magne­
+                                                                                  [14] T. Song, X. Cai, M.-W.-Y. Tu, X. Zhang, B. Huang, N.P. Wilson, K.L. Seyler, L. Zhu,
+tization dynamics acquired in this study are essential for understanding               T. Taniguchi, K. Watanabe, M.A. McGuire, D.H. Cobden, D. Xiao, W. Yao, X. Xu,
+the intrinsic magnetic properties of 2D magnets and related                            Giant tunneling magnetoresistance in spin-filter van der Waals heterostructures,
+heterostructures.                                                                      Science 360 (2018) 1214.
+                                                                                  [15] Z. Wang, I. Gutierrez-Lezama, N. Ubrig, M. Kroner, M. Gibertini, T. Taniguchi,
+                                                                                       K. Watanabe, A. Imamoglu, E. Giannini, A.F. Morpurgo, Very large tunneling
+CRediT authorship contribution statement                                               magnetoresistance in layered magnetic semiconductor CrI3, Nat. Commun. 9
+                                                                                       (2018) 2516.
+                                                                                  [16] S. Jiang, J. Shan, K.F. Mak, Electric-field switching of two-dimensional van der
+    Xi Shen: Investigation, Data curation, Formal analysis, Methodol­                  Waals magnets, Nat. Mater. 17 (2018) 406.
+ogy, Writing - original draft. Haoran Chen: Software, Methodology. Yi             [17] S. Jiang, L. Li, Z. Wang, K.F. Mak, J. Shan, Controlling magnetism in 2D CrI3 by
+Li: Formal analysis, Methodology, Visualization. Hong Xia: Software,                   electrostatic doping, Nat. Nanotech. 13 (2018) 549.
+                                                                                  [18] B. Huang, G. Clark, D.R. Klein, D. MacNeill, E. Navarro-Moratalla, K.L. Seyler,
+Methodology. Fanlong Zeng: Visualization. Jia Xu: Visualization. Hee                   N. Wilson, M.A. McGuire, D.H. Cobden, D. Xiao, W. Yao, P. Jarillo-Herrero, X. Xu,
+Young Kwon: Formal analysis, Methodology. Yi Ji: Writing - review &                    Electrical control of 2D magnetism in bilayer CrI3, Nat. Nanotech. 13 (2018) 544.
+editing. Changyeon Won: Formal analysis, Methodology. Wei Zhang:                  [19] Y. Hou, J. Kim, R. Wu, Magnetizing topological surface states of Bi2Se3 with a CrI3
+                                                                                       monolayer, Sci. Adv. 5 (2019) eaaw1874.
+Methodology, Writing - review & editing. Yizheng Wu: Conceptuali­                 [20] P. Li, J. Yu, J. Xu, L. Zhang, K. Huang, Topological-magnetic proximity effect in
+zation, Methodology, Writing - review & editing.                                       Sb2Te3/CrI3 heterostructures, Physica B 573 (2019) 77.
+                                                                                  [21] I. Tsubokawa, On the Magnetic Properties of a Crbr3 Single Crystal, J. Phys. Soc.
+                                                                                       Jpn. 15 (1960) 1664.
+Declaration of Competing Interest                                                 [22] J.F. Dillon, Ferromagnetic Resonance in Crbr3, J. Appl. Phys. 33 (1962) 1191.
+                                                                                  [23] J.F. Dillon, C.E. Olson, Magnetization Resonance and Optical Properties of
+    The authors declare that they have no known competing financial                    Ferromagnet Cri3, J. Appl. Phys. 36 (1965) 1259.
+interests or personal relationships that could have appeared to influence
+
+                                                                              6
+X. Shen et al.                                                                                                            Journal of Magnetism and Magnetic Materials 528 (2021) 167772
+
+[24] M.A. McGuire, H. Dixit, V.R. Cooper, B.C. Sales, Coupling of Crystal Structure and         [41] C. Bilzer, T. Devolder, P. Crozat, C. Chappert, S. Cardoso, P.P. Freitas, Vector
+     Magnetism in the Layered, Ferromagnetic Insulator CrI3, Chem. Mater. 27 (2015)                  network analyzer ferromagnetic resonance of thin films on coplanar waveguides:
+     612.                                                                                            Comparison of different evaluation methods, J. Appl. Phys. 101 (2007), 074505.
+[25] O. Bostanjoglo, W. Vieweger, Low-Temperature Lorentz Microscopy on Weak                    [42] T.E. Hasty, L.J. Boudreaux, Ferromagnetic Resonance in Thin Magnetic Films at
+     Ferromagnetics, Phys. Status Solidi 32 (1969) 311.                                              Radio Frequencies, J. Appl. Phys. 32 (1961) 1807.
+[26] Matricar.Vr, W.G. Lehmann, N. Kitamura, J. Silcox, Electron Microscope                     [43] M. Farle, Ferromagnetic resonance of ultrathin metallic layers, Rep. Prog. Phys. 61
+     Observations of Ferromagnetic Domains in Chromium Tribromide, J. Appl. Phys.                    (1998) 755.
+     38 (1967) 1297.                                                                            [44] I. Neudecker, G. Woltersdorf, B. Heinrich, T. Okuno, G. Gubbiotti, C.H. Back,
+[27] M. Grundler, B. Kuhlow, M. Lambeck, High-Resolution Light-Optical Observation                   Comparison of frequency, field, and time domain ferromagnetic resonance
+     of Magnetic Domain Structures in Crbr3, Phys. Lett. A A 33 (1970) 285.                          methods, J. Magn. Magn. Mater. 307 (2006) 148.
+[28] B. Kuhlow, M. Lambeck, Magnetic Domain-Structures in Crbr3, Physica B & C 80               [45] J. Smit, H.G. Beljers, Ferromagnetic resonance absorption in BaFe12O19, a highly
+     (1975) 365.                                                                                     anisotropic crystal, Philips Res. Rep. 10 (1955) 113.
+[29] D.L. Huber, M.S. Seehra, Contribution of Spin-Phonon Interaction to Paramagnetic-          [46] J.O. Artman, S.H. Charap, Ferromagnetic-Resonance in Periodic Domain-
+     Resonance Linewidth of Crbr3, J. Phys. Chem. Solids 36 (1975) 723.                              Structures, J. Appl. Phys. 49 (1978) 1587.
+[30] V.A. Alyoshin, V.A. Berezin, V.A. Tulin, Rf susceptibility of single-crystal CrBr 3        [47] F.J. Rachford, P. Lubitz, C. Vittoria, Microwave Resonance and Propagation in
+     near the Curie temperature, Phys. Rev. B 56 (1997) 719.                                         Nonsaturated Ferromagnetic Media. 1. Magnetic-Resonance in Single-Crystal
+[31] A. Vansteenkiste, J. Leliaert, M. Dvornik, M. Helsen, F. Garcia-Sanchez, B. Van                 Ferrite Platelets, J. Appl. Phys. 53 (1982) 8940.
+     Waeyenberge, The design and verification of MuMax3, AIP Adv. 4 (2014), 107133.             [48] X. Zhang, Y. Zhao, Q. Song, S. Jia, J. Shi, W. Han, Magnetic anisotropy of the
+[32] L. Webster, J.-A. Yan, Strain-tunable magnetic anisotropy in monolayer CrCl3, CrBr              single-crystalline ferromagnetic insulator Cr2Ge2Te6, Jpn. J. Appl. Phys. 55
+     3, and CrI3, Phys. Rev. B 98 (2018), 144411.                                                    (2016), 033001.
+[33] J.-V. Kim, F. Garcia-Sanchez, J. Sampaio, C. Moreau-Luchaire, V. Cros, A. Fert,            [49] S. Khan, C.W. Zollitsch, D.M. Arroo, H. Cheng, I. Verzhbitskiy, A. Sud, Y.P. Feng,
+     Breathing modes of confined skyrmions in ultrathin magnetic dots, Phys. Rev. B 90               G. Eda, H. Kurebayashi, Spin dynamics study in layered van der Waals single-
+     (2014), 064410.                                                                                 crystal Cr2Ge2Te6, Phys. Rev. B 100 (2019), 134437.
+[34] B. Niu, T. Su, B.A. Francisco, S. Ghosh, F. Kargar, X. Huang, M. Lohmann, J. Li,           [50] Q.-C. Sun, T. Song, E. Anderson, T. Shalomayeva, J. F¨     orster, A. Brunner, T.
+     Y. Xu, T. Taniguchi, K. Watanabe, D. Wu, A. Balandin, J. Shi, Y.-T. Cui, Coexistence            Taniguchi, K. Watanabe, J. Gr¨    afe, R. St¨
+                                                                                                                                                 ohr, X. Xu, and J. Wrachtrup, Magnetic
+     of Magnetic Orders in Two-Dimensional Magnet CrI3, Nano Lett. 20 (2020) 553.                    domains and domain wall pinning in two-dimensional ferromagnets revealed by
+[35] A.S. Westover, K. Chesnel, K. Hatch, P. Salter, O. Hellwig, Enhancement of                      nanoscale imaging, arXiv:2009.13440v1 (2020).
+     magnetic domain topologies in Co/Pt thin films by fine tuning the magnetic field           [51] Y.Z. Wu, A.K. Schmid, M.S. Altman, X.F. Jin, Z.Q. Qiu, Spin-dependent Fabry-Perot
+     path throughout the hysteresis loop, J. Magn. Magn. Mater. 399 (2016) 164.                      interference from a Cu thin film grown on fcc Co(001), Phys. Rev. Lett. 94 (2005),
+[36] J.E. Davies, O. Hellwig, E.E. Fullerton, G. Denbeaux, J.B. Kortright, K. Liu,                   027201.
+     Magnetization reversal of Co/Pt multilayers: Microscopic origin of high-field              [52] J. Lindner, K. Lenz, E. Kosubek, K. Baberschke, D. Spoddig, R. Meckenstock,
+     magnetic irreversibility, Phys. Rev. B 70 (2004), 224434.                                       J. Pelzl, Z. Frait, D.L. Mills, Non-Gilbert-type damping of the magnetic relaxation in
+[37] N. Richter, D. Weber, F. Martin, N. Singh, U. Schwingenschloegl, B.V. Lotsch,                   ultrathin ferromagnets: Importance of magnon-magnon scattering, Phys. Rev. B 68
+     M. Klaeui, Temperature-dependent magnetic anisotropy in the layered magnetic                    (2003), 060102.
+     semiconductors CrI3 and CrBr 3, Phys. Rev. Mater. 2 (2018), 024004.                        [53] Y. Chen, M.J. Nedoroscik, A.L. Geiler, C. Vittoria, V.G. Harris, Perpendicularly
+[38] J. Vanherck, C. Bacaksiz, B. Soree, M.V. Milosevic, W. Magnus, 2D ferromagnetism                oriented polycrystalline BaFe11.1Sc0.9O19 hexaferrite with narrow FMR
+     at finite temperatures under quantum scrutiny, Applied Physics Letters 117 (2020),              linewidths, J. Am. Ceram. Soc. 91 (2008) 2952.
+     052401.                                                                                    [54] K. Zakeri, J. Lindner, I. Barsukov, R. Meckenstock, M. Farle, U. von Hoersten,
+[39] G. Counil, J.V. Kim, T. Devolder, C. Chappert, K. Shigeto, Y. Otani, Spin wave                  H. Wende, W. Keune, J. Rocker, S.S. Kalarickal, K. Lenz, W. Kuch, K. Baberschke,
+     contributions to the high-frequency magnetic response of thin films obtained with               Z. Frait, Spin dynamics in ferromagnets: Gilbert damping and two-magnon
+     inductive methods, J. Appl. Phys. 95 (2004) 5646.                                               scattering, Phys. Rev. B 76 (2007), 104416.
+[40] G. Counil, J.V. Kim, K. Shigeto, Y. Otani, T. Devolder, P. Crozat, H. Hurdequint,          [55] M.J. Hurben, C.E. Patton, Theory of two magnon scattering microwave relaxation
+     C. Chappert, Inductive measurement of the high frequency permeability of a                      and ferromagnetic resonance linewidth in magnetic thin films, J. Appl. Phys. 83
+     Permalloy thin film, J. Magn. Magn. Mater. 272 (2004) 290.                                      (1998) 4344.
+
+
+
+
+                                                                                            7
+

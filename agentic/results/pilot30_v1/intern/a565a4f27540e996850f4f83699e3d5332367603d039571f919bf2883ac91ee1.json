@@ -1,0 +1,29 @@
+{
+  "id": "s7n6ELIWTdMinnWC6vjluopPQh1Z89ONciSGUKmgFFA=",
+  "object": "chat.completion",
+  "model": "Intern-S1",
+  "created": 1789366511,
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"records\": [\n    {\n      \"formula\": \"Co2FeSi\",\n      \"tc_k\": 1100,\n      \"uncertainty_k\": 20,\n      \"quote\": \"The ferromagnetic Curie temperature is TC=(1100 +/- 20) K.\",\n      \"caveats\": \"\"\n    }\n  ]\n}\n```"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "moderation": {
+    "sensitive": false,
+    "category": ""
+  },
+  "usage": {
+    "prompt_tokens": 252,
+    "completion_tokens": 81,
+    "total_tokens": 333
+  },
+  "metadata": {
+    "search_used": false,
+    "reasoning_used": false
+  }
+}

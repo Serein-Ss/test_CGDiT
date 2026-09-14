@@ -1,0 +1,22 @@
+[
+  {
+    "name": "aip_1999",
+    "url": "https://pubs.aip.org/aip/jap/article-pdf/85/8/4485/18978409/4485_1_online.pdf",
+    "status": 403,
+    "final_url": "https://pubs.aip.org/aip/jap/article-pdf/85/8/4485/18978409/4485_1_online.pdf"
+  },
+  {
+    "name": "rg_1999",
+    "url": "https://www.researchgate.net/publication/224489080_Magnetic_properties_of_perovskite-type_Fe-Ni_nitrides_g%27-Fe1-xNix4N_0x09",
+    "status": 403,
+    "final_url": "https://www.researchgate.net/publication/224489080_Magnetic_properties_of_perovskite-type_Fe-Ni_nitrides_g%27-Fe1-xNix4N_0x09"
+  },
+  {
+    "name": "fe4n_1962",
+    "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRev.126.49/fulltext",
+    "status": 200,
+    "path": "agentic/evidence/stage7/fe4n_1962.pdf",
+    "sha256": "783ac0b9b6231cdd0d6363dbf2c41192044e415ca2cb2e8e84d21bce6900c145",
+    "doi": "10.1103/PhysRev.126.49"
+  }
+]

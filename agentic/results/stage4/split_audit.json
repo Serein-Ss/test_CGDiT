@@ -1,0 +1,27 @@
+{
+  "records_scanned": 1284,
+  "matches": {
+    "Mn4N": [
+      {
+        "split": "train",
+        "material_id": "0.274_Mn4N",
+        "tc": 745.0,
+        "cif_sha256": "cffcd0d62aae5c876fd95853384f18079e4524c944556f871095a62d67667ca2"
+      }
+    ],
+    "Mn3AlC": []
+  },
+  "parse_failures": [],
+  "assignment": "train_extension_pipeline_only",
+  "matcher": {
+    "ltol": 0.01,
+    "stol": 0.05,
+    "angle_tol": 1,
+    "scale": false,
+    "primitive_cell": true,
+    "attempt_supercell": false,
+    "comparator": "ElementComparator"
+  },
+  "excluded_record": "0.275_Mn3AlN",
+  "exclusion": "Unresolved source C/N identity conflict; original data untouched"
+}

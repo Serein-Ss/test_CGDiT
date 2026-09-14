@@ -1,0 +1,29 @@
+{
+  "id": "Y3_toF1ufHONDnayTpVTwopPQh1Z89ONciSGUKmgFFA=",
+  "object": "chat.completion",
+  "model": "Intern-S1",
+  "created": 1789366526,
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"records\": [\n    {\n      \"formula\": \"Mn4N\",\n      \"tc_k\": 745,\n      \"uncertainty_k\": null,\n      \"quote\": \"Mn4N | a=3.865 angstrom | magnetic transition=745 K\",\n      \"caveats\": \"Mn4N is ferrimagnetic. Historical table heading says Neel temperature; explicit ferri/ferromagnetic context makes these ordering events relevant, not antiferromagnetic TN labels.\"\n    },\n    {\n      \"formula\": \"Mn3AlC\",\n      \"tc_k\": 272,\n      \"uncertainty_k\": null,\n      \"quote\": \"Mn3AlC | a=3.869 angstrom | magnetic transition=272 K\",\n      \"caveats\": \"Mn3AlC ferromagnetic. Historical table heading says Neel temperature; explicit ferri/ferromagnetic context makes these ordering events relevant, not antiferromagnetic TN labels.\"\n    }\n  ]\n}\n```"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "moderation": {
+    "sensitive": false,
+    "category": ""
+  },
+  "usage": {
+    "prompt_tokens": 284,
+    "completion_tokens": 227,
+    "total_tokens": 511
+  },
+  "metadata": {
+    "search_used": false,
+    "reasoning_used": false
+  }
+}

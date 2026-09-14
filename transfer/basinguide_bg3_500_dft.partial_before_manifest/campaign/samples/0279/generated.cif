@@ -1,0 +1,35 @@
+# generated using pymatgen
+data_LiTa2Cl6
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.757419586182
+_cell_length_b   6.757419586182
+_cell_length_c   5.807346343994
+_cell_angle_alpha   90.000000000000
+_cell_angle_beta   90.000000000000
+_cell_angle_gamma   90.000000000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   LiTa2Cl6
+_chemical_formula_sum   'Li1 Ta2 Cl6'
+_cell_volume   265.179226934414
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Cl  Cl0  1  0.004261834081  0.494703799486  0.014609454200  1
+  Cl  Cl1  1  0.494703799486  0.995738148689  0.985390543938  1
+  Ta  Ta2  1  0.002183775418  0.493581414223  0.495831519365  1
+  Ta  Ta3  1  0.493581414223  0.997816205025  0.504168510437  1
+  Cl  Cl4  1  0.750640332699  0.751201212406  0.495776087046  1
+  Cl  Cl5  1  0.249359667301  0.248798787594  0.495776087046  1
+  Cl  Cl6  1  0.751201212406  0.249359667301  0.504223942757  1
+  Cl  Cl7  1  0.248798787594  0.750640332699  0.504223942757  1
+  Li  Li8  1  0.735363662243  0.269328892231  0.000048995018  1

@@ -1,0 +1,101 @@
+[
+  {
+    "case_id": "nd_unit",
+    "formula": "NdScO3",
+    "record_ids": [
+      "0.782_NdScO3"
+    ],
+    "url": "https://www.sciencedirect.com/science/article/pii/S0921452696010678",
+    "doi": "10.1016/S0921-4526(96)01067-8",
+    "source_role": "primary_abstract_search_excerpt",
+    "locator": "Abstract",
+    "excerpts": [
+      "below its phase transition (Tc = 0.953 K)"
+    ],
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "reviewer": "assistant_source_selection_not_human_gold",
+    "normalization": "Plain-text math and subscripts normalized; excerpts intentionally short, possible context loss."
+  },
+  {
+    "case_id": "ce_events",
+    "formula": "CeMnAsO",
+    "record_ids": [
+      "0.186_CeMnAsO",
+      "0.187_CeMnAsO",
+      "0.188_CeMnAsO"
+    ],
+    "url": "https://impact.ornl.gov/en/publications/spin-reorientation-and-ce-mn-coupling-in-antiferromagnetic-oxypni/",
+    "doi": "10.1103/PhysRevB.91.064418",
+    "source_role": "primary_author_institution_abstract",
+    "locator": "Abstract, paragraphs 1–2; short non-contiguous excerpts",
+    "excerpts": [
+      "Néel temperature of TN=347(1) K.",
+      "Below TSR=35 K",
+      "Mn moments reorient",
+      "Another transition to a noncollinear magnetic structure occurs below 7 K."
+    ],
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "reviewer": "assistant_source_selection_not_human_gold",
+    "normalization": "Plain-text math and subscripts normalized; excerpts intentionally short, possible context loss."
+  },
+  {
+    "case_id": "eu_mn",
+    "formula": "EuMnBi2",
+    "record_ids": [
+      "0.426_EuMnBi2"
+    ],
+    "url": "https://link.aps.org/accepted/10.1103/PhysRevLett.122.127207",
+    "doi": "10.1103/PhysRevLett.122.127207",
+    "source_role": "accepted_manuscript_search_excerpt",
+    "locator": "Main text, discussion of Fig. 1(c)",
+    "excerpts": [
+      "the antiferromagnetic transition temperature of Mn ions in EuMnBi2 is determined to be 315 K"
+    ],
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "reviewer": "assistant_source_selection_not_human_gold",
+    "normalization": "Plain-text math and subscripts normalized; excerpts intentionally short, possible context loss."
+  },
+  {
+    "case_id": "mn4n_curie",
+    "formula": "Mn4N",
+    "record_ids": [
+      "0.274_Mn4N"
+    ],
+    "url": "https://tsukuba.repo.nii.ac.jp/record/47579/file_preview/JCG_489.pdf",
+    "doi": null,
+    "source_role": "cited_background_not_original_measurement",
+    "locator": "Introduction, prior-work citation [3]; two short excerpts",
+    "excerpts": [
+      "the Mn4N bulk is a ferrimagnetic metal",
+      "with a high Curie temperature of 745 K [3]."
+    ],
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "reviewer": "assistant_source_selection_not_human_gold",
+    "normalization": "Plain-text math and subscripts normalized; excerpts intentionally short, possible context loss."
+  },
+  {
+    "case_id": "missing_source",
+    "formula": "KMnSb",
+    "record_ids": [
+      "0.617_KMnSb"
+    ],
+    "url": null,
+    "doi": null,
+    "source_role": "no_source_abstention_control",
+    "locator": null,
+    "excerpts": [],
+    "retrieved_date": "2026-09-14",
+    "retrieval_method": "web_search_or_open",
+    "structure_match_verified": false,
+    "reviewer": "assistant_source_selection_not_human_gold",
+    "normalization": "Plain-text math and subscripts normalized; excerpts intentionally short, possible context loss."
+  }
+]

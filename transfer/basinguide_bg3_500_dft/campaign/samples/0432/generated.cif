@@ -1,0 +1,38 @@
+# generated using pymatgen
+data_Al2BrN2O
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.059768199921
+_cell_length_b   5.260694503784
+_cell_length_c   9.471695899963
+_cell_angle_alpha   90.000000000000
+_cell_angle_beta   90.000000000000
+_cell_angle_gamma   90.000000000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Al2BrN2O
+_chemical_formula_sum   'Al4 Br2 N4 O2'
+_cell_volume   252.116604661529
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  N  N0  1  0.894580066204  0.497491329908  0.071781322360  1
+  N  N1  1  0.105419933796  0.502508640289  0.571781337261  1
+  O  O2  1  0.423374354839  0.515759527683  0.376573801041  1
+  O  O3  1  0.576625645161  0.484240472317  0.876573801041  1
+  N  N4  1  0.573928892612  0.017693484202  0.036859467626  1
+  N  N5  1  0.426071107388  0.982306540012  0.536859452724  1
+  Br  Br6  1  0.022262586281  0.004241083283  0.305411696434  1
+  Br  Br7  1  0.977737426758  0.995758891106  0.805411696434  1
+  Al  Al8  1  0.726553082466  0.263885080814  0.998583018780  1
+  Al  Al9  1  0.273446917534  0.736114919186  0.498583078384  1
+  Al  Al10  1  0.273446917534  0.263885080814  0.501416981220  1
+  Al  Al11  1  0.726553082466  0.736114919186  0.001416981220  1

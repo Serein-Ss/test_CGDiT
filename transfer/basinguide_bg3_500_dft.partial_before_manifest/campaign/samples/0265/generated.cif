@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_AsCl4
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   8.003557212276
+_cell_length_b   8.003557212276
+_cell_length_c   6.673151493073
+_cell_angle_alpha   90.000000000000
+_cell_angle_beta   90.000000000000
+_cell_angle_gamma   120.000001282727
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   AsCl4
+_chemical_formula_sum   'As2 Cl8'
+_cell_volume   370.192587018705
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  As  As0  1  0.557958960533  0.318840622902  0.322392433882  1
+  As  As1  1  0.239118337631  0.557958960533  0.822392463684  1
+  Cl  Cl2  1  0.615472495556  0.457862019539  0.762395381927  1
+  Cl  Cl3  1  0.384527504444  0.542137980461  0.237604618073  1
+  Cl  Cl4  1  0.640680611134  0.889912068844  0.737183928490  1
+  Cl  Cl5  1  0.110087931156  0.750768542290  0.737183928490  1
+  Cl  Cl6  1  0.249231457710  0.359319388866  0.737183928490  1
+  Cl  Cl7  1  0.359319388866  0.110087931156  0.237183928490  1
+  Cl  Cl8  1  0.889912068844  0.249231457710  0.237183928490  1
+  Cl  Cl9  1  0.750768542290  0.640680611134  0.237183928490  1

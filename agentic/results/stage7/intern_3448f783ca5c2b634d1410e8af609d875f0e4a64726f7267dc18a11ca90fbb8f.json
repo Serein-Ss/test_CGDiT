@@ -1,0 +1,29 @@
+{
+  "id": "TzJtpEPhhVxsHywkf1OBNIpPQh1Z89ONciSGUKmgFFA=",
+  "object": "chat.completion",
+  "model": "Intern-S1",
+  "created": 1789351373,
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"events\": [\n    {\n      \"material_formula\": \"Fe4N\",\n      \"type\": \"curie\",\n      \"temperature_k\": 767,\n      \"uncertainty_k\": 10,\n      \"qualifier\": \"reported_value\",\n      \"sublattice\": null,\n      \"sample_conditions\": \"single-phase X-ray results with no trace of free Fe, nitrogen deficiency of less than 3%\",\n      \"quote\": \"tc (±10 K): 767\"\n    }\n  ],\n  \"abstained\": false\n}\n```"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "moderation": {
+    "sensitive": false,
+    "category": ""
+  },
+  "usage": {
+    "prompt_tokens": 758,
+    "completion_tokens": 123,
+    "total_tokens": 881
+  },
+  "metadata": {
+    "search_used": false,
+    "reasoning_used": false
+  }
+}

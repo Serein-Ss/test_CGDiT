@@ -1,0 +1,11 @@
+{
+  "returncode": 0,
+  "electronic_converged": true,
+  "ionic_converged": true,
+  "gap_eV": 0.012000000000000455,
+  "cbm_eV": 5.6374,
+  "vbm_eV": 5.6254,
+  "direct": false,
+  "energy_eV": -102.37627579,
+  "duration_s": 556.0404539108276
+}

@@ -1,0 +1,154 @@
+[
+  {
+    "record_id": "0.1010_C10H6MnN4O4",
+    "formula": "MnH6C10(NO)4",
+    "split": "train",
+    "tc": "3",
+    "natoms": "100",
+    "sg": "14"
+  },
+  {
+    "record_id": "0.1014_CsNi(NCS)3",
+    "formula": "CsNiC3(SN)3",
+    "split": "train",
+    "tc": "5",
+    "natoms": "44",
+    "sg": "14"
+  },
+  {
+    "record_id": "0.1066_MnSiN2",
+    "formula": "MnSiN2",
+    "split": "train",
+    "tc": "453",
+    "natoms": "16",
+    "sg": "33"
+  },
+  {
+    "record_id": "0.1067_MnSiN2",
+    "formula": "MnSiN2",
+    "split": "train",
+    "tc": "433",
+    "natoms": "16",
+    "sg": "33"
+  },
+  {
+    "record_id": "0.131_Mn(N(CN2))2",
+    "formula": "Mn(C2N3)2",
+    "split": "train",
+    "tc": "16",
+    "natoms": "22",
+    "sg": "58"
+  },
+  {
+    "record_id": "0.132_Fe(N(CN2))2",
+    "formula": "Mn(C2N3)2",
+    "split": "train",
+    "tc": "19",
+    "natoms": "22",
+    "sg": "58"
+  },
+  {
+    "record_id": "0.168_NH4Fe2F6",
+    "formula": "Fe2H4NF6",
+    "split": "train",
+    "tc": "19",
+    "natoms": "52",
+    "sg": "62"
+  },
+  {
+    "record_id": "0.177_Mn3GaN",
+    "formula": "Mn3GaN",
+    "split": "train",
+    "tc": "298",
+    "natoms": "5",
+    "sg": "221"
+  },
+  {
+    "record_id": "0.273_Mn3ZnN",
+    "formula": "Mn3ZnN",
+    "split": "train",
+    "tc": "183",
+    "natoms": "5",
+    "sg": "221"
+  },
+  {
+    "record_id": "2.31_Mn3ZnN",
+    "formula": "Mn3ZnN",
+    "split": "train",
+    "tc": "140",
+    "natoms": "5",
+    "sg": "221"
+  },
+  {
+    "record_id": "0.274_Mn4N",
+    "formula": "Mn4N",
+    "split": "train",
+    "tc": "745",
+    "natoms": "5",
+    "sg": "221"
+  },
+  {
+    "record_id": "0.275_Mn3AlN",
+    "formula": "Mn3AlN",
+    "split": "train",
+    "tc": "272",
+    "natoms": "5",
+    "sg": "221"
+  },
+  {
+    "record_id": "0.368_(CH3NH3)(Co(COOH)3",
+    "formula": "CoH9C4NO6",
+    "split": "train",
+    "tc": "9",
+    "natoms": "84",
+    "sg": "62"
+  },
+  {
+    "record_id": "0.78_NiN2O6",
+    "formula": "Ni(NO3)2",
+    "split": "train",
+    "tc": "5",
+    "natoms": "36",
+    "sg": "148"
+  },
+  {
+    "record_id": "0.1065_MnGeN2",
+    "formula": "MnGeN2",
+    "split": "test",
+    "tc": "448",
+    "natoms": "16",
+    "sg": "33"
+  },
+  {
+    "record_id": "0.74_Mn3Cu0.5Ge0.5N",
+    "formula": "Mn3CuN",
+    "split": "test",
+    "tc": "380",
+    "natoms": "5",
+    "sg": "221"
+  },
+  {
+    "record_id": "2.5_Mn3CuN",
+    "formula": "Mn3CuN",
+    "split": "test",
+    "tc": "143",
+    "natoms": "5",
+    "sg": "221"
+  },
+  {
+    "record_id": "1.144_NH4FeCl2(HCOO)",
+    "formula": "FeH5CN(ClO)2",
+    "split": "test",
+    "tc": "6",
+    "natoms": "24",
+    "sg": "15"
+  },
+  {
+    "record_id": "1.781_CsMn(NCS)3",
+    "formula": "CsMnC3(SN)3",
+    "split": "test",
+    "tc": "8",
+    "natoms": "44",
+    "sg": "14"
+  }
+]

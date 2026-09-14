@@ -1,0 +1,89 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "timestep": 1,
+      "energy": {
+        "total": [
+          0.053586557507514954,
+          0.05740269273519516
+        ],
+        "lattice": [
+          0.0025172990281134844,
+          0.00877298042178154
+        ],
+        "coordinate": [
+          0.0,
+          0.0
+        ],
+        "atom": [
+          0.05106925964355469,
+          0.04862971231341362
+        ]
+      },
+      "original_loss_mean_equal": true,
+      "replay_identical": true,
+      "mask_coupling_verified": true,
+      "preference_loss": 0.6931471824645996,
+      "atom_preference_gradient_norm": 0.01878173276782036
+    },
+    {
+      "timestep": 10,
+      "energy": {
+        "total": [
+          0.33899155259132385,
+          0.3645196557044983
+        ],
+        "lattice": [
+          0.10772881656885147,
+          0.1342974454164505
+        ],
+        "coordinate": [
+          0.0,
+          0.0
+        ],
+        "atom": [
+          0.23126274347305298,
+          0.23022222518920898
+        ]
+      },
+      "original_loss_mean_equal": true,
+      "replay_identical": true,
+      "mask_coupling_verified": true,
+      "preference_loss": 0.6931471824645996,
+      "atom_preference_gradient_norm": 0.018769538030028343
+    },
+    {
+      "timestep": 20,
+      "energy": {
+        "total": [
+          1.3190481662750244,
+          1.3261436223983765
+        ],
+        "lattice": [
+          0.9998273849487305,
+          0.9998273849487305
+        ],
+        "coordinate": [
+          5.1121051463439305e-15,
+          5.1121051463439305e-15
+        ],
+        "atom": [
+          0.31922078132629395,
+          0.3263162672519684
+        ]
+      },
+      "original_loss_mean_equal": true,
+      "replay_identical": true,
+      "mask_coupling_verified": true,
+      "preference_loss": 0.6931471824645996,
+      "atom_preference_gradient_norm": 0.11313427984714508
+    }
+  ],
+  "optimizer_steps": 0,
+  "weights_unchanged": true,
+  "reference_gradients_none": true,
+  "invalid_mappings_rejected": 2,
+  "preference_direction_correct": true,
+  "scope": "Same 5-site framework; unconditional CPU; original-loss-normalized surrogate; not exact DPO"
+}

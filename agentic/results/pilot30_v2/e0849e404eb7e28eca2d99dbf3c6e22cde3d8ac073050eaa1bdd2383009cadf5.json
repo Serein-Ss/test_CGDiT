@@ -1,0 +1,29 @@
+{
+  "id": "SMyHBmZ4ZBZoWxpmobvnI4pPQh1Z89ONciSGUKmgFFA=",
+  "object": "chat.completion",
+  "model": "Intern-S1",
+  "created": 1789326003,
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"events\": [\n    {\n      \"material_formula\": \"NdScO3\",\n      \"type\": \"unknown\",\n      \"temperature_k\": 0.953,\n      \"uncertainty_k\": null,\n      \"qualifier\": \"reported_value\",\n      \"sublattice\": null,\n      \"sample_conditions\": null,\n      \"quote\": \"below its phase transition (Tc = 0.953 K)\"\n    }\n  ],\n  \"abstained\": false\n}\n```"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "moderation": {
+    "sensitive": false,
+    "category": ""
+  },
+  "usage": {
+    "prompt_tokens": 395,
+    "completion_tokens": 108,
+    "total_tokens": 503
+  },
+  "metadata": {
+    "search_used": false,
+    "reasoning_used": false
+  }
+}

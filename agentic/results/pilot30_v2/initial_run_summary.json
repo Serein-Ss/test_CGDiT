@@ -1,0 +1,11 @@
+{
+  "updated_at": "2026-09-13T19:02:26.759546+00:00",
+  "cases": 28,
+  "successful_cases": 24,
+  "failed_cases": 1,
+  "skipped_no_evidence": 3,
+  "new_requests_this_run": 25,
+  "provider_reported_tokens_for_cached_successful_cases": 12274,
+  "training_eligible_records": 0,
+  "note": "Not independent scientific accuracy; no labels overwritten."
+}

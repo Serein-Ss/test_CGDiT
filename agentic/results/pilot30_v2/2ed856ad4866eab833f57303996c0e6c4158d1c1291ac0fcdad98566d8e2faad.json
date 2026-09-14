@@ -1,0 +1,29 @@
+{
+  "id": "f-X1BTzmrP2od3L3Q-UpMopPQh1Z89ONciSGUKmgFFA=",
+  "object": "chat.completion",
+  "model": "Intern-S1",
+  "created": 1789326132,
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"events\": [\n    {\n      \"material_formula\": \"Na2MnTeO6\",\n      \"type\": \"neel\",\n      \"temperature_k\": 5.5,\n      \"uncertainty_k\": null,\n      \"qualifier\": \"reported_value\",\n      \"sublattice\": null,\n      \"sample_conditions\": null,\n      \"quote\": \"Na2MnTeO6 experiences an antiferromagnetic order at TN = 5.5 K.\"\n    }\n  ],\n  \"abstained\": false\n}\n```"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "moderation": {
+    "sensitive": false,
+    "category": ""
+  },
+  "usage": {
+    "prompt_tokens": 405,
+    "completion_tokens": 117,
+    "total_tokens": 522
+  },
+  "metadata": {
+    "search_used": false,
+    "reasoning_used": false
+  }
+}

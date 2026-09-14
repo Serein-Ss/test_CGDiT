@@ -1,0 +1,42 @@
+# generated using pymatgen
+data_NaCaTiAlS3Cl
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.878666884102
+_cell_length_b   7.044557094574
+_cell_length_c   7.787259953361
+_cell_angle_alpha   90.000000000000
+_cell_angle_beta   103.660061059693
+_cell_angle_gamma   90.000000000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   NaCaTiAlS3Cl
+_chemical_formula_sum   'Na2 Ca2 Ti2 Al2 S6 Cl2'
+_cell_volume   366.674824767527
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Cl  Cl0  1  0.825866639614  0.039930429310  0.261724323034  1
+  Cl  Cl1  1  0.825866639614  0.960069596767  0.761724352837  1
+  Na  Na2  1  0.173813849688  0.879274606705  0.296789199114  1
+  Na  Na3  1  0.173813849688  0.120725393295  0.796789169312  1
+  Ti  Ti4  1  0.606033444405  0.410213053226  0.626476228237  1
+  Ti  Ti5  1  0.606033444405  0.589786946774  0.126476287842  1
+  Ca  Ca6  1  0.103446587920  0.368810445070  0.291714757681  1
+  Ca  Ca7  1  0.103446587920  0.631189584732  0.791714787483  1
+  S  S8  1  0.821620047092  0.552123725414  0.448808372021  1
+  S  S9  1  0.821620047092  0.447876274586  0.948808372021  1
+  S  S10  1  0.411414921284  0.148664638400  0.514577627182  1
+  S  S11  1  0.411414921284  0.851335346699  0.014577627182  1
+  S  S12  1  0.369485765696  0.636874079704  0.528802156448  1
+  S  S13  1  0.369485765696  0.363125920296  0.028802156448  1
+  Al  Al14  1  0.624354004860  0.139866545796  0.993375182152  1
+  Al  Al15  1  0.624354004860  0.860133469105  0.493375182152  1

@@ -1,0 +1,537 @@
+{
+  "design_sha256": "3b22cb776c20c0882cba2b07d0d43c5a0c4efe9a710c22f6c00a60be4426fc2d",
+  "materials_sha256": "bc1a4ec80e4c9a04c110159c975a5de15ae199e964ea8dbeb3292a8537e06ca4",
+  "pairs_sha256": "776e205936add96997c65d2fbcae34813d69852ec126bf1ab8029ed1136a1ad7",
+  "arms": {
+    "base": {
+      "checkpoint": {
+        "path": "/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/output/singlerun/2026-06-27/00-32-50-mp20_base/epoch=869-step=737760.ckpt",
+        "sha256": "faa7fd6c8bca092f13f98fa21350a672df3b146acbebd09b481d35cf9d214fb5",
+        "hparams_sha256": "a5219a36ffe5f86894ad46f14c63e24e5ed0386444311fb726f7a36de56bd6fd",
+        "strict_load": true,
+        "epoch": 869,
+        "global_step": 737760,
+        "conditions": [],
+        "parameters": 12335716
+      },
+      "runs": [
+        {
+          "seed": 17,
+          "control": "true_labels",
+          "steps": 40,
+          "training_pairs": 47,
+          "training_groups": 3,
+          "adapter": "results/pilot30_v1/base/true_labels_seed17/adapter.pt",
+          "adapter_sha256": "44ed75f63775da55d5ff3bf09f4027420c9b138835d3ef7532b272c67141fc3b",
+          "parameter_change_norms": {
+            "weight": 0.2792406380176544,
+            "bias": 0.012972744181752205
+          },
+          "frozen_parameters_unchanged": true,
+          "cached_scores_equal_full_network": true,
+          "summary": {
+            "train": {
+              "pairs": 47,
+              "absolute_order_accuracy": 0.2765957446808511,
+              "reference_absolute_order_accuracy": 0.2553191489361702,
+              "fraction_moving_toward_label": 1.0,
+              "mean_relative_margin_beta": 0.01341103375925124,
+              "mean_kl": 2.097467375099751e-05
+            },
+            "validation": {
+              "pairs": 1,
+              "absolute_order_accuracy": 1.0,
+              "reference_absolute_order_accuracy": 1.0,
+              "fraction_moving_toward_label": 0.0,
+              "mean_relative_margin_beta": -0.00240609321432809,
+              "mean_kl": 2.1692703743747543e-05
+            },
+            "test": {
+              "pairs": 1,
+              "absolute_order_accuracy": 1.0,
+              "reference_absolute_order_accuracy": 1.0,
+              "fraction_moving_toward_label": 1.0,
+              "mean_relative_margin_beta": 0.0009232695447281003,
+              "mean_kl": 2.2380312603080082e-05
+            },
+            "electrical_control": {
+              "pairs": 1,
+              "absolute_order_accuracy": 0.0,
+              "reference_absolute_order_accuracy": 0.0,
+              "fraction_moving_toward_label": 1.0,
+              "mean_relative_margin_beta": 0.0028000524859332168,
+              "mean_kl": 3.131803406608569e-05
+            }
+          }
+        },
+        {
+          "seed": 42,
+          "control": "true_labels",
+          "steps": 40,
+          "training_pairs": 47,
+          "training_groups": 3,
+          "adapter": "results/pilot30_v1/base/true_labels_seed42/adapter.pt",
+          "adapter_sha256": "30bb783d4710a0f982136bb103399478928d6bb91d9af86975be5ee75aad762f",
+          "parameter_change_norms": {
+            "weight": 0.21257060766220093,
+            "bias": 0.010186946950852871
+          },
+          "frozen_parameters_unchanged": true,
+          "cached_scores_equal_full_network": true,
+          "summary": {
+            "train": {
+              "pairs": 47,
+              "absolute_order_accuracy": 0.2765957446808511,
+              "reference_absolute_order_accuracy": 0.2553191489361702,
+              "fraction_moving_toward_label": 1.0,
+              "mean_relative_margin_beta": 0.01522231239121309,
+              "mean_kl": 1.831236382368846e-05
+            },
+            "validation": {
+              "pairs": 1,
+              "absolute_order_accuracy": 1.0,
+              "reference_absolute_order_accuracy": 1.0,
+              "fraction_moving_toward_label": 0.0,
+              "mean_relative_margin_beta": -3.2589256685848035e-05,
+              "mean_kl": 1.8167826053933078e-05
+            },
+            "test": {
+              "pairs": 1,
+              "absolute_order_accuracy": 1.0,
+              "reference_absolute_order_accuracy": 1.0,
+              "fraction_moving_toward_label": 1.0,
+              "mean_relative_margin_beta": 0.0010252154974447574,
+              "mean_kl": 1.5155167609230228e-05
+            },
+            "electrical_control": {
+              "pairs": 1,
+              "absolute_order_accuracy": 0.0,
+              "reference_absolute_order_accuracy": 0.0,
+              "fraction_moving_toward_label": 1.0,
+              "mean_relative_margin_beta": 0.001524496898734166,
+              "mean_kl": 2.4037788830940283e-05
+            }
+          }
+        },
+        {
+          "seed": 123,
+          "control": "true_labels",
+          "steps": 40,
+          "training_pairs": 47,
+          "training_groups": 3,
+          "adapter": "results/pilot30_v1/base/true_labels_seed123/adapter.pt",
+          "adapter_sha256": "5ccc2f3d9c35fd6f185f14e4b6285b0e7f354e91f29cf3d8844bed79ba4f31e7",
+          "parameter_change_norms": {
+            "weight": 0.25633788108825684,
+            "bias": 0.01198936253786087
+          },
+          "frozen_parameters_unchanged": true,
+          "cached_scores_equal_full_network": true,
+          "summary": {
+            "train": {
+              "pairs": 47,
+              "absolute_order_accuracy": 0.2765957446808511,
+              "reference_absolute_order_accuracy": 0.2553191489361702,
+              "fraction_moving_toward_label": 1.0,
+              "mean_relative_margin_beta": 0.01394422887610476,
+              "mean_kl": 2.31469212058543e-05
+            },
+            "validation": {
+              "pairs": 1,
+              "absolute_order_accuracy": 1.0,
+              "reference_absolute_order_accuracy": 1.0,
+              "fraction_moving_toward_label": 1.0,
+              "mean_relative_margin_beta": 0.0010056963219540194,
+              "mean_kl": 2.2835854599760157e-05
+            },
+            "test": {
+              "pairs": 1,
+              "absolute_order_accuracy": 1.0,
+              "reference_absolute_order_accuracy": 1.0,
+              "fraction_moving_toward_label": 1.0,
+              "mean_relative_margin_beta": 0.0008856629468330842,
+              "mean_kl": 1.7329055186883952e-05
+            },
+            "electrical_control": {
+              "pairs": 1,
+              "absolute_order_accuracy": 0.0,
+              "reference_absolute_order_accuracy": 0.0,
+              "fraction_moving_toward_label": 1.0,
+              "mean_relative_margin_beta": 0.0018945793878325883,
+              "mean_kl": 2.6969254065682218e-05
+            }
+          }
+        },
+        {
+          "seed": 42,
+          "control": "shuffled_labels",
+          "steps": 40,
+          "training_pairs": 47,
+          "training_groups": 3,
+          "adapter": "results/pilot30_v1/base/shuffled_labels_seed42/adapter.pt",
+          "adapter_sha256": "8f50b5fdb81020259d90e8a1477c3f353ba67b436fb7c1b04bdc205fc13c6348",
+          "parameter_change_norms": {
+            "weight": 0.19794566929340363,
+            "bias": 0.009175766259431839
+          },
+          "frozen_parameters_unchanged": true,
+          "cached_scores_equal_full_network": true,
+          "summary": {
+            "train": {
+              "pairs": 47,
+              "absolute_order_accuracy": 0.2553191489361702,
+              "reference_absolute_order_accuracy": 0.2553191489361702,
+              "fraction_moving_toward_label": 0.0,
+              "mean_relative_margin_beta": -0.007896657241459746,
+              "mean_kl": 1.0304826728329397e-05
+            },
+            "validation": {
+              "pairs": 1,
+              "absolute_order_accuracy": 1.0,
+              "reference_absolute_order_accuracy": 1.0,
+              "fraction_moving_toward_label": 1.0,
+              "mean_relative_margin_beta": 0.0001852078033455958,
+              "mean_kl": 8.42881350034593e-06
+            },
+            "test": {
+              "pairs": 1,
+              "absolute_order_accuracy": 1.0,
+              "reference_absolute_order_accuracy": 1.0,
+              "fraction_moving_toward_label": 0.0,
+              "mean_relative_margin_beta": -0.002610979890012762,
+              "mean_kl": 1.439879882174829e-05
+            },
+            "electrical_control": {
+              "pairs": 1,
+              "absolute_order_accuracy": 0.0,
+              "reference_absolute_order_accuracy": 0.0,
+              "fraction_moving_toward_label": 0.0,
+              "mean_relative_margin_beta": -0.0012633479248809938,
+              "mean_kl": 1.997148118881853e-05
+            }
+          }
+        },
+        {
+          "seed": 42,
+          "control": "exclude_Co2FeSi",
+          "steps": 40,
+          "training_pairs": 44,
+          "training_groups": 2,
+          "adapter": "results/pilot30_v1/base/exclude_Co2FeSi_seed42/adapter.pt",
+          "adapter_sha256": "bf1198638b4149e3242cb04287fe991ca245415a4049682ae02dc0fbb2f12b80",
+          "parameter_change_norms": {
+            "weight": 0.23658180236816406,
+            "bias": 0.01131642796099186
+          },
+          "frozen_parameters_unchanged": true,
+          "cached_scores_equal_full_network": true,
+          "summary": {
+            "train": {
+              "pairs": 47,
+              "absolute_order_accuracy": 0.2765957446808511,
+              "reference_absolute_order_accuracy": 0.2553191489361702,
+              "fraction_moving_toward_label": 1.0,
+              "mean_relative_margin_beta": 0.01350765248199979,
+              "mean_kl": 1.7618699661656604e-05
+            },
+            "validation": {
+              "pairs": 1,
+              "absolute_order_accuracy": 1.0,
+              "reference_absolute_order_accuracy": 1.0,
+              "fraction_moving_toward_label": 0.0,
+              "mean_relative_margin_beta": -0.0004030053484408806,
+              "mean_kl": 1.813782887797692e-05
+            },
+            "test": {
+              "pairs": 1,
+              "absolute_order_accuracy": 1.0,
+              "reference_absolute_order_accuracy": 1.0,
+              "fraction_moving_toward_label": 0.0,
+              "mean_relative_margin_beta": -0.001985967694887828,
+              "mean_kl": 1.0287599781388934e-05
+            },
+            "electrical_control": {
+              "pairs": 1,
+              "absolute_order_accuracy": 0.0,
+              "reference_absolute_order_accuracy": 0.0,
+              "fraction_moving_toward_label": 1.0,
+              "mean_relative_margin_beta": 0.002292083505987345,
+              "mean_kl": 2.6865334170622646e-05
+            }
+          }
+        }
+      ],
+      "trainable_parameter_count": 51300,
+      "frozen_parameter_sha256": "51d8a605d6c7d7ed811bae095fa7c94483202a0ec3e8157280648a68f9062f08"
+    },
+    "band_gap": {
+      "checkpoint": {
+        "path": "/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/output/singlerun/2026-06-30/11-28-44-mp20_bg/epoch=784-step=665680.ckpt",
+        "sha256": "c747d3d323ce1592178b44abf926b42c422bc6b02e128cb7721906e8c8e94ab9",
+        "hparams_sha256": "636f2ebcf1001f3035550479d0139a6e0239a544340a0e711361e146995ce4c1",
+        "strict_load": true,
+        "epoch": 784,
+        "global_step": 665680,
+        "conditions": [
+          "band_gap"
+        ],
+        "parameters": 12402276
+      },
+      "runs": [
+        {
+          "seed": 17,
+          "control": "true_labels",
+          "steps": 40,
+          "training_pairs": 47,
+          "training_groups": 3,
+          "adapter": "results/pilot30_v1/band_gap/true_labels_seed17/adapter.pt",
+          "adapter_sha256": "d8ff381b9fe20cd9b91c84c092f0478210ad801a0f4121e7df75da9880dc0a9e",
+          "parameter_change_norms": {
+            "weight": 0.2790911793708801,
+            "bias": 0.013209057971835136
+          },
+          "frozen_parameters_unchanged": true,
+          "cached_scores_equal_full_network": true,
+          "summary": {
+            "train": {
+              "pairs": 47,
+              "absolute_order_accuracy": 0.723404255319149,
+              "reference_absolute_order_accuracy": 0.723404255319149,
+              "fraction_moving_toward_label": 1.0,
+              "mean_relative_margin_beta": 0.014656303710127858,
+              "mean_kl": 3.2228859398545814e-05
+            },
+            "validation": {
+              "pairs": 1,
+              "absolute_order_accuracy": 0.0,
+              "reference_absolute_order_accuracy": 0.0,
+              "fraction_moving_toward_label": 0.0,
+              "mean_relative_margin_beta": -0.005182603619383978,
+              "mean_kl": 3.747911182124438e-05
+            },
+            "test": {
+              "pairs": 1,
+              "absolute_order_accuracy": 0.0,
+              "reference_absolute_order_accuracy": 0.0,
+              "fraction_moving_toward_label": 1.0,
+              "mean_relative_margin_beta": 0.005530751392749759,
+              "mean_kl": 1.5878893064869004e-05
+            },
+            "electrical_control": {
+              "pairs": 1,
+              "absolute_order_accuracy": 0.0,
+              "reference_absolute_order_accuracy": 0.0,
+              "fraction_moving_toward_label": 0.0,
+              "mean_relative_margin_beta": -0.002751378148483733,
+              "mean_kl": 1.7192359622460646e-05
+            }
+          }
+        },
+        {
+          "seed": 42,
+          "control": "true_labels",
+          "steps": 40,
+          "training_pairs": 47,
+          "training_groups": 3,
+          "adapter": "results/pilot30_v1/band_gap/true_labels_seed42/adapter.pt",
+          "adapter_sha256": "8ed4d0eb075dea75e5ec2a40f478e5f270df5829979697eb500b4595a6319999",
+          "parameter_change_norms": {
+            "weight": 0.21158580482006073,
+            "bias": 0.010093058459460735
+          },
+          "frozen_parameters_unchanged": true,
+          "cached_scores_equal_full_network": true,
+          "summary": {
+            "train": {
+              "pairs": 47,
+              "absolute_order_accuracy": 0.723404255319149,
+              "reference_absolute_order_accuracy": 0.723404255319149,
+              "fraction_moving_toward_label": 1.0,
+              "mean_relative_margin_beta": 0.016374753347329365,
+              "mean_kl": 2.8382885300462733e-05
+            },
+            "validation": {
+              "pairs": 1,
+              "absolute_order_accuracy": 0.0,
+              "reference_absolute_order_accuracy": 0.0,
+              "fraction_moving_toward_label": 0.0,
+              "mean_relative_margin_beta": -0.0006539886101109005,
+              "mean_kl": 3.281266821201593e-05
+            },
+            "test": {
+              "pairs": 1,
+              "absolute_order_accuracy": 0.0,
+              "reference_absolute_order_accuracy": 0.0,
+              "fraction_moving_toward_label": 1.0,
+              "mean_relative_margin_beta": 0.004237834461188565,
+              "mean_kl": 1.3360599335913529e-05
+            },
+            "electrical_control": {
+              "pairs": 1,
+              "absolute_order_accuracy": 0.0,
+              "reference_absolute_order_accuracy": 0.0,
+              "fraction_moving_toward_label": 0.0,
+              "mean_relative_margin_beta": -0.0017595986719243228,
+              "mean_kl": 1.193236846397383e-05
+            }
+          }
+        },
+        {
+          "seed": 123,
+          "control": "true_labels",
+          "steps": 40,
+          "training_pairs": 47,
+          "training_groups": 3,
+          "adapter": "results/pilot30_v1/band_gap/true_labels_seed123/adapter.pt",
+          "adapter_sha256": "731cc58f273fec65c922ee16467fdef6552baca09fc8cdeda8c7dd18fd661d83",
+          "parameter_change_norms": {
+            "weight": 0.2757781744003296,
+            "bias": 0.01321453507989645
+          },
+          "frozen_parameters_unchanged": true,
+          "cached_scores_equal_full_network": true,
+          "summary": {
+            "train": {
+              "pairs": 47,
+              "absolute_order_accuracy": 0.723404255319149,
+              "reference_absolute_order_accuracy": 0.723404255319149,
+              "fraction_moving_toward_label": 1.0,
+              "mean_relative_margin_beta": 0.014878851349973563,
+              "mean_kl": 3.59844924978787e-05
+            },
+            "validation": {
+              "pairs": 1,
+              "absolute_order_accuracy": 0.0,
+              "reference_absolute_order_accuracy": 0.0,
+              "fraction_moving_toward_label": 0.0,
+              "mean_relative_margin_beta": -0.0010493266927369405,
+              "mean_kl": 4.11753078846111e-05
+            },
+            "test": {
+              "pairs": 1,
+              "absolute_order_accuracy": 0.0,
+              "reference_absolute_order_accuracy": 0.0,
+              "fraction_moving_toward_label": 1.0,
+              "mean_relative_margin_beta": 0.00434418010020939,
+              "mean_kl": 1.601354383140574e-05
+            },
+            "electrical_control": {
+              "pairs": 1,
+              "absolute_order_accuracy": 0.0,
+              "reference_absolute_order_accuracy": 0.0,
+              "fraction_moving_toward_label": 0.0,
+              "mean_relative_margin_beta": -0.0023395230527967215,
+              "mean_kl": 1.713803471758979e-05
+            }
+          }
+        },
+        {
+          "seed": 42,
+          "control": "shuffled_labels",
+          "steps": 40,
+          "training_pairs": 47,
+          "training_groups": 3,
+          "adapter": "results/pilot30_v1/band_gap/shuffled_labels_seed42/adapter.pt",
+          "adapter_sha256": "1312cd2be1c6250ce458bdad62ced782ebd9f3924e7ac3961d1ee3e31265f820",
+          "parameter_change_norms": {
+            "weight": 0.19213388860225677,
+            "bias": 0.008943866938352585
+          },
+          "frozen_parameters_unchanged": true,
+          "cached_scores_equal_full_network": true,
+          "summary": {
+            "train": {
+              "pairs": 47,
+              "absolute_order_accuracy": 0.723404255319149,
+              "reference_absolute_order_accuracy": 0.723404255319149,
+              "fraction_moving_toward_label": 0.0,
+              "mean_relative_margin_beta": -0.007246244488466333,
+              "mean_kl": 1.0997698195532005e-05
+            },
+            "validation": {
+              "pairs": 1,
+              "absolute_order_accuracy": 0.0,
+              "reference_absolute_order_accuracy": 0.0,
+              "fraction_moving_toward_label": 1.0,
+              "mean_relative_margin_beta": 0.001961412782710189,
+              "mean_kl": 1.0956476253746553e-05
+            },
+            "test": {
+              "pairs": 1,
+              "absolute_order_accuracy": 0.0,
+              "reference_absolute_order_accuracy": 0.0,
+              "fraction_moving_toward_label": 0.0,
+              "mean_relative_margin_beta": -0.0038194758720540753,
+              "mean_kl": 9.976244469633855e-06
+            },
+            "electrical_control": {
+              "pairs": 1,
+              "absolute_order_accuracy": 0.0,
+              "reference_absolute_order_accuracy": 0.0,
+              "fraction_moving_toward_label": 1.0,
+              "mean_relative_margin_beta": 0.002409488176150868,
+              "mean_kl": 1.0340555633092663e-05
+            }
+          }
+        },
+        {
+          "seed": 42,
+          "control": "exclude_Co2FeSi",
+          "steps": 40,
+          "training_pairs": 44,
+          "training_groups": 2,
+          "adapter": "results/pilot30_v1/band_gap/exclude_Co2FeSi_seed42/adapter.pt",
+          "adapter_sha256": "a85f5906c69115c908615a24f1e19cfcdabe81d8494ae8b7203b613c0faedb2d",
+          "parameter_change_norms": {
+            "weight": 0.23172155022621155,
+            "bias": 0.011117232032120228
+          },
+          "frozen_parameters_unchanged": true,
+          "cached_scores_equal_full_network": true,
+          "summary": {
+            "train": {
+              "pairs": 47,
+              "absolute_order_accuracy": 0.723404255319149,
+              "reference_absolute_order_accuracy": 0.723404255319149,
+              "fraction_moving_toward_label": 1.0,
+              "mean_relative_margin_beta": 0.01477627500204268,
+              "mean_kl": 2.9508013779267718e-05
+            },
+            "validation": {
+              "pairs": 1,
+              "absolute_order_accuracy": 0.0,
+              "reference_absolute_order_accuracy": 0.0,
+              "fraction_moving_toward_label": 1.0,
+              "mean_relative_margin_beta": 2.713833756236757e-05,
+              "mean_kl": 3.581628492995333e-05
+            },
+            "test": {
+              "pairs": 1,
+              "absolute_order_accuracy": 0.0,
+              "reference_absolute_order_accuracy": 0.0,
+              "fraction_moving_toward_label": 1.0,
+              "mean_relative_margin_beta": 0.001042827473914561,
+              "mean_kl": 6.7824163878515975e-06
+            },
+            "electrical_control": {
+              "pairs": 1,
+              "absolute_order_accuracy": 0.0,
+              "reference_absolute_order_accuracy": 0.0,
+              "fraction_moving_toward_label": 0.0,
+              "mean_relative_margin_beta": -0.002238170418422669,
+              "mean_kl": 1.4921774559676729e-05
+            }
+          }
+        }
+      ],
+      "trainable_parameter_count": 51300,
+      "frozen_parameter_sha256": "d1613ae1525f797d406b3a50a76477a0d71008b5e08a2f4beaf8f7fcb387e3a1"
+    }
+  },
+  "elapsed_seconds": 541.4138100147247,
+  "optimizer_steps_total": 400,
+  "scientific_discovery_validated": false,
+  "materials_training_snapshot": "agentic/data/pilot30_v1/materials_training_snapshot.json",
+  "curated_materials_sha256": "3fbe3bd9113fa47470eeddddcc836979209ede54de1a09f3a444440743ca2d49",
+  "metadata_correction": "After training, corrected GdCo2 structure-source page 5 to PDF page 6. Labels, structures, pairs, and model inputs unchanged; frozen training metadata retained."
+}

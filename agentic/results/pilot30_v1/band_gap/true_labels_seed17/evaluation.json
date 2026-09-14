@@ -1,0 +1,638 @@
+{
+  "summary": {
+    "train": {
+      "pairs": 47,
+      "absolute_order_accuracy": 0.723404255319149,
+      "reference_absolute_order_accuracy": 0.723404255319149,
+      "fraction_moving_toward_label": 1.0,
+      "mean_relative_margin_beta": 0.014656303710127858,
+      "mean_kl": 3.2228859398545814e-05
+    },
+    "validation": {
+      "pairs": 1,
+      "absolute_order_accuracy": 0.0,
+      "reference_absolute_order_accuracy": 0.0,
+      "fraction_moving_toward_label": 0.0,
+      "mean_relative_margin_beta": -0.005182603619383978,
+      "mean_kl": 3.747911182124438e-05
+    },
+    "test": {
+      "pairs": 1,
+      "absolute_order_accuracy": 0.0,
+      "reference_absolute_order_accuracy": 0.0,
+      "fraction_moving_toward_label": 1.0,
+      "mean_relative_margin_beta": 0.005530751392749759,
+      "mean_kl": 1.5878893064869004e-05
+    },
+    "electrical_control": {
+      "pairs": 1,
+      "absolute_order_accuracy": 0.0,
+      "reference_absolute_order_accuracy": 0.0,
+      "fraction_moving_toward_label": 0.0,
+      "mean_relative_margin_beta": -0.002751378148483733,
+      "mean_kl": 1.7192359622460646e-05
+    }
+  },
+  "pairs": [
+    {
+      "pair_id": "DyFe2__over__DyAl2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.0012293768453825276,
+      "reference_absolute_margin": 0.0011219165580769186,
+      "relative_margin_beta": 0.010746028756140428,
+      "mean_kl": 3.29101555882616e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "ErFe2__over__DyCo2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": -0.0010777021073711996,
+      "reference_absolute_margin": -0.0012315255526118563,
+      "relative_margin_beta": 0.015382344524065653,
+      "mean_kl": 3.200833307714923e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "GdFe2__over__ErAl2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.0020637069889441286,
+      "reference_absolute_margin": 0.0019663044634701996,
+      "relative_margin_beta": 0.009740252547392933,
+      "mean_kl": 3.784745343260454e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "HoFe2__over__ErCo2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.0022362057879945496,
+      "reference_absolute_margin": 0.002142992625522311,
+      "relative_margin_beta": 0.009321316247223876,
+      "mean_kl": 2.5169507973821226e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "LuFe2__over__GdAl2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": -0.0095956951778741,
+      "reference_absolute_margin": -0.009765018011724655,
+      "relative_margin_beta": 0.016932344609206968,
+      "mean_kl": 3.1211750992928465e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "TbFe2__over__GdCo2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.012871949642430991,
+      "reference_absolute_margin": 0.01264446620674183,
+      "relative_margin_beta": 0.02274834259878844,
+      "mean_kl": 2.8528794976760235e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "YFe2__over__HoAl2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.007003767652501362,
+      "reference_absolute_margin": 0.006786725642996316,
+      "relative_margin_beta": 0.021704185667204,
+      "mean_kl": 3.7063883019309664e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "DyFe2__over__HoCo2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.0036941337669607797,
+      "reference_absolute_margin": 0.003574217061517023,
+      "relative_margin_beta": 0.011991670908173546,
+      "mean_kl": 3.237429239444367e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "ErFe2__over__SmAl2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.0027984877833659993,
+      "reference_absolute_margin": 0.0026644914790570815,
+      "relative_margin_beta": 0.013399630355100575,
+      "mean_kl": 2.82183061663203e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "GdFe2__over__TbAl2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.0031182418849008777,
+      "reference_absolute_margin": 0.003035273107040363,
+      "relative_margin_beta": 0.008296877725418502,
+      "mean_kl": 2.847300577476138e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "HoFe2__over__TbCo2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.008887341997857826,
+      "reference_absolute_margin": 0.008751539172711395,
+      "relative_margin_beta": 0.013580282514643235,
+      "mean_kl": 3.0297083270847125e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "LuFe2__over__DyAl2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.00044816883261470747,
+      "reference_absolute_margin": 0.00030706484903930686,
+      "relative_margin_beta": 0.01411039824006366,
+      "mean_kl": 3.053638972202085e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "TbFe2__over__DyCo2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": -0.001724930636555655,
+      "reference_absolute_margin": -0.0018688246357972578,
+      "relative_margin_beta": 0.014389399802894332,
+      "mean_kl": 3.0466239420083124e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "YFe2__over__ErAl2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.0013715949122949194,
+      "reference_absolute_margin": 0.0012099316190870013,
+      "relative_margin_beta": 0.016166329199525837,
+      "mean_kl": 2.37147386189888e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "DyFe2__over__ErCo2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.002266276236696285,
+      "reference_absolute_margin": 0.0021835857351106824,
+      "relative_margin_beta": 0.008269049006533654,
+      "mean_kl": 2.7982758920130912e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "ErFe2__over__GdAl2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.0056851314499605605,
+      "reference_absolute_margin": 0.005491699379490456,
+      "relative_margin_beta": 0.01934320704227351,
+      "mean_kl": 3.075287838190851e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "GdFe2__over__GdCo2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.005584698149808294,
+      "reference_absolute_margin": 0.005446614858859296,
+      "relative_margin_beta": 0.013808330173622116,
+      "mean_kl": 3.079845518468479e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "HoFe2__over__HoAl2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.006583513767206266,
+      "reference_absolute_margin": 0.006420409205020405,
+      "relative_margin_beta": 0.016310440670016153,
+      "mean_kl": 3.853456904086746e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "LuFe2__over__HoCo2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.008399092249116316,
+      "reference_absolute_margin": 0.00818741342057668,
+      "relative_margin_beta": 0.02116788285396372,
+      "mean_kl": 3.618957393107062e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "TbFe2__over__SmAl2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.0012895112310313077,
+      "reference_absolute_margin": 0.0011015097461495316,
+      "relative_margin_beta": 0.018800148730709527,
+      "mean_kl": 3.304704276289409e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "YFe2__over__TbAl2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.005213395742657667,
+      "reference_absolute_margin": 0.005074929343133287,
+      "relative_margin_beta": 0.013846639838751193,
+      "mean_kl": 3.856931420405848e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "DyFe2__over__TbCo2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.004349081946808535,
+      "reference_absolute_margin": 0.0042386901610977175,
+      "relative_margin_beta": 0.011039178601398211,
+      "mean_kl": 4.131227611316642e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "ErFe2__over__DyAl2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.0009927042745706178,
+      "reference_absolute_margin": 0.0008715751230283786,
+      "relative_margin_beta": 0.012112915427072343,
+      "mean_kl": 2.8946736348197295e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "GdFe2__over__DyCo2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.0014844556939882143,
+      "reference_absolute_margin": 0.0013863903342326012,
+      "relative_margin_beta": 0.009806535975561323,
+      "mean_kl": 3.764042481391172e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "HoFe2__over__ErAl2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": -0.01197681487974478,
+      "reference_absolute_margin": -0.012116580017997572,
+      "relative_margin_beta": 0.013976575784605908,
+      "mean_kl": 4.0977542168955473e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "LuFe2__over__ErCo2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.0027209113322896883,
+      "reference_absolute_margin": 0.002608971015433781,
+      "relative_margin_beta": 0.011194031685590744,
+      "mean_kl": 3.27416712354219e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "TbFe2__over__GdAl2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.0017361408905950764,
+      "reference_absolute_margin": 0.001509422523061706,
+      "relative_margin_beta": 0.022671836868918643,
+      "mean_kl": 3.804600082705593e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "YFe2__over__GdCo2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.008638308208901435,
+      "reference_absolute_margin": 0.008499818643031176,
+      "relative_margin_beta": 0.013848963737927988,
+      "mean_kl": 2.263234457977603e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "DyFe2__over__HoAl2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.004383390960053172,
+      "reference_absolute_margin": 0.00421534267449412,
+      "relative_margin_beta": 0.016804828536010064,
+      "mean_kl": 3.810086938290288e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "ErFe2__over__HoCo2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.0024109177369003496,
+      "reference_absolute_margin": 0.002258418443185898,
+      "relative_margin_beta": 0.015249929371445129,
+      "mean_kl": 3.290914523764362e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "GdFe2__over__SmAl2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.0032633815135341138,
+      "reference_absolute_margin": 0.003155848863267844,
+      "relative_margin_beta": 0.010753264814411523,
+      "mean_kl": 3.5372458088230495e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "HoFe2__over__TbAl2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": -0.010221925188185802,
+      "reference_absolute_margin": -0.01033591284006737,
+      "relative_margin_beta": 0.011398703266725837,
+      "mean_kl": 2.9890657539037118e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "LuFe2__over__TbCo2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.00133500000689916,
+      "reference_absolute_margin": 0.0012714745632062356,
+      "relative_margin_beta": 0.0063525443692924455,
+      "mean_kl": 2.2793674753662785e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "TbFe2__over__DyAl2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": -0.00336078435308688,
+      "reference_absolute_margin": -0.003565188025580331,
+      "relative_margin_beta": 0.020440367254082048,
+      "mean_kl": 3.852329310216618e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "YFe2__over__DyCo2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.0036967291563314575,
+      "reference_absolute_margin": 0.003566153410323144,
+      "relative_margin_beta": 0.013057574606278877,
+      "mean_kl": 3.0088091367323305e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "DyFe2__over__ErAl2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": -0.014337347326848734,
+      "reference_absolute_margin": -0.014468687761109322,
+      "relative_margin_beta": 0.013134104957165013,
+      "mean_kl": 2.890204849566776e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "ErFe2__over__ErCo2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.004420195273875531,
+      "reference_absolute_margin": 0.004285249548047432,
+      "relative_margin_beta": 0.013494572582809875,
+      "mean_kl": 2.9696532511095757e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "GdFe2__over__GdAl2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.0019804085429010834,
+      "reference_absolute_margin": 0.0018399802487086465,
+      "relative_margin_beta": 0.014042829413559351,
+      "mean_kl": 3.613961593029735e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "HoFe2__over__GdCo2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.014228116216448447,
+      "reference_absolute_margin": 0.014055039151571691,
+      "relative_margin_beta": 0.017307722009718418,
+      "mean_kl": 2.733258653897508e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "LuFe2__over__HoAl2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": -0.006801474646636052,
+      "reference_absolute_margin": -0.006968630280122549,
+      "relative_margin_beta": 0.016715501131632966,
+      "mean_kl": 2.840378608896336e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "TbFe2__over__HoCo2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.0011824615733833828,
+      "reference_absolute_margin": 0.0010164279131762062,
+      "relative_margin_beta": 0.01660336626324958,
+      "mean_kl": 3.336452423452485e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "YFe2__over__SmAl2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": -0.027833640315899782,
+      "reference_absolute_margin": -0.028089025334338658,
+      "relative_margin_beta": 0.02553850171693739,
+      "mean_kl": 3.711445549425818e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "DyFe2__over__TbAl2",
+      "split": "train",
+      "source_groups": [
+        "Zaragoza_Laguna_Chaboy"
+      ],
+      "absolute_margin": 0.0038202600732499072,
+      "reference_absolute_margin": 0.0037011542308391654,
+      "relative_margin_beta": 0.011910584105597385,
+      "mean_kl": 3.396676455243627e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "Mn4N__over__Mn3AlC",
+      "split": "train",
+      "source_groups": [
+        "Westinghouse_1962"
+      ],
+      "absolute_margin": -0.004161432339363576,
+      "reference_absolute_margin": -0.004471846994420048,
+      "relative_margin_beta": 0.03104146341017137,
+      "mean_kl": 7.650697566052855e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "Co2FeSi__over__Co2TiSi",
+      "split": "train",
+      "source_groups": [
+        "Mainz_Felser"
+      ],
+      "absolute_margin": -0.005360451851932642,
+      "reference_absolute_margin": -0.005406735622576282,
+      "relative_margin_beta": 0.00462837682183211,
+      "mean_kl": 1.689262759914841e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "Co2FeSi__over__Co2TiGe",
+      "split": "train",
+      "source_groups": [
+        "Mainz_Felser"
+      ],
+      "absolute_margin": -0.0026212644855453013,
+      "reference_absolute_margin": -0.0027554620464798063,
+      "relative_margin_beta": 0.013419756154083492,
+      "mean_kl": 1.7625041733008533e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "Co2FeSi__over__Co2TiSn",
+      "split": "train",
+      "source_groups": [
+        "Mainz_Felser"
+      ],
+      "absolute_margin": -0.0033608959020057227,
+      "reference_absolute_margin": -0.0034833673380489927,
+      "relative_margin_beta": 0.012247143498219279,
+      "mean_kl": 1.414172048138281e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "NdAl2__over__PrAl2",
+      "split": "validation",
+      "source_groups": [
+        "UNICAMP_Carvalho_Campoy"
+      ],
+      "absolute_margin": -0.0015042756185721373,
+      "reference_absolute_margin": -0.0014524495827572537,
+      "relative_margin_beta": -0.005182603619383978,
+      "mean_kl": 3.747911182124438e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "Co2MnSi__over__Co2MnGa",
+      "split": "test",
+      "source_groups": [
+        "Japan_Saito_NishioHamane"
+      ],
+      "absolute_margin": -0.002885063017553572,
+      "reference_absolute_margin": -0.0029403705302684102,
+      "relative_margin_beta": 0.005530751392749759,
+      "mean_kl": 1.5878893064869004e-05,
+      "noise_realizations": 12
+    },
+    {
+      "pair_id": "EuO__over__EuS",
+      "split": "electrical_control",
+      "source_groups": [
+        "Brookhaven_Riso_Passell"
+      ],
+      "absolute_margin": -0.02606191203328005,
+      "reference_absolute_margin": -0.026034397630913492,
+      "relative_margin_beta": -0.002751378148483733,
+      "mean_kl": 1.7192359622460646e-05,
+      "noise_realizations": 12
+    }
+  ]
+}

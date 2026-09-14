@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_CsRb2CdGa
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   7.544553279877
+_cell_length_b   7.168814182281
+_cell_length_c   7.753878593445
+_cell_angle_alpha   90.000000000000
+_cell_angle_beta   90.000000000000
+_cell_angle_gamma   90.000000000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   CsRb2CdGa
+_chemical_formula_sum   'Cs2 Rb4 Cd2 Ga2'
+_cell_volume   419.372404944029
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Cs  Cs0  1  0.585396528244  0.860801875591  0.779473900795  1
+  Cs  Cs1  1  0.914603471756  0.139198124409  0.279473900795  1
+  Rb  Rb2  1  0.220768779516  0.615132510662  0.168936356902  1
+  Rb  Rb3  1  0.279231220484  0.384867489338  0.668936371803  1
+  Rb  Rb4  1  0.720768809319  0.615132510662  0.331063628197  1
+  Rb  Rb5  1  0.779231190681  0.384867489338  0.831063628197  1
+  Ga  Ga6  1  0.075211547315  0.956657588482  0.887695848942  1
+  Ga  Ga7  1  0.424788445234  0.043342411518  0.387695789337  1
+  Cd  Cd8  1  0.377332925797  0.145440772176  0.069736495614  1
+  Cd  Cd9  1  0.122667074203  0.854559242725  0.569736480713  1

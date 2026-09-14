@@ -1,0 +1,91 @@
+{
+  "path": "/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/output/singlerun/2026-06-27/00-32-50-mp20_base/epoch=869-step=737760.ckpt",
+  "bytes": 148184178,
+  "sha256": "faa7fd6c8bca092f13f98fa21350a672df3b146acbebd09b481d35cf9d214fb5",
+  "hparams_sha256": "a5219a36ffe5f86894ad46f14c63e24e5ed0386444311fb726f7a36de56bd6fd",
+  "pretraining_dataset": "mp20",
+  "tc_trained": false,
+  "static_globals": [
+    "typing.Any",
+    "builtins.int",
+    "omegaconf.base.Metadata",
+    "omegaconf.nodes.AnyNode",
+    "omegaconf.base.ContainerMetadata",
+    "omegaconf.dictconfig.DictConfig",
+    "omegaconf.listconfig.ListConfig"
+  ],
+  "strict_load": true,
+  "missing_keys": [],
+  "unexpected_keys": [],
+  "epoch": 869,
+  "global_step": 737760,
+  "loading": "weights_only with explicit OmegaConf/builtin allowlist",
+  "finite_pair_scoring": true,
+  "scores": [
+    {
+      "timestep": 1,
+      "energy": {
+        "total": [
+          0.023233555257320404,
+          0.006433097179979086
+        ],
+        "lattice": [
+          0.02323351614177227,
+          0.006433086469769478
+        ],
+        "coordinate": [
+          0.0,
+          0.0
+        ],
+        "atom": [
+          3.8544126113038146e-08,
+          1.0728826715933337e-08
+        ]
+      }
+    },
+    {
+      "timestep": 500,
+      "energy": {
+        "total": [
+          0.004715930204838514,
+          0.025073450058698654
+        ],
+        "lattice": [
+          1.6959488675638568e-06,
+          0.0036123290192335844
+        ],
+        "coordinate": [
+          0.0,
+          0.0
+        ],
+        "atom": [
+          0.0047142342664301395,
+          0.021461121737957
+        ]
+      }
+    },
+    {
+      "timestep": 1000,
+      "energy": {
+        "total": [
+          0.04025242477655411,
+          0.02720717340707779
+        ],
+        "lattice": [
+          0.00020348171528894454,
+          0.0002034815406659618
+        ],
+        "coordinate": [
+          5.08761403570702e-15,
+          5.08761403570702e-15
+        ],
+        "atom": [
+          0.04004894196987152,
+          0.027003692463040352
+        ]
+      }
+    }
+  ],
+  "scientific_tc_validation": false,
+  "note": "Compatible general crystal generator only; denoising energy is not predicted Tc or high-Tc evidence"
+}

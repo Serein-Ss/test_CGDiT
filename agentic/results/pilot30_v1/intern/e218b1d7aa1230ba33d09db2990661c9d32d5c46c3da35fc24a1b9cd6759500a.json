@@ -1,0 +1,29 @@
+{
+  "id": "CtbDigMCvjxMclB9Ku4BnIpPQh1Z89ONciSGUKmgFFA=",
+  "object": "chat.completion",
+  "model": "Intern-S1",
+  "created": 1789366505,
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"records\": [\n    {\n      \"formula\": \"PrAl2\",\n      \"tc_k\": 32.5,\n      \"uncertainty_k\": null,\n      \"quote\": \"The magnetic transition temperatures are 32.5 and 77 K, respectively.\",\n      \"caveats\": \"No Tc uncertainty reported.\"\n    },\n    {\n      \"formula\": \"NdAl2\",\n      \"tc_k\": 77,\n      \"uncertainty_k\": null,\n      \"quote\": \"The magnetic transition temperatures are 32.5 and 77 K, respectively.\",\n      \"caveats\": \"No Tc uncertainty reported.\"\n    }\n  ]\n}\n```"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "moderation": {
+    "sensitive": false,
+    "category": ""
+  },
+  "usage": {
+    "prompt_tokens": 270,
+    "completion_tokens": 147,
+    "total_tokens": 417
+  },
+  "metadata": {
+    "search_used": false,
+    "reasoning_used": false
+  }
+}

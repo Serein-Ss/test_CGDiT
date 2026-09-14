@@ -1,0 +1,413 @@
+PH   YSI CAI     R   EVI EW                         VOI UME 12S, @UMBER 6                                       MARCH       15, 1962
+
+                                Magnetic Structure of Mn4N-Type Compounds
+                                           W.   J. TAKEI,   R. R. HEIKES) AND (y. SHIRANE
+                                     Westinghouse   Reseurch Laboratories, Pittsburgh, Peensylvueiu
+                                                      (Received November    1, 1961)
+
+                  A series of Mn4N-type compounds has been investigated by means of magnetic saturation measurements
+               and neutron di6raction experiments. Reinvestigation of Mn4N has given revised moments with 3.85pg at
+               the corner of the cubic unit cell antiparallel to the three face-centered moments of 0.90pg at 77'K. Re-
+               placement of the nitrogen, located at the body-centered position, by carbon lowers the saturation moment
+               by increasing the moment of the face-centered Mn while leaving the corner atom unchanged. Partial re-
+               placement of the nitrogen by vacancies also decreases the saturation moment. Small vacancy concentrations
+               increase the face-centered moments while leaving the corner moment essentially unchanged. At larger
+               vacancy concentrations, both the corner and face-centered moments decrease. These results are explicable
+               in terms of a model in which nitrogen acts as an electron donor and the various local environments cause
+               diGering energy level splittings of the Mn atoms.
+
+
+                      I. INTRODUCTION                                  which had not been proposed previously. The spin
+      ' ANGANESE nitride is                                            arrangement had a corner moment of 3.5p~ antiparallel
+                            a representative of a series
+      ~  of transition metal carbides and nitrides which               to the three face-centered moments of 0.8@~. This large
+have the simple structure shown in Fig. 1. From a                      difference in the magnitude of the moments of the corner
+structural viewpoint, the chemical formula can be                      and face-centered Mn makes it evident that nitrogen
+written as (Mrr)sMrX, where Mr is the corner atom,                     not only donates electrons to the face-centered atoms,
+                                                                       but has also split their energy levels.
+XII, the three face-centered atoms, and X, the carbon
+or nitrogen which is at the body-centered position.                       Juza and PufP showed that partial replacement of
+Examples of other compounds belonging to this series                   the nitrogen in Mn4N by carbon or vacaricies decreased
+are Fe4N, ' Fe3NiN, ' and Mn3AlC. ' It is known that the               the saturation moment. Their model for Mn4N was used
+carbon or nitrogen can deviate from unity, the nitrogen                as an explanation for this decrease. This model had a
+in Mn4N having a range of 0.7 to 1.2.'                                 corner moment of 3.2@~ and a face-centered moment of
+   Several magnetic and neutron diffraction investiga-                 2.0pg antiparallel to the other two face-centered mo-
+tions of the magnetic ordering in these compounds have                 ments of 2.0p~ to give the net moment of 3.2+2.0
+been made in order to study the electronic distributions
+                                                                       —  2(2.0) equal to 1.2p&. It was assumed that only the
+in the metal atoms and the role of nitrogen and carbon.                antiparallel face-centered moments of            —
+                                                                                                                   2.0@~ were
+In a study of several iron containing nitrides of this                 affected by the substitutions, changing to the corner
+series, Wiener and Berger' assumed that nitrogen do-
+                                                                                                      —
+                                                                       type with a moment of 3.2p, &. Thus, a greater fraction
+nated one electron to each of the three face-centered                  of the positive moments were cancelled and the net
+atoms. In the case of Fe4N, they proposed the magnetic
+                                                                                                      —
+                                                                       moment reduced by 3.2 2.0 or 1.2p& for each change.
+structure shown in Table I. A corner iron moment of                    Three face-centered Mn were changed by each nitrogen
+3@~ was parallel to the three face-centered moments of
+                                                                       vacancy and one by each carbon substitution.
+2@~ to give the total moment of 9p~. This structure was
+                                                                          The type of mechanism assumed by Juza and Puff
+in agreement with the results of a subsequent neutron                  for the reduction of saturation moment cannot be occur-
+diffraction investigation of Frazer. 4                                 ring in the structure as determined by the neutron dif-
+   The saturation moment of Mn4N, 1.kg, is too small                   fraction study. The 2.7p& difference in moment magni-
+to be the resultant of a ferromagnetic arrangement of                  tude between a corner and face-centered type Mn
+Mn moments of reasonable magnitude. For this reason,
+among others, various ferrimagnetic structures were
+proposed" ' as listed in Table I. Nitrogen was assumed
+to be an electron donor in each case but by assuming                                                                   M&   Chorge    +!
+differing assignments of electrons to the s and d shells,
+different moment magnitudes were obtained. A neutron                                                                                  0
+                                                                                                                       M&   Chorge
+diffraction investigation of Mn4N, although it con-
+firmed the fact that the spin arrangement was ferri-                                                             4E
+                                                                                                                       X    Chorge    +5
+magnetic, resulted in a structure, listed in Table I,
+  ' G. W. Wiener   and J. A. Berger, J. Metals 7, 360 (1955).
+  ' R. G. Butters and   H. P. Myers, Phil. Mag. 46, 895 (1955).
+  ' R. Juza and H. Pu8, Z. Electrochem.     61, 810 (1957).
+  ' B. C. Frazer, Phys. Rev. 112, 751 (1958).
+  ' C. P. Guillaud, Rev. Modern Phys. 25, 119 (1953).
+  6 W.
+        J. Takei, G. Shirane and B. C. I'razer, Phys. Rev. 119, 122        FIG. 1. Crystal structure of (MIr)3MIX-type compounds.
+(1960).                                                                     Charges refer to model as described in Sec. IV of text.
+                                                                 TAKE I, HEI KES, AND                                  SH I RANE
+
+         TABLE   I.
+                  Magnetic structures of Mn4¹ype compounds.                                                 by passing    purified nitrogen over Mn powder. The
+             Asterisks indicated neutron diffraction studies.
+                                                                                                            desired sample was then prepared by mixing stoichio-
+                                                                                                            metric amounts of the components into a Norton RA84
+                                                                        M,           M,           N4
+                                                                                                            alundum extraction thimble, sealing in an evacuated
+                                                    (0,0,0)           (g, ~ 0) (g,0,$)           (0„,$)     silica tube, and heating at 1000'C for periods up to one
+ Fe4N                                                                                                       week for homogenization. The Mn3A1C was prepared
+   Wiener and Berger
+   *Frazerb                                          +3                +2            +2          +2         by placing the components in a recrystallized alumina
+                                                                                                            combustion boat, melting at 1300'C in an argon at-
+ Mn4N
+         %iener and Berger'                          +4                +3            —3          —3         mosphere, cooling and powdering the produce, reheating
+         Guillaud'                                   —5                +2            +2          +2         to 1300 for approximately one hour and then annealing
+         Juza and PufP                               +3.2              +2            —2          —2         at 1000'C for three days.
+         *Takei et al.       '                       +3.5              —0.8          —0.8        —0.8
+         *This investigation                         +3.9              —0.9          —0.9        —0.9
+                                                                                                                                   B. Measurements
+ Mn3AlC
+         *Model 1                                   0(A1)              +1.2          +1.2        +1.2          The results of x-ray and magnetic saturation measure-
+         *Model 2                                                      +1.9          +0.9        +0.9       ments are shown in Table II. The magnetic measure-
+                                                                                                            ments were made on a balance designed by R. C. Miller
+ a    See reference 1.                  d   See reference 3.
+ b    See reference 4.                  e   See reference 6.                                                and D. K. Cox of these Laboratories, based on the
+ &    See reference 5.
+                                                                                                            Faraday method. Measurements were made in fields up
+would result in moment changes with composition which                                                       to 10 000 gauss and at temperatures from /7'K up to
+would be too large. The decrease would be explained,                                                        the Neel temperature, the results quoted being obtained
+however, if the corner moment remained constant and                                                         from extrapolations of moment versus 1/H.
+removal of an electron from the face-centered atom in-                                                         The neutron diBraction experiments were conducted
+creased its moment by ip&. Each nitrogen vacancy                                                            at the Westinghouse Testing Reactor utilizing a wave-
+would remove a total of three electrons from the face-                                                      length of 1.15 A. Samples were placed in thin walled
+centered atoms resulting in a total increase of 3@~ at                                                       (0.010 in. ) Al sample holders and mounted in a magnet-
+these sites. Correspondingly, for the carbon substitution                                                   cryostat system. A magnetic 6eld up to 11000 gauss
+case, by the donation of two electrons instead of the                                                       could be applied parallel to the scattering vector of the
+three by nitrogen, there would be a total increase of 1p&                                                   reflection to eliminate the magnetic scattering and
+at the face-centered sites for each replacement. These                                                      thereby determine the nuclear scattering directly. Wide
+assumptions were tested by an investigation to deter-                                                       angle room temperature runs were also made using thin
+mine the atomic moment values in several of these                                                           walled (approximately        0.010 in. ) silica tubes. The
+substitutional compounds, listed in Table II.                                                               sample shapes in all cases were —,  '-in. or —,'-in. diameter
+                                                                                                            cylinders, 1 in. to 1~ in. high, requiring about 10 g of
+                                      II. EXPERIMENTAL                                                      sample.
+                                 A. Sample Preparation                                                                              III. RESULTS
+   The samples prepared for this investigation are shown                                                                                A. Mn45
+in Table II. All were in the form of powders. The start-
+ing material for all N-containing samples was Mn4N                                                             In the previous neutron diGraction study of Mn4N, '
+or Mn5N2, prepared following the procedure of Mah, '                                                        the available neutron Qux required a relatively large
+                                                                                                            amount of sample, approximately 75 g. In order to
+         toooo                                                                                              obtain this quantity of material, it was necessary to
+                                                                                                            combine the products of several preparative runs. Due
+                                                    l2    000                Mn~N
+          8000 —-—                                                                                          to the variation in composition, this procedure intro-
+                                                                     o intensity Without Field
+                      {ioo)             (Iio)
+                                                  (ttt)
+                                                                     ~ intensity With Magnetic              duced an inhomogeneity of the diGraction sample. It
+                                                                       Field of 11000gauss                  contained an excess of nitrogen, partially due to the
+ &n       6000—
+                                                                                                            presence of Mn2N, and had a smaller average saturation
+          4000—                                                              {2lo)
+                                                                                                                               TABLE   II. Mn4N-type   compounds.
+ O
+ O
+           000   —,     &l
+                                                                                                                                                                       Neel
+                                                                                                                                             Gp           0vv   K   temperature
+
+                  15             20          25           30           35                              50
+                                                                                                                                            (A)                        (~)
+                                                                28                                              Mn4N                       3.865          1.14          745
+                                                                                                                Mn4Np g2                   3.855          0.84          750
+  Fro. 2. Neutron diffraction pattern of Mn4N at 77'K. Cylindri-                                                Mn4Np. s                   3.836          0.45          778
+cal powder sample -in. diamX1 in. X=1.15 A. Monitor period
+                                  —',
+                                                                                                                Mn4Np. v5C(). 25           3.865          0.88          850
+104 sec.                                                                                                        Mn3AlC                     3.869          3.63          272
+     r   A. D. Meh,          l. Amer.        Chem. Soc. 80, 2954 (1958).
+                        MAGNET        IC    STRUCTURE OF            Mn4N —TYPE COMPOUNDS                                       1895
+
+  TABLE
+X=1.15 A.
+            III.
+              Intensity data for Mn4N at room temperature.
+           Observed intensities adjusted by scale factor and ap-
+                                                                   where  j  is the multiplicity; (q'), the average value of
+                                                                   sin'0. where a is the angle between the scattering and
+propriate Lorene factors. Calculated intensities modi6ed by
+temperature factor of 0.50X10 ' Al for nitrogen.                   magnetic vectors and is equal to 3 in this case; 0.269
+                                                                   results from a combination of fundamental          atomic
+
+ReQection
+                     Itetal
+                   observed
+                                   I~g
+                                 observed
+                                              Imag
+                                              calc.
+                                                         Itotal
+                                                         calc.
+                                                                                         f
+                                                                   constants; and is the magnetic form factor. By use of
+                                                                   the Mn+' form factor, an average value of 4.75'~ is ob-
+  (100)                  8.6        3.5       3.6          8.8                     —
+                                                                   tained for pz pzz at liquid nitrogen temperature. This
+  (110)                 14.7        5.3       5.0         15.2     value can then be combined with that of the net mo-
+  (111)                 45.3                  0.1         45.2     ment, 1zz+31zzz —1.14pzz, obtained from the magnetic
+  (200)                  1.7                               2.2     saturation measurements to give the individual atomic
+  (210)                 22.0        3.6        3.4        22.9
+                                                                   moments, 3.85'~ at the corner and                   —
+                                                                                                               0.90'~ at the
+  (211)                 19.9        2.6        2.4        21.6
+                                                                   face-centered sites. Because of the symmetry, the spin
+  (220)                  2.8                               5.2
+  (300)                 22.6                              22.9     direction with respect to the cell edges cannot be
+  (221)                                                            determined.
+  (310)               17.9                                18.0
+  (311)              122.7                               123.0                 B. Carbon      Containing       Comyounds
+  (320)               18.3                                17.1
+                        33.2                              33.6        The data for the carbon-substituted         compound,
+  (321)
+  (322)                                                            Mn4N0. 75C0. 25 has the same general appearance as that
+                                                          32.0     for Mn4N and its analysis proceeds in exactly the same
+  (410)
+  (330)
+                                                                                  —
+                                                                   manner. (lzz jazz) is 4.5lzzz at room temperature which,
+                        24.0                              23.6
+  (411)                                                            when combined with the saturation moment of 0.58pg
+  (331)              112.1                               112.6     gives p, z and p» equal to 3.52@& and               —
+                                                                                                             0.98@&, respec-
+                                                                   tively. Thus the corner moment has essentially the same
+                                                                   value as in Mn4N, 3.53@~ at room temperature, while
+moment of 0.98pg at 7'I'K. The much smaller samples                the face-centered moment has increased in magnitude.
+that can be studied at the reactor presently available             At 77'K, replacement of 0.25 nitrogen by carbon results
+to us has permitted the re-examination of Mn4N utiliz-             in a decrease of 0.26 in the saturation moment, or one
+ing the product of one particular preparative run. This            electron per replacement, corresponding to the d.onation
+sample did not have a nitrogen excess and had a satura-            of two electrons by carbon instead of the three by
+tion moment of 1.14pzz at 77'K. The diifraction pattern,           nitrogen. Complete replacement of all the nitrogen by
+taken at 77'K, is shown in I'ig. 2. Small traces of MnO            carbon should then result in a face-centered moment of
+are present in the sample. The greater resolution and              0.90+ s or 1.23pzz. A report has been made of the prepa-
+smaller background available at this diGraction facility           ration of Mn4C (mixed with 30% non-magnetic MnssCs)
+has improved. the data despite the use of less sample              by extremely rapid quenching from 1050'C. It was
+and shorter stepping times. Room temperature scans                 reported as weakly magnetic with a moment approxi-
+were made to an angle, 28, of 90'. As shown in Table III,          mately one-tenth that of nickel which has a moment of
+this allowed an accurate determination of the scale and            0.6pp/atom. If the same type of magnetic structure was
+temperature factors as a check on the nuclear intensities          maintained in this compound, a corner moment of
+as determined by diRraction experiments with a mag-                3.85'~ antiparallel to three face-centered moments of
+netic 6eld.                                                        1.23pg would be expected. The net moment of 0.16p~
+   The new study did not change any of the previous                would yield an algebraic average of 0.04pzz/Mn.
+results basically, but did give slightly larger individual            The nuclear structure for Mn3AlC with Al at the
+atomic moments. Since the calculations involved are
+typical of those for the entire series, the various steps            TABLE IV. Intensity data for Mn3AlC at 77'K. X=1.15 A.
+will be discussed. The large magnetic scattering present           Observed intensities adjusted by scale factor and appropriate
+                                                                   Lorentz factors.
+in the (100) and (110) reQections is due to the presence
+of ferrimagnetic ordering. Various types of arrange-
+                                                                                                              Imag     Imag
+ments can give this result but the polarized neutron                              Itotal        I~
+                                                                                                 —
+                                                                                                              cale.    calc.   I   c
+experiments described in the previous paper' showed                ReQection    observed     (i~a in. o)    Model 1 Model 2    calc.
+that the correct model was one in which the three face-              (100)        0.37          0.32          0.40     0.33     0.02
+centered moments were antiparallel         to the corner             (110)       24.5           2.5           0.56     0.69    22.8
+moment, the resultant moment being in the same direc-                (111)       19.8           2.9           2.3      2.3     16.4
+tion as that at the corner. Therefore, the magnetic scat-            (200)         1.5          1.2           1.3      1.3      0.06
+tering in reQections with mixed indices is proportional              (210)         0.6          0.3           04       0.3      0.09
+       —
+to (1zz yzz), and since the two moments differ in sign,              (211)       44. 1          0.2           0.3      0.2     44.5
+is proportional to the sum of their absolute values.
+                   I-    = j(V')(0 269)'j'( z —»z)'                   ' E. R. Morgan, J. Metals       6, 983 (1934).
+ 1896                                    TAKE I,        H   EI   KES,    AN D SH I RANE
+
+     TABLE V. Atomic moments in Bohr magnetons for Mn4N-type                The compound Mn4Ng. s which has 20%%uq of the nitro-
+             compounds. Numbering as shown in Fig. 1.
+                                                                        gen replaced by vacancies presents different results. If
+                                 300'K                                  the simple rules followed in the previous compounds
+                                                        77'K
+                             PI       +II         PI           +II      were maintained, it would be expected that the average
+                                     —0.8g                  —0.9p       face-centered moment at 77'K would be equal to 0.90
+     Mn4N                   3.53                 3.85
+     Mn4Np,   g2            3.54     —0.96       3+79       —0.9g       +0.2(3)(—',) or 1.10pzz. The saturation moment then
+     Mn4N0.   8             2.93     —0.86       3+30       —0.95                       —
+                                                                        would be 3.85 3(1.10) or 0.55pzz and the value of
+     Mn4¹.~5Cp.             3.52     —0.9s                                 —
+                                                                         (pz pzz) obtained from the diffraction
+                   mo
+
+                                                               1,21                                                  experiments
+     Mn3AlC
+                                                                                          —
+                                                                        would be 3.85 —( 1.10) or 4.95pzz. However, the meas-
+                                                                        ured saturation moment is 0.45@~, and the value of
+ corner sites, ' was confirmed by the room temperature                     —
+                                                                        (pz pzz) is only 4.25p~, a considerable decrease from the
+ diffraction pattern. This contained nuclear scattering                 Mn4N value rather the expected increase. As a conse-
+ only since it was above the Curie temperature of 272'K.                quence, the average corner moment derived from the
+ Mn3AlC has been reported as "probably a normal ferro-                  data has decreased from 3.85'~ to 3.30p~ and a value of
+ magnetic"' and di8raction patterns taken at 77'K are                   0.95p~ is obtained for the face-centered moment. These
+ in agreement with this type of structure. However, two                 values are explicable as a result of the model for Mn4N
+ ferromagnetic models, given in Table I, can satisfy the                discussed below.
+ data as shown in Table IV. Model 1 is an equal moment                                      IV. DISCUSSION
+ structure with the saturation moment of 3.63LM~ a result
+ of three face-centered moments of 1.21@~ each. This                       An attempt will now be made to show that the ex-
+ moment is in agreement with the 1.23'~ predicted above                 perimental results on the systems discussed above can
+for the face-centered atoms in Mn4C. Model 2 can be                     be interpreted in terms of the splitting of the d levels of
+ discussed by referring to the vertical axis in Figure 1                the Mn atom. First, let us consider the role of the
+ as the c axis. The face-centered atoms in the basal plane              nitrogen atom. It is commonly accepted' that its role is
+would then have a moment of 1.9@~ while the other Mn,                   as a donor of electrons. Magnetic considerations in
+in the plane at —, 'c, would have a moment of 0.9@~ each.               Fe4N make this hypothesis reasonable; furthermore,
+The calculated intensity in this type of structure is a                 size considerations in this type of structure tend to force
+function of the angle 4 between the c axis and the spin                 one to the same conclusion. In this discussion, we will
+direction. In order to fit the diffraction data, the spin              assume that the nitrogen donates three electrons to the
+direction must be approximately perpendicular to the                   face-centered atoms.
+c axis, i.e., in or near the planes described. The intensi-                Let us now examine the energy level schemes of the
+ties for Model 2, given in Table IV are calculated for 4               Mn atoms. To do this, consider Fig. 1. The charges of
+equal to 90'. Both models have the (110) magnetic re-                  the M atoms (Mn in this case) are based on the assump-
+Qection smaller than the observed value but the latter                 tion that each atom gives up one electron to a conduc-
+is obtained as the difference between two large numbers                tion band and, in addition, each face-centered atom
+and can be considerably in error. Although the moment                  receives an electron from the nitrogen. Let us first treat
+magnitudes for Model 2 are diferent from the 1.21@~                    the corner atoms. Consider the d-wave functions xy, ys,
+in Model 1, the average value is the same. Therefore,
+                                                                             —
+                                                                       gs g' y 3s' —      r' the first three forming a triplet while
+the value of 1.21@~ is listed for the face-centered mo-                the remaining two form a doublet. We might expect,
+ment in Table V for the comparison with the other                      from a study of the figure, that the doublet will lie a
+results.                                                               bit lower than the triplet in Mn4N. However, as nitro-
+                                                                       gen atoms are removed, the face-centered atoms become
+              C. Nitrogen De6cient Compounds                           positively charged, a circumstance which tends to lower
+                                                                       the triplet level. It will be assumed that if three or more
+   The data analysis for the compounds with vacancies
+                                                                      nitrogen neighboring to a corner Mn are removed, the
+partially substituted for nitrogen proceeds in the same
+                                                                       triplet level becomes suSciently low so that Hund's
+manner as for Mn4N. At 77'K, a value of 4.78pzz is ob-
+tained for (pz —
+                                                                      rule is violated. The six d electrons of the corner Mn are
+                  pzz) of Mn4Ng. gg. When combined with
+the saturation moment of 0.84@~, this yields average
+                                                                      just sufhcient to fill the lower triplet level, giving a net
+atomic moments of 3.54 and —        0.99pg for p, i and piz,          spin of zero. This assumption is, of course, arbitrary and
+                                                                      the necessary number of vacancies, s, was chosen to Gt
+respectively. Again the corner moment has stayed essen-
+                                                                      the experimental data. Consider now the face-centered
+tially constant while the face-centered moment has in-
+                                                                      atoms. Experimentally,           we know      that pzi 1p&
+creased in magnitude with a total change of about 3p~
+                                                                      Furthermore, it appears that the removal of a nitrogen
+for each nitrogen vacancy in agreement with the idea
+                                                                      causes p, ii to increase to 2p& by the removal of an elec-
+that nitrogen has donated three electrons.
+                                                                      tron. This requires that the energy level scheme be such
+  ' B. N. Brockhouse                                                  that one of the five 3d levels is raised sufficiently so that
+                        and E. R. Morgan (unpubnshed). As quoted
+by   B. N.    Brockhouse and H. P. Myers, Can. J. Phys. 35, 313       Hund's rule is not obeyed. A study of Fig. 1 easily
+(1957).                                                               reveals that the d levels will be split into a doublet and
+                 MAGNETIC           STRUCTURE OF               M n4N —TYPE                                 COM POUNDS                                          1897
+
+3 singlet levels. Furthermore, it is rather clear that the                                                            l
+singlet Bz' —
+                                                                                                     l
+
+              r' level will be the highest. It must, of                                   me     ~
+course, be regarded as an assumption that the splitting
+is large enough so that all 7 electrons are confined to the                                                                             p, , (Cole, Z&4)
+                                                                              p. i (Cole, Z&3)
+lower four levels, giving a net spin of      1pg. Removal
+of an electron from this set of levels (by the removal of
+                                                                                                     +g ~~a ~~0~g ~
+nitrogen) will cause the moment to increase to        2pzz.                       ~~0
+                                                                                        ~ ~
+                                                                                            ~
+                                                                                                                              '+e
+   In order to understand these systems, it is necessary             t
+                                                                         ~~                                                         e
+to make one further assertion. It is clear from the mag-                                         Ptom|c Moments                         ~
+                                                                                                                                            ~~
+                                                                                                                                                 "&p.   p
+netic structure as determined by neutron diGraction             'o   '
+
+                                                                              Q   p ),   Neutron            P~f froctton Results
+that the dominant magnetic interaction is between a             QP
+                                                                         a3p 2, Neutron                     Diffraction Results
+corner atom and a face-centered atom. This interaction is       O
+antiferromagnetic. It will now be necessary to assert that      L
+
+a face-centered Mn having two neighboring nitrogen
+vacancies turns its spin parallel to the corner Mn. This
+                                                               IO
+                                                                                                               Saturatton Moments
+
+assumption can be made plausible on the following
+                                                                                                            ~    opus Juza ond Puf f
+                                                                                                              p o&es This Study
+basis. As the substances are essentially metallic in                                       ~sy
+                                                                                                 ~
+nature, the indirect ferromagnetic coupling via the con-
+duction electrons must be present. Removing electrons                                                                                            (Cole, Z&4)
+                                                                                                                w
+from the face-centered atoms is equivalent to diminish-                                                               p
+ing the radius of the Mn and consequently to a lessening                                         0 (Cole, Z&3) ~
+of the antiferromagnetic direct interaction.
+   Having attempted to rationalize our assumptions,                                              O.l                  0.2                        P.3
+let us see how the data are treated.                                                                                      X
+
+   A. Mn4Ã. The present model would give rise to                Fro. 3. Experimental and calculated atomic moments of
+moments of 4@~ and 1.y~ on the corner and face-centered       Mn4NI, as a function of x. Z is the number of nitrogen vacancies
+                                                              about a corner atom assumed as suKcient to result in zero moment.
+atoms, respectively.
+   B. Carbon containing compounds. As discussed in
+the previous section, carbon is treated as giving one less    one, and the third with none. It should also be remarked
+electron than the nitrogen. This is equivalent to forming
+                                                              that the experimentally observed moments of 3.85@&
+                                                              and 0.9pg are being used for the corner and face-
+one face-centered moment of           2@~ for each carbon
+                                                              centered atoms, respectively, rather than the theoretical
+added. On the suggested level scheme, this is acceptable.
+                                                              values of 4p, ~ and ip, g.
+    C. Nitrogen-deficient   compounds. Expressions for
+                                                                 The results of Equations (1) and (2) and the calcu-
+p& and pz& may be written down from the suggested
+                                                              lated saturation moments are compared with experi-
+model. Using the formula Mn4N~
+                                                              ment in Fig. 3. The curves for z&~4, as a criterion for
+w = 3.85{1—11—28x'(1 —x)'                                     zero corner moment, are also shown. It can be seen that
+                        —8x(1 —x)' —(1—x)'$}            (1)
+                                                              the model reproduces the experimental variation of
+                                                              moments with change in nitrogen content. However,
+pzz= x ( —1.9)+2x(1—x) (1.4)+ (1 —x) (0.9),             (2)   the choice of z~& 3 results in a more rapid decrease in the
+                                                              corner and saturation moments than is observed and a
+where in Eq. (1) the subtractive term in square brackets      better fit could be obtained by a number fractionally
+represents the number of corner Mn having three or            greater than three. This may be due to the fact that
+more neighboring nitrogen vacancies. In Eq. (2) the           certain geometrical configurations of three nitrogen
+first term represents the corner Mn having two neigh-         vacancies do not split the energy levels sufFiciently for
+boring vacancies; the second term represents those with       Hund's rule to be violated.
+

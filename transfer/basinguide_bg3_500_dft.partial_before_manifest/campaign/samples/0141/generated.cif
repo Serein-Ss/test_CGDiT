@@ -1,0 +1,38 @@
+# generated using pymatgen
+data_CdAsPb
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.491935253143
+_cell_length_b   6.448906421661
+_cell_length_c   11.516840934753
+_cell_angle_alpha   90.000000000000
+_cell_angle_beta   90.000000000000
+_cell_angle_gamma   90.000000000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   CdAsPb
+_chemical_formula_sum   'Cd4 As4 Pb4'
+_cell_volume   333.620655524836
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Cd  Cd0  1  0.743375658989  0.413251161575  0.979716897011  1
+  Cd  Cd1  1  0.756624341011  0.586748838425  0.479716897011  1
+  Cd  Cd2  1  0.256624341011  0.913251161575  0.520283102989  1
+  Cd  Cd3  1  0.243375658989  0.086748838425  0.020283102989  1
+  As  As4  1  0.253379911184  0.414438635111  0.391442745924  1
+  As  As5  1  0.246620088816  0.585561394691  0.891442775726  1
+  As  As6  1  0.746620059013  0.914438605309  0.108557254076  1
+  As  As7  1  0.753379940987  0.085561364889  0.608557224274  1
+  Pb  Pb8  1  0.747191369534  0.841432273388  0.808540582657  1
+  Pb  Pb9  1  0.752808630466  0.158567726612  0.308540582657  1
+  Pb  Pb10  1  0.252808630466  0.341432332993  0.691459417343  1
+  Pb  Pb11  1  0.247191429138  0.658567726612  0.191459417343  1

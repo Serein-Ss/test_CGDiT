@@ -1,0 +1,7 @@
+{
+  "n_total": 500,
+  "n_exported": 500,
+  "duration_s": 436.754141330719,
+  "generator_checkpoint_sha256": "c747d3d323ce1592178b44abf926b42c422bc6b02e128cb7721906e8c8e94ab9",
+  "predictor_checkpoint_sha256": "37ca18775b5390b2f9c65fdbabce15d4df57d3cb3f408720f15eb11255fd9ae1"
+}

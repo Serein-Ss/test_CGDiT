@@ -1,0 +1,29 @@
+{
+  "id": "QAZyuzrSTHgO9szv0IboeIpPQh1Z89ONciSGUKmgFFA=",
+  "object": "chat.completion",
+  "model": "Intern-S1",
+  "created": 1789366627,
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"records\": [\n    {\n      \"formula\": \"Co2TiSi\",\n      \"tc_k\": 380,\n      \"uncertainty_k\": null,\n      \"quote\": \"Curie temperature TC from magnetization measured at 10 mT: Co2TiSi 380 K, Co2TiGe 380 K, Co2TiSn 355 K. Tc uncertainty not specified.\",\n      \"caveats\": \"Transport-peak estimates (370,350,360 K respectively) differ from magnetometry; do not replace the magnetic values.\"\n    },\n    {\n      \"formula\": \"Co2TiGe\",\n      \"tc_k\": 380,\n      \"uncertainty_k\": null,\n      \"quote\": \"Curie temperature TC from magnetization measured at 10 mT: Co2TiSi 380 K, Co2TiGe 380 K, Co2TiSn 355 K. Tc uncertainty not specified.\",\n      \"caveats\": \"Transport-peak estimates (370,350,360 K respectively) differ from magnetometry; do not replace the magnetic values.\"\n    },\n    {\n      \"formula\": \"Co2TiSn\",\n      \"tc_k\": 355,\n      \"uncertainty_k\": null,\n      \"quote\": \"Curie temperature TC from magnetization measured at 10 mT: Co2TiSi 380 K, Co2TiGe 380 K, Co2TiSn 355 K. Tc uncertainty not specified.\",\n      \"caveats\": \"Transport-peak estimates (370,350,360 K respectively) differ from magnetometry; do not replace the magnetic values.\"\n    }\n  ]\n}\n```"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "moderation": {
+    "sensitive": false,
+    "category": ""
+  },
+  "usage": {
+    "prompt_tokens": 345,
+    "completion_tokens": 391,
+    "total_tokens": 736
+  },
+  "metadata": {
+    "search_used": false,
+    "reasoning_used": false
+  }
+}

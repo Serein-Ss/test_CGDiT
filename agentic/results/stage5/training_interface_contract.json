@@ -1,0 +1,34 @@
+{
+  "status": "specified_not_implemented",
+  "model_class": "cgdit.pl_modules.diffusion.Diffusion",
+  "atom_type_learning_supported": true,
+  "fixed_atom_types_for_preference": false,
+  "use_space_group": true,
+  "required_batch_fields": [
+    "spacegroup",
+    "anchor_index",
+    "ops",
+    "ops_inv",
+    "atom_types",
+    "frac_coords",
+    "lengths",
+    "angles",
+    "batch",
+    "num_atoms"
+  ],
+  "pair_condition": "Identical task/family condition for both endpoints; do not condition separately on observed winner/loser Tc",
+  "energy": "Per-structure denoising surrogate with explicit time weights and normalization; existing scalar batch loss is insufficient",
+  "preference_logit": "-beta*((E_policy_w-E_reference_w)-(E_policy_l-E_reference_l))",
+  "objective": "softplus(-preference_logit)",
+  "exact_dpo_likelihood_claim": false,
+  "noise": "Same sampled timestep, matched lattice noise and mapped orbit noise; policy/reference see identical corrupted inputs",
+  "alignment_file": "results/stage5/pair_site_alignment.json",
+  "reference_model": "Frozen validated pretrained checkpoint, not the random smoke model",
+  "evaluation": "Source/family-grouped heldout comparisons; no train-pair success as generalization",
+  "initial_scope": "Same framework and orbit topology only",
+  "blockers": [
+    "Per-endpoint energy and explicit corruption inputs not implemented",
+    "Validated pretrained generation checkpoint not loaded in this stage",
+    "Only one pipeline pair; independent comparison data insufficient"
+  ]
+}

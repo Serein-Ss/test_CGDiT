@@ -1,0 +1,12 @@
+{
+  "path": "/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/output/singlerun/2026-06-30/11-28-44-mp20_bg/epoch=784-step=665680.ckpt",
+  "sha256": "c747d3d323ce1592178b44abf926b42c422bc6b02e128cb7721906e8c8e94ab9",
+  "hparams_sha256": "636f2ebcf1001f3035550479d0139a6e0239a544340a0e711361e146995ce4c1",
+  "strict_load": true,
+  "epoch": 784,
+  "global_step": 665680,
+  "conditions": [
+    "band_gap"
+  ],
+  "parameters": 12402276
+}

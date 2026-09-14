@@ -1,0 +1,95 @@
+[
+  {
+    "formula": "Mn4N",
+    "composition": {
+      "Mn": 4.0,
+      "N": 1.0
+    },
+    "natoms": 5,
+    "periodic": true,
+    "coordinates": "fractional",
+    "lattice_parameters_angstrom_degrees": [
+      3.865,
+      3.865,
+      3.865,
+      90.0,
+      90.0,
+      90.0
+    ],
+    "minimum_distance_angstrom": 1.9324999999999999,
+    "ordered": true,
+    "oxidation_states_assigned": false,
+    "symmetry": [
+      {
+        "symprec_angstrom": 0.001,
+        "angle_tolerance_deg": 5,
+        "number": 221,
+        "symbol": "Pm-3m"
+      },
+      {
+        "symprec_angstrom": 0.01,
+        "angle_tolerance_deg": 5,
+        "number": 221,
+        "symbol": "Pm-3m"
+      },
+      {
+        "symprec_angstrom": 0.1,
+        "angle_tolerance_deg": 5,
+        "number": 221,
+        "symbol": "Pm-3m"
+      }
+    ],
+    "parser_warnings": [],
+    "symmetry_warnings": [],
+    "path": "data/curation/stage3_reference_structures/Mn4N_1962_reference.cif",
+    "sha256": "abac02e09973a52c85dcbccb35c3e2af2fc21de278cc78be4d16f9a7f624c1d8",
+    "provenance": "Constructed reference cell from paper site assignments and lattice parameter; not downloaded experimental CIF."
+  },
+  {
+    "formula": "Mn3AlC",
+    "composition": {
+      "Mn": 3.0,
+      "Al": 1.0,
+      "C": 1.0
+    },
+    "natoms": 5,
+    "periodic": true,
+    "coordinates": "fractional",
+    "lattice_parameters_angstrom_degrees": [
+      3.869,
+      3.869,
+      3.869,
+      90.0,
+      90.0,
+      90.0
+    ],
+    "minimum_distance_angstrom": 1.9344999999999999,
+    "ordered": true,
+    "oxidation_states_assigned": false,
+    "symmetry": [
+      {
+        "symprec_angstrom": 0.001,
+        "angle_tolerance_deg": 5,
+        "number": 221,
+        "symbol": "Pm-3m"
+      },
+      {
+        "symprec_angstrom": 0.01,
+        "angle_tolerance_deg": 5,
+        "number": 221,
+        "symbol": "Pm-3m"
+      },
+      {
+        "symprec_angstrom": 0.1,
+        "angle_tolerance_deg": 5,
+        "number": 221,
+        "symbol": "Pm-3m"
+      }
+    ],
+    "parser_warnings": [],
+    "symmetry_warnings": [],
+    "path": "data/curation/stage3_reference_structures/Mn3AlC_1962_reference.cif",
+    "sha256": "6cffd4ef2fc74294f78371931bd7aa9de5d5906caf849c6fa6899dadab555292",
+    "provenance": "Constructed reference cell from paper site assignments and lattice parameter; not downloaded experimental CIF."
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "formula": "Mn4N",
+    "path": "data/curation/stage3_reference_structures/Mn4N_1962_reference.cif",
+    "sha256": "abac02e09973a52c85dcbccb35c3e2af2fc21de278cc78be4d16f9a7f624c1d8",
+    "provenance": "Constructed reference cell from paper site assignments and lattice parameter; not downloaded experimental CIF.",
+    "magnetic_moments_included": false,
+    "training_eligible": false
+  },
+  {
+    "formula": "Mn3AlC",
+    "path": "data/curation/stage3_reference_structures/Mn3AlC_1962_reference.cif",
+    "sha256": "6cffd4ef2fc74294f78371931bd7aa9de5d5906caf849c6fa6899dadab555292",
+    "provenance": "Constructed reference cell from paper site assignments and lattice parameter; not downloaded experimental CIF.",
+    "magnetic_moments_included": false,
+    "training_eligible": false
+  }
+]

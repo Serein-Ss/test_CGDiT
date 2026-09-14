@@ -1,0 +1,39 @@
+{
+  "status": "implemented_and_cpu_acceptance_passed_for_two_reference_cells",
+  "model_class": "cgdit.pl_modules.diffusion.Diffusion",
+  "atom_type_learning_supported": true,
+  "fixed_atom_types_for_preference": false,
+  "use_space_group": true,
+  "required_batch_fields": [
+    "spacegroup",
+    "anchor_index",
+    "ops",
+    "ops_inv",
+    "atom_types",
+    "frac_coords",
+    "lengths",
+    "angles",
+    "batch",
+    "num_atoms"
+  ],
+  "pair_condition": "Identical task/family condition for both endpoints; do not condition separately on observed winner/loser Tc",
+  "energy": "Per-structure denoising surrogate with explicit time weights and normalization; existing scalar batch loss is insufficient",
+  "preference_logit": "-beta*((E_policy_w-E_reference_w)-(E_policy_l-E_reference_l))",
+  "objective": "softplus(-preference_logit)",
+  "exact_dpo_likelihood_claim": false,
+  "noise": "Same sampled timestep, matched lattice noise and mapped orbit noise; policy/reference see identical corrupted inputs",
+  "alignment_file": "results/stage5/pair_site_alignment.json",
+  "reference_model": "Frozen validated pretrained checkpoint, not the random smoke model",
+  "evaluation": "Source/family-grouped heldout comparisons; no train-pair success as generalization",
+  "initial_scope": "CPU unconditional two equal-size equal-framework structures; verified only for current fixed special positions",
+  "blockers": [
+    "Only one pipeline pair; independent comparison data insufficient",
+    "No optimizer/training experiment or heldout scientific evaluation",
+    "General-position coordinate noise alignment and unequal frameworks not validated",
+    "MP20 pretraining overlap with future evaluation materials not audited"
+  ],
+  "implementation": "scripts/pair_denoising.py",
+  "reference_checkpoint_audit": "results/stage6/checkpoint_audit.json",
+  "normalization": "Original loss: mean over 6 lattice components; node/coordinate-component mean; mean over independent atom orbits. Model cost weights retained.",
+  "timestep_weight": "Unit external weight at each supplied timestep; three probes, not a full-time expectation estimate"
+}

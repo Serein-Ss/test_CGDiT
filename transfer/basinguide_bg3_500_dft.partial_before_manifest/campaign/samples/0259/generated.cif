@@ -1,0 +1,38 @@
+# generated using pymatgen
+data_ReBrCl4
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   8.031165122986
+_cell_length_b   8.031165122986
+_cell_length_c   6.030453681946
+_cell_angle_alpha   90.000000000000
+_cell_angle_beta   90.000000000000
+_cell_angle_gamma   90.000000000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   ReBrCl4
+_chemical_formula_sum   'Re2 Br2 Cl8'
+_cell_volume   388.961930103000
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Cl  Cl0  1  0.820726394653  0.596982538700  0.528391003609  1
+  Cl  Cl1  1  0.179273605347  0.403017461300  0.528391003609  1
+  Cl  Cl2  1  0.403017461300  0.820726394653  0.528391003609  1
+  Cl  Cl3  1  0.596982538700  0.179273605347  0.528391003609  1
+  Cl  Cl4  1  0.320726394653  0.096982479095  0.028391003609  1
+  Cl  Cl5  1  0.679273605347  0.903017461300  0.028391003609  1
+  Cl  Cl6  1  0.903017461300  0.320726394653  0.028391003609  1
+  Cl  Cl7  1  0.096982479095  0.679273605347  0.028391003609  1
+  Br  Br8  1  0.592520296574  0.496643245220  0.017958508804  1
+  Br  Br9  1  0.092520236969  0.996643245220  0.517958521843  1
+  Re  Re10  1  0.787593543530  0.592659950256  0.941514492035  1
+  Re  Re11  1  0.287593603134  0.092659950256  0.441514492035  1

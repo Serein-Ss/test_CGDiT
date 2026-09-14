@@ -1,0 +1,29 @@
+{
+  "id": "VJHYNJ5wTYeAUeFBalM2IopPQh1Z89ONciSGUKmgFFA=",
+  "object": "chat.completion",
+  "model": "Intern-S1",
+  "created": 1789326141,
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"events\": [\n    {\n      \"material_formula\": \"NaNdFeWO6\",\n      \"type\": \"neel\",\n      \"temperature_k\": 21,\n      \"uncertainty_k\": null,\n      \"qualifier\": \"approximate\",\n      \"sublattice\": null,\n      \"sample_conditions\": null,\n      \"quote\": \"at ∼21 K for NaNdFeWO6\"\n    }\n  ],\n  \"abstained\": false\n}\n```"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "moderation": {
+    "sensitive": false,
+    "category": ""
+  },
+  "usage": {
+    "prompt_tokens": 414,
+    "completion_tokens": 104,
+    "total_tokens": 518
+  },
+  "metadata": {
+    "search_used": false,
+    "reasoning_used": false
+  }
+}

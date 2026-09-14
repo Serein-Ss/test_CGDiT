@@ -1,0 +1,40 @@
+# generated using pymatgen
+data_Na3SrGaS9
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   8.761286966734
+_cell_length_b   8.761286966734
+_cell_length_c   6.032927989960
+_cell_angle_alpha   90.000000000000
+_cell_angle_beta   90.000000000000
+_cell_angle_gamma   120.000002870370
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Na3SrGaS9
+_chemical_formula_sum   'Na3 Sr1 Ga1 S9'
+_cell_volume   401.046353163100
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  S  S0  1  0.600101649761  0.653866052628  0.916624784470  1
+  S  S1  1  0.346133947372  0.946235597134  0.916624784470  1
+  S  S2  1  0.053764402866  0.399898350239  0.916624784470  1
+  S  S3  1  0.086831361055  0.852878928185  0.907836794853  1
+  S  S4  1  0.147121071815  0.233952403069  0.907836794853  1
+  S  S5  1  0.766047596931  0.913168668747  0.907836794853  1
+  S  S6  1  0.403884977102  0.350004166365  0.804662048817  1
+  S  S7  1  0.649995803833  0.053880810738  0.804662048817  1
+  S  S8  1  0.946119189262  0.596114993095  0.804662048817  1
+  Ga  Ga9  1  0.538815438747  0.387871325016  0.908842861652  1
+  Sr  Sr10  1  0.299393475056  0.638610541821  0.394428759813  1
+  Na  Na11  1  0.881125211716  0.188687324524  0.390457719564  1
+  Na  Na12  1  0.811312675476  0.692437887192  0.390457719564  1
+  Na  Na13  1  0.307562112808  0.118874788284  0.390457719564  1

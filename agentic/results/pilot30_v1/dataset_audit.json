@@ -1,0 +1,39 @@
+{
+  "materials": 30,
+  "comparisons": 50,
+  "source_groups": 6,
+  "papers": 8,
+  "split_pairs": {
+    "train": 47,
+    "validation": 1,
+    "test": 1,
+    "electrical_control": 1
+  },
+  "split_materials": {
+    "train": 24,
+    "validation": 2,
+    "electrical_control": 2,
+    "test": 2
+  },
+  "maximum_endpoint_degree": 7,
+  "all_materials_have_comparison": true,
+  "all_ordered_reference_cifs_valid": true,
+  "mp20_reference_prototype_matches": 29,
+  "external_literature_reference_structures": 1,
+  "source_group_overlap_between_splits": false,
+  "sample_exact_experimental_cifs_claimed": 0,
+  "pretraining_unseen_evaluation": false,
+  "unknown_experimental_gap_labels": 30,
+  "high_tc_train_pairs": 47,
+  "excluded_candidates": {
+    "RNi2": "Possible vacancy superstructures and sample phase fractions; not treated as ordered C15 labels",
+    "FeNiN": "Known N deficiency unresolved"
+  },
+  "limitations": [
+    "Only 3 training source groups; 43/47 training edges from one group. Use source-balanced objective.",
+    "Validation/test each one pair; no generalization or statistical-significance claim.",
+    "29 of 30 reference compositions occur in current MP20; new experimental source holdout is not unseen-structure holdout.",
+    "Prototype-level labels permit ideal parent references, not sample-exact quantitative Tc regression.",
+    "All 30 experimental numerical band gaps are missing; EuO/EuS MP20 zero gaps conflict with insulator evidence."
+  ]
+}

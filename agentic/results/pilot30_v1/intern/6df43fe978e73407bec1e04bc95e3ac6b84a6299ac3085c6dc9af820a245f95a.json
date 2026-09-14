@@ -1,0 +1,29 @@
+{
+  "id": "OREmlGaxQpHzg1YklYdOB4pPQh1Z89ONciSGUKmgFFA=",
+  "object": "chat.completion",
+  "model": "Intern-S1",
+  "created": 1789366534,
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"records\": [\n    {\n      \"formula\": \"EuO\",\n      \"tc_k\": 69.15,\n      \"uncertainty_k\": 0.05,\n      \"quote\": \"Body text: EuO TC=69.15 +/- 0.05 K\",\n      \"caveats\": \"\"\n    },\n    {\n      \"formula\": \"EuS\",\n      \"tc_k\": 16.57,\n      \"uncertainty_k\": 0.02,\n      \"quote\": \"Body text: EuS TC=16.57 +/- 0.02 K\",\n      \"caveats\": \"Abstract gives EuS +/-0.01 K; retain the larger body uncertainty and flag the disagreement.\"\n    }\n  ]\n}\n```"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "moderation": {
+    "sensitive": false,
+    "category": ""
+  },
+  "usage": {
+    "prompt_tokens": 283,
+    "completion_tokens": 170,
+    "total_tokens": 453
+  },
+  "metadata": {
+    "search_used": false,
+    "reasoning_used": false
+  }
+}

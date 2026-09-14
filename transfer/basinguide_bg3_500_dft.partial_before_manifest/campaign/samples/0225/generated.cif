@@ -1,0 +1,39 @@
+# generated using pymatgen
+data_AlGe2AsO9
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.431947126186
+_cell_length_b   6.431947126186
+_cell_length_c   5.475524425507
+_cell_angle_alpha   90.000000000000
+_cell_angle_beta   90.000000000000
+_cell_angle_gamma   120.000001998436
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   AlGe2AsO9
+_chemical_formula_sum   'Al1 Ge2 As1 O9'
+_cell_volume   196.173922029614
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ge  Ge0  1  0.645453214645  0.286278843880  0.402327865362  1
+  Ge  Ge1  1  0.354546785355  0.713721156120  0.597672104836  1
+  As  As2  1  0.377473413944  0.566011250019  0.034513812512  1
+  O  O3  1  0.557680606842  0.715449154377  0.917273759842  1
+  O  O4  1  0.284550845623  0.842231452465  0.917273759842  1
+  O  O5  1  0.157768547535  0.442319393158  0.082726240158  1
+  O  O6  1  0.442319393158  0.284550845623  0.082726240158  1
+  O  O7  1  0.715449154377  0.157768547535  0.082726240158  1
+  O  O8  1  0.842231452465  0.557680606842  0.917273759842  1
+  O  O9  1  0.473048388958  0.470096588135  0.524702131748  1
+  O  O10  1  0.529903411865  0.002951800823  0.524702131748  1
+  O  O11  1  0.002951800823  0.473048388958  0.524702131748  1
+  Al  Al12  1  0.499710857868  0.047580868006  0.970117092133  1

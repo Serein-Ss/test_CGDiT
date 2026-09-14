@@ -1,0 +1,12 @@
+{
+  "pipeline_pairs": 1,
+  "production_training_pairs": 0,
+  "model_training_run": false,
+  "api_calls": 0,
+  "versions": {
+    "pymatgen": "2025.10.7",
+    "spglib": "2.6.0",
+    "torch": "2.6.0+cu118",
+    "torch-geometric": "2.7.0"
+  }
+}

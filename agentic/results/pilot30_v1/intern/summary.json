@@ -1,0 +1,8 @@
+{
+  "calls_this_run": 2,
+  "sources_passed": 8,
+  "records_passed": 30,
+  "tokens": 4907,
+  "independent_human_validation": false,
+  "scope": "Extraction verified against Codex source transcriptions, not independent source validation"
+}

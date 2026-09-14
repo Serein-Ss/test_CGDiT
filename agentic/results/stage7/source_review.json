@@ -1,0 +1,24 @@
+{
+  "source_doi": "10.1103/PhysRev.126.49",
+  "reviewer": "Codex assisted source review, not independent human review",
+  "table": "II",
+  "pdf_page": 2,
+  "printed_page": 50,
+  "parser_corrections": [
+    "OCR formula headers corrupted; visually verified Fe4N, (Fe3.6Ni0.4)N, (Fe3Ni)N",
+    "OCR rendered nitrogen deficiency incorrectly; page image shows 8% for Ni-containing samples and less than 3% for Fe4N",
+    "\u00b110 K and \u00b10.002 \u00c5 apply to all three table columns"
+  ],
+  "semantic_flags_resolution": "curie_without_explicit_quote is retained: Table II uses tc; classification relies on explicit ferromagnetic abstract/introduction, not the symbol alone",
+  "original_context_ambiguity": "Later prose uses Neel wording; historical ambiguity retained",
+  "experiment_independence": "Different FeNi sample series from Mn4N source, but overlapping 1962 Westinghouse authors; no claim of independent laboratory replication",
+  "group_policy": "Keep all FeNi table endpoints/pairs together; conservatively keep related Westinghouse 1962 sources together in future evaluation until overlap audit",
+  "measurement_provenance": "Table reports magnetic data consistent with earlier work; independent remeasurement of each Tc not established",
+  "use": "Partial experimental comparison evidence only; no new ordered-CIF training labels",
+  "pending": [
+    "1999 full table remains unavailable via attempted public routes",
+    "Earlier references and sample overlap audit",
+    "Nitrogen vacancy and Ni site-order structure mapping",
+    "MP20 pretraining overlap audit"
+  ]
+}

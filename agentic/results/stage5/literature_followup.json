@@ -1,0 +1,20 @@
+[
+  {
+    "doi": "10.1063/1.370383",
+    "citation": "Diao et al., J. Appl. Phys. 85, 4485\u20134487 (1999)",
+    "source": "evidence/stage3/tetrametal_2016.txt reference [8]",
+    "publisher_resolution": "web DOI open failed",
+    "next_action": "Retrieve lawful original full text and resolve composition/Tc points and disorder",
+    "training_eligible": false,
+    "reason": "No new verified numeric observations; Ni4N 125 K is extrapolated in the available 2016 table"
+  },
+  {
+    "doi": "10.4028/www.scientific.net/MSF.302-303.484",
+    "url": "https://www.scientific.net/MSF.302-303.484",
+    "publisher_metadata_checked": true,
+    "citation": "Diao et al., Materials Science Forum 302\u2013303, 484\u2013488 (1999)",
+    "next_action": "Check original data and overlap with the 1999 JAP article before treating as independent evidence",
+    "training_eligible": false,
+    "reason": "Publisher page gives metadata but not usable numeric Tc observations"
+  }
+]

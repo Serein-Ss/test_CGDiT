@@ -1,0 +1,38 @@
+# generated using pymatgen
+data_HfZr2NbO8
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.227850437164
+_cell_length_b   5.227850437164
+_cell_length_c   5.410570144653
+_cell_angle_alpha   90.000000000000
+_cell_angle_beta   90.000000000000
+_cell_angle_gamma   90.000000000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   HfZr2NbO8
+_chemical_formula_sum   'Hf1 Zr2 Nb1 O8'
+_cell_volume   147.873155539019
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Hf  Hf0  1  0.503341734409  0.495130717754  0.005061253905  1
+  Zr  Zr1  1  0.002259073313  0.497972846031  0.504525959492  1
+  Zr  Zr2  1  0.502027153969  0.002259073313  0.504525959492  1
+  Nb  Nb3  1  0.016127472743  0.981748104095  0.003075100249  1
+  O  O4  1  0.234822422266  0.735318899155  0.747323095798  1
+  O  O5  1  0.765177607536  0.264681100845  0.747323095798  1
+  O  O6  1  0.264681100845  0.234822422266  0.747323095798  1
+  O  O7  1  0.735318899155  0.765177607536  0.747323095798  1
+  O  O8  1  0.765177607536  0.264681100845  0.252676904202  1
+  O  O9  1  0.234822422266  0.735318899155  0.252676904202  1
+  O  O10  1  0.735318899155  0.765177607536  0.252676904202  1
+  O  O11  1  0.264681100845  0.234822422266  0.252676904202  1

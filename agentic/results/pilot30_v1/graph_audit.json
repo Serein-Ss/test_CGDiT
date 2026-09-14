@@ -1,0 +1,182 @@
+[
+  {
+    "material_id": "YFe2",
+    "natoms": 24,
+    "spacegroup": 227,
+    "orbits": 2
+  },
+  {
+    "material_id": "GdFe2",
+    "natoms": 24,
+    "spacegroup": 227,
+    "orbits": 2
+  },
+  {
+    "material_id": "GdCo2",
+    "natoms": 24,
+    "spacegroup": 227,
+    "orbits": 2
+  },
+  {
+    "material_id": "GdAl2",
+    "natoms": 24,
+    "spacegroup": 227,
+    "orbits": 2
+  },
+  {
+    "material_id": "TbFe2",
+    "natoms": 24,
+    "spacegroup": 227,
+    "orbits": 2
+  },
+  {
+    "material_id": "TbCo2",
+    "natoms": 24,
+    "spacegroup": 227,
+    "orbits": 2
+  },
+  {
+    "material_id": "TbAl2",
+    "natoms": 24,
+    "spacegroup": 227,
+    "orbits": 2
+  },
+  {
+    "material_id": "DyFe2",
+    "natoms": 24,
+    "spacegroup": 227,
+    "orbits": 2
+  },
+  {
+    "material_id": "DyCo2",
+    "natoms": 24,
+    "spacegroup": 227,
+    "orbits": 2
+  },
+  {
+    "material_id": "DyAl2",
+    "natoms": 24,
+    "spacegroup": 227,
+    "orbits": 2
+  },
+  {
+    "material_id": "HoFe2",
+    "natoms": 24,
+    "spacegroup": 227,
+    "orbits": 2
+  },
+  {
+    "material_id": "HoCo2",
+    "natoms": 24,
+    "spacegroup": 227,
+    "orbits": 2
+  },
+  {
+    "material_id": "HoAl2",
+    "natoms": 24,
+    "spacegroup": 227,
+    "orbits": 2
+  },
+  {
+    "material_id": "ErFe2",
+    "natoms": 24,
+    "spacegroup": 227,
+    "orbits": 2
+  },
+  {
+    "material_id": "ErCo2",
+    "natoms": 24,
+    "spacegroup": 227,
+    "orbits": 2
+  },
+  {
+    "material_id": "ErAl2",
+    "natoms": 24,
+    "spacegroup": 227,
+    "orbits": 2
+  },
+  {
+    "material_id": "LuFe2",
+    "natoms": 24,
+    "spacegroup": 227,
+    "orbits": 2
+  },
+  {
+    "material_id": "SmAl2",
+    "natoms": 24,
+    "spacegroup": 227,
+    "orbits": 2
+  },
+  {
+    "material_id": "PrAl2",
+    "natoms": 24,
+    "spacegroup": 227,
+    "orbits": 2
+  },
+  {
+    "material_id": "NdAl2",
+    "natoms": 24,
+    "spacegroup": 227,
+    "orbits": 2
+  },
+  {
+    "material_id": "Co2FeSi",
+    "natoms": 16,
+    "spacegroup": 225,
+    "orbits": 3
+  },
+  {
+    "material_id": "Co2TiSi",
+    "natoms": 16,
+    "spacegroup": 225,
+    "orbits": 3
+  },
+  {
+    "material_id": "Co2TiGe",
+    "natoms": 16,
+    "spacegroup": 225,
+    "orbits": 3
+  },
+  {
+    "material_id": "Co2TiSn",
+    "natoms": 16,
+    "spacegroup": 225,
+    "orbits": 3
+  },
+  {
+    "material_id": "Mn4N",
+    "natoms": 5,
+    "spacegroup": 221,
+    "orbits": 3
+  },
+  {
+    "material_id": "Mn3AlC",
+    "natoms": 5,
+    "spacegroup": 221,
+    "orbits": 3
+  },
+  {
+    "material_id": "EuO",
+    "natoms": 8,
+    "spacegroup": 225,
+    "orbits": 2
+  },
+  {
+    "material_id": "EuS",
+    "natoms": 8,
+    "spacegroup": 225,
+    "orbits": 2
+  },
+  {
+    "material_id": "Co2MnGa",
+    "natoms": 16,
+    "spacegroup": 225,
+    "orbits": 3
+  },
+  {
+    "material_id": "Co2MnSi",
+    "natoms": 16,
+    "spacegroup": 225,
+    "orbits": 3
+  }
+]

@@ -1,0 +1,60 @@
+{
+  "campaign": "/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/output/basinguide/bg3_500_seed42_20260914",
+  "n_samples": 500,
+  "target_eV": 3.0,
+  "jobs": {
+    "generate": {
+      "job_id": "669414",
+      "dependency": null,
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--kill-on-invalid-dep=yes",
+        "--output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/output/basinguide/bg3_500_seed42_20260914/logs/generate-%A_%a.out",
+        "--error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/output/basinguide/bg3_500_seed42_20260914/logs/generate-%A_%a.err",
+        "--export=ALL,ACTION=generate",
+        "/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/submit_python/basinguide_gpu.slurm"
+      ]
+    },
+    "mlip": {
+      "job_id": "669415",
+      "dependency": "afterok:669414",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--kill-on-invalid-dep=yes",
+        "--output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/output/basinguide/bg3_500_seed42_20260914/logs/mlip-%A_%a.out",
+        "--error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/output/basinguide/bg3_500_seed42_20260914/logs/mlip-%A_%a.err",
+        "--dependency=afterok:669414",
+        "--export=ALL,ACTION=mlip",
+        "/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/submit_python/basinguide_gpu.slurm"
+      ]
+    },
+    "dft": {
+      "job_id": "669416",
+      "dependency": "afterok:669414",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--kill-on-invalid-dep=yes",
+        "--output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/output/basinguide/bg3_500_seed42_20260914/logs/dft-%A_%a.out",
+        "--error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/output/basinguide/bg3_500_seed42_20260914/logs/dft-%A_%a.err",
+        "--dependency=afterok:669414",
+        "/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/submit_python/basinguide_dft.slurm"
+      ]
+    },
+    "collect": {
+      "job_id": "669417",
+      "dependency": "afterany:669415:669416",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--kill-on-invalid-dep=yes",
+        "--output=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/output/basinguide/bg3_500_seed42_20260914/logs/collect-%A_%a.out",
+        "--error=/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/output/basinguide/bg3_500_seed42_20260914/logs/collect-%A_%a.err",
+        "--dependency=afterany:669415:669416",
+        "/share/home/xlzou/WORKSPACE/rszhong/workspace/test_CGDiT/submit_python/basinguide_collect.slurm"
+      ]
+    }
+  }
+}

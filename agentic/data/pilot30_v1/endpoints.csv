@@ -1,0 +1,969 @@
+material_id,pretty_formula,cif,tc
+YFe2,YFe2,"# generated using pymatgen
+data_YFe2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.15612507
+_cell_length_b   5.15612507
+_cell_length_c   5.15612507
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   YFe2
+_chemical_formula_sum   'Y2 Fe4'
+_cell_volume   96.92935707
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Fe  Fe0  1  0.37500000  0.87500000  0.37500000  1
+  Fe  Fe1  1  0.37500000  0.37500000  0.87500000  1
+  Fe  Fe2  1  0.87500000  0.37500000  0.37500000  1
+  Fe  Fe3  1  0.37500000  0.37500000  0.37500000  1
+  Y  Y4  1  0.00000000  0.00000000  0.00000000  1
+  Y  Y5  1  0.75000000  0.75000000  0.75000000  1
+",541
+GdFe2,GdFe2,"# generated using pymatgen
+data_GdFe2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.17738353
+_cell_length_b   5.17738353
+_cell_length_c   5.17738353
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   GdFe2
+_chemical_formula_sum   'Gd2 Fe4'
+_cell_volume   98.13321237
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Fe  Fe0  1  0.37500000  0.87500000  0.37500000  1
+  Fe  Fe1  1  0.37500000  0.37500000  0.87500000  1
+  Fe  Fe2  1  0.87500000  0.37500000  0.37500000  1
+  Fe  Fe3  1  0.37500000  0.37500000  0.37500000  1
+  Gd  Gd4  1  0.00000000  0.00000000  0.00000000  1
+  Gd  Gd5  1  0.75000000  0.75000000  0.75000000  1
+",793
+GdCo2,GdCo2,"# generated using pymatgen
+data_GdCo2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.12588266
+_cell_length_b   5.12588266
+_cell_length_c   5.12588266
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   GdCo2
+_chemical_formula_sum   'Gd2 Co4'
+_cell_volume   95.23377128
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Co  Co0  1  0.37500000  0.87500000  0.37500000  1
+  Co  Co1  1  0.37500000  0.37500000  0.87500000  1
+  Co  Co2  1  0.87500000  0.37500000  0.37500000  1
+  Co  Co3  1  0.37500000  0.37500000  0.37500000  1
+  Gd  Gd4  1  0.00000000  0.00000000  0.00000000  1
+  Gd  Gd5  1  0.75000000  0.75000000  0.75000000  1
+",400
+GdAl2,GdAl2,"# generated using pymatgen
+data_GdAl2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.59617176
+_cell_length_b   5.59617176
+_cell_length_c   5.59617176
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   GdAl2
+_chemical_formula_sum   'Gd2 Al4'
+_cell_volume   123.92476639
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Al  Al0  1  0.37500000  0.87500000  0.37500000  1
+  Al  Al1  1  0.37500000  0.37500000  0.87500000  1
+  Al  Al2  1  0.87500000  0.37500000  0.37500000  1
+  Al  Al3  1  0.37500000  0.37500000  0.37500000  1
+  Gd  Gd4  1  0.00000000  0.00000000  0.00000000  1
+  Gd  Gd5  1  0.75000000  0.75000000  0.75000000  1
+",164
+TbFe2,TbFe2,"# generated using pymatgen
+data_TbFe2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.16219911
+_cell_length_b   5.16219911
+_cell_length_c   5.16219911
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   TbFe2
+_chemical_formula_sum   'Tb2 Fe4'
+_cell_volume   97.27231615
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Fe  Fe0  1  0.37500000  0.87500000  0.37500000  1
+  Fe  Fe1  1  0.37500000  0.37500000  0.87500000  1
+  Fe  Fe2  1  0.87500000  0.37500000  0.37500000  1
+  Fe  Fe3  1  0.37500000  0.37500000  0.37500000  1
+  Tb  Tb4  1  0.00000000  0.00000000  0.00000000  1
+  Tb  Tb5  1  0.75000000  0.75000000  0.75000000  1
+",653
+TbCo2,TbCo2,"# generated using pymatgen
+data_TbCo2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.08109680
+_cell_length_b   5.08109680
+_cell_length_c   5.08109680
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   TbCo2
+_chemical_formula_sum   'Tb2 Co4'
+_cell_volume   92.75928842
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Co  Co0  1  0.37500000  0.87500000  0.37500000  1
+  Co  Co1  1  0.37500000  0.37500000  0.87500000  1
+  Co  Co2  1  0.87500000  0.37500000  0.37500000  1
+  Co  Co3  1  0.37500000  0.37500000  0.37500000  1
+  Tb  Tb4  1  0.00000000  0.00000000  0.00000000  1
+  Tb  Tb5  1  0.75000000  0.75000000  0.75000000  1
+",235
+TbAl2,TbAl2,"# generated using pymatgen
+data_TbAl2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.57988285
+_cell_length_b   5.57988285
+_cell_length_c   5.57988285
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   TbAl2
+_chemical_formula_sum   'Tb2 Al4'
+_cell_volume   122.84578084
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Al  Al0  1  0.37500000  0.87500000  0.37500000  1
+  Al  Al1  1  0.37500000  0.37500000  0.87500000  1
+  Al  Al2  1  0.87500000  0.37500000  0.37500000  1
+  Al  Al3  1  0.37500000  0.37500000  0.37500000  1
+  Tb  Tb4  1  0.00000000  0.00000000  0.00000000  1
+  Tb  Tb5  1  0.75000000  0.75000000  0.75000000  1
+",109
+DyFe2,DyFe2,"# generated using pymatgen
+data_DyFe2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.13673479
+_cell_length_b   5.13673479
+_cell_length_c   5.13673479
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   DyFe2
+_chemical_formula_sum   'Dy2 Fe4'
+_cell_volume   95.83991792
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Dy  Dy0  1  0.00000000  0.00000000  0.00000000  1
+  Dy  Dy1  1  0.75000000  0.75000000  0.75000000  1
+  Fe  Fe2  1  0.37500000  0.87500000  0.37500000  1
+  Fe  Fe3  1  0.37500000  0.37500000  0.87500000  1
+  Fe  Fe4  1  0.87500000  0.37500000  0.37500000  1
+  Fe  Fe5  1  0.37500000  0.37500000  0.37500000  1
+",628
+DyCo2,DyCo2,"# generated using pymatgen
+data_DyCo2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.06774521
+_cell_length_b   5.06774521
+_cell_length_c   5.06774521
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   DyCo2
+_chemical_formula_sum   'Dy2 Co4'
+_cell_volume   92.02997788
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Co  Co0  1  0.37500000  0.87500000  0.37500000  1
+  Co  Co1  1  0.37500000  0.37500000  0.87500000  1
+  Co  Co2  1  0.87500000  0.37500000  0.37500000  1
+  Co  Co3  1  0.37500000  0.37500000  0.37500000  1
+  Dy  Dy4  1  0.00000000  0.00000000  0.00000000  1
+  Dy  Dy5  1  0.75000000  0.75000000  0.75000000  1
+",150
+DyAl2,DyAl2,"# generated using pymatgen
+data_DyAl2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.56212033
+_cell_length_b   5.56212033
+_cell_length_c   5.56212033
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   DyAl2
+_chemical_formula_sum   'Dy2 Al4'
+_cell_volume   121.67634131
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Al  Al0  1  0.37500000  0.87500000  0.37500000  1
+  Al  Al1  1  0.37500000  0.37500000  0.87500000  1
+  Al  Al2  1  0.87500000  0.37500000  0.37500000  1
+  Al  Al3  1  0.37500000  0.37500000  0.37500000  1
+  Dy  Dy4  1  0.00000000  0.00000000  0.00000000  1
+  Dy  Dy5  1  0.75000000  0.75000000  0.75000000  1
+",58
+HoFe2,HoFe2,"# generated using pymatgen
+data_HoFe2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.11786352
+_cell_length_b   5.11786352
+_cell_length_c   5.11786352
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   HoFe2
+_chemical_formula_sum   'Ho2 Fe4'
+_cell_volume   94.78750738
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Fe  Fe0  1  0.37500000  0.87500000  0.37500000  1
+  Fe  Fe1  1  0.37500000  0.37500000  0.87500000  1
+  Fe  Fe2  1  0.87500000  0.37500000  0.37500000  1
+  Fe  Fe3  1  0.37500000  0.37500000  0.37500000  1
+  Ho  Ho4  1  0.00000000  0.00000000  0.00000000  1
+  Ho  Ho5  1  0.75000000  0.75000000  0.75000000  1
+",606
+HoCo2,HoCo2,"# generated using pymatgen
+data_HoCo2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.06482768
+_cell_length_b   5.06482768
+_cell_length_c   5.06482768
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   HoCo2
+_chemical_formula_sum   'Ho2 Co4'
+_cell_volume   91.87112281
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Co  Co0  1  0.37500000  0.87500000  0.37500000  1
+  Co  Co1  1  0.37500000  0.37500000  0.87500000  1
+  Co  Co2  1  0.87500000  0.37500000  0.37500000  1
+  Co  Co3  1  0.37500000  0.37500000  0.37500000  1
+  Ho  Ho4  1  0.00000000  0.00000000  0.00000000  1
+  Ho  Ho5  1  0.75000000  0.75000000  0.75000000  1
+",78
+HoAl2,HoAl2,"# generated using pymatgen
+data_HoAl2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.54614254
+_cell_length_b   5.54614254
+_cell_length_c   5.54614254
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   HoAl2
+_chemical_formula_sum   'Ho2 Al4'
+_cell_volume   120.63076539
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Al  Al0  1  0.37500000  0.87500000  0.37500000  1
+  Al  Al1  1  0.37500000  0.37500000  0.87500000  1
+  Al  Al2  1  0.87500000  0.37500000  0.37500000  1
+  Al  Al3  1  0.37500000  0.37500000  0.37500000  1
+  Ho  Ho4  1  0.00000000  0.00000000  0.00000000  1
+  Ho  Ho5  1  0.75000000  0.75000000  0.75000000  1
+",28
+ErFe2,ErFe2,"# generated using pymatgen
+data_ErFe2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.10313873
+_cell_length_b   5.10313873
+_cell_length_c   5.10313873
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   ErFe2
+_chemical_formula_sum   'Er2 Fe4'
+_cell_volume   93.97170936
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Er  Er0  1  0.00000000  0.00000000  0.00000000  1
+  Er  Er1  1  0.75000000  0.75000000  0.75000000  1
+  Fe  Fe2  1  0.37500000  0.87500000  0.37500000  1
+  Fe  Fe3  1  0.37500000  0.37500000  0.87500000  1
+  Fe  Fe4  1  0.87500000  0.37500000  0.37500000  1
+  Fe  Fe5  1  0.37500000  0.37500000  0.37500000  1
+",582
+ErCo2,ErCo2,"# generated using pymatgen
+data_ErCo2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.03680787
+_cell_length_b   5.03680787
+_cell_length_c   5.03680787
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   ErCo2
+_chemical_formula_sum   'Er2 Co4'
+_cell_volume   90.35478502
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Co  Co0  1  0.37500000  0.87500000  0.37500000  1
+  Co  Co1  1  0.37500000  0.37500000  0.87500000  1
+  Co  Co2  1  0.87500000  0.37500000  0.37500000  1
+  Co  Co3  1  0.37500000  0.37500000  0.37500000  1
+  Er  Er4  1  0.00000000  0.00000000  0.00000000  1
+  Er  Er5  1  0.75000000  0.75000000  0.75000000  1
+",32
+ErAl2,ErAl2,"# generated using pymatgen
+data_ErAl2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.53095813
+_cell_length_b   5.53095813
+_cell_length_c   5.53095813
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   ErAl2
+_chemical_formula_sum   'Er2 Al4'
+_cell_volume   119.64267503
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Al  Al0  1  0.37500000  0.87500000  0.37500000  1
+  Al  Al1  1  0.37500000  0.37500000  0.87500000  1
+  Al  Al2  1  0.87500000  0.37500000  0.37500000  1
+  Al  Al3  1  0.37500000  0.37500000  0.37500000  1
+  Er  Er4  1  0.00000000  0.00000000  0.00000000  1
+  Er  Er5  1  0.75000000  0.75000000  0.75000000  1
+",13
+LuFe2,LuFe2,"# generated using pymatgen
+data_LuFe2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.05312789
+_cell_length_b   5.05312789
+_cell_length_c   5.05312789
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   LuFe2
+_chemical_formula_sum   'Lu2 Fe4'
+_cell_volume   91.23592344
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Fe  Fe0  1  0.37500000  0.87500000  0.37500000  1
+  Fe  Fe1  1  0.37500000  0.37500000  0.87500000  1
+  Fe  Fe2  1  0.87500000  0.37500000  0.37500000  1
+  Fe  Fe3  1  0.37500000  0.37500000  0.37500000  1
+  Lu  Lu4  1  0.00000000  0.00000000  0.00000000  1
+  Lu  Lu5  1  0.75000000  0.75000000  0.75000000  1
+",582
+SmAl2,SmAl2,"# generated using pymatgen
+data_SmAl2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.61584206
+_cell_length_b   5.61584206
+_cell_length_c   5.61584206
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   SmAl2
+_chemical_formula_sum   'Sm2 Al4'
+_cell_volume   125.23613522
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Al  Al0  1  0.37500000  0.87500000  0.37500000  1
+  Al  Al1  1  0.37500000  0.37500000  0.87500000  1
+  Al  Al2  1  0.87500000  0.37500000  0.37500000  1
+  Al  Al3  1  0.37500000  0.37500000  0.37500000  1
+  Sm  Sm4  1  0.00000000  0.00000000  0.00000000  1
+  Sm  Sm5  1  0.75000000  0.75000000  0.75000000  1
+",64
+PrAl2,PrAl2,"# generated using pymatgen
+data_PrAl2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.72068761
+_cell_length_b   5.72068761
+_cell_length_c   5.72068761
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   PrAl2
+_chemical_formula_sum   'Pr2 Al4'
+_cell_volume   132.38223249
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Al  Al0  1  0.37500000  0.87500000  0.37500000  1
+  Al  Al1  1  0.37500000  0.37500000  0.87500000  1
+  Al  Al2  1  0.87500000  0.37500000  0.37500000  1
+  Al  Al3  1  0.37500000  0.37500000  0.37500000  1
+  Pr  Pr4  1  0.00000000  0.00000000  0.00000000  1
+  Pr  Pr5  1  0.75000000  0.75000000  0.75000000  1
+",32.5
+NdAl2,NdAl2,"# generated using pymatgen
+data_NdAl2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.68802352
+_cell_length_b   5.68802352
+_cell_length_c   5.68802352
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   NdAl2
+_chemical_formula_sum   'Nd2 Al4'
+_cell_volume   130.12751994
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Al  Al0  1  0.37500000  0.87500000  0.37500000  1
+  Al  Al1  1  0.37500000  0.37500000  0.87500000  1
+  Al  Al2  1  0.87500000  0.37500000  0.37500000  1
+  Al  Al3  1  0.37500000  0.37500000  0.37500000  1
+  Nd  Nd4  1  0.00000000  0.00000000  0.00000000  1
+  Nd  Nd5  1  0.75000000  0.75000000  0.75000000  1
+",77
+Co2FeSi,Co2FeSi,"# generated using pymatgen
+data_FeCo2Si
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.98808225
+_cell_length_b   3.98808225
+_cell_length_c   3.98808225
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   FeCo2Si
+_chemical_formula_sum   'Fe1 Co2 Si1'
+_cell_volume   44.85153600
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Co  Co0  1  0.75000000  0.75000000  0.75000000  1
+  Co  Co1  1  0.25000000  0.25000000  0.25000000  1
+  Fe  Fe2  1  0.00000000  0.00000000  0.00000000  1
+  Si  Si3  1  0.50000000  0.50000000  0.50000000  1
+",1100
+Co2TiSi,Co2TiSi,"# generated using pymatgen
+data_TiCo2Si
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.05384318
+_cell_length_b   4.05384318
+_cell_length_c   4.05384318
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   TiCo2Si
+_chemical_formula_sum   'Ti1 Co2 Si1'
+_cell_volume   47.10704196
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Co  Co0  1  0.75000000  0.75000000  0.75000000  1
+  Co  Co1  1  0.25000000  0.25000000  0.25000000  1
+  Si  Si2  1  0.50000000  0.50000000  0.50000000  1
+  Ti  Ti3  1  0.00000000  0.00000000  0.00000000  1
+",380
+Co2TiGe,Co2TiGe,"# generated using pymatgen
+data_TiCo2Ge
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.11465436
+_cell_length_b   4.11465436
+_cell_length_c   4.11465436
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   TiCo2Ge
+_chemical_formula_sum   'Ti1 Co2 Ge1'
+_cell_volume   49.25894206
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Co  Co0  1  0.75000000  0.75000000  0.75000000  1
+  Co  Co1  1  0.25000000  0.25000000  0.25000000  1
+  Ge  Ge2  1  0.50000000  0.50000000  0.50000000  1
+  Ti  Ti3  1  0.00000000  0.00000000  0.00000000  1
+",380
+Co2TiSn,Co2TiSn,"# generated using pymatgen
+data_TiCo2Sn
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.28930973
+_cell_length_b   4.28930973
+_cell_length_c   4.28930973
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   TiCo2Sn
+_chemical_formula_sum   'Ti1 Co2 Sn1'
+_cell_volume   55.80167387
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Co  Co0  1  0.75000000  0.75000000  0.75000000  1
+  Co  Co1  1  0.25000000  0.25000000  0.25000000  1
+  Sn  Sn2  1  0.50000000  0.50000000  0.50000000  1
+  Ti  Ti3  1  0.00000000  0.00000000  0.00000000  1
+",355
+Mn4N,Mn4N,"# generated using pymatgen
+data_Mn4N
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.86500000
+_cell_length_b   3.86500000
+_cell_length_c   3.86500000
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Mn4N
+_chemical_formula_sum   'Mn4 N1'
+_cell_volume   57.73623963
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Mn  Mn0  1  0.00000000  0.00000000  0.00000000  1.0
+  Mn  Mn1  1  0.00000000  0.50000000  0.50000000  1.0
+  Mn  Mn2  1  0.50000000  0.00000000  0.50000000  1.0
+  Mn  Mn3  1  0.50000000  0.50000000  0.00000000  1.0
+  N  N4  1  0.50000000  0.50000000  0.50000000  1.0
+",745
+Mn3AlC,Mn3AlC,"# generated using pymatgen
+data_Mn3AlC
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.86900000
+_cell_length_b   3.86900000
+_cell_length_c   3.86900000
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Mn3AlC
+_chemical_formula_sum   'Mn3 Al1 C1'
+_cell_volume   57.91568391
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Mn  Mn1  1  0.00000000  0.50000000  0.50000000  1.0
+  Mn  Mn2  1  0.50000000  0.00000000  0.50000000  1.0
+  Mn  Mn3  1  0.50000000  0.50000000  0.00000000  1.0
+  Al  Al0  1  0.00000000  0.00000000  0.00000000  1.0
+  C  C4  1  0.50000000  0.50000000  0.50000000  1.0
+",272
+EuO,EuO,"# generated using pymatgen
+data_EuO
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.59431852
+_cell_length_b   3.59431852
+_cell_length_c   3.59431852
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   EuO
+_chemical_formula_sum   'Eu1 O1'
+_cell_volume   32.83482334
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Eu  Eu0  1  0.00000000  0.00000000  0.00000000  1
+  O  O1  1  0.50000000  0.50000000  0.50000000  1
+",69.15
+EuS,EuS,"# generated using pymatgen
+data_EuS
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.13293024
+_cell_length_b   4.13293024
+_cell_length_c   4.13293024
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   EuS
+_chemical_formula_sum   'Eu1 S1'
+_cell_volume   49.91823563
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Eu  Eu0  1  0.00000000  0.00000000  0.00000000  1
+  S  S1  1  0.50000000  0.50000000  0.50000000  1
+",16.57
+Co2MnGa,Co2MnGa,"# generated using pymatgen
+data_MnGaCo2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.04872938
+_cell_length_b   4.04872938
+_cell_length_c   4.04872938
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   MnGaCo2
+_chemical_formula_sum   'Mn1 Ga1 Co2'
+_cell_volume   46.92899456
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Co  Co0  1  0.75000000  0.75000000  0.75000000  1
+  Co  Co1  1  0.25000000  0.25000000  0.25000000  1
+  Ga  Ga2  1  0.50000000  0.50000000  0.50000000  1
+  Mn  Mn3  1  0.00000000  0.00000000  0.00000000  1
+",700
+Co2MnSi,Co2MnSi,"# generated using pymatgen
+data_MnCo2Si
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.98061803
+_cell_length_b   3.98061803
+_cell_length_c   3.98061803
+_cell_angle_alpha   60.00000000
+_cell_angle_beta   60.00000000
+_cell_angle_gamma   60.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   MnCo2Si
+_chemical_formula_sum   'Mn1 Co2 Si1'
+_cell_volume   44.60017056
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Co  Co0  1  0.75000000  0.75000000  0.75000000  1
+  Co  Co1  1  0.25000000  0.25000000  0.25000000  1
+  Mn  Mn2  1  0.00000000  0.00000000  0.00000000  1
+  Si  Si3  1  0.50000000  0.50000000  0.50000000  1
+",1015

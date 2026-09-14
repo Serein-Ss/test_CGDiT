@@ -1,0 +1,25 @@
+{
+  "frozen_before_generation": true,
+  "framework": "Mn4N-derived 5-site Pm-3m symmetry graph",
+  "structures_per_condition": 2,
+  "base_conditions": [
+    null
+  ],
+  "band_gap_conditions_ev": [
+    0,
+    1,
+    2
+  ],
+  "versions": [
+    "original",
+    "pilot_seed42"
+  ],
+  "noise_seed": 91442,
+  "diffusion_steps": 1000,
+  "fixed_atom_types": false,
+  "structural_checks_only": true,
+  "selection": "Seed42 fixed by design; no best-model selection",
+  "nominal_scheduler_steps": 1000,
+  "actual_reverse_iterations": 999,
+  "implementation_note": "Original Diffusion.sample starts at timesteps-1; no sampler behavior changed."
+}

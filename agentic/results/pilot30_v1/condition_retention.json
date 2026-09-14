@@ -1,0 +1,153 @@
+{
+  "probes": [
+    {
+      "arm": "base",
+      "pair": "GdFe2__TbAl2",
+      "target_band_gap_ev": 0.0,
+      "reference_to_pilot_kl": 4.4264197640586644e-08,
+      "logit_rmse": 0.004626061301678419,
+      "condition_embedding_unchanged": true
+    },
+    {
+      "arm": "base",
+      "pair": "GdFe2__TbAl2",
+      "target_band_gap_ev": 1.0,
+      "reference_to_pilot_kl": 4.4264197640586644e-08,
+      "logit_rmse": 0.004626061301678419,
+      "condition_embedding_unchanged": true
+    },
+    {
+      "arm": "base",
+      "pair": "GdFe2__TbAl2",
+      "target_band_gap_ev": 2.0,
+      "reference_to_pilot_kl": 4.4264197640586644e-08,
+      "logit_rmse": 0.004626061301678419,
+      "condition_embedding_unchanged": true
+    },
+    {
+      "arm": "base",
+      "pair": "Co2FeSi__Co2TiSn",
+      "target_band_gap_ev": 0.0,
+      "reference_to_pilot_kl": 2.4052042135735974e-07,
+      "logit_rmse": 0.005276885814964771,
+      "condition_embedding_unchanged": true
+    },
+    {
+      "arm": "base",
+      "pair": "Co2FeSi__Co2TiSn",
+      "target_band_gap_ev": 1.0,
+      "reference_to_pilot_kl": 2.4052042135735974e-07,
+      "logit_rmse": 0.005276885814964771,
+      "condition_embedding_unchanged": true
+    },
+    {
+      "arm": "base",
+      "pair": "Co2FeSi__Co2TiSn",
+      "target_band_gap_ev": 2.0,
+      "reference_to_pilot_kl": 2.4052042135735974e-07,
+      "logit_rmse": 0.005276885814964771,
+      "condition_embedding_unchanged": true
+    },
+    {
+      "arm": "base",
+      "pair": "Mn4N__Mn3AlC",
+      "target_band_gap_ev": 0.0,
+      "reference_to_pilot_kl": 9.827789472183213e-05,
+      "logit_rmse": 0.005619192961603403,
+      "condition_embedding_unchanged": true
+    },
+    {
+      "arm": "base",
+      "pair": "Mn4N__Mn3AlC",
+      "target_band_gap_ev": 1.0,
+      "reference_to_pilot_kl": 9.827789472183213e-05,
+      "logit_rmse": 0.005619192961603403,
+      "condition_embedding_unchanged": true
+    },
+    {
+      "arm": "base",
+      "pair": "Mn4N__Mn3AlC",
+      "target_band_gap_ev": 2.0,
+      "reference_to_pilot_kl": 9.827789472183213e-05,
+      "logit_rmse": 0.005619192961603403,
+      "condition_embedding_unchanged": true
+    },
+    {
+      "arm": "band_gap",
+      "pair": "GdFe2__TbAl2",
+      "target_band_gap_ev": 0.0,
+      "reference_to_pilot_kl": 5.028123268857598e-07,
+      "logit_rmse": 0.004242787137627602,
+      "condition_embedding_unchanged": true
+    },
+    {
+      "arm": "band_gap",
+      "pair": "GdFe2__TbAl2",
+      "target_band_gap_ev": 1.0,
+      "reference_to_pilot_kl": 1.5561236068606377e-06,
+      "logit_rmse": 0.004262449685484171,
+      "condition_embedding_unchanged": true
+    },
+    {
+      "arm": "band_gap",
+      "pair": "GdFe2__TbAl2",
+      "target_band_gap_ev": 2.0,
+      "reference_to_pilot_kl": 4.1044768295250833e-07,
+      "logit_rmse": 0.00421780114993453,
+      "condition_embedding_unchanged": true
+    },
+    {
+      "arm": "band_gap",
+      "pair": "Co2FeSi__Co2TiSn",
+      "target_band_gap_ev": 0.0,
+      "reference_to_pilot_kl": 3.4466611964489857e-07,
+      "logit_rmse": 0.004303637892007828,
+      "condition_embedding_unchanged": true
+    },
+    {
+      "arm": "band_gap",
+      "pair": "Co2FeSi__Co2TiSn",
+      "target_band_gap_ev": 1.0,
+      "reference_to_pilot_kl": 1.9913825610728964e-07,
+      "logit_rmse": 0.004382602404803038,
+      "condition_embedding_unchanged": true
+    },
+    {
+      "arm": "band_gap",
+      "pair": "Co2FeSi__Co2TiSn",
+      "target_band_gap_ev": 2.0,
+      "reference_to_pilot_kl": 2.236762810525761e-07,
+      "logit_rmse": 0.004351617302745581,
+      "condition_embedding_unchanged": true
+    },
+    {
+      "arm": "band_gap",
+      "pair": "Mn4N__Mn3AlC",
+      "target_band_gap_ev": 0.0,
+      "reference_to_pilot_kl": 6.774700159439817e-05,
+      "logit_rmse": 0.004268597811460495,
+      "condition_embedding_unchanged": true
+    },
+    {
+      "arm": "band_gap",
+      "pair": "Mn4N__Mn3AlC",
+      "target_band_gap_ev": 1.0,
+      "reference_to_pilot_kl": 4.514162355917506e-05,
+      "logit_rmse": 0.004087942652404308,
+      "condition_embedding_unchanged": true
+    },
+    {
+      "arm": "band_gap",
+      "pair": "Mn4N__Mn3AlC",
+      "target_band_gap_ev": 2.0,
+      "reference_to_pilot_kl": 4.645272929337807e-05,
+      "logit_rmse": 0.004038306884467602,
+      "condition_embedding_unchanged": true
+    }
+  ],
+  "identical_corruption_across_conditions": true,
+  "base_ignores_gap_verified": true,
+  "conditional_model_responds_to_gap_verified": true,
+  "conditioner_unchanged": true,
+  "band_gap_prediction_or_realization_validated": false
+}

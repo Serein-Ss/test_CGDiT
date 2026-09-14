@@ -1,0 +1,283 @@
+[
+  {
+    "source_id": "laves_2008",
+    "input_sha256": "31c912d0e16385a49fd6bc9100867fa65d5f20bffeea52a9d597b0196eb49ca9",
+    "source_group": "Zaragoza_Laguna_Chaboy",
+    "cache_hit": false,
+    "passed": true,
+    "records": [
+      {
+        "formula": "YFe2",
+        "tc_k": 541,
+        "uncertainty_k": null,
+        "quote": "YFe2 | 541",
+        "caveats": ""
+      },
+      {
+        "formula": "GdFe2",
+        "tc_k": 793,
+        "uncertainty_k": null,
+        "quote": "GdFe2 | 793",
+        "caveats": ""
+      },
+      {
+        "formula": "GdCo2",
+        "tc_k": 400,
+        "uncertainty_k": null,
+        "quote": "GdCo2 | 400",
+        "caveats": ""
+      },
+      {
+        "formula": "GdAl2",
+        "tc_k": 164,
+        "uncertainty_k": null,
+        "quote": "GdAl2 | 164",
+        "caveats": ""
+      },
+      {
+        "formula": "TbFe2",
+        "tc_k": 653,
+        "uncertainty_k": null,
+        "quote": "TbFe2 | 653",
+        "caveats": ""
+      },
+      {
+        "formula": "TbCo2",
+        "tc_k": 235,
+        "uncertainty_k": null,
+        "quote": "TbCo2 | 235",
+        "caveats": ""
+      },
+      {
+        "formula": "TbAl2",
+        "tc_k": 109,
+        "uncertainty_k": null,
+        "quote": "TbAl2 | 109",
+        "caveats": ""
+      },
+      {
+        "formula": "DyFe2",
+        "tc_k": 628,
+        "uncertainty_k": null,
+        "quote": "DyFe2 | 628",
+        "caveats": ""
+      },
+      {
+        "formula": "DyCo2",
+        "tc_k": 150,
+        "uncertainty_k": null,
+        "quote": "DyCo2 | 150",
+        "caveats": ""
+      },
+      {
+        "formula": "DyAl2",
+        "tc_k": 58,
+        "uncertainty_k": null,
+        "quote": "DyAl2 | 58",
+        "caveats": ""
+      },
+      {
+        "formula": "HoFe2",
+        "tc_k": 606,
+        "uncertainty_k": null,
+        "quote": "HoFe2 | 606",
+        "caveats": ""
+      },
+      {
+        "formula": "HoCo2",
+        "tc_k": 78,
+        "uncertainty_k": null,
+        "quote": "HoCo2 | 78",
+        "caveats": ""
+      },
+      {
+        "formula": "HoAl2",
+        "tc_k": 28,
+        "uncertainty_k": null,
+        "quote": "HoAl2 | 28",
+        "caveats": ""
+      },
+      {
+        "formula": "ErFe2",
+        "tc_k": 582,
+        "uncertainty_k": null,
+        "quote": "ErFe2 | 582",
+        "caveats": ""
+      },
+      {
+        "formula": "ErCo2",
+        "tc_k": 32,
+        "uncertainty_k": null,
+        "quote": "ErCo2 | 32",
+        "caveats": ""
+      },
+      {
+        "formula": "ErAl2",
+        "tc_k": 13,
+        "uncertainty_k": null,
+        "quote": "ErAl2 | 13",
+        "caveats": ""
+      },
+      {
+        "formula": "LuFe2",
+        "tc_k": 582,
+        "uncertainty_k": null,
+        "quote": "LuFe2 | 582",
+        "caveats": ""
+      }
+    ],
+    "returned_model": "Intern-S1",
+    "usage": {
+      "prompt_tokens": 513,
+      "completion_tokens": 905,
+      "total_tokens": 1418
+    }
+  },
+  {
+    "source_id": "ral2_2009",
+    "input_sha256": "a66c1fb5bcb27892b3553bb154f3a65a403fa3d87c176c68adef149fcd3fa0c1",
+    "source_group": "Zaragoza_Laguna_Chaboy",
+    "cache_hit": false,
+    "passed": true,
+    "records": [
+      {
+        "formula": "SmAl2",
+        "tc_k": 64,
+        "uncertainty_k": null,
+        "quote": "Curie temperature TC=64 K",
+        "caveats": "Uncertainty on TC is not reported."
+      }
+    ],
+    "returned_model": "Intern-S1",
+    "usage": {
+      "prompt_tokens": 260,
+      "completion_tokens": 72,
+      "total_tokens": 332
+    }
+  },
+  {
+    "source_id": "prnd_2005",
+    "input_sha256": "e218b1d7aa1230ba33d09db2990661c9d32d5c46c3da35fc24a1b9cd6759500a",
+    "source_group": "UNICAMP_Carvalho_Campoy",
+    "cache_hit": false,
+    "passed": true,
+    "records": [
+      {
+        "formula": "PrAl2",
+        "tc_k": 32.5,
+        "uncertainty_k": null,
+        "quote": "The magnetic transition temperatures are 32.5 and 77 K, respectively.",
+        "caveats": "No Tc uncertainty reported."
+      },
+      {
+        "formula": "NdAl2",
+        "tc_k": 77,
+        "uncertainty_k": null,
+        "quote": "The magnetic transition temperatures are 32.5 and 77 K, respectively.",
+        "caveats": "No Tc uncertainty reported."
+      }
+    ],
+    "returned_model": "Intern-S1",
+    "usage": {
+      "prompt_tokens": 270,
+      "completion_tokens": 147,
+      "total_tokens": 417
+    }
+  },
+  {
+    "source_id": "co2fesi_2005",
+    "input_sha256": "a565a4f27540e996850f4f83699e3d5332367603d039571f919bf2883ac91ee1",
+    "source_group": "Mainz_Felser",
+    "cache_hit": false,
+    "passed": true,
+    "records": [
+      {
+        "formula": "Co2FeSi",
+        "tc_k": 1100,
+        "uncertainty_k": 20,
+        "quote": "The ferromagnetic Curie temperature is TC=(1100 +/- 20) K.",
+        "caveats": ""
+      }
+    ],
+    "returned_model": "Intern-S1",
+    "usage": {
+      "prompt_tokens": 252,
+      "completion_tokens": 81,
+      "total_tokens": 333
+    }
+  },
+  {
+    "source_id": "co2ti_2009",
+    "input_sha256": "b780b9c9b9b4da15dbccc8d4600cc639982c029e0e4aa9d2c0d8d0e1d6b5c2d9",
+    "source_group": "Mainz_Felser",
+    "cache_hit": false,
+    "passed": false,
+    "error_type": "AssertionError"
+  },
+  {
+    "source_id": "mn4n_1962",
+    "input_sha256": "2fe1ad56b94cede72e68bfe47d1f75fd84135ed3ff2f522b31e6f52c3b1996fe",
+    "source_group": "Westinghouse_1962",
+    "cache_hit": false,
+    "passed": true,
+    "records": [
+      {
+        "formula": "Mn4N",
+        "tc_k": 745,
+        "uncertainty_k": null,
+        "quote": "Mn4N | a=3.865 angstrom | magnetic transition=745 K",
+        "caveats": "Mn4N is ferrimagnetic. Historical table heading says Neel temperature; explicit ferri/ferromagnetic context makes these ordering events relevant, not antiferromagnetic TN labels."
+      },
+      {
+        "formula": "Mn3AlC",
+        "tc_k": 272,
+        "uncertainty_k": null,
+        "quote": "Mn3AlC | a=3.869 angstrom | magnetic transition=272 K",
+        "caveats": "Mn3AlC ferromagnetic. Historical table heading says Neel temperature; explicit ferri/ferromagnetic context makes these ordering events relevant, not antiferromagnetic TN labels."
+      }
+    ],
+    "returned_model": "Intern-S1",
+    "usage": {
+      "prompt_tokens": 284,
+      "completion_tokens": 227,
+      "total_tokens": 511
+    }
+  },
+  {
+    "source_id": "euo_eus_1976",
+    "input_sha256": "6df43fe978e73407bec1e04bc95e3ac6b84a6299ac3085c6dc9af820a245f95a",
+    "source_group": "Brookhaven_Riso_Passell",
+    "cache_hit": false,
+    "passed": false,
+    "error_type": "AssertionError"
+  },
+  {
+    "source_id": "comn_2021",
+    "input_sha256": "1c1c0bb139693e9632718a7b52a2bb73830e8e812458ab663410d611b8fe7c40",
+    "source_group": "Japan_Saito_NishioHamane",
+    "cache_hit": false,
+    "passed": true,
+    "records": [
+      {
+        "formula": "Co2MnGa",
+        "tc_k": 700,
+        "uncertainty_k": null,
+        "quote": "Co2MnGa: Curie temperature 700 K",
+        "caveats": "No Tc uncertainty reported."
+      },
+      {
+        "formula": "Co2MnSi",
+        "tc_k": 1015,
+        "uncertainty_k": null,
+        "quote": "Co2MnSi: Curie temperature 1015 K",
+        "caveats": "No Tc uncertainty reported."
+      }
+    ],
+    "returned_model": "Intern-S1",
+    "usage": {
+      "prompt_tokens": 339,
+      "completion_tokens": 147,
+      "total_tokens": 486
+    }
+  }
+]

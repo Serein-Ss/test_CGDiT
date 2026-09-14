@@ -1,0 +1,29 @@
+{
+  "id": "RaIUPL3tyTGOXYittFvdHIpPQh1Z89ONciSGUKmgFFA=",
+  "object": "chat.completion",
+  "model": "Intern-S1",
+  "created": 1789326059,
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"events\": [\n    {\n      \"material_formula\": \"CeCo2P2\",\n      \"type\": \"neel\",\n      \"temperature_k\": 440,\n      \"uncertainty_k\": 5,\n      \"qualifier\": \"reported_value\",\n      \"sublattice\": null,\n      \"sample_conditions\": null,\n      \"quote\": \"CeCo2P2 order antiferromagnetically below the Néel temperatures TN=440(5) K\"\n    }\n  ],\n  \"abstained\": false\n}\n```"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "moderation": {
+    "sensitive": false,
+    "category": ""
+  },
+  "usage": {
+    "prompt_tokens": 425,
+    "completion_tokens": 120,
+    "total_tokens": 545
+  },
+  "metadata": {
+    "search_used": false,
+    "reasoning_used": false
+  }
+}

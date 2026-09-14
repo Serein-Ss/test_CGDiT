@@ -1,0 +1,42 @@
+# generated using pymatgen
+data_Ga2Co3Ge2H2O7
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.583733252479
+_cell_length_b   5.583733252479
+_cell_length_c   7.326900005341
+_cell_angle_alpha   90.000000000000
+_cell_angle_beta   90.000000000000
+_cell_angle_gamma   119.999996908177
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Ga2Co3Ge2H2O7
+_chemical_formula_sum   'Ga2 Co3 Ge2 H2 O7'
+_cell_volume   197.833682688689
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  O  O0  1  0.868472337723  0.362145602703  0.875304162502  1
+  O  O1  1  0.493673264980  0.131527662277  0.124695837498  1
+  O  O2  1  0.131527662277  0.493673264980  0.124695837498  1
+  O  O3  1  0.362145602703  0.868472337723  0.875304162502  1
+  O  O4  1  0.284500062466  0.315626800060  0.605470418930  1
+  O  O5  1  0.684373199940  0.968873262405  0.605470418930  1
+  O  O6  1  0.031126737595  0.715499937534  0.394529581070  1
+  H  H7  1  0.377633422613  0.876931905746  0.079511933029  1
+  H  H8  1  0.876931905746  0.377633422613  0.079511933029  1
+  Co  Co9  1  0.249892964959  0.269583165646  0.283229410648  1
+  Co  Co10  1  0.730416834354  0.980309784412  0.283229410648  1
+  Co  Co11  1  0.019690200686  0.750107049942  0.716770589352  1
+  Ga  Ga12  1  0.484608143568  0.123838424683  0.814145147800  1
+  Ga  Ga13  1  0.123838424683  0.484608143568  0.814145147800  1
+  Ge  Ge14  1  0.579011976719  0.608106553555  0.563298761845  1
+  Ge  Ge15  1  0.029094576836  0.420988023281  0.436701238155  1

@@ -1,0 +1,36 @@
+{
+  "pair_id": "Mn4N_vs_Mn3.76Ga0.24N_2022",
+  "winner": "Mn4N",
+  "loser": "Mn3.76Ga0.24N",
+  "winner_event": "curie",
+  "loser_event": "curie",
+  "winner_temperature_k": 780,
+  "loser_temperature_k": 610,
+  "loser_compensation_temperature_k": 408,
+  "comparison_margin_k": 50,
+  "margin_note": "Conservative analyst sensitivity parameter, not an experimental uncertainty.",
+  "evidence_kind": "experimental_report",
+  "same_paper": true,
+  "doi": "10.1016/j.actamat.2022.118021",
+  "source_url": "https://arxiv.org/abs/2203.09641",
+  "source_pages": [
+    4,
+    7
+  ],
+  "local_structure_mapping_verified": false,
+  "winner_split": "train",
+  "loser_split": "external_unassigned",
+  "local_winner_record": "0.274_Mn4N",
+  "local_winner_legacy_temperature_k": 745,
+  "minimum_ordered_atoms": 125,
+  "configured_max_atoms": 100,
+  "nominal_composition_note": "125 atoms is a lower bound for exact periodic full-occupancy representation of nominal x=0.24; it does not certify any atomic arrangement.",
+  "reviewer": "assistant_fulltext_review_not_independent_gold",
+  "literature_comparison_supported": true,
+  "training_eligible": false,
+  "reasons": [
+    "structure_mapping_unverified",
+    "both_not_in_training_split",
+    "nominal_ordered_representation_exceeds_atom_limit"
+  ]
+}

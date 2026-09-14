@@ -1,0 +1,29 @@
+{
+  "id": "0CrhYq8v6Hj8Qc2CBxVoQYpPQh1Z89ONciSGUKmgFFA=",
+  "object": "chat.completion",
+  "model": "Intern-S1",
+  "created": 1789366541,
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"records\": [\n    {\n      \"formula\": \"Co2MnGa\",\n      \"tc_k\": 700,\n      \"uncertainty_k\": null,\n      \"quote\": \"Co2MnGa: Curie temperature 700 K\",\n      \"caveats\": \"No Tc uncertainty reported.\"\n    },\n    {\n      \"formula\": \"Co2MnSi\",\n      \"tc_k\": 1015,\n      \"uncertainty_k\": null,\n      \"quote\": \"Co2MnSi: Curie temperature 1015 K\",\n      \"caveats\": \"No Tc uncertainty reported.\"\n    }\n  ]\n}\n```"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "moderation": {
+    "sensitive": false,
+    "category": ""
+  },
+  "usage": {
+    "prompt_tokens": 339,
+    "completion_tokens": 147,
+    "total_tokens": 486
+  },
+  "metadata": {
+    "search_used": false,
+    "reasoning_used": false
+  }
+}

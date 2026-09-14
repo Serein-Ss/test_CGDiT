@@ -1,0 +1,29 @@
+{
+  "id": "X4qxwPc6yWZjk3GCNWAP44pPQh1Z89ONciSGUKmgFFA=",
+  "object": "chat.completion",
+  "model": "Intern-S1",
+  "created": 1789325208,
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"events\": [\n    {\n      \"type\": \"neel\",\n      \"temperature_k\": 347,\n      \"qualifier\": \"exact\",\n      \"quote\": \"Néel temperature of TN=347(1) K.\"\n    },\n    {\n      \"type\": \"spin_reorientation\",\n      \"temperature_k\": 35,\n      \"qualifier\": \"exact\",\n      \"quote\": \"Below TSR=35 K\"\n    },\n    {\n      \"type\": \"other\",\n      \"temperature_k\": 7,\n      \"qualifier\": \"exact\",\n      \"quote\": \"Another transition to a noncollinear magnetic structure occurs below 7 K.\"\n    }\n  ],\n  \"abstained\": false\n}\n```"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "moderation": {
+    "sensitive": false,
+    "category": ""
+  },
+  "usage": {
+    "prompt_tokens": 220,
+    "completion_tokens": 160,
+    "total_tokens": 380
+  },
+  "metadata": {
+    "search_used": false,
+    "reasoning_used": false
+  }
+}

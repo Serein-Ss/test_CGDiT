@@ -1,0 +1,611 @@
+                                                                 Journal of Alloys and Compounds 923 (2022) 166116
+
+
+
+                                                                  Contents lists available at ScienceDirect
+
+
+                                                       Journal of Alloys and Compounds
+                                                       journal homepage: www.elsevier.com/locate/jalcom
+
+
+Research Article
+
+Electronic structure, magnetic properties and magnetocaloric effect of
+GdCo2-xNix                                                                                                                                            ]]
+                                                                                                                                                      ]]]]]]
+                                                                                                                                                            ]]
+
+
+                              ⁎
+Gabriela Souca a, , Roxana Dudric a, Ruxandra Cotop a, Karsten Küpper b, Coriolan Tiusan a,c,
+Romulus Tetean a
+a
+    Faculty of Physics, Babes-Bolyai University, Kogalniceanu 1, 400084 Cluj-Napoca, Romania
+b
+    University of Osnabrück, Fachbereich Physik, 49069 Osnabrück, Germany
+c
+    National Center of Scientific Research, France
+
+
+
+
+a r t i cl e i nfo                                         a bstr ac t
+
+Article history:                                           The electronic structure, magnetic properties, and magnetocaloric effect of GdCo2-xNix with x = 0.2, 0.25,
+Received 11 April 2022                                     and 0.3 were investigated. X-ray diffraction measurements showed that all studied samples are single phase
+Received in revised form 3 June 2022                       with the cubic MgCu2 - Laves type structure. In agreement with experiments, the band structure calcula­
+Accepted 30 June 2022
+                                                           tions explain the following issues: the antiferromagnetic ground state of the system, the coupling between
+Available online 2 July 2022
+                                                           Gd and the transition metals (TM) mediated by the 5d electrons of Gd hybridized with the 3d electrons of
+                                                           the TM (Co, Ni), the reduction of the spin magnetic moment of Co when substituting with Ni due to Co-Ni
+Keywords:
+Laves-phase structure                                      hybridization. XPS measurements showed no significant shift in the binding energy of the investigated Co
+Magnetocaloric effect                                      core levels with the change of Ni concentration. For all investigated samples the exchange splitting esti­
+Magnetic entropy                                           mated to about 3.2 eV between the high spin final state and the low spin final state of the Co 3 s core level
+Electronic structure                                       gives direct evidence of the local magnetic moments on Co sites. The measured increase of the saturation
+                                                           magnetizations when substituting cobalt by nickel confirms the ferrimagnetic-type ordering. The decrease
+                                                           of the Co magnetic moments is related to Co-Ni hybridization and filling of bands with the extra-electrons
+                                                           provided by Ni with respect to Co. Moreover, the Arrott plots, the temperature dependence of Landau
+                                                           coefficients and the shapes of magnetic entropy changes confirm the presence of a second order magnetic
+                                                           phase transition. The RCP(∆S)/∆B values decreases slowly when the Ni concentration increases and could be
+                                                           attributed to the narrowing of the │ΔSm│peaks.
+                                                                                                                                    © 2022 Published by Elsevier B.V.
+
+
+
+
+1. Introduction                                                                                effects can affect magnetic ordering, magnetic moments, and tran­
+                                                                                               sition temperatures [6].
+    The RM2 intermetallic compounds, where R is a rare-earth metal                                 Intensely studied, GdCo2 is a ferrimagnet with an opposite or­
+and M a 3d transition metal, have presented great interest for the                             ientation of Gd and Co magnetic moments [9], exhibiting a second
+researchers due to the fact that their crystal structure is simple                             order magnetic phase transition [10] around the Curie point, TC,
+enough to provide detailed investigations of basic phenomena, their                            which is located around 400 K [11]. Also, GdNi2 is a ferrimagnet,
+interesting unique magnetic properties and wide technical applica­                             having a low transition temperature, Tc = 85 K [12]. Until recently,
+tions [1,2]. These materials can be used as permanent magnets,                                 the Ni magnetic moment in compounds with higher R concentration
+magneto-optical storage media, for hydrogen storage and magne­                                 (RNi2, RNi, R3Ni) was neglected. XAS measurement indicated that
+tostrictive devices [1–5]. These types of compounds are also a good                            the 3d band of Ni in GdNi2 is not completely occupied, and XMCD
+refrigerant because their large angular momentums of magnetic                                  showed that it retains a finite magnetic moment of about 0.2 µB and
+atoms lead to a large magnetic entropy change [6–8]. The magnetic                              an angular momentum component [13].
+properties of R-M2 compounds can be subtly tuned by doping,                                        The magnetic properties of Gd(Co1-xNix)2 compounds were
+which, through chemical pressure and/or band filling or depletion                              previously studied by Taylor [14], Burzo et.al. [15] and T. Kaneko
+                                                                                               et al. [16]. Taylor has observed a strong decrease of the transition
+                                                                                               metal average magnetic moment for Ni concentrations higher than
+                                                                                               0.5. These results were explicated considering a rigid band model.
+    ⁎
+        Corresponding author.                                                                  According to Burzo et. al. the transition metal magnetic moment
+        E-mail address: gabrielasouca@gmail.com (G. Souca).
+
+
+https://doi.org/10.1016/j.jallcom.2022.166116
+0925-8388/© 2022 Published by Elsevier B.V.
+G. Souca, R. Dudric, R. Cotop et al.                                                                            Journal of Alloys and Compounds 923 (2022) 166116
+
+
+decreases monotonically when Ni concentration increases and this               experiments (8.2 eV). This adjusted U value is in the range of values
+behavior was explained using the local environment model. On the               reported in the literature for GdTM2 alloys [22,23]. The size of the
+other hand, Kaneko et.al. have report a similar behavior with Burzo            basis set used in the wave function set expansion was RMT ·Kmax = 7 ,
+of the transition metal moment, but their interpretation was based             where RMT is the smallest atomic muffin-tin sphere radius and Kmax
+on the exchange-enhanced paramagnetism model [17]. Campbell                    the largest K-vector, corresponding to a cutoff energy of 7.84 Ry. The
+model consider that the magnetic coupling between R and M atoms                integration in k-space used a modified tetrahedron method with
+can be explained considering that the R-M exchange interactions are            1000 k-points within irreducible Brillouin zone. A fully relativistic
+mediated by R5d band polarization [18]. Later on Burzo et.al have              scheme has been considered, including spin-orbit interaction term
+shown that the cobalt magnetic moment in RM2 compounds is in­                  in the Hamiltonian, for calculating spin and orbital magnetic mo­
+duced by 4f-5d-3d exchange path, the Co moment being stabilized                ments of the atoms in the supercell model used to describe the
+by Co3d-Co3d short range exchange interactions with an additional              GdCo1-xNix alloys with different concentrations.
+induced polarization by R5d band [19].                                             The XPS spectra were recorded at room temperature using a PHI
+    From band structure calculation, it was shown, that the binding            5600ci ESCA spectrometer with monochromatized Al Kα radiation.
+energies of the d bands near Fermi level are different, being larger in        The pressure in the ultrahigh vacuum chamber was in the 10-10 mbar
+the case of GdNi2 comparing with GdCo2, showing that the hy­                   range during the measurements. The samples were cleaved in situ
+bridization interaction between Gd-d and Ni-d electrons is higher              and the surface cleanness was checked by monitoring the O 1 s and C
+comparing to the case of Gd-d and Co-d electrons [20]. Electronic              1 s core levels in the survey spectra. Their intensity was very low,
+charge localization, in the down spin 3d orbital mostly, was shown in          indicating a negligible contamination.
+the transition metal calculated density of states. This localization
+implies the reduction of the total magnetic moment and the                     3. Results and discussions
+broadening of the 4 f level leaves [20].
+    In this paper we report a detailed correlated study of structural,         3.1. Crystal structure
+electronic, and magnetic properties of GdCo1-xNix compounds. The
+dopant concentration was chosen to tune the transition temperature                 The XRD diffraction patterns of the investigated samples are
+around 300 K. To get a deep insight on the physical properties of the          presented in Fig. 1. The crystal structure and the lattice parameters
+transition metal, different analysis tools have been combined:                 were calculated by performing Rietveld refinements on the experi­
+magnetic measurements, X-ray photoelectron spectroscopy (XPS)                  mental data using the FullProf suite [24]. The theoretical peaks po­
+and band structure calculations. In view of potential applications in          sitions and the differences between the experimental and calculated
+magnetic refrigeration, a full evaluation of magnetocaloric proper­            patterns are also shown in Fig. 1. In all cases only one phase was
+ties around room temperature range was accomplished.                           found, having the cubic MgCu2 - Laves type structure. The Gd atoms
+                                                                               occupies −43 m sites while Co and Ni are distributed randomly in
+2. Experimental and computing methods                                          −3 m positions. The calculated lattice parameters show a very small
+                                                                               decrease, almost negligible with Co substitution by Ni, being
+    GdCo2-xNix samples were prepared with three different con­                 7.249(4) Å for x = 0.2, 7.247(8) Å for x = 0.25 and 7.244(7) Å for x = 0.3.
+centrations of Ni substituting atoms, x = 0.2, 0.25 and 0.3, by melting        This small deviation is somewhat expected, considering close values
+high purity (99.99 %) ingots in an arc furnace under purified argon            of atomic radii for cobalt (125 pm) and nickel (124 pm).
+atmosphere. Their homogeneity was ensured by several times con­
+secutive melting. The samples were thermally treated in vacuum at              3.2. Band structure calculations
+850 ºC for 7 days and slowly cooled to room temperature. X-ray
+diffraction (XRD) was performed at room temperature on powder                    Using the FP-LAPW Wien2k computational code, to describe the
+sample, using a Bruker D8 Advance AXS diffractometer with Cu Κα                GdCo1-xNix cubic Laves phase (C15) systems, a supercell model has
+radiation.
+    A 12 T VSM from Cryogenics was used for magnetic measure­
+ments, in the temperature range 5–600 K and external magnetic
+field up to 12 T. The magnetization isotherms registered between
+zero field and a maximum field (H0) were used in order to calculate
+the magnetic entropy changes, using the thermodynamic relation:
+
+
+ Sm T , H0 = Sm T , H0                 Sm T , 0
+
+                    1     H0
+                =              [M (T + T , H)     M (T , H)] dH
+                     T   0                                          (1)
+
+with an increment in temperature between measured magnetization
+isotherms of ΔT = 5 K. The refrigerant capacity or the relative cooling
+power (RCP), used to evaluate the magnetic refrigeration of mate­
+rials, is calculated using the relation RCP (S) =   Sm (T , H) × TFWHM ,
+where ΔSm is the maximum value of the magnetic entropy change
+and δTFWHM its full-width at half-maximum.
+    The band structure calculations have been performed using the
+full potential linearized augmented plane-wave method (LAPW)
++local orbitals (lo) as implemented in Wien2k ab-initio code [21]
+within a fully relativistic scheme. The Local Spin Density Approach
++U Hubbard has been considered with an effective value of
+U= 0.58 Ry (7.88 eV) adjusted to match the calculated band structure           Fig. 1. X-ray diffraction patterns of the GdCo2−xNix compounds, where x = 0.2, 0.25
+with the position of the Gd-f level extracted from the photoemission           and 0.3.
+
+                                                                           2
+G. Souca, R. Dudric, R. Cotop et al.                                                                                       Journal of Alloys and Compounds 923 (2022) 166116
+
+
+                                                                                              be smaller (5.17 μB). Similar analysis leads to an average Gd spin
+                                                                                              moment of 7.27 μB and Co spin moment of −1.31 μB Co, respectively.
+                                                                                                  Similar calculations have been performed on other possible su­
+                                                                                              percell substitutional configurations. Differences in the individual
+                                                                                              atom projected moment related to different local environment of
+                                                                                              atom in the supercell are averaged to similar average magnetic
+                                                                                              moments for Gd, Co, Ni and total magnetic moment per formula
+                                                                                              unit. However, for a better statistical description of the shape of the
+                                                                                              density of states in a disordered alloy phase, random atomic posi­
+                                                                                              tions configurations can be generated using statistical tools (e.g.
+                                                                                              Special Quasirandom Structures formalism). Averaging the calcu­
+                                                                                              lated DOS “smoots” local peaks related to the ordered alloy model
+                                                                                              we involved. The DOS shape will then better match to the one issued
+                                                                                              from KKR-CPA methods for disordered alloys.
+                                                                                                  The band structure analysis allows us to get deeper in the me­
+                                                                                              chanisms responsible on the magnetic moments of each element in
+                                                                                              the compounds. First, a larger calculated Gd moments with respect
+                                                                                              to the atomic expectation (7 μB) clearly comes from the hybridization
+                                                                                              of the Gd-5d and Co-3d orbitals: from the spin resolved valence
+                                                                                              charge distribution analysis we extract exactly the additional 0.26 μB
+                                                                                              contribution of the hybrid 5d-Gd orbital to the total Gd spin mag­
+Fig. 2. The supercell model used in the band structure calculations of the GdCo1.8Ni0.2
+                                                                                              netic moment. The coupling between Gd and the transition metals
+compound, within the Wien2k FPLAPW LSDA+U framework. The substitutional Ni
+atoms can randomly occupy the Co positions. Here we illustrate the configuration              (TM) is therefore mediated by the 5d electrons of Gd hybridized with
+where the Ni substitutionally occupy the (1/2,1/2,1/2), (1/2,3/4,3/4) and (1/2,0,0)           the 3d electrons of the TM (Co, Ni). Second, the GdCo1.8Ni0.2 density
+positions in the supercell.                                                                   of states analysis reveals the main mechanisms responsible of the
+                                                                                              reduction of the spin magnetic moment of Co when doping with Ni.
+been used. As seen in the model depicted in Fig. 2, the Gd atoms are                          They are mainly related to Co-Ni hybridization and not simply to a
+arranged in a diamond structure consisted in two fcc lattices dis­                            rigid band energy downward displacement effect, due to the extra-
+placed by 0.25 of the diagonals and the transition metal atoms on                             electron brought by the substitutional doping Ni in the Co host
+site of the rhombohedral symmetry (3 m) in a tetrahedral arrange­                             places.
+ment surrounded by four Gd next neighbors. The equivalent Gd                                      The orbital projected DOS analysis (Fig. 4) clearly illustrates that
+atoms are located at (1/8, 1/8, 1/8) (7/8,7/8,7/8) and the transition                         the minority 3d-bands of Co and Ni are strongly hybridized, the
+metal Co (Ni) atoms occupy the (1/2,1/2,1/2), (1/2,3/4,3/4), (1/2,3/                          shape of each element projected DOS being similar in all the energy
+4,3/4) (3/4,3/4, 1/2), (3/4, 1/2,3/4) positions. To describe the GdCo2                        range. For the majority spin, the hybridization is less strong, the Co
+compound, the supercell contains 24 atoms (8 Gd and 16 Co). Within                            and Ni atoms bring their individual contributions to the total density
+the supercell, for different concentrations of Ni in the GdCo1-xNix                           of states and Ni brings an additional electron to the band filling with
+alloy, the Co is partially substituted by Ni. For instance, for the                           respect to Co and the rigid band concepts remains more suitable.
+GdCo1.8Ni0.2 compound 3 Ni atoms substitute Co atoms in the su­                                   On the other hand, further theoretical band-structure calcula­
+percell (Fig. 2). The lattice parameter of this last supercell is                             tions, considering the spin-orbit interactions contribution in the
+a=b=c= 7.2489 Å, that minimizes the total energy of the supercell and                         relativistic Hamiltonian, allows to estimate the orbital moments
+the chosen values for the muffin-tin radius were: 2.5 a.u. for Gd and                         corresponding to the magnetization oriented along the z axis. For
+2.29 a.u. for Ni and Co (a.u. =atomic Bohr units).                                            the Gd, a negligible orbital moment of − 0.003 μB (antiparallel with
+    From the ab-initio calculations, we obtained the following main                           the spin moment) was found. This agrees with the Hund rules; for its
+results:                                                                                      7-f electrons in the atomic configuration the maximum spin angular
+    (i) The ground-state of the system corresponds to an anti­                                moment is attained for ml = 0, corresponding to a zero projection of
+ferromagnetic alignment of the spin magnetic moments of Gd and                                the orbital magnetic moment along z. Similarly, small, or negligible
+Co atoms. Total energy calculations show that the antiferromagnetic                           orbital magnetic moments were also found for both Co (−0.11 μB) and
+state is about 0.11 Ry lower than the ferromagnetic state.                                    Ni (−0.03 μB), both parallel with the corresponding spin moment.
+    (ii) The band structure and the total density of state for the
+GdCo1.8Ni0.2 compound are depicted in Fig. 3. One can see the po­                             3.3. XPS
+sition of the 4 f localized Gd level, in both majority (occupied) and
+minority (unoccupied) spins. As mentioned, the effective U para­                                  XPS core level spectra provide important information on the
+meter has been adjusted to 0.58 Ry by matching the position of the                            electronic structure, especially in the case of 3d transition metal
+occupied majority f-peak to the experimental XPS spectra where the                            ions. For systems with unpaired electrons in the valence levels, the
+f-peak was found to be located at about 8.2 eV below the Fermi level.                         interaction of the core hole with the valence electrons leads to a
+    (iii) The calculated magnetic moments of the individual Gd, Co                            multiplet (exchange) splitting of the core level lines. In the simplest
+and Ni atoms are presented in the Table 1.                                                    model this splitting originates from the intra– atomic exchange
+    Considering the calculated total magnetic moment in the inter­                            coupling between the photo–hole and the unpaired 3d electrons in
+stitial zone of 3.80 μB, the total magnetic moment per formula unit                           the final state of the system and hence the magnitude of the splitting
+for the GdCo1.8Ni0.2 compound was found to be 5.52 μB. This value is                          ΔEex will reflect the net spin in the valence band. However, we have
+slightly larger but in good agreement with the experimental value of                          to take into account the effect of a core-hole screening in the final
+5.38 μB (see Table 2). Furthermore, one can estimate an average                               state of the photoemission and the charge–transfer effects between
+magnetic moments of individual component atoms: 7.26 μB for Gd,                               the 3d metal ion and the ligand atom. The multiplet splitting of the
+−1.29 μB for Co and −0.29 μB for the substitutional Ni. As reference,                         3 s line for 3d transition metals with a local magnetic moment is a
+we also calculated the electronic properties of the GdCo2 compound,                           good measure of the local moment of the ground state only when
+for which the total magnetic moment per formula unit was found to                             the charge–transfer satellite in the 2p core level spectra is small.
+
+                                                                                          3
+G. Souca, R. Dudric, R. Cotop et al.                                                                                            Journal of Alloys and Compounds 923 (2022) 166116
+
+
+
+
+Fig. 3. Band structure (left) and corresponding total density of states for the GdCo1.8Ni0.2 compound. The localized Gd-f states are located at −8.2 eV below EF (majority spin) and
++ 5 eV above EF (minority spin).
+
+
+Table 1                                                                                          The Co 3 s core level spectra show a main line located at about
+Calculated atom projected magnetic moments and position in the supercell.                    101 eV and a satellite at higher binding energy, due to the exchange
+  Atom       Position in supercell                      Spin magnetic moment (μB)            interaction Jdc between the core hole spin s and the 3d electron spin
+                                                                                             S in all investigated compounds [25]. In order to evaluate the ex­
+  Gd         (1/8, 1/8,1/8) (7/8, 7/8, 7/8)             7.26
+             (1/8, 5/8, 5/8) (7/8, 3/8, 3/8)                                                 change splitting, the XPS spectra were fitted in the 90–120 eV
+             (5/8, 5/8, 1/8) (3/8, 3/8, 7/8)            7.25                                 binding energy region using three components: two Co 3 s peaks,
+             (5/8, 1/8, 5/8), (3/8, 7/8, 3/8)                                                corresponding to the high spin final sate S + 1/2 and the low spin
+  Ni         (1/2, 1/2, 1/2) (1/2, 3/4, 3/4) (1/2,      0.29                                 final state S-1/2, respectively, and one for the Ni 3 s core level, which
+             0, 0)
+                                                                                             is situated at about 110.7 eV. The curve fitting results are presented
+  Co         (3/4, 3/4, 1/2) (3/4, 1/2, 3/4)            -1.26
+             (1/4, 0, 3/4) (1/4, 3/4, 0)                                                     in Fig. 6. For all investigated samples we found an exchange splitting
+             (0, 0, 1/2) (0, 1/2, 0)                    -1.28                                of about 3.2 eV between the high spin final state and the low spin
+             (1/4, 1/4, 1/2) (1/4,1/2, 1/4)             -1.31                                final state of the Co 3 s core level, giving a direct evidence of the local
+             (3/4, 1/4, 0) (3/4, 0, 1/2)
+                                                                                             magnetic moments on Co sites. This value is smaller to that found in
+             (0, 1/4, 3/4) (0, 3/4, 1/4)                -1.33
+                                                                                             the pure Co metal, namely 4.5 eV [26]. Since the exchange splitting
+                                                                                             ΔEex = Jdc(2 S + 1) is proportional with the Co local moment [27], we
+                                                                                             estimate an average magnetic moment for Co ions of about 1.2 μB in
+Table 2                                                                                      all investigated GdCo2-xNix compounds.
+The values of the Curie temperature, saturation magnetization, and magnetic mo­
+ments in GdCo2−xNix compounds. The values of 7.26 µB for Gd moment and −0.29 µB
+for Ni moment were extracted from ab-initio calculations -see Section 3.2.
+                                                                                             3.4. Magnetic measurements
+  x       Tc (K)    M0             mGd               mNi            mCo (µB/atom)
+                    (µB/f.u.)      (µB/atom)         (µB/atom)
+                                                                                                 The magnetization measurements as a function of temperature,
+  0.2     332       5.38           7.26              -0.29          -1.01                    in the applied magnetic field of 0.05 T are presented in Fig. 7. All the
+  0.25    313       5.50           7.26              -0.29          -0.96
+                                                                                             prepared compounds undergo a transition from the paramagnetic
+  0.3     303       5.68           7.26              -0.29          -0.88
+                                                                                             state to the ordered magnetic state. The Curie temperatures were
+                                                                                             calculated as the minima in the first derivative of magnetization dM/
+                                                                                             dT vs temperature and plotted in the inset of Fig. 7. No other mag­
+   Fig. 5 shows the Co 2p and Co 3 s core-level spectra of the in­                           netic transitions are present in the investigated cases, confirming the
+vestigated compounds. There is no significant shift in the binding                           high quality of the samples. As the concentration of Ni increases, the
+energy of the investigated Co core levels with the change of Ni                              Curie temperature, TC, significantly gets reduced towards room
+concentration, as expected considering that the lattice parameter                            temperature as can be seen in Table 2. Three types of interaction
+and hence the distance between the atoms is almost the same for                              have to be considered R-R, R-M and M-M. The R-R interactions are of
+the investigated GdCo2-xNix compounds. The Co 2p XPS spectra are                             RKKY-type being indirect, weak and occurring between the 4 f
+dominated by two features located at 778.2 eV and 793.2 eV attrib­                           electrons of the rare-earth atoms [4]. The M-M interactions are di­
+uted to the 2p3/2 and 2p1/2 states. Both these states are accompanied                        rect, being the strongest ones, and take place between the 3d shells
+by broad satellite lines at higher binding energies, which may be                            of the M atoms [4]. The strength of R-M exchange interactions are
+explained by assuming more than one 3dn final state configuration.                           intermediate between R-R and M-M ones, and appear between the
+
+                                                                                         4
+G. Souca, R. Dudric, R. Cotop et al.                                                                                            Journal of Alloys and Compounds 923 (2022) 166116
+
+
+
+
+Fig. 4. Orbital projected (d) density of states for the (a) reference GdCo2 and (b) GdCo1.8Ni0.2 compounds. The contribution of each element is indicated with different color (see
+legend). Continuous line arrows indicate for both compounds the Gd-Co hybridization of D-states (e.g. peaks in Gd and Co D-DOS at about −1.6 eV below EF) and in (b) the Ni
+(dashed arrow) and Co (continuous line arrow) contribution to the majority DOS.
+
+
+
+
+                                       Fig. 5. Co 2p (right) and Co 3s (left) XPS spectra of GdCo2−xNix compounds, where x = 0.2, 0.25 and 0.3.
+
+
+
+
+                                                                                          5
+G. Souca, R. Dudric, R. Cotop et al.                                                                                            Journal of Alloys and Compounds 923 (2022) 166116
+
+
+
+
+                                                                                              Fig. 8. Magnetic isotherms of GdCo2−xNix compounds at 4.2 K in the applied magnetic
+                                                                                              field up to 10 T. The inset shows the magnetic hysteresis for the investigated samples
+Fig. 6. Curve fitting results for the XPS spectrum of GdCo1.75Ni0.25 (open circles cor­       at 4.2 K.
+respond to the experimental spectrum and the continuous curves to the fitting re­
+sults, after background subtraction).
+
+                                                                                              ordering, gadolinium and cobalt magnetic moments being anti­
+                                                                                              parallelly oriented.
+                                                                                                  Previously it was reported that nickel is not magnetic in RNi2
+                                                                                              compounds [31]. A magnetic moment of 0.2 µB/Ni atom was reported
+                                                                                              on GdNi2 compound by Mizukami et.al. from magnetic circular di­
+                                                                                              chroism studies [13]. The calculated magnetic moments for Gd and
+                                                                                              Ni seem not to depend on Ni concentration. In order to extract the Co
+                                                                                              magnetic moments from experimental data we have considered the
+                                                                                              calculated magnetic moments for Gd and Ni atoms, as listed in
+                                                                                              Table 1. The values of the Curie temperature, saturation magneti­
+                                                                                              zation, and magnetic moments are shown in Table 2.
+                                                                                                  The substitution of Co by Ni modifies the strength of 3d-3d ex­
+                                                                                              change interactions, being smaller in Co 3d-Ni 3d than in Co 3d-Co
+                                                                                              3d. This would roughly explain the decrease of the Curie tempera­
+                                                                                              ture when substituting the Co with Ni. Moreover, the Ni substitution
+                                                                                              slightly lowers the Co magnetic moment in GdCo2-xNix compounds.
+                                                                                              The mechanisms of the cobalt magnetic moment decrease are
+                                                                                              deeper revealed by band structure analysis (see Section 3.2). It is
+                                                                                              mainly related to Co-Ni hybridization and filling of bands with extra-
+Fig. 7. The magnetization vs temperature for GdCo2−xNix compounds, in the applied             electrons provided by Ni that has one more electron with respect
+magnetic field of 0.05 T. The inset shows the first derivative of magnetization vs
+                                                                                              to Co.
+temperature.
+                                                                                                  On the other hand, the analysis of magnetization curve shows a
+                                                                                              very small coercive field at 4 K, for all concentration of Ni in the
+                                                                                              GdCo2-xNix compounds, (see inset of Fig. 8). This indicates that, in
+polarized R 5d shells M 3d shells [28]. The Curie temperature is                              these compounds, the magnetocrystalline anisotropy is negligible.
+determined, mainly, by the M-M strength interaction which depends                             This experimental result perfectly agrees with the previous theore­
+both on the interatomic distances and the number of nearest                                   tical calculations results of Gavrilenko and Wu [32] which illustrated
+neighbors [28].                                                                               that the magnetocrystalline energy linearly varies with the lattice
+    In our case the substitution of Co by Ni modifies the exchange                            distortion of the unit cell (compressive or tensile stress), changing
+Co3d - Co3d interactions (Co3d - Ni3d or Ni3d - Ni3d being weaker),                           the sign and crossing the zero around the equilibrium theoretical
+enabling the decrease of TC toward room temperature. Therefore, the                           lattice parameter of the GdCo2 compounds that corresponds in our
+almost inversely proportional decrease of Curie temperature on Ni                             case to alat = 13.6988 Bohr.
+concentration value can be attributed to the magnetic dilution.                                   The analysis of Arrott plots depicted in Fig. 9 highlights the
+    The magnetization isotherms recorded at 4.2 K are plotted in                              presence of a second order magnetic phase transition for the com­
+Fig. 8. Values of 4.96 µB/f.u [15], 5 µB/f.u [29] 4.89 µB/f.u [30] were                       pounds with x = 0.2 and x = 0.3, respectively. Similar behavior was
+reported previously for the saturation magnetization in the parent                            obtained for the sample with x = 0.25.
+compound, GdCo2. The saturation magnetization values obtained for                                 The Arrott plots were calculated from the magnetic isotherms
+GdCo2-xNix compounds are higher than those reported, being be­                                around transition temperature in the temperature range 175–380 K.
+tween 5.38 µB/f.u. for x = 0.2 and 5.68 µB/f.u. for x = 0.3 (Table 2). The                    No inflexion point at transition temperature was found for all GdCo2-
+fact that the saturation magnetization increases when replacing                               xNix compounds, which is a behavior typical for a second-order
+cobalt by nickel is in good agreement with a ferrimagnetic-type                               magnetic type transition. In order to confirm the transition type we
+
+
+
+
+                                                                                          6
+G. Souca, R. Dudric, R. Cotop et al.                                                                                        Journal of Alloys and Compounds 923 (2022) 166116
+
+
+
+
+                                                         Fig. 9. Arrott plots for the compounds with x = 0.2 and x = 0.3.
+
+
+
+
+                                       Fig. 10. The temperature dependences of the Landau a and b coefficients for the studied samples.
+
+
+have consider the Landau expression for the magnetic free en­                               transition. Landau coefficients can be determined from the relation
+ergy [33]:                                                                                  between M and H:
+
+     1            1            1                                                            µ0 H = a (T ) M + b (T ) M3 + c (T ) M5                                      (3)
+F=     a (T ) M2 + b (T ) M4) + c (T ) M 6         µ0 HM
+     2            4            6                                                  (2)
+                                                                                                The magnetic transition order is given by the b(T) sign, being of
+where a(T), b(T) and c(T) are so called Landau coefficients and their                       first order if b(T) at the transition temperature is negative and of
+temperature dependences shows the type of the magnetic phase                                second order if the b (T ) 0. The temperature dependences of the
+                                                                                            Landau coefficients were calculated by fitting each magnetization
+                                                                                            isotherms with the Eq. (3) and are presented in Fig. 10. One can see
+                                                                                            that in all cases the a(T) coefficient is changing the sign at the
+                                                                                            transition temperature, as was predicted by Landau theory, while the
+                                                                                            b(T) coefficient is positive and have the minima at T = TC. The values
+                                                                                            obtained for b(T) coefficient confirm the observations from the Ar­
+                                                                                            rott plots and prove that the phase transition is of second order.
+                                                                                                Magnetic hysteresis loops recorded at room temperature (Fig. 11),
+                                                                                            in the applied field of −2 T and 2 T show a negligible hysteresis for
+                                                                                            the samples with x = 0.2 and x = 0.25 and the lack of hysteresis curve
+                                                                                            for the sample with x = 0.3, which is favorable for magnetocaloric
+                                                                                            materials. In order to have a reversible MCE, no magnetic hysteresis
+                                                                                            loss is required. Therefore, the investigated samples are a promising
+                                                                                            candidate for magnetic refrigeration applications.
+                                                                                                The magnetic entropy change was calculated based on the
+                                                                                            magnetization isotherms measured between 280 K and 380 K, with a
+                                                                                            step of 5 K, in the external magnetic field between 0 and 2 T and
+                                                                                            respectively 0–4 T and plotted as a function of temperature in Fig. 12.
+                                                                                            The maximum value of the magnetic entropy change is reached at
+                                                                                            temperatures close to the magnetic transition ones, for all the in­
+       Fig. 11. Magnetic hysteresis loops recorded at T = 300 K for GdCo2−xNix.             vestigated samples. The value of the maximum entropy change
+
+                                                                                        7
+G. Souca, R. Dudric, R. Cotop et al.                                                                                                Journal of Alloys and Compounds 923 (2022) 166116
+
+
+
+
+                                                 Fig. 12. The temperature dependences of the magnetic entropy change for GdCo2-xNix.
+
+
+
+depends on the sharpness of the magnetic transition. In our case the                         when the applied magnetic field change is reduced from 0 to 4 T to
+sharper transition is for the sample with x = 0.25 and one can see                           0–2 T, being in very good agreement with the behavior of the re­
+that for this sample the magnetic entropy change is maximum. On                              ported master curve [36].
+the other hand, the Ni- doping decrease the exchange interactions                               For technical application it is better to use another characteristic
+and have a more important contribution on the values of the tem­                             parameter, related to the external field variation, namely the specific
+peratures where ΔS have maxima. The substitution of Co by Ni                                 renormalized cooling power, RCP(∆S)/∆B (Table 3) [37]. For our
+causes a very small increase in maximum entropy change values, as                            samples RCP(∆S)/∆B values decreases slowly when the Ni con­
+listed in Table 3. Nevertheless, the │ΔSm│peaks are broader, which is                        centration increases but do not depend significantly on the applied
+mandatory for a good refrigerant material. Moreover, it can be ob­                           magnetic field change. The decrease of the RCP(∆S)/∆B values with
+served that the curves are nearly symmetric distributed around the                           increasing Ni concentration could be attributed to the narrowing of
+transition temperature, a behavior generally characteristic for ma­                          the │ΔSm│peaks.
+terials exhibiting a second order magnetic phase transition [34].                               In order to check the suitability, efficiency and utility of these
+    Similar MCE were reported previously on Ho1-xGdxCo2 com­                                 compound for magnetocaloric cooling we have calculated the
+pounds, with |ΔSm| values of 3.42, 3 and 3.08 J/(kg K) for x = 0.5, 0.6                      Temperature-averaged Entropy Change, TEC [38]. It was shown that
+and 0.8 in the external magnetic field of 5 T [35].                                          TEC provide an indicator to choose the most promising material for a
+    The magnetic refrigeration efficiency was evaluated by calcu­                            specific application [38]. The TEC values are calculated over a range
+lating the relative cooling power (RCP) for all the investigated                             of temperatures, TH C (the difference between the hot and cold
+samples, larger values corresponding to better magnetocaloric ma­                            heat exchangers required for a device). TEC values can be calculated
+terials [6]. The RCP(ΔS) values, presented in Table 3, are rather large,                     using the SM (T ) values:
+indicating that the materials could be used for the magnetic re­                                                                              TH C
+                                                                                                                                     Tmid +
+frigeration applications.                                                                                                                       2
+                                                                                                                      1
+    It was reported that the magnetic field dependence of the mag­                           TEC ( TH   C)   =                max                    | SM (T )| dT
+                                                                                                                   TH     C                   TH C
+netic entropy change for the compounds which present a second                                                                        Tmid
+                                                                                                                                                2                                       (4)
+order type transition follows a master curve, which can be expressed
+as ∆SM ∝ Bn, where n has a value of 0.75 for T = TC and a value of 2 in                      where Tmid is the temperature that maximizes the TEC ( TH C ) for a
+the paramagnetic region [36]. If the magnetic applied field is chan­                         given TH C . In our investigations calculations were made for ΔB
+ging from B1 to B2 = 2B1, the maximum magnetic entropy change                                = 2 T or 4 T and TH C are fixed between 5 and 50 K with a step of 5 K
+value corresponding to a field change from 0 to B2 will be ∆SM(B1)                           for all studied samples The TH C dependences of TEC are shown in
+= 0.59∆SM(B2). In GdCo2-xNix compounds the values of the factor ∆SM                          Fig. 13. The highest value was obtained for the sample with x = 0.25
+(B2)/∆SM(B1) are 0.59 for x = 0.2, 0.58 for x = 0.25 and 0.60 for x = 0.3                    for which the magnetic entropy change is higher. The calculated
+
+Table 3
+The magnetocaloric parameters for GdCo2−xNix compounds.
+
+  x               Tmax (K)             |ΔS
+                                        M|                                  δTFWHM                               RCP (ΔS)                                RCP (ΔS)/
+                                                                                                                                                                 ΔB (J/kgT)
+                                       (J/KgK)                              (K)                                  (J/kg)
+
+                                       ΔB= 4 T            ΔB= 2 T           ΔB= 4 T          ΔB= 2 T             ΔB= 4 T              ΔB= 2 T            ΔB= 4 T              ΔB= 2 T
+
+  0.2             330                  3.07               1.82              71               55                  217.97               100.10             54.49                50.05
+  0.25            319                  3.43               2.00              59               46                  202.37                92.00             50.59                46.00
+  0.3             304                  3.07               1.84              46               44                  141.22                80.96             35.30                40.48
+
+
+
+
+                                                                                         8
+G. Souca, R. Dudric, R. Cotop et al.                                                                                         Journal of Alloys and Compounds 923 (2022) 166116
+
+
+                                                                                          all investigated compounds. For all investigated samples was found
+                                                                                          an exchange splitting of about 3.2 eV between the high spin final
+                                                                                          state and the low spin final state of the Co 3 s core level, giving direct
+                                                                                          evidence of the local magnetic moments on Co sites. An average
+                                                                                          magnetic moment about 1.2 μB/Co atom was estimated.
+                                                                                              Magnetic measurements reveal a decrease of the Curie tem­
+                                                                                          perature when Ni concentration increase, explained by changes of
+                                                                                          the exchange Co 3d - Co 3d interactions. The saturation magnetiza­
+                                                                                          tion increases when replacing cobalt by nickel, as expected for a
+                                                                                          ferrimagnetic-type ordering. Correlated with band-structure ana­
+                                                                                          lysis, the measured decrease of Co magnetic moments has been re­
+                                                                                          lated to Co-Ni hybridization and filling of bands with extra-electrons
+                                                                                          provided by Ni.
+                                                                                              Arrott plots highlight the presence of a second order magnetic
+                                                                                          phase transition. In all cases the a(T) Landau coefficient is changing
+                                                                                          the sign at the transition temperature, as was predicted by Landau
+                                                                                          theory, while the b(T) Landau coefficient is positive confirming the
+                                                                                          observations from the Arrott plots and prove that the phase transi­
+                                                                                          tion is of second order. The substitution of Co by Ni causes a very
+Fig. 13. The temperature-averaged Entropy Change, TEC coefficient, calculated for 3       small increase in maximum entropy change values. The │ΔSm│peaks
+concentrations: x = 0.2, 0.25, 0.3 and ΔB = 2 T or 4 T (see legend).
+                                                                                          are broader, and the curves are nearly symmetric distributed around
+                                                                                          the transition temperature, a behavior generally characteristic for a
+values are around 3.3 J/Kg K and around 2 J/kgK for ΔB = 4 T re­                          second order magnetic phase transition. The RCP(∆S)/∆B values de­
+spectively 2 T, very close with other compounds showing the po­                           creases slowly when the Ni concentration increases but do not de­
+tential of these material for applications. One can see that the TEC                      pend significantly on the applied magnetic field change. The
+values decrease with increasing TH C range for all sample in the same                     decrease of the RCP(∆S)/∆B values with increasing Ni concentration
+way as was reported earlier [39–41].                                                      could be attributed to the narrowing of the │ΔSm│peaks. The TEC
+                                                                                          values are high enough in order to consider these compounds for
+4. Conclusions                                                                            magnetocaloric cooling applications.
+
+    A detailed analysis of electronic and magnetic properties of                          CRediT authorship contribution statement
+GdCo2-xNix compounds, with x = 0.2, 0.25 and 0.3 has been per­
+formed, involving different tools: structural analysis, electronic                           Gabriela Souca: Data curation, Investigation, Writing – original
+structure calculations combined with XPS, magnetic and magneto­                           draft, Writing – review & editing. Roxana Dudric: Data curation,
+caloric characterization. X-ray diffraction measurements showed                           Investigation, Writing- Reviewing. Ruxandra Cotop: Data curation,
+that all studied samples are single phase with the cubic MgCu2 -                          Investigation. Karsten Küpper: Data curation, Investigation.
+Laves type structure. The Gd occupies − 43 m sites while Co and Ni                        Coriolan Tiusan: Data curation, Investigation, Methodology,
+are distributed randomly in − 3 m positions. The lattice parameters                       Software, Writing- Reviewing. Romulus Tetean: Conceptualization,
+show a very small decrease, almost negligible with substitution of Co                     Methodology, Supervision, Writing – review & editing.
+by Ni, somewhat expected, considering close values of atomic radii
+for cobalt and nickel.                                                                    Declaration of Competing Interest
+    Band structure calculations reveal the following main features:
+(i) The ground-state is antiferromagnetic, with 0.11 Ry lower energy                          The authors declare that they have no known competing fi­
+than the ferromagnetic state (ii) The total magnetic moment per                           nancial interests or personal relationships that could have appeared
+formula unit for the GdCo1.8Ni0.2 compound of 5.52 μB, in good                            to influence the work reported in this paper.
+agreement with the experimental value of 5.38 μB and the atomic
+average magnetic moments are: Gd (7.26 μB), Co (−1.29 μB) and Ni                          Acknowledgement
+(−0.29 μB). The larger calculated Gd moments with respect to the
+atomic expectation (7 μB) was explained by the hybridization of the                          C.T. acknowledges funding from the project MODESKY ID PN-III-
+Gd-5d and Co-3d orbitals. (iii) The reduction of the spin magnetic                        P4- ID-PCE-2020-0230, No. UEFISCDI: PCE 4/04.01.2021.
+moment of Co when doping with Ni is related to Co-Ni hybridization
+and not simply to a rigid band energy downward displacement ef­                           References
+fect, due to the extra-electron brought by the substitutional doping
+Ni in the Co host places.                                                                  [1] K.A. Gschneidner, L. Eyring, Handbook on the Physics and Chemistry of Rare
+                                                                                               Earths, (1978).
+    XPS measurements showed no significant shift in the binding                            [2] K.A. Gschneidner, V.K. Pecharsky, Binary rare earth Laves phases - an overview,
+energy of the investigated Co core levels with the change of Ni                                Z. Fur Krist. 221 (2006) 375–381, https://doi.org/10.1524/zkri.2006.221.5-7.375
+concentration, as expected considering that the lattice parameter                          [3] G. Wiesinger, G. Hilscher, Magnetism of hydrides, in: K.-H.-J. Buschow (Ed.),
+                                                                                               Handbook on Magnetic Materials, 17 Elsevier B.V., 2008, pp. 293–456 Ch 5.
+and hence the distance between the atoms is almost the same for                            [4] K.H.J. Buschow, Reports on progress in physics intermetallic compounds of rare-
+investigated GdCo2-xNix compounds. The Co 2p XPS spectra are                                   earth and 3d transition metals, Rep. Prog. Phys. 40 (1977) 1179–1256 http://
+dominated by two features located at 778.2 eV and 793.2 eV attrib­                             iopscience.iop.org/article/10.1088/0034-4885/40/10/002/pdf.
+                                                                                           [5] O. Gutfleisch, M.A. Willard, E. Brück, C.H. Chen, S.G. Sankar, J.P. Liu, Magnetic
+uted to the 2p3/2 and 2p1/2 states. Both these states are accompanied
+                                                                                               materials and devices for the 21st century: stronger, lighter, and more energy
+by broad satellite lines at higher binding energies, which may be                              efficient, Adv. Mater. 23 (2011) 821–842, https://doi.org/10.1002/adma.
+explained by assuming more than one 3dn final state configuration.                             201002180
+                                                                                           [6] A.M.M. Tishin, Y.I.I. Spichkin, The magnetocaloric effect and its applications -
+The Co 3 s core level spectra show a main line located at about
+                                                                                               series in condensed matter physics, Mater. Today 6 (2003) 1–475.
+101 eV and a satellite at higher binding energy, due to the exchange                       [7] H. Zhang, B.G. Shen, Z.Y. Xu, J. Shen, F.X. Hu, J.R. Sun, Y. Long, Large reversible
+interaction between the core hole spin s and the 3d electron spin S in                         magnetocaloric effects in ErFeSi compound under low magnetic field change
+
+
+                                                                                      9
+G. Souca, R. Dudric, R. Cotop et al.                                                                                                  Journal of Alloys and Compounds 923 (2022) 166116
+
+
+       around liquid hydrogen temperature, Appl. Phys. Lett. 102 (2013), https://doi.              [25] S. Hüfner, Photoelectron. Spectrosc. 82 (1995), https://doi.org/10.1007/978-3-
+       org/10.1063/1.4794415                                                                            662-03150-6
+ [8]   C.W. Miller, D.D. Belyea, B.J. Kirby, Magnetocaloric effect in nanoscale thin films         [26] P.D. Johnson, Y. Liu, Z. Xu, D.J. Huang, Spin polarized photoemission studies of
+       and heterostructures, J. Vac. Sci. Technol. A Vac. Surf. Film. 32 (2014) 040802,                 the 3s core levels in Fe and Co, J. Electron Spectrosc. Relat. Phenom. 75 (1995)
+       https://doi.org/10.1116/1.4882858                                                                245–252, https://doi.org/10.1016/0368-2048(95)02396-8
+ [9]   R.M. Moon, W.C. Koehler, J. Farrell, Magnetic structure of rare-earth-cobalt                [27] G. Garreau, V. Schorsch, E. Beaurepaire, J.C. Parlebas, O. Speder, P. Rennert, Core-
+       (RCo2) intermetallic compounds, J. Appl. Phys. 36 (1965) 978–979, https://doi.                   level XPS spectra of supported 3d-metal ultrathin layers: experimental and
+       org/10.1063/1.1714286                                                                            theoretical studies, J. Phys. IV JP 4 (1994), https://doi.org/10.1051/jp4:1994918
+[10]   E. Burzo, Crystallographic, magnetic, and E.P.R studies of rare-earth and yttrium–          [28] D. Givord, R. Lemaire, Magnetic transition and anomalous thermal expansion in
+       cobalt laves phases, Int. J. Magn. 3 (1972) 161–170.                                             R2Fe17 compounds, IEEE Trans. Magn. 10 (1974) 109–113, https://doi.org/10.1109/
+[11]   Z. Gu, B. Zhou, J. Li, W. Ao, G. Cheng, J. Zhao, Magnetocaloric effect of GdCo2-xAlx             TMAG.1974.1058311
+       compounds, Solid State Commun. 141 (2007) 548–550, https://doi.org/10.1016/j.               [29] R. Ballou, A.S. Markosyan, I.S. Dubenko, R.Z. Levitin, Gigantic increase in the
+       ssc.2006.12.026                                                                                  Curie temperature of the R(Co1-xMnx)2 (R: heavy rare earths) systems at small
+[12]   E. Dormann, L. Schaafhausen, K.H.J. Buschow, NMR-Analysis of the conduction                      Mn concentrations, J. Magn. Magn. Mater. 110 (1992) 209–214, https://doi.org/
+       electron polarization at the gadolinium site in ferromagnetic intermetallic                      10.1016/0304-8853(92)90034-L
+       compounds, J. Magn. Magn. Mater. 2 (1976) 177, https://doi.org/10.1016/0304-                [30] K. Fujiwara, K. Ichinose, A. Tsujimura, The magnetic properties of GdCo2 com­
+       8853(75)90120-1                                                                                  pound and its hydrides, J. Phys. Soc. Jpn. 56 (1987) 2149–2152, https://doi.org/10.
+[13]   M. Mizumaki, K. Yano, I. Umehara, F. Ishikawa, K. Sato, A. Koizumi, N. Sakai,                    1143/JPSJ.56.2149
+       T. Muro, Verification of Ni magnetic moment in (formula presented) Laves phase              [31] K.N.R. Taylor, Intermetallic rare-earth compounds, Adv. Phys. 20 (87) (1971)
+       by magnetic circular dichroism measurement, Phys. Rev. B Condens. Matter                         551–660, https://doi.org/10.1080/00018737100101311
+       Mater. Phys. 67 (2003) 2–5, https://doi.org/10.1103/PhysRevB.67.132404                      [32] V.I. Gavrilenko, R.Q. Wu, Magnetostriction and magnetism of rare earth inter­
+[14]   K.N.R. Taylor, Transition metal moment collapse in Gd(Co1-xNix)2, Phys. Lett.                    metallic compounds: first principle study, J. Appl. Phys. 89 (2001) 7320–7322,
+       29A (1969) 372–373, https://doi.org/10.1016/0375-9601(69)90308-9                                 https://doi.org/10.1063/1.1356038
+[15]   E. Burzo, D.P. Lazar, M. Ciorascu, Local environment effect in Gd(CoxNi1-x)2                [33] J. Ćwik, Magnetism and magnetocaloric effect in multicomponent Laves-phase
+       pseudobinary compounds, Phys. Stat. Sol. (b) 65 (1974) K145–K148.                                compounds: study and comparative analysis, J. Solid State Chem. 209 (2014)
+[16]   T. Kaneko, K. Marumo, S. Miura, G. Kido, S. Abe, H. Yoshida, K. Kamigaki,                        13–22, https://doi.org/10.1016/j.jssc.2013.10.011
+       Y. Nakagawa, High-field susceptibility of pseudobinary compounds Gd(Co1-                    [34] J. Lyubina, O. Gutfleisch, M.D. Kuz’min, M. Richter, La(Fe,Si)13-based magnetic
+       xNix)2, Phys. B+C 149 (1988) 334–339, https://doi.org/10.1016/0378-4363(88)                      refrigerants obtained by novel processing routes, J. Magn. Magn. Mater. 320
+       90263-X                                                                                          (2008) 2252–2258, https://doi.org/10.1016/j.jmmm.2008.04.116
+[17]   D. Bloch, R. Lemaire, Metallic alloys and exchange-enhanced paramagnetism.                  [35] M. Balli, D. Fruchart, D. Gignoux, M. Balli, D. Fruchart, D. Gignoux, The influence
+       Application to rare-earths-cobalt alloys, Phys. Rev. B 2 (1970) 2648–2650,                       of gadolinium on magnetism and magnetocaloric properties of HoCo2 alloy, J.
+       https://doi.org/10.1103/PhysRevB.2.2648                                                          Alloy. Compd. 455 (1–2) (2008) 73–76, https://doi.org/10.1016/j.jallcom.2007.01.
+[18]   I.A. Campbell, Indirect exchange for rare earths in metals, J. Phys. F Met. Phys. 2              110
+       (1972) 3–7, https://doi.org/10.1088/0305-4608/2/3/004                                       [36] V. Franco, J.S. Blázquez, A. Conde, Field dependence of the magnetocaloric effect
+[19]   E. Burzo, L. Chioncel, R. Tetean, O. Isnard, On the R 5d band polarization in rare-              in materials with a second order phase transition: a master curve for the
+       earth-transition metal compounds, J. Phys. Condens. Matter 23 (2011), https://                   magnetic entropy change, Appl. Phys. Lett. 89 (2006) 89–92, https://doi.org/10.
+       doi.org/10.1088/0953-8984/23/2/026001                                                            1063/1.2399361
+[20]   B. Zegaou, N. Benkhettou, D. Rached, A.H. Reshak, S. Benalia, Electronic structure          [37] A.M. Tishin, Magnetocaloric effect: current situation and future trends, J. Magn.
+       of GdX2 (X = Fe, Co and Ni) intermetallic compounds studied by the GGA + U                       Magn. Mater. 316 (2007) 351–357, https://doi.org/10.1016/j.jmmm.2007.03.015
+       method, Comput. Mater. Sci. 87 (2014) 172–177, https://doi.org/10.1016/j.                   [38] L.D. Griffith, Y. Mudryk, J. Slaughter, V.K. Pecharsky, Material-based figure of
+       commatsci.2014.02.005                                                                            merit for caloric materials, J. Appl. Phys. 123 (2018), https://doi.org/10.1063/1.
+[21]   P. Blaha, K. Schwarz, F. Tran, R. Laskowski, G.K.H. Madsen, L.D. Marks, WIEN2k:                  5004173
+       an APW+lo program for calculating the properties of solids, J. Chem. Phys. 152              [39] Z. Juan, L. Lirong, W. Gui, Synthesis and magnetocaloric properties of La0.85K
+       (2020) 074101, https://doi.org/10.1063/1.5143061                                                 0.15MnO3 nanoparticles, Adv. Powder Technol. 22 (2011) 68–71, https://doi.org/
+[22]   S.M. Saini, N. Singh, T. Nautiyal, S. Auluck, Comparative study of optical and                   10.1016/j.apt.2010.03.012
+       magneto-optical properties of GdFe2 and GdCo2, J. Phys. Condens. Matter 19                  [40] W. Zhong, W. Chen, W. Ding, N. Zhang, Y. Du, Q. Yan, Magnetocaloric properties
+       (2007), https://doi.org/10.1088/0953-8984/19/17/176203                                           of Na-substituted perovskite-type manganese oxides, Solid State Commun. 106
+[23]   B.N. Harmon, V.P. Antropov, A.I. Liechtenstein, I.V. Solovyev, V.I. Anisimov,                    (1998) 55–58, https://doi.org/10.1016/S0038-1098(97)10239-3
+       Calculation of magneto-optical properties for 4f systems: LSDA + Hubbard U                  [41] S. Choura-Maatar, M.M. Nofal, R. M’nassri, W. Cheikhrouhou-Koubaa, N. Chniba-
+       results, J. Phys. Chem. Solids 56 (1995) 1521–1524, https://doi.org/10.1016/0022-                Boudjada, A. Cheikhrouhou, Enhancement of the magnetic and magnetocaloric
+       3697(95)00122-0                                                                                  properties by Na substitution for Ca of La0.8Ca0.2MnO3 manganite prepared via
+[24]   J. Rodríguez-Carvajal, Recent advances in magnetic structure determination by                    the Pechini-type sol–gel process, J. Mater. Sci. Mater. Electron. 31 (2020)
+       neutron powder diffraction, Phys. B Phys. Condens. Matter 192 (1993) 55–69,                      1634–1645, https://doi.org/10.1007/s10854-019-02680-4
+       https://doi.org/10.1016/0921-4526(93)90108-I
+
+
+
+
+                                                                                              10
+

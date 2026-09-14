@@ -1,0 +1,29 @@
+{
+  "id": "_z8EKLDphNObZXHntXThlopPQh1Z89ONciSGUKmgFFA=",
+  "object": "chat.completion",
+  "model": "Intern-S1",
+  "created": 1789326070,
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"events\": [\n    {\n      \"material_formula\": \"YBaCuFeO5\",\n      \"type\": \"neel\",\n      \"temperature_k\": 446,\n      \"uncertainty_k\": null,\n      \"qualifier\": \"reported_value\",\n      \"sublattice\": null,\n      \"sample_conditions\": null,\n      \"quote\": \"Below the antiferromagnetic ordering temperature TN = 446 K\"\n    }\n  ],\n  \"abstained\": false\n}\n```"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "moderation": {
+    "sensitive": false,
+    "category": ""
+  },
+  "usage": {
+    "prompt_tokens": 406,
+    "completion_tokens": 109,
+    "total_tokens": 515
+  },
+  "metadata": {
+    "search_used": false,
+    "reasoning_used": false
+  }
+}

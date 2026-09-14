@@ -1,0 +1,29 @@
+{
+  "id": "uI-qMstonqBzu4Q9jFjbn4pPQh1Z89ONciSGUKmgFFA=",
+  "object": "chat.completion",
+  "model": "Intern-S1",
+  "created": 1789325219,
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"events\": [\n    {\n      \"type\": \"curie\",\n      \"temperature_k\": 745,\n      \"qualifier\": \"exact\",\n      \"quote\": \"with a high Curie temperature of 745 K [3].\"\n    }\n  ],\n  \"abstained\": false\n}\n```"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "moderation": {
+    "sensitive": false,
+    "category": ""
+  },
+  "usage": {
+    "prompt_tokens": 201,
+    "completion_tokens": 72,
+    "total_tokens": 273
+  },
+  "metadata": {
+    "search_used": false,
+    "reasoning_used": false
+  }
+}

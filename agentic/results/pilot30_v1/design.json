@@ -1,0 +1,53 @@
+{
+  "status": "frozen_before_training",
+  "dataset": "agentic/data/pilot30_v1",
+  "objective": "Source-balanced reference-relative atom-denoising preference on ordered parent prototypes",
+  "training_pairs": 47,
+  "training_source_groups": 3,
+  "validation_pairs": 1,
+  "test_pairs": 1,
+  "electrical_controls": 1,
+  "seeds": [
+    17,
+    42,
+    123
+  ],
+  "steps_per_run": 40,
+  "learning_rate": 0.0001,
+  "beta": 100.0,
+  "reference_kl_weight": 1.0,
+  "max_gradient_norm": 1.0,
+  "trainable_parameters": [
+    "decoder.type_out.weight",
+    "decoder.type_out.bias"
+  ],
+  "frozen": [
+    "backbone",
+    "coordinate_head",
+    "lattice_head",
+    "time_embedding",
+    "band_gap_conditioner"
+  ],
+  "timesteps": [
+    100,
+    500,
+    900
+  ],
+  "noise_replicates_train": 2,
+  "noise_replicates_eval": 4,
+  "conditions": "base unconditional; band-gap arm shared MP20 reference gap=0 where both endpoints known; missing reference gap causes pairwise null condition",
+  "electrical_probe_conditions_ev": [
+    0.0,
+    1.0,
+    2.0
+  ],
+  "checkpoint_selection": "Fixed final step; no validation/test-based hyperparameter or checkpoint selection",
+  "claim_limit": "Feasibility pilot, no demonstrated Tc prediction/discovery or finite-gap high-Tc ability",
+  "controls": [
+    "frozen reference",
+    "Fe fraction ordering baseline",
+    "shuffled training labels at seed42",
+    "exclude Co2FeSi sensitivity at seed42"
+  ],
+  "generation": "Fixed prototype input, 1000-step full diffusion, original versus seed42 adapter, no fixed atom types; structural validity only"
+}

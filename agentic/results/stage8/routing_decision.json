@@ -1,0 +1,14 @@
+{
+  "status": "audited_not_forced_into_training",
+  "pipeline_pair": "Mn4N_1962_gt_Mn3AlC_1962",
+  "pipeline_pair_allowed_use": "Interface validation or later training; not pretraining-unseen discovery evaluation",
+  "pretraining_overlap": "Both nominal endpoint structures match current local MP20 train at relaxed tolerances; historical training snapshot not verified",
+  "feni_route": "Retain composition/event/uncertainty evidence; defer exact ordered-structure supervision",
+  "reason": "N deficiency, unresolved ordering and exact 0.92 scenario minimum123atoms exceed current100 atom limit",
+  "new_structure_training_pairs": 0,
+  "evaluation_pairs_approved": 0,
+  "next_priority": "Choose fully occupied, explicit-structure experimental comparisons from a different source group; audit MP20 overlap before full extraction",
+  "alternative_if_feni_retained": "Composition-level or structure-ensemble supervision requires a separate evaluated method; not implemented here",
+  "api_calls": 0,
+  "training_run": false
+}

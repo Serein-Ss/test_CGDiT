@@ -1,0 +1,411 @@
+                                              PHYSICAL REVIEW B 77, 125132 共2008兲
+
+     Experimental determination of the R(5d)-T(3d) hybridization in rare-earth intermetallics
+
+                                         M. A. Laguna-Marco, J. Chaboy, and C. Piquer
+                Instituto de Ciencia de Materiales de Aragón, CSIC-Universidad de Zaragoza, 50009 Zaragoza, Spain
+                                       共Received 12 November 2007; published 27 March 2008兲
+                We present an x-ray magnetic circular dichroism 共XMCD兲 study performed at the R L2 edge in RAl2 and
+             RT2 共T = Fe, Co兲 intermetallic compounds. By analyzing the modification of the XMCD spectra as both the rare
+             earth and the alloyed element 共Al, Fe, or Co兲 are changed in the compound, an extra contribution, XMCDT, has
+             been identified and undoubtedly associated with the R共5d兲-T共3d兲 hybridization in Fe and Co compounds. The
+             sign and intensity of this contribution are found to be related to the magnetism of the T neighboring atoms as
+             well as to the strength of the T-R interaction. These findings open the possibility of experimentally quantifying
+             both the R共4f兲-R共5d兲 and the T共3d兲-R共5d兲 hybridizations, which govern the R-T interaction.
+
+             DOI: 10.1103/PhysRevB.77.125132                                PACS number共s兲: 78.70.Dm, 61.05.cj, 75.50.Bb
+
+
+                     I. INTRODUCTION                                        In this paper, we address this problem in connection with
+                                                                        the binary RAl2, RCo2, and RFe2 compounds, whose macro-
+    Rare-earth 共R兲 transition-metal 共T兲 intermetallics have re-         scopic properties are well known. Since the R共5d兲 states are
+ceived great attention in the last decades owing to their tech-         known to be hybridized with both R共4f兲 and T共3d兲 states, we
+nological significance as permanent magnets. However, the               have performed a systematic study of the L2-edge XMCD
+full understanding of the magnetic properties of these com-             spectrum in different RAl2, RCo2, and RFe2 compounds
+pounds is still missing. It needs the experimental determina-           aimed to prove how these signals are sensitive to the effect
+tion of the magnetic coupling between R共4f兲 and T共3d兲 mo-               of R共4f兲-R共5d兲 and T共3d兲-R共5d兲 hybridizations. Our results
+ments. In particular, the determination of the role played by           show the presence of an extra magnetic contribution,
+the rare-earth 5d states, R共5d兲, and their hybridization with           XMCDT, associated with the transition metal even when the
+the 3d states of the transition metal, T共3d兲, is a fundamental          rare earth is probed. Moreover, a clear correlation has been
+question which has not been solved to date.                             established between XMCDT and both the magnetic state of
+    This goal has motivated a large quantity of work from               the T element and the strength of the R-T interaction. These
+both theoretical and experimental points of view since the              results suggest that XMCD can be used to get direct experi-
+1970s. More recently, the development of the X-ray mag-                 mental information on the T共3d兲-R共5d兲 hybridization and its
+netic circular dichroism 共XMCD兲 technique triggered a                   role in the R-T interaction that determines the magnetic prop-
+renewed interest in the field.1,2 In principle, the XMCD                erties of these intermetallic compounds.
+technique can provide the experimental magnetic character-
+ization of R共5d兲 states through the analysis of the R                                           II. EXPERIMENT
+L2,3-edge XMCD spectra. Unfortunately, the XMCD expec-
+                                                                            Rare-earth L2-edge XMCD experiments were performed
+tations focused on disentangling of the magnetic contribution
+                                                                        at the beamline BL39XU of the SPring-8 facility.12 XMCD
+of the 5d and 4f states in lanthanides have not been fulfilled.
+                                                                        spectra were recorded in the transmission mode using the
+The sign and magnitude of the XMCD signals at the R L2,3
+                                                                        helicity-modulation technique.13 The spin-dependent absorp-
+absorption edges are affected by the contribution of quadru-
+                                                                        tion coefficient was obtained as the difference of the X-ray
+polar 共2p → 4f兲 transitions3,4 and by the spin dependence of
+                                                                        absorption spectroscopy 共XAS兲 spectra for antiparallel and
+the radial matrix elements of the dipolar 共2p → 5d兲
+                                                                        parallel orientations of the photon helicity and sample mag-
+transitions.5,6 Consequently, the interpretation of the XMCD
+                                                                        netization. In all the cases, the origin of the energy scale was
+spectra at these edges is not straightforward and no direct
+                                                                        chosen at the inflection point of the absorption edge and the
+correlation between the XMCD and the 5d magnetic moment
+                                                                        XAS spectra were normalized to the averaged absorption co-
+has been established up to now.
+                                                                        efficient at high energy. The macroscopic magnetic measure-
+    The search of the whole understanding of the XMCD at
+                                                                        ments, M共T兲 and M共H兲, were recorded by using a commer-
+the L2,3 spectra of the rare earths led to the proposition of
+                                                                        cial superconducting quantum interference device
+different theoretical models7–9 whose performance has been
+                                                                        magnetometer 共Quantum Design MPMS-S5兲. For tempera-
+recently discussed by Giorgetti et al.2 In the particular case
+                                                                        tures above ambient, M共T兲 measurements were recorded by
+of R-Fe intermetallics, recent theoretical works suggest the
+                                                                        using a Faraday-type balance. The Curie temperature TC was
+need of including the R共5d兲-Fe共3d兲 hybridization to account
+                                                                        determined as the inflection point of the M共T兲 curves. Details
+for the R L2,3-XMCD, although this contribution is added ad
+                                                                        of sample preparation and characterization can be found
+hoc for different compounds.10,11 Notwithstanding the above
+                                                                        elsewhere.1,14
+results indicate that the R共5d兲 magnetic moments cannot be
+determined from the L2,3-XMCD; its sensitivity to the inter-                           III. RESULTS AND DISCUSSION
+atomic hybridization may offer an experimental way to ob-
+tain new physical information about the T共3d兲-R共5d兲 hybrid-                The XMCD spectra measured at the R L2 edge on the
+ization.                                                                binary Laves phases RAl2, RFe2, and RCo2, at 5 K and under
+
+1098-0121/2008/77共12兲/125132共5兲                                 125132-1                            ©2008 The American Physical Society
+LAGUNA-MARCO, CHABOY, AND PIQUER                                                                                                                            PHYSICAL REVIEW B 77, 125132 共2008兲
+
+                           0.06
+                                                                              0.03                                                        TABLE I. Magnetic parameters of the RAl2, RFe2, RCo2, and
+                                                          F
+                                                                                                                                      Lu共Al0.1Co0.9兲2 compounds: M is the magnetization measured at
+ Norm. XMCD (arb. units)
+                                   a)                                                 b)                      F
+                                                                                                C
+                           0.00                                               0.00
+                                                                                                                                      T = 5 K and H = 5 kOe and TC is the Curie temperature obtained as
+                           -0.06                               Gd L2 edge    -0.03                                                    the inflection point of the experimental M共T兲 curves. PM—
+                                                                                                                   Tb L2 edge
+                                                                                                                                      paramagnetic compound.
+                           -0.12        GdCo2                                -0.06           TbFe2
+                                          GdFe2                                            TbCo2
+                           -0.18                                             -0.09                                                                                        M                  TC
+                                          GdAl2                              -0.12           TbAl2                                    Sample                           共␮B / f.u.兲           共K兲
+                           -0.24
+                                                  E                                                  E
+                                    -20           0            20      40              -20           0            20      40          YFe2                               2.87                541
+                           0.02                           F                   0.03                        F                           YCo2                                ¯                  PM
+ Norm. XMCD (arb. units)
+
+
+
+
+                                   c)                                                 d)             E1
+                                             C E1
+                           0.00                                               0.00                                                    GdFe2                              3.91                793
+                           -0.02        DyFe2                                          HoFe2                                          GdCo2                              5.00                400
+                                                                              -0.03
+                                                               Dy L2 edge                   C                     Ho L2 edge
+                                                                                                                                      GdAl2                              7.00                164
+                           -0.04
+                                        DyCo2                                              HoCo2
+                                                                              -0.06
+                           -0.06                          E2                                 HoAl2
+                                                                                                                                      TbFe2                              4.79                653
+                                                                                                          E2
+                                        DyAl2
+                                                      E                       -0.09                  E                                TbCo2                              6.32                235
+                           -0.08
+                                    -20           0            20      40              -20           0            20      40          TbAl2                              8.70                109
+                                                                             0.025
+ Norm. XMCD (arb. units)
+
+
+
+
+                           0.03    e)             E1 F                                f)
+                                                                                                                  Lu L2-edge          DyFe2                              6.45                628
+                                          ErFe2
+                                                                             0.000                                                    DyCo2                              7.46                150
+                           0.00
+                                                                                                                                      DyAl2                              9.45                 58
+                                             C
+                                                                Er L2 edge                                    Lu(Al0.1Co0.9)2
+                           -0.03                                             -0.025
+                                        ErCo2                                                                                         HoFe2                              6.54                606
+                                                                                                                                      HoCo2                              7.98                 78
+                           -0.06                                                                                  LuFe2
+                                          ErAl2           E2                 -0.050
+                                                  E
+                                                                                                                                      HoAl2                              9.25                 28
+                                    -20           0            20      40              -20           0            20      40
+                                                                                                                                      ErFe2                              5.57                582
+                                                 E-E0 (eV)                                         E-E0 (eV)
+                                                                                                                                      ErCo2                              7.15                 32
+    FIG. 1. 共Color online兲 R L2-edge XMCD spectra recorded at                                                                         ErAl2                              7.90                 13
+T = 5 K and H = 50 kOe on RAl2 共blue dotted line兲, RFe2 共black                                                                        LuFe2                              2.86                582
+dashed兲, and RCo2 共red solid兲. XMCD spectra on Lu共Al0.1Co0.9兲2 at
+                                                                                                                                      LuCo2                               ¯                  PM
+T = 5 K, H = 100 kOe 共red solid line兲 and T = 5 K, H = 30 kOe
+共red dotted line兲 are also included.                                                                                                  Lu共Al0.1Co0.9兲2                    1.16                 90
+
+
+
+an applied magnetic field of 50 kOe, are displayed in Fig. 1.                                                                         peak E is more clearly observed in the case of DyFe2, HoFe2,
+The spectral profile of RAl2 consists of a main negative peak                                                                         and ErFe2 compounds. Indeed, ErFe2 not only presents a
+centered at E-E0 ⬃ 2 eV above the edge 共E兲 and a smaller                                                                              reduction of E1 but a positive peak at energy of ⬃0 eV.
+positive peak at higher energy, E-E0 ⬃ 7 eV 共F兲. In addition                                                                              The different R L2-edge XMCD profile observed for RAl2,
+to the main spectral features, DyAl2, HoAl2, and ErAl2                                                                                RFe2, and RCo2 cannot be explained in terms of the current
+present a negative shoulder at E-E0 ⬃ −5 eV, while in the                                                                             knowledge of the XMCD signals at the R L2,3 absorption
+case of Tb, a small positive peak appears at this energy 共C兲.                                                                         edges. The commonly accepted description states that the
+   When the 3d metal is placed in the lattice, both the shape                                                                         shape and the amplitude are governed by the 4f magnetism
+and the amplitude of the XMCD spectra are strongly modi-                                                                              through the intra-atomic R共4f兲-R共5d兲 hybridization.5 In the
+fied with respect to those of the RAl2 compounds. The modi-                                                                           RT2 series of compounds, the 4f magnetic moment is com-
+fication of the amplitude does not occur equally through the                                                                          monly assumed to be close to the free-ion values in all the
+whole energy range. Thus, feature F is slightly affected,                                                                             studied compounds, in agreement with magnetization data
+while the amplitude of the main negative peak E is dramati-                                                                           共see Table I兲. Consequently, no significant variation of the
+cally reduced. Moreover, the low energy part of peak E 共E1兲                                                                           intra-atomic R共4f兲-R共5d兲 polarization effect is expected and
+undergoes a more abrupt decrease than higher energy part                                                                              the experimental behavior of the XMCD cannot be explained
+共E2兲. As a result, the shape of this feature evolves from a                                                                           in terms of a different 4f magnetism through the three series.
+single negative peak in RAl2 to a more structured profile                                                                             On the contrary, the fact that the magnetic properties of the R
+showing two components when the 3d metals are present.                                                                                counterpart 共Al, Fe, and Co兲 are clearly different suggests
+Furthermore, it can be seen in Fig. 1 that, despite the same                                                                          that the origin of such a behavior stems from an unexpected
+kind of modification holds for both the Co and Fe Laves                                                                               magnetic contribution arising from the T sublattice even if
+phases, the reduction at E1 is clearly more obvious in the                                                                            the R is probed. Indeed, these results, showing evidence of
+case of Fe compounds. This modification of the profile of                                                                             the influence of the magnetic 3d atoms at the R L2-XMCD,
+
+                                                                                                                                125132-2
+EXPERIMENTAL DETERMINATION OF THE…                                                                                                                                           PHYSICAL REVIEW B 77, 125132 共2008兲
+
+                                 0.36                                   0.36
+                                                                                                                                                                                               f x LuFe2 (Lu L2)
+
+
+
+
+                                                                                                                  R L2-edge Norm. XMCD (arb. units)
+                                                     RFe2-RAl2                                  RCo2-RAl2                                             0.01
+                                                                                                                                                                                                    +
+                                 0.30                                   0.30                                                                                                                   HoFe2 (Ho L2)
+                                                                                                                                                                 HoFe2
+Substracted XMCDT (arb. units)
+
+
+
+
+                                                              Er                                      Er
+                                                                                                                                                      0.00
+                                 0.24                                   0.24
+
+                                                              Ho                                      Ho
+                                 0.18                                   0.18                                                                          -0.01                                                             HoAl2
+                                                              Dy                                      Dy                                                                                                            Ho L2 edge
+                                 0.12                                   0.12
+                                                                                                                                                      -0.02     LuFe2
+                                                              Tb                                      Tb
+                                 0.06                                   0.06
+                                                                                                                                                                HoAl2
+                                                              Gd                                      Gd                                              -0.03
+                                 0.00                                   0.00
+                                                                                                                                                          -20   -10      0   10      20   30   -20   -10     0     10    20     30
+                                    -20   -10   0   10   20   30   40      -20   -10   0   10    20   30    40                                                           E-Eo (eV)                         E-Eo (eV)
+                                                E-Eo (eV)                              E-Eo (eV)
+                                                                                                                     FIG. 3. 共Color online兲 Comparison of the R L2-edge XMCD
+  FIG. 2. 共Color online兲 XMCDT signal obtained after subtraction,                                                 spectra recorded on HoAl2 共blue dotted line兲, HoFe2 共black dashed兲,
+XMCDRT2 − XMCDRAl2.                                                                                               LuFe2 共magenta兲, and the XMCD spectrum obtained as the addition
+                                                                                                                  of HoFe2 and LuFe2 共red兲. A factor 共f = 1.2 in this case兲 is necessary
+are in agreement with previous findings in the R共Al1−xFex兲2                                                       to meet both profiles.
+and R共Al1−xCox兲2 series.1,15 In these cases, it was found that
+as Al is replaced by magnetic atoms 共Fe or Co兲, a new con-                                                        magnetic signal cannot arise from the R共4f兲-R共5d兲 hybrid-
+tribution emerges whose intensity, gradually evolving as a                                                        ization, as Lu has its 4f band complete filled, the appearance
+function of the Al共T兲 content, is related to the number of 3d                                                     of a nonzero XMCD signal at the Lu L2 edge has to be
+atoms surrounding the absorbing rare-earth atom, as well as                                                       explained in terms of the polarization of the R共5d兲 states
+to the value of the magnetic moment of the specific transition                                                    induced by the T共3d兲 moments. Moreover, if this hypothesis
+metal in the compound.1,15                                                                                        is correct, the Lu L2 XMCD signal will be proportional to
+    In order to isolate the T contribution to the R L2-XMCD,                                                      ␮T. Therefore, we have recorded the R L2-edge XMCD spec-
+we have subtracted from each recorded dichroic                                                                    tra in the Laves phases containing a nonmagnetic rare earth:
+spectrum that of RAl2 with the same R. That is,                                                                   LuFe2 and Lu共Al0.1Co0.9兲2.20 As shown in Fig. 1共f兲, the in-
+XMCDT = XMCDRT2 − XMCDRAl2. In other words, we have                                                               tensity of the LuFe2 signal is about twice that of the Co
+considered that the XMCD spectra measured at the R L2                                                             compound, in agreement with the different values of ␮Fe
+edge on R-T systems are made up of two magnetic contribu-                                                         共2.86␮B for LuFe2兲 and ␮Co 关1.16␮B for Lu共Al0.1Co0.9兲2兴 ob-
+tions: one of R origin and the other of T origin. According to                                                    tained from macroscopic magnetic data at H = 50 kOe.
+the previously discussed models, the rare-earth contribution                                                          The comparison of the subtracted signals to the Lu
+to the R L2-XMCD spectrum, XMCDR, is determined by the                                                            L2-edge spectra of LuFe2 and Lu共Co0.9Al0.1兲2 compounds re-
+4f states through both the quadrupolar transition and the spin                                                    ports some other important results: 共i兲 the Lu XMCD spec-
+dependence of the radial matrix elements of the dipolar tran-                                                     trum appears at the same E − E0 energy where the “T contri-
+sition arising from the intra-atomic R共4f兲-R共5d兲 hybridiza-                                                       bution” is located in the RT2 cases, 共ii兲 the profile of the
+tion. Due to its atomiclike nature, the 4f magnetic moment of                                                     subtracted signals closely resembles the Lu signals, and 共iii兲
+the RT2 compounds remains near unchanged for a fixed rare                                                         in the case of Lu samples, the L2 XMCD spectrum is nega-
+earth. Therefore, it is expected that the 4f contribution,                                                        tive, while the subtracted signal is positive. This is in agree-
+XMCDR, does not change by varying T. By assuming that                                                             ment with the opposite direction of ␮Fe共Co兲 relative to the
+this contribution corresponds to that of the RAl2 compounds,                                                      total magnetization of the sample for Lu and heavy magnetic
+the subtraction procedure above allows one to disentangle                                                         rare-earth samples.
+the magnetic contribution of the transition metal, XMCDT, to                                                          There is no reason for the disappearance of the influence
+the rare-earth L2-XMCD spectrum. The result of applying                                                           of the 3d moments when the R carries a 4f magnetic mo-
+this subtraction procedure is shown in Fig. 2. The subtracted                                                     ment. Consequently, the magnetism of the 5d states results
+signal is mainly made of a very intense positive peak, at                                                         from the interplay of both R共4f兲-R共5d兲 and T共3d兲-R共5d兲 po-
+E-E0 ⬃ 0 eV, followed by a small structured negative peak at                                                      larizations, giving rise to two different contributions to the
+higher energies. As it can be seen, the profile is basically the                                                  XMCD spectrum at the R L2,3 edges. To illustrate to what
+same no matter the rare earth nor the transition metal.                                                           extent this schematic two sublattice picture is suitable for
+    In order to go further into the origin of the emerging                                                        describing the XMCD spectra at the L2 edge in the case of
+component, we have born in mind the mechanism of the                                                              R-T intermetallics, we have “rebuilt” the spectrum of RAl2
+magnetic coupling in these materials, where the R共5d兲-T共3d兲                                                       by the addition of RT2 and LuT2 signals. In Fig. 3, the result
+hybridization plays a critical role.16–18 The influence of the                                                    of such a procedure has been plotted for Ho compounds. As
+T共3d兲 states into the R共5d兲 magnetism is demonstrated by                                                          it can be seen, the experimental HoAl2 spectra match with
+the existence of R L2,3 dichroism in R-T compounds, where                                                         the profile obtained by applying a two HoFe2 + f LuFe2 sub-
+R is non magnetic as Lu.19 Taking into account that the Lu                                                        lattice model. A similar result is obtained for all the RT2
+
+                                                                                                            125132-3
+LAGUNA-MARCO, CHABOY, AND PIQUER                                                                                                        PHYSICAL REVIEW B 77, 125132 共2008兲
+
+                                         0.12                                            60                        addition, they conclude that the variation of the T共3d兲-R共5d兲
+Intensity subtracted XMCD (arb. units)
+
+                                                                                                                   hybridization through the series is negligible in a first ap-
+                                         0.10                                            40
+                                                                                                                   proximation. Following this argument, we have included the
+                                                                  RFe2- RAl2                                       modification of nRFe into the comparison in Fig. 4. The nRFe
+                                         0.08                                                                      coefficients were calculated from the experimental TC values
+
+
+
+
+                                                                                               nRFe (arb. units)
+                                                                                         20
+                                                                                                                   following a standard procedure for intermetallic
+                                         0.06                                                                      compounds.24 Both the intensity of the dichroic signal and
+                                                                                         0                         nRT show the same trend which suggests the common origin
+                                         0.04
+                                                                                                                   of XMCDT and nRT. This relationship between XMCDT and
+                                                                                         -20                       nRT has not been previously reported. It also explains the
+                                                     RCo2- RAl2                                                    need of including a factor f in Fig. 3.
+                                         0.02
+                                                                                                                      Regarding the Co Laves series, we cannot apply the same
+                                                                                         -40
+                                                                                                                   procedure and make a comparison between the intensity of
+                                                Gd       Tb       Dy    Ho     Er   Lu
+                                                                                                                   the XMCD signal and nRT obtained from TC values due to
+   FIG. 4. 共Color online兲 Comparison of the intensity of the
+                                                                                                                   the particular behavior of Co in this series.20 Indeed, the
+XMCDT signal 共Fe series: 䊏; Co series: 䊏兲. In a different scale, the                                               magnetism of the Co sublattice is strongly dependent on the
+modification of the nRFe coefficient calculated from M共T兲 curves is                                                specific R element in the alloy. Thus, LuCo2 is paramagnetic,
+also included 共쎻兲. Dotted lines are guides for the eyes.                                                           whereas RCo2 compounds with a heavy rare earth are ferri-
+                                                                                                                   magnets showing a Co moment of ⬃0.9␮B. On the other
+compounds. f is a factor necessary to meet the profiles. It                                                        hand, Lu共Al0.1Co0.9兲2 shows a higher TC than HoCo2 and
+ranges from 1.1 ErFe2 in to 1.7 in GdFe2.                                                                          ErCo2. Nevertheless, values of the exchange interaction pre-
+    Moreover, the comparison of the intensity of XMCDT for                                                         sented by Duc and Brommer25 indicate a diminution with
+the different measured compounds 共Fig. 4兲 shows that the
+                                                                                                                   increasing atomic number across the RCo2 series, which is in
+size of the Fe contribution is 1.4–2 times that obtained for
+the Co Laves phases. As the Fe magnetic moment, ⬃1.6␮B,                                                            agreement with our results presented in Fig. 4.
+is about twice larger than the Co magnetic moment, ⬃0.9␮B,                                                            A final comment is deserved to the different contribution
+in the RT2 Laves phases, this result confirms that the emerg-                                                      of the transition metal to the XMCD recorded at the L2 and
+ing peak is related with a magnetic contribution stemming                                                          L3 absorption edges of the rare earths. In the case of the L3
+from the 3d metal.                                                                                                 edge spectra, the same trend has not been observed. The
+    The XMCDT signal also presents, as a general trend, a                                                          origin of these differences has been discussed in Ref. 26.
+reduction as the atomic number of the rare earth increases.
+Given that ␮Fe can be regarded as constant through the bi-
+nary RFe2 series, the evolution of the intensity of the
+XMCDFe signal presented in Fig. 4 can hardly be explained                                                                     IV. SUMMARY AND CONCLUSIONS
+in terms of a modification of ␮Fe. Even if we assume that ␮Fe
+varies from LuFe2 共1.45␮B兲 to GdFe2 共⬃1.60␮B兲,21 this in-                                                              Summarizing, we have performed an XMCD study at the
+crease is too small to account for the clear difference ob-                                                        R L2 edge in the RAl2, RFe2, and RCo2 series. In the light of
+served in the intensity of the subtracted signal. Therefore,                                                       our results, the XMCD signal measured at the R L2 edge in
+different arguments have to be investigated to explain the                                                         compounds with two magnetic sublattices, R and T, can be
+intensity modification induced by the substitution of the rare                                                     regarded as consisting of the addition of two different con-
+earth. Taking into account the proposed origin of XMCDT,                                                           tributions. These contributions emerge as a consequence of
+its modification must be related to changes in the                                                                 the polarization of the 5d states by both the R共4f兲 ones,
+T共3d兲-R共5d兲 hybridization. Band-structure calculations show
+                                                                                                                   through an intratomic exchange, and the 3d states of the
+that the decreasing lattice constant with the atomic number Z
+                                                                                                                   transition metal, through the T共3d兲-R共5d兲 hybridization. The
+leads to an enhancement of the T共3d兲-R共5d兲 hybridization.22
+                                                                                                                   transition-metal contribution has been isolated and shown to
+Therefore, this volume effect alone would not explain the
+decrease of the T contribution. A further point to be consid-                                                      be related with both the number of T neighbors around the
+ered is the fact that the strength of the T共3d兲-R共5d兲 hybrid-                                                      absorbing R 共Ref. 1兲 and the magnetic moment 共both mag-
+ization will also be affected by the polarization of the R共5d兲                                                     nitude and sign兲 of the transition metal in the compound ␮T.
+states due to the R共4f兲 shell. At this point, it is interesting to                                                 Moreover, there is a good agreement between the modifica-
+note that the R-T interaction is considered to be strongly                                                         tion of both XMCDT and the molecular field coefficient nRT
+affected by the intratomic R共4f兲-R共5d兲 exchange. In view of                                                        through the RT2 series. This result indicates that this XMCD
+the indirect nature of the R-T interaction, Belorizki et al.23                                                     analysis well may be further used to get an experimental
+explained the decrease of the molecular field coefficient nRT                                                      determination of the T共3d兲-R共5d兲 hybridization. Such an in-
+across the lanthanide series in terms of the reduction of the                                                      formation is not visible in macroscopic measurements and,
+R共4f兲-R共5d兲 hybridization. The reduction of the atomic ra-                                                         as a result, it has not been obtained to date. This information
+dius of the R ion with increasing Z is much weaker 共about                                                          is of fundamental importance not only to get a correct inter-
+ten times兲 than the decrease of the 4f shell, leading to a                                                         pretation of the R L2,3 XMCD signals but also to provide a
+smaller overlap of the 4f and 5d shells with increasing Z. In                                                      full understanding of the magnetism of R-T intermetallics.
+
+                                                                                                         125132-4
+EXPERIMENTAL DETERMINATION OF THE…                                                         PHYSICAL REVIEW B 77, 125132 共2008兲
+
+                    ACKNOWLEDGMENTS                                  2003B0064-NSc-np and No. 2005B0419兲. We are indebted
+   This work was partially supported by Spanish CICYT-               to H. Maruyama and N. Kawamura for their help during the
+MAT2005-06806-C04-04 grant. The synchrotron radiation                experimental work at Spring-8. M.A. Laguna-Marco ac-
+experiments were performed at SPring-8 共Proposals No.                knowledges MEC for Ph.D. grant.
+
+
+
+
+ 1 M.  A. Laguna-Marco, J. Chaboy, C. Piquer, H. Maruyama, N.        15 M.  A. Laguna-Marco, J. Chaboy, C. Piquer, H. Maruyama, N.
+   Ishimatsu, N. Kawamura, M. Takagaki, and M. Suzuki, Phys.            Ishimatsu, and N. Kawamura, X-ray Absorption Fine Structure-
+   Rev. B 72, 052412 共2005兲, and references therein.                    XAFS13, edited by B. Hedman and P. Painetta, AIP. Conf. Proc.
+ 2
+   C. Giorgetti, E. Dartyge, F. Baudelet, and R.-M. Galéra, Phys.       No. 882 共AIP, New York, 2007兲 p. 484.
+   Rev. B 70, 035105 共2004兲, and references therein.                 16
+                                                                        H. Yamada and M. Shimizu, J. Phys. F: Met. Phys. 15, L175
+ 3 J. C. Lang, S. W. Kycia, X. D. Wang, B. N. Harmon, A. I.
+                                                                        共1985兲.
+   Goldman, D. J. Branagan, R. W. McCallum, and K. D. Finkel-        17 M. S. S. Brooks, O. Eriksson, and B. Johansson, J. Phys.: Con-
+   stein, Phys. Rev. B 46, 5298 共1992兲; J. C. Lang, G. Srajer, C.
+   Detlefs, A. I. Goldman, H. König, X. Wang, B. N. Harmon, and         dens. Matter 1, 5861 共1989兲.
+                                                                     18 M. S. S. Brooks, L. Nordström and B. Johansson, J. Phys.: Con-
+   R. W. McCallum, Phys. Rev. Lett. 74, 4935 共1995兲.
+ 4 J. Chaboy, F. Bartolomé, L. M. García, and G. Cibin, Phys. Rev.      dens. Matter 3, 2357 共1991兲.
+                                                                     19
+   B 57, R5598 共1998兲.                                                  F. Baudelet, C. Brouder, E. Dartyge, A. Fontaine, J. P. Kappler,
+ 5 X. Wang, T. C. Leung, B. N. Harmon and P. Carra, Phys. Rev. B        and G. Krill, Europhys. Lett. 13, 751 共1990兲.
+    47, 9087 共1993兲.                                                 20
+                                                                        The XMCD signal of Lu共Al0.1Co0.9兲2 has been measured instead
+ 6 B. N. Harmon and A. J. Freeman, Phys. Rev. B 10, 1979 共1974兲.
+                                                                        of that of LuCo2 due to the Pauli paramagnetism of LuCo2. A
+ 7 T. Jo and S. Imada, J. Phys. Soc. Jpn. 62, 3721 共1993兲.
+                                                                        small substitution of Co by Al renders these compound itinerant
+ 8 H. Matsuyama, I. Harada, and A. Kotani, J. Phys. Soc. Jpn. 66,
+                                                                        ferromagnets. See, for example, I. S. Dubenko, R. Z. Levitin,
+   337 共1997兲.                                                          A. S. Markosyan, and H. Yamada, J. Magn. Magn. Mater. 136,
+ 9
+   M. van Veenendaal, J. B. Goedkoop, and B. T. Thole, Phys. Rev.       93 共1994兲, and references therein.
+   Lett. 78, 1162 共1997兲.                                            21 E. Burzo, Solid State Commun. 20, 569 共1976兲.
+10                                                                   22
+   K. Fukui, H. Ogasawara, A. Kotani, I. Harada, H. Maruyama, N.        J. P. Lui, F. R. de Boer, P. F. de Chatel, R. Coehoorn, and K. H.
+   Kawamura, K. Kobayashi, J. Chaboy, and A. Marcelli, Phys.            J. Buschow, J. Magn. Magn. Mater. 132, 159 共1994兲.
+   Rev. B 64, 104405 共2001兲.                                         23
+                                                                        E. Belorizky, M. A. Fremy, J. P. Gavigan, D. Givord, and H. S.
+11 K. Asakura, J. Nakahara, I. Harada, H. Ogasawara, K. Fukui, and
+                                                                        Li, J. Appl. Phys. 61, 3971 共1987兲.
+   A. Kotani, J. Phys. Soc. Jpn. 71, 2771 共2002兲.                    24
+                                                                        See, for example, K. H. J. Buschow, in Supermagnets: Hard
+12 H. Maruyama, M. Suzuki, N. Kawamura et al., J. Synchrotron
+                                                                        Magnetic Materials, edited by G. J. Long and F. Grandjean
+   Radiat. 6, 1133 共1999兲.                                              共Kluwer, Dordrecht, 1991兲.
+13 M. Suzuki, N. Kawamura, M. Mizumaki, A. Urata, H.                 25 N. H. Duc and P. E. Brommer, in Handbook of Magnetic Mate-
+
+   Maruyama, S. Goto, and T. Ishikawa, Jpn. J. Appl. Phys., Part 2      rials, edited by K. H. J. Buschow 共Elsevier Science, New York,
+    37, L1488 共1998兲.                                                   1999兲, Vol. 12.
+14 M. A. Laguna-Marco, Ph.D. thesis, Prensas Universitarias de       26 J. Chaboy, M. A. Laguna-Marco, C. Piquer, H. Maruyama, and
+
+   Zaragoza, 2007.                                                      N. Kawamura, J. Phys.: Condens. Matter 19, 436225 共2007兲.
+
+
+
+
+                                                               125132-5
+

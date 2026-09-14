@@ -1,0 +1,96 @@
+{
+  "cached_responses": 10,
+  "total_tokens": 5995,
+  "responses": [
+    {
+      "file": "agentic/results/pilot30_v1/intern/31c912d0e16385a49fd6bc9100867fa65d5f20bffeea52a9d597b0196eb49ca9.json",
+      "returned_model": "Intern-S1",
+      "usage": {
+        "prompt_tokens": 513,
+        "completion_tokens": 905,
+        "total_tokens": 1418
+      }
+    },
+    {
+      "file": "agentic/results/pilot30_v1/intern/a66c1fb5bcb27892b3553bb154f3a65a403fa3d87c176c68adef149fcd3fa0c1.json",
+      "returned_model": "Intern-S1",
+      "usage": {
+        "prompt_tokens": 260,
+        "completion_tokens": 72,
+        "total_tokens": 332
+      }
+    },
+    {
+      "file": "agentic/results/pilot30_v1/intern/e218b1d7aa1230ba33d09db2990661c9d32d5c46c3da35fc24a1b9cd6759500a.json",
+      "returned_model": "Intern-S1",
+      "usage": {
+        "prompt_tokens": 270,
+        "completion_tokens": 147,
+        "total_tokens": 417
+      }
+    },
+    {
+      "file": "agentic/results/pilot30_v1/intern/a565a4f27540e996850f4f83699e3d5332367603d039571f919bf2883ac91ee1.json",
+      "returned_model": "Intern-S1",
+      "usage": {
+        "prompt_tokens": 252,
+        "completion_tokens": 81,
+        "total_tokens": 333
+      }
+    },
+    {
+      "file": "agentic/results/pilot30_v1/intern/b780b9c9b9b4da15dbccc8d4600cc639982c029e0e4aa9d2c0d8d0e1d6b5c2d9.json",
+      "returned_model": "Intern-S1",
+      "usage": {
+        "prompt_tokens": 322,
+        "completion_tokens": 313,
+        "total_tokens": 635
+      }
+    },
+    {
+      "file": "agentic/results/pilot30_v1/intern/2fe1ad56b94cede72e68bfe47d1f75fd84135ed3ff2f522b31e6f52c3b1996fe.json",
+      "returned_model": "Intern-S1",
+      "usage": {
+        "prompt_tokens": 284,
+        "completion_tokens": 227,
+        "total_tokens": 511
+      }
+    },
+    {
+      "file": "agentic/results/pilot30_v1/intern/6df43fe978e73407bec1e04bc95e3ac6b84a6299ac3085c6dc9af820a245f95a.json",
+      "returned_model": "Intern-S1",
+      "usage": {
+        "prompt_tokens": 283,
+        "completion_tokens": 170,
+        "total_tokens": 453
+      }
+    },
+    {
+      "file": "agentic/results/pilot30_v1/intern/1c1c0bb139693e9632718a7b52a2bb73830e8e812458ab663410d611b8fe7c40.json",
+      "returned_model": "Intern-S1",
+      "usage": {
+        "prompt_tokens": 339,
+        "completion_tokens": 147,
+        "total_tokens": 486
+      }
+    },
+    {
+      "file": "agentic/results/pilot30_v1/intern/cdde48c395eb3b6c4a47f5170f31a9d13c5cf32b3f90ad0a647ab1da446650f9.json",
+      "returned_model": "Intern-S1",
+      "usage": {
+        "prompt_tokens": 345,
+        "completion_tokens": 391,
+        "total_tokens": 736
+      }
+    },
+    {
+      "file": "agentic/results/pilot30_v1/intern/2a98cafff449e9ac0398b9c5ddf48c1115b93de9db60a109473a1425cbc7b565.json",
+      "returned_model": "Intern-S1",
+      "usage": {
+        "prompt_tokens": 306,
+        "completion_tokens": 368,
+        "total_tokens": 674
+      }
+    }
+  ]
+}

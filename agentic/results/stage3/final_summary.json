@@ -1,0 +1,20 @@
+{
+  "broad_nitrogen_containing_records": 19,
+  "local_motif_records": 5,
+  "train_motif_records": 4,
+  "train_motif_unique_formulas": 4,
+  "literature_comparisons": 1,
+  "training_eligible_pairs": 0,
+  "configured_max_atoms": 100,
+  "ga024_minimum_ordered_atoms": 125,
+  "evidence_limit": "Prototype correspondence demonstrated for local cells; experimental sample and disorder-to-ordered mapping unverified.",
+  "downloaded_papers": 4,
+  "original_1962_observations": 5,
+  "examined_literature_pairs": 5,
+  "literature_pairs_passing_50k": 3,
+  "reference_cells": 2,
+  "api_calls": 2,
+  "api_tokens": 1628,
+  "tests_passed": 24,
+  "unchanged_source_files": 8
+}

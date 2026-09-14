@@ -1,0 +1,35 @@
+[
+  {
+    "name": "mn4n_2022",
+    "url": "https://arxiv.org/pdf/2203.09641",
+    "status": 200,
+    "sha256": "dbaadf863550b8c33a7ca204e86d410218cea59bacc1fc4cef0cac90ef1f60c0",
+    "parsed": true
+  },
+  {
+    "name": "tetrametal_2016",
+    "url": "https://arxiv.org/pdf/1601.01522",
+    "status": 200,
+    "sha256": "663c9156edeb62a409aafeaf83581570d68508fe699bb6560b532771952610b0",
+    "parsed": true
+  },
+  {
+    "name": "mn4n_1960",
+    "url": "https://journals.aps.org/pr/pdf/10.1103/PhysRev.119.122",
+    "status": 403
+  },
+  {
+    "name": "mn4n_1960",
+    "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRev.119.122/fulltext",
+    "status": 200,
+    "sha256": "4f133c4194bf2e7ffa4364e3675bf0bf7d86e08f62d6355396746ce8db774ca2",
+    "parsed": true
+  },
+  {
+    "name": "mn4n_1962",
+    "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRev.125.1893/fulltext",
+    "status": 200,
+    "sha256": "54d57e50c95ec790d89762bb24969e634ebde316a5355678b99997ab623e5103",
+    "parsed": true
+  }
+]

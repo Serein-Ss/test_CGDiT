@@ -1,0 +1,57 @@
+[
+  {
+    "name": "laves_2008",
+    "doi": "10.1103/PhysRevB.77.125132",
+    "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.77.125132/fulltext",
+    "retrieved_at": "2026-09-14T02:44:36.959772+00:00",
+    "http_status": 200,
+    "sha256": "1bf386a9da0e8222b7c7f2d0745d18dd82e2215f3fe6db35bd9054be00466672",
+    "path": "evidence/pilot30_v1/laves_2008.pdf"
+  },
+  {
+    "name": "ral2_2009",
+    "doi": null,
+    "url": "https://journals.iucr.org/s/issues/2009/03/00/ot5597/ot5597.pdf",
+    "retrieved_at": "2026-09-14T02:44:38.577946+00:00",
+    "http_status": 403,
+    "error": "HTTPError"
+  },
+  {
+    "name": "rfe2_1998",
+    "doi": null,
+    "url": "https://www.publish.csiro.au/ph/pdf/P97046",
+    "retrieved_at": "2026-09-14T02:44:39.156329+00:00",
+    "http_status": 403,
+    "error": "HTTPError"
+  },
+  {
+    "name": "co2fesi_2005",
+    "doi": "10.1103/PhysRevB.73.094422",
+    "url": "https://arxiv.org/pdf/cond-mat/0506729",
+    "retrieved_at": "2026-09-14T02:44:41.579712+00:00",
+    "http_status": 200,
+    "sha256": "6f165fe163e1c2a83f78512490a4646fe192c782afd21933085657d5704d0b54",
+    "path": "evidence/pilot30_v1/co2fesi_2005.pdf"
+  },
+  {
+    "name": "rni2_thesis",
+    "doi": null,
+    "url": "https://tuprints.ulb.tu-darmstadt.de/server/api/core/bitstreams/1e634316-a402-45ae-ace9-213ab645bb1a/content",
+    "retrieved_at": "2026-09-14T02:44:43.362510+00:00",
+    "http_status": 403,
+    "error": "HTTPError"
+  },
+  {
+    "name": "co2ti_2009",
+    "url": "https://arxiv.org/pdf/0907.3562",
+    "sha256": "65de7aa2ae2cf49247b2141a0b6ca4a2e1cb51c03c7e1391fdfa842a1f1549fa",
+    "http_status": 200
+  },
+  {
+    "name": "rni2_2022",
+    "url": "https://arxiv.org/pdf/2205.01559",
+    "doi": "10.1016/j.apmt.2022.101624",
+    "sha256": "32d503289e18ac3439db3b60fcef8b42b222b36f5ff4e57b07c03a3fe9993010",
+    "http_status": 200
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "record_id": "0.275_Mn3AlN",
+  "local_formula": "Mn3AlN",
+  "local_temperature_k": 272,
+  "local_lattice_a": 3.869,
+  "cited_paper_formula": "Mn3AlC",
+  "paper_temperature_k": 272,
+  "paper_lattice_a": 3.869,
+  "database_url": "https://www.cryst.ehu.eus/magndata/index.php?this_label=0.275",
+  "paper_doi": "10.1103/PhysRev.125.1893",
+  "finding": "C/N identity conflict between cited original article and local/database record",
+  "action": "Quarantine from new preference construction; original file retained; no silent C-for-N replacement.",
+  "independent_review_complete": false
+}

@@ -1,0 +1,410 @@
+                                                                                                                                                                       Barth et al., Co2 TiZ
+
+                                                     Anomalous transport properties of the halfmetallic ferromagnets Co2 TiSi, Co2 TiGe,
+                                                                                       and Co2 TiSn
+                                                                       Joachim Barth, Gerhard H. Fecher, Benjamin Balke, Tanja Graf, and Claudia Felser∗
+                                                                                             Institut f¨
+                                                                                                       ur Anorganische und Analytische Chemie,
+                                                                                        Johannes Gutenberg - Universit¨at, D-55099 Mainz, Germany.
+
+                                                                                                  Andrey Shkabko and Anke Weidenkaff
+                                                                                   EMPA, Swiss Federal Laboratories for Materials Testing and Research,
+                                                                                   Solid State Chemistry and Catalysis, CH-8600 Duebendorf, Switzerland
+arXiv:0907.3562v1 [cond-mat.mtrl-sci] 21 Jul 2009
+
+
+
+
+                                                                                                         (Dated: October 29, 2018)
+                                                                       In this work the theoretical and experimental investigations of Co2 TiZ (Z = Si, Ge, or Sn)
+                                                                     compounds are reported. Half-metallic ferromagnetism is predicted for all three compounds with
+                                                                     only two bands crossing the Fermi energy in the majority channel. The magnetic moments fulfill the
+                                                                     Slater-Pauling rule and the Curie temperatures are well above room temperature. All compounds
+                                                                     show a metallic like resistivity for low temperatures up to their Curie temperature, above the
+                                                                     resistivity changes to semiconducting like behavior. A large negative magnetoresistance of 55 % is
+                                                                     observed for Co2 TiSn at room temperature in an applied magnetic field of µ0 H = 4 T which is
+                                                                     comparable to the large negative magnetoresistances of the manganites. The Seebeck coefficients
+                                                                     are negative for all three compounds and reach their maximum values at their respective Curie
+                                                                     temperatures and stay almost constant up to 950 K. The highest value achieved is -52 µVK−1 m−1
+                                                                     for Co2 TiSn which is large for a metal. The combination of half-metallicity and the constant large
+                                                                     Seebeck coefficient over a wide temperature range makes these compounds interesting materials for
+                                                                     thermoelectric applications and further spincaloric investigations.
+
+                                                                     PACS numbers: 72.15.Jf, 74.25.Ha, 74.25.Jb
+                                                                     Keywords: halfmetallic ferromagnets, electronic structure, Heusler compounds, thermoelectric properties
+
+
+                                                       In the last few years Heusler alloys have attracted a                is found especially in correlated systems such as pure and
+                                                    lot of interest as suitable materials for spintronic applica-           doped SrRuO3 [12]. It can also be achieved e.g. in PbTe
+                                                    tions [1]. A huge amount of theoretical and experimental                crystals with a sophisticated and experimentally complex
+                                                    studies investigating the half-metallic properties and en-              graded Indium doping through the crystal [13]. This
+                                                    hancing the performance of the compounds and devices                    report will show that the Heusler compounds Co2 TiSi,
+                                                    for different types of applications were done. In 2005,                 Co2 TiGe, and Co2 TiSn combine all requirements for the
+                                                    Hashemifar et al [2] showed in a density functional the-                demand of half-metallic ferromagnets with a constant be-
+                                                    ory study the possibility to preserve the half-metallicity              havior of the Seebeck coefficient to be used in future for
+                                                    at the surface of the Heusler compound Co2 MnSi(001).                   spincaloric devices. A big advantage is the easy tun-
+                                                    Very recently, Shan et al [3] demonstrated experimentally               ability of the properties of the Heusler compounds which
+                                                    the half-metallicity of Co2 FeAl0.5 Si0.5 at room tempera-              makes it easy to design new materials [14, 15].
+                                                    ture. The ability of growing well ordered half-metallic                    The electronic structure of the compounds was cal-
+                                                    Heusler thin films on semiconductors (e.g. Ge (111))                    culated by means of the full potential linearized aug-
+                                                    makes Heusler compounds suitable for spininjection as                   mented plane wave (FLAPW) method [16, 17]. Details
+                                                    shown by Hamaya et al [4]. The transport properties of                  of the calculations are reported in Ref. [18]. The calcu-
+                                                    pure and doped Fe2 VAl show semiconductor like behavior                 lated band structure of Co2 TiGe is shown in Figure 1.
+                                                    with interesting and anomalous features near the struc-                 A band gap in the minority states occurs at the Fermi
+                                                    tural transition temperature with an increasing absolute                energy ǫF . This minority gap is characteristic for half-
+                                                    Seebeck coefficient with increasing temperature [5, 6].                 metallic materials as was previously shown by various
+                                                    The recent observation of the spin Seebeck effect allows                authors [18, 19, 20, 21, 22]. The size of the minority
+                                                    to pass a pure spin current over a long distance [7] and                band gap amounts to ∆EHMF = 500 meV and the Fermi
+                                                    is directly applicable to the production of spin-voltage                energy is located close to the minimun of the conduc-
+                                                    generators which are crucial for driving spintronic de-                 tion band. This was just confirmed by the experimental
+                                                    vices [8, 9, 10]. To generate effectively a spin current and            investigation of the spin-resolved unoccupied density of
+                                                    for other spincaloric applications as well one needs half-              states [23]. The majority band structure is metallic with
+                                                    metals with a constant Seebeck effect behavior [11]. A                  only two bands crossing ǫF and an electronic instability
+                                                    constant Seebeck effect in dependence of the temperature                (van-Hove singularity) close to the L point just below ǫF .
+                                                                                                                            Due to the band gap in the minority states the magnetic
+                                                                                                                            moment is integer and has a value of exactly 2 µB for the
+                                                                                                                            primitive cell. A closer analysis shows that the magnetic
+                                                    ∗ Electronic   address: felser@uni-mainz.de                             moment is located at the Co atoms only. That means,
+                                                                                                                                                                                                   2
+
+
+                   (a)    Majority                   (b)                 (c)   Minority
+
+              4                                                                                                                 Co TiSi
+                                                                                                                     2            2
+
+
+                                                                                                                                Co TiGe
+                                                                                                                                  2
+              2
+     [eV]
+
+
+
+
+                                                                                                                                Co TiSn
+                                                                                                                                  2
+
+
+
+
+                                                                                                   ]
+                                                                                                                B
+              0
+          F
+
+
+
+
+                                                                                                                     1
+
+
+
+
+                                                                                                   [
+    E(k)
+
+
+
+
+                                                                                                  m
+              -2
+
+
+
+
+                                                                                                   Magnetic moment
+     Energy
+
+
+
+
+              -4                                                                                                     0
+
+
+              -6
+
+
+
+               X             L   WK      8     4      0       4    8 X            L   WK                                                                        Co TiGe
+                                                                                                                     -1
+                                                                                                                                                                     H
+                                                                                                                                                                     2
+
+
+
+                         Momentum    k   Density of states   n(E) [eV
+                                                                    -1
+                                                                        ]      Momentum   k                                                                      0
+                                                                                                                                                                         = 10 mT
+
+
+
+
+                                                                                                                     -2
+                                                                                                                                                        0        100       200     300   400
+
+                                                                                                                                                                           T [K]
+
+FIG. 1: Spin resolved electronic structure of Co2 TiGe.                                                               -6   -4             -2     0                   2              4          6
+Shown are the band structures for the majority (a) and mi-
+nority (c) electrons together with the density of states (b).                                                                         Induction field       H
+                                                                                                                                                            0
+                                                                                                                                                                     [T]
+
+
+
+
+                                                                                              FIG. 2: Magnetization measurements of Co2 TiZ.
+each of the two Co atoms in the primitive cell carries a
+                                                                                              Displayed are the hysteresis curves at 5K for Co2 TiSi,
+magnetic moment of 1 µB .
+                                                                                              Co2 TiGe, and Co2 TiSn. The inset shows the temperature
+   The Co2 TiZ samples were produced by arc melting of                                        dependence measured in an induction field of µ0 H = 10mT
+stoichiometric amounts of the elements and afterwards                                         for Co2 TiGe.
+annealed in evacuated quartz tubes for 21 days. For more
+details about the sample preparation see Ref. [24]. All
+samples exhibit the L21 structure and the lattice parame-                                        Figure 3(a) shows the temperature dependence of the
+ters at 300 K are determined to a = 5.733 ˚ A, a = 5.819 ˚
+                                                         A,                                   resistivity ρ for Co2 TiSi, Co2 TiGe, and Co2 TiSn. The re-
+and a = 6.066 ˚  A for Co2 TiSi, Co2 TiGe, and Co2 TiSn,                                      sistivity behavior is metallic for all compounds in the low
+respectively. The obtained values are in good agreement                                       temperature range from 2 K to the respective Curie tem-
+with previously published values [25, 26, 27].                                                perature. At TC a cusp-type transition is observed [29].
+   The magnetic properties of the Co2 TiZ samples were                                        From there the resistivity declines to 550 K and stays
+investigated by a super conducting quantum interfer-                                          nearly constant at higher temperatures. The Curie tem-
+ence device (SQUID, Quantum Design MPMS-XL-5).                                                peratures can be estimated from the maxima of the re-
+The Co2 -based Heusler alloys that are half-metallic fer-                                     sistivities. The determined values are 370 K, 350 K, and
+romagnets show a Slater-Pauling like behavior for the                                         360 K for Co2 TiSi, Co2 TiGe, and Co2 TiSn, respectively.
+magnetization, what means that the saturation magne-                                          The values agree well with the ones obtained from the
+tization scales linearly with the number of valence elec-                                     magnetic measurements. The measurements agree well
+trons [21, 28]. This results in a theoretical magnetic mo-                                    with previous findings of other investigations for temper-
+ment of 2 µB per formula unit at T=0 K for all three                                          atures below 450 K [30]. Above TC , a decrease of the re-
+compounds.                                                                                    sistivity is observed. The decrease is very pronounced up
+   The saturation magnetization data measured at 5 K                                          to about 600 K and stays nearly constant at higher tem-
+are shown in Figure 2 and reveal that all three com-                                          peratures. This behavior leads to a significant anomaly
+pounds fulfil the Slater-Pauling rule and therefore are                                       of the resistivity at TC . Other than in many ferromag-
+potential half-metallic ferromagnets. The magnetic mo-                                        netic materials, here the Curie temperature can be easily
+ments at 5 K are 1.96 µB , 1.94 µB , and 1.97 µB per                                          related to the maximum of the resistivity.
+formula unit for Co2 TiSi, Co2 TiGe, and Co2 TiSn, re-                                           Similar, cusp-type anomalies of the resistivity close to
+spectively. The Curie temperature TC was determined                                           TC are very typical for the manganites which show a
+from the temperature dependence of the magnetisation                                          large negative magnetoresistance (MR) around TC [31,
+measured in an induction field of µ0 H = 10mT (see inset                                      32]. This was observed in GdI2 as well which shows a
+of Figure 2). The values for TC are 380 K for Co2 TiSi                                        large room temperature MR of around 70 % at 7 T [33].
+and Co2 TiGe, and 355 K for Co2 TiSn .                                                        For intermetallic compounds these anomalies were only
+   The measurements of the transport and thermoelec-                                          observed for Heusler compounds [34, 35]. In Figure 3(b)
+tric properties were carried out with a Physical Property                                     the magnetoresistance of Co2 TiSn at T =306 K is shown
+Measurement System (Model 6000 Quantum Design) on                                             as defined by [R(B) − R(0 Oe)]/R(0 Oe). In an applied
+bars of about (2 × 2 × 8) mm3 which were cut from the                                         magnetic field of µ0 H = 4 T the MR exceeds 55 % which
+pellets and polished before the measurement. The re-                                          is an enormous value for a polycrystalline sample at room
+sistivity data for temperatures from 2 K to 400 K were                                        temperature.
+obtained by a standard AC four probe method and the                                              Figure 4 shows the Seebeck coefficient (S) that was
+data from 350 K to 950 K were measured by a standard                                          measured for temperatures from 2 K to 950 K. The val-
+DC four point method.                                                                         ues decrease with increasing temperature up to the Curie
+                                                                                                                                                                                      3
+
+                                                                                                                           of the electronic structure for metals in the vicinity of the
+                                 3.9                                    (a)                         (b)
+                                                                                                             0%            Fermi energy. The rather large constant Seebeck coeffi-
+                                 3.6
+                                                                                                                           cients above the Curie temperatures up to at least 950 K
+                                                                                                             -10%
+                                                                                                                           could be achieved by filling up the flat band in the ∆
+     m]
+
+
+
+
+                                 3.3
+                                                                                                             -20%
+                                                                                                                           direction in the minority spin channel just above ǫF (see
+                                                                                                                           Figure 1(c)). The constant Seebeck coefficients above the
+     ) [
+
+
+
+
+                                                                                                                    MR (
+    T
+
+
+
+                                 3.0
+     (
+
+
+
+
+                                                                                                             -30%
+                                                                                                                           Curie temperatures mean that the energy of the Fermi
+     Resistivity
+
+
+
+
+                                                                                                                    H
+                                                                                                                           level is pinned in a wide temperature range in these com-
+
+
+
+
+                                                                                                                    )
+                                 2.7
+                                                                                                             -40%
+
+
+                                                           Co TiSi                Co TiSn
+                                                                                                                           pounds [13, 36] and therefore the thermovoltages have a
+                                 2.4
+                                                             2
+
+
+                                                           Co TiGe
+                                                             2
+                                                                                      2
+
+
+
+                                                                                  T = 306K
+                                                                                                             -50%          linear temperature dependence which makes these com-
+                                 2.1                       Co TiSn
+                                                             2
+                                                                                                                           pounds suitable materials for future thermoelectric de-
+                                                                                                             -60%
+                                       0       200         400          600   0    1      2    3        4                  vices such as thermocouples. With an Al-doping of the
+                                               Temperature    T   [K]         Magnetic field
+                                                                                                    0
+                                                                                                     H      [T]            Z-Position in the Co2 TiZ (Z = Si, Ge, or Sn) compounds
+                                                                                                                           one can tune their Curie temperature to lower values [37]
+                                                                                                                           and therefore tune the working temperature of thermo-
+FIG. 3: Measured temperature dependent electrical resis-                                                                   couples designed out of these materials. In cubic systems
+tivity ρ of Co2 TiZ compounds with Z = Si, Ge, or Sn (a).                                                                  the Seebeck coefficient is derived from the scalar electri-
+Magnetoresistance as a function of the applied magnetic field                                                              cal resistivity ρ and thermal conductivity ν: S = ρ × ν.
+for Co2 TiSn at T =306 K (b).                                                                                              Therefore, the constant value of the Seebeck effect means
+                                                                                                                           that the product of ρ and ν have to be constant so they
+                                                                                                                           have to compensate each others dependency.
+                                       0
+                                                                                                                              In summary, the Co2 TiZ (Z = Si, Ge, or Sn) com-
+                                                                                              Co TiSi
+                                                                                                2
+                                                                                                                           pounds were investigated theoretically and experimen-
+                                                                                              Co TiGe
+                                  -10
+                                                                                                                           tally. Band structure calculations predict half-metallic
+           VK ]
+
+
+
+
+                                                                                                2
+     -1
+
+
+
+
+                                                                                              Co TiSn
+                                                                                                2
+                                                                                                                           ferromagnetism for all three compounds. The size of the
+                                                                                                                           minority band gap amounts to ∆EHMF = 500 meV and
+     S(T) [
+
+
+
+
+                                  -20
+
+
+                                                                                                                           the Fermi energy is located close to the middle of the
+           Seebeck coefficient
+
+
+
+
+                                  -30
+                                                                                                                           gap. The majority band structure is metallic with a
+                                                                                                                           single band crossing ǫF in the ∆ direction. The Curie
+                                                                                                                           temperature and the magnetic moment were determined
+                                  -40
+                                                                                                                           by SQUID measurements and reveal that all three com-
+                                                                                                                           pounds fulfill the requirement for half-metallicity accord-
+                                  -50
+                                                                                                                           ing to the Slater-Pauling rule and have Curie temper-
+                                           0         200             400        600            800                1000
+                                                                                                                           atures well above room temperature. All compounds
+                                                                  Temperature   T [K]
+                                                                                                                           show a metallic like resistivity for low temperatures up
+                                                                                                                           to their Curie temperature. From there on they change
+                                                                                                                           to semiconducting like behavior. This behavior is at-
+                                                                                                                           tributed to a ferromagnetic to paramagnetic transition,
+FIG. 4: Measured Seebeck coefficient of Co2 TiZ compounds
+                                                                                                                           that strongly influences the band structure. The Seebeck
+with Z = Si, Ge, or Sn.
+                                                                                                                           coefficients are all negative and reach their maximum val-
+                                                                                                                           ues at their respective Curie temperatures. The highest
+temperature and stay almost constant at higher tem-                                                                        value achieved is -52 µVK−1 m−1 for Co2 TiSn. Further-
+perature. The mean values above TC are -35 µVK−1 ,                                                                         more, the Seebeck coefficients of all three compounds are
+-31 µVK−1 , or -51 µVK−1 for Co2 TiSi, Co2 TiGe, and                                                                       rather large for metals and constant above the Curie tem-
+Co2 TiSn, respectively. The maximum absolute values                                                                        peratures. Therefore the temperature dependence of the
+are rather large compared to the most elemental metals                                                                     thermovoltages is linear which ensures a stable conver-
+and are close to the Seebeck coefficient of elemental Co                                                                   sion efficiency even at high temperatures. This makes
+that exhibits about -30 µVK−1 to -45 µVK−1 at temper-                                                                      the compounds very attractive as materials for thermo-
+atures between 300 K and 500 K.                                                                                            couples or thermoelectric generators. The combination of
+   The Seebeck coefficient of all three investigated com-                                                                  half-metallicity and the constant large Seebeck coefficient
+pounds is negative over the entire temperature range. For                                                                  over a wide temperature range makes these compounds
+Co2 TiSn a negative increase of the Seebeck coefficient is                                                                 interesting materials for further spincaloric and thermo-
+observed at about 80 K. This is close to T /ΘD ≈ 0.2                                                                       electric investigations. This work is financially supported
+with ΘD being the Debye temperature where the largest                                                                      by ”Stiftung Innovation Rheinland-Pfalz”, the Deutsche
+influence of a phonon drag is expected. This assumption                                                                    Forschungsgemeinschaft DFG (projects P 01 and P 07 in
+is in agreement with the measurement of the thermal                                                                        research unit FG 559) and DAAD (D06/33952).
+conductivity where a peak at low temperatures is ob-
+served. The Seebeck coefficient provides a sensitive test
+                                                                                                                            4
+
+
+
+
+ [1] C. Felser, G. H. Fecher, and B. Balke, Angew. Chem. Int.        Appl. Phys. 40, 1507 (2007).
+     Ed. 46, 668 (2007).                                        [19] M. C. Hickey, A. Husmann, S. Holmes, and G. Jones, J.
+ [2] S. J. Hashemifar, P. Kratzer, and M. Scheffler, Phys.           Phys.: Condens. Matter 18, 2897 (2006).
+     Rev.Lett. 94, 096402 (2005).                               [20] S. Ishida, S. Akazawa, Y. Kubo, and J. Ishida, J. Phys.
+ [3] R. Shan, H. Sukegawa, W. H. Wang, M. Kodzuka,                   F: Met. Phys. 12, 1111 (1982).
+     T. Furubayashi, T. Ohkubo, S. Mitani, K. Inomata, and      [21] I. Galanakis, P. H. Dederichs, and N. Papanikolaou,
+     K. Hono, Phys. Rev. Lett. 102, 246601 (2009).                   Phys. Rev. B 66, 174429 (2002).
+ [4] K. Hamaya, H. Itoh, O. Nakatsuka, K. Ueda, K. Ya-          [22] S. C. Lee, T. D. Lee, P. Blaha, and K. Schwarz, J. Appl.
+     mamoto, M. Itakura, T. Taniyama, T. Ono, and                    Phys. 97, 10c307 (2005).
+     M. Miyao, Phys. Rev. Lett. 102, 137204 (2009).             [23] P. Klaer, M. Kallmayer, C. Blum, T. Graf, B. Balke,
+ [5] Y. Nishino, M. Kato, S. Asano, K. Soda, M. Hayasaki,            J. Barth, G. H. Fecher, C. Felser, and H. J. Elmers, sub-
+     and U. Mizutani, Phys. Rev. Lett. 79, 1909 (1997).              mitted to Phys. Rev. B (2009).
+ [6] C. Lue, C. Chen, Y. Lin, and Y. Kuo, Phys. Rev. B 75,      [24] B. Balke, G. H. Fecher, H. C. Kandpal, C. Felser,
+     064204 (2007).                                                  K. Kobayashi, E. Ikenaga, J. J. Kim, and S. Ueda, Phys.
+ [7] K. Uchida, S. Takahashi, K. Harii, J. Ieda, W. Koshibae,        Rev. B 74 (2006).
+     K. Ando, S. Maekawa, and E. Saitoh, Nature 455, 778        [25] P. van Engen, K. Buschow, and M. Erman, Journ. Magn.
+     (2008).                                                         Magn. Mater 30, 374 (1983).
+ [8] S. A. Wolf, D. D. Awschalom, R. A. Buhrman, J. M.          [26] P. J. Webster and K. Ziebeck, J. Phys. Chem. Solids 34,
+     Daughton, S. von Molnar, M. L. Roukes, A. Y.                    1647 (1983).
+     Chtchelkanova, and D. M. Treger, Science 294, 1488         [27] K. Buschow, P. van Engen, and R. Jongebreur, Journ.
+     (2001).                                                         Magn. Magn. Mater 38, 1 (1983).
+ [9] I. Zutic, J. Fabian, and S. D. Sarma, Rev. Mod. Phys.      [28] G. H. Fecher, H. C. Kandpal, S. Wurmehl, and C. Felser,
+     76, 323 (2004).                                                 J. Appl. Phys. 99, 08J106 (2006).
+[10] C. Chappert, A. Fert, and F. N. Van Dau, Nat. Mater.       [29] M. Kataoka, Phys. Rev. B 63, 134435 (2001).
+     6, 813 (2007).                                             [30] S. Majumdar, M. K. Chattopadhyay, V. K. Sharma,
+[11] N. P. Ong, Nature 455, 741 (2008).                              K. J. S. Sokhey, S. B. Roy, and P. Chaddah, Phys. Rev.
+[12] Y. Klein, S. Hebert, A. Maignan, S. Kolesnik,                   B 72, 012417 (2005).
+     T. Maxwell, and B. Dabrowski, Phys. Rev. B Condens.        [31] R. v. Helmolt, J. Wecker, B. Holzapfel, L. Schultz, and
+     Matter. 73, 052412 (2006).                                      K. Samwer, Phys. Rev. Lett. 71, 2331 (1993).
+[13] Z. Dashevsky, S. Shusterman, M. P. Dariel, and             [32] P. Schiffer, A. P. Ramirez, W. Bao, and S. W. Cheong,
+     I. Drabkin, J. Appl. Phys. 92, 1425 (2002).                     Phys. Rev. Lett. 75, 3336 (1995).
+[14] B. Balke, S. Wurmehl, G. H. Fecher, C. Felser, and         [33] C. Felser, K. Ahn, R. K. Kremer, R. Seshadri, and A. Si-
+     J. K¨
+         ubler, Sci. Technol. Adv. Mater. 9, 014102 (2008).          mon, J. Solid State Chem. 147, 19 (1999).
+[15] B. Balke, G. H. Fecher, A. Gloskovskii, J. Barth,          [34] A. Hamzic, R. Asomoza, and I. A. Campbell, J. of Phys.
+     K. Kroth, C. Felser, R. Robert, and A. Weidenkaff, Phys.        F: Metal Physics p. 1441 (1981).
+     Rev. B 77, 045209 (2008).                                  [35] Y. Nishino, S.-y. Inoue, S. Asano, and N. Kawamiya,
+[16] P. Blaha, K. Schwarz, P. Sorantin, and S. Tricky, Com-          Phys. Rev. B 48, 13607 (1993).
+     put. Phys. Commun. 59, 399 (1990).                         [36] S. X. Li, K. M. Yu, J. Wu, R. E. Jones, W. Walukiewicz,
+[17] P. Blaha, K. Schwarz, G. K. H. Madsen, D. Kvasnicka,            J. W. Ager, W. Shan, E. E. Haller, H. Lu, and W. J.
+     and J. Luitz, WIEN2k, An Augmented Plane Wave + Lo-             Schaff, Phys. Rev. B 71, 161201 (2005).
+     cal Orbitals Program for Calculating Crystal Properties    [37] T. Graf, G. H. Fecher, J. Barth, J. Winterlik, and
+     (Karlheinz Schwarz, Techn. Universitaet Wien, Wien,             C. Felser, J. Phys. D: Appl. Phys. 42, 084003 (2009).
+     Austria, 2001).
+[18] H. C. Kandpal, G. H. Fecher, and C. Felser, J.Phys.D:
+

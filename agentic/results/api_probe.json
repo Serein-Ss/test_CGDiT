@@ -1,0 +1,20 @@
+{
+  "checked_at": "2026-09-13T18:42:23.556367+00:00",
+  "base_url": "https://chat.intern-ai.org.cn/api/v1/",
+  "credential_source": "agentic/apikey",
+  "http_status": 200,
+  "model_ids": [
+    "intern-latest",
+    "intern-s2",
+    "intern-s2-preview-397b",
+    "intern-s2-preview",
+    "intern-s2-preview-35b",
+    "intern-s1-pro",
+    "intern-s1",
+    "intern-s1-mini",
+    "internvl-latest",
+    "internvl3.5-latest",
+    "internvl3.5-241b-a28b"
+  ],
+  "intern_s1_available": true
+}

@@ -1,0 +1,42 @@
+# generated using pymatgen
+data_Tl3CoS4
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   7.732774734497
+_cell_length_b   7.732774734497
+_cell_length_c   7.732774734497
+_cell_angle_alpha   90.000000000000
+_cell_angle_beta   90.000000000000
+_cell_angle_gamma   90.000000000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Tl3CoS4
+_chemical_formula_sum   'Tl6 Co2 S8'
+_cell_volume   462.387490863477
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Tl  Tl0  1  0.849405884743  0.630058884621  0.858774602413  1
+  Tl  Tl1  1  0.630058884621  0.150594115257  0.141225397587  1
+  Tl  Tl2  1  0.141225397587  0.630058884621  0.150594115257  1
+  Tl  Tl3  1  0.349405884743  0.130058884621  0.358774662018  1
+  Tl  Tl4  1  0.130058884621  0.650594115257  0.641225397587  1
+  Tl  Tl5  1  0.641225397587  0.130058884621  0.650594115257  1
+  Co  Co6  1  0.112714916468  0.109888598323  0.886986792088  1
+  Co  Co7  1  0.612714886665  0.609888613224  0.386986732483  1
+  S  S8  1  0.774322509766  0.203636020422  0.879330873489  1
+  S  S9  1  0.225677490234  0.796363949776  0.879330873489  1
+  S  S10  1  0.796363949776  0.774322509766  0.120669126511  1
+  S  S11  1  0.203636020422  0.225677490234  0.120669126511  1
+  S  S12  1  0.274322509766  0.703636050224  0.379330873489  1
+  S  S13  1  0.725677490234  0.296363979578  0.379330873489  1
+  S  S14  1  0.296363979578  0.274322509766  0.620669126511  1
+  S  S15  1  0.703636050224  0.725677490234  0.620669126511  1

@@ -1,0 +1,38 @@
+# generated using pymatgen
+data_MgCdFeSBr8
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.171420097351
+_cell_length_b   6.171420097351
+_cell_length_c   11.603866577148
+_cell_angle_alpha   90.000000000000
+_cell_angle_beta   90.000000000000
+_cell_angle_gamma   90.000000000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   MgCdFeSBr8
+_chemical_formula_sum   'Mg1 Cd1 Fe1 S1 Br8'
+_cell_volume   441.949805913176
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Fe  Fe0  1  0.495964497328  0.982020497322  0.747009754181  1
+  Br  Br1  1  0.253560602665  0.750839173794  0.874932765961  1
+  Br  Br2  1  0.746439397335  0.249160826206  0.874932765961  1
+  Br  Br3  1  0.750839173794  0.746439397335  0.125067234039  1
+  Br  Br4  1  0.249160826206  0.253560602665  0.125067234039  1
+  Mg  Mg5  1  0.995033442974  0.482425153255  0.251557976007  1
+  Br  Br6  1  0.757153391838  0.255108326674  0.371085852385  1
+  Br  Br7  1  0.242846608162  0.744891643524  0.371085852385  1
+  Br  Br8  1  0.255108326674  0.242846608162  0.628914117813  1
+  Br  Br9  1  0.744891643524  0.757153391838  0.628914117813  1
+  S  S10  1  0.751455187798  0.484950751066  0.747129559517  1
+  Cd  Cd11  1  0.999222815037  0.980528295040  0.002804367337  1

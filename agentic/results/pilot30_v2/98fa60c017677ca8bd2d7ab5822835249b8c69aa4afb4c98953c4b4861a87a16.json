@@ -1,0 +1,29 @@
+{
+  "id": "cMZGEadT1OTH7eibS6B8HopPQh1Z89ONciSGUKmgFFA=",
+  "object": "chat.completion",
+  "model": "Intern-S1",
+  "created": 1789326128,
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"events\": [],\n  \"abstained\": true\n}\n```"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "moderation": {
+    "sensitive": false,
+    "category": ""
+  },
+  "usage": {
+    "prompt_tokens": 414,
+    "completion_tokens": 19,
+    "total_tokens": 433
+  },
+  "metadata": {
+    "search_used": false,
+    "reasoning_used": false
+  }
+}

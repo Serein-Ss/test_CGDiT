@@ -1,0 +1,11 @@
+{
+  "api_requests_this_run": 3,
+  "validated_observations": 3,
+  "candidate_pairs": 3,
+  "robust_margin_pairs": 2,
+  "source_groups_added": 1,
+  "independent_pair_count_claimed": false,
+  "training_pairs_added": 0,
+  "tokens_total": 2651,
+  "limitation": "One experimental source group, not three independent experiments; all pairs remain structure-unverified"
+}

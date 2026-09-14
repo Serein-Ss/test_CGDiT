@@ -1,0 +1,34 @@
+# generated using pymatgen
+data_BaSrBr2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.865983009338
+_cell_length_b   7.548903942108
+_cell_length_c   6.969296932220
+_cell_angle_alpha   90.000000000000
+_cell_angle_beta   90.000000000000
+_cell_angle_gamma   90.000000000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   BaSrBr2
+_chemical_formula_sum   'Ba2 Sr2 Br4'
+_cell_volume   361.223163595985
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Br  Br0  1  0.755380034447  0.237985774875  0.747210979462  1
+  Br  Br1  1  0.244619965553  0.762014210224  0.747210979462  1
+  Br  Br2  1  0.255380034447  0.262014210224  0.247210979462  1
+  Br  Br3  1  0.744619965553  0.737985789776  0.247210979462  1
+  Sr  Sr4  1  0.746701061726  0.777152478695  0.754347860813  1
+  Sr  Sr5  1  0.753298938274  0.277152538300  0.254347801208  1
+  Ba  Ba6  1  0.251648873091  0.271151512861  0.756855010986  1
+  Ba  Ba7  1  0.248351126909  0.771151542664  0.256855010986  1

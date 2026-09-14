@@ -1,0 +1,1359 @@
+       A study on rare-earth Laves phases for magnetocaloric liquefaction of hydrogen
+
+   Wei Liu1, *, Eduard Bykov2, 3, Sergey Taskaev4, 6, Mikhail Bogush4, 6, Vladimir Khovaylo5, Nuno
+    Fortunato1, Alex Aubert1, Hongbin Zhang1, Tino Gottschall2, *, Jochen Wosnitza2,3, Franziska
+                         Scheibel1, Konstantin Skokov1, Oliver Gutfleisch1
+   1
+      Institute of Materials Science, Technical University of Darmstadt, 64287 Darmstadt, Germany
+       2
+         Dresden High Magnetic Field Laboratory (HLD-EMFL) and Würzburg-Dresden Cluster of
+          Excellence ct.qmat, Helmholtz-Zentrum Dresden-Rossendorf, 01328 Dresden, Germany
+    3
+     Institute of Solid State and Materials Physics, Technische Universität Dresden, 01062 Dresden,
+                                                 Germany
+              4
+               Faculty of Physics, Chelyabinsk State University, 454001 Chelyabinsk, Russia
+  5
+    Department of Functional Nanosystems and High-Temperature Materials, National University of
+                        Science and Technology “MISiS”, 119991 Moscow, Russia
+  6
+    Functional Materials Laboratory, NRU South Ural State University, 454080 Chelyabinsk, Russia
+                      *
+                       Authors to whom correspondence should be addressed:
+                                    wei.liu@tu-darmstadt.de
+                             Alarich-Weiss-str. 16, 64287 Darmstadt
+                                      t.gottschall@hzdr.de
+                              Bautzner Landstr. 400, 01328 Dresden
+
+We are witnessing a great transition towards a society powered by renewable energies to meet
+the ever-stringent climate target. Hydrogen, as an energy carrier, will play a key role in building
+a climate-neutral society. Although liquid hydrogen is essential for hydrogen storage and
+transportation, liquefying hydrogen is costly with the conventional methods based on Joule-
+Thomas effect. As an emerging technology which is potentially more efficient, magnetocaloric
+hydrogen liquefaction can be a “game-changer”. In this work, we have investigated the rare-
+earth-based Laves phases RAl2 and RNi2 for magnetocaloric hydrogen liquefaction. We have
+noticed an unaddressed feature that the magnetocaloric effect of second-order magnetocaloric
+materials can become “giant” near the hydrogen boiling point. This feature indicates strong
+correlations, down to the boiling point of hydrogen, among the three important quantities of the
+                                                                    𝑚𝑎𝑥
+magnetocaloric effect: the maximum magnetic entropy change Δ𝑆𝑚           , the maximum adiabatic
+                         𝑚𝑎𝑥
+temperature change Δ𝑇𝑎𝑑 , and the Curie temperature 𝑇𝐶 . Via a comprehensive literature
+review, we interpret the correlations for a rare-earth intermetallic series as two trends: (1)
+   𝑚𝑎𝑥                                            𝑚𝑎𝑥
+Δ𝑆𝑚      increases with decreasing TC; (2) Δ𝑇𝑎𝑑        decreases near room temperature with
+decreasing 𝑇𝐶 but increases at cryogenic temperatures. Moreover, we have developed a mean-
+                                                                                           𝑚𝑎𝑥
+field approach to describe these two trends theoretically. The dependence of Δ𝑆𝑚                and
+    𝑚𝑎𝑥
+Δ𝑇𝑎𝑑 on 𝑇𝐶 revealed in this work helps researchers quickly anticipate the magnetocaloric
+performance of rare-earth-based compounds, guiding material design and accelerating the
+discoveries of magnetocaloric materials for hydrogen liquefaction.
+
+Keywords: hydrogen energy, hydrogen liquefaction, magnetic cooling, caloric materials,
+magnetism
+
+1. Introduction
+The European Union has set a target of being climate-neutral by 2050 – an economy with net-
+zero greenhouse-gas emissions [1,2]. In this paper we focus on the potential of a carbon-neutral
+“hydrogen society” [3–5], where hydrogen plays a key role by acting as the vector between
+energy generation and energy utilization. Produced from renewables, green hydrogen is one of
+the cleanest fuels, ideally releasing no carbon and no pollutants into the atmosphere [4,6,7].
+Figure 1 is a schematic picturing how the carbon-neutral “hydrogen society” works, providing
+                                                 1
+that the hydrogen fuel can be made to operate reliably and at a price that society is willing to
+pay.
+
+
+
+
+                                                                                       Household
+
+
+
+
+                                                                                        Transport
+                       “ power-to-H2”
+  Green Power
+
+
+
+
+                                          Power grid                                     Industry
+
+
+
+
+Figure 1. A carbon-neutral hydrogen society: the hydrogen is produced by renewables such as solar and
+wind power; it can be stored and transported as compressed, liquefied, or interstially maintained
+hydrogen. The hydrogen can later be released as a fuel for households, transport, and industry. In
+addition, the hydrogen energy can be converted back into electricity and integrated into the power grid.
+
+     Hydrogen can be stored and transported efficiently in its liquid state [4,8–11]. However,
+conventional liquefaction based on the Joule-Thomas effect is expensive [12,13], and becomes
+increasingly inefficient as we approach cryogenic temperatures [14,15]. The magnetocaloric
+liquefaction technology, with the use of superconducting coils [16–20] or permanent magnets
+[21,22] at cryogenic temperatures, is ideally more efficient [22–31]. This leads to a recent
+growing interest in liquifying hydrogen and other industrial gases with magnetic cooling [32–
+38]. It is worth mentioning that a practical active magnetic regenerator for hydrogen
+liquefaction using superconducting magnets that generate fields up to 5 T has been built by
+Kamiya et al. recently [20]; and that Feng et al. demonstrated the feasibility of using 1 T field
+generated by permanent magnets by modeling [22].In terms of the cost, permanent magnets
+have an advantage in low fields [22]. Although more expensive, the superconducting magnets
+have the advantage of generating high fields. Which type of magnets to choose for
+magnetocaloric hydrogen liquefaction on industrial scale needs further studying, and certainly
+the maximum magnetocaloric effect of the materials has an influence on the decision.
+     Discovered by Weiss and Picard [39], the magnetocaloric effect is the warming or cooling
+of a magnetic material when exposed to a magnetic field. This effect is best characterized by
+two physical quantities, i.e., the magnetic entropy change Δ𝑆𝑚 and the adiabatic temperature
+change Δ𝑇𝑎𝑑 that indicate the potential cooling power of a magnetocaloric material [40]. Since
+ΔSm and Δ𝑇𝑎𝑑 usually peak at Curie temperature 𝑇𝐶 [41] for second-order magnetocaloric
+materials, we assume that Δ𝑆𝑚 (𝑇𝐶 ) and Δ𝑇𝑎𝑑 (𝑇𝐶 ) are the maximum magnetic and adiabatic
+                           𝑚𝑎𝑥          𝑚𝑎𝑥
+temperature changes ( Δ𝑆𝑚        and Δ𝑇𝑎𝑑   ). In other words, 𝑇𝐶 is the best-suited working
+temperature of a magnetocaloric material.
+
+                                                   2
+     In the case of magnetocaloric liquefaction of hydrogen, the gaseous hydrogen needs to be
+cooled down from around room temperature to its boiling point of about 20 K [42]. This is a
+large temperature range. If the gaseous hydrogen is pre-cooled by liquid nitrogen, the working
+temperature range of magnetocaloric hydrogen liquefaction is reduced to 77 K~ 20 K [43]. This
+is still a large temperature range. The large working temperature ranges required by
+magnetocaloric hydrogen liquefaction really put a challenge on the material design because it
+is usually difficult for a single magnetocaloric material to cover such large temperature ranges.
+A combination of different magnetocaloric materials with Curie temperatures distributed
+appropriately within the working temperature range is necessary [17]. In this context, rare-
+earth-based alloys are promising candidates for magnetocaloric hydrogen liquefaction, not only
+                      𝑚𝑎𝑥         𝑚𝑎𝑥
+due to the large Δ𝑆𝑚       and Δ𝑇𝑎𝑑   enabled by the huge total magnetic moments [44–46], but
+also due to the tunable 𝑇𝐶 that covers the cryogenic temperatures [47–49]. Indeed, the 𝑇𝐶 of the
+rare-earth alloys can easily be tuned by substitution of different rare-earth elements to approach
+the hydrogen boiling point of 20 K [50–52]. Among the rare-earth-based magnetocaloric
+materials, some materials such as Eu4PdMg [53], ErZn2/ErZn composite [54], and amorphous
+Er0.2Gd0.2Ho0.2Co0.2Cu0.2 [55] showing a “table-like” maximum magnetocaloric effect over a
+large temperature span. Considering that the maximum magnetocaloric effects need to be
+considered for designing, for example, a composite with a “table-like” magnetocaloric effect
+                                               𝑚𝑎𝑥       𝑚𝑎𝑥
+[56], studying the relationships among Δ𝑆𝑚         , Δ𝑇𝑎𝑑    , and the ordering temperature (in this
+work we focus on 𝑇𝐶 ) is meaningful.
+     From our study on rare-earth Laves phases RAl2 and RNi2 (R: Gd, Tb, Dy, Ho, Er), we
+discovered a noticeable, but unaddressed feature for the rare-earth magnetocaloric materials:
+maximum magnetocaloric effect is much stronger near the boiling point of hydrogen. In this
+                                                      𝑚𝑎𝑥
+work, we achieved a fully reversible value of Δ𝑇𝑎𝑑         directly measured under pulsed fields in
+                                                                                                  𝑚𝑎𝑥
+HoNi2: 5.7 K at 15 K in fields of 2 T. In even lower temperature, even larger values of Δ𝑇𝑎𝑑
+indirectly measured were reported: 6.2 K at around 4.4 K in fields of 1 T for TmCoSi [57]and
+8.4 K at around 13 K in fields of 2 T for ErCr2Si2 [58]. Moreover, many second-order
+                                                              𝑚𝑎𝑥
+magnetocaloric materials also have “giant” values of Δ𝑆𝑚          near 20 K: ErAl2 [59], HoB2 [60],
+and TmGa [35] which have a magnetic entropy change being larger than or close to the first-
+order giant magnetocaloric material ErCo2 [61], whereas it is not the case near room
+temperature where second-order magnetocaloric materials can barely reach the value of ErCo2.
+                                                                   𝑚𝑎𝑥
+In even lower temperature than 20 K, even larger values of Δ𝑆𝑚          were reported for the second-
+order magnetocaloric material GdF3: 45.5 J kg K in fields of 2 T and 67.1 J kg-1 K-1 in fields
+                                                  -1 -1
+                                                                𝑚𝑎𝑥         𝑚𝑎𝑥
+of 5 T at around 2 K [62]. The “giant” values of Δ𝑆𝑚                and Δ𝑇𝑎𝑑    , which are usually
+attributed to the first-order magnetic phase transition, are discovered in the second-order
+magnetocaloric materials such as HoNi2 and ErAl2 with a Curie temperature close to the boiling
+                                                                                   𝑚𝑎𝑥      𝑚𝑎𝑥
+point of hydrogen. This indicates that there is strong correlations among Δ𝑆𝑚          , Δ𝑇𝑎𝑑     and
+𝑇𝐶 .
+     In this article, we raise a question with a great importance for material design: how do
+    𝑚𝑎𝑥          𝑚𝑎𝑥
+Δ𝑆𝑚 and Δ𝑇𝑎𝑑          correlate with 𝑇𝐶 , particularly in the vicinity of hydrogen boiling point? In
+the present work, we use the heavy rare-earth -based Laves phases RAl2 and RNi2 as an example
+                                      𝑚𝑎𝑥       𝑚𝑎𝑥
+to study the correlations among Δ𝑆𝑚        , Δ𝑇𝑎𝑑     and 𝑇𝐶 because of the chemical and physical
+similarities of these heavy rare-earth elements [63], and their Curie temperatures that covers a
+large temperature range down to the hydrogen boiling point. Although heavy rare-earth
+elements such as Tb and Ho are not abundant in Earth’s upper continental crust [63], which is
+a challenge for their alloys to be used for magnetocaloric hydrogen liquefaction on an industrial
+                                                              𝑚𝑎𝑥      𝑚𝑎𝑥
+scale, this way of studying the correlations among Δ𝑆𝑚            , Δ𝑇𝑎𝑑     and 𝑇𝐶 will benefit the
+research on the magnetocaloric alloys of their light rare-earth counterparts such as Nd and Pr,
+which are more abundant than the heavy rare-earth elements [63].
+
+
+                                                 3
+     To answer the above proposed question, we divide our study into three. First, we look at
+the rare-earth-based Laves phases RAl2 and RNi2, where we observe a noticeable, but
+unaddressed feature that maximum magnetocaloric effect is much stronger near the boiling
+point of hydrogen. Next, we summarize two trends for a rare-earth-based intermetallic series
+via the experimental work on the rare-earth-based Laves phases and a comprehensive literature
+               𝑚𝑎𝑥                                      𝑚𝑎𝑥
+review: (1) Δ𝑆𝑚    increases with decreasing TC; (2) Δ𝑇𝑎𝑑     decreases near room temperature
+with decreasing 𝑇𝐶 but increases at cryogenic temperatures. In the third part we develop a mean-
+field approach, with RNi2 and RAl2 as examples, that provides a theoretical explanation for
+                                         𝑚𝑎𝑥        𝑚𝑎𝑥
+these two trends. The dependence of Δ𝑆𝑚       and Δ𝑇𝑎𝑑   on 𝑇𝐶 described in this work not only
+explains why a second-order magnetocaloric material can have a “giant” magnetocaloric effect
+near hydrogen boiling point, but also helps us quickly anticipate the magnetocaloric
+performance of rare-earth-based compounds, guiding material design and accelerating the
+discoveries of magnetocaloric materials for hydrogen liquefaction.
+
+2. Experimental case study on RAl2 and RNi2
+We arc melted the HoAl2 and GdNi2 samples as well as the other RNi2 and RAl2 samples that
+had 3% excess of rare-earth elements. X-ray powder diffraction data were collected on a powder
+diffractometer (Stadi P, Stoe&Cie GmbH) equipped with a Ge[111]-monochromator using Mo-
+Kα radiation (λ = 0.70930 Å) in the Debye-Scherrer geometry. The data were evaluated with
+Rietveld refinements using the FullProf package [64]. The analyses revealed that the phase
+fractions of HoAl2 and GdNi2 were close to 90%, while those of the 3%-excess samples RAl2
+and RNi2 were close to 100% and 95% respectively. We further confirmed the sufficient quality
+of our samples by backscatter electron (BSE) imaging and energy-dispersive X-ray
+spectroscopy (EDS) using a Tescan Vega 3 scanning electron microscope (SEM) equipped with
+an EDAX Octane Plus detector. Magnetizations versus applied field as a function of
+temperature were measured with a Physical Properties Measurement System (PPMS) from
+Quantum Design in fields up to 5 T. Direct measurements of the adiabatic temperature change
+in pulsed fields up to 20 T were made at the Dresden High Magnetic Field Laboratory. Each
+sample was cut into two flat pieces with a dimension of around 3 mm x 3 mm x 2 mm. A thin
+type-E thermocouple with a wire thickness of 25 𝜇𝑚 was fixed between these pieces by a little
+amount of silver epoxy. After the samples were fixed on the sample holder, the insert was
+evacuated to a high vacuum of 10−5 𝑚𝑏𝑎𝑟. The time to reach the maximum field was always
+13 ms. More detailed descriptions of the measurements in pulsed fields can be found in
+references [45,46,65,66].
+     Figure 2 shows the magnetic moment as a function of temperature for the Laves phases
+materials RNi2 and RAl2 in a magnetic field of 5 T. This is a field which can be easily generated
+by superconducting magnets, and in which many magnetocaloric materials are studied. The
+heavy rare-earth elements from Gd to Er possess a large magnetic moment due to the partially
+filled 4f shells, resulting in a high saturation magnetization in RNi2 and RAl2. For all the
+investigated materials, the magnetization around 10 K is always above 6 𝜇𝐵 per rare-earth atom,
+higher than the 5.9 𝜇𝐵 of Mn2+ and Fe3+.
+
+
+
+
+                                               4
+                                                                                     GdAl2
+                                                         m0H = 5 T
+                            8                                                        GdNi2
+                                                                                     TbAl2
+                                                                                     TbNi2
+  Magnetization (mB/f.u.)
+
+
+
+
+                                                                                     DyAl2
+                            6                                                        DyNi2
+                                                                                     HoAl2
+                                                                                     HoNi2
+                                                                                     ErAl2
+                            4
+                                                                                     ErNi2
+
+
+
+                            2
+
+
+
+
+                            0
+                                0   30   60     90       120      150     180      210       240
+                                                          T (K)
+Figure 2. Magnetic moment of the RAl2 and RNi2 Laves phases as a function of temperature in fields of
+5 T.
+
+                  By applying the Curie-Weiss law we can determine the effective magnetic moment as:
+                                                         1 3𝑘𝐵 𝑀𝑅
+                                                𝜇𝑒𝑓𝑓 =      √      ,                               (1)
+                                                         𝜇𝐵   𝑁𝐴 𝛼
+where 𝜇𝐵 is the Bohr magneton, 𝑘𝐵 is the Boltzmann constant, 𝑀𝑅 is the molecular mass, 𝑁𝐴 is
+the Avogadro constant, and 𝛼 is the slope of 𝜇0 𝜒 −1 𝑣𝑠. 𝑇 , where 𝜇0 is the vacuum
+permeability and 𝜒 is the magnetic susceptibility. In Figure 3 we plotted 𝜇0 𝜒 −1 𝑣𝑠. 𝑇 in fields
+of 1 T, with dashed lines denoting the Curie-Weiss fits. The intercepts with the x-axis represent
+the paramagnetic Curie temperatures. The effective magnetic moments 𝜇𝑒𝑓𝑓 of the compounds
+as well as 𝜇𝑒𝑓𝑓 of the corresponding free rare-earth ions are summarized together with 𝑇𝐶 in
+Table 1. The effective magnetic moments of RNi2 and RAl2 range from about 8 to 11 𝜇𝐵 /f. u.
+with an average of 9.85 𝜇𝐵 /f. u., putting them close to 𝜇𝑒𝑓𝑓 of the corresponding free rare-earth
+ions. This confirms the large and similar magnetic moments of these heavy rare-earth
+compounds.
+
+
+
+
+                                                          5
+    (a) 0.24                                                                    (b)
+                               ErNi2 HoNi2 DyNi2 TbNi2 GdNi2                                             ErAl2 HoAl2 DyAl2 TbAl2 GdAl2
+                                                                                              0.3
+ m0c-1 (kg T/Am2)
+
+
+
+
+                                                                           m0c-1 (kg T/Am2)
+                    0.16
+
+                                                                                              0.2
+
+
+
+                    0.08
+                                                                                              0.1
+
+
+
+
+                    0.00                                                                      0.0
+                           0    20    40    60      80   100   120   140                            0      50     100    150    200      250   300
+
+                                                 T (K)                                                                  T (K)
+
+
+
+Figure 3. 𝜇0 𝜒 −1 as a function of temperature in fields of 1 T with Curie-Weiss fits shown as red dashed
+lines for (a) RNi2 and (b) RAl2.
+
+Table 1. Effective magnetic moments of the RAl2 and RNi2 Laves phases calculated using the Curie-
+Weiss law and the effective magnetic moments of rare-earth ions taken from reference [52].
+
+      Compounds                        𝜇𝑒𝑓𝑓 in RAl2 and RNi2 ( μB /f. u.)                               𝜇𝑒𝑓𝑓 of free ions (𝜇𝐵 )          𝑇𝐶 (K)
+        GdAl2                                        8.32                                                                                 165
+                                                                                                                  8.9
+        GdNi2                                        8.01                                                                                  74
+        TbAl2                                        9.98                                                                                 107
+                                                                                                                  9.8
+        TbNi2                                        9.82                                                                                  38
+        DyAl2                                       11.12                                                                                  60
+                                                                                                                 10.6
+        DyNi2                                       10.74                                                                                  23
+        HoAl2                                       10.46                                                                                  26
+                                                                                                                 10.4
+        HoNi2                                       10.60                                                                                  15
+        ErAl2                                        9.97                                                                                  13
+                                                                                                                  9.5
+        ErNi2                                        9.47                                                                                   6
+
+     Figure 4 shows the magnetic entropy change in fields of 5 T and 2 T, and the adiabatic
+temperature change measured directly in pulsed fields up to 20 T for RNi2 and RAl2 (except
+ErNi2 due to the low sensitivity of the thermal couple below 10 K). The magnetic entropy
+change was calculated using the Maxwell relation and a numerical integration of Δ𝑆𝑚 =
+  𝐻 𝜕𝑀
+ ∫0 ( 𝜕𝑇 )𝐻 𝑑𝐻 (𝐻 is the magnetic field and 𝑀 is the magnetization) with a varying magnetic field
+up to 5 T at a given temperature, as proposed in reference [67]. For both Laves phase series we
+see a higher peak value at a lower 𝑇𝐶 (except for ErNi2), as indicated by the gray arrows. The
+   𝑚𝑎𝑥
+Δ𝑆𝑚      of ErAl2 with a 𝑇𝐶 of 13 K reaches a value close to 40 J kg-1 K-1 in fields of 5 T. This
+                                                                             𝑚𝑎𝑥
+value is five times larger than that of GdAl2, with a 𝑇𝐶 of 165 K. The Δ𝑇𝑎𝑑       of HoNi2 with a
+𝑇𝐶 of 15 K has a fully reversible value of 10.6 K in fields of 5 T. This value is more than twice
+larger than that of GdNi2, with a 𝑇𝐶 of 74 K.
+     These observations point to a close correlation between the maximum magnetocaloric
+effect and the 𝑇𝐶 , while, at least for RNi2 (excluding ErNi2) and RAl2 series, a larger
+magnetocaloric effect is always observed at lower temperatures. But is this just coincidence, or
+a genuine feature of rare-earth-based magnetocaloric materials? In the search for answer, in the
+next section we review the literature on rare-earth-based magnetocaloric materials from near-
+room temperature down to 20 K.
+                                                 6
+     (a)                                                                                (b)
+                                   ErAl2
+                         40                                        m0H = 5 T                               40                                    m0H = 5 T
+
+                         32                                                                                32
+       -DSm (J/(kgK))
+
+
+
+
+                                                                                         -DSm (J/(kgK))
+                                     HoAl2                                                                      ErNi2
+                         24                    DyAl2                                                       24               HoNi2
+                                                                                                                                DyNi2
+                         16                              TbAl2                                             16
+                                                                                                                                       TbNi2     GdNi2
+                                                                   GdAl2
+                          8                                                                                 8
+
+                          0                                                                                 0
+                              0           40        80       120      160         200                           0     10 20 30 40 50 60 70 80 90 100
+                                                         T (K)                                                                          T (K)
+                         30                                                                                30
+     (c)                                                                                (d)
+                                                                                                                                                m0H = 2 T
+                         25       ErAl2                      m0H = 2 T                                     25
+       -DSm (J/(kgK))
+
+
+
+
+                                                                                         -DSm (J/(kgK))
+                         20                                                                                20
+                                                                                                                    ErNi2
+                         15          HoAl2                                                                 15               HoNi2
+                                                DyAl2
+                         10                                                                                10                  DyNi2
+                                                          TbAl2                                                                        TbNi2     GdNi2
+                                                                      GdAl2
+                          5                                                                                 5
+
+                          0                                                                                 0
+                              0           40        80       120      160         200                           0     10 20 30 40 50 60 70 80 90 100
+                                                         T (K)                                                                          T (K)
+     (e) 30                                                               20 T          (f)                30
+                                                                                                                                                         20 T
+                                                                          5T                                                                             5T
+                         25 ErAl                                          2T                               25                                            2T
+                                 2                                                                                    HoNi2
+                                     HoAl2
+                         20                    DyAl2                                                       20                  DyNi2
+      DTad (K)
+
+
+
+
+                                                                                         DT (K)
+
+
+
+
+                         15                               TbAl2                                            15                       TbNi2
+                                                                     GdAl2                                                                      GdNi2
+                         10                                                                                10
+
+                          5                                                                                 5
+
+                          0                                                                                 0
+                              0      30        60    90      120    150     180                                 0     10 20 30 40 50 60 70 80 90 100
+                                                         T (K)                                                                          T (K)
+
+Figure 4. (a) (b) (c) (d) Magnetic entropy changes in fields of 5 and 2 T for the RAl2 and RNi2 Laves
+phases, and (e) (f) direct measurements of the adiabatic temperature changes in pulsed fields of 2, 5, and
+20 T , excluding ErNi2.
+
+
+
+
+                                                                                  7
+3. Summarizing two trends from literature review
+Figure 5 shows reported values of Δ𝑆𝑚 (𝑇𝐶 ) for rare-earth-based materials [60,61,68–111]
+together with our results in fields of 5 T. There is an additional table in the Supplementary that
+contains the values for this graph and the corresponding references. The distribution of Curie
+temperatures for a single rare-earth-intermetallic series is similar to RAl2 and RNi2, i.e., 𝑇𝐶
+decreases with increasing atomic number from Gd to Tm. This is due to the reducing de Gennes
+factors from Gd to Tm [50–52]. It should be emphasized that upon evaluating the
+magnetocaloric effect, the reversibility caused by thermal hysteresis for the first-order
+magnetocaloric materials, namely ErCo2, HoCo2, DyCo2, Dy5Si4, Ho5Si4, Er5Si4 in the reviewed
+data, should be taken into consideration. The reversibility of these compounds need to be
+studied carefully since there is a lack of sufficient articles addressing this point for these
+compounds.
+      Large magnetic entropy changes occur below 140 K, exceeding that of the benchmark
+polycrystalline Gd with a value of about 10 J kg-1 K-1 [98]. “Giant” values are found near 20 K
+(indicated by the gray shadow), where the magnetic entropy change of HoB2 reaches 40 J kg-1
+K-1 in fields of 5 T [60], four times larger than that of Gd [98], and better than that of ErCo2
+[61], which is a first-order giant magnetocaloric material. Like with the RAl2 and RNi2 series,
+                   𝑚𝑎𝑥
+an increasing Δ𝑆𝑚       is measured as the 𝑇𝐶 decreases for other rare-earth-based intermetallic
+series, although there are exceptions, such as TbFeSi, TbNi, and Ho3CoNi. Based on these
+empirical findings in the literature we propose the first trend: the maximum magnetic entropy
+change of an ideal rare-earth-based intermetallic series increases as the Curie temperature
+decreases.
+      In the inset in Figure 5, we also plot the maximum magnetic entropy changes of some of
+the light rare-earth-based magnetocaloric materials collected from literature [112–117], where
+an increasing trend with decreasing Curie temperature can be also observed. Things are more
+complicated for the light rare-earth-based compounds because it is difficult to build a material
+family like their heavy rare-earth counterparts where the distribution of the Curie temperatures
+can cover a large temperature range. Generally, magnetocaloric effect in the light rare-earth-
+based alloys for hydrogen liquefaction are less studied than that of their heavy rare-earth
+counterparts. More studies on the light rare-earth-based compounds are needed considering that
+the light rare-earth elements such as Ce, Nd, and Pr are much more abundant than heavy rare-
+earth elements such as Tb and Ho [63], although their alloys generally show a weaker
+magnetocaloric effect than those of their heavy rare-earth counterparts due to their smaller
+magnetic moments. Balancing the performance and the costs is still an open question which
+                                                                       𝑚𝑎𝑥       𝑚𝑎𝑥
+needs to be investigated. Studying the correlations among Δ𝑆𝑚               , Δ𝑇𝑎𝑑   , and 𝑇𝐶 will
+contribute to this question.
+
+
+
+
+                                                8
+                                    45
+                                                  m0 H = 5 T   20
+                                                                          PrAl2                m0 H = 5 T
+                                    40
+                                                                     NdGa
+                                                               16                 PrSi
+                                    35
+
+
+                -DSm (J kg-1 K-1)
+                                                               12 PrGa         NdSi
+                                    30
+
+                                    25                                    PrCo2
+                                                                8
+                                                                                         NdAl2
+                                    20                                                                NdCo2
+                                                                     30             60           90
+                                    15
+
+                                    10
+
+                                    5
+                                                                          R: Tm, Er, Ho, Dy, Tb, Gd
+                                    0
+                                                                            RCo2          RMn2
+                                                  m0 H = 2 T
+                                    25                                      RGa           R3Al2
+                                                                            R-1-1         R3CoNi
+                                                                            RNi           R3Ni2
+                                    20                                      RB2
+                                                                                          Gd
+                -DSm (J kg-1 K-1)
+
+
+
+
+                                                                            R2In          R5Si4
+                                                                            RZn           RAl2 (our work)
+                                    15                                      RN
+                                                                                          RNi2 (our work)
+
+
+                                    10
+
+
+                                    5
+
+
+                                    0
+                                         0   60        120     180          240          300          360
+                                                TC (K)
+Figure 5. Magnetic entropy changes in fields of 5 and 2 T as a function of Curie temperature
+for heavy rare-earth-based magnetocaloric mateials, the inset shows the mangetic entropy
+changes in 5 T for the light rare-earth-based magnetocaloric materials. Data for RAl2 and RNi2
+are from our work, the other data are collected from literature [60,61,68–117]. The horizontal
+orange dashed lines mark the magnetic entropy change of Gd, the gray shadow indicates the
+region in the vicinity of hydrogen boiling point.
+
+     In contrast to the numerous data on the magnetic entropy change available in the literature,
+there are only limited data on the adiabatic temperature change in the range below 100 K,
+measured either indirectly or directly. In this study we measured the Δ𝑇𝑎𝑑 of RAl2 and RNi2
+directly in pulsed magnetic fields. The results are plotted in Figure 6 together with other
+published data: pure rare-earth metals [65,118], the 5:4 phases [108], the RCo2 Laves phases
+[61,83,84,97,119], the 1:1:1 phases [74–76,120], the HoB2 [60], the TmCoSi [57], and the
+ErCr2Si2 [58] , with respect to their 𝑇𝐶 in magnetic fields of 5 and 2 T. It should be addressed
+that Tb and Dy are antiferromagnetic below 1 T and that TmCoSi is weakly antiferromagnetic
+below 0.09 T, at the temperature where they show the maximum magnetocaloric effect.
+                              𝑚𝑎𝑥      𝑚𝑎𝑥
+     Like in Figure 5 for Δ𝑆𝑚     , Δ𝑇𝑎𝑑    becomes large near hydrogen’s boiling point of 20 K.
+                                                                                 𝑚𝑎𝑥
+For polycrystalline HoNi2 measured at 15 K in a pulsed field of 2 T, 𝛥𝑇𝑎𝑑            has a fully
+reversible value of 5.7 K, surpassing that of a Gd single crystal, about 5 K [40,65]. Towards
+                                                         𝑚𝑎𝑥
+lower temperatures, TmCoSi and ErCr2Si2 show a Δ𝑇𝑎𝑑           over 8 K in fields of 2 T [57,58],
+                                                9
+surpassing that of the giant near-room-temperature first-order magnetocaloric materials
+                                     𝑚𝑎𝑥
+𝐿𝑎(𝐹𝑒, 𝑆𝑖)13 and 𝐹𝑒𝑅ℎ with a Δ𝑇𝑎𝑑          below 7 K [40]. However, from a 𝑇𝐶 near room
+                                                       𝑚𝑎𝑥
+temperature to a 𝑇𝐶 of about 160 K, we see that 𝛥𝑇𝑎𝑑        decreases with decreasing 𝑇𝐶 for the
+                                                                                    𝑚𝑎𝑥
+pure rare-earth metals and the 5:4 phases. For the other series with a lower 𝑇𝐶 , 𝛥𝑇𝑎𝑑  increases
+with decreasing 𝑇𝐶 (except for TbFeSi). Based on these empirical findings we propose the
+second trend: the maximum adiabatic temperature change of a rare-earth-based intermetallic
+series decreases close to room temperature as Curie temperature decreases but increases at
+cryogenic temperatures.
+                           18
+                                                       m0H = 5 T
+                           16
+
+                           14
+
+                           12
+                    DTad (K)
+
+
+
+
+                           10
+
+                               8
+
+                               6
+
+                               4
+                                                   Directly measured
+                               2
+                                            ErAl2 HoAl2 DyAl2 TbAl2 GdAl2 (our work)
+                                            HoNi2 DyNi2 TbNi2 GdNi2 (our work)
+                               0
+                                                   Indirectly measured
+                           10               Dy Tb Gd (single crystal)
+                                            Tb5Si4 Gd5Si4
+                                            TmCuAl DyCuAl DyFeSi TbFeSi (TbFeAl GdFeAl)
+                               8            ErCo2 HoCo2 DyCo2 TbCo2
+                                            TmCoSi ErCr2Si2
+                                            HoB2
+                    DTad (K)
+
+
+
+
+                               6
+
+
+                                                       m0H = 2 T
+                               4
+
+
+                               2
+
+
+                               0
+                                   0   60        120         180        240            300   360
+
+                                                            TC (K)
+
+Figure 6. Adiabatic temperature changes of the RAl2 and RNi2 Laves phases, the pure rare-earth metals
+[65,118], the 5:4 phase [65,108], the RCo2 Laves phases [61,83,84,97,119], the 1:1:1 phase [74–76,120],
+the HoB2 [60], the TmCoSi [57], and the ErCr2Si2 [58] , in fields of 5 T (top) and 2 T (bottom). Note that
+there are no data for TbFeAl and GdFeAl in 5 T. Each sequence in the legend is listed with increasing
+Curie temperature from left to right. The gray shaodow indicates the region in the vicinity of hydrogen
+boiling point.
+
+      The two trends can now help us to make a quick assessment of the magnetocaloric effect
+in rare-earth-based alloys. For example, HoB2 which has the largest magnetic entropy change
+in Figure 5, was recently proposed by Castro et al., who used machine-learning algorithms [60].
+                                                       10
+The first trend could also have been applied to anticipate the performance of HoB2. Knowing
+that HoB2 has a Curie temperature of 15 K and that TbB2 [95] and DyB2 [94] have large
+magnetic entropy changes, the first trend would suggest that HoB2 should have an even larger
+magnetic entropy change. The two trends could also help with alloy design when we need to
+                                    𝑚𝑎𝑥        𝑚𝑎𝑥
+tune 𝑇𝐶 , because they state that Δ𝑆𝑚   and Δ𝑇𝑎𝑑    are both dependent on 𝑇𝐶 . Moreover, these
+                                                                      𝑚𝑎𝑥        𝑚𝑎𝑥
+two trends suggest that there is a physical explanation as to why Δ𝑆𝑚     and Δ𝑇𝑎𝑑   correlate
+with 𝑇𝐶 .
+
+4. Theoretical description via mean-field approach
+The magnetocaloric effect is influenced by many factors, such as microstructure, stoichiometry,
+order of the phase transition, magnetic moment, and the sweep rate of the field [24,121–125].
+It was shown by Gottschall et al. [65], Romero-Muñiz et al. [126], Belo et al. [127], and
+Oesterreicher et al. [128] that a mean-field approach can explain the magnetocaloric properties
+of rare-earth elements and their compounds. We have used this approach to understand how
+   𝑚𝑎𝑥          𝑚𝑎𝑥
+Δ𝑆𝑚     and Δ𝑇𝑎𝑑     vary with 𝑇𝐶 .
+     The magnetic entropy derived from a mean-field model is given by reference [129] as:
+
+                                                 2𝐽 + 1
+                                                  sinh  𝑥
+                                                   2𝐽
+                             𝑆𝑚 = 𝑁𝑀 𝑘𝐵 [ln (             ) −𝑥𝐵𝐽 (𝑥)],                          (2)
+                                                    1
+                                              sinh 2𝐽 𝑥
+                      3𝐽
+            𝜇𝜇0 𝐻+       𝑘 𝑇 𝐵 (𝑥)
+                     𝐽+1 𝐵 𝐶 𝐽
+where 𝑥 =                            . 𝑁𝑀 is the number of “magnetic atoms”, 𝐵𝐽 (𝑥) is the Brillouin
+                      𝑘𝐵 𝑇
+function, 𝐽 is the total angular momentum, 𝜇 is the atomic magnetic moment, 𝑇𝐶 is the Curie
+temperature, 𝜇0 is the vacuum permeability, and 𝑘𝐵 is the Boltzmann constant. Gottschall et al.
+already demonstrated that this equation is applicable to a single crystal of Gd in pulsed fields
+up to 62 T [65]. However, it is important to note that this approach only provides good results
+in the paramagnetic state; it is not accurate enough to describe the ferromagnetic state with its
+                                                            𝑚𝑎𝑥         𝑚𝑎𝑥
+spontaneous magnetization [65]. Nevertheless, since Δ𝑆𝑚         and Δ𝑇𝑎𝑑      are located near 𝑇𝐶 ,
+where the material is only weakly ferromagnetic, this equation is useful for describing these
+two quantities [65].
+     The adiabatic temperature change Δ𝑇𝑎𝑑 is obtained by constructing the total entropy
+𝑆(𝐻, 𝑇) curves as a function of 𝐻 and 𝑇 [129]. In addition to the magnetic entropy 𝑆𝑚 , we have
+the lattice entropy 𝑆𝑙 , and the electronic entropy 𝑆𝑒 [124]. Usually, 𝑆𝑒 is small compared to 𝑆𝑙
+above 10 K and can be neglected [124]. The volumetric lattice heat capacity is approximated
+by the Debye model as:
+                                                      𝑇𝐷
+                                        𝑇 3 𝑇 𝑥4𝑒 𝑥
+                             𝐶𝑉 = 9𝑁𝑘𝐵 ( ) ∫    𝑥     2
+                                                        𝑑𝑥,                                    (3)
+                                        𝑇𝐷  0 (𝑒 − 1)
+
+where 𝑇𝐷 is the Debye temperature, 𝑁 is the total number of atoms, and 𝑥 = ℏ𝜔/𝑘𝐵 𝑇 where
+ℏ is the reduced Planck constant and 𝜔 is the circular frequency of the phonons. The integration
+of 𝐶𝑉 gives the lattice entropy
+                                                                          𝑇𝐷
+            𝑇
+             𝐶𝑉                               𝑇𝐷                 𝑇 3 𝑇           𝑥3
+    𝑆𝑙 = ∫       𝑑𝑇 = −3𝑁𝑘𝐵 [1 − exp (− )] + 12𝑁𝑘𝐵 ( ) ∫                                𝑑𝑥. (4)
+           0  𝑇                                𝑇                 𝑇 𝐷       0 exp(𝑥) − 1
+The total entropy 𝑆(𝐻, 𝑇) curves are constructed by summing 𝑆𝑚 and 𝑆𝑙 . The adiabatic
+temperature change is then given by
+                     Δ𝑇𝑎𝑑 (𝑇𝐼 , 𝐻𝐼 → 𝐻𝐹 ) = 𝑇𝐹 (𝑆𝐹 , 𝐻𝐹 ) − 𝑇𝐼 (𝑆𝐼 , 𝐻𝐼 ),                   (5)
+where 𝑇𝐼 and 𝑇𝐹 are the initial and final temperatures, 𝐻𝐼 and 𝐻𝐹 are the initial and final
+magnetic fields, and 𝑆𝐼 and 𝑆𝐹 are the initial and final total entropies with 𝑆𝐼 = 𝑆𝐹 [129].
+                                                     11
+     The results for Δ𝑆𝑚 calculated with equation (2) and Δ𝑇𝑎𝑑 calculated with equation (5) in
+fields of 5 T are shown in Figure 7. We use the parameters 𝜇 = 10 𝜇𝐵 /f. u. and 𝐽 = 7.5, which
+correspond to DyAl2. The volumetric lattice heat capacities of RAl2 can be reasonably assumed
+to lie in between that of LaAl2 with a Debye temperature of 352 K, and that of LuAl2 with a
+Debye temperature of 384 K [130–133]. Figure 7 (b) and (c) show the calculated Δ𝑇𝑎𝑑 with
+                                                                            𝑚𝑎𝑥
+𝑇𝐷 = 352 and 384 𝐾 respectively. In agreement with the two trends, Δ𝑆𝑚          increases with
+                        𝑚𝑎𝑥
+decreasing 𝑇𝐶 , and Δ𝑇𝑎𝑑     decreases first from near room temperature but then increases
+towards a lower 𝑇𝐶 . Both quantities exhibit large values near 20 K, as highlighted in the
+shadows in Figure 7.
+ (a)                                                       (b)                                                    (c)
+                                                                      30 TD = 352 K   7.0                                    30       TD = 384 K   7.0
+                 12
+ -DSm (J mol-1 K-1)
+
+
+
+
+                                                                      24                                                     24
+                                                                                      6.5                                                          6.5
+                                                           DTad (K)
+
+
+
+
+                                                                                                                  DTad (K)
+                      9
+                                                                      18                                                     18
+                                                                                      6.0                                                          6.0
+                      6                                                                      200    250    300                                            200    250    300
+                                                                      12                                                     12
+
+                      3                                                6                                                      6
+
+
+                      0                                                0                                                      0
+                          0   60   120   180   240   300                   0   60     120     180    240    300                   0        60      120     180    240    300
+                                     T (K)                                                  T (K)                                                        T (K)
+
+Figure 7. Calculations using mean-field theory of (a) the magnetic entropy change as a function of
+temperature in fields of 5 T for different 𝑇𝐶 , (b) (c) adiabatic temperature change as a function of
+temperature in fields of 5 T for different 𝑇𝐶 with 𝑇𝐷 = 352 and 384 K. The gray shadows indicate the
+regions in the vicinity of hydrogen boiling temperature and the insets in (b) and (c) shows the enlarged
+region in the vicinity of room temperature.
+                                                                                                𝑚𝑎𝑥
+     This mean-field approach can be approximated to a simple form that directly links Δ𝑆𝑚
+         𝑚𝑎𝑥
+and Δ𝑇𝑎𝑑 to 𝑇𝐶 . Regarding Δ𝑆𝑚 , in 1984 Oesterreicher et al. found an approximate
+                            𝑚𝑎𝑥                         𝑚𝑎𝑥
+relationship between Δ𝑆𝑚         , 𝑇𝐶 and 𝐻 , i.e., Δ𝑆𝑚     ∝ (𝐻/𝑇𝐶 )2/3 , by using the Taylor
+expansion of the Brillouin function, and they considered the cases near room temperature and
+above [128]. Combining Landau theory and the mean-field model, in 2012 Belo et al.
+demonstrated that many systems, especially the heavy rare-earth-based systems, fit to the
+                             −2/3                                       𝑚𝑎𝑥                     −2/3
+relationship Δ𝑆𝑚 (TC ) ∝ 𝑇𝐶        [127]. Figure 8 shows the molar Δ𝑆𝑚       as a function of 𝑇𝐶
+using the calculated data from Figure 7 (a) and the experimental data from Figure 4. The data
+                                                                                            𝑚𝑎𝑥
+from the mean-field approach demonstrate that the linear relationship between Δ𝑆𝑚                and
+  −2/3
+𝑇𝐶     holds, at least down to 20 K in fields of 5 T, as indicated by the violet line. Although the
+experimental values for the polycrystalline samples lie somewhat below the theoretical values,
+      −2/3
+the 𝑇𝐶     relationship remains valid down to ErAl2, with a Curie temperature close to 13 K.
+                                                              −2/3
+However, ErNi2 with a 𝑇𝑐 of about 6 K deviates from the 𝑇𝐶          line significantly. Although its
+effective magnetic moment is calculated to be 9.47 𝜇𝐵 , which is close to the average of 9.85 𝜇𝐵 ,
+this deviation suggests that there are specific factors beyond this mean-field approach below 10
+                                          𝑚𝑎𝑥
+K. The abnormal variation trend of Δ𝑆𝑚        among the RNi2 series shown in the present work is
+in accordance with Ref. [132], in which the influence of the crystalline electric field on the
+magnetocaloric effect is taken into consideration. We suspect that the crystalline electric field
+has a large influence on the magnetocaloric effect of the rare-earth-based materials below 10 K.
+This, however, needs more study both theoretically and experimentally. To sum up our mean-
+                        𝑚𝑎𝑥                                 −2/3
+field approach on Δ𝑆𝑚       , the function of Δ𝑆𝑚 (TC ) ∝ 𝑇𝐶     approximating equation (2) is a
+negative exponential function that undergoes an increasingly sharper increase towards an ever
+
+
+                                                                                      12
+lower 𝑇𝐶 . This gives us a mathematical explanation for the empirical finding that Δ𝑆𝑚 exhibits
+large values around 20 K.
+        D
+
+
+
+
+Figure 8. Experimental (red circles and square in the dark gray shadows) and mean-field-theory data
+(violet open diamonds and open triangle in the light gray shadows) of the magnetic entropy change in
+                                      −2/3
+RAl2 and RNi2 as a function of 𝑇𝐶          ; the violet dashed line is the linear fitting of the calculated data
+and the red line is the linear fitting of the experimental data. The top axis shows the corresponding Curie
+temperature 𝑇𝐶 , the vertical orange dashed line indicates the boiling point of hydrogen.
+                                                                                𝑚𝑎𝑥
+     As for the adiabatic temperature change, the dependence between Δ𝑇𝑎𝑑            and 𝑇𝐶 is not as
+                                   𝑚𝑎𝑥                                                        𝑚𝑎𝑥
+well studied as that between Δ𝑆𝑚         and 𝑇𝐶 . In 2011, Kuz’min et al. revealed that Δ𝑇𝑎𝑑       ∝
+  2/3
+𝐻 [134]. Near room temperature and above, where the Dulong-Petit law applies, Gottschall
+                                      𝑚𝑎𝑥        1/3
+et al. [65] indicated in 2019 that Δ𝑇𝑎𝑑     ∝ 𝑇𝐶 , although they did not state this explicitly. The
+  1/3
+𝑇𝐶 relationship can be also deduced from the work by Oesterreicher et al., in which they also
+assume that the lattice heat capacity is a constant [128]. Figure 9 (a) shows Δ𝑇𝑎𝑑 with respect
+     1/3
+to 𝑇𝐶 using the data from Figure 7 (b) and (c), and the experimental data of RAl2. As
+                                                1/3
+confirmed by the inset in Figure 9 (a), the 𝑇𝐶 relationship holds near room temperature. Such
+                   𝑚𝑎𝑥
+a decrease of Δ𝑇𝑎𝑑      with 𝑇𝐶 has been observed in the pure rare-earth metals Gd, Dy, and Tb,
+and the 5:4 compounds Tb5Si4 and Gd5Si4, as shown in Figure 6.
+     However, towards lower temperatures, where the Dulong-Petit law is no longer valid, and
+the lattice heat capacity can no longer be regarded as constant, the mean-field approach predicts
+         𝑚𝑎𝑥
+that Δ𝑇𝑎𝑑     increases with decreasing 𝑇𝐶 , which is in accordance with the experimental data of
+                               𝑚𝑎𝑥
+RAl2. Such an increase in Δ𝑇𝑎𝑑      is a result of the sharply reduced lattice heat capacity. Figure
+9 (b) shows the molar lattice heat capacity of LuAl2 and LaAl2 using the Debye model, and the
+estimated lattice heat capacities at the Curie temperatures for the RAl2 intermetallic series. As
+suggested by von Ranke et al. and Ribeiro et al. [34,59], we estimate the Debye temperatures
+
+                                                      13
+of the RAl2 intermetallic alloys with the Debye temperature of LaAl2 and LuAl2 using the
+following relationship:
+                        𝑅𝐴𝑙2         [14 − 𝑛]𝑇𝐷𝐿𝑎𝐴𝑙2 (𝑇) + 𝑛𝑇𝐷𝐿𝑢𝐴𝑙2 (𝑇)
+                     𝑇𝐷 (𝑇, 𝑛) =                                        ,                       (6)
+                                                     14
+where n is defined as the relative position of the rare-earth element in the rare-earth series. The
+volumetric lattice heat capacities of the RAl2 at their Curie temperatures are then estimated
+using the estimated Debye temperatures. As seen from Figure 9 (b), the lattice heat capacities
+of the RAl2 at the 𝑇𝐶 decreases sharply: starting from GdAl2, with a value close to 60 J K-1 mol-
+1
+  , to ErAl2, with a value of 0.24 J K-1 mol-1. Such a significant sharp drop in the lattice heat
+capacity happens for the RAl2 series at about the 𝑇𝐶 of GdAl2, which corresponds to the point
+           𝑚𝑎𝑥
+where Δ𝑇𝑎𝑑      starts to increase with decreasing 𝑇𝐶 in Figure 9 (a).
+
+                8           27         64              125            216         343                                                 Estimated CV of RAl2 at TC
+
+           30           Mean-field approach      7.2                                                          70          LuAl2
+                            TD = 384 K                                                                                    LaAl2       GdAl2
+                            TD = 352 K                                                                        60
+           25
+                                                 6.8
+                                                                                                              50
+
+                                                                                           Cv (J K-1 mol-1)
+                                                                                                                                                     0      8        16         24
+           20                                                                                                                TbAl2
+                                                                                                                                                 3
+DTad (K)
+
+
+
+
+                                                                                                              40
+           15                                    6.4                                                                                                                      HoAl2
+                                                                                                              30                                 2
+                                                        5.4           6.0   6.6
+           10                                                                                                          DyAl2
+                    ErAl2                                                                                     20                                 1
+                            HoAl2
+                                                                                                                                                           ErAl2
+           5                         DyAl2                                                                    10
+                                                TbAl2                                                                                            0
+                                                              GdAl2
+           0                                                                                                  0
+                2            3          4               5              6          7                                0    40      80   120   160       200   240     280    320   360   400
+
+                                              T1/3C                                                                                              T (K)
+
+                                                                                                                          1/3
+Figure 9. (a) Adiabatic temperature change as a function of 𝑇𝐶 using theoretical data (squares and
+circles) from Figure 7 (b) and (c) as well as experimental data of RAl2 (triangles) from Figure 4 (e).The
+inset shows the enlarged area near room temperature. The vertical orange dashed line indicates the
+boiling point of H2. (b) The molar lattice heat capacity of LuAl2 and LaAl2 and the estimated lattice heat
+capacity at 𝑇𝐶 of RAl2 marked with red circles.
+
+     The mean-field approach can well explain the two trends, which are based on empirical
+                                                                          𝑚𝑎𝑥
+findings from our literature review. The way that 𝑇𝐶 correlates with Δ𝑆𝑚       can be simplified
+                                         𝑚𝑎𝑥      −2/3
+to the negative exponential function 𝛥𝑆𝑚 ∝ 𝑇𝐶          , which holds true at least down to 20 K.
+                                                                                       𝑚𝑎𝑥
+Moreover, the sharp change in the lattice heat capacity leads to an increase of Δ𝑇𝑎𝑑        with
+respect to the decreasing 𝑇𝐶 in the low-temperature range. This mean-field approach could be
+further developed to explore the field dependence of these two trends. In addition, the
+crystalline electric fields and the interactions between two different rare-earth ions when
+substitution is applied need to be considered if we are to perform the more accurate modeling
+[34], though it would complicate the whole process. Nevertheless, our mean-field approach
+does reveal a correlation between the Curie temperature and the maximum magnetocaloric
+effects vividly.
+
+5. Summary
+                                                                                            𝑚𝑎𝑥
+Our study of the Laves phases RAl2 and RNi2 (excluding ErNi2) revealed that both their Δ𝑆𝑚
+        𝑚𝑎𝑥
+and Δ𝑇𝑎𝑑 increase with decreasing 𝑇𝐶 . We then reviewed the literature for the quantities
+   𝑚𝑎𝑥      𝑚𝑎𝑥
+Δ𝑆𝑚    , Δ𝑇𝑎𝑑   , and 𝑇𝐶 of rare-earth-based magnetocaloric materials, on the basis of which we
+                                                         𝑚𝑎𝑥
+summarized two trends for a intermetallic series: (1) Δ𝑆𝑚    increases with decreasing 𝑇𝐶 ; (2)
+   𝑚𝑎𝑥
+Δ𝑇𝑎𝑑    decreases with decreasing 𝑇𝐶 from room temperature, but then increases at cryogenic
+temperatures. Importantly, we discovered a noticeable, but unaddressed feature for the rare-
+
+                                                                                      14
+earth-based magnetocaloric materials that magnetocaloric effect can be much stronger near 20
+K, the boiling point of hydrogen.
+                                                                                    𝑚𝑎𝑥      𝑚𝑎𝑥
+     We developed a mean-field approach to interpretate the correlations among Δ𝑆𝑚       , Δ𝑇𝑎𝑑   ,
+                                                                     𝑚𝑎𝑥
+and 𝑇𝐶 . The results provide support: we observed an increasing Δ𝑆𝑚 with decreasing 𝑇𝐶 and
+                                            𝑚𝑎𝑥                                     𝑚𝑎𝑥
+the non-monotonic dependence of Δ𝑇𝑎𝑑              on 𝑇𝐶 . The dependence of Δ𝑆𝑚           can be
+                                           𝑚𝑎𝑥      −2/3
+approximated to a simple form of Δ𝑆𝑚 ∝ 𝑇𝐶                , a negative exponential function that
+undergoes an ever-sharper increase towards an ever lower 𝑇𝐶 . This gives a mathematical
+explanation as to why Δ𝑆𝑚 can exhibit large values around 20 K. In addition, by taking
+advantage of the similarities of the rare-earth elements, we examined this relationship using the
+Laves phases RNi2 and RAl2. By combining the Debye model with the mean-field model, we
+show that the difference between the lattice heat capacity at cryogenic temperatures and that
+                                                                                             𝑚𝑎𝑥
+near room temperature is the key to understanding the non-monotonic dependence of Δ𝑇𝑎𝑑
+on 𝑇𝐶 .
+     The dependence of Δ𝑆𝑚 and Δ𝑇𝑎𝑑 on 𝑇𝐶 investigated here will help researchers to rapidly
+predict magnetocaloric properties, particularly for rare-earth-based magnetocaloric materials.
+It also helps researchers understand better how temperature acts on magnetocaloric effect,
+which not only can help design alloys for magnetocaloric liquefaction of hydrogen and other
+industrial gases, but also can benefit the search for new magnetocaloric materials.
+
+Declare of Interest
+The authors declare no conflict of interest.
+
+Acknowledgements
+The authors gratefully acknowledge financial support from the Helmholtz Association via the
+Helmholtz-RSF Joint Research Group (Project No. HRSF-0045), from the HLD at HZDR,
+member of the European Magnetic Field Laboratory (EMFL), from the DFG through the
+Würzburg-Dresden Cluster of Excellence on Complexity and Topology in Quantum Matter-
+ct.qmat (EXC 2147, Project ID 39085490), the CRC/TRR 270 (Project-ID 405553726) and the
+Project-ID 456263705, and from the ERC under the European Union’s Horizon 2020 research
+and innovation program (Grant No. 743116, Cool Innov).
+
+Data Availability
+The data that support the findings of this study are available from the corresponding author
+upon reasonable request.
+
+References
+[1] European Commission, Directorate-General for Climate Action, Going climate-neutral by 2050:
+    a strategic long-term vision for a prosperous, modern, competitive and climate-neutral EU
+    economy, Publication Office, 2019.
+[2] H.L. van Soest, M.G.J. den Elzen, D.P. van Vuuren, Net-zero emission targets for major emitting
+    countries consistent with the Paris Agreement, Nat. Commun. 12 (2021) 2140.
+    https://doi.org/10.1038/s41467-021-22294-x.
+[3] G. Glenk, S. Reichelstein, Economics of converting renewable power to hydrogen, Nat. Energy 4
+    (2019) 216–222. https://doi.org/10.1038/s41560-019-0326-1.
+[4] A. Züttel, A. Remhof, A. Borgschulte, O. Friedrichs, Hydrogen: the future energy carrier, Philos.
+    Trans. R. Soc. A-Math. Phys. Eng. Sci. 368 (2010) 3329–3342.
+    https://doi.org/10.1098/rsta.2010.0113.
+[5] M. Pagliaro, A.G. Konstandopoulos, R. Ciriminna, G. Palmisano, Solar hydrogen fuel of the near
+    future, Energy Environ. Sci. 3 (2010) 279–287. https://doi.org/10.1039/B923793N.
+[6] N. Sazali, Emerging technologies by hydrogen: a review, Int. J. Hydrog. Energy 45 (2020)
+    18753–18771. https://doi.org/10.1016/j.ijhydene.2020.05.021.
+
+                                                 15
+[7] A.M. Oliveira, R.R. Beswick, Y. Yan, A green hydrogen economy for a renewable energy
+     society, Curr. Opin. Chem. Eng. 33 (2021) 100701. https://doi.org/10.1016/j.coche.2021.100701.
+[8] M. Aasadnia, M. Mehrpooya, Large-scale liquid hydrogen production methods and approaches:
+     A review, Appl. Energy 212 (2018) 57–83. https://doi.org/10.1016/j.apenergy.2017.12.033.
+[9] D.J. Durbin, C. Malardier-Jugroot, Review of hydrogen storage techniques for on board vehicle
+     applications, Int. J. Hydrog. Energy 38 (2013) 14595–14617.
+     https://doi.org/10.1016/j.ijhydene.2013.07.058.
+[10] A.T. Wijayanta, T. Oda, C.W. Purnomo, T. Kashiwagi, M. Aziz, Liquid hydrogen,
+     methylcyclohexane, and ammonia as potential hydrogen storage: Comparison review, Int. J.
+     Hydrog. Energy 44 (2019) 15026–15044. https://doi.org/10.1016/j.ijhydene.2019.04.112.
+[11] M. Aziz, Liquid hydrogen: a review on liquefaction, storage, transportation, and safety, Energies
+     14 (2021) 5917. https://doi.org/10.3390/en14185917.
+[12] S. Kamiya, M. Nishimura, E. Harada, Study on introduction of CO2 free energy to Japan with
+     liquid hydrogen, Phys. Procedia 67 (2015) 11–19. https://doi.org/10.1016/j.phpro.2015.06.004.
+[13] P.-M. Heuser, D.S. Ryberg, T. Grube, M. Robinius, D. Stolten, Techno-economic analysis of a
+     potential energy trading link between Patagonia and Japan based on CO2 free hydrogen, Int. J.
+     Hydrog. Energy 44 (2019) 12733–12747. https://doi.org/10.1016/j.ijhydene.2018.12.156.
+[14] A. Bejan, Theory of heat transfer-irreversible refrigeration plants, Int. J. Heat Mass Transf. 32
+     (1989) 1631–1639. https://doi.org/10.1016/0017-9310(89)90045-8.
+[15] M. Kanoglu, I. Dincer, M.A. Rosen, Performance analysis of gas liquefaction cycles, Int. J.
+     Energy Res. 32 (2008) 35–43. https://doi.org/10.1002/er.1333.
+[16] R. Gimaev, Y. Spichkin, B. Kovalev, K. Kamilov, V. Zverev, A. Tishin, Review on magnetic
+     refrigeration devices based on HTSC materials, Int. J. Refrig. 100 (2019) 1–12.
+     https://doi.org/10.1016/j.ijrefrig.2019.01.024.
+[17] I. Park, S. Jeong, Development of the active magnetic regenerative refrigerator operating between
+     77 K and 20 K with the conduction cooled high temperature superconducting magnet, Cryogenics
+     88 (2017) 106–115. https://doi.org/10.1016/j.cryogenics.2017.09.008.
+[18] N. Hirano, S. Nagai, Y. Xie, T. Okamura, Basic research of HTS coil cooling assist technology
+     by magnetic refrigeration, J. Phys.: Conf. Ser. 1559 (2020) 12090. https://doi.org/10.1088/1742-
+     6596/1559/1/012090.
+[19] A. Kitanovski, Energy applications of magnetocaloric materials, Adv. Energy Mater. 10 (2020)
+     1903741. https://doi.org/10.1002/aenm.201903741.
+[20] K. Kamiya, K. Matsumoto, T. Numazawa, S. Masuyama, H. Takeya, A.T. Saito, N. Kumazawa,
+     K. Futatsuka, K. Matsunaga, T. Shirai, S. Takada, T. Iida, Active magnetic regenerative
+     refrigeration using superconducting solenoid for hydrogen liquefaction, Appl. Phys. Express 15
+     (2022) 53001. https://doi.org/10.35848/1882-0786/ac5723.
+[21] X. Tang, J. Lai, H. Sepehri-Amin, T. Ohkubo, K. Hono, (Pr0.75Ce0.25)-Fe-B hot-deformed
+     magnets for cryogenic applications, Scr. Mater. 194 (2021) 113648.
+     https://doi.org/10.1016/j.scriptamat.2020.113648.
+[22] T. Feng, R. Chen, R.V. Ihnfeldt, Modeling of hydrogen liquefaction using magnetocaloric cycles
+     with permanent magnets, Int. J. Refrig. (2020). https://doi.org/10.1016/j.ijrefrig.2020.06.032.
+[23] J. Lyubina, Magnetocaloric materials for energy efficient cooling, J. Phys. D: Appl. Phys. 50
+     (2017) 53002. https://doi.org/10.1088/1361-6463/50/5/053002.
+[24] O. Gutfleisch, M.A. Willard, E. Brück, C.H. Chen, S.G. Sankar, J.P. Liu, Magnetic materials and
+     devices for the 21st century: stronger, lighter, and more energy efficient, Adv. Mater. 23 (2011)
+     821–842. https://doi.org/10.1002/adma.201002180.
+[25] M. Masche, J. Liang, K. Engelbrecht, C. Bahl, Performance assessment of a rotary active
+     magnetic regenerator prototype using gadolinium, Appl. Therm. Eng. 204 (2022) 117947.
+     https://doi.org/10.1016/j.applthermaleng.2021.117947.
+[26] X. Moya, S. Kar-Narayan, N.D. Mathur, Caloric materials near ferroic phase transitions, Nat.
+     Mater. 13 (2014) 439–450. https://doi.org/10.1038/nmat3951.
+[27] X. Moya, E. Defay, V. Heine, N.D. Mathur, Too cool to work, Nat. Phys. 11 (2015) 202–205.
+     https://doi.org/10.1038/nphys3271.
+
+
+
+                                                 16
+[28] K. Kamiya, T. Numazawa, K. Matsumoto, H. Nozawa, T. Yanagitani, Design and build of
+     magnetic refrigerator for hydrogen liquefaction, AIP Conf. Proc. 823 (2006) 591–597.
+     https://doi.org/10.1063/1.2202464.
+[29] T. Numazawa, K. Kamiya, S. Yoshioka, H. Nakagome, K. Matsumoto, J.G. Weisend, J. Barclay,
+     S. Breon, J. Demko, M. DiPirro, J.P. Kelley, P. Kittel, A. Klebaner, A. Zeller, M. Zagarola, S.
+     van Sciver, A. Rowe, J. Pfotenhauer, T. Peterson, J. Lock, Development of a magnetic
+     refrigerator for hydrogen liquefaction, AIP Conf. Proc. 985 (2008) 1183–1189.
+     https://doi.org/10.1063/1.2908470.
+[30] T. Numazawa, K. Kamiya, T. Utaki, K. Matsumoto, Magnetic refrigerator for hydrogen
+     liquefaction, Cryogenics 62 (2014) 185–192. https://doi.org/10.1016/j.cryogenics.2014.03.016.
+[31] Y. Zhu, H. Hattori, K. Matsumoto, Y. Yanagisawa, H. Nakagome, T. Numazawa, Numerical
+     simulation for hydrogen magnetic refrigeration, AIP Conf. Proc. 1434 (2012) 335–342.
+     https://doi.org/10.1063/1.4706937.
+[32] J. Lai, H. Sepehri-Amin, X. Tang, J. Li, Y. Matsushita, T. Ohkubo, A.T. Saito, K. Hono,
+     Reduction of hysteresis in (La1-xCex )y (Mnz Fe11.4-z)Si1.6 magnetocaloric compounds for
+     cryogenic Magnetic Refrigeration, Acta Mater. (2021) 117286.
+     https://doi.org/10.1016/j.actamat.2021.117286.
+[33] J. Lai, X. Tang, H. Sepehri-Amin, K. Hono, Tuning magnetocaloric effect of Ho1-xGdxNi2 and
+     HoNi2-yCoy alloys around hydrogen liquefaction temperature, Scr. Mater. 188 (2020) 302–306.
+     https://doi.org/10.1016/j.scriptamat.2020.07.046.
+[34] P.O. Ribeiro, B.P. Alho, R.S. de Oliveira, E.P. Nóbrega, V. de Sousa, P.J.v. Ranke, A. Biswas,
+     M. Khan, Y. Mudryk, V.K. Pecharsky, Magnetothermal properties of Ho1-xDyxAl2 (x = 0, 0.05,
+     0.10, 0.15, 0.25 and 0.50) compounds, J. Magn. Magn. Mater. 544 (2022) 168705.
+     https://doi.org/10.1016/j.jmmm.2021.168705.
+[35] S.X. Yang, X.Q. Zheng, W.Y. Yang, J.W. Xu, J. Liu, L. Xi, H. Zhang, L.C. Wang, Z.Y. Xu, J.Y.
+     Zhang, Y.F. Wu, X.B. Ma, D.F. Chen, J.B. Yang, S.G. Wang, B.G. Shen, Tunable magnetic
+     properties and magnetocaloric effect of TmGa by Ho substitution, Phys. Rev. B 102 (2020).
+     https://doi.org/10.1103/PhysRevB.102.174441.
+[36] W. Liu, F. Scheibel, T. Gottschall, E. Bykov, I. Dirba, K. Skokov, O. Gutfleisch, Large magnetic
+     entropy change in Nd2In near the boiling temperature of natural gas, Appl. Phys. Lett. 119 (2021)
+     22408. https://doi.org/10.1063/5.0054959.
+[37] J. Lai, A. Bolyachkin, N. Terada, S. Dieb, X. Tang, T. Ohkubo, H. Sepehri-Amin, K. Hono,
+     Machine learning assisted development of Fe2P-type magnetocaloric compounds for cryogenic
+     applications, Acta Mater. 232 (2022) 117942. https://doi.org/10.1016/j.actamat.2022.117942.
+[38] X. Tang, H. Sepehri-Amin, N. Terada, A. Martin-Cid, I. Kurniawan, S. Kobayashi, Y. Kotani, H.
+     Takeya, J. Lai, Y. Matsushita, T. Ohkubo, Y. Miura, T. Nakamura, K. Hono, Magnetic
+     refrigeration material operating at a full temperature range required for hydrogen liquefaction,
+     Nat. Commun. 13 (2022) 1817. https://doi.org/10.1038/s41467-022-29340-2.
+[39] A. Smith, Who discovered the magnetocaloric effect?, Eur. Phys. J. H 38 (2013) 507–517.
+     https://doi.org/10.1140/epjh/e2013-40001-9.
+[40] T. Gottschall, K.P. Skokov, M. Fries, A. Taubel, I. Radulov, F. Scheibel, D. Benke, S. Riegg, O.
+     Gutfleisch, Making a cool choice: the materials library of magnetic refrigeration, Adv. Energy
+     Mater. 9 (2019) 1901322. https://doi.org/10.1002/aenm.201901322.
+[41] A. Smith, C.R. Bahl, R. Bjørk, K. Engelbrecht, K.K. Nielsen, N. Pryds, Materials challenges for
+     high performance magnetocaloric refrigeration devices, Adv. Energy Mater. 2 (2012) 1288–1318.
+     https://doi.org/10.1002/aenm.201200167.
+[42] M. Belkadi, A. Smaili, Thermal analysis of a multistage active magnetic regenerator cycle for
+     hydrogen liquefaction, Int. J. Hydrog. Energy 43 (2018) 3499–3511.
+     https://doi.org/10.1016/j.ijhydene.2017.11.030.
+[43] K. Matsumoto, T. Kondo, M. Ikeda, T. Numazawa, Numerical analysis of active magnetic
+     regenerators for hydrogen magnetic refrigeration between 20 and 77K, Cryogenics 51 (2011)
+     353–357. https://doi.org/10.1016/j.cryogenics.2010.06.003.
+[44] H. Zhang, R. Gimaev, B. Kovalev, K. Kamilov, V. Zverev, A. Tishin, Review on the materials
+     and devices for magnetic refrigeration in the temperature range of nitrogen and hydrogen
+
+
+                                                 17
+       liquefaction, Phys. B: Condens. Matter 558 (2019) 65–73.
+       https://doi.org/10.1016/j.physb.2019.01.035.
+[45]   S. Taskaev, V. Khovaylo, K. Skokov, W. Liu, E. Bykov, M. Ulyanov, D. Bataev, A. Basharova,
+       M. Kononova, D. Plakhotskiy, M. Bogush, T. Gottschall, O. Gutfleisch, Magnetocaloric effect in
+       GdNi2 for cryogenic gas liquefaction studied in magnetic fields up to 50 T, J. Appl. Phys. 127
+       (2020) 233906. https://doi.org/10.1063/5.0006281.
+[46]   E. Bykov, W. Liu, K. Skokov, F. Scheibel, O. Gutfleisch, S. Taskaev, V. Khovaylo, D.
+       Plakhotskiy, C.S. Mejia, J. Wosnitza, T. Gottschall, Magnetocaloric effect in the Laves-phase
+       Ho1−xDyxAl2 family in high magnetic fields, Phys. Rev. Mater. 5 (2021).
+       https://doi.org/10.1103/PhysRevMaterials.5.095405.
+[47]   V. Franco, J.S. Blázquez, J.J. Ipus, J.Y. Law, L.M. Moreno-Ramírez, A. Conde, Magnetocaloric
+       effect: from materials research to refrigeration devices, Prog. Mater. Sci. 93 (2018) 112–232.
+       https://doi.org/10.1016/j.pmatsci.2017.10.005.
+[48]   L. Li, M. Yan, Recent progresses in exploring the rare earth based intermetallic compounds for
+       cryogenic magnetic refrigeration, J. Alloy. Compd. 823 (2020) 153810.
+       https://doi.org/10.1016/j.jallcom.2020.153810.
+[49]   K.A. Gschneidner Jr, V.K. Pecharsky, A.O. Tsokol, Recent developments in magnetocaloric
+       materials, Rep. Prog. Phys. 68 (2005) 1479–1539. https://doi.org/10.1088/0034-4885/68/6/R04.
+[50]   Y. Hirayama, T. Nakagawa, T.A. Yamamoto, Curie temperatures and modified de Gennes factors
+       of rare earth nitrides, Solid State Commun. 151 (2011) 1602–1604.
+       https://doi.org/10.1016/j.ssc.2011.07.021.
+[51]   J. Pszczoła, Curie temperatures of substituted rare earth-Aluminium L1-x Rx Al2 compounds, Acta
+       Phys. Pol. A 140 (2021) 72–77. https://doi.org/10.12693/APhysPolA.140.72.
+[52]   J.M.D. Coey, Magnetism and magnetic materials, Cambridge university press, New York, 2009.
+[53]   D.H. Ryan, A. Legros, O. Niehaus, R. Pöttgen, J.M. Cadogan, R. Flacau, Modulated
+       ferromagnetic ordering and the magnetocaloric response of Eu4 PdMg, J. Appl. Phys. 117 (2015)
+       17D108. https://doi.org/10.1063/1.4907239.
+[54]   L. Li, Y. Yuan, Y. Qi, Q. Wang, S. Zhou, Achievement of a table-like magnetocaloric effect in
+       the dual-phase ErZn2 /ErZn composite, Materials Research Letters 6 (2018) 67–71.
+       https://doi.org/10.1080/21663831.2017.1393778.
+[55]   L. Li, C. Xu, Y. Yuan, S. Zhou, Large refrigerant capacity induced by table-like magnetocaloric
+       effect in amorphous Er0.2 Gd0.2 Ho0.2 Co0.2 Cu0.2 ribbons, Materials Research Letters 6 (2018)
+       413–418. https://doi.org/10.1080/21663831.2018.1471749.
+[56]   P.J. Ibarra-Gaytán, J.L. Sánchez Llamazares, P. Álvarez-Alonso, C.F. Sánchez-Valdés, P. Gorria,
+       J.A. Blanco, Magnetic entropy table-like shape in RNi2 composites for cryogenic refrigeration, J.
+       Appl. Phys. 117 (2015) 17C116. https://doi.org/10.1063/1.4915480.
+[57]   J.W. Xu, X.Q. Zheng, S.X. Yang, L. Xi, J.Y. Zhang, Y.F. Wu, S.G. Wang, J. Liu, L.C. Wang,
+       Z.Y. Xu, B.G. Shen, Giant low field magnetocaloric effect in TmCoSi and TmCuSi compounds,
+       J. Alloy. Compd. 843 (2020) 155930. https://doi.org/10.1016/j.jallcom.2020.155930.
+[58]   L. Li, W.D. Hutchison, D. Huo, T. Namiki, Z. Qian, K. Nishimura, Low-field giant reversible
+       magnetocaloric effect in intermetallic compound ErCr2Si2, Scr. Mater. 67 (2012) 237–240.
+       https://doi.org/10.1016/j.scriptamat.2012.04.028.
+[59]   P.J.v. Ranke, V.K. Pecharsky, K.A. Gschneidner, Influence of the crystalline electrical field on
+       the magnetocaloric effect of DyAl2, ErAl2, and DyNi2, Phys. Rev. B 58 (1998) 12110–12116.
+       https://doi.org/10.1103/PhysRevB.58.12110.
+[60]   P.B. de Castro, K. Terashima, T.D. Yamamoto, Z. Hou, S. Iwasaki, R. Matsumoto, S. Adachi, Y.
+       Saito, P. Song, H. Takeya, Y. Takano, Machine-learning-guided discovery of the gigantic
+       magnetocaloric effect in HoB2 near the hydrogen liquefaction temperature, NPG Asia Mater. 12
+       (2020). https://doi.org/10.1038/s41427-020-0214-y.
+[61]   N.K. Singh, K.G. Suresh, A.K. Nigam, S.K. Malik, A.A. Coelho, S. Gama, Itinerant electron
+       metamagnetism and magnetocaloric effect in RCo2-based Laves phase compounds, J. Magn.
+       Magn. Mater. 317 (2007) 68–79. https://doi.org/10.1016/j.jmmm.2007.04.009.
+[62]   Y.-C. Chen, J. Prokleška, W.-J. Xu, J.-L. Liu, J. Liu, W.-X. Zhang, J.-H. Jia, V. Sechovský, M.-
+       L. Tong, A brilliant cryogenic magnetic coolant: magnetic and magnetocaloric study of
+
+
+                                                   18
+       ferromagnetically coupled GdF3, J. Mater. Chem. C 3 (2015) 12206–12211.
+       https://doi.org/10.1039/C5TC02352A.
+[63]   F. Wall, Rare earth elements, in: G. Gunn (Ed.), Critical Metals Handbook, John Wiley & Sons,
+       Oxford, 2014, pp. 312–339.
+[64]   J. Rodríguez-Carvajal, Recent advances in magnetic structure determination by neutron powder
+       diffraction, Phys. B: Condens. Matter 192 (1993) 55–69. https://doi.org/10.1016/0921-
+       4526(93)90108-I.
+[65]   T. Gottschall, M.D. Kuz'min, K.P. Skokov, Y. Skourski, M. Fries, O. Gutfleisch, M.G. Zavareh,
+       D.L. Schlagel, Y. Mudryk, V. Pecharsky, J. Wosnitza, Magnetocaloric effect of gadolinium in
+       high magnetic fields, Phys. Rev. B 99 (2019) 1750.
+       https://doi.org/10.1103/PhysRevB.99.134429.
+[66]   T. Gottschall, E. Bykov, A. Gràcia-Condal, B. Beckmann, A. Taubel, L. Pfeuffer, O. Gutfleisch,
+       L. Mañosa, A. Planes, Y. Skourski, J. Wosnitza, Advanced characterization of multicaloric
+       materials in pulsed magnetic fields, J. Appl. Phys. 127 (2020) 185107.
+       https://doi.org/10.1063/5.0006079.
+[67]   J.S. Amaral, V.S. Amaral, On estimating the magnetocaloric effect from magnetization
+       measurements, J. Magn. Magn. Mater. 322 (2010) 1552–1557.
+       https://doi.org/10.1016/j.jmmm.2009.06.013.
+[68]   X.-Q. Zheng, B.-G. Shen, The magnetic properties and magnetocaloric effects in binary R – T (R
+       = Pr, Gd, Tb, Dy, Ho, Er, Tm; T = Ga, Ni, Co, Cu) intermetallic compounds, Chin. Phys. B 26
+       (2017) 27501. https://doi.org/10.1088/1674-1056/26/2/027501.
+[69]   X.Q. Zheng, J. Chen, L.C. Wang, R.R. Wu, F.X. Hu, J.R. Sun, B.G. Shen, Magnetic properties
+       and magnetocaloric effects of GdxEr1−xGa (0 ≤ x ≤ 1) compounds, J. Appl. Phys. 115 (2014)
+       17A905. https://doi.org/10.1063/1.4854875.
+[70]   X.Q. Zheng, J. Chen, J. Shen, H. Zhang, Z.Y. Xu, W.W. Gao, J.F. Wu, F.X. Hu, J.R. Sun, B.G.
+       Shen, Large refrigerant capacity of RGa (R = Tb and Dy) compounds, J. Appl. Phys. 111 (2012)
+       07A917. https://doi.org/10.1063/1.3672842.
+[71]   J. Chen, B.G. Shen, Q.Y. Dong, J.R. Sun, Giant magnetocaloric effect in HoGa compound over a
+       large temperature span, Solid State Commun. 150 (2010) 157–159.
+       https://doi.org/10.1016/j.ssc.2009.10.023.
+[72]   J. Chen, B.G. Shen, Q.Y. Dong, F.X. Hu, J.R. Sun, Large reversible magnetocaloric effect caused
+       by two successive magnetic transitions in ErGa compound, Appl. Phys. Lett. 95 (2009) 132504.
+       https://doi.org/10.1063/1.3233925.
+[73]   Z.-J. Mo, J. Shen, L.-Q. Yan, C.-C. Tang, J. Lin, J.-F. Wu, J.-R. Sun, L.-C. Wang, X.-Q. Zheng,
+       B.-G. Shen, Low field induced giant magnetocaloric effect in TmGa compound, Appl. Phys. Lett.
+       103 (2013) 52409. https://doi.org/10.1063/1.4816729.
+[74]   Z.-J. Mo, J. Shen, L.-Q. Yan, J.-F. Wu, L.-C. Wang, J. Lin, C.-C. Tang, B.-G. Shen, Low-field
+       induced giant magnetocaloric effect in TmCuAl compound, Appl. Phys. Lett. 102 (2013) 192407.
+       https://doi.org/10.1063/1.4804576.
+[75]   Q.Y. Dong, B.G. Shen, J. Chen, J. Shen, J.R. Sun, Large reversible magnetocaloric effect in
+       DyCuAl compound, J. Appl. Phys. 105 (2009) 113902. https://doi.org/10.1063/1.3122598.
+[76]   H. Zhang, Y.J. Sun, E. Niu, L.H. Yang, J. Shen, F.X. Hu, J.R. Sun, B.G. Shen, Large
+       magnetocaloric effects of RFeSi (R = Tb and Dy) compounds for magnetic refrigeration in
+       nitrogen and natural gas liquefaction, Appl. Phys. Lett. 103 (2013) 202412.
+       https://doi.org/10.1063/1.4832218.
+[77]   L.-W. Li, Review of magnetic properties and magnetocaloric effect in the intermetallic
+       compounds of rare earth with low boiling point metals, Chin. Phys. B 25 (2016) 37502.
+       https://doi.org/10.1088/1674-1056/25/3/037502.
+[78]   L. Li, Y. Yuan, Y. Zhang, T. Namiki, K. Nishimura, R. Pöttgen, S. Zhou, Giant low field
+       magnetocaloric effect and field-induced metamagnetic transition in TmZn, Appl. Phys. Lett. 107
+       (2015) 132401. https://doi.org/10.1063/1.4932058.
+[79]   L. Li, Y. Yuan, Y. Zhang, R. Pöttgen, S. Zhou, Magnetic phase transitions and large magnetic
+       entropy change with a wide temperature span in HoZn, J. Alloy. Compd. 643 (2015) 147–151.
+       https://doi.org/10.1016/j.jallcom.2015.04.146.
+
+
+                                                  19
+[80] L. Li, Y. Yuan, C. Xu, Y. Qi, S. Zhou, Observation of large magnetocaloric effect in equiatomic
+     binary compound ErZn, AIP Adv. 7 (2017) 56401. https://doi.org/10.1063/1.4972796.
+[81] X. Wang, L. Wang, Q. Ma, G. Sun, Y. Zhang, J. Cui, Magnetic phase transitions and large
+     magnetocaloric effects in equiatomic binary DyZn compound, J. Alloy. Compd. 694 (2017) 613–
+     616. https://doi.org/10.1016/j.jallcom.2016.09.161.
+[82] M. Balli, D. Fruchart, D. Gignoux, A study of magnetism and magnetocaloric effect in
+     Ho1−xTbxCo2 compounds, J. Magn. Magn. Mater. 314 (2007) 16–20.
+     https://doi.org/10.1016/j.jmmm.2007.02.007.
+[83] N.K. Singh, K.G. Suresh, A.K. Nigam, S.K. Malik, Heat capacity and magnetoresistance in
+     Dy(Co,Si)2 compounds, J. Appl. Phys. 97 (2005) 10A301. https://doi.org/10.1063/1.1844932.
+[84] H. Wada, Y. Tanabe, M. Shiga, H. Sugawara, H. Sato, Magnetocaloric effects of Laves phase
+     Er(Co1-xNix)2 compounds, J. Alloy. Compd. 316 (2001) 245–249. https://doi.org/10.1016/S0925-
+     8388(00)01305-0.
+[85] J. Kurian, M.R. Rahul, J. Arout Chelvane, A.V. Morozkin, A.K. Nigam, G. Phanikumar, R.
+     Nirmala, Enhanced magnetocaloric effect in undercooled rare earth intermetallic compounds RNi
+     (R = Gd, Ho and Er), J. Magn. Magn. Mater. 499 (2020) 166302.
+     https://doi.org/10.1016/j.jmmm.2019.166302.
+[86] R. Rajivgandhi, J.A. Chelvane, A.K. Nigam, J.-G. Park, S.K. Malik, R. Nirmala, Effect of
+     microstructure and texture on the magnetic and magnetocaloric properties of the melt-spun rare
+     earth intermetallic compound DyNi, J. Magn. Magn. Mater. 418 (2016) 9–13.
+     https://doi.org/10.1016/j.jmmm.2016.02.052.
+[87] R. Rajivgandhi, J. Arout Chelvane, S. Quezado, S.K. Malik, R. Nirmala, Effect of rapid
+     quenching on the magnetism and magnetocaloric effect of equiatomic rare earth intermetallic
+     compounds RNi (R = Gd, Tb and Ho), J. Magn. Magn. Mater. 433 (2017) 169–177.
+     https://doi.org/10.1016/j.jmmm.2017.03.011.
+[88] Q. Zhang, J.H. Cho, J. Du, F. Yang, X.G. Liu, W.J. Feng, Y.J. Zhang, J. Li, Z.D. Zhang, Large
+     reversible magnetocaloric effect in Tb2In, Solid State Commun. 149 (2009) 396–399.
+     https://doi.org/10.1016/j.ssc.2008.12.009.
+[89] Q. Zhang, X.G. Liu, F. Yang, W.J. Feng, X.G. Zhao, D.J. Kang, Z.D. Zhang, Large reversible
+     magnetocaloric effect in Dy2In, J. Phys. D: Appl. Phys. 42 (2009) 55011.
+     https://doi.org/10.1088/0022-3727/42/5/055011.
+[90] Q. Zhang, J.H. Cho, B. Li, W.J. Hu, Z.D. Zhang, Magnetocaloric effect in Ho2In over a wide
+     temperature range, Appl. Phys. Lett. 94 (2009) 182501. https://doi.org/10.1063/1.3130090.
+[91] H. Zhang, B.G. Shen, Z.Y. Xu, J. Chen, J. Shen, F.X. Hu, J.R. Sun, Large reversible
+     magnetocaloric effect in Er2In compound, J. Alloys Compd. 509 (2011) 2602–2605.
+     https://doi.org/10.1016/j.jallcom.2010.11.108.
+[92] K.P. Shinde, S.H. Jang, J.W. Kim, D.S. Kim, M. Ranot, K.C. Chung, Magnetocaloric properties
+     of TbN, DyN and HoN nanopowders prepared by the plasma arc discharge method, Dalton trans.
+     44 (2015) 20386–20391. https://doi.org/10.1039/c5dt03528g.
+[93] T. Nakagawa, T. Arakawa, K. Sako, N. Tomioka, T.A. Yamamoto, T. Kusunose, K. Niihara, K.
+     Kamiya, T. Numazawa, Magnetocaloric effects of ferromagnetic erbium mononitride, J. Alloy.
+     Compd. 408-412 (2006) 191–195. https://doi.org/10.1016/j.jallcom.2005.04.061.
+[94] H. Meng, B. Li, Z. Han, Y. Zhang, X. Wang, Z. Zhang, Reversible magnetocaloric effect and
+     refrigeration capacity enhanced by two successive magnetic transitions in DyB2, Sci. China
+     Technol. Sci. 55 (2012) 501–504. https://doi.org/10.1007/s11431-011-4684-6.
+[95] Z. Han, D. Li, H. Meng, X.H. Liu, Z.D. Zhang, Magnetocaloric effect in terbium diboride, J.
+     Alloy. Compd. 498 (2010) 118–120. https://doi.org/10.1016/j.jallcom.2010.03.154.
+[96] V.K. Pecharsky, K.A. Gschneidner, Gd-Zn alloys as active magnetic regenerator materials for
+     magnetic refrigeration, in: R.G. Ross (Ed.), Cryocoolers 10, Springer US, Boston, MA, 2002,
+     pp. 629–637.
+[97] T. Tohei, H. Wada, Change in the character of magnetocaloric effect with Ni substitution in
+     Ho(Co1-xNix)2, J. Magn. Magn. Mater. 280 (2004) 101–107.
+     https://doi.org/10.1016/j.jmmm.2004.02.026.
+[98] H. Zeng, Y. Wu, J. Zhang, C. Kuang, M. Yue, Y. Chen, S. Zhou, Magnetic, magnetocaloric and
+     electrical properties in bulk nanocrystalline Gd metals, in: F. Marquis (Ed.), Proceedings of the
+
+                                                 20
+     8th Pacific Rim International Congress on Advanced Materials and Processing, Springer
+     International Publishing, Cham, 2016, pp. 1729–1736.
+[99] W. Zuo, F. Hu, J. Sun, B. Shen, Large reversible magnetocaloric effect in RMn2 (R=Tb, Dy, Ho,
+     Er) compounds, J. Alloy. Compd. 575 (2013) 162–167.
+     https://doi.org/10.1016/j.jallcom.2013.03.185.
+[100] J. Marcos, J. Fernández, B. Chevalier, J.-L. Bobet, J. Etourneau, Heat capacity and
+     magnetocaloric effect in polycrystalline and amorphous GdMn2, J. Magn. Magn. Mater. 272-276
+     (2004) 579–580. https://doi.org/10.1016/j.jmmm.2003.11.225.
+[101] V.K. Pecharsky, K.A. Gschneidner, S.Y. Dan’kov, A.M. Tishin, Magnetocaloric properties of
+     Gd3Al2, in: R.G. Ross (Ed.), Cryocoolers 10, Springer US, Boston, MA, 2002, pp. 639–645.
+[102] H. Zhang, L.H. Yang, J.Y. Li, Z. Wang, E. Niu, R.M. Liu, Z.B. Li, F.X. Hu, J.R. Sun, B.G.
+     Shen, Magnetic properties and magnetocaloric effect in Tb3Al2 compound, J. Alloy. Compd. 615
+     (2014) 406–409. https://doi.org/10.1016/j.jallcom.2014.06.209.
+[103] Y. Li, H. Zhang, T. Yan, K. Long, H. Wang, Y. Xue, C. Cheng, H. Zhou, Successive magnetic
+     transitions and magnetocaloric effect in Dy3Al2 compound, J. Alloy. Compd. 651 (2015) 278–
+     282. https://doi.org/10.1016/j.jallcom.2015.08.087.
+[104] H. Zhang, Z.Y. Xu, X.Q. Zheng, J. Shen, F.X. Hua, J.R. Sun, B.G. Shen, Giant magnetic
+     refrigerant capacity in Ho3Al2 compound, Solid State Commun. 152 (2012) 1127–1130.
+     https://doi.org/10.1016/j.ssc.2012.04.004.
+[105] A. Provino, V. Smetana, D. Paudyal, K.A. Gschneidner, A.-V. Mudring, V.K. Pecharsky, P.
+     Manfrinetti, M. Putti, Gd3Ni2 and Gd3CoxNi2−x magnetism and unexpected Co/Ni
+     crystallographic ordering, J. Mater. Chem. C 4 (2016) 6078–6089.
+     https://doi.org/10.1039/C6TC01035K.
+[106] Q.Y. Dong, J. Chen, J. Shen, J.R. Sun, B.G. Shen, Magnetic properties and magnetocaloric
+     effects in R3Ni2 (R = Ho and Er) compounds, Appl. Phys. Lett. 99 (2011) 132504.
+     https://doi.org/10.1063/1.3643142.
+[107] A. Herrero, A. Oleaga, A. Provino, I.R. Aseguinolaza, A. Salazar, D. Peddis, P. Manfrinetti,
+     Crystallographic, magnetic and magnetocaloric properties in novel intermetallic materials
+     R3CoNi (R = Tb, Dy, Ho, Er, Tm, Lu), J. Alloy. Compd. 865 (2021) 158948.
+     https://doi.org/10.1016/j.jallcom.2021.158948.
+[108] E.P. Nóbrega, N.A.d. Oliveira, P.J.v. Ranke, A. Troper, The magnetocaloric effect in R5Si4 (R
+     = Gd, Tb): a Monte Carlo calculation, J. Phys.: Condens. Matter 18 (2006) 1275–1283.
+     https://doi.org/10.1088/0953-8984/18/4/013.
+[109] Z. Arnold, C. Magen, L. Morellon, P.A. Algarabel, J. Kamarad, M.R. Ibarra, V.K. Pecharsky,
+     K.A. Gschneidner, Magnetocaloric effect of Er5Si4 under hydrostatic pressure, Phys. Rev. B 79
+     (2009). https://doi.org/10.1103/PhysRevB.79.144430.
+[110] N.K. Singh, D. Paudyal, V.K. Pecharsky, K.A. Gschneidner, Magnetic and
+     magnetothermodynamic properties of Ho5Si4, J. Appl. Phys. 107 (2010) 09A921.
+     https://doi.org/10.1063/1.3365515.
+[111] V.V. Ivtchenko, V.K. Pecharsky, K.A. Gschneidner, Magnetothermal Properties of
+     Dy5(SixGe1−x)4 Alloys, in: U.B. Balachandran, K.T. Hartwig, D.U. Gubser, V.A. Bardos (Eds.),
+     Advances in Cryogenic Engineering Materials, Springer US, Boston, MA, 2000, pp. 405–412.
+[112] A. Murtaza, W. Zuo, M. Yaseen, A. Ghani, A. Saeed, C. Hao, J. Mi, Y. Li, T. Chang, L.
+     Wang, C. Zhou, Y. Wang, Y. Zhang, S. Yang, Y. Ren, Magnetocaloric effect in the vicinity of
+     the magnetic phase transition in NdCo2−xFex compounds, Phys. Rev. B 101 (2020).
+     https://doi.org/10.1103/PhysRevB.101.214427.
+[113] P.L. Dong, L. Ma, J.C. Xiong, T.Y. Chen, S.F. Lu, L. Li, Effect of Dy addition on
+     magnetocaloric effect in PrCo2 compound, Mater. Res. Express 6 (2019) 126102.
+     https://doi.org/10.1088/2053-1591/ab455c.
+[114] A.M.G. Carvalho, J.C.P. Campoy, A.A. Coelho, E.J.R. Plaza, S. Gama, P.J.v. Ranke,
+     Experimental and theoretical analyses of PrAl2 and NdAl2 composite for use as an active
+     magnetic regenerator, J. Appl. Phys. 97 (2005) 83905. https://doi.org/10.1063/1.1876575.
+[115] X.Q. Zheng, J.W. Xu, S.H. Shao, H. Zhang, J.Y. Zhang, S.G. Wang, Z.Y. Xu, L.C. Wang, J.
+     Chen, B.G. Shen, Large magnetocaloric effect of NdGa compound due to successive magnetic
+     transitions, AIP Adv. 8 (2018) 56425. https://doi.org/10.1063/1.5006506.
+
+                                                21
+[116] Q.M. Zhang, R.L. Gao, L. Cui, L.C. Wang, C.L. Fu, Z.Y. Xu, Z.J. Mo, W. Cai, G. Chen, X.L.
+     Deng, Magnetic properties and magnetocaloric effect of the compound NdSi, Phys. B: Condens.
+     Matter 456 (2015) 258–260. https://doi.org/10.1016/j.physb.2014.09.008.
+[117] L.-C. Wang, B.-G. Shen, Magnetic properties and magnetocaloric effects of PrSi, Rare Metals
+     33 (2014) 239–243. https://doi.org/10.1007/s12598-014-0310-7.
+[118] M.D. Kuz'min, A.M. Tishin, Magnetocaloric effect Part 2: magnetocaloric effect in heavy rare
+     earth metals and their alloys and application to magnetic refrigeration, Cryogenics 33 (1993)
+     868–882. https://doi.org/10.1016/0011-2275(93)90101-S.
+[119] N.K. Singh, P. Kumar, K.G. Suresh, A.A. Coelho, S. Gama, A.K. Nigam, Effect of Tm
+     substitution on the magnetic and magnetocaloric properties in the intermetallic compounds (Tb1−
+     xTmx )Co2, J. Phys. D: Appl. Phys. 40 (2007) 1620–1625. https://doi.org/10.1088/0022-
+     3727/40/6/005.
+[120] J. Kaštil, P. Javorský, J. Kamarád, L. Diop, O. Isnard, Z. Arnold, Magnetic and
+     magnetocaloric properties of partially disordered RFeAl (R = Gd, Tb) intermetallic,
+     Intermetallics 54 (2014) 15–19. https://doi.org/10.1016/j.intermet.2014.05.008.
+[121] T. Gottschall, K.P. Skokov, F. Scheibel, M. Acet, M.G. Zavareh, Y. Skourski, J. Wosnitza, M.
+     Farle, O. Gutfleisch, Dynamical effects of the Martensitic transition in magnetocaloric Heusler
+     alloys from direct ΔTad measurements under different Magnetic-Field-Sweep Rates, Phys. Rev.
+     Applied 5 (2016). https://doi.org/10.1103/PhysRevApplied.5.024013.
+[122] F. Scheibel, T. Gottschall, A. Taubel, M. Fries, K.P. Skokov, A. Terwey, W. Keune, K. Ollefs,
+     H. Wende, M. Farle, M. Acet, O. Gutfleisch, M.E. Gruner, Hysteresis design of magnetocaloric
+     materials-from basic mechanisms to applications, Energy Technol. 6 (2018) 1397–1428.
+     https://doi.org/10.1002/ente.201800264.
+[123] O. Gutfleisch, T. Gottschall, M. Fries, D. Benke, I. Radulov, K.P. Skokov, H. Wende, M.
+     Gruner, M. Acet, P. Entel, M. Farle, Mastering hysteresis in magnetocaloric materials, Philos.
+     Trans. R. Soc. A 374 (2016). https://doi.org/10.1098/rsta.2015.0308.
+[124] M. Balli, S. Jandl, P. Fournier, A. Kedous-Lebouc, Advanced materials for magnetic cooling:
+     Fundamentals and practical aspects, Appl. Phys. Rev. 4 (2017) 21305.
+     https://doi.org/10.1063/1.4983612.
+[125] T. Gottschall, D. Benke, M. Fries, A. Taubel, I.A. Radulov, K.P. Skokov, O. Gutfleisch, A
+     matter of size and stress: understanding the first-order transition in materials for solid-state
+     refrigeration, Adv. Funct. Mater. 27 (2017) 1606735. https://doi.org/10.1002/adfm.201606735.
+[126] C. Romero-Muñiz, R. Tamura, S. Tanaka, V. Franco, Applicability of scaling behavior and
+     power laws in the analysis of the magnetocaloric effect in second-order phase transition
+     materials, Phys. Rev. B 94 (2016). https://doi.org/10.1103/PhysRevB.94.134401.
+[127] J.H. Belo, J.S. Amaral, A.M. Pereira, V.S. Amaral, J.P. Araújo, On the Curie temperature
+     dependency of the magnetocaloric effect, Appl. Phys. Lett. 100 (2012) 242407.
+     https://doi.org/10.1063/1.4726110.
+[128] H. Oesterreicher, F.T. Parker, Magnetic cooling near Curie temperatures above 300 K, J.
+     Appl. Phys. 55 (1984) 4334–4338. https://doi.org/10.1063/1.333046.
+[129] A.M. Tishin, Y.I. Spichkin, The magnetocaloric effect and its applications, Institute of
+     Physics, Bristol, 2003.
+[130] R.E. Hungsberg, K.A. Gschneidner, Low temperature heat capacity of some rare earth
+     aluminum Laves phase compounds: YAl2, LaAl2 and LuAl2, J. Phys. Chem. Solids 33 (1972)
+     401–407. https://doi.org/10.1016/0022-3697(72)90021-2.
+[131] T. Inoue, S.G. Sankar, R.S. Craig, W.E. Wallace, K.A. Gschneidner, Low temperature heat
+     capacities and thermal properties of DyAl2, ErAl2 and LuAl2, J. Phys. Chem. Solids 38 (1977)
+     487–497. https://doi.org/10.1016/0022-3697(77)90182-2.
+[132] P.J.v. Ranke, E.P. Nóbrega, I.G. de Oliveira, A.M. Gomes, R.S. Sarthour, Influence of the
+     crystalline electrical field on the magnetocaloric effect in the series RNi2(R=Pr, Nd, Gd, Tb, Ho,
+     Er), Phys. Rev. B 63 (2001) 1870. https://doi.org/10.1103/PhysRevB.63.184406.
+[133] R. Michalski, J. Zygadło, Predictions of thermomagnetic properties of Laves phase
+     compounds: TbAl2, GdAl2 and SmAl2 performed with ATOMIC MATTERS MFA computation
+     system, J. Magn. Magn. Mater. 452 (2018) 415–426.
+     https://doi.org/10.1016/j.jmmm.2017.12.069.
+
+                                                  22
+[134] M.D. Kuz'min, K.P. Skokov, D.Y. Karpenkov, J.D. Moore, M. Richter, O. Gutfleisch,
+     Magnetic field dependence of the maximum adiabatic temperature change, Appl. Phys. Lett. 99
+     (2011) 12501. https://doi.org/10.1063/1.3607279.
+
+
+
+
+                                               23
+

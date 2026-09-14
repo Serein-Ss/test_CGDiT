@@ -1,0 +1,34 @@
+{
+  "samples": 16,
+  "groups": [
+    {
+      "arm": "base",
+      "version": "original",
+      "n": 2,
+      "geometrically_valid": 2
+    },
+    {
+      "arm": "base",
+      "version": "pilot_seed42",
+      "n": 2,
+      "geometrically_valid": 2
+    },
+    {
+      "arm": "band_gap",
+      "version": "original",
+      "n": 6,
+      "geometrically_valid": 6
+    },
+    {
+      "arm": "band_gap",
+      "version": "pilot_seed42",
+      "n": 6,
+      "geometrically_valid": 6
+    }
+  ],
+  "chemical_stability_validated": false,
+  "magnetic_order_validated": false,
+  "tc_validated": false,
+  "band_gap_validated": false,
+  "note": "Full sampler trajectory (1000-step scheduler, 999 reverse iterations) on a supplied prototype, not unrestricted de novo search; conditions are requested values only."
+}

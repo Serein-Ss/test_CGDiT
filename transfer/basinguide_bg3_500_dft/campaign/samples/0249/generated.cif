@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_ZnH8Pb
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.289638042450
+_cell_length_b   4.289638042450
+_cell_length_c   7.028703689575
+_cell_angle_alpha   90.000000000000
+_cell_angle_beta   90.000000000000
+_cell_angle_gamma   90.000000000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   ZnH8Pb
+_chemical_formula_sum   'Zn1 H8 Pb1'
+_cell_volume   129.335138181651
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  H  H0  1  0.347296118736  0.051542446017  0.067868284881  1
+  H  H1  1  0.948457539082  0.347296118736  0.067868284881  1
+  H  H2  1  0.652703881264  0.948457539082  0.932131707668  1
+  H  H3  1  0.051542446017  0.652703881264  0.932131707668  1
+  Zn  Zn4  1  0.725399613380  0.335822671652  0.585167527199  1
+  H  H5  1  0.181937932968  0.305923521519  0.440585017204  1
+  H  H6  1  0.694076478481  0.181937932968  0.440585017204  1
+  H  H7  1  0.818062067032  0.694076478481  0.559414982796  1
+  H  H8  1  0.305923521519  0.818062067032  0.559414982796  1
+  Pb  Pb9  1  0.134873762727  0.728475868702  0.226328819990  1

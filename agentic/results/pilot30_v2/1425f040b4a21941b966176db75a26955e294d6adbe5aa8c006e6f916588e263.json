@@ -1,0 +1,29 @@
+{
+  "id": "Plw-QCg08X3FF9nwyVF5w4pPQh1Z89ONciSGUKmgFFA=",
+  "object": "chat.completion",
+  "model": "Intern-S1",
+  "created": 1789326075,
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"events\": [\n    {\n      \"material_formula\": \"DyFeO3\",\n      \"type\": \"neel\",\n      \"temperature_k\": 645,\n      \"uncertainty_k\": null,\n      \"qualifier\": \"reported_value\",\n      \"sublattice\": null,\n      \"sample_conditions\": null,\n      \"quote\": \"DyFeO3, a canted bulk antiferromagnet with a high Néel temperature (645 K)\"\n    }\n  ],\n  \"abstained\": false\n}\n```"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "moderation": {
+    "sensitive": false,
+    "category": ""
+  },
+  "usage": {
+    "prompt_tokens": 407,
+    "completion_tokens": 119,
+    "total_tokens": 526
+  },
+  "metadata": {
+    "search_used": false,
+    "reasoning_used": false
+  }
+}

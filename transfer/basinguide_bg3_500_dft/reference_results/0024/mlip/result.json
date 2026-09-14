@@ -1,0 +1,13 @@
+{
+  "sample_id": 24,
+  "model": "SevenNet-Omni-i12",
+  "modal": "mpa",
+  "checkpoint_sha256": "771543388f360d2762e09f62de685bfb85e9f637a06575f2545f03974d6f0522",
+  "status": "converged",
+  "initial_energy_eV": -28.76345443725586,
+  "nsteps": 269,
+  "final_energy_eV": -33.37742233276367,
+  "max_force_eV_A": 0.004152421839535236,
+  "predicted_bg_final_eV": 0.29832080006599426,
+  "prediction_error": null
+}

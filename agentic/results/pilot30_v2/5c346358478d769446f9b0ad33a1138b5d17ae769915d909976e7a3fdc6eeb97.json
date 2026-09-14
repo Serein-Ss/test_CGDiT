@@ -1,0 +1,29 @@
+{
+  "id": "UJf5t8aVhjw3uW6lJhl6n4pPQh1Z89ONciSGUKmgFFA=",
+  "object": "chat.completion",
+  "model": "Intern-S1",
+  "created": 1789326064,
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "```json\n{\n  \"events\": [\n    {\n      \"material_formula\": \"BaFe2Se4\",\n      \"type\": \"unknown\",\n      \"temperature_k\": 310,\n      \"uncertainty_k\": null,\n      \"qualifier\": \"approximate\",\n      \"sublattice\": null,\n      \"sample_conditions\": null,\n      \"quote\": \"unique magnetic transition at ~ 310 K caused by canted antiferromagnetic interactions between the neighboring Fe-Fe atoms\"\n    }\n  ],\n  \"abstained\": false\n}\n```"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "moderation": {
+    "sensitive": false,
+    "category": ""
+  },
+  "usage": {
+    "prompt_tokens": 406,
+    "completion_tokens": 118,
+    "total_tokens": 524
+  },
+  "metadata": {
+    "search_used": false,
+    "reasoning_used": false
+  }
+}

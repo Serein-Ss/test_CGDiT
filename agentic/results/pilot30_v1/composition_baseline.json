@@ -1,0 +1,18 @@
+{
+  "train": {
+    "n": 47,
+    "iron_fraction_pair_accuracy_with_half_credit_ties": 0.9893617021276596
+  },
+  "validation": {
+    "n": 1,
+    "iron_fraction_pair_accuracy_with_half_credit_ties": 0.5
+  },
+  "test": {
+    "n": 1,
+    "iron_fraction_pair_accuracy_with_half_credit_ties": 0.5
+  },
+  "electrical_control": {
+    "n": 1,
+    "iron_fraction_pair_accuracy_with_half_credit_ties": 0.5
+  }
+}

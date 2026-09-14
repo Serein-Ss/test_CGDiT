@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_Sb(H2O)3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.322776813639
+_cell_length_b   4.322776813639
+_cell_length_c   5.079900741577
+_cell_angle_alpha   90.000000000000
+_cell_angle_beta   90.000000000000
+_cell_angle_gamma   119.999996856913
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Sb(H2O)3
+_chemical_formula_sum   'Sb1 H6 O3'
+_cell_volume   82.207510884385
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  O  O0  1  0.241871446371  0.196671947837  0.936047852039  1
+  H  H1  1  0.022823400795  0.456442296505  0.483608901501  1
+  H  H2  1  0.543557703495  0.566381096840  0.483608901501  1
+  H  H3  1  0.433618903160  0.977176606655  0.483608901501  1
+  O  O4  1  0.323122859001  0.690426766872  0.526698470116  1
+  O  O5  1  0.734250485897  0.179764345288  0.525792956352  1
+  H  H6  1  0.994724214077  0.626279354095  0.037497892976  1
+  H  H7  1  0.373720645905  0.368444859982  0.037497892976  1
+  H  H8  1  0.631555140018  0.005275785923  0.037497892976  1
+  Sb  Sb9  1  0.987246394157  0.905467152596  0.747922837734  1

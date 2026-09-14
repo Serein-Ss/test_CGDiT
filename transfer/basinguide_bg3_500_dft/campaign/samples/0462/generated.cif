@@ -1,0 +1,42 @@
+# generated using pymatgen
+data_FeTe5(BrCl4)2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   7.399349212646
+_cell_length_b   7.399349212646
+_cell_length_c   9.977573394775
+_cell_angle_alpha   90.000000000000
+_cell_angle_beta   90.000000000000
+_cell_angle_gamma   90.000000000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   FeTe5(BrCl4)2
+_chemical_formula_sum   'Fe1 Te5 Br2 Cl8'
+_cell_volume   546.275822800599
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Br  Br0  1  0.569256901741  0.593841135502  0.654716908932  1
+  Br  Br1  1  0.593841135502  0.430743098259  0.345283091068  1
+  Cl  Cl2  1  0.170349642634  0.710173845291  0.944655895233  1
+  Cl  Cl3  1  0.829650342464  0.289826154709  0.944655895233  1
+  Cl  Cl4  1  0.710173845291  0.829650342464  0.055344104767  1
+  Cl  Cl5  1  0.289826154709  0.170349642634  0.055344104767  1
+  Te  Te6  1  0.950804769993  0.317653805017  0.617860555649  1
+  Te  Te7  1  0.049195230007  0.682346224785  0.617860555649  1
+  Te  Te8  1  0.317653805017  0.049195230007  0.382139444351  1
+  Te  Te9  1  0.682346224785  0.950804769993  0.382139444351  1
+  Cl  Cl10  1  0.811931729317  0.996341705322  0.728263020515  1
+  Cl  Cl11  1  0.996341705322  0.188068270683  0.271736979485  1
+  Te  Te12  1  0.992220878601  0.005764130969  0.958407223225  1
+  Cl  Cl13  1  0.352646410465  0.144025519490  0.663705766201  1
+  Cl  Cl14  1  0.144025519490  0.647353589535  0.336294233799  1
+  Fe  Fe15  1  0.835234880447  0.676678597927  0.225494980812  1

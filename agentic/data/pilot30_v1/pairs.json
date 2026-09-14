@@ -1,0 +1,1059 @@
+[
+  {
+    "pair_id": "DyFe2__over__DyAl2",
+    "winner": "DyFe2",
+    "loser": "DyAl2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 570,
+    "sensitivity_gap_k": 520,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "ErFe2__over__DyCo2",
+    "winner": "ErFe2",
+    "loser": "DyCo2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 432,
+    "sensitivity_gap_k": 382,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "GdFe2__over__ErAl2",
+    "winner": "GdFe2",
+    "loser": "ErAl2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 780,
+    "sensitivity_gap_k": 730,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "HoFe2__over__ErCo2",
+    "winner": "HoFe2",
+    "loser": "ErCo2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 574,
+    "sensitivity_gap_k": 524,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "LuFe2__over__GdAl2",
+    "winner": "LuFe2",
+    "loser": "GdAl2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 418,
+    "sensitivity_gap_k": 368,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "TbFe2__over__GdCo2",
+    "winner": "TbFe2",
+    "loser": "GdCo2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 253,
+    "sensitivity_gap_k": 203,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "YFe2__over__HoAl2",
+    "winner": "YFe2",
+    "loser": "HoAl2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 513,
+    "sensitivity_gap_k": 463,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "DyFe2__over__HoCo2",
+    "winner": "DyFe2",
+    "loser": "HoCo2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 550,
+    "sensitivity_gap_k": 500,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "ErFe2__over__SmAl2",
+    "winner": "ErFe2",
+    "loser": "SmAl2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008",
+      "ral2_2009"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 518,
+    "sensitivity_gap_k": 468,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "GdFe2__over__TbAl2",
+    "winner": "GdFe2",
+    "loser": "TbAl2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 684,
+    "sensitivity_gap_k": 634,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "HoFe2__over__TbCo2",
+    "winner": "HoFe2",
+    "loser": "TbCo2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 371,
+    "sensitivity_gap_k": 321,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "LuFe2__over__DyAl2",
+    "winner": "LuFe2",
+    "loser": "DyAl2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 524,
+    "sensitivity_gap_k": 474,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "TbFe2__over__DyCo2",
+    "winner": "TbFe2",
+    "loser": "DyCo2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 503,
+    "sensitivity_gap_k": 453,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "YFe2__over__ErAl2",
+    "winner": "YFe2",
+    "loser": "ErAl2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 528,
+    "sensitivity_gap_k": 478,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "DyFe2__over__ErCo2",
+    "winner": "DyFe2",
+    "loser": "ErCo2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 596,
+    "sensitivity_gap_k": 546,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "ErFe2__over__GdAl2",
+    "winner": "ErFe2",
+    "loser": "GdAl2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 418,
+    "sensitivity_gap_k": 368,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "GdFe2__over__GdCo2",
+    "winner": "GdFe2",
+    "loser": "GdCo2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 393,
+    "sensitivity_gap_k": 343,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "HoFe2__over__HoAl2",
+    "winner": "HoFe2",
+    "loser": "HoAl2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 578,
+    "sensitivity_gap_k": 528,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "LuFe2__over__HoCo2",
+    "winner": "LuFe2",
+    "loser": "HoCo2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 504,
+    "sensitivity_gap_k": 454,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "TbFe2__over__SmAl2",
+    "winner": "TbFe2",
+    "loser": "SmAl2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008",
+      "ral2_2009"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 589,
+    "sensitivity_gap_k": 539,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "YFe2__over__TbAl2",
+    "winner": "YFe2",
+    "loser": "TbAl2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 432,
+    "sensitivity_gap_k": 382,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "DyFe2__over__TbCo2",
+    "winner": "DyFe2",
+    "loser": "TbCo2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 393,
+    "sensitivity_gap_k": 343,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "ErFe2__over__DyAl2",
+    "winner": "ErFe2",
+    "loser": "DyAl2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 524,
+    "sensitivity_gap_k": 474,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "GdFe2__over__DyCo2",
+    "winner": "GdFe2",
+    "loser": "DyCo2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 643,
+    "sensitivity_gap_k": 593,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "HoFe2__over__ErAl2",
+    "winner": "HoFe2",
+    "loser": "ErAl2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 593,
+    "sensitivity_gap_k": 543,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "LuFe2__over__ErCo2",
+    "winner": "LuFe2",
+    "loser": "ErCo2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 550,
+    "sensitivity_gap_k": 500,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "TbFe2__over__GdAl2",
+    "winner": "TbFe2",
+    "loser": "GdAl2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 489,
+    "sensitivity_gap_k": 439,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "YFe2__over__GdCo2",
+    "winner": "YFe2",
+    "loser": "GdCo2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 141,
+    "sensitivity_gap_k": 91,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "DyFe2__over__HoAl2",
+    "winner": "DyFe2",
+    "loser": "HoAl2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 600,
+    "sensitivity_gap_k": 550,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "ErFe2__over__HoCo2",
+    "winner": "ErFe2",
+    "loser": "HoCo2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 504,
+    "sensitivity_gap_k": 454,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "GdFe2__over__SmAl2",
+    "winner": "GdFe2",
+    "loser": "SmAl2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008",
+      "ral2_2009"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 729,
+    "sensitivity_gap_k": 679,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "HoFe2__over__TbAl2",
+    "winner": "HoFe2",
+    "loser": "TbAl2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 497,
+    "sensitivity_gap_k": 447,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "LuFe2__over__TbCo2",
+    "winner": "LuFe2",
+    "loser": "TbCo2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 347,
+    "sensitivity_gap_k": 297,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "TbFe2__over__DyAl2",
+    "winner": "TbFe2",
+    "loser": "DyAl2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 595,
+    "sensitivity_gap_k": 545,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "YFe2__over__DyCo2",
+    "winner": "YFe2",
+    "loser": "DyCo2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 391,
+    "sensitivity_gap_k": 341,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "DyFe2__over__ErAl2",
+    "winner": "DyFe2",
+    "loser": "ErAl2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 615,
+    "sensitivity_gap_k": 565,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "ErFe2__over__ErCo2",
+    "winner": "ErFe2",
+    "loser": "ErCo2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 550,
+    "sensitivity_gap_k": 500,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "GdFe2__over__GdAl2",
+    "winner": "GdFe2",
+    "loser": "GdAl2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 629,
+    "sensitivity_gap_k": 579,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "HoFe2__over__GdCo2",
+    "winner": "HoFe2",
+    "loser": "GdCo2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 206,
+    "sensitivity_gap_k": 156,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "LuFe2__over__HoAl2",
+    "winner": "LuFe2",
+    "loser": "HoAl2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 554,
+    "sensitivity_gap_k": 504,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "TbFe2__over__HoCo2",
+    "winner": "TbFe2",
+    "loser": "HoCo2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 575,
+    "sensitivity_gap_k": 525,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "YFe2__over__SmAl2",
+    "winner": "YFe2",
+    "loser": "SmAl2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008",
+      "ral2_2009"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 477,
+    "sensitivity_gap_k": 427,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "DyFe2__over__TbAl2",
+    "winner": "DyFe2",
+    "loser": "TbAl2",
+    "split": "train",
+    "source_groups": [
+      "Zaragoza_Laguna_Chaboy"
+    ],
+    "source_ids": [
+      "laves_2008"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 519,
+    "sensitivity_gap_k": 469,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "Mn4N__over__Mn3AlC",
+    "winner": "Mn4N",
+    "loser": "Mn3AlC",
+    "split": "train",
+    "source_groups": [
+      "Westinghouse_1962"
+    ],
+    "source_ids": [
+      "mn4n_1962"
+    ],
+    "prototype": "antiperovskite",
+    "delta_tc_k": 473,
+    "sensitivity_gap_k": 423,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "Co2FeSi__over__Co2TiSi",
+    "winner": "Co2FeSi",
+    "loser": "Co2TiSi",
+    "split": "train",
+    "source_groups": [
+      "Mainz_Felser"
+    ],
+    "source_ids": [
+      "co2fesi_2005",
+      "co2ti_2009"
+    ],
+    "prototype": "L21",
+    "delta_tc_k": 720,
+    "sensitivity_gap_k": 675,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "Co2FeSi__over__Co2TiGe",
+    "winner": "Co2FeSi",
+    "loser": "Co2TiGe",
+    "split": "train",
+    "source_groups": [
+      "Mainz_Felser"
+    ],
+    "source_ids": [
+      "co2fesi_2005",
+      "co2ti_2009"
+    ],
+    "prototype": "L21",
+    "delta_tc_k": 720,
+    "sensitivity_gap_k": 675,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "Co2FeSi__over__Co2TiSn",
+    "winner": "Co2FeSi",
+    "loser": "Co2TiSn",
+    "split": "train",
+    "source_groups": [
+      "Mainz_Felser"
+    ],
+    "source_ids": [
+      "co2fesi_2005",
+      "co2ti_2009"
+    ],
+    "prototype": "L21",
+    "delta_tc_k": 745,
+    "sensitivity_gap_k": 700,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "NdAl2__over__PrAl2",
+    "winner": "NdAl2",
+    "loser": "PrAl2",
+    "split": "validation",
+    "source_groups": [
+      "UNICAMP_Carvalho_Campoy"
+    ],
+    "source_ids": [
+      "prnd_2005"
+    ],
+    "prototype": "C15",
+    "delta_tc_k": 44.5,
+    "sensitivity_gap_k": 24.5,
+    "margin_k": 10,
+    "unreported_uncertainty_buffer_k": 10,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": false,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "Co2MnSi__over__Co2MnGa",
+    "winner": "Co2MnSi",
+    "loser": "Co2MnGa",
+    "split": "test",
+    "source_groups": [
+      "Japan_Saito_NishioHamane"
+    ],
+    "source_ids": [
+      "comn_2021"
+    ],
+    "prototype": "L21",
+    "delta_tc_k": 315,
+    "sensitivity_gap_k": 265,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 25,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": true,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  },
+  {
+    "pair_id": "EuO__over__EuS",
+    "winner": "EuO",
+    "loser": "EuS",
+    "split": "electrical_control",
+    "source_groups": [
+      "Brookhaven_Riso_Passell"
+    ],
+    "source_ids": [
+      "euo_eus_1976"
+    ],
+    "prototype": "rocksalt",
+    "delta_tc_k": 52.580000000000005,
+    "sensitivity_gap_k": 52.510000000000005,
+    "margin_k": 50,
+    "unreported_uncertainty_buffer_k": 0,
+    "buffer_is_not_measurement_uncertainty": true,
+    "high_tc_anchor": false,
+    "independent_experiment": false,
+    "causal_structure_claim": false
+  }
+]

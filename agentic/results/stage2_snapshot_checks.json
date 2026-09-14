@@ -1,0 +1,34 @@
+[
+  {
+    "file": "all.csv",
+    "identical": true
+  },
+  {
+    "file": "train.csv",
+    "identical": true
+  },
+  {
+    "file": "val.csv",
+    "identical": true
+  },
+  {
+    "file": "test.csv",
+    "identical": true
+  },
+  {
+    "file": "source_magndata_tc.csv",
+    "identical": true
+  },
+  {
+    "file": "rejected.csv",
+    "identical": true
+  },
+  {
+    "file": "split_manifest.json",
+    "identical": true
+  },
+  {
+    "file": "README.md",
+    "identical": true
+  }
+]

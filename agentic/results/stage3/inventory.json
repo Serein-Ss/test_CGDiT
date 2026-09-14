@@ -1,0 +1,596 @@
+[
+  {
+    "record_id": "0.1010_C10H6MnN4O4",
+    "formula": "MnH6C10(NO)4",
+    "split": "train",
+    "legacy_temperature_k": 3.0,
+    "natoms": 100,
+    "cif_sha256": "695304ce2ef1d30285685286ceb377f94eced2cf776bd8d6ed777c8729333a2a",
+    "geometry": {
+      "template_match": false
+    }
+  },
+  {
+    "record_id": "0.1014_CsNi(NCS)3",
+    "formula": "CsNiC3(SN)3",
+    "split": "train",
+    "legacy_temperature_k": 5.0,
+    "natoms": 44,
+    "cif_sha256": "fdb8ee38e1cd909418fab8e126505c5512b8969a4bd1a69bf0e36964dd41c8de",
+    "geometry": {
+      "template_match": false
+    }
+  },
+  {
+    "record_id": "0.1066_MnSiN2",
+    "formula": "MnSiN2",
+    "split": "train",
+    "legacy_temperature_k": 453.0,
+    "natoms": 16,
+    "cif_sha256": "68fa28805c745932e88ddc7bc9cf25f788da396d0923a53e0107ba52fb0a0cef",
+    "geometry": {
+      "template_match": false
+    }
+  },
+  {
+    "record_id": "0.1067_MnSiN2",
+    "formula": "MnSiN2",
+    "split": "train",
+    "legacy_temperature_k": 433.0,
+    "natoms": 16,
+    "cif_sha256": "d5507b0d2116f905ea4e784810001fae3d0eaf8cfd943563675fccdf773de22e",
+    "geometry": {
+      "template_match": false
+    }
+  },
+  {
+    "record_id": "0.131_Mn(N(CN2))2",
+    "formula": "Mn(C2N3)2",
+    "split": "train",
+    "legacy_temperature_k": 16.0,
+    "natoms": 22,
+    "cif_sha256": "bdc32b835b080a0b18ce83469659bbb11c54e1a75f0293d31aa70bbb7513c35a",
+    "geometry": {
+      "template_match": false
+    }
+  },
+  {
+    "record_id": "0.132_Fe(N(CN2))2",
+    "formula": "Mn(C2N3)2",
+    "split": "train",
+    "legacy_temperature_k": 19.0,
+    "natoms": 22,
+    "cif_sha256": "f3a4818b7bd93022a48befe3bb15fab1dbe7280e94ea8710343e2ea5ece7abd2",
+    "geometry": {
+      "template_match": false
+    }
+  },
+  {
+    "record_id": "0.168_NH4Fe2F6",
+    "formula": "Fe2H4NF6",
+    "split": "train",
+    "legacy_temperature_k": 19.0,
+    "natoms": 52,
+    "cif_sha256": "a5643bfa082a09ce3efa9853ae6f21c876180a1a6e318003f5c2838f1452689e",
+    "geometry": {
+      "template_match": false
+    }
+  },
+  {
+    "record_id": "0.177_Mn3GaN",
+    "formula": "Mn3GaN",
+    "split": "train",
+    "legacy_temperature_k": 298.0,
+    "natoms": 5,
+    "cif_sha256": "9782b3cd8c6883851ab61e06ae977205d383a1da9e7054b0c6521e03bb26dac9",
+    "geometry": {
+      "supported_explicit_p1": true,
+      "template_match": true,
+      "full_occupancy": true,
+      "cell_lengths_angstrom": [
+        3.898,
+        3.898,
+        3.898
+      ],
+      "sites": [
+        {
+          "_atom_site_type_symbol": "Mn",
+          "_atom_site_label": "Mn0",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.00000000",
+          "_atom_site_fract_y": "0.50000000",
+          "_atom_site_fract_z": "0.50000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "Mn",
+          "_atom_site_label": "Mn1",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.50000000",
+          "_atom_site_fract_y": "0.00000000",
+          "_atom_site_fract_z": "0.50000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "Mn",
+          "_atom_site_label": "Mn2",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.50000000",
+          "_atom_site_fract_y": "0.50000000",
+          "_atom_site_fract_z": "0.00000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "Ga",
+          "_atom_site_label": "Ga3",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.00000000",
+          "_atom_site_fract_y": "0.00000000",
+          "_atom_site_fract_z": "0.00000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "N",
+          "_atom_site_label": "N4",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.50000000",
+          "_atom_site_fract_y": "0.50000000",
+          "_atom_site_fract_z": "0.50000000",
+          "_atom_site_occupancy": "1.0"
+        }
+      ],
+      "note": "Exact listed-cell motif check, not general structure matching or sample identity."
+    }
+  },
+  {
+    "record_id": "0.273_Mn3ZnN",
+    "formula": "Mn3ZnN",
+    "split": "train",
+    "legacy_temperature_k": 183.0,
+    "natoms": 5,
+    "cif_sha256": "707a54e94531be77d25b382cd8e55d72bb47914ca2cf3c4bebd47d06930bd139",
+    "geometry": {
+      "supported_explicit_p1": true,
+      "template_match": true,
+      "full_occupancy": true,
+      "cell_lengths_angstrom": [
+        3.902,
+        3.902,
+        3.902
+      ],
+      "sites": [
+        {
+          "_atom_site_type_symbol": "Mn",
+          "_atom_site_label": "Mn0",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.00000000",
+          "_atom_site_fract_y": "0.50000000",
+          "_atom_site_fract_z": "0.50000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "Mn",
+          "_atom_site_label": "Mn1",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.50000000",
+          "_atom_site_fract_y": "0.00000000",
+          "_atom_site_fract_z": "0.50000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "Mn",
+          "_atom_site_label": "Mn2",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.50000000",
+          "_atom_site_fract_y": "0.50000000",
+          "_atom_site_fract_z": "0.00000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "Zn",
+          "_atom_site_label": "Zn3",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.00000000",
+          "_atom_site_fract_y": "0.00000000",
+          "_atom_site_fract_z": "0.00000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "N",
+          "_atom_site_label": "N4",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.50000000",
+          "_atom_site_fract_y": "0.50000000",
+          "_atom_site_fract_z": "0.50000000",
+          "_atom_site_occupancy": "1.0"
+        }
+      ],
+      "note": "Exact listed-cell motif check, not general structure matching or sample identity."
+    }
+  },
+  {
+    "record_id": "2.31_Mn3ZnN",
+    "formula": "Mn3ZnN",
+    "split": "train",
+    "legacy_temperature_k": 140.0,
+    "natoms": 5,
+    "cif_sha256": "054ea727ad8ea736dc7406250b6e691d01d189987412ea378b22c8deb914e036",
+    "geometry": {
+      "supported_explicit_p1": true,
+      "template_match": false,
+      "full_occupancy": true,
+      "cell_lengths_angstrom": [
+        3.90202735,
+        3.90202735,
+        3.902
+      ],
+      "sites": [
+        {
+          "_atom_site_type_symbol": "Mn",
+          "_atom_site_label": "Mn0",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.50000000",
+          "_atom_site_fract_y": "0.00000000",
+          "_atom_site_fract_z": "0.50000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "Mn",
+          "_atom_site_label": "Mn2",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.00000000",
+          "_atom_site_fract_y": "0.50000000",
+          "_atom_site_fract_z": "0.50000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "Mn",
+          "_atom_site_label": "Mn8",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.00000000",
+          "_atom_site_fract_y": "0.00000000",
+          "_atom_site_fract_z": "0.00000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "N",
+          "_atom_site_label": "N16",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.00000000",
+          "_atom_site_fract_y": "0.00000000",
+          "_atom_site_fract_z": "0.50000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "Zn",
+          "_atom_site_label": "Zn12",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.50000000",
+          "_atom_site_fract_y": "0.50000000",
+          "_atom_site_fract_z": "0.00000000",
+          "_atom_site_occupancy": "1.0"
+        }
+      ],
+      "note": "Exact listed-cell motif check, not general structure matching or sample identity."
+    }
+  },
+  {
+    "record_id": "0.274_Mn4N",
+    "formula": "Mn4N",
+    "split": "train",
+    "legacy_temperature_k": 745.0,
+    "natoms": 5,
+    "cif_sha256": "cffcd0d62aae5c876fd95853384f18079e4524c944556f871095a62d67667ca2",
+    "geometry": {
+      "supported_explicit_p1": true,
+      "template_match": true,
+      "full_occupancy": true,
+      "cell_lengths_angstrom": [
+        3.867,
+        3.867,
+        3.867
+      ],
+      "sites": [
+        {
+          "_atom_site_type_symbol": "Mn",
+          "_atom_site_label": "Mn0",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.00000000",
+          "_atom_site_fract_y": "0.00000000",
+          "_atom_site_fract_z": "0.00000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "Mn",
+          "_atom_site_label": "Mn1",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.00000000",
+          "_atom_site_fract_y": "0.50000000",
+          "_atom_site_fract_z": "0.50000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "Mn",
+          "_atom_site_label": "Mn2",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.50000000",
+          "_atom_site_fract_y": "0.00000000",
+          "_atom_site_fract_z": "0.50000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "Mn",
+          "_atom_site_label": "Mn3",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.50000000",
+          "_atom_site_fract_y": "0.50000000",
+          "_atom_site_fract_z": "0.00000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "N",
+          "_atom_site_label": "N4",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.50000000",
+          "_atom_site_fract_y": "0.50000000",
+          "_atom_site_fract_z": "0.50000000",
+          "_atom_site_occupancy": "1.0"
+        }
+      ],
+      "note": "Exact listed-cell motif check, not general structure matching or sample identity."
+    }
+  },
+  {
+    "record_id": "0.275_Mn3AlN",
+    "formula": "Mn3AlN",
+    "split": "train",
+    "legacy_temperature_k": 272.0,
+    "natoms": 5,
+    "cif_sha256": "fda42cf00dc5880792d2089aeae53753d9cc45eeaec5597a9d3099753bccb232",
+    "geometry": {
+      "supported_explicit_p1": true,
+      "template_match": true,
+      "full_occupancy": true,
+      "cell_lengths_angstrom": [
+        3.869,
+        3.869,
+        3.869
+      ],
+      "sites": [
+        {
+          "_atom_site_type_symbol": "Mn",
+          "_atom_site_label": "Mn0",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.00000000",
+          "_atom_site_fract_y": "0.50000000",
+          "_atom_site_fract_z": "0.50000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "Mn",
+          "_atom_site_label": "Mn1",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.50000000",
+          "_atom_site_fract_y": "0.00000000",
+          "_atom_site_fract_z": "0.50000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "Mn",
+          "_atom_site_label": "Mn2",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.50000000",
+          "_atom_site_fract_y": "0.50000000",
+          "_atom_site_fract_z": "0.00000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "Al",
+          "_atom_site_label": "Al3",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.00000000",
+          "_atom_site_fract_y": "0.00000000",
+          "_atom_site_fract_z": "0.00000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "N",
+          "_atom_site_label": "N4",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.50000000",
+          "_atom_site_fract_y": "0.50000000",
+          "_atom_site_fract_z": "0.50000000",
+          "_atom_site_occupancy": "1.0"
+        }
+      ],
+      "note": "Exact listed-cell motif check, not general structure matching or sample identity."
+    }
+  },
+  {
+    "record_id": "0.368_(CH3NH3)(Co(COOH)3",
+    "formula": "CoH9C4NO6",
+    "split": "train",
+    "legacy_temperature_k": 9.0,
+    "natoms": 84,
+    "cif_sha256": "5c2bc5c70e8ca9e05beb1fb9a50dc5b7c8785480738bf0982473486c2779817c",
+    "geometry": {
+      "template_match": false
+    }
+  },
+  {
+    "record_id": "0.78_NiN2O6",
+    "formula": "Ni(NO3)2",
+    "split": "train",
+    "legacy_temperature_k": 5.0,
+    "natoms": 36,
+    "cif_sha256": "6f01e1f60ba2842a7baa7740941496e63fb5a8c65cb996dea6b4421b72943adf",
+    "geometry": {
+      "template_match": false
+    }
+  },
+  {
+    "record_id": "0.1065_MnGeN2",
+    "formula": "MnGeN2",
+    "split": "test",
+    "legacy_temperature_k": 448.0,
+    "natoms": 16,
+    "cif_sha256": "da41038120ce70f9fff773be1e99c0a889d7b709726a971f22d1b4ecd0197efe",
+    "geometry": {
+      "template_match": false
+    }
+  },
+  {
+    "record_id": "0.74_Mn3Cu0.5Ge0.5N",
+    "formula": "Mn3CuN",
+    "split": "test",
+    "legacy_temperature_k": 380.0,
+    "natoms": 5,
+    "cif_sha256": "41392d128815a53b8f86afaf0da1db451f8c33b9a9bdae550c58db5e3e986680",
+    "geometry": {
+      "supported_explicit_p1": true,
+      "template_match": true,
+      "full_occupancy": true,
+      "cell_lengths_angstrom": [
+        3.906,
+        3.906,
+        3.906
+      ],
+      "sites": [
+        {
+          "_atom_site_type_symbol": "Mn",
+          "_atom_site_label": "Mn0",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.00000000",
+          "_atom_site_fract_y": "0.50000000",
+          "_atom_site_fract_z": "0.50000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "Mn",
+          "_atom_site_label": "Mn1",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.50000000",
+          "_atom_site_fract_y": "0.00000000",
+          "_atom_site_fract_z": "0.50000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "Mn",
+          "_atom_site_label": "Mn2",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.50000000",
+          "_atom_site_fract_y": "0.50000000",
+          "_atom_site_fract_z": "0.00000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "Cu",
+          "_atom_site_label": "Cu3",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.00000000",
+          "_atom_site_fract_y": "0.00000000",
+          "_atom_site_fract_z": "0.00000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "N",
+          "_atom_site_label": "N4",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.50000000",
+          "_atom_site_fract_y": "0.50000000",
+          "_atom_site_fract_z": "0.50000000",
+          "_atom_site_occupancy": "1.0"
+        }
+      ],
+      "note": "Exact listed-cell motif check, not general structure matching or sample identity."
+    }
+  },
+  {
+    "record_id": "2.5_Mn3CuN",
+    "formula": "Mn3CuN",
+    "split": "test",
+    "legacy_temperature_k": 143.0,
+    "natoms": 5,
+    "cif_sha256": "4ae9390940bbd7548afc5b57f38aa91d6511e7eef2089600e3fa940f9d6fa66f",
+    "geometry": {
+      "supported_explicit_p1": true,
+      "template_match": false,
+      "full_occupancy": true,
+      "cell_lengths_angstrom": [
+        3.90598715,
+        3.90598715,
+        3.906
+      ],
+      "sites": [
+        {
+          "_atom_site_type_symbol": "Cu",
+          "_atom_site_label": "Cu6",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.50000000",
+          "_atom_site_fract_y": "0.50000000",
+          "_atom_site_fract_z": "1.00000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "Mn",
+          "_atom_site_label": "Mn0",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.50000000",
+          "_atom_site_fract_y": "1.00000000",
+          "_atom_site_fract_z": "0.50000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "Mn",
+          "_atom_site_label": "Mn1",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.00000000",
+          "_atom_site_fract_y": "0.50000000",
+          "_atom_site_fract_z": "0.50000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "Mn",
+          "_atom_site_label": "Mn4",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.00000000",
+          "_atom_site_fract_y": "0.00000000",
+          "_atom_site_fract_z": "0.00000000",
+          "_atom_site_occupancy": "1.0"
+        },
+        {
+          "_atom_site_type_symbol": "N",
+          "_atom_site_label": "N8",
+          "_atom_site_symmetry_multiplicity": "1",
+          "_atom_site_fract_x": "0.00000000",
+          "_atom_site_fract_y": "0.00000000",
+          "_atom_site_fract_z": "0.50000000",
+          "_atom_site_occupancy": "1.0"
+        }
+      ],
+      "note": "Exact listed-cell motif check, not general structure matching or sample identity."
+    }
+  },
+  {
+    "record_id": "1.144_NH4FeCl2(HCOO)",
+    "formula": "FeH5CN(ClO)2",
+    "split": "test",
+    "legacy_temperature_k": 6.0,
+    "natoms": 24,
+    "cif_sha256": "8465fcfc4bd1388e133d780c52c22b0c49985128f02abc5fa1a8ad21db74c145",
+    "geometry": {
+      "template_match": false
+    }
+  },
+  {
+    "record_id": "1.781_CsMn(NCS)3",
+    "formula": "CsMnC3(SN)3",
+    "split": "test",
+    "legacy_temperature_k": 8.0,
+    "natoms": 44,
+    "cif_sha256": "cbb664c9fa16bf1684d9aeea56af100cca1ef9ce1ac0c4cf1fbda64f38b64d98",
+    "geometry": {
+      "template_match": false
+    }
+  }
+]

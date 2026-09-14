@@ -1,0 +1,30 @@
+[
+  {
+    "case_id": "Mn4N",
+    "formula": "Mn4N",
+    "excerpts": [
+      "Mn4N has a high Curie temperature TC (780 K) and a small saturation moment mtot = 1.1 μB/f.u. along a [111] direction, as shown in Fig. 2c. The measured moment mtot is the difference of the m1a and three times the ferrimagnetic component of Mn3c mcFiM, which are 3.8 μB and -0.9 μB per Mn, respectively [13]. It should be noted that the net moment in Fig. 2c remains a constant below 50 K and then drops with increasing temperature. By 160 K (T/TC = 0.2), the moment has fallen by 13% of the 4 K value, in agreement with literature [18]. This is quite unusual, because according to the collinear mean-field model, the decrease at T/TC = 0.2 should be smaller than 1% (see Fig. 1). The inability to fit the P-type curve to a collinear mean-field model for Mn4N [19] is a strong indication of the noncollinear nature of the magnetic order. 4 Fig. 2. Noncollinear magnetic structure of Mn4N. (a) Crystal and magnetic structure showing the Γ4g triangular ferrimagnetism. Grey, blue and red atoms represent N, Mn1a and Mn3c, respectively. (b) Kagome"
+    ],
+    "source_url": "https://arxiv.org/abs/2203.09641",
+    "doi": "10.1016/j.actamat.2022.118021",
+    "pdf_page_1based": 4,
+    "evidence_kind": "experimental_report",
+    "input_sha256": "ec29df0b415233fdda8267ab4e0b031db2ff4bf89a273b6af8bd661df60ab57e",
+    "source_file_sha256": "0bba4106db39e7076f8c50411c7f5b024652598907fe40e17ef83feb00e346f8",
+    "training_eligible": false
+  },
+  {
+    "case_id": "Mn3.76Ga0.24N",
+    "formula": "Mn3.76Ga0.24N",
+    "excerpts": [
+      "3b. The larger intensity of the (110) superlattice peak indicates that Mn3.76Ga0.24N crystallizes in a well-ordered structure with Ga atoms occupying the 1a site. Nonmagnetic Ga weakens the magnetic exchange leading to a decreased TC = 610 K. The net moment of 0.17 μB/f.u. at 4 K indicates that each Ga decreases the moment by of ~3.8 μB, matching both the moment of m1a from neutron diffraction [13] and our calculation. The compensation temperature is then Tcomp = 408 K. In this case, the 1a sublattice dominates the magnetization at low temperatures, while the 3c sublattice is dominant above compensation."
+    ],
+    "source_url": "https://arxiv.org/abs/2203.09641",
+    "doi": "10.1016/j.actamat.2022.118021",
+    "pdf_page_1based": 7,
+    "evidence_kind": "experimental_report",
+    "input_sha256": "6b380e910273214c1b2234ab83b4bfc41e38e9277110e3e67b527d8073706385",
+    "source_file_sha256": "0bba4106db39e7076f8c50411c7f5b024652598907fe40e17ef83feb00e346f8",
+    "training_eligible": false
+  }
+]

@@ -1,0 +1,41 @@
+# generated using pymatgen
+data_Na2LiCl2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   7.518190507944
+_cell_length_b   7.518190507944
+_cell_length_c   7.780501842499
+_cell_angle_alpha   90.000000000000
+_cell_angle_beta   90.000000000000
+_cell_angle_gamma   119.999999384386
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Na2LiCl2
+_chemical_formula_sum   'Na6 Li3 Cl6'
+_cell_volume   380.859591284536
+_cell_formula_units_Z   3
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Cl  Cl0  1  0.823541700840  0.596300721169  0.273895740509  1
+  Cl  Cl1  1  0.403699278831  0.227240979671  0.940562427044  1
+  Cl  Cl2  1  0.772759020329  0.176458299160  0.607229113579  1
+  Cl  Cl3  1  0.176458299160  0.403699278831  0.273895740509  1
+  Cl  Cl4  1  0.596300721169  0.772759020329  0.940562427044  1
+  Cl  Cl5  1  0.227240979671  0.823541700840  0.607229113579  1
+  Li  Li6  1  0.139191031456  0.637844443321  0.408119618893  1
+  Li  Li7  1  0.362155556679  0.501346588135  0.074786305428  1
+  Li  Li8  1  0.501346588135  0.139191031456  0.741452932358  1
+  Na  Na9  1  0.854974448681  0.195209115744  0.011694458313  1
+  Na  Na10  1  0.804790854454  0.659765362740  0.678361117840  1
+  Na  Na11  1  0.340234637260  0.145025551319  0.345027804375  1
+  Na  Na12  1  0.145025551319  0.804790854454  0.011694458313  1
+  Na  Na13  1  0.195209115744  0.340234637260  0.678361117840  1
+  Na  Na14  1  0.659765362740  0.854974448681  0.345027804375  1

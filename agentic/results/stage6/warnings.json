@@ -1,0 +1,5 @@
+[
+  "An issue occurred while importing 'pyg-lib'. Disabling its usage. Stacktrace: /lib64/libm.so.6: version `GLIBC_2.27' not found (required by /share/home/xlzou/Anaconda3/envs/cgdit/lib/python3.11/site-packages/libpyg.so)",
+  "An issue occurred while importing 'torch-sparse'. Disabling its usage. Stacktrace: /lib64/libm.so.6: version `GLIBC_2.27' not found (required by /share/home/xlzou/Anaconda3/envs/cgdit/lib/python3.11/site-packages/libpyg.so)",
+  "`torch_geometric.distributed` has been deprecated since 2.7.0 and will no longer be maintained. For distributed training, refer to our tutorials on distributed training at https://pytorch-geometric.readthedocs.io/en/latest/tutorial/distributed.html or cuGraph examples at https://github.com/rapidsai/cugraph-gnn/tree/main/python/cugraph-pyg/cugraph_pyg/examples"
+]
