@@ -9,6 +9,11 @@ It combines graph neural networks with continuous coordinate/lattice diffusion a
 
 ## Overview
 
+Current research routes and evidence are indexed in
+[paper_work/README.md](paper_work/README.md). See the
+[repository policy](paper_work/REPOSITORY_POLICY.md) for reproducible inputs and
+excluded model outputs, logs and temporary artifacts.
+
 Traditional diffusion models excel in image and text generation but struggle to handle the **symmetry, discreteness, and periodicity** of crystalline materials.  
 CGDiT addresses this challenge by:
 - Representing atomic systems as **crystal graphs**

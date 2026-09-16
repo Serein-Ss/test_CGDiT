@@ -1,8 +1,9 @@
 __pycache__/
-output/*
-!output/README.md
-wandb/
-assets/
+# Reproducibility policy: paper_work/REPOSITORY_POLICY.md
+/output/
+/wandb/
+/assets/tmp/
+/transfer/
 
 # Local credentials and IDE metadata
 .env
@@ -14,16 +15,21 @@ assets/
 *.zip
 *.tar.gz
 *.log
-logs/*
-!logs/README.md
-tmp/
+/logs/
+/tmp/
+/agentic/logs/
+/agentic/results/**/graphs.lock
+*.out
+*.err
+*.pid
+POTCAR
 *.pt
 *.ckpt
 *.pth
 
 # Generated analysis outputs
 data/*/analysis/
-data/*/*.csv
+# Dataset CSV splits are reproducibility inputs and must remain trackable.
 pre_processing/analysis/
 pre_processing/data/*.csv
 pre_processing/data/*_report.txt

@@ -1,12 +1,14 @@
 # CrystalPIRL 文章执行计划
 
+> 2026-09-16 入口调整：本文保留为历史预注册与执行记录；当前路线、实现差异和证据状态统一查看 [paper_work/crystalpirl/研究计划与进展.md](paper_work/crystalpirl/研究计划与进展.md)。历史状态不覆盖新台账。
+
 > 方法型工作题目：**CrystalPIRL: Paired Policy-Improvement Verification for Reinforcement Fine-Tuning of Symmetry-Constrained Crystal Diffusion**
 > Nature 风格候选题目：**Verified reinforcement learning for crystal structure generation**
 > 中文题目：**面向晶体结构生成的可验证强化学习**
 > 方法命名：`CrystalPIRL` 为文章主方法；`OrbitPO` 为其对称约化概率基础模块
 > 项目分支：`newton`
 > 更新日期：2026-09-01
-> 文档性质：CrystalPIRL 文章预注册、实验执行和项目进展的唯一事实来源；预注册问题不得根据结果事后改变
+> 文档性质：CrystalPIRL 历史预注册与执行记录；原预注册问题及其后续修订应保留可追溯性
 > 当前状态：OrbitPO 轨迹概率、PPO/GRPO、PIPO、双锚点 LCB 和候选拒绝路径已经过真实 GPU 工程验证；seed=42 的 FE、BG 和 FE+BG 三个 GRPO+PIPO 任务均已完成 200 次更新，Fig. 1–Fig. 4 已建立现有数据与缺失证据占位。正式 CrystalPIRL 仍缺完整安全门、holdout rollback、2×3 公平比较、多 seed 和独立 evaluator，因此当前结果不能表述为已验证的闭环材料性质提升。最新可审计状态统一维护在第 14 节。
 
 ---
