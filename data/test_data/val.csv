@@ -1,0 +1,382 @@
+Unnamed: 0,material_id,formation_energy_per_atom,band_gap,pretty_formula,e_above_hull,elements,cif,spacegroup.number
+9556,mp-1103243,-0.5266133325000008,0.0,NbNiAs,0.0,"['As', 'Nb', 'Ni']","# generated using pymatgen
+data_NbNiAs
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.73809200
+_cell_length_b   6.34494700
+_cell_length_c   7.34045600
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   NbNiAs
+_chemical_formula_sum   'Nb4 Ni4 As4'
+_cell_volume   174.10090327
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Nb  Nb0  1  0.25000000  0.02028600  0.83645000  1
+  Nb  Nb1  1  0.25000000  0.52028600  0.66355000  1
+  Nb  Nb2  1  0.75000000  0.97971400  0.16355000  1
+  Nb  Nb3  1  0.75000000  0.47971400  0.33645000  1
+  Ni  Ni4  1  0.25000000  0.15469100  0.42994000  1
+  Ni  Ni5  1  0.25000000  0.65469100  0.07006000  1
+  Ni  Ni6  1  0.75000000  0.84530900  0.57006000  1
+  Ni  Ni7  1  0.75000000  0.34530900  0.92994000  1
+  As  As8  1  0.25000000  0.78431100  0.37712200  1
+  As  As9  1  0.25000000  0.28431100  0.12287800  1
+  As  As10  1  0.75000000  0.21568900  0.62287800  1
+  As  As11  1  0.75000000  0.71568900  0.87712200  1
+",62
+39926,mp-758018,-2.544975353333333,3.9577,Li3P2WO8,0.0521805418749998,"['Li', 'O', 'P', 'W']","# generated using pymatgen
+data_Li3P2WO8
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.07913700
+_cell_length_b   5.09500432
+_cell_length_c   6.26778427
+_cell_angle_alpha   89.97349197
+_cell_angle_beta   90.38430369
+_cell_angle_gamma   113.03003443
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Li3P2WO8
+_chemical_formula_sum   'Li3 P2 W1 O8'
+_cell_volume   149.26807609
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Li  Li0  1  0.17299800  0.33895200  0.28082200  1
+  Li  Li1  1  0.50788500  0.00823400  0.49988400  1
+  Li  Li2  1  0.83589200  0.67423500  0.71771700  1
+  P  P3  1  0.14984000  0.35358500  0.76472000  1
+  P  P4  1  0.85408600  0.65454900  0.23496400  1
+  W  W5  1  0.50183700  0.00382200  0.99996700  1
+  O  O6  1  0.74740200  0.76380000  0.42807200  1
+  O  O7  1  0.75636500  0.74859100  0.02295700  1
+  O  O8  1  0.25363400  0.68888500  0.76241000  1
+  O  O9  1  0.81269400  0.24407100  0.75900600  1
+  O  O10  1  0.19072200  0.76064100  0.23929600  1
+  O  O11  1  0.74658200  0.31888200  0.23945800  1
+  O  O12  1  0.24548600  0.25715800  0.97648000  1
+  O  O13  1  0.26053700  0.24915500  0.57125600  1
+",12
+42659,mp-1207921,-0.1682834798611109,0.0,UFe4B,0.0683111462500054,"['B', 'Fe', 'U']","# generated using pymatgen
+data_UFe4B
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.85353782
+_cell_length_b   4.85353782
+_cell_length_c   6.89578600
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   119.99999757
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   UFe4B
+_chemical_formula_sum   'U2 Fe8 B2'
+_cell_volume   140.67964191
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  U  U0  1  0.00000000  0.00000000  0.50000000  1
+  U  U1  1  0.00000000  0.00000000  0.00000000  1
+  Fe  Fe2  1  0.33333300  0.66666700  0.50000000  1
+  Fe  Fe3  1  0.66666700  0.33333300  0.50000000  1
+  Fe  Fe4  1  0.50000000  0.00000000  0.21820500  1
+  Fe  Fe5  1  0.50000000  0.00000000  0.78179500  1
+  Fe  Fe6  1  0.00000000  0.50000000  0.21820500  1
+  Fe  Fe7  1  0.00000000  0.50000000  0.78179500  1
+  Fe  Fe8  1  0.50000000  0.50000000  0.21820500  1
+  Fe  Fe9  1  0.50000000  0.50000000  0.78179500  1
+  B  B10  1  0.33333300  0.66666700  0.00000000  1
+  B  B11  1  0.66666700  0.33333300  0.00000000  1
+",191
+35528,mp-1078628,-0.1759171870258622,0.0,Na2HgPb,0.0361274873437498,"['Hg', 'Na', 'Pb']","# generated using pymatgen
+data_Na2HgPb
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.25332206
+_cell_length_b   6.25332206
+_cell_length_c   6.16930800
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   103.05065002
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Na2HgPb
+_chemical_formula_sum   'Na4 Hg2 Pb2'
+_cell_volume   235.01369139
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Na  Na0  1  0.50926300  0.13167300  0.25000000  1
+  Na  Na1  1  0.86832700  0.49073700  0.75000000  1
+  Na  Na2  1  0.49073700  0.86832700  0.75000000  1
+  Na  Na3  1  0.13167300  0.50926300  0.25000000  1
+  Hg  Hg4  1  0.00000000  0.00000000  0.50000000  1
+  Hg  Hg5  1  0.00000000  0.00000000  0.00000000  1
+  Pb  Pb6  1  0.66140000  0.66140000  0.25000000  1
+  Pb  Pb7  1  0.33860000  0.33860000  0.75000000  1
+",63
+21045,mp-1103053,-0.4864057754545454,0.0,Er3(CuSn)4,0.0013538695454542,"['Cu', 'Er', 'Sn']","# generated using pymatgen
+data_Er3(CuSn)4
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   8.38307996
+_cell_length_b   8.38307996
+_cell_length_c   6.93574545
+_cell_angle_alpha   65.94511915
+_cell_angle_beta   65.94511915
+_cell_angle_gamma   30.80704437
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Er3(CuSn)4
+_chemical_formula_sum   'Er3 Cu4 Sn4'
+_cell_volume   226.22031073
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Er  Er0  1  0.00000000  0.00000000  0.00000000  1
+  Er  Er1  1  0.13022300  0.13022300  0.36004200  1
+  Er  Er2  1  0.86977700  0.86977700  0.63995800  1
+  Cu  Cu3  1  0.33711500  0.33711500  0.97975700  1
+  Cu  Cu4  1  0.66288500  0.66288500  0.02024300  1
+  Cu  Cu5  1  0.32112500  0.32112500  0.36902300  1
+  Cu  Cu6  1  0.67887500  0.67887500  0.63097700  1
+  Sn  Sn7  1  0.21743700  0.21743700  0.79371600  1
+  Sn  Sn8  1  0.78256300  0.78256300  0.20628400  1
+  Sn  Sn9  1  0.50661800  0.50661800  0.69652200  1
+  Sn  Sn10  1  0.49338200  0.49338200  0.30347800  1
+",12
+44594,mp-1103618,-0.1913786125000006,0.0,NbNi2,0.0762697166111125,"['Nb', 'Ni']","# generated using pymatgen
+data_NbNi2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.79210230
+_cell_length_b   4.79210230
+_cell_length_c   7.78637000
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.00271015
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   NbNi2
+_chemical_formula_sum   'Nb4 Ni8'
+_cell_volume   154.84813176
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Nb  Nb0  1  0.66671500  0.33328500  0.55517800  1
+  Nb  Nb1  1  0.33328500  0.66671500  0.44482200  1
+  Nb  Nb2  1  0.33328500  0.66671500  0.05517800  1
+  Nb  Nb3  1  0.66671500  0.33328500  0.94482200  1
+  Ni  Ni4  1  0.00000000  0.00000000  0.50000000  1
+  Ni  Ni5  1  0.00000000  0.00000000  0.00000000  1
+  Ni  Ni6  1  0.16881100  0.33763500  0.75000000  1
+  Ni  Ni7  1  0.16878900  0.83121100  0.75000000  1
+  Ni  Ni8  1  0.66236500  0.83118900  0.75000000  1
+  Ni  Ni9  1  0.83118900  0.66236500  0.25000000  1
+  Ni  Ni10  1  0.83121100  0.16878900  0.25000000  1
+  Ni  Ni11  1  0.33763500  0.16881100  0.25000000  1
+",194
+29204,mp-1218331,-0.3056711958333332,0.0,Sr3CaSi8,0.0169168704166668,"['Ca', 'Si', 'Sr']","# generated using pymatgen
+data_Sr3CaSi8
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   6.51389311
+_cell_length_b   6.51389311
+_cell_length_c   6.51389302
+_cell_angle_alpha   89.65407164
+_cell_angle_beta   89.65407164
+_cell_angle_gamma   89.65406170
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Sr3CaSi8
+_chemical_formula_sum   'Sr3 Ca1 Si8'
+_cell_volume   276.37466211
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Sr  Sr0  1  0.25112900  0.74887100  0.00000000  1
+  Sr  Sr1  1  0.00000000  0.25112900  0.74887100  1
+  Sr  Sr2  1  0.74887100  0.00000000  0.25112900  1
+  Ca  Ca3  1  0.50000000  0.50000000  0.50000000  1
+  Si  Si4  1  0.20487000  0.20487000  0.20487000  1
+  Si  Si5  1  0.54681500  0.05135200  0.69998000  1
+  Si  Si6  1  0.69998000  0.54681500  0.05135200  1
+  Si  Si7  1  0.05135200  0.69998000  0.54681500  1
+  Si  Si8  1  0.79513000  0.79513000  0.79513000  1
+  Si  Si9  1  0.30002000  0.94864800  0.45318500  1
+  Si  Si10  1  0.94864800  0.45318500  0.30002000  1
+  Si  Si11  1  0.45318500  0.30002000  0.94864800  1
+",155
+6102,mp-11214,-0.7607002913888893,0.0,CaAgSb,0.0,"['Ag', 'Ca', 'Sb']","# generated using pymatgen
+data_CaAgSb
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.62570800
+_cell_length_b   7.74745800
+_cell_length_c   8.52533100
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   CaAgSb
+_chemical_formula_sum   'Ca4 Ag4 Sb4'
+_cell_volume   305.52636599
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Ca  Ca0  1  0.75000000  0.47883800  0.80667700  1
+  Ca  Ca1  1  0.25000000  0.52116200  0.19332300  1
+  Ca  Ca2  1  0.25000000  0.02116200  0.30667700  1
+  Ca  Ca3  1  0.75000000  0.97883800  0.69332300  1
+  Ag  Ag4  1  0.75000000  0.85846500  0.06409900  1
+  Ag  Ag5  1  0.75000000  0.35846500  0.43590100  1
+  Ag  Ag6  1  0.25000000  0.14153500  0.93590100  1
+  Ag  Ag7  1  0.25000000  0.64153500  0.56409900  1
+  Sb  Sb8  1  0.75000000  0.74238700  0.38518600  1
+  Sb  Sb9  1  0.25000000  0.25761300  0.61481400  1
+  Sb  Sb10  1  0.75000000  0.24238700  0.11481400  1
+  Sb  Sb11  1  0.25000000  0.75761300  0.88518600  1
+",62
+42031,mp-1078707,-0.4690483600000004,0.0,TbFeGe2,0.0634868039999965,"['Fe', 'Ge', 'Tb']","# generated using pymatgen
+data_TbFeGe2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   8.42077373
+_cell_length_b   8.42077373
+_cell_length_c   4.30419400
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   151.31158575
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   TbFeGe2
+_chemical_formula_sum   'Tb2 Fe2 Ge4'
+_cell_volume   146.51388940
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Tb  Tb0  1  0.89347600  0.10652400  0.25000000  1
+  Tb  Tb1  1  0.10652400  0.89347600  0.75000000  1
+  Fe  Fe2  1  0.68426600  0.31573400  0.25000000  1
+  Fe  Fe3  1  0.31573400  0.68426600  0.75000000  1
+  Ge  Ge4  1  0.54415600  0.45584400  0.25000000  1
+  Ge  Ge5  1  0.45584400  0.54415600  0.75000000  1
+  Ge  Ge6  1  0.25294900  0.74705100  0.25000000  1
+  Ge  Ge7  1  0.74705100  0.25294900  0.75000000  1
+",63
+24240,mp-1223427,-0.9197395864999998,0.0,La2Ni4GeP3,0.0061645285000047,"['Ge', 'La', 'Ni', 'P']","# generated using pymatgen
+data_La2Ni4GeP3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.02695300
+_cell_length_b   4.02695300
+_cell_length_c   9.82492700
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   La2Ni4GeP3
+_chemical_formula_sum   'La2 Ni4 Ge1 P3'
+_cell_volume   159.32445952
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  La  La0  1  0.00000000  0.00000000  0.99145500  1
+  La  La1  1  0.50000000  0.50000000  0.50345500  1
+  Ni  Ni2  1  0.00000000  0.50000000  0.25974900  1
+  Ni  Ni3  1  0.50000000  0.00000000  0.74597100  1
+  Ni  Ni4  1  0.50000000  0.00000000  0.25974900  1
+  Ni  Ni5  1  0.00000000  0.50000000  0.74597100  1
+  Ge  Ge6  1  0.50000000  0.50000000  0.12798700  1
+  P  P7  1  0.00000000  0.00000000  0.63137600  1
+  P  P8  1  0.00000000  0.00000000  0.36897200  1
+  P  P9  1  0.50000000  0.50000000  0.86531600  1
+",99

@@ -92,6 +92,12 @@ GPU allocation (for example, `--partition=rtx4090 --gres=gpu:1`); a false
 
 ## Datasets
 
+The original CSV splits and metadata are versioned under `data/`; their hashes
+and row counts are recorded in `data/manifest.json`. Graph caches are rebuilt
+locally. Follow [the clean-clone reproduction guide](docs/REPRODUCING.md) for
+training, validation, testing, ab-initio generation and property prediction.
+`agentic/` is local-only and is not part of the published workflow.
+
 ## Generation and evaluation workflows
 
 Reusable Python code is separated from command-line entry points:

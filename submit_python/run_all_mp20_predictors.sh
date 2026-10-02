@@ -56,14 +56,12 @@ python -c "import torch; print('torch=', torch.__version__); print('cuda=', torc
 for required_file in \
     data/mp_20/train.csv \
     data/mp_20/val.csv \
-    data/mp_20/test.csv \
-    data/mp_20/train_sym.pt \
-    data/mp_20/val_sym.pt \
-    data/mp_20/test_sym.pt; do
+    data/mp_20/test.csv; do
     [[ -s "${required_file}" ]] || { echo "Missing required file: ${required_file}" >&2; exit 1; }
 done
 
-python -c "import torch; paths=['data/mp_20/train_sym.pt','data/mp_20/val_sym.pt','data/mp_20/test_sym.pt']; props=['formation_energy_per_atom','band_gap','e_above_hull']; [(lambda d,p: (_ for _ in ()).throw(RuntimeError(f'{p} lacks required properties')) if any(k not in d[0] for k in props) else print(p, len(d), 'properties_ok'))(torch.load(p,map_location='cpu',weights_only=False),p) for p in paths]"
+# CrystDataset builds or refreshes graph caches from the versioned CSVs.
+# A clean clone intentionally contains no generated .pt files.
 
 python -m pytest tests/test_property_predictor.py -q
 

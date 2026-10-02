@@ -2,6 +2,8 @@
 
 _生效日期：2026-09-16；依据用户本次明确约定。远程代码发布目标为`newton`。_
 
+> 2026-10-02修订：发布全部原始数据CSV与划分元数据；整个`agentic/`仅在本服务器开发，不推送。训练权重、运行日志和可再生缓存不发布。生成模型及性质预测器的从头复现见[操作指南](../docs/REPRODUCING.md)。
+
 ---
 
 ## 🎯 仓库应保存什么
@@ -10,8 +12,8 @@ _生效日期：2026-09-16；依据用户本次明确约定。远程代码发布
 
 | 内容 | 约定 | 例子 |
 | --- | --- | --- |
-| 源码与测试 | 纳入版本控制 | `cgdit/`、`scripts/`、`agentic/scripts/`及两套测试 |
-| 配置与执行入口 | 纳入版本控制 | `conf/`、`submit/`、`submit_python/`、`agentic/jobs/` |
+| 源码与测试 | 纳入版本控制 | `cgdit/`、`scripts/`、`tests/`；不含agentic子项目 |
+| 配置与执行入口 | 纳入版本控制 | `conf/`、`submit/`、`submit_python/` |
 | 环境声明 | 纳入版本控制 | `pyproject.toml`、`uv.lock`、Conda声明和额外环境说明 |
 | 输入数据与划分 | 纳入版本控制或提供版本化外部资产 | `data/*/train.csv`、`val.csv`、`test.csv`及manifest |
 | 研究证据输入 | 审核后纳入 | 结构、比较对、来源标识、温度区间和排除原因 |
@@ -19,7 +21,7 @@ _生效日期：2026-09-16；依据用户本次明确约定。远程代码发布
 | 文章图与计划 | 纳入版本控制 | `paper_work/`、正式`assets/`，临时图例外 |
 | 外部权重与大型原始计算 | 外部资产管理 | 记录位置、访问要求、SHA256和生成命令 |
 
-允许跟踪不等于已经提交。取消输入CSV和正式`assets/`整体忽略后，仍需检查来源、大小及依赖关系；本次没有批量提交这些资产。
+原始数据清单见`data/manifest.json`，发布时校验哈希。正式`assets/`需单独审核，本次不新增训练所得图表或分析产物。数据沿用原有来源及使用限制，本次上传不赋予新的再分发许可。
 
 ## 🚫 不进入GitHub的内容
 
@@ -30,13 +32,13 @@ _生效日期：2026-09-16；依据用户本次明确约定。远程代码发布
 | `wandb/` | 监督记录与运行资产 | 保留或使用在线记录 |
 | `tmp/` | 用户临时存储 | 保留；不擅自清理 |
 | `transfer/` | 重复输出、迁移包与赝势 | 保留；便携源码仍在`scripts/basinguide_transfer/` |
-| `agentic/logs/` | 子项目日志 | 保留 |
+| `agentic/`全部内容 | 仅本服务器开发 | 保留；不进入远程发布历史 |
 | `assets/tmp/` | 临时图和示意 | 保留本地 |
 | `.venv/`、缓存、安装元数据 | 可重建且机器相关 | 新服务器重建 |
 | `.env`、API密钥 | 私密配置 | 单独配置 |
 | `.ckpt/.pt/.pth`、压缩包、POTCAR | 大型或访问受限资产 | 外部存放并登记获取方式 |
 
-`agentic/results/`中的小型统计与审计不整体排除，权重、图缓存、日志仍按类型排除。后续模型与批量结构输出使用`output/`；论文小表由分析脚本显式导出。
+`agentic/`中的代码、输入、证据和小型统计均不发布。其他工作流的模型与批量结构输出使用`output/`；`data/`中的`.pt`图缓存及`analysis/`可再生，不作为原始输入上传。
 
 ## 📦 不上传权重时怎样复现
 
@@ -66,7 +68,7 @@ git symbolic-ref --short HEAD
 git status --short
 git diff --cached --stat
 git diff --cached --check
-git ls-files output logs wandb tmp transfer
+git ls-files output logs wandb tmp transfer agentic
 ```
 
 最后一条应为空。按明确路径暂存，不把所有未跟踪产物一次性加入Git，不用`git add -f`绕过输出排除规则。

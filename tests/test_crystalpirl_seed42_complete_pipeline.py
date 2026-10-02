@@ -230,7 +230,13 @@ def test_complete_audit_authorizes_full_single_seed_matrix(tmp_path):
     assert len(report["crystalpirl_boundary_actions"]) == 3
 
 
-def test_complete_plot_renders_png_bundle(tmp_path):
+def test_complete_plot_renders_png_bundle(tmp_path, monkeypatch):
+    from PIL import Image
+    from scripts.result_figures.crystalpirl_seed42_complete import plot_figures
+
+    architecture = tmp_path / "architecture_fixture.png"
+    Image.new("RGB", (16, 16), "white").save(architecture)
+    monkeypatch.setattr(plot_figures, "FIG1_SOURCE", architecture)
     source = tmp_path / "source"
     assets = tmp_path / "assets"
     source.mkdir()

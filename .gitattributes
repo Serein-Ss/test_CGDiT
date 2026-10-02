@@ -1,0 +1,3 @@
+# Preserve original CSV bytes (including embedded CIF text and CRLF records).
+data/*.csv -text -whitespace
+data/*/*.csv -text -whitespace

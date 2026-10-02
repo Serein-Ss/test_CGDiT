@@ -46,6 +46,10 @@ def test_available_quality_metrics_uses_structural_and_property_results(tmp_path
 
 
 def test_available_quality_metrics_adds_full_set_quality_results(tmp_path, monkeypatch):
+    structural_path = tmp_path / "structural.json"
+    structural_path.write_text(json.dumps({"comp_valid": 0.8, "struct_valid": 0.9}))
+    monkeypatch.setattr(plot_blueprints, "BASE_STRUCTURAL_METRICS", structural_path)
+    monkeypatch.setattr(plot_blueprints, "JOINT_CFG_STRUCTURAL_METRICS", structural_path)
     metrics_path = tmp_path / "quality.csv"
     pd.DataFrame(
         {

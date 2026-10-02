@@ -1,0 +1,436 @@
+{
+  "schema_version": 1,
+  "snapshot_date": "2026-10-02",
+  "scope": "Original CSV inputs and split metadata; excludes rebuildable graph caches and analysis outputs.",
+  "files": [
+    {
+      "path": "data/c2db_51/test.csv",
+      "bytes": 4502897,
+      "sha256": "bb3d1ee02705eca39ca37604912ecd3cbd52c9e32bc5970149431e5bb7aec237",
+      "columns": [
+        "index",
+        "uid",
+        "unique_id",
+        "lgnum",
+        "layergroup",
+        "thickness",
+        "gap",
+        "energy",
+        "natoms",
+        "ehull",
+        "hform",
+        "magmoms",
+        "formula",
+        "elements",
+        "cif",
+        "pbc"
+      ],
+      "rows": 3381
+    },
+    {
+      "path": "data/c2db_51/train.csv",
+      "bytes": 13468865,
+      "sha256": "8c6a17ecfa6fd6c883274e24b46254b06c7b3bf20bdd3fe1e9a299993acd06f1",
+      "columns": [
+        "index",
+        "uid",
+        "unique_id",
+        "lgnum",
+        "layergroup",
+        "thickness",
+        "gap",
+        "energy",
+        "natoms",
+        "ehull",
+        "hform",
+        "magmoms",
+        "formula",
+        "elements",
+        "cif",
+        "pbc"
+      ],
+      "rows": 10143
+    },
+    {
+      "path": "data/c2db_51/val.csv",
+      "bytes": 4465673,
+      "sha256": "dfb02ba5becab042e1f1d5aa97cdb6d783476de858f961852e9019193c550973",
+      "columns": [
+        "index",
+        "uid",
+        "unique_id",
+        "lgnum",
+        "layergroup",
+        "thickness",
+        "gap",
+        "energy",
+        "natoms",
+        "ehull",
+        "hform",
+        "magmoms",
+        "formula",
+        "elements",
+        "cif",
+        "pbc"
+      ],
+      "rows": 3381
+    },
+    {
+      "path": "data/carbon_24/test.csv",
+      "bytes": 2319350,
+      "sha256": "386b17c08816f434818d51e46687bf72ff3f92348f3ba24823e4758f1fe8a969",
+      "columns": [
+        "",
+        "material_id",
+        "cif",
+        "energy_per_atom"
+      ],
+      "rows": 2030
+    },
+    {
+      "path": "data/carbon_24/train.csv",
+      "bytes": 6969022,
+      "sha256": "de142c40617954a8b56c66a98bffb1a541abba69c79020067083c74dc445fa5f",
+      "columns": [
+        "",
+        "material_id",
+        "cif",
+        "energy_per_atom"
+      ],
+      "rows": 6091
+    },
+    {
+      "path": "data/carbon_24/val.csv",
+      "bytes": 2321923,
+      "sha256": "36c00689cd63073c954a58bc6ed6e2adb7aeed5a630c994970959a1babffd50e",
+      "columns": [
+        "",
+        "material_id",
+        "cif",
+        "energy_per_atom"
+      ],
+      "rows": 2032
+    },
+    {
+      "path": "data/magndata/all.csv",
+      "bytes": 2553226,
+      "sha256": "8d060bb2321a84381e55fe3a67b224b04bc8b50eaa3f1666bdf943e1ac931d4b",
+      "columns": [
+        "seq_id",
+        "material_id",
+        "tc",
+        "tc_scale",
+        "tc_log",
+        "pretty_formula",
+        "natoms",
+        "elements",
+        "charges",
+        "cif",
+        "spacegroup.number",
+        "source_natoms",
+        "split"
+      ],
+      "rows": 1284
+    },
+    {
+      "path": "data/magndata/rejected.csv",
+      "bytes": 829,
+      "sha256": "217ad174ffbc2fa2ef22317f13ce6719e25d140260183d76ca7ccebd8ce81a2e",
+      "columns": [
+        "material_id",
+        "reason",
+        "source_natoms",
+        "primitive_natoms"
+      ],
+      "rows": 13
+    },
+    {
+      "path": "data/magndata/source_magndata_tc.csv",
+      "bytes": 4904292,
+      "sha256": "4902561b333aa1733713da55dfecbcb371f60c8e6b9b619c9f12f822f003767d",
+      "columns": [
+        "seq_id",
+        "material_id",
+        "tc",
+        "tc_scale",
+        "tc_log",
+        "pretty_formula",
+        "natoms",
+        "elements",
+        "charges",
+        "cif",
+        "spacegroup.number"
+      ],
+      "rows": 1297
+    },
+    {
+      "path": "data/magndata/split_manifest.json",
+      "bytes": 1995,
+      "sha256": "8daaf8c4bdb155f0e0bb7e69a5b13aaa6603c69ee14848720a0c365797896410"
+    },
+    {
+      "path": "data/magndata/test.csv",
+      "bytes": 280646,
+      "sha256": "1fc4bd9d1240db36f4eafa6a7cbb567804d725778284c0b9d68c75334a9bdecd",
+      "columns": [
+        "seq_id",
+        "material_id",
+        "tc",
+        "tc_scale",
+        "tc_log",
+        "pretty_formula",
+        "natoms",
+        "elements",
+        "charges",
+        "cif",
+        "spacegroup.number",
+        "source_natoms"
+      ],
+      "rows": 139
+    },
+    {
+      "path": "data/magndata/train.csv",
+      "bytes": 2026643,
+      "sha256": "fa253579b031dd738d9efb85023d0774c6ad52f448d6ee3055a2420e5f8e0c1d",
+      "columns": [
+        "seq_id",
+        "material_id",
+        "tc",
+        "tc_scale",
+        "tc_log",
+        "pretty_formula",
+        "natoms",
+        "elements",
+        "charges",
+        "cif",
+        "spacegroup.number",
+        "source_natoms"
+      ],
+      "rows": 1023
+    },
+    {
+      "path": "data/magndata/val.csv",
+      "bytes": 238838,
+      "sha256": "5ddcbb2714f2fd532db9c1bff5b22fd56507d2e5cf689133b4c2fd30f5467ff3",
+      "columns": [
+        "seq_id",
+        "material_id",
+        "tc",
+        "tc_scale",
+        "tc_log",
+        "pretty_formula",
+        "natoms",
+        "elements",
+        "charges",
+        "cif",
+        "spacegroup.number",
+        "source_natoms"
+      ],
+      "rows": 122
+    },
+    {
+      "path": "data/mp_20/test.csv",
+      "bytes": 11599133,
+      "sha256": "dd605c7543cf95a13e150aed630d0915e74edc8dea17e85301ee6fbfeb7f500a",
+      "columns": [
+        "",
+        "material_id",
+        "formation_energy_per_atom",
+        "band_gap",
+        "pretty_formula",
+        "e_above_hull",
+        "elements",
+        "cif",
+        "spacegroup.number"
+      ],
+      "rows": 9046
+    },
+    {
+      "path": "data/mp_20/train.csv",
+      "bytes": 34975028,
+      "sha256": "133bab58dba02d316f9f91174839f17802dce648be4e8659d1a42b32b97fa01d",
+      "columns": [
+        "",
+        "material_id",
+        "formation_energy_per_atom",
+        "band_gap",
+        "pretty_formula",
+        "e_above_hull",
+        "elements",
+        "cif",
+        "spacegroup.number"
+      ],
+      "rows": 27136
+    },
+    {
+      "path": "data/mp_20/val.csv",
+      "bytes": 11617279,
+      "sha256": "7b5f4085464b3eac9fd2123acee97ec372214004ce7e983b535b33395abc3e29",
+      "columns": [
+        "",
+        "material_id",
+        "formation_energy_per_atom",
+        "band_gap",
+        "pretty_formula",
+        "e_above_hull",
+        "elements",
+        "cif",
+        "spacegroup.number"
+      ],
+      "rows": 9047
+    },
+    {
+      "path": "data/mpts_52/test.csv",
+      "bytes": 16358482,
+      "sha256": "4d6e76c4726fb12fb2a7e5bb23594f9b82dbd9bf67b7bfd4866e9c74a8f49038",
+      "columns": [
+        "",
+        "material_id",
+        "theoretical",
+        "energy_above_hull",
+        "formation_energy_per_atom",
+        "year",
+        "cif"
+      ],
+      "rows": 8096
+    },
+    {
+      "path": "data/mpts_52/train.csv",
+      "bytes": 45705353,
+      "sha256": "db33cfc86530bbd4b020405989c5cd12130f447ad7b9258d29b3ff9c8a26d764",
+      "columns": [
+        "",
+        "material_id",
+        "theoretical",
+        "energy_above_hull",
+        "formation_energy_per_atom",
+        "year",
+        "cif"
+      ],
+      "rows": 27380
+    },
+    {
+      "path": "data/mpts_52/val.csv",
+      "bytes": 9941357,
+      "sha256": "b5d9f7a8ff72f3a1f24d6bb97e11ad201be40d10be7b27924234da06af04baba",
+      "columns": [
+        "",
+        "material_id",
+        "theoretical",
+        "energy_above_hull",
+        "formation_energy_per_atom",
+        "year",
+        "cif"
+      ],
+      "rows": 5000
+    },
+    {
+      "path": "data/perov_5/test.csv",
+      "bytes": 3671842,
+      "sha256": "a85878c685037f0a578257f6d4fcdde00e968dbab73c5f1e90ecef65218513f6",
+      "columns": [
+        "",
+        "material_id",
+        "cif",
+        "formula",
+        "heat_all",
+        "heat_ref",
+        "dir_gap",
+        "ind_gap"
+      ],
+      "rows": 3785
+    },
+    {
+      "path": "data/perov_5/train.csv",
+      "bytes": 11017473,
+      "sha256": "99cc012c21f5670a3d70d53781e1c4f20a9748a2f54945012db7bec5b563af4c",
+      "columns": [
+        "",
+        "material_id",
+        "cif",
+        "formula",
+        "heat_all",
+        "heat_ref",
+        "dir_gap",
+        "ind_gap"
+      ],
+      "rows": 11356
+    },
+    {
+      "path": "data/perov_5/val.csv",
+      "bytes": 3673814,
+      "sha256": "326f401219901270374b71e2faff63df3a29a99fd26f469993b9f476b693daf2",
+      "columns": [
+        "",
+        "material_id",
+        "cif",
+        "formula",
+        "heat_all",
+        "heat_ref",
+        "dir_gap",
+        "ind_gap"
+      ],
+      "rows": 3787
+    },
+    {
+      "path": "data/scale_and_shift_params.csv",
+      "bytes": 601,
+      "sha256": "7af0e183a59b932a4a246036becb27a05d0f4d8946bf8ce953d31898699ac235",
+      "columns": [
+        "dataset\tprops_1\tmean\tstd.\tprops_2\tmean\tstd.\tprops_3\tmean\tstd.\tprops_4\tmean\tstd."
+      ],
+      "rows": 7
+    },
+    {
+      "path": "data/test_data/test.csv",
+      "bytes": 14542,
+      "sha256": "f48219fe62fc947a24e8bb062b3cb3dc24ff75e573287db544e882bc92da74e6",
+      "columns": [
+        "Unnamed: 0",
+        "material_id",
+        "formation_energy_per_atom",
+        "band_gap",
+        "pretty_formula",
+        "e_above_hull",
+        "elements",
+        "cif",
+        "spacegroup.number"
+      ],
+      "rows": 10
+    },
+    {
+      "path": "data/test_data/train.csv",
+      "bytes": 13538,
+      "sha256": "5cf2104974bfd5bfda2dc32c893b13ce801e578fd4f2fa24c82c91715e000a66",
+      "columns": [
+        "Unnamed: 0",
+        "material_id",
+        "formation_energy_per_atom",
+        "band_gap",
+        "pretty_formula",
+        "e_above_hull",
+        "elements",
+        "cif",
+        "spacegroup.number"
+      ],
+      "rows": 10
+    },
+    {
+      "path": "data/test_data/val.csv",
+      "bytes": 13438,
+      "sha256": "f022c8ce92b232d0a2155d86f888ad24ea7532d6aaea208d3c457b9dbe59064a",
+      "columns": [
+        "Unnamed: 0",
+        "material_id",
+        "formation_energy_per_atom",
+        "band_gap",
+        "pretty_formula",
+        "e_above_hull",
+        "elements",
+        "cif",
+        "spacegroup.number"
+      ],
+      "rows": 10
+    }
+  ]
+}

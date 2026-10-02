@@ -36,6 +36,8 @@ flowchart TB
 
 ## 📦 文件与Git规则
 
+2026-10-02修订：`agentic/`整体仅本地开发，不发布；磁性路线文档保留研究概述，其指向`agentic/`的链接仅在本机可用。原始数据CSV和划分元数据纳入发布，训练产物仍排除。从头运行见[复现指南](../docs/REPRODUCING.md)。
+
 完整约定见 [REPOSITORY_POLICY.md](REPOSITORY_POLICY.md)。代码、配置、必要输入和精简证据表进入版本管理；`output/`、`logs/`、`wandb/`、`tmp/`及`transfer/`保持本地。
 
 新模型训练、结构生成和微调输出统一写入`output/`。历史`agentic/results/`布局本次不迁移；后续迁移时必须同时修正脚本读取路径。小型审计表可保留作为复现证据。

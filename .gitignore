@@ -4,6 +4,7 @@ __pycache__/
 /wandb/
 /assets/tmp/
 /transfer/
+/agentic/
 
 # Local credentials and IDE metadata
 .env
@@ -17,8 +18,6 @@ __pycache__/
 *.log
 /logs/
 /tmp/
-/agentic/logs/
-/agentic/results/**/graphs.lock
 *.out
 *.err
 *.pid
