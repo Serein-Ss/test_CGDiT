@@ -1,5 +1,12 @@
 # Crystal Graph Diffusion Transformer (CGDiT)
 
+For a fresh single-GPU MP-20 study with four generators and six independent
+FE/BG predictors, see [the server workflow](remote_workflow_newton/服务器执行说明.md).
+Run its GPU smoke and resource tests before enabling two concurrent training
+workers; the runner checks the validation report and monitors GPU and container
+RAM headroom. Published validation limits are recorded in
+[VALIDATION.md](remote_workflow_newton/VALIDATION.md).
+
 ---
 
 CGDiT (Crystal Graph Diffusion Transformer) is a **graph-based diffusion model** designed for **crystal structure generation**.  

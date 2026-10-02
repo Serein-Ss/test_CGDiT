@@ -1,0 +1,148 @@
+{
+  "date": "2026-10-03",
+  "gpu": "NVIDIA GeForce RTX 3060",
+  "torch_version": "2.7.1",
+  "device_memory_gib": 12,
+  "data": "64 MP-20 training structures with 20 atoms; repeated train/val/test for execution testing only",
+  "train_batch_size": 32,
+  "eval_batch_size": 16,
+  "precision": 32,
+  "smoke_max_epochs": 1,
+  "smoke_train_val_test_batches": 2,
+  "smoke_training": [
+    {
+      "name": "mp20_base",
+      "exit": 0,
+      "seconds": 63.421000000002095,
+      "checkpoints": [
+        "epoch=0-step=2.ckpt"
+      ]
+    },
+    {
+      "name": "mp20_fe",
+      "exit": 0,
+      "seconds": 34.23399999999674,
+      "checkpoints": [
+        "epoch=0-step=2.ckpt"
+      ]
+    },
+    {
+      "name": "mp20_bg",
+      "exit": 0,
+      "seconds": 34.844000000011874,
+      "checkpoints": [
+        "epoch=0-step=2.ckpt"
+      ]
+    },
+    {
+      "name": "mp20_fe_bg",
+      "exit": 0,
+      "seconds": 36.046999999991385,
+      "checkpoints": [
+        "epoch=0-step=2.ckpt"
+      ]
+    },
+    {
+      "name": "predictor_fe_42",
+      "exit": 0,
+      "seconds": 27.76600000000326,
+      "checkpoints": [
+        "epoch=0-step=2.ckpt"
+      ],
+      "finite_predictions": true
+    },
+    {
+      "name": "predictor_fe_123",
+      "exit": 0,
+      "seconds": 31.889999999984866,
+      "checkpoints": [
+        "epoch=0-step=2.ckpt"
+      ],
+      "finite_predictions": true
+    },
+    {
+      "name": "predictor_fe_3407",
+      "exit": 0,
+      "seconds": 28.828000000008615,
+      "checkpoints": [
+        "epoch=0-step=2.ckpt"
+      ],
+      "finite_predictions": true
+    },
+    {
+      "name": "predictor_bg_42",
+      "exit": 0,
+      "seconds": 28.905999999988126,
+      "checkpoints": [
+        "epoch=0-step=2.ckpt"
+      ],
+      "finite_predictions": true
+    },
+    {
+      "name": "predictor_bg_123",
+      "exit": 0,
+      "seconds": 28.01600000000326,
+      "checkpoints": [
+        "epoch=0-step=2.ckpt"
+      ],
+      "finite_predictions": true
+    },
+    {
+      "name": "predictor_bg_3407",
+      "exit": 0,
+      "seconds": 27.671999999991385,
+      "checkpoints": [
+        "epoch=0-step=2.ckpt"
+      ],
+      "finite_predictions": true
+    }
+  ],
+  "two_epoch_resource_comparison": {
+    "serial": {
+      "passed": true,
+      "seconds": 141.0779999999795,
+      "min_gpu_free_gib": 8.0458984375,
+      "min_ram_available_gib": 13.307487487792969,
+      "failure": null,
+      "completed_indices": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "parallel2": {
+      "passed": true,
+      "seconds": 85.71799999999348,
+      "min_gpu_free_gib": 6.0791015625,
+      "min_ram_available_gib": 12.162540435791016,
+      "failure": null,
+      "completed_indices": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "speedup": 1.6458386803237388
+  },
+  "scope": "Local short execution tests only; no remote RTX4090 run and no formal converged models.",
+  "joint_one_epoch_sampling": {
+    "exit_code": 0,
+    "guidance_scale": 2.0,
+    "conditions": {
+      "formation_energy_per_atom": -1.5,
+      "band_gap": 2.0
+    },
+    "diagnostics": {
+      "num_structures": 1,
+      "finite_fields": {
+        "frac_coords": true,
+        "lengths": false,
+        "angles": false
+      },
+      "all_finite": false,
+      "note": "Finite values do not establish physical or structural validity."
+    }
+  }
+}
