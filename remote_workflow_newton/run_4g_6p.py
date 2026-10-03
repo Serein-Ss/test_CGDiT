@@ -14,12 +14,38 @@ PROPS = {"fe": "formation_energy_per_atom", "bg": "band_gap"}
 MODELS = ("mp20_base", "mp20_fe", "mp20_bg", "mp20_fe_bg")
 
 
+def training_batch_overrides(train_batch, eval_batch):
+    return [f"data.datamodule.batch_size.train={train_batch}",
+            f"data.datamodule.batch_size.val={eval_batch}",
+            f"data.datamodule.batch_size.test={eval_batch}",
+            f"train.pl_trainer.accumulate_grad_batches={32 // train_batch}"]
+
+
+def resume_history(root, previous, record):
+    if previous['commit'] != record['commit']:
+        changed = subprocess.check_output(
+            ['git', '-c', 'core.quotepath=false', 'diff', '--name-only', previous['commit'], record['commit']],
+            cwd=root, text=True).splitlines()
+        if any(not (path.startswith('remote_workflow_newton/') or path in
+                    ('README.md', 'tests/test_remote_workflow.py')) for path in changed):
+            raise RuntimeError('Model, configuration or other source changed; use a new --run-id.')
+    history = previous.get('resume_history', []).copy()
+    keys = ('commit', 'train_batch_size', 'eval_batch_size')
+    old = {key: previous.get(key, {'train_batch_size': 32, 'eval_batch_size': 16}.get(key))
+           for key in keys}
+    if any(old[key] != record[key] for key in keys):
+        history.append(old)
+    return history
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("stage", choices=("preflight", "smoke", "train", "generate", "evaluate", "all"))
     parser.add_argument("--run-id", default="newton_4g_6p_20261003")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--parallel", type=int, choices=(1, 2), default=1)
+    parser.add_argument("--train-batch-size", type=int, choices=(16, 32), default=32)
+    parser.add_argument("--eval-batch-size", type=int, choices=(8, 16), default=16)
     args = parser.parse_args()
     root = Path.cwd().resolve()
     if not (root / "conf/model/experiments/exp_mp20_base.yaml").is_file():
@@ -29,6 +55,8 @@ def main():
                       WANDB_DIR=str(out / "wandb"), WABDB_DIR=str(out / "wandb"),
                       WANDB_MODE="offline", CUDA_VISIBLE_DEVICES=os.environ.get("CUDA_VISIBLE_DEVICES", "0"),
                       OMP_NUM_THREADS="2", HYDRA_FULL_ERROR="1")
+    if sys.platform == 'linux':
+        os.environ.setdefault('MKL_THREADING_LAYER', 'GNU')
     if not args.dry_run:
         (out / "logs").mkdir(parents=True, exist_ok=True)
         try:
@@ -45,9 +73,11 @@ def main():
         manifest = out / "workflow.json"
         record = {"commit": commit, "generator_seed": 42, "predictor_seeds": SEEDS,
                   "models": MODELS, "properties": PROPS, "python": sys.executable,
+                  "train_batch_size": args.train_batch_size, "eval_batch_size": args.eval_batch_size,
+                  "accumulate_grad_batches": 32 // args.train_batch_size,
                   "samples_per_group": 4096, "fe_target": -1.5, "bg_target": 2.0}
-        if manifest.exists() and json.loads(manifest.read_text())["commit"] != commit:
-            raise RuntimeError("Source commit changed; use a new --run-id.")
+        if manifest.exists():
+            record['resume_history'] = resume_history(root, json.loads(manifest.read_text()), record)
         manifest.write_text(json.dumps(record, indent=2) + "\n")
 
     def execute(name, command, done=None):
@@ -72,8 +102,8 @@ def main():
               "logging.wandb_watch.log=null", "logging.val_check_interval=5",
               "data.preprocess_workers=4", "train.pl_trainer.accelerator=gpu",
               "train.pl_trainer.devices=1", "train.pl_trainer.precision=32",
-              "data.datamodule.batch_size.train=32", "data.datamodule.batch_size.val=16",
-              "data.datamodule.batch_size.test=16", "train.model_checkpoints.save_last=false"]
+              *training_batch_overrides(args.train_batch_size, args.eval_batch_size),
+              "train.model_checkpoints.save_last=false"]
 
     training_jobs = []
 
@@ -90,7 +120,7 @@ def main():
                         "+train.pl_trainer.limit_train_batches=2",
                         "+train.pl_trainer.limit_val_batches=2",
                         "+train.pl_trainer.limit_test_batches=2"]
-        if stage == "train" and args.parallel == 2:
+        if stage == "train":
             if not (directory / ".complete").exists():
                 training_jobs.append((name, command, directory / ".complete"))
         else:
@@ -174,13 +204,22 @@ print('CUDA scatter backward PASS')
                       out / "smoke" / key, 42, prop, smoke=True)
             generate("mp20_fe_bg", "template", True, pilot=True)
         elif stage == "train":
+            workers = args.parallel
             if args.parallel == 2 and not args.dry_run:
                 import importlib.metadata
                 report = json.loads((out / "concurrency_validation.json").read_text())
                 gpu = subprocess.check_output(['nvidia-smi', '--id=0', '--query-gpu=name', '--format=csv,noheader'], text=True).strip()
-                if (not report.get("parallel2_safe_in_trial") or report["commit"] != commit
-                        or report["gpu"] != gpu or report["torch_version"] != importlib.metadata.version('torch')):
+                if (report["commit"] != commit
+                        or report["gpu"] != gpu or report["torch_version"] != importlib.metadata.version('torch')
+                        or report['batch_size'] != args.train_batch_size
+                        or report.get('eval_batch_size', 16) != args.eval_batch_size
+                        or report.get('accumulate_grad_batches', 1) != 32 // args.train_batch_size):
                     raise RuntimeError("Run validate_concurrency.py on this server and source commit before parallel training.")
+                if not report['serial']['passed']:
+                    raise RuntimeError('Serial validation failed; inspect the resource report.')
+                if not report.get('parallel2_safe_in_trial') or report.get('recommended_workers', 1) == 1:
+                    workers = 1
+                    print('[FALLBACK] Validation recommends one worker; training sequentially.', flush=True)
             for model in MODELS:
                 train(model, "experiments/exp_" + model, "mp_20", out / "generators" / model, 42)
             for key, prop in PROPS.items():
@@ -190,13 +229,13 @@ print('CUDA scatter backward PASS')
             if training_jobs:
                 if args.dry_run:
                     for name, command, done in training_jobs:
-                        print("[PARALLEL2]", name, shlex.join(command))
+                        print(f"[TRAIN workers={workers}]", name, shlex.join(command))
                 else:
-                    from validate_concurrency import run_jobs
+                    from validate_concurrency import run_training_jobs
                     (out / "parallel_jobs.json").write_text(json.dumps([
                         {"index": index, "name": job[0], "command": job[1]}
                         for index, job in enumerate(training_jobs)], indent=2))
-                    status = run_jobs([job[1] for job in training_jobs], 2, out / "logs", 2.0, 4.0)
+                    status = run_training_jobs([job[1] for job in training_jobs], workers, out / "logs", 2.0, 4.0)
                     (out / "parallel_training.json").write_text(json.dumps(status, indent=2))
                     for index in status["completed_indices"]:
                         done = training_jobs[index][2]

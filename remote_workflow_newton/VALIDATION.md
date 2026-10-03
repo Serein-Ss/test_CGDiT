@@ -46,3 +46,16 @@ GPU余量来自nvidia-smi每0.5秒采样，RAM余量来自psutil；本地Windows
 尚无远程SSH连接资料，未在用户服务器执行。用户粘贴环境为PyTorch 2.2.1/CUDA 12.1，与本地不同。
 不能将本地通过解释为远程通过，也不能以短冒烟保证完整1000/300 epochs训练成功。
 请先运行validate_concurrency.py，报告在output/<run-id>/concurrency_validation.json。报告通过后才允许--parallel 2。
+
+## 用户回传的远程结果与恢复修订
+
+用户回传4090/PyTorch 2.2.1报告：原batch=32/eval=16短程串行405.46秒、两路154.47秒，显存最小余量12.11 GiB、RAM最小余量116.84 GiB，短程通过。
+随后完整数据两路训练在epoch 47附近触发保护：运行7107.40秒，显存最小余量1.60 GiB，RAM最小余量116.03 GiB，两个任务均未完成。进程停止后nvidia-smi显示显存0 MiB。
+这些是用户服务器日志证据；本助手没有SSH直接执行或核验其完整日志。
+恢复修订加入microbatch=16/eval=8、梯度累积2，并要求相同batch重新验证；保留2 GiB显存和4 GiB RAM保护。
+仅工作流变更允许保留原输出目录续训，原版本及batch记录在resume_history；模型/配置变更仍禁止混用原run-id。
+新增工作流测试11 passed，包含资源停止自动串行、已完成任务不重训、日志任务编号保持、非资源错误不重试。
+本地RTX3060/PyTorch2.7.1实际两路运行microbatch=16/eval=8/梯度累积2：base及FE从旧batch32的epoch=0-step=2.ckpt恢复到epoch=1-step=4.ckpt并测试，随后FE/BG预测器从头训练两epochs并测试，共4/4退出0。
+该短程测试用时83.47秒，显存最小余量7.61 GiB，RAM最小余量11.79 GiB；测试数据仍为重复split的64个20原子结构，只验证执行，不代表收敛或长程资源保证。
+原始本地恢复记录在tmp/local_workflow_recovery_16_8，公开摘录见LOCAL_RECOVERY_VALIDATION.json。
+自动串行切换逻辑经过调度回归测试；未实际在用户4090上触发新版本的完整训练/切换，新设置仍需用户执行验证。

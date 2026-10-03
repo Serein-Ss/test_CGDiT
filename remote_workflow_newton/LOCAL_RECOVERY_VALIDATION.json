@@ -1,0 +1,25 @@
+{
+  "gpu": "NVIDIA GeForce RTX 3060",
+  "torch_version": "2.7.1",
+  "train_microbatch": 16,
+  "eval_batch": 8,
+  "accumulate_grad_batches": 2,
+  "effective_train_batch": 32,
+  "generator_resume": "base/FE restored old microbatch32 epoch=0-step=2.ckpt; new best checkpoint epoch=1-step=4.ckpt",
+  "predictors": "FE/BG trained from scratch for two epochs",
+  "dataset": "64 twenty-atom structures; repeated train/val/test for execution testing only",
+  "result": {
+    "passed": true,
+    "seconds": 83.46799999999348,
+    "min_gpu_free_gib": 7.6142578125,
+    "min_ram_available_gib": 11.789680480957031,
+    "failure": null,
+    "completed_indices": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "limits": "Short local test, no certification of full remote training or complete-run memory."
+}

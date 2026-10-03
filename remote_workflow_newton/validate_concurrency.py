@@ -54,8 +54,9 @@ def generation_diagnostics(path):
                 note='Finite values do not establish physical or structural validity.')
 
 
-def run_jobs(commands, workers, directory, gpu_reserve, ram_reserve):
-    pending = list(enumerate(commands))
+def run_jobs(commands, workers, directory, gpu_reserve, ram_reserve, job_indices=None):
+    pending = list(zip(range(len(commands)) if job_indices is None else job_indices, commands))
+    command_by_index = dict(pending)
     active = []
     started = time.monotonic()
     min_gpu = min_ram = float('inf')
@@ -67,12 +68,15 @@ def run_jobs(commands, workers, directory, gpu_reserve, ram_reserve):
             free_ram = available_ram()
             min_gpu, min_ram = min(min_gpu, free_gpu), min(min_ram, free_ram)
             if free_gpu < gpu_reserve or free_ram < ram_reserve:
-                failure = 'Memory reserve breached; stopped only this validation batch.'
+                failure = (f'Memory reserve breached: GPU free={free_gpu:.2f} GiB (reserve={gpu_reserve}), '
+                           f'RAM available={free_ram:.2f} GiB (reserve={ram_reserve}); stopped this batch.')
                 break
             while pending and len(active) < workers:
                 index, command = pending.pop(0)
                 stream = (directory / f'job{index}.log').open('a')
                 process = subprocess.Popen(command, stdout=stream, stderr=subprocess.STDOUT)
+                name = next((item for item in command if item.startswith('expname=')), '')
+                print(f'[START] job{index} PID={process.pid} {name}', flush=True)
                 active.append((index, process, stream))
             for index, process, stream in list(active):
                 status = process.poll()
@@ -83,11 +87,12 @@ def run_jobs(commands, workers, directory, gpu_reserve, ram_reserve):
                         failure = f'Training process exited {status}; inspect job logs.'
                         break
                     try:
-                        validate_outputs(commands[index])
+                        validate_outputs(command_by_index[index])
                     except (OSError, ValueError, RuntimeError) as error:
                         failure = str(error)
                         break
                     completed.append(index)
+                    print(f'[DONE] job{index}', flush=True)
             if failure:
                 break
             time.sleep(0.5)
@@ -105,11 +110,27 @@ def run_jobs(commands, workers, directory, gpu_reserve, ram_reserve):
                 completed_indices=completed)
 
 
+def run_training_jobs(commands, workers, directory, gpu_reserve, ram_reserve):
+    first = run_jobs(commands, workers, directory, gpu_reserve, ram_reserve)
+    if workers != 2 or first['passed'] or not first['failure'].startswith('Memory reserve breached'):
+        return first
+    remaining = [index for index in range(len(commands)) if index not in first['completed_indices']]
+    print('[FALLBACK] Concurrent memory reserve breached; resuming remaining jobs one at a time.', flush=True)
+    serial = run_jobs([commands[index] for index in remaining], 1, directory,
+                      gpu_reserve, ram_reserve, job_indices=remaining)
+    serial['parallel_attempt'] = first
+    serial['seconds'] += first['seconds']
+    serial['completed_indices'] = sorted(first['completed_indices'] + serial['completed_indices'])
+    return serial
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--run-id', default='newton_4g_6p_20261003')
     parser.add_argument('--gpu-reserve-gib', type=float, default=2.0)
     parser.add_argument('--ram-reserve-gib', type=float, default=4.0)
+    parser.add_argument('--train-batch-size', type=int, choices=(16, 32), default=32)
+    parser.add_argument('--eval-batch-size', type=int, choices=(8, 16), default=16)
     args = parser.parse_args()
     root = Path.cwd().resolve()
     out = root / 'output' / args.run_id
@@ -117,10 +138,14 @@ def main():
     trial.mkdir(parents=True, exist_ok=False)
     os.environ.update(PROJECT_ROOT=str(root), HYDRA_JOBS=str(out), WANDB_DIR=str(out/'wandb'),
                       WANDB_MODE='offline', CUDA_VISIBLE_DEVICES='0', OMP_NUM_THREADS='2')
+    if sys.platform == 'linux':
+        os.environ.setdefault('MKL_THREADING_LAYER', 'GNU')
+    from run_4g_6p import training_batch_overrides
     # Serial preflight and smoke build shared full-data caches before concurrent readers.
     for stage in ('preflight', 'smoke'):
         subprocess.run([sys.executable, 'remote_workflow_newton/run_4g_6p.py', stage,
-                        '--run-id', args.run_id], check=True)
+                        '--run-id', args.run_id, '--train-batch-size', str(args.train_batch_size),
+                        '--eval-batch-size', str(args.eval_batch_size)], check=True)
     import pandas as pd
     from pymatgen.core import Structure
     # Include 20-site structures at every batch position to stress the MP-20 limit.
@@ -151,8 +176,8 @@ def main():
                        f'expname=memory_{name}', 'logging.wandb.mode=offline',
                        'logging.wandb.log_model=false', 'logging.wandb_watch.log=null',
                        'logging.val_check_interval=1', 'data.train_max_epochs=2',
-                       'data.datamodule.batch_size.train=32', 'data.datamodule.batch_size.val=16',
-                       'data.datamodule.batch_size.test=16', 'data.preprocess_workers=1',
+                       *training_batch_overrides(args.train_batch_size, args.eval_batch_size),
+                       'data.preprocess_workers=1',
                        'train.pl_trainer.accelerator=gpu', 'train.pl_trainer.devices=1',
                        'train.pl_trainer.precision=32', 'train.model_checkpoints.save_last=false']
             if prop:
@@ -168,7 +193,9 @@ def main():
         module.setup(); del module
     report = dict(commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
                   gpu=subprocess.check_output(['nvidia-smi','--id=0','--query-gpu=name','--format=csv,noheader'],text=True).strip(),
-                  batch_size=32, precision=32, max_atoms=20, trial_directory=str(trial),
+                  batch_size=args.train_batch_size, eval_batch_size=args.eval_batch_size,
+                  accumulate_grad_batches=32 // args.train_batch_size,
+                  precision=32, max_atoms=20, trial_directory=str(trial),
                   python=sys.executable, torch_version=importlib.metadata.version('torch'),
                   host_memory_note='Stress subsets understate full-dataset RAM; formal runs monitor container RAM and stop on reserve breach.')
     for mode, workers in [('serial',1), ('parallel2',2)]:
@@ -185,8 +212,10 @@ def main():
     report['limits'] = 'Short wall-clock test includes imports/logging; not a guarantee of full-run memory or throughput.'
     (out/'concurrency_validation.json').write_text(json.dumps(report,indent=2)+'\n')
     print(json.dumps(report,indent=2),flush=True)
+    if not report['serial']['passed']:
+        raise SystemExit('Serial memory validation failed; inspect the report before training.')
     if not safe:
-        raise SystemExit('Concurrent training not approved by this trial; use one worker.')
+        print('Concurrent trial failed; formal workflow will use one worker.', flush=True)
 
 
 if __name__ == '__main__':
