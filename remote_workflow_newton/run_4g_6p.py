@@ -25,7 +25,7 @@ def resume_history(root, previous, record):
     if previous['commit'] != record['commit']:
         changed = subprocess.check_output(
             ['git', '-c', 'core.quotepath=false', 'diff', '--name-only', previous['commit'], record['commit']],
-            cwd=root, text=True).splitlines()
+            cwd=root, text=True, encoding='utf-8').splitlines()
         if any(not (path.startswith('remote_workflow_newton/') or path in
                     ('README.md', 'tests/test_remote_workflow.py')) for path in changed):
             raise RuntimeError('Model, configuration or other source changed; use a new --run-id.')
