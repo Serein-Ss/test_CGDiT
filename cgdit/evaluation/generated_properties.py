@@ -347,9 +347,23 @@ def resolve_checkpoint(run_path: str | Path) -> Path:
     if path.is_file() and path.suffix == ".ckpt":
         return path
     checkpoints = sorted(path.glob("*.ckpt"))
+    if len(checkpoints) > 1:
+        # Resuming training can leave checkpoints from more than one session.
+        # Match the final test so reference test predictions use the same model.
+        log = path / "run.log"
+        if log.is_file():
+            for line in reversed(log.read_text(encoding="utf-8", errors="replace").splitlines()):
+                marker = "Testing best checkpoint: "
+                if marker in line:
+                    recorded = line.split(marker, 1)[1].strip()
+                    checkpoint = path / recorded.replace("\\", "/").rsplit("/", 1)[-1]
+                    if checkpoint in checkpoints:
+                        return checkpoint
+                    break
     if len(checkpoints) != 1:
         raise RuntimeError(
-            f"Expected exactly one checkpoint in {path}, found {len(checkpoints)}"
+            f"Expected exactly one checkpoint in {path}, found {len(checkpoints)}; "
+            "no matching final-test checkpoint record in run.log"
         )
     return checkpoints[0]
 
@@ -380,6 +394,9 @@ def predict_graphs(
             f"Checkpoint {checkpoint} predicts {model.target_prop}, "
             f"expected {expected_property}"
         )
+    # Historical predictors omit the dimension needed for an empty triplet basis.
+    basis = model.model.basis_expansion
+    basis.out_dim = basis.max_n * basis.max_l ** (2 if basis.use_phi else 1)
     model.eval().to(device)
     predictions: list[np.ndarray] = []
     loader = DataLoader(

@@ -76,6 +76,15 @@ def test_model_update_prevents_checkpoint_resume(tmp_path, monkeypatch):
                                 {'commit': 'new', 'train_batch_size': 16, 'eval_batch_size': 8})
 
 
+def test_property_evaluation_fix_preserves_training_resume(tmp_path, monkeypatch):
+    monkeypatch.setattr(workflow.subprocess, 'check_output', lambda *args, **kwargs:
+                        'cgdit/evaluation/generated_properties.py\n'
+                        'tests/test_generated_property_evaluation.py\n')
+    old = {'commit': 'old', 'train_batch_size': 16, 'eval_batch_size': 8}
+    assert workflow.resume_history(tmp_path, old,
+                                   dict(old, commit='new')) == [old]
+
+
 def test_memory_stop_falls_back_without_repeating_completed_jobs(tmp_path, monkeypatch):
     calls = []
     def fake_jobs(commands, workers, *args, **kwargs):

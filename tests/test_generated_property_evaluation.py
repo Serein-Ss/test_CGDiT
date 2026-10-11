@@ -12,7 +12,84 @@ from cgdit.evaluation.generated_properties import (
     discover_formal_generation_files,
     extract_condition_targets,
     load_generation_payload,
+    predict_graphs,
+    resolve_checkpoint,
 )
+
+
+def test_checkpoint_resolution_accepts_explicit_file_and_single_checkpoint(tmp_path):
+    checkpoint = tmp_path / "epoch=4-step=10.ckpt"
+    checkpoint.write_bytes(b"checkpoint")
+    assert resolve_checkpoint(checkpoint) == checkpoint
+    assert resolve_checkpoint(tmp_path) == checkpoint
+
+
+def test_resumed_predictor_uses_last_tested_checkpoint(tmp_path):
+    tested = tmp_path / "epoch=19-step=200.ckpt"
+    other = tmp_path / "epoch=29-step=300.ckpt"
+    for checkpoint in (tested, other):
+        checkpoint.write_bytes(b"checkpoint")
+    (tmp_path / "run.log").write_text(
+        f"Testing best checkpoint: {other}\n"
+        f"Testing best checkpoint: {tested}\n"
+    )
+    assert resolve_checkpoint(tmp_path) == tested
+    assert other.exists()
+
+
+def test_tested_checkpoint_survives_run_directory_relocation(tmp_path):
+    tested = tmp_path / "epoch=19-step=200.ckpt"
+    tested.write_bytes(b"checkpoint")
+    (tmp_path / "epoch=29-step=300.ckpt").write_bytes(b"checkpoint")
+    (tmp_path / "run.log").write_text(
+        "Testing best checkpoint: /previous/node/predictor/epoch=19-step=200.ckpt\n"
+    )
+    assert resolve_checkpoint(tmp_path) == tested
+
+
+@pytest.mark.parametrize("log", [None, "Starting training!\n",
+                                "Testing best checkpoint: /missing/epoch=99.ckpt\n",
+                                "Testing best checkpoint: epoch=4.ckpt\n"
+                                "Testing best checkpoint: /missing/epoch=99.ckpt\n"])
+def test_multiple_checkpoints_require_a_resolvable_test_record(tmp_path, log):
+    for epoch in (4, 9):
+        (tmp_path / f"epoch={epoch}.ckpt").write_bytes(b"checkpoint")
+    if log is not None:
+        (tmp_path / "run.log").write_text(log)
+    with pytest.raises(RuntimeError, match="Expected exactly one checkpoint"):
+        resolve_checkpoint(tmp_path)
+
+
+def test_checkpoint_resolution_reports_missing_checkpoint(tmp_path):
+    with pytest.raises(RuntimeError, match="found 0"):
+        resolve_checkpoint(tmp_path)
+
+
+@pytest.mark.parametrize("with_bonds", [False, True])
+def test_property_prediction_supports_empty_triplet_batches(monkeypatch, with_bonds):
+    from torch_geometric.data import Data
+    from cgdit.prop_models.gnn_models.m3gnet import M3GNetSurrogate
+
+    model = M3GNetSurrogate(
+        target_prop="band_gap", n_atom_types=10, dim_node_embedding=4,
+        dim_edge_embedding=4, dim_state_embedding=0, units=4, max_n=1,
+        max_l=1, n_blocks=1, ntargets=1,
+    )
+    monkeypatch.setattr(M3GNetSurrogate, "load_from_checkpoint",
+                        lambda *args, **kwargs: model)
+    graph = Data(
+        frac_coords=torch.tensor([[0., 0., 0.], [0.25, 0.25, 0.25]]),
+        atom_types=torch.tensor([1, 2]), lengths=torch.tensor([[5.6, 5.6, 5.6]]),
+        angles=torch.tensor([[90., 90., 90.]]),
+        edge_index=(torch.tensor([[0, 1], [1, 0]]) if with_bonds
+                    else torch.empty((2, 0), dtype=torch.long)),
+        to_jimages=torch.zeros((2 if with_bonds else 0, 3), dtype=torch.long),
+        line_edge_index=torch.empty((2, 0), dtype=torch.long),
+        num_atoms=2, num_bonds=2 if with_bonds else 0, num_nodes=2,
+    )
+    predictions = predict_graphs("unused.ckpt", "band_gap", [graph], [0], 1, 1, "cpu")
+    assert predictions.shape == (1,)
+    assert np.isfinite(predictions).all()
 
 
 def test_extract_condition_targets_prefers_joint_condition_dict():
